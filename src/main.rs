@@ -1,5 +1,6 @@
 use leptos::*;
-use lucid_icons_leptos::ProgressBar;
+use leptos_meta::*;
+use lucid_icons::*;
 
 fn main() {
     mount_to_body(|cx| view! { cx, <App/> })
@@ -10,23 +11,13 @@ fn App(cx: Scope) -> impl IntoView {
 
     let (count, _set_count) = create_signal(cx, 5);
 
-    // view! { cx,
-    //     <button
-    //         on:click=move |_| {
-    //             set_count.set( count.get() + 1);
-    //         }
-    //     >
-    //         "Click me: "
-    //         {move || count.get()}
-    //     </button>
-    //     // <ProgressBar progress=count/>
-    // }
-
     view! { cx,
-            <Counter/>
-            <Counter/>
-            <Counter/>
-            <ProgressBar progress={count}/>
+        <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <ProgressBar progress={count}/>
+        <LucidIcon />
     }
 }
 
@@ -37,6 +28,7 @@ pub fn Counter( cx: Scope ) -> impl IntoView {
 
     view! { cx,
         <button
+            class="p-6 text-xl color-blue-500"
             on:click=move |_| {
                 set_count.set( count.get() + 1);
             }
