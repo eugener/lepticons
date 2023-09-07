@@ -28,7 +28,7 @@ pub fn Counter( cx: Scope ) -> impl IntoView {
 
     view! { cx,
         <button
-            class="p-6 text-xl color-blue-500"
+            class="p-6 m-4 text-sm bg-gray-200 rounded-lg shadow-md hover:bg-gray-300 gap-2"
             on:click=move |_| {
                 set_count.set( count.get() + 1);
             }
