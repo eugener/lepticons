@@ -15,19 +15,19 @@ fn list_files(dir: &Path) -> io::Result<Vec<String>> {
     Ok(files)
 }
 
-pub fn split_camel_case(s: &str) -> String {
-    let mut result = String::new();
-    for (i, char) in s.char_indices() {
-        if char.is_uppercase() || char.is_numeric() {
-            if i != 0 { // Don't prefix the first word with a dash
-                result.push('-');
-            }
-        }
-        result.push(char.to_ascii_lowercase());
-    }
-    result
-}
-
+// pub fn split_camel_case(s: &str) -> String {
+//     let mut result = String::new();
+//     for (i, char) in s.char_indices() {
+//         if char.is_uppercase() || char.is_numeric() {
+//             if i != 0 { // Don't prefix the first word with a dash
+//                 result.push('-');
+//             }
+//         }
+//         result.push(char.to_ascii_lowercase());
+//     }
+//     result
+// }
+//
 fn dash_to_camel(s: &str) -> String {
     s.split('-')
         .map(|word| {

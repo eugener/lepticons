@@ -2,10 +2,10 @@ mod tools;
 
 use leptos::*;
 use leptos_meta::*;
-use lucid_icons::*;
-use tools::*;
+// use tools::*;
 use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
+// use strum_macros::EnumIter;
+use lucide_icons::{LucideIconType, LucideIcon};
 
 fn main() {
     // list_icons();
@@ -22,10 +22,10 @@ fn App(cx: Scope) -> impl IntoView {
         <div class="m-5 flex flex-row  flex-wrap gap-2">
 
             {
-                LucidIconType::iter().map(|it| {
+                LucideIconType::iter().map(|it| {
                     view! { cx,
                         <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200">
-                            <LucidIcon icon_type={it} />
+                            <LucideIcon icon_type={it} />
                         </div>
                     }
                 }).collect::<Vec<_>>()

@@ -906,8 +906,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
 
 [[package]]
-name = "lucid-icons"
+name = "lucide-icon-site"
 version = "0.1.0"
+dependencies = [
+ "leptos",
+ "leptos_meta",
+ "lucide_icons",
+ "strum",
+ "strum_macros",
+]
+
+[[package]]
+name = "lucide_icons"
+version = "0.2.0"
 dependencies = [
  "leptos",
  "leptos_meta",
