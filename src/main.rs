@@ -1,26 +1,36 @@
+mod tools;
+
 use leptos::*;
 use leptos_meta::*;
 use lucid_icons::*;
+use tools::*;
+use strum::IntoEnumIterator;
+use strum_macros::EnumIter;
 
 fn main() {
+    // list_icons();
     mount_to_body(|cx| view! { cx, <App/> })
 }
 
 #[component]
 fn App(cx: Scope) -> impl IntoView {
 
-    let (count, _set_count) = create_signal(cx, 5);
+    // let (count, _set_count) = create_signal(cx, 5);
 
     view! { cx,
         <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
-        <Counter/>
-        <Counter/>
-        <Counter/>
-        <ProgressBar progress={count}/>
         <div class="m-5 flex flex-row  flex-wrap gap-2">
-            <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-black">
-                <LucidIcon icon_type={LucidIconType::ChevronsRight} />
-            </div>
+
+            {
+                LucidIconType::iter().map(|it| {
+                    view! { cx,
+                        <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200">
+                            <LucidIcon icon_type={it} />
+                        </div>
+                    }
+                }).collect::<Vec<_>>()
+
+            }
         </div>
     }
 }
