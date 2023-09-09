@@ -8,8 +8,8 @@ edition = "2021"
 [dependencies]
 leptos = { version = "0.4.10", features = ["csr"] }
 leptos_meta ={ version = "0.4.10", features = ["csr"] }
-# styled = "0.1.41"
-# stylist = "0.12.1"
+strum = "0.25"
+strum_macros = "0.25"
 
 # [features]
 # "leptos_meta/hydrate", "leptos_router/hydrate",

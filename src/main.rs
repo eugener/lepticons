@@ -17,14 +17,18 @@ fn App(cx: Scope) -> impl IntoView {
         <Counter/>
         <Counter/>
         <ProgressBar progress={count}/>
-        <LucidIcon />
+        <div class="m-5 flex flex-row  flex-wrap gap-2">
+            <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 hover:border-black">
+                <LucidIcon icon_type={LucidIconType::ChevronsRight} />
+            </div>
+        </div>
     }
 }
 
  #[component]
 pub fn Counter( cx: Scope ) -> impl IntoView {
 
-    let (count, set_count) = create_signal(cx, 0);
+    let (count, set_count) = create_signal(cx, 0 );
 
     view! { cx,
         <button
@@ -40,25 +44,3 @@ pub fn Counter( cx: Scope ) -> impl IntoView {
 }
 
 
-
-// fn Icon() -> impl leptos::IntoView {
-//     // view! {
-//     //     <svg
-//     //         width="24"
-//     //         height="24"
-//     //         viewBox="0 0 24 24"
-//     //         fill="none"
-//     //         stroke="currentColor"
-//     //         stroke-width="2"
-//     //         stroke-linecap="round"
-//     //         stroke-linejoin="round"
-//     //     >
-//     //         <circle cx="12" cy="12" r="10"></circle>
-//     //         <line x1="12" y1="8" x2="12" y2="12"></line>
-//     //         <line x1="12" y1="16" x2="12" y2="16"></line>
-//     //     </svg>
-//     // }
-
-//     let mut svg = leptos::svg::svg();
-//     leptos::IntoView::into_view(svg)
-// }
