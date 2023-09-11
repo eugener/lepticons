@@ -6,8 +6,12 @@ fn main() {
     mount_to_body(|cx| view! { cx, <App/> })
 }
 
+
+
+
 #[component]
 fn App(cx: Scope) -> impl IntoView {
+
 
     // let (count, _set_count) = create_signal(cx, 5);
 
@@ -17,10 +21,16 @@ fn App(cx: Scope) -> impl IntoView {
 
             {
                 // LucideIconType::iter().map(|it| {
+                //   icons.iter().map(|(k, v)| {
                     view! { cx,
                         <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200">
-                            <BugIcon />
-                    //icon_type={it}
+                            <Icon stroke_width={2} stroke={"blue".to_string()} kind={ALARM_CHECK}/>
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200">
+                            <Icon stroke_width={2} stroke={"red".to_string()} kind={X_CIRCLE}/>
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg hover:bg-gray-200">
+                            <Icon stroke_width={2} stroke={"black".to_string()} kind={TRACTOR}/>
                         </div>
                     }
                 // }).collect::<Vec<_>>()

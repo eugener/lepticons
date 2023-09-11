@@ -3,16 +3,7 @@ use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::path::Path;
 use convert_case::{Case, Casing};
-
-const HEADER: &str = r#"
-use leptos::*;
-
-const DEFAULT_SIZE: u16 = 24;
-const DEFAULT_FILL: &str = "none";
-const DEFAULT_STROKE: &str = "black";
-const DEFAULT_STROKE_WIDTH: u16 = 2;
-const DEFAULT_SCHEMA: &str = "http://www.w3.org/2000/svg";"#;
-
+use scraper::{ElementRef, Html, Selector};
 
 
 fn main() {
@@ -42,39 +33,44 @@ fn main() {
         // .append(true)
         .open("../lucide_icons/src/generated_icons.rs").unwrap();
 
-    writeln!(file, "{}", HEADER).expect("write header");
+
+    write!(file, r#"pub struct IconType<'a> {{
+        pub content: &'a str,
+    }}
+    "#).expect("write icon type");
 
     entries.iter().for_each(|path| {
         // println!("{:?}", path);
         let icon_name = path.file_stem()
                                    .unwrap()
-                                   .to_str().unwrap().to_case(Case::UpperCamel) + "Icon";
+                                   .to_str().unwrap().to_case(Case::UpperCamel);
         println!("{:?} --> {}",  path, icon_name);
 
         //read file
         let content = fs::read_to_string(&path).unwrap();
-        writeln!(file, r#"
 
-#[allow(unused)]
-# [component]
-pub fn {}(
-    cx: Scope,
-    #[prop(default = DEFAULT_SIZE)]
-    size: u16,
-    #[prop(default = DEFAULT_FILL.to_string())]
-    fill: String,
-    #[prop(default = DEFAULT_STROKE.to_string())]
-    stroke: String,
-    #[prop(default = DEFAULT_STROKE_WIDTH)]
-    stroke_width: u16,
-) -> impl IntoView {{
-
-    view! {{ cx,
-            {}
-        }}
-}}"#, icon_name, content).expect("write icon");
+        writeln!(file, "\npub const {}: IconType = IconType{{ \
+        \n content: r#\"{}\"#,\
+        \n}};",
+             icon_name.to_case(Case::UpperSnake),
+             only_children(content)).expect("write icon");
 
     });
 
 
 }
+
+fn only_children(svg_content: String ) -> String {
+
+    let html = Html::parse_fragment(svg_content.as_str());
+
+    let svg = html.select(&Selector::parse("svg").unwrap()).next().unwrap();
+    "\n".to_owned() + &svg.children()
+            .filter_map(|node| ElementRef::wrap(node))
+            .map(|el| el.html())
+            .collect::<Vec<_>>()
+            .join("\n")
+}
+
+
+
