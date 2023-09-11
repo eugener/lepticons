@@ -44,14 +44,18 @@ fn main() {
         let icon_name = path.file_stem()
                                    .unwrap()
                                    .to_str().unwrap().to_case(Case::UpperSnake);
-        println!("{:?} --> {}",  path, icon_name);
+        let feature_name = icon_name.to_case(Case::Snake);
+        // println!("{:?} --> {}",  path, icon_name);
+        println!("\"{}\",", feature_name);
+
 
         //read file
         let content = fs::read_to_string(&path).unwrap();
 
-        writeln!(file, "\npub const {}: IconType = IconType{{ \
+        writeln!(file, "\n#[cfg(feature = \"{}\")]\npub const {}: IconType = IconType{{ \
         \n content: r#\"{}\"#,\
         \n}};",
+            feature_name,
             icon_name,
              only_children(content)).expect("write icon");
 
