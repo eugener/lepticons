@@ -11,21 +11,9 @@ bench = false
 
 [dependencies]
 leptos = { version = "0.4.10", features = ["csr"] }
-#leptos_meta ={ version = "0.4.10", features = ["csr"] }
-#strum = "0.25"
-#strum_macros = "0.25"
-#convert_case = "0.6.0"
 
-# [features]
-# "leptos_meta/hydrate", "leptos_router/hydrate",
-# hydrate = ["leptos/hydrate",  "leptos_image/hydrate"]
-
-#[package.metadata.leptos]
-#name = "lucid-icons"
-#version = "0.1.0"
-#edition = "2021"
-## assets-dir = "dist"
-## lib-features = ["hydrate"]
+[features]
+all_icons = []
 
 
 

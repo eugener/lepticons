@@ -23,9 +23,10 @@ fn main() {
         }).collect::<Vec<_>>();
     entries.sort();
 
-    println!("Count:{}", entries.len());
+    // println!("Count:{}", entries.len());
 
 
+    // create the generated_icons.rs file
     let mut file = OpenOptions::new()
         .create(true)
         .truncate(true)
@@ -34,8 +35,10 @@ fn main() {
         .open("../lucide_icons/src/generated_icons.rs").unwrap();
 
 
+    // write the imports
     write!(file, "use crate::IconType;\n").expect("write icon type");
 
+    // write icons and collect their names
     let names: Vec<String> = entries.iter().map(|path| {
         // println!("{:?}", path);
         let icon_name = path.file_stem()
@@ -56,9 +59,10 @@ fn main() {
 
     }).collect();
 
+    // write all icons array
     writeln!(
         file,
-        "\n\npub const ALL_ICONS: [IconType; {}] = [{}];",
+        "\n#[cfg(feature = \"all_icons\")]\npub const ALL_ICONS: [IconType; {}] = [{}];",
         names.len(),
         names.join(",\n")
     ).expect("write icon");
@@ -66,6 +70,7 @@ fn main() {
 
 }
 
+// extract svg children
 fn only_children(svg_content: String ) -> String {
 
     let html = Html::parse_fragment(svg_content.as_str());
