@@ -54,10 +54,12 @@ fn main() {
 
         writeln!(file, "\n#[cfg(feature = \"{}\")]\npub const {}: IconType = IconType{{ \
         \n content: r#\"{}\"#,\
+        \n name: \"{}\",\
         \n}};",
             feature_name,
             icon_name,
-             only_children(content)).expect("write icon");
+            only_children(content),
+            icon_name).expect("write icon");
 
         icon_name
 

@@ -11,6 +11,7 @@ const DEFAULT_STROKE_WIDTH: u16 = 2;
 
 #[derive(Copy, Clone, Debug)]
 pub struct IconType<'a> {
+    pub name: &'a str,
     pub content: &'a str,
 }
 
