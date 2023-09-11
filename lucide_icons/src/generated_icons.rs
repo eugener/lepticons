@@ -1,10 +1,8 @@
-pub struct IconType<'a> {
-        pub content: &'a str,
-    }
-    
+use crate::IconType;
+
 pub const ACCESSIBILITY: IconType = IconType{ 
  content: r#"
-<circle cx="16" cy="4" r="1"></circle>
+<circle r="1" cy="4" cx="16"></circle>
 <path d="m18 19 1-7-6 1"></path>
 <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
 <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
@@ -13,7 +11,7 @@ pub const ACCESSIBILITY: IconType = IconType{
 
 pub const ACTIVITY_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" y="3" rx="2" width="18" x="3"></rect>
+<rect y="3" x="3" rx="2" height="18" width="18"></rect>
 <path d="M17 12h-2l-2 5-2-10-2 5H7"></path>"#,
 };
 
@@ -38,7 +36,7 @@ pub const AIRPLAY: IconType = IconType{
 
 pub const ALARM_CHECK: IconType = IconType{ 
  content: r#"
-<circle r="8" cy="13" cx="12"></circle>
+<circle cy="13" cx="12" r="8"></circle>
 <path d="M5 3 2 6"></path>
 <path d="m22 6-3-3"></path>
 <path d="M6.38 18.7 4 21"></path>
@@ -58,7 +56,7 @@ pub const ALARM_CLOCK_OFF: IconType = IconType{
 
 pub const ALARM_CLOCK: IconType = IconType{ 
  content: r#"
-<circle r="8" cx="12" cy="13"></circle>
+<circle r="8" cy="13" cx="12"></circle>
 <path d="M12 9v4l2 2"></path>
 <path d="M5 3 2 6"></path>
 <path d="m22 6-3-3"></path>
@@ -78,7 +76,7 @@ pub const ALARM_MINUS: IconType = IconType{
 
 pub const ALARM_PLUS: IconType = IconType{ 
  content: r#"
-<circle cy="13" cx="12" r="8"></circle>
+<circle cx="12" cy="13" r="8"></circle>
 <path d="M5 3 2 6"></path>
 <path d="m22 6-3-3"></path>
 <path d="M6.38 18.7 4 21"></path>
@@ -89,22 +87,22 @@ pub const ALARM_PLUS: IconType = IconType{
 
 pub const ALBUM: IconType = IconType{ 
  content: r#"
-<rect y="3" rx="2" width="18" ry="2" x="3" height="18"></rect>
+<rect rx="2" y="3" width="18" x="3" height="18" ry="2"></rect>
 <polyline points="11 3 11 11 14 8 17 11 17 3"></polyline>"#,
 };
 
 pub const ALERT_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>
-<line x2="12" x1="12" y1="8" y2="12"></line>
-<line x1="12" x2="12.01" y2="16" y1="16"></line>"#,
+<circle cy="12" r="10" cx="12"></circle>
+<line y1="8" x1="12" y2="12" x2="12"></line>
+<line y1="16" y2="16" x2="12.01" x1="12"></line>"#,
 };
 
 pub const ALERT_OCTAGON: IconType = IconType{ 
  content: r#"
 <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
-<line y2="12" x1="12" x2="12" y1="8"></line>
-<line x2="12.01" y2="16" x1="12" y1="16"></line>"#,
+<line x1="12" x2="12" y2="12" y1="8"></line>
+<line x2="12.01" x1="12" y1="16" y2="16"></line>"#,
 };
 
 pub const ALERT_TRIANGLE: IconType = IconType{ 
@@ -134,29 +132,29 @@ pub const ALIGN_CENTER_VERTICAL: IconType = IconType{
 
 pub const ALIGN_CENTER: IconType = IconType{ 
  content: r#"
-<line x1="21" y2="6" y1="6" x2="3"></line>
-<line x2="7" y1="12" x1="17" y2="12"></line>
-<line x2="5" y1="18" y2="18" x1="19"></line>"#,
+<line y2="6" x1="21" y1="6" x2="3"></line>
+<line x1="17" y2="12" x2="7" y1="12"></line>
+<line x1="19" x2="5" y1="18" y2="18"></line>"#,
 };
 
 pub const ALIGN_END_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<rect y="2" x="4" width="6" rx="2" height="16"></rect>
-<rect width="6" y="9" rx="2" height="9" x="14"></rect>
+<rect height="16" y="2" rx="2" width="6" x="4"></rect>
+<rect height="9" x="14" width="6" y="9" rx="2"></rect>
 <path d="M22 22H2"></path>"#,
 };
 
 pub const ALIGN_END_VERTICAL: IconType = IconType{ 
  content: r#"
-<rect y="4" rx="2" x="2" width="16" height="6"></rect>
-<rect height="6" x="9" y="14" rx="2" width="9"></rect>
+<rect rx="2" height="6" y="4" x="2" width="16"></rect>
+<rect y="14" x="9" rx="2" width="9" height="6"></rect>
 <path d="M22 22V2"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_DISTRIBUTE_CENTER: IconType = IconType{ 
  content: r#"
-<rect width="6" y="5" height="14" rx="2" x="4"></rect>
-<rect x="14" width="6" y="7" rx="2" height="10"></rect>
+<rect height="14" x="4" width="6" y="5" rx="2"></rect>
+<rect height="10" x="14" width="6" y="7" rx="2"></rect>
 <path d="M17 22v-5"></path>
 <path d="M17 7V2"></path>
 <path d="M7 22v-3"></path>
@@ -165,95 +163,95 @@ pub const ALIGN_HORIZONTAL_DISTRIBUTE_CENTER: IconType = IconType{
 
 pub const ALIGN_HORIZONTAL_DISTRIBUTE_END: IconType = IconType{ 
  content: r#"
-<rect x="4" y="5" rx="2" width="6" height="14"></rect>
-<rect width="6" y="7" height="10" rx="2" x="14"></rect>
+<rect height="14" x="4" y="5" width="6" rx="2"></rect>
+<rect x="14" rx="2" width="6" y="7" height="10"></rect>
 <path d="M10 2v20"></path>
 <path d="M20 2v20"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_DISTRIBUTE_START: IconType = IconType{ 
  content: r#"
-<rect y="5" rx="2" x="4" width="6" height="14"></rect>
-<rect x="14" rx="2" width="6" y="7" height="10"></rect>
+<rect height="14" rx="2" x="4" width="6" y="5"></rect>
+<rect width="6" x="14" rx="2" height="10" y="7"></rect>
 <path d="M4 2v20"></path>
 <path d="M14 2v20"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_JUSTIFY_CENTER: IconType = IconType{ 
  content: r#"
-<rect height="14" y="5" rx="2" x="2" width="6"></rect>
-<rect rx="2" height="10" width="6" x="16" y="7"></rect>
+<rect x="2" height="14" y="5" width="6" rx="2"></rect>
+<rect rx="2" x="16" height="10" y="7" width="6"></rect>
 <path d="M12 2v20"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_JUSTIFY_END: IconType = IconType{ 
  content: r#"
-<rect height="14" x="2" y="5" width="6" rx="2"></rect>
-<rect width="6" height="10" rx="2" y="7" x="12"></rect>
+<rect width="6" rx="2" y="5" height="14" x="2"></rect>
+<rect height="10" width="6" x="12" y="7" rx="2"></rect>
 <path d="M22 2v20"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_JUSTIFY_START: IconType = IconType{ 
  content: r#"
-<rect x="6" width="6" y="5" height="14" rx="2"></rect>
-<rect y="7" width="6" rx="2" height="10" x="16"></rect>
+<rect x="6" y="5" width="6" rx="2" height="14"></rect>
+<rect y="7" rx="2" width="6" height="10" x="16"></rect>
 <path d="M2 2v20"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_SPACE_AROUND: IconType = IconType{ 
  content: r#"
-<rect height="10" y="7" width="6" x="9" rx="2"></rect>
+<rect y="7" x="9" width="6" height="10" rx="2"></rect>
 <path d="M4 22V2"></path>
 <path d="M20 22V2"></path>"#,
 };
 
 pub const ALIGN_HORIZONTAL_SPACE_BETWEEN: IconType = IconType{ 
  content: r#"
-<rect width="6" y="5" height="14" x="3" rx="2"></rect>
-<rect y="7" rx="2" height="10" x="15" width="6"></rect>
+<rect rx="2" height="14" width="6" x="3" y="5"></rect>
+<rect y="7" rx="2" height="10" width="6" x="15"></rect>
 <path d="M3 2v20"></path>
 <path d="M21 2v20"></path>"#,
 };
 
 pub const ALIGN_JUSTIFY: IconType = IconType{ 
  content: r#"
-<line x1="3" x2="21" y2="6" y1="6"></line>
-<line x2="21" y2="12" y1="12" x1="3"></line>
-<line y1="18" x1="3" y2="18" x2="21"></line>"#,
+<line x2="21" y1="6" y2="6" x1="3"></line>
+<line x1="3" y1="12" y2="12" x2="21"></line>
+<line x2="21" y1="18" x1="3" y2="18"></line>"#,
 };
 
 pub const ALIGN_LEFT: IconType = IconType{ 
  content: r#"
-<line x1="21" y2="6" x2="3" y1="6"></line>
-<line x2="3" y1="12" y2="12" x1="15"></line>
-<line x1="17" x2="3" y1="18" y2="18"></line>"#,
+<line x2="3" y1="6" x1="21" y2="6"></line>
+<line y1="12" x1="15" x2="3" y2="12"></line>
+<line x2="3" y2="18" y1="18" x1="17"></line>"#,
 };
 
 pub const ALIGN_RIGHT: IconType = IconType{ 
  content: r#"
-<line x1="21" x2="3" y1="6" y2="6"></line>
-<line y1="12" x2="9" y2="12" x1="21"></line>
-<line x1="21" x2="7" y1="18" y2="18"></line>"#,
+<line y1="6" y2="6" x1="21" x2="3"></line>
+<line x2="9" x1="21" y2="12" y1="12"></line>
+<line y1="18" x1="21" y2="18" x2="7"></line>"#,
 };
 
 pub const ALIGN_START_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<rect height="16" width="6" x="4" rx="2" y="6"></rect>
-<rect width="6" height="9" y="6" x="14" rx="2"></rect>
+<rect width="6" rx="2" x="4" y="6" height="16"></rect>
+<rect x="14" rx="2" height="9" y="6" width="6"></rect>
 <path d="M22 2H2"></path>"#,
 };
 
 pub const ALIGN_START_VERTICAL: IconType = IconType{ 
  content: r#"
-<rect y="14" x="6" height="6" rx="2" width="9"></rect>
-<rect height="6" y="4" width="16" rx="2" x="6"></rect>
+<rect width="9" rx="2" x="6" y="14" height="6"></rect>
+<rect width="16" y="4" rx="2" x="6" height="6"></rect>
 <path d="M2 2v20"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_DISTRIBUTE_CENTER: IconType = IconType{ 
  content: r#"
-<rect y="14" height="6" x="5" rx="2" width="14"></rect>
-<rect width="10" y="4" rx="2" x="7" height="6"></rect>
+<rect rx="2" width="14" y="14" height="6" x="5"></rect>
+<rect width="10" rx="2" x="7" y="4" height="6"></rect>
 <path d="M22 7h-5"></path>
 <path d="M7 7H1"></path>
 <path d="M22 17h-3"></path>
@@ -262,52 +260,52 @@ pub const ALIGN_VERTICAL_DISTRIBUTE_CENTER: IconType = IconType{
 
 pub const ALIGN_VERTICAL_DISTRIBUTE_END: IconType = IconType{ 
  content: r#"
-<rect width="14" height="6" rx="2" x="5" y="14"></rect>
-<rect y="4" width="10" height="6" rx="2" x="7"></rect>
+<rect height="6" x="5" width="14" y="14" rx="2"></rect>
+<rect width="10" y="4" x="7" rx="2" height="6"></rect>
 <path d="M2 20h20"></path>
 <path d="M2 10h20"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_DISTRIBUTE_START: IconType = IconType{ 
  content: r#"
-<rect x="5" y="14" rx="2" width="14" height="6"></rect>
-<rect height="6" width="10" y="4" rx="2" x="7"></rect>
+<rect rx="2" height="6" width="14" x="5" y="14"></rect>
+<rect width="10" x="7" y="4" height="6" rx="2"></rect>
 <path d="M2 14h20"></path>
 <path d="M2 4h20"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_JUSTIFY_CENTER: IconType = IconType{ 
  content: r#"
-<rect x="5" y="16" height="6" rx="2" width="14"></rect>
-<rect width="10" x="7" y="2" height="6" rx="2"></rect>
+<rect height="6" x="5" width="14" y="16" rx="2"></rect>
+<rect x="7" height="6" width="10" y="2" rx="2"></rect>
 <path d="M2 12h20"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_JUSTIFY_END: IconType = IconType{ 
  content: r#"
-<rect width="14" rx="2" x="5" y="12" height="6"></rect>
-<rect x="7" y="2" height="6" width="10" rx="2"></rect>
+<rect height="6" rx="2" x="5" width="14" y="12"></rect>
+<rect rx="2" width="10" x="7" height="6" y="2"></rect>
 <path d="M2 22h20"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_JUSTIFY_START: IconType = IconType{ 
  content: r#"
-<rect width="14" height="6" y="16" x="5" rx="2"></rect>
-<rect x="7" width="10" y="6" rx="2" height="6"></rect>
+<rect x="5" width="14" height="6" rx="2" y="16"></rect>
+<rect y="6" rx="2" width="10" height="6" x="7"></rect>
 <path d="M2 2h20"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_SPACE_AROUND: IconType = IconType{ 
  content: r#"
-<rect x="7" rx="2" y="9" width="10" height="6"></rect>
+<rect rx="2" width="10" height="6" x="7" y="9"></rect>
 <path d="M22 20H2"></path>
 <path d="M22 4H2"></path>"#,
 };
 
 pub const ALIGN_VERTICAL_SPACE_BETWEEN: IconType = IconType{ 
  content: r#"
-<rect height="6" y="15" rx="2" x="5" width="14"></rect>
-<rect height="6" x="7" rx="2" width="10" y="3"></rect>
+<rect y="15" width="14" x="5" height="6" rx="2"></rect>
+<rect y="3" width="10" rx="2" height="6" x="7"></rect>
 <path d="M2 21h20"></path>
 <path d="M2 3h20"></path>"#,
 };
@@ -326,14 +324,14 @@ pub const AMPERSANDS: IconType = IconType{
 
 pub const ANCHOR: IconType = IconType{ 
  content: r#"
-<circle cy="5" cx="12" r="3"></circle>
-<line x1="12" y2="8" x2="12" y1="22"></line>
+<circle cx="12" cy="5" r="3"></circle>
+<line x2="12" x1="12" y2="8" y1="22"></line>
 <path d="M5 12H2a10 10 0 0 0 20 0h-3"></path>"#,
 };
 
 pub const ANGRY: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle cy="12" r="10" cx="12"></circle>
 <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
 <path d="M7.5 8 10 9"></path>
 <path d="m14 9 2.5-1"></path>
@@ -343,7 +341,7 @@ pub const ANGRY: IconType = IconType{
 
 pub const ANNOYED: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="10"></circle>
+<circle cx="12" r="10" cy="12"></circle>
 <path d="M8 15h8"></path>
 <path d="M8 9h2"></path>
 <path d="M14 9h2"></path>"#,
@@ -361,18 +359,18 @@ pub const ANTENNA: IconType = IconType{
 
 pub const APERTURE: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>
-<line x2="20.05" y1="8" x1="14.31" y2="17.94"></line>
-<line y1="8" x2="21.17" x1="9.69" y2="8"></line>
-<line x2="13.12" x1="7.38" y1="12" y2="2.06"></line>
-<line y2="6.06" x1="9.69" y1="16" x2="3.95"></line>
-<line y2="16" y1="16" x1="14.31" x2="2.83"></line>
-<line x1="16.62" x2="10.88" y1="12" y2="21.94"></line>"#,
+<circle cy="12" r="10" cx="12"></circle>
+<line y2="17.94" x1="14.31" y1="8" x2="20.05"></line>
+<line x1="9.69" x2="21.17" y1="8" y2="8"></line>
+<line x1="7.38" x2="13.12" y1="12" y2="2.06"></line>
+<line x2="3.95" y2="6.06" y1="16" x1="9.69"></line>
+<line y2="16" x2="2.83" x1="14.31" y1="16"></line>
+<line y2="21.94" x2="10.88" y1="12" x1="16.62"></line>"#,
 };
 
 pub const APP_WINDOW: IconType = IconType{ 
  content: r#"
-<rect y="4" width="20" rx="2" height="16" x="2"></rect>
+<rect height="16" x="2" width="20" y="4" rx="2"></rect>
 <path d="M10 4v4"></path>
 <path d="M2 8h20"></path>
 <path d="M6 4v4"></path>"#,
@@ -386,7 +384,7 @@ pub const APPLE: IconType = IconType{
 
 pub const ARCHIVE_RESTORE: IconType = IconType{ 
  content: r#"
-<rect x="2" width="20" y="3" height="5" rx="1"></rect>
+<rect y="3" height="5" rx="1" width="20" x="2"></rect>
 <path d="M4 8v11a2 2 0 0 0 2 2h2"></path>
 <path d="M20 8v11a2 2 0 0 1-2 2h-2"></path>
 <path d="m9 15 3-3 3 3"></path>
@@ -395,7 +393,7 @@ pub const ARCHIVE_RESTORE: IconType = IconType{
 
 pub const ARCHIVE_X: IconType = IconType{ 
  content: r#"
-<rect x="2" height="5" y="3" rx="1" width="20"></rect>
+<rect height="5" y="3" width="20" rx="1" x="2"></rect>
 <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path>
 <path d="m9.5 17 5-5"></path>
 <path d="m9.5 12 5 5"></path>"#,
@@ -403,7 +401,7 @@ pub const ARCHIVE_X: IconType = IconType{
 
 pub const ARCHIVE: IconType = IconType{ 
  content: r#"
-<rect width="20" y="3" rx="1" x="2" height="5"></rect>
+<rect x="2" y="3" rx="1" width="20" height="5"></rect>
 <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path>
 <path d="M10 12h4"></path>"#,
 };
@@ -466,25 +464,25 @@ pub const ARROW_BIG_UP: IconType = IconType{
 <path d="M9 18v-6H5l7-7 7 7h-4v6H9z"></path>"#,
 };
 
-pub const ARROW_DOWN_01: IconType = IconType{ 
+pub const ARROW_DOWN_0_1: IconType = IconType{ 
  content: r#"
 <path d="m3 16 4 4 4-4"></path>
 <path d="M7 20V4"></path>
-<rect x="15" ry="2" width="4" height="6" y="4"></rect>
+<rect width="4" y="4" height="6" x="15" ry="2"></rect>
 <path d="M17 20v-6h-2"></path>
 <path d="M15 20h4"></path>"#,
 };
 
-pub const ARROW_DOWN_10: IconType = IconType{ 
+pub const ARROW_DOWN_1_0: IconType = IconType{ 
  content: r#"
 <path d="m3 16 4 4 4-4"></path>
 <path d="M7 20V4"></path>
 <path d="M17 10V4h-2"></path>
 <path d="M15 10h4"></path>
-<rect x="15" width="4" y="14" ry="2" height="6"></rect>"#,
+<rect x="15" height="6" ry="2" y="14" width="4"></rect>"#,
 };
 
-pub const ARROW_DOWN_AZ: IconType = IconType{ 
+pub const ARROW_DOWN_A_Z: IconType = IconType{ 
  content: r#"
 <path d="m3 16 4 4 4-4"></path>
 <path d="M7 20V4"></path>
@@ -516,7 +514,7 @@ pub const ARROW_DOWN_LEFT_FROM_CIRCLE: IconType = IconType{
 
 pub const ARROW_DOWN_LEFT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect rx="2" width="18" y="3" height="18" x="3"></rect>
+<rect height="18" x="3" width="18" y="3" rx="2"></rect>
 <path d="m16 8-8 8"></path>
 <path d="M16 16H8V8"></path>"#,
 };
@@ -545,7 +543,7 @@ pub const ARROW_DOWN_RIGHT_FROM_CIRCLE: IconType = IconType{
 
 pub const ARROW_DOWN_RIGHT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect y="3" height="18" rx="2" width="18" x="3"></rect>
+<rect x="3" rx="2" y="3" width="18" height="18"></rect>
 <path d="m8 8 8 8"></path>
 <path d="M16 8v8H8"></path>"#,
 };
@@ -558,7 +556,7 @@ pub const ARROW_DOWN_RIGHT: IconType = IconType{
 
 pub const ARROW_DOWN_SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" y="3" height="18" rx="2" width="18"></rect>
+<rect width="18" height="18" x="3" y="3" rx="2"></rect>
 <path d="M12 8v8"></path>
 <path d="m8 12 4 4 4-4"></path>"#,
 };
@@ -567,7 +565,7 @@ pub const ARROW_DOWN_TO_DOT: IconType = IconType{
  content: r#"
 <path d="M12 2v14"></path>
 <path d="m19 9-7 7-7-7"></path>
-<circle cx="12" cy="21" r="1"></circle>"#,
+<circle cy="21" r="1" cx="12"></circle>"#,
 };
 
 pub const ARROW_DOWN_TO_LINE: IconType = IconType{ 
@@ -594,7 +592,7 @@ pub const ARROW_DOWN_WIDE_NARROW: IconType = IconType{
 <path d="M11 12h4"></path>"#,
 };
 
-pub const ARROW_DOWN_ZA: IconType = IconType{ 
+pub const ARROW_DOWN_Z_A: IconType = IconType{ 
  content: r#"
 <path d="m3 16 4 4 4-4"></path>
 <path d="M7 4v16"></path>
@@ -611,7 +609,7 @@ pub const ARROW_DOWN: IconType = IconType{
 
 pub const ARROW_LEFT_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
+<circle cx="12" r="10" cy="12"></circle>
 <path d="M16 12H8"></path>
 <path d="m12 8-4 4 4 4"></path>"#,
 };
@@ -633,7 +631,7 @@ pub const ARROW_LEFT_RIGHT: IconType = IconType{
 
 pub const ARROW_LEFT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" y="3" x="3" rx="2" width="18"></rect>
+<rect rx="2" height="18" x="3" width="18" y="3"></rect>
 <path d="m12 8-4 4 4 4"></path>
 <path d="M16 12H8"></path>"#,
 };
@@ -653,7 +651,7 @@ pub const ARROW_LEFT: IconType = IconType{
 
 pub const ARROW_RIGHT_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="M8 12h8"></path>
 <path d="m12 16 4-4-4-4"></path>"#,
 };
@@ -675,7 +673,7 @@ pub const ARROW_RIGHT_LEFT: IconType = IconType{
 
 pub const ARROW_RIGHT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" y="3" rx="2" width="18" height="18"></rect>
+<rect rx="2" width="18" y="3" x="3" height="18"></rect>
 <path d="M8 12h8"></path>
 <path d="m12 16 4-4-4-4"></path>"#,
 };
@@ -693,25 +691,25 @@ pub const ARROW_RIGHT: IconType = IconType{
 <path d="m12 5 7 7-7 7"></path>"#,
 };
 
-pub const ARROW_UP_01: IconType = IconType{ 
+pub const ARROW_UP_0_1: IconType = IconType{ 
  content: r#"
 <path d="m3 8 4-4 4 4"></path>
 <path d="M7 4v16"></path>
-<rect x="15" width="4" y="4" height="6" ry="2"></rect>
+<rect ry="2" y="4" width="4" x="15" height="6"></rect>
 <path d="M17 20v-6h-2"></path>
 <path d="M15 20h4"></path>"#,
 };
 
-pub const ARROW_UP_10: IconType = IconType{ 
+pub const ARROW_UP_1_0: IconType = IconType{ 
  content: r#"
 <path d="m3 8 4-4 4 4"></path>
 <path d="M7 4v16"></path>
 <path d="M17 10V4h-2"></path>
 <path d="M15 10h4"></path>
-<rect y="14" width="4" height="6" ry="2" x="15"></rect>"#,
+<rect width="4" x="15" y="14" ry="2" height="6"></rect>"#,
 };
 
-pub const ARROW_UP_AZ: IconType = IconType{ 
+pub const ARROW_UP_A_Z: IconType = IconType{ 
  content: r#"
 <path d="m3 8 4-4 4 4"></path>
 <path d="M7 4v16"></path>
@@ -722,7 +720,7 @@ pub const ARROW_UP_AZ: IconType = IconType{
 
 pub const ARROW_UP_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle cx="12" cy="12" r="10"></circle>
 <path d="m16 12-4-4-4 4"></path>
 <path d="M12 16V8"></path>"#,
 };
@@ -739,7 +737,7 @@ pub const ARROW_UP_FROM_DOT: IconType = IconType{
  content: r#"
 <path d="m5 9 7-7 7 7"></path>
 <path d="M12 16V2"></path>
-<circle cx="12" cy="21" r="1"></circle>"#,
+<circle cx="12" r="1" cy="21"></circle>"#,
 };
 
 pub const ARROW_UP_FROM_LINE: IconType = IconType{ 
@@ -758,7 +756,7 @@ pub const ARROW_UP_LEFT_FROM_CIRCLE: IconType = IconType{
 
 pub const ARROW_UP_LEFT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect rx="2" x="3" width="18" height="18" y="3"></rect>
+<rect width="18" height="18" rx="2" x="3" y="3"></rect>
 <path d="M8 16V8h8"></path>
 <path d="M16 16 8 8"></path>"#,
 };
@@ -787,7 +785,7 @@ pub const ARROW_UP_RIGHT_FROM_CIRCLE: IconType = IconType{
 
 pub const ARROW_UP_RIGHT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect width="18" x="3" y="3" rx="2" height="18"></rect>
+<rect height="18" y="3" x="3" rx="2" width="18"></rect>
 <path d="M8 8h8v8"></path>
 <path d="m8 16 8-8"></path>"#,
 };
@@ -800,7 +798,7 @@ pub const ARROW_UP_RIGHT: IconType = IconType{
 
 pub const ARROW_UP_SQUARE: IconType = IconType{ 
  content: r#"
-<rect rx="2" height="18" y="3" x="3" width="18"></rect>
+<rect height="18" y="3" width="18" x="3" rx="2"></rect>
 <path d="m16 12-4-4-4 4"></path>
 <path d="M12 16V8"></path>"#,
 };
@@ -821,7 +819,7 @@ pub const ARROW_UP_WIDE_NARROW: IconType = IconType{
 <path d="M11 20h4"></path>"#,
 };
 
-pub const ARROW_UP_ZA: IconType = IconType{ 
+pub const ARROW_UP_Z_A: IconType = IconType{ 
  content: r#"
 <path d="m3 8 4-4 4 4"></path>
 <path d="M7 4v16"></path>
@@ -854,20 +852,20 @@ pub const ASTERISK: IconType = IconType{
 
 pub const AT_SIGN: IconType = IconType{ 
  content: r#"
-<circle r="4" cx="12" cy="12"></circle>
+<circle cy="12" cx="12" r="4"></circle>
 <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"></path>"#,
 };
 
 pub const ATOM: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="1" cx="12"></circle>
+<circle r="1" cy="12" cx="12"></circle>
 <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"></path>
 <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"></path>"#,
 };
 
 pub const AWARD: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="8" r="6"></circle>
+<circle r="6" cy="8" cx="12"></circle>
 <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>"#,
 };
 
@@ -903,8 +901,8 @@ pub const BACKPACK: IconType = IconType{
 pub const BADGE_ALERT: IconType = IconType{ 
  content: r#"
 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line y1="8" x1="12" x2="12" y2="12"></line>
-<line x1="12" y2="16" x2="12.01" y1="16"></line>"#,
+<line x1="12" x2="12" y2="12" y1="8"></line>
+<line x1="12" y1="16" x2="12.01" y2="16"></line>"#,
 };
 
 pub const BADGE_CENT: IconType = IconType{ 
@@ -938,7 +936,7 @@ pub const BADGE_HELP: IconType = IconType{
  content: r#"
 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-<line x1="12" y2="17" y1="17" x2="12.01"></line>"#,
+<line y2="17" x2="12.01" y1="17" x1="12"></line>"#,
 };
 
 pub const BADGE_INDIAN_RUPEE: IconType = IconType{ 
@@ -952,8 +950,8 @@ pub const BADGE_INDIAN_RUPEE: IconType = IconType{
 pub const BADGE_INFO: IconType = IconType{ 
  content: r#"
 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line x1="12" y1="16" x2="12" y2="12"></line>
-<line x1="12" x2="12.01" y1="8" y2="8"></line>"#,
+<line x2="12" y1="16" y2="12" x1="12"></line>
+<line y1="8" x1="12" x2="12.01" y2="8"></line>"#,
 };
 
 pub const BADGE_JAPANESE_YEN: IconType = IconType{ 
@@ -982,8 +980,8 @@ pub const BADGE_PERCENT: IconType = IconType{
 pub const BADGE_PLUS: IconType = IconType{ 
  content: r#"
 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line x2="12" y2="16" x1="12" y1="8"></line>
-<line y1="12" x1="8" y2="12" x2="16"></line>"#,
+<line x2="12" x1="12" y2="16" y1="8"></line>
+<line x1="8" x2="16" y1="12" y2="12"></line>"#,
 };
 
 pub const BADGE_POUND_STERLING: IconType = IconType{ 
@@ -1012,7 +1010,7 @@ pub const BADGE_SWISS_FRANC: IconType = IconType{
 pub const BADGE_X: IconType = IconType{ 
  content: r#"
 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line x2="9" x1="15" y1="9" y2="15"></line>
+<line y2="15" x2="9" y1="9" x1="15"></line>
 <line x1="9" x2="15" y2="15" y1="9"></line>"#,
 };
 
@@ -1025,14 +1023,14 @@ pub const BAGGAGE_CLAIM: IconType = IconType{
  content: r#"
 <path d="M22 18H6a2 2 0 0 1-2-2V7a2 2 0 0 0-2-2"></path>
 <path d="M17 14V4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v10"></path>
-<rect y="6" x="8" height="8" rx="1" width="13"></rect>
+<rect rx="1" height="8" width="13" x="8" y="6"></rect>
 <circle cx="18" cy="20" r="2"></circle>
-<circle r="2" cy="20" cx="9"></circle>"#,
+<circle cx="9" cy="20" r="2"></circle>"#,
 };
 
 pub const BAN: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
+<circle cx="12" cy="12" r="10"></circle>
 <path d="m4.9 4.9 14.2 14.2"></path>"#,
 };
 
@@ -1044,16 +1042,16 @@ pub const BANANA: IconType = IconType{
 
 pub const BANKNOTE: IconType = IconType{ 
  content: r#"
-<rect rx="2" x="2" height="12" width="20" y="6"></rect>
-<circle cy="12" r="2" cx="12"></circle>
+<rect x="2" height="12" width="20" y="6" rx="2"></rect>
+<circle cy="12" cx="12" r="2"></circle>
 <path d="M6 12h.01M18 12h.01"></path>"#,
 };
 
 pub const BAR_CHART_2: IconType = IconType{ 
  content: r#"
-<line x1="18" y2="10" y1="20" x2="18"></line>
+<line x2="18" y1="20" y2="10" x1="18"></line>
 <line x2="12" y1="20" x1="12" y2="4"></line>
-<line x2="6" y1="20" x1="6" y2="14"></line>"#,
+<line x2="6" y1="20" y2="14" x1="6"></line>"#,
 };
 
 pub const BAR_CHART_3: IconType = IconType{ 
@@ -1075,15 +1073,15 @@ pub const BAR_CHART_4: IconType = IconType{
 pub const BAR_CHART_BIG: IconType = IconType{ 
  content: r#"
 <path d="M3 3v18h18"></path>
-<rect y="10" x="7" rx="1" height="7" width="4"></rect>
-<rect rx="1" height="12" x="15" width="4" y="5"></rect>"#,
+<rect y="10" rx="1" width="4" height="7" x="7"></rect>
+<rect rx="1" x="15" y="5" width="4" height="12"></rect>"#,
 };
 
 pub const BAR_CHART_HORIZONTAL_BIG: IconType = IconType{ 
  content: r#"
 <path d="M3 3v18h18"></path>
-<rect y="5" width="12" rx="1" x="7" height="4"></rect>
-<rect height="4" y="13" rx="1" x="7" width="7"></rect>"#,
+<rect y="5" rx="1" width="12" height="4" x="7"></rect>
+<rect width="7" rx="1" height="4" x="7" y="13"></rect>"#,
 };
 
 pub const BAR_CHART_HORIZONTAL: IconType = IconType{ 
@@ -1096,9 +1094,9 @@ pub const BAR_CHART_HORIZONTAL: IconType = IconType{
 
 pub const BAR_CHART: IconType = IconType{ 
  content: r#"
-<line x2="12" y1="20" y2="10" x1="12"></line>
-<line x1="18" y1="20" y2="4" x2="18"></line>
-<line y1="20" x1="6" y2="16" x2="6"></line>"#,
+<line x1="12" x2="12" y1="20" y2="10"></line>
+<line y1="20" y2="4" x2="18" x1="18"></line>
+<line x1="6" x2="6" y1="20" y2="16"></line>"#,
 };
 
 pub const BASELINE: IconType = IconType{ 
@@ -1111,10 +1109,10 @@ pub const BASELINE: IconType = IconType{
 pub const BATH: IconType = IconType{ 
  content: r#"
 <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path>
-<line x2="8" y2="7" x1="10" y1="5"></line>
-<line x1="2" y1="12" y2="12" x2="22"></line>
-<line y2="21" x1="7" y1="19" x2="7"></line>
-<line x2="17" y1="19" x1="17" y2="21"></line>"#,
+<line y2="7" x2="8" x1="10" y1="5"></line>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+<line y1="19" x1="7" y2="21" x2="7"></line>
+<line x2="17" x1="17" y1="19" y2="21"></line>"#,
 };
 
 pub const BATTERY_CHARGING: IconType = IconType{ 
@@ -1122,46 +1120,46 @@ pub const BATTERY_CHARGING: IconType = IconType{
 <path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"></path>
 <path d="M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"></path>
 <path d="m11 7-3 5h4l-3 5"></path>
-<line y1="11" x1="22" y2="13" x2="22"></line>"#,
+<line y1="11" y2="13" x1="22" x2="22"></line>"#,
 };
 
 pub const BATTERY_FULL: IconType = IconType{ 
  content: r#"
-<rect width="16" x="2" y="7" rx="2" ry="2" height="10"></rect>
-<line x1="22" y2="13" y1="11" x2="22"></line>
-<line x1="6" y2="13" x2="6" y1="11"></line>
-<line y1="11" y2="13" x2="10" x1="10"></line>
-<line y2="13" x2="14" y1="11" x1="14"></line>"#,
+<rect height="10" x="2" y="7" ry="2" rx="2" width="16"></rect>
+<line y2="13" x2="22" y1="11" x1="22"></line>
+<line y1="11" x2="6" y2="13" x1="6"></line>
+<line x2="10" y1="11" x1="10" y2="13"></line>
+<line y1="11" y2="13" x1="14" x2="14"></line>"#,
 };
 
 pub const BATTERY_LOW: IconType = IconType{ 
  content: r#"
-<rect x="2" height="10" y="7" rx="2" ry="2" width="16"></rect>
-<line y1="11" x1="22" x2="22" y2="13"></line>
-<line x1="6" y2="13" x2="6" y1="11"></line>"#,
+<rect x="2" rx="2" ry="2" height="10" width="16" y="7"></rect>
+<line x1="22" y1="11" y2="13" x2="22"></line>
+<line y2="13" x2="6" x1="6" y1="11"></line>"#,
 };
 
 pub const BATTERY_MEDIUM: IconType = IconType{ 
  content: r#"
-<rect ry="2" height="10" x="2" y="7" rx="2" width="16"></rect>
-<line x2="22" x1="22" y2="13" y1="11"></line>
-<line y1="11" y2="13" x2="6" x1="6"></line>
-<line y1="11" x2="10" x1="10" y2="13"></line>"#,
+<rect rx="2" ry="2" x="2" width="16" height="10" y="7"></rect>
+<line x1="22" y1="11" x2="22" y2="13"></line>
+<line x1="6" y1="11" y2="13" x2="6"></line>
+<line x1="10" x2="10" y1="11" y2="13"></line>"#,
 };
 
 pub const BATTERY_WARNING: IconType = IconType{ 
  content: r#"
 <path d="M14 7h2a2 2 0 0 1 2 2v6c0 1-1 2-2 2h-2"></path>
 <path d="M6 7H4a2 2 0 0 0-2 2v6c0 1 1 2 2 2h2"></path>
-<line x1="22" y1="11" y2="13" x2="22"></line>
-<line y2="13" x1="10" y1="7" x2="10"></line>
-<line y1="17" x1="10" x2="10" y2="17.01"></line>"#,
+<line x1="22" x2="22" y1="11" y2="13"></line>
+<line y1="7" x1="10" x2="10" y2="13"></line>
+<line y2="17.01" y1="17" x2="10" x1="10"></line>"#,
 };
 
 pub const BATTERY: IconType = IconType{ 
  content: r#"
-<rect y="7" width="16" height="10" x="2" rx="2" ry="2"></rect>
-<line y2="13" y1="11" x1="22" x2="22"></line>"#,
+<rect ry="2" x="2" height="10" y="7" rx="2" width="16"></rect>
+<line x2="22" y1="11" x1="22" y2="13"></line>"#,
 };
 
 pub const BEAKER: IconType = IconType{ 
@@ -1176,7 +1174,7 @@ pub const BEAN_OFF: IconType = IconType{
 <path d="M9 9c-.64.64-1.521.954-2.402 1.165A6 6 0 0 0 8 22a13.96 13.96 0 0 0 9.9-4.1"></path>
 <path d="M10.75 5.093A6 6 0 0 1 22 8c0 2.411-.61 4.68-1.683 6.66"></path>
 <path d="M5.341 10.62a4 4 0 0 0 6.487 1.208M10.62 5.341a4.015 4.015 0 0 1 2.039 2.04"></path>
-<line y1="2" x2="22" y2="22" x1="2"></line>"#,
+<line y2="22" y1="2" x1="2" x2="22"></line>"#,
 };
 
 pub const BEAN: IconType = IconType{ 
@@ -1210,7 +1208,7 @@ pub const BED: IconType = IconType{
 
 pub const BEEF: IconType = IconType{ 
  content: r#"
-<circle cy="8.5" r="2.5" cx="12.5"></circle>
+<circle r="2.5" cy="8.5" cx="12.5"></circle>
 <path d="M12.5 2a6.5 6.5 0 0 0-6.22 4.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3A6.5 6.5 0 0 0 12.5 2Z"></path>
 <path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1 .31 2 6.49 6.49 0 0 1-2.6 5.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"></path>"#,
 };
@@ -1228,7 +1226,7 @@ pub const BELL_DOT: IconType = IconType{
  content: r#"
 <path d="M19.4 14.9C20.2 16.4 21 17 21 17H3s3-2 3-9c0-3.3 2.7-6 6-6 .7 0 1.3.1 1.9.3"></path>
 <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-<circle cx="18" cy="8" r="3"></circle>"#,
+<circle r="3" cx="18" cy="8"></circle>"#,
 };
 
 pub const BELL_MINUS: IconType = IconType{ 
@@ -1270,16 +1268,16 @@ pub const BELL: IconType = IconType{
 
 pub const BIKE: IconType = IconType{ 
  content: r#"
-<circle r="3.5" cy="17.5" cx="18.5"></circle>
-<circle cy="17.5" cx="5.5" r="3.5"></circle>
-<circle r="1" cx="15" cy="5"></circle>
+<circle cx="18.5" cy="17.5" r="3.5"></circle>
+<circle cx="5.5" cy="17.5" r="3.5"></circle>
+<circle cy="5" cx="15" r="1"></circle>
 <path d="M12 17.5V14l-3-3 4-3 2 3h2"></path>"#,
 };
 
 pub const BINARY: IconType = IconType{ 
  content: r#"
-<rect width="4" x="14" height="6" rx="2" y="14"></rect>
-<rect x="6" width="4" rx="2" y="4" height="6"></rect>
+<rect y="14" x="14" width="4" height="6" rx="2"></rect>
+<rect rx="2" y="4" x="6" width="4" height="6"></rect>
 <path d="M6 20h4"></path>
 <path d="M14 10h4"></path>
 <path d="M6 14h2v6"></path>
@@ -1288,7 +1286,7 @@ pub const BINARY: IconType = IconType{
 
 pub const BIOHAZARD: IconType = IconType{ 
  content: r#"
-<circle cy="11.9" r="2" cx="12"></circle>
+<circle cx="12" r="2" cy="11.9"></circle>
 <path d="M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6"></path>
 <path d="m8.9 10.1 1.4.8"></path>
 <path d="M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5"></path>
@@ -1328,14 +1326,14 @@ pub const BLINDS: IconType = IconType{
 
 pub const BLOCKS: IconType = IconType{ 
  content: r#"
-<rect x="14" width="7" rx="1" y="3" height="7"></rect>
+<rect y="3" rx="1" height="7" x="14" width="7"></rect>
 <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"></path>"#,
 };
 
 pub const BLUETOOTH_CONNECTED: IconType = IconType{ 
  content: r#"
 <path d="m7 7 10 10-5 5V2l5 5L7 17"></path>
-<line x1="18" y1="12" x2="21" y2="12"></line>
+<line y2="12" x1="18" y1="12" x2="21"></line>
 <line x2="6" x1="3" y2="12" y1="12"></line>"#,
 };
 
@@ -1394,7 +1392,7 @@ pub const BOOK_KEY: IconType = IconType{
  content: r#"
 <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H14"></path>
 <path d="M20 8v14H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<circle cx="14" cy="8" r="2"></circle>
+<circle r="2" cx="14" cy="8"></circle>
 <path d="m20 2-4.5 4.5"></path>
 <path d="m19 3 1 1"></path>"#,
 };
@@ -1403,7 +1401,7 @@ pub const BOOK_LOCK: IconType = IconType{
  content: r#"
 <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H10"></path>
 <path d="M20 15v7H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<rect x="12" width="8" rx="1" height="5" y="6"></rect>
+<rect width="8" x="12" height="5" rx="1" y="6"></rect>
 <path d="M18 6V4a2 2 0 1 0-4 0v2"></path>"#,
 };
 
@@ -1485,14 +1483,14 @@ pub const BOOK: IconType = IconType{
 pub const BOOKMARK_MINUS: IconType = IconType{ 
  content: r#"
 <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
-<line y2="10" x1="15" y1="10" x2="9"></line>"#,
+<line x2="9" y1="10" y2="10" x1="15"></line>"#,
 };
 
 pub const BOOKMARK_PLUS: IconType = IconType{ 
  content: r#"
 <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
-<line y2="13" y1="7" x2="12" x1="12"></line>
-<line y2="10" y1="10" x2="9" x1="15"></line>"#,
+<line y2="13" x1="12" y1="7" x2="12"></line>
+<line y2="10" x1="15" y1="10" x2="9"></line>"#,
 };
 
 pub const BOOKMARK: IconType = IconType{ 
@@ -1506,15 +1504,15 @@ pub const BOOM_BOX: IconType = IconType{
 <path d="M8 8v1"></path>
 <path d="M12 8v1"></path>
 <path d="M16 8v1"></path>
-<rect rx="2" x="2" height="12" y="9" width="20"></rect>
-<circle cx="8" cy="15" r="2"></circle>
+<rect width="20" height="12" x="2" y="9" rx="2"></rect>
+<circle cy="15" cx="8" r="2"></circle>
 <circle cy="15" cx="16" r="2"></circle>"#,
 };
 
 pub const BOT: IconType = IconType{ 
  content: r#"
 <path d="M12 8V4H8"></path>
-<rect y="8" height="12" x="4" width="16" rx="2"></rect>
+<rect rx="2" width="16" x="4" height="12" y="8"></rect>
 <path d="M2 14h2"></path>
 <path d="M20 14h2"></path>
 <path d="M15 13v2"></path>
@@ -1587,7 +1585,7 @@ pub const BRAIN_CIRCUIT: IconType = IconType{
 
 pub const BRAIN_COG: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="3" cx="12"></circle>
+<circle cy="12" cx="12" r="3"></circle>
 <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"></path>
 <path d="m15.7 10.4-.9.4"></path>
 <path d="m9.2 13.2-.9.4"></path>
@@ -1607,13 +1605,13 @@ pub const BRAIN: IconType = IconType{
 
 pub const BRIEFCASE: IconType = IconType{ 
  content: r#"
-<rect height="14" x="2" ry="2" width="20" rx="2" y="7"></rect>
+<rect ry="2" height="14" y="7" width="20" x="2" rx="2"></rect>
 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>"#,
 };
 
 pub const BRING_TO_FRONT: IconType = IconType{ 
  content: r#"
-<rect y="8" width="8" rx="2" height="8" x="8"></rect>
+<rect x="8" width="8" y="8" rx="2" height="8"></rect>
 <path d="M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2"></path>
 <path d="M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2"></path>"#,
 };
@@ -1678,7 +1676,7 @@ pub const BUILDING_2: IconType = IconType{
 
 pub const BUILDING: IconType = IconType{ 
  content: r#"
-<rect width="16" y="2" rx="2" ry="2" height="20" x="4"></rect>
+<rect ry="2" y="2" height="20" x="4" width="16" rx="2"></rect>
 <path d="M9 22v-4h6v4"></path>
 <path d="M8 6h.01"></path>
 <path d="M16 6h.01"></path>
@@ -1696,7 +1694,7 @@ pub const BUS_FRONT: IconType = IconType{
 <path d="M4 6 2 7"></path>
 <path d="M10 6h4"></path>
 <path d="m22 7-2-1"></path>
-<rect rx="2" height="16" width="16" x="4" y="3"></rect>
+<rect height="16" rx="2" x="4" width="16" y="3"></rect>
 <path d="M4 11h16"></path>
 <path d="M8 15h.01"></path>
 <path d="M16 15h.01"></path>
@@ -1710,9 +1708,9 @@ pub const BUS: IconType = IconType{
 <path d="M15 6v6"></path>
 <path d="M2 12h19.6"></path>
 <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path>
-<circle r="2" cy="18" cx="7"></circle>
+<circle cy="18" cx="7" r="2"></circle>
 <path d="M9 18h5"></path>
-<circle r="2" cy="18" cx="16"></circle>"#,
+<circle cx="16" r="2" cy="18"></circle>"#,
 };
 
 pub const CABLE_CAR: IconType = IconType{ 
@@ -1721,7 +1719,7 @@ pub const CABLE_CAR: IconType = IconType{
 <path d="M14 2h.01"></path>
 <path d="m2 9 20-5"></path>
 <path d="M12 12V6.5"></path>
-<rect height="10" width="16" rx="3" x="4" y="12"></rect>
+<rect width="16" height="10" x="4" y="12" rx="3"></rect>
 <path d="M9 12v5"></path>
 <path d="M15 12v5"></path>
 <path d="M4 17h16"></path>"#,
@@ -1740,7 +1738,7 @@ pub const CABLE: IconType = IconType{
 
 pub const CAKE_SLICE: IconType = IconType{ 
  content: r#"
-<circle cx="9" cy="7" r="2"></circle>
+<circle cx="9" r="2" cy="7"></circle>
 <path d="M7.2 7.9 3 11v9c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-9c0-2-3-6-7-8l-3.6 2.6"></path>
 <path d="M16 13H3"></path>
 <path d="M16 17H3"></path>"#,
@@ -1761,9 +1759,9 @@ pub const CAKE: IconType = IconType{
 
 pub const CALCULATOR: IconType = IconType{ 
  content: r#"
-<rect x="4" height="20" width="16" rx="2" y="2"></rect>
-<line x2="16" y1="6" y2="6" x1="8"></line>
-<line y1="14" y2="18" x2="16" x1="16"></line>
+<rect rx="2" height="20" x="4" width="16" y="2"></rect>
+<line x2="16" y1="6" x1="8" y2="6"></line>
+<line x1="16" y1="14" x2="16" y2="18"></line>
 <path d="M16 10h.01"></path>
 <path d="M12 10h.01"></path>
 <path d="M8 10h.01"></path>
@@ -1776,18 +1774,18 @@ pub const CALCULATOR: IconType = IconType{
 pub const CALENDAR_CHECK_2: IconType = IconType{ 
  content: r#"
 <path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line x2="16" x1="16" y1="2" y2="6"></line>
-<line y1="2" x1="8" x2="8" y2="6"></line>
-<line y2="10" x2="21" y1="10" x1="3"></line>
+<line y2="6" x1="16" x2="16" y1="2"></line>
+<line x2="8" y2="6" y1="2" x1="8"></line>
+<line y1="10" x1="3" y2="10" x2="21"></line>
 <path d="m16 20 2 2 4-4"></path>"#,
 };
 
 pub const CALENDAR_CHECK: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" x="3" rx="2" ry="2" y="4"></rect>
-<line y2="6" y1="2" x2="16" x1="16"></line>
-<line x1="8" y2="6" x2="8" y1="2"></line>
-<line x1="3" y1="10" x2="21" y2="10"></line>
+<rect ry="2" y="4" rx="2" x="3" width="18" height="18"></rect>
+<line x1="16" y1="2" x2="16" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line y2="10" x1="3" y1="10" x2="21"></line>
 <path d="m9 16 2 2 4-4"></path>"#,
 };
 
@@ -1803,10 +1801,10 @@ pub const CALENDAR_CLOCK: IconType = IconType{
 
 pub const CALENDAR_DAYS: IconType = IconType{ 
  content: r#"
-<rect y="4" width="18" x="3" height="18" rx="2" ry="2"></rect>
-<line x2="16" x1="16" y1="2" y2="6"></line>
-<line y1="2" x2="8" y2="6" x1="8"></line>
-<line x2="21" y1="10" y2="10" x1="3"></line>
+<rect x="3" ry="2" y="4" width="18" height="18" rx="2"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
 <path d="M8 14h.01"></path>
 <path d="M12 14h.01"></path>
 <path d="M16 14h.01"></path>
@@ -1827,10 +1825,10 @@ pub const CALENDAR_HEART: IconType = IconType{
 pub const CALENDAR_MINUS: IconType = IconType{ 
  content: r#"
 <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line x2="16" y1="2" x1="16" y2="6"></line>
-<line x2="8" y1="2" y2="6" x1="8"></line>
-<line y1="10" x2="21" x1="3" y2="10"></line>
-<line y1="19" y2="19" x1="16" x2="22"></line>"#,
+<line y2="6" x1="16" y1="2" x2="16"></line>
+<line x1="8" y2="6" y1="2" x2="8"></line>
+<line y1="10" y2="10" x1="3" x2="21"></line>
+<line y2="19" x1="16" y1="19" x2="22"></line>"#,
 };
 
 pub const CALENDAR_OFF: IconType = IconType{ 
@@ -1840,25 +1838,25 @@ pub const CALENDAR_OFF: IconType = IconType{
 <path d="M16 2v4"></path>
 <path d="M3 10h7"></path>
 <path d="M21 10h-5.5"></path>
-<line x2="22" y2="22" x1="2" y1="2"></line>"#,
+<line x1="2" y2="22" y1="2" x2="22"></line>"#,
 };
 
 pub const CALENDAR_PLUS: IconType = IconType{ 
  content: r#"
 <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line y1="2" x1="16" y2="6" x2="16"></line>
+<line x1="16" x2="16" y2="6" y1="2"></line>
 <line x1="8" y1="2" y2="6" x2="8"></line>
-<line x2="21" y1="10" y2="10" x1="3"></line>
-<line x1="19" x2="19" y2="22" y1="16"></line>
-<line y2="19" y1="19" x1="16" x2="22"></line>"#,
+<line y2="10" x1="3" x2="21" y1="10"></line>
+<line x2="19" y2="22" x1="19" y1="16"></line>
+<line x1="16" y1="19" y2="19" x2="22"></line>"#,
 };
 
 pub const CALENDAR_RANGE: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" rx="2" x="3" y="4" ry="2"></rect>
-<line y2="6" x1="16" y1="2" x2="16"></line>
-<line x2="8" y1="2" y2="6" x1="8"></line>
-<line y2="10" x2="21" y1="10" x1="3"></line>
+<rect width="18" rx="2" y="4" ry="2" x="3" height="18"></rect>
+<line x2="16" x1="16" y2="6" y1="2"></line>
+<line y1="2" x2="8" y2="6" x1="8"></line>
+<line y1="10" x1="3" x2="21" y2="10"></line>
 <path d="M17 14h-6"></path>
 <path d="M13 18H7"></path>
 <path d="M7 14h.01"></path>
@@ -1878,34 +1876,34 @@ pub const CALENDAR_SEARCH: IconType = IconType{
 pub const CALENDAR_X_2: IconType = IconType{ 
  content: r#"
 <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line x1="16" x2="16" y2="6" y1="2"></line>
-<line x1="8" x2="8" y1="2" y2="6"></line>
-<line y1="10" x2="21" x1="3" y2="10"></line>
-<line y1="17" x1="17" x2="22" y2="22"></line>
-<line y1="22" x1="17" y2="17" x2="22"></line>"#,
+<line y2="6" x1="16" x2="16" y1="2"></line>
+<line y2="6" x1="8" x2="8" y1="2"></line>
+<line y1="10" x1="3" x2="21" y2="10"></line>
+<line y2="22" x2="22" y1="17" x1="17"></line>
+<line x1="17" y2="17" x2="22" y1="22"></line>"#,
 };
 
 pub const CALENDAR_X: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" y="4" rx="2" ry="2" x="3"></rect>
-<line x1="16" x2="16" y2="6" y1="2"></line>
-<line y2="6" x2="8" x1="8" y1="2"></line>
-<line x2="21" y1="10" y2="10" x1="3"></line>
-<line x1="10" y1="14" x2="14" y2="18"></line>
-<line x2="10" x1="14" y2="18" y1="14"></line>"#,
+<rect y="4" width="18" height="18" x="3" ry="2" rx="2"></rect>
+<line y1="2" x2="16" x1="16" y2="6"></line>
+<line y2="6" y1="2" x1="8" x2="8"></line>
+<line x2="21" y1="10" x1="3" y2="10"></line>
+<line x2="14" x1="10" y1="14" y2="18"></line>
+<line x1="14" x2="10" y1="14" y2="18"></line>"#,
 };
 
 pub const CALENDAR: IconType = IconType{ 
  content: r#"
-<rect x="3" y="4" ry="2" height="18" rx="2" width="18"></rect>
-<line x1="16" x2="16" y2="6" y1="2"></line>
-<line x1="8" x2="8" y1="2" y2="6"></line>
-<line y1="10" y2="10" x2="21" x1="3"></line>"#,
+<rect y="4" width="18" x="3" ry="2" height="18" rx="2"></rect>
+<line x2="16" y1="2" y2="6" x1="16"></line>
+<line y1="2" x1="8" y2="6" x2="8"></line>
+<line x2="21" y1="10" x1="3" y2="10"></line>"#,
 };
 
 pub const CAMERA_OFF: IconType = IconType{ 
  content: r#"
-<line x2="22" y1="2" x1="2" y2="22"></line>
+<line y1="2" y2="22" x1="2" x2="22"></line>
 <path d="M7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16"></path>
 <path d="M9.5 4h5L17 7h3a2 2 0 0 1 2 2v7.5"></path>
 <path d="M14.121 15.121A3 3 0 1 1 9.88 10.88"></path>"#,
@@ -1920,10 +1918,10 @@ pub const CAMERA: IconType = IconType{
 pub const CANDLESTICK_CHART: IconType = IconType{ 
  content: r#"
 <path d="M9 5v4"></path>
-<rect x="7" height="6" y="9" rx="1" width="4"></rect>
+<rect height="6" x="7" width="4" y="9" rx="1"></rect>
 <path d="M9 15v2"></path>
 <path d="M17 3v2"></path>
-<rect height="8" width="4" y="5" rx="1" x="15"></rect>
+<rect y="5" rx="1" width="4" height="8" x="15"></rect>
 <path d="M17 13v3"></path>
 <path d="M3 3v18h18"></path>"#,
 };
@@ -1946,7 +1944,7 @@ pub const CANDY_OFF: IconType = IconType{
 <path d="M10 10v7.5"></path>
 <path d="m16 7 1-5 1.367.683A3 3 0 0 0 19.708 3H21v1.292a3 3 0 0 0 .317 1.341L22 7l-5 1"></path>
 <path d="m8 17-1 5-1.367-.683A3 3 0 0 0 4.292 21H3v-1.292a3 3 0 0 0-.317-1.341L2 17l5-1"></path>
-<line y2="22" x2="22" y1="2" x1="2"></line>"#,
+<line y2="22" y1="2" x1="2" x2="22"></line>"#,
 };
 
 pub const CANDY: IconType = IconType{ 
@@ -1963,7 +1961,7 @@ pub const CAR_FRONT: IconType = IconType{
 <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"></path>
 <path d="M7 14h.01"></path>
 <path d="M17 14h.01"></path>
-<rect rx="2" x="3" width="18" height="8" y="10"></rect>
+<rect height="8" width="18" x="3" y="10" rx="2"></rect>
 <path d="M5 18v2"></path>
 <path d="M19 18v2"></path>"#,
 };
@@ -1974,7 +1972,7 @@ pub const CAR_TAXI_FRONT: IconType = IconType{
 <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"></path>
 <path d="M7 14h.01"></path>
 <path d="M17 14h.01"></path>
-<rect width="18" rx="2" x="3" height="8" y="10"></rect>
+<rect height="8" x="3" y="10" rx="2" width="18"></rect>
 <path d="M5 18v2"></path>
 <path d="M19 18v2"></path>"#,
 };
@@ -1982,9 +1980,9 @@ pub const CAR_TAXI_FRONT: IconType = IconType{
 pub const CAR: IconType = IconType{ 
  content: r#"
 <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
-<circle cy="17" r="2" cx="7"></circle>
+<circle cx="7" cy="17" r="2"></circle>
 <path d="M9 17h6"></path>
-<circle cy="17" r="2" cx="17"></circle>"#,
+<circle cx="17" cy="17" r="2"></circle>"#,
 };
 
 pub const CARROT: IconType = IconType{ 
@@ -1996,9 +1994,9 @@ pub const CARROT: IconType = IconType{
 
 pub const CASE_LOWER: IconType = IconType{ 
  content: r#"
-<circle r="3" cy="12" cx="7"></circle>
+<circle cy="12" r="3" cx="7"></circle>
 <path d="M10 9v6"></path>
-<circle cx="17" cy="12" r="3"></circle>
+<circle r="3" cy="12" cx="17"></circle>
 <path d="M14 7v8"></path>"#,
 };
 
@@ -2019,10 +2017,10 @@ pub const CASE_UPPER: IconType = IconType{
 
 pub const CASSETTE_TAPE: IconType = IconType{ 
  content: r#"
-<rect height="16" rx="2" x="2" width="20" y="4"></rect>
-<circle cx="8" r="2" cy="10"></circle>
+<rect width="20" height="16" x="2" y="4" rx="2"></rect>
+<circle cx="8" cy="10" r="2"></circle>
 <path d="M8 12h8"></path>
-<circle cx="16" r="2" cy="10"></circle>
+<circle cy="10" r="2" cx="16"></circle>
 <path d="m6 20 .7-2.9A1.4 1.4 0 0 1 8.1 16h7.8a1.4 1.4 0 0 1 1.4 1l.7 3"></path>"#,
 };
 
@@ -2031,7 +2029,7 @@ pub const CAST: IconType = IconType{
 <path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path>
 <path d="M2 12a9 9 0 0 1 8 8"></path>
 <path d="M2 16a5 5 0 0 1 4 4"></path>
-<line x1="2" x2="2.01" y1="20" y2="20"></line>"#,
+<line y2="20" x2="2.01" y1="20" x1="2"></line>"#,
 };
 
 pub const CASTLE: IconType = IconType{ 
@@ -2087,7 +2085,7 @@ pub const CHECK: IconType = IconType{
 pub const CHEF_HAT: IconType = IconType{ 
  content: r#"
 <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"></path>
-<line x2="18" y1="17" x1="6" y2="17"></line>"#,
+<line y1="17" x1="6" x2="18" y2="17"></line>"#,
 };
 
 pub const CHERRY: IconType = IconType{ 
@@ -2106,7 +2104,7 @@ pub const CHEVRON_DOWN_CIRCLE: IconType = IconType{
 
 pub const CHEVRON_DOWN_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" rx="2" y="3" x="3"></rect>
+<rect rx="2" x="3" width="18" y="3" height="18"></rect>
 <path d="m16 10-4 4-4-4"></path>"#,
 };
 
@@ -2135,7 +2133,7 @@ pub const CHEVRON_LEFT_CIRCLE: IconType = IconType{
 
 pub const CHEVRON_LEFT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" y="3" x="3" rx="2"></rect>
+<rect x="3" width="18" height="18" y="3" rx="2"></rect>
 <path d="m14 16-4-4 4-4"></path>"#,
 };
 
@@ -2146,13 +2144,13 @@ pub const CHEVRON_LEFT: IconType = IconType{
 
 pub const CHEVRON_RIGHT_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="m10 8 4 4-4 4"></path>"#,
 };
 
 pub const CHEVRON_RIGHT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" width="18" height="18" y="3" rx="2"></rect>
+<rect height="18" rx="2" x="3" width="18" y="3"></rect>
 <path d="m10 8 4 4-4 4"></path>"#,
 };
 
@@ -2163,13 +2161,13 @@ pub const CHEVRON_RIGHT: IconType = IconType{
 
 pub const CHEVRON_UP_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle cx="12" r="10" cy="12"></circle>
 <path d="m8 14 4-4 4 4"></path>"#,
 };
 
 pub const CHEVRON_UP_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" rx="2" y="3" x="3" width="18"></rect>
+<rect width="18" x="3" height="18" rx="2" y="3"></rect>
 <path d="m8 14 4-4 4 4"></path>"#,
 };
 
@@ -2228,11 +2226,11 @@ pub const CHEVRONS_UP: IconType = IconType{
 
 pub const CHROME: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>
-<circle cx="12" cy="12" r="4"></circle>
-<line y2="8" y1="8" x1="21.17" x2="12"></line>
-<line x1="3.95" y2="14" x2="8.54" y1="6.06"></line>
-<line y1="21.94" x1="10.88" x2="15.46" y2="14"></line>"#,
+<circle cy="12" r="10" cx="12"></circle>
+<circle r="4" cy="12" cx="12"></circle>
+<line x1="21.17" y1="8" x2="12" y2="8"></line>
+<line x1="3.95" y2="14" y1="6.06" x2="8.54"></line>
+<line y1="21.94" y2="14" x1="10.88" x2="15.46"></line>"#,
 };
 
 pub const CHURCH: IconType = IconType{ 
@@ -2246,7 +2244,7 @@ pub const CHURCH: IconType = IconType{
 
 pub const CIGARETTE_OFF: IconType = IconType{ 
  content: r#"
-<line x2="22" y2="22" x1="2" y1="2"></line>
+<line y2="22" x1="2" x2="22" y1="2"></line>
 <path d="M12 12H2v4h14"></path>
 <path d="M22 12v4"></path>
 <path d="M18 12h-.5"></path>
@@ -2278,7 +2276,7 @@ pub const CIRCLE_DASHED: IconType = IconType{
 
 pub const CIRCLE_DOLLAR_SIGN: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
 <path d="M12 18V6"></path>"#,
 };
@@ -2293,18 +2291,18 @@ pub const CIRCLE_DOT_DASHED: IconType = IconType{
 <path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7"></path>
 <path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8"></path>
 <path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69"></path>
-<circle cx="12" r="1" cy="12"></circle>"#,
+<circle cx="12" cy="12" r="1"></circle>"#,
 };
 
 pub const CIRCLE_DOT: IconType = IconType{ 
  content: r#"
 <circle cy="12" cx="12" r="10"></circle>
-<circle cy="12" r="1" cx="12"></circle>"#,
+<circle cy="12" cx="12" r="1"></circle>"#,
 };
 
 pub const CIRCLE_ELLIPSIS: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="M17 12h.01"></path>
 <path d="M12 12h.01"></path>
 <path d="M7 12h.01"></path>"#,
@@ -2314,7 +2312,7 @@ pub const CIRCLE_EQUAL: IconType = IconType{
  content: r#"
 <path d="M7 10h10"></path>
 <path d="M7 14h10"></path>
-<circle r="10" cx="12" cy="12"></circle>"#,
+<circle cy="12" r="10" cx="12"></circle>"#,
 };
 
 pub const CIRCLE_OFF: IconType = IconType{ 
@@ -2332,22 +2330,22 @@ pub const CIRCLE_SLASH_2: IconType = IconType{
 
 pub const CIRCLE_SLASH: IconType = IconType{ 
  content: r#"
-<line x1="9" y1="15" y2="9" x2="15"></line>
-<circle cx="12" r="10" cy="12"></circle>"#,
+<line x2="15" y2="9" y1="15" x1="9"></line>
+<circle r="10" cx="12" cy="12"></circle>"#,
 };
 
 pub const CIRCLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>"#,
+<circle cy="12" r="10" cx="12"></circle>"#,
 };
 
 pub const CIRCUIT_BOARD: IconType = IconType{ 
  content: r#"
-<rect x="3" height="18" y="3" width="18" rx="2"></rect>
+<rect width="18" y="3" x="3" rx="2" height="18"></rect>
 <path d="M11 9h4a2 2 0 0 0 2-2V3"></path>
-<circle cy="9" cx="9" r="2"></circle>
+<circle r="2" cx="9" cy="9"></circle>
 <path d="M7 21v-4a2 2 0 0 1 2-2h4"></path>
-<circle cy="15" r="2" cx="15"></circle>"#,
+<circle r="2" cy="15" cx="15"></circle>"#,
 };
 
 pub const CITRUS: IconType = IconType{ 
@@ -2368,14 +2366,14 @@ pub const CLAPPERBOARD: IconType = IconType{
 
 pub const CLIPBOARD_CHECK: IconType = IconType{ 
  content: r#"
-<rect height="4" rx="1" ry="1" y="2" x="8" width="8"></rect>
+<rect ry="1" width="8" x="8" y="2" rx="1" height="4"></rect>
 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
 <path d="m9 14 2 2 4-4"></path>"#,
 };
 
 pub const CLIPBOARD_COPY: IconType = IconType{ 
  content: r#"
-<rect x="8" height="4" y="2" rx="1" ry="1" width="8"></rect>
+<rect y="2" rx="1" ry="1" width="8" height="4" x="8"></rect>
 <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
 <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
 <path d="M21 14H11"></path>
@@ -2384,7 +2382,7 @@ pub const CLIPBOARD_COPY: IconType = IconType{
 
 pub const CLIPBOARD_EDIT: IconType = IconType{ 
  content: r#"
-<rect x="8" y="2" rx="1" ry="1" width="8" height="4"></rect>
+<rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
 <path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95 5.43-5.44Z"></path>
 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5.5"></path>
 <path d="M4 13.5V6a2 2 0 0 1 2-2h2"></path>"#,
@@ -2392,7 +2390,7 @@ pub const CLIPBOARD_EDIT: IconType = IconType{
 
 pub const CLIPBOARD_LIST: IconType = IconType{ 
  content: r#"
-<rect y="2" height="4" x="8" rx="1" ry="1" width="8"></rect>
+<rect height="4" x="8" ry="1" rx="1" width="8" y="2"></rect>
 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
 <path d="M12 11h4"></path>
 <path d="M12 16h4"></path>
@@ -2409,7 +2407,7 @@ pub const CLIPBOARD_PASTE: IconType = IconType{
 
 pub const CLIPBOARD_SIGNATURE: IconType = IconType{ 
  content: r#"
-<rect width="8" rx="1" ry="1" x="8" height="4" y="2"></rect>
+<rect width="8" height="4" y="2" ry="1" x="8" rx="1"></rect>
 <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.5"></path>
 <path d="M16 4h2a2 2 0 0 1 1.73 1"></path>
 <path d="M18.42 9.61a2.1 2.1 0 1 1 2.97 2.97L16.95 17 13 18l.99-3.95 4.43-4.44Z"></path>
@@ -2418,7 +2416,7 @@ pub const CLIPBOARD_SIGNATURE: IconType = IconType{
 
 pub const CLIPBOARD_TYPE: IconType = IconType{ 
  content: r#"
-<rect y="2" height="4" ry="1" rx="1" width="8" x="8"></rect>
+<rect ry="1" height="4" y="2" width="8" x="8" rx="1"></rect>
 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
 <path d="M9 12v-1h6v1"></path>
 <path d="M11 17h2"></path>
@@ -2427,7 +2425,7 @@ pub const CLIPBOARD_TYPE: IconType = IconType{
 
 pub const CLIPBOARD_X: IconType = IconType{ 
  content: r#"
-<rect ry="1" rx="1" height="4" width="8" x="8" y="2"></rect>
+<rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
 <path d="m15 11-6 6"></path>
 <path d="m9 11 6 6"></path>"#,
@@ -2435,25 +2433,25 @@ pub const CLIPBOARD_X: IconType = IconType{
 
 pub const CLIPBOARD: IconType = IconType{ 
  content: r#"
-<rect y="2" x="8" ry="1" height="4" width="8" rx="1"></rect>
+<rect width="8" x="8" y="2" rx="1" ry="1" height="4"></rect>
 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>"#,
 };
 
 pub const CLOCK_1: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
+<circle cx="12" r="10" cy="12"></circle>
 <polyline points="12 6 12 12 14.5 8"></polyline>"#,
 };
 
 pub const CLOCK_10: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle cx="12" r="10" cy="12"></circle>
 <polyline points="12 6 12 12 8 10"></polyline>"#,
 };
 
 pub const CLOCK_11: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle cx="12" r="10" cy="12"></circle>
 <polyline points="12 6 12 12 9.5 8"></polyline>"#,
 };
 
@@ -2471,7 +2469,7 @@ pub const CLOCK_2: IconType = IconType{
 
 pub const CLOCK_3: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="10"></circle>
+<circle cx="12" cy="12" r="10"></circle>
 <polyline points="12 6 12 12 16.5 12"></polyline>"#,
 };
 
@@ -2489,13 +2487,13 @@ pub const CLOCK_5: IconType = IconType{
 
 pub const CLOCK_6: IconType = IconType{ 
  content: r#"
-<circle cx="12" r="10" cy="12"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <polyline points="12 6 12 12 12 16.5"></polyline>"#,
 };
 
 pub const CLOCK_7: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <polyline points="12 6 12 12 9.5 16"></polyline>"#,
 };
 
@@ -2507,7 +2505,7 @@ pub const CLOCK_8: IconType = IconType{
 
 pub const CLOCK_9: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <polyline points="12 6 12 12 7.5 12"></polyline>"#,
 };
 
@@ -2519,7 +2517,7 @@ pub const CLOCK: IconType = IconType{
 
 pub const CLOUD_COG: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="17" r="3"></circle>
+<circle cy="17" r="3" cx="12"></circle>
 <path d="M4.2 15.1A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2"></path>
 <path d="m15.7 18.4-.9-.3"></path>
 <path d="m9.2 15.9-.9-.3"></path>
@@ -2678,10 +2676,10 @@ pub const CODE: IconType = IconType{
 pub const CODEPEN: IconType = IconType{ 
  content: r#"
 <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-<line x1="12" x2="12" y2="15.5" y1="22"></line>
+<line x2="12" y1="22" x1="12" y2="15.5"></line>
 <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
 <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-<line y1="2" x2="12" x1="12" y2="8.5"></line>"#,
+<line y1="2" x1="12" x2="12" y2="8.5"></line>"#,
 };
 
 pub const CODESANDBOX: IconType = IconType{ 
@@ -2698,9 +2696,9 @@ pub const COFFEE: IconType = IconType{
  content: r#"
 <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
 <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
-<line x1="6" y1="2" y2="4" x2="6"></line>
-<line x1="10" x2="10" y2="4" y1="2"></line>
-<line x1="14" y1="2" y2="4" x2="14"></line>"#,
+<line y2="4" x1="6" x2="6" y1="2"></line>
+<line y1="2" x2="10" y2="4" x1="10"></line>
+<line x1="14" y1="2" x2="14" y2="4"></line>"#,
 };
 
 pub const COG: IconType = IconType{ 
@@ -2723,7 +2721,7 @@ pub const COG: IconType = IconType{
 
 pub const COINS: IconType = IconType{ 
  content: r#"
-<circle cy="8" r="6" cx="8"></circle>
+<circle cx="8" cy="8" r="6"></circle>
 <path d="M18.09 10.37A6 6 0 1 1 10.34 18"></path>
 <path d="M7 6h1v4"></path>
 <path d="m16.71 13.88.7.71-2.82 2.82"></path>"#,
@@ -2731,18 +2729,18 @@ pub const COINS: IconType = IconType{
 
 pub const COLUMNS: IconType = IconType{ 
  content: r#"
-<rect ry="2" x="3" rx="2" width="18" y="3" height="18"></rect>
-<line y2="21" x2="12" x1="12" y1="3"></line>"#,
+<rect x="3" width="18" ry="2" rx="2" height="18" y="3"></rect>
+<line y2="21" y1="3" x2="12" x1="12"></line>"#,
 };
 
 pub const COMBINE: IconType = IconType{ 
  content: r#"
-<rect x="2" y="2" width="8" height="8" rx="2"></rect>
+<rect rx="2" height="8" y="2" width="8" x="2"></rect>
 <path d="M14 2c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>
 <path d="M20 2c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>
 <path d="M10 18H5c-1.7 0-3-1.3-3-3v-1"></path>
 <polyline points="7 21 10 18 7 15"></polyline>
-<rect height="8" x="14" y="14" width="8" rx="2"></rect>"#,
+<rect rx="2" height="8" x="14" y="14" width="8"></rect>"#,
 };
 
 pub const COMMAND: IconType = IconType{ 
@@ -2752,7 +2750,7 @@ pub const COMMAND: IconType = IconType{
 
 pub const COMPASS: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="10"></circle>
+<circle r="10" cy="12" cx="12"></circle>
 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>"#,
 };
 
@@ -2766,8 +2764,8 @@ pub const COMPONENT: IconType = IconType{
 
 pub const COMPUTER: IconType = IconType{ 
  content: r#"
-<rect y="2" rx="2" x="5" width="14" height="8"></rect>
-<rect height="8" rx="2" width="20" y="14" x="2"></rect>
+<rect width="14" y="2" height="8" rx="2" x="5"></rect>
+<rect x="2" y="14" rx="2" width="20" height="8"></rect>
 <path d="M6 18h2"></path>
 <path d="M12 18h6"></path>"#,
 };
@@ -2782,7 +2780,7 @@ pub const CONCIERGE_BELL: IconType = IconType{
 
 pub const CONSTRUCTION: IconType = IconType{ 
  content: r#"
-<rect height="8" y="6" width="20" x="2" rx="1"></rect>
+<rect height="8" rx="1" width="20" y="6" x="2"></rect>
 <path d="M17 14v7"></path>
 <path d="M7 14v7"></path>
 <path d="M17 3v3"></path>
@@ -2795,19 +2793,19 @@ pub const CONSTRUCTION: IconType = IconType{
 pub const CONTACT_2: IconType = IconType{ 
  content: r#"
 <path d="M16 18a4 4 0 0 0-8 0"></path>
-<circle r="3" cy="11" cx="12"></circle>
-<rect height="18" rx="2" x="3" width="18" y="4"></rect>
-<line y1="2" x1="8" y2="4" x2="8"></line>
-<line y2="4" x1="16" x2="16" y1="2"></line>"#,
+<circle cx="12" r="3" cy="11"></circle>
+<rect width="18" height="18" y="4" x="3" rx="2"></rect>
+<line y2="4" x1="8" x2="8" y1="2"></line>
+<line x1="16" y1="2" x2="16" y2="4"></line>"#,
 };
 
 pub const CONTACT: IconType = IconType{ 
  content: r#"
 <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
-<rect y="4" width="18" x="3" rx="2" height="18"></rect>
-<circle cy="10" r="2" cx="12"></circle>
-<line y1="2" x1="8" x2="8" y2="4"></line>
-<line x2="16" x1="16" y1="2" y2="4"></line>"#,
+<rect width="18" y="4" rx="2" height="18" x="3"></rect>
+<circle r="2" cx="12" cy="10"></circle>
+<line x2="8" y2="4" x1="8" y1="2"></line>
+<line y2="4" x2="16" x1="16" y1="2"></line>"#,
 };
 
 pub const CONTAINER: IconType = IconType{ 
@@ -2821,7 +2819,7 @@ pub const CONTAINER: IconType = IconType{
 
 pub const CONTRAST: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>
+<circle cx="12" cy="12" r="10"></circle>
 <path d="M12 18a6 6 0 0 0 0-12v12z"></path>"#,
 };
 
@@ -2838,43 +2836,43 @@ pub const COOKIE: IconType = IconType{
 pub const COPY_CHECK: IconType = IconType{ 
  content: r#"
 <path d="m12 15 2 2 4-4"></path>
-<rect rx="2" width="14" height="14" x="8" y="8" ry="2"></rect>
+<rect height="14" rx="2" x="8" y="8" ry="2" width="14"></rect>
 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#,
 };
 
 pub const COPY_MINUS: IconType = IconType{ 
  content: r#"
-<line x2="18" y1="15" x1="12" y2="15"></line>
-<rect width="14" x="8" y="8" height="14" rx="2" ry="2"></rect>
+<line x2="18" y2="15" y1="15" x1="12"></line>
+<rect width="14" x="8" y="8" height="14" ry="2" rx="2"></rect>
 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#,
 };
 
 pub const COPY_PLUS: IconType = IconType{ 
  content: r#"
-<line y1="12" y2="18" x2="15" x1="15"></line>
-<line x1="12" x2="18" y1="15" y2="15"></line>
-<rect width="14" y="8" rx="2" height="14" ry="2" x="8"></rect>
+<line y1="12" y2="18" x1="15" x2="15"></line>
+<line x1="12" y1="15" y2="15" x2="18"></line>
+<rect y="8" width="14" x="8" rx="2" ry="2" height="14"></rect>
 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#,
 };
 
 pub const COPY_SLASH: IconType = IconType{ 
  content: r#"
-<line x1="12" y1="18" x2="18" y2="12"></line>
-<rect height="14" rx="2" ry="2" x="8" y="8" width="14"></rect>
+<line y1="18" x2="18" x1="12" y2="12"></line>
+<rect y="8" height="14" x="8" rx="2" width="14" ry="2"></rect>
 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#,
 };
 
 pub const COPY_X: IconType = IconType{ 
  content: r#"
-<line x1="12" x2="18" y2="18" y1="12"></line>
-<line x2="18" y2="12" x1="12" y1="18"></line>
-<rect rx="2" width="14" x="8" y="8" ry="2" height="14"></rect>
+<line y2="18" x1="12" x2="18" y1="12"></line>
+<line x2="18" y1="18" y2="12" x1="12"></line>
+<rect height="14" y="8" x="8" rx="2" ry="2" width="14"></rect>
 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#,
 };
 
 pub const COPY: IconType = IconType{ 
  content: r#"
-<rect rx="2" height="14" y="8" width="14" x="8" ry="2"></rect>
+<rect x="8" height="14" y="8" ry="2" width="14" rx="2"></rect>
 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#,
 };
 
@@ -2886,7 +2884,7 @@ pub const COPYLEFT: IconType = IconType{
 
 pub const COPYRIGHT: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cy="12" cx="12"></circle>
 <path d="M15 9.354a4 4 0 1 0 0 5.292"></path>"#,
 };
 
@@ -2940,7 +2938,7 @@ pub const CORNER_UP_RIGHT: IconType = IconType{
 
 pub const CPU: IconType = IconType{ 
  content: r#"
-<rect y="4" height="16" x="4" width="16" rx="2"></rect>
+<rect y="4" x="4" height="16" rx="2" width="16"></rect>
 <rect width="6" height="6" x="9" y="9"></rect>
 <path d="M15 2v2"></path>
 <path d="M15 20v2"></path>
@@ -2954,15 +2952,15 @@ pub const CPU: IconType = IconType{
 
 pub const CREATIVE_COMMONS: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle r="10" cy="12" cx="12"></circle>
 <path d="M10 9.3a2.8 2.8 0 0 0-3.5 1 3.1 3.1 0 0 0 0 3.4 2.7 2.7 0 0 0 3.5 1"></path>
 <path d="M17 9.3a2.8 2.8 0 0 0-3.5 1 3.1 3.1 0 0 0 0 3.4 2.7 2.7 0 0 0 3.5 1"></path>"#,
 };
 
 pub const CREDIT_CARD: IconType = IconType{ 
  content: r#"
-<rect x="2" width="20" height="14" y="5" rx="2"></rect>
-<line x2="22" x1="2" y2="10" y1="10"></line>"#,
+<rect x="2" y="5" rx="2" width="20" height="14"></rect>
+<line y2="10" y1="10" x1="2" x2="22"></line>"#,
 };
 
 pub const CROISSANT: IconType = IconType{ 
@@ -2987,11 +2985,11 @@ pub const CROSS: IconType = IconType{
 
 pub const CROSSHAIR: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
-<line x2="18" y1="12" y2="12" x1="22"></line>
-<line x2="2" y1="12" y2="12" x1="6"></line>
-<line y1="6" x1="12" x2="12" y2="2"></line>
-<line x1="12" y2="18" x2="12" y1="22"></line>"#,
+<circle cy="12" r="10" cx="12"></circle>
+<line x1="22" y1="12" y2="12" x2="18"></line>
+<line y2="12" y1="12" x1="6" x2="2"></line>
+<line x1="12" x2="12" y1="6" y2="2"></line>
+<line x1="12" y1="22" y2="18" x2="12"></line>"#,
 };
 
 pub const CROWN: IconType = IconType{ 
@@ -3009,16 +3007,16 @@ pub const CUP_SODA: IconType = IconType{
 
 pub const CURRENCY: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="8"></circle>
-<line x1="3" y1="3" x2="6" y2="6"></line>
-<line y2="6" x1="21" y1="3" x2="18"></line>
-<line y2="18" x1="3" x2="6" y1="21"></line>
+<circle cy="12" r="8" cx="12"></circle>
+<line x1="3" y2="6" y1="3" x2="6"></line>
+<line x1="21" x2="18" y1="3" y2="6"></line>
+<line x2="6" y2="18" x1="3" y1="21"></line>
 <line x2="18" y2="18" y1="21" x1="21"></line>"#,
 };
 
 pub const DATABASE_BACKUP: IconType = IconType{ 
  content: r#"
-<ellipse rx="9" cy="5" ry="3" cx="12"></ellipse>
+<ellipse rx="9" cx="12" cy="5" ry="3"></ellipse>
 <path d="M3 12a9 3 0 0 0 5 2.69"></path>
 <path d="M21 9.3V5"></path>
 <path d="M3 5v14a9 3 0 0 0 6.47 2.88"></path>
@@ -3037,7 +3035,7 @@ pub const DATABASE_ZAP: IconType = IconType{
 
 pub const DATABASE: IconType = IconType{ 
  content: r#"
-<ellipse rx="9" cy="5" cx="12" ry="3"></ellipse>
+<ellipse rx="9" ry="3" cx="12" cy="5"></ellipse>
 <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
 <path d="M3 12A9 3 0 0 0 21 12"></path>"#,
 };
@@ -3045,13 +3043,13 @@ pub const DATABASE: IconType = IconType{
 pub const DELETE: IconType = IconType{ 
  content: r#"
 <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-<line y1="9" y2="15" x2="12" x1="18"></line>
-<line x1="12" y1="9" y2="15" x2="18"></line>"#,
+<line y2="15" x1="18" x2="12" y1="9"></line>
+<line y2="15" x1="12" y1="9" x2="18"></line>"#,
 };
 
 pub const DESSERT: IconType = IconType{ 
  content: r#"
-<circle cx="12" r="2" cy="4"></circle>
+<circle cx="12" cy="4" r="2"></circle>
 <path d="M10.2 3.2C5.5 4 2 8.1 2 13a2 2 0 0 0 4 0v-1a2 2 0 0 1 4 0v4a2 2 0 0 0 4 0v-4a2 2 0 0 1 4 0v1a2 2 0 0 0 4 0c0-4.9-3.5-9-8.2-9.8"></path>
 <path d="M3.2 14.8a9 9 0 0 0 17.6 0"></path>"#,
 };
@@ -3063,20 +3061,20 @@ pub const DIAMOND: IconType = IconType{
 
 pub const DICE_1: IconType = IconType{ 
  content: r#"
-<rect width="18" ry="2" x="3" y="3" height="18" rx="2"></rect>
+<rect y="3" rx="2" ry="2" width="18" height="18" x="3"></rect>
 <path d="M12 12h.01"></path>"#,
 };
 
 pub const DICE_2: IconType = IconType{ 
  content: r#"
-<rect width="18" y="3" height="18" x="3" rx="2" ry="2"></rect>
+<rect rx="2" ry="2" x="3" y="3" width="18" height="18"></rect>
 <path d="M15 9h.01"></path>
 <path d="M9 15h.01"></path>"#,
 };
 
 pub const DICE_3: IconType = IconType{ 
  content: r#"
-<rect width="18" ry="2" height="18" x="3" y="3" rx="2"></rect>
+<rect ry="2" rx="2" height="18" x="3" width="18" y="3"></rect>
 <path d="M16 8h.01"></path>
 <path d="M12 12h.01"></path>
 <path d="M8 16h.01"></path>"#,
@@ -3084,7 +3082,7 @@ pub const DICE_3: IconType = IconType{
 
 pub const DICE_4: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" x="3" y="3" ry="2" rx="2"></rect>
+<rect x="3" rx="2" height="18" width="18" y="3" ry="2"></rect>
 <path d="M16 8h.01"></path>
 <path d="M8 8h.01"></path>
 <path d="M8 16h.01"></path>
@@ -3093,7 +3091,7 @@ pub const DICE_4: IconType = IconType{
 
 pub const DICE_5: IconType = IconType{ 
  content: r#"
-<rect width="18" ry="2" height="18" rx="2" x="3" y="3"></rect>
+<rect y="3" height="18" rx="2" ry="2" x="3" width="18"></rect>
 <path d="M16 8h.01"></path>
 <path d="M8 8h.01"></path>
 <path d="M8 16h.01"></path>
@@ -3103,7 +3101,7 @@ pub const DICE_5: IconType = IconType{
 
 pub const DICE_6: IconType = IconType{ 
  content: r#"
-<rect height="18" x="3" y="3" width="18" ry="2" rx="2"></rect>
+<rect y="3" rx="2" ry="2" width="18" x="3" height="18"></rect>
 <path d="M16 8h.01"></path>
 <path d="M16 12h.01"></path>
 <path d="M16 16h.01"></path>
@@ -3114,7 +3112,7 @@ pub const DICE_6: IconType = IconType{
 
 pub const DICES: IconType = IconType{ 
  content: r#"
-<rect ry="2" width="12" y="10" x="2" rx="2" height="12"></rect>
+<rect height="12" rx="2" y="10" ry="2" x="2" width="12"></rect>
 <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"></path>
 <path d="M6 18h.01"></path>
 <path d="M10 14h.01"></path>
@@ -3131,46 +3129,46 @@ pub const DIFF: IconType = IconType{
 
 pub const DISC_2: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
-<circle r="4" cx="12" cy="12"></circle>
+<circle cx="12" r="10" cy="12"></circle>
+<circle cx="12" r="4" cy="12"></circle>
 <path d="M12 12h.01"></path>"#,
 };
 
 pub const DISC_3: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cy="12" cx="12"></circle>
 <path d="M6 12c0-1.7.7-3.2 1.8-4.2"></path>
-<circle cy="12" r="2" cx="12"></circle>
+<circle cx="12" cy="12" r="2"></circle>
 <path d="M18 12c0 1.7-.7 3.2-1.8 4.2"></path>"#,
 };
 
 pub const DISC: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
-<circle cy="12" cx="12" r="2"></circle>"#,
+<circle r="10" cx="12" cy="12"></circle>
+<circle r="2" cx="12" cy="12"></circle>"#,
 };
 
 pub const DIVIDE_CIRCLE: IconType = IconType{ 
  content: r#"
-<line x2="16" y1="12" x1="8" y2="12"></line>
-<line y2="16" x2="12" y1="16" x1="12"></line>
-<line x2="12" y2="8" x1="12" y1="8"></line>
-<circle cx="12" r="10" cy="12"></circle>"#,
+<line y1="12" x2="16" y2="12" x1="8"></line>
+<line y2="16" x1="12" x2="12" y1="16"></line>
+<line y2="8" x1="12" y1="8" x2="12"></line>
+<circle r="10" cx="12" cy="12"></circle>"#,
 };
 
 pub const DIVIDE_SQUARE: IconType = IconType{ 
  content: r#"
-<rect width="18" x="3" rx="2" ry="2" height="18" y="3"></rect>
-<line y2="12" x1="8" x2="16" y1="12"></line>
-<line x1="12" y2="16" x2="12" y1="16"></line>
-<line x1="12" y1="8" x2="12" y2="8"></line>"#,
+<rect ry="2" height="18" width="18" y="3" x="3" rx="2"></rect>
+<line x1="8" y1="12" y2="12" x2="16"></line>
+<line y2="16" y1="16" x1="12" x2="12"></line>
+<line y2="8" y1="8" x1="12" x2="12"></line>"#,
 };
 
 pub const DIVIDE: IconType = IconType{ 
  content: r#"
-<circle r="1" cy="6" cx="12"></circle>
-<line x2="19" y1="12" y2="12" x1="5"></line>
-<circle cx="12" r="1" cy="18"></circle>"#,
+<circle r="1" cx="12" cy="6"></circle>
+<line x1="5" y1="12" x2="19" y2="12"></line>
+<circle r="1" cx="12" cy="18"></circle>"#,
 };
 
 pub const DNA_OFF: IconType = IconType{ 
@@ -3185,7 +3183,7 @@ pub const DNA_OFF: IconType = IconType{
 <path d="m6.5 12.5 1 1"></path>
 <path d="m16.5 10.5 1 1"></path>
 <path d="m10 16 1.5 1.5"></path>
-<line y1="2" x2="22" x1="2" y2="22"></line>"#,
+<line x2="22" x1="2" y1="2" y2="22"></line>"#,
 };
 
 pub const DNA: IconType = IconType{ 
@@ -3215,14 +3213,14 @@ pub const DOG: IconType = IconType{
 
 pub const DOLLAR_SIGN: IconType = IconType{ 
  content: r#"
-<line x1="12" x2="12" y2="22" y1="2"></line>
+<line x2="12" y1="2" y2="22" x1="12"></line>
 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>"#,
 };
 
 pub const DONUT: IconType = IconType{ 
  content: r#"
 <path d="M20.5 10a2.5 2.5 0 0 1-2.4-3H18a2.95 2.95 0 0 1-2.6-4.4 10 10 0 1 0 6.3 7.1c-.3.2-.8.3-1.2.3"></path>
-<circle cy="12" cx="12" r="3"></circle>"#,
+<circle cx="12" cy="12" r="3"></circle>"#,
 };
 
 pub const DOOR_CLOSED: IconType = IconType{ 
@@ -3243,7 +3241,7 @@ pub const DOOR_OPEN: IconType = IconType{
 
 pub const DOT: IconType = IconType{ 
  content: r#"
-<circle r="1" cx="12.1" cy="12.1"></circle>"#,
+<circle cx="12.1" cy="12.1" r="1"></circle>"#,
 };
 
 pub const DOWNLOAD_CLOUD: IconType = IconType{ 
@@ -3257,12 +3255,12 @@ pub const DOWNLOAD: IconType = IconType{
  content: r#"
 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
 <polyline points="7 10 12 15 17 10"></polyline>
-<line x1="12" x2="12" y1="15" y2="3"></line>"#,
+<line x2="12" y2="3" x1="12" y1="15"></line>"#,
 };
 
 pub const DRIBBBLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>
+<circle cy="12" r="10" cx="12"></circle>
 <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
 <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path>
 <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path>"#,
@@ -3302,7 +3300,7 @@ pub const EAR_OFF: IconType = IconType{
 <path d="M6 8.5c0-.75.13-1.47.36-2.14"></path>
 <path d="M8.8 3.15A6.5 6.5 0 0 1 19 8.5c0 1.63-.44 2.81-1.09 3.76"></path>
 <path d="M12.5 6A2.5 2.5 0 0 1 15 8.5M10 13a2 2 0 0 0 1.82-1.18"></path>
-<line x2="22" x1="2" y1="2" y2="22"></line>"#,
+<line y2="22" x2="22" y1="2" x1="2"></line>"#,
 };
 
 pub const EAR: IconType = IconType{ 
@@ -3313,7 +3311,7 @@ pub const EAR: IconType = IconType{
 
 pub const EGG_FRIED: IconType = IconType{ 
  content: r#"
-<circle cx="11.5" cy="12.5" r="3.5"></circle>
+<circle r="3.5" cx="11.5" cy="12.5"></circle>
 <path d="M3 8c0-3.5 2.5-6 6.5-6 5 0 4.83 3 7.5 5s5 2 5 6c0 4.5-2.5 6.5-7 6.5-2.5 0-2.5 2.5-6 2.5s-7-2-7-5.5c0-3 1.5-3 1.5-5C3.5 10 3 9 3 8Z"></path>"#,
 };
 
@@ -3321,7 +3319,7 @@ pub const EGG_OFF: IconType = IconType{
  content: r#"
 <path d="M6.399 6.399C5.362 8.157 4.65 10.189 4.5 12c-.37 4.43 1.27 9.95 7.5 10 3.256-.026 5.259-1.547 6.375-3.625"></path>
 <path d="M19.532 13.875A14.07 14.07 0 0 0 19.5 12c-.36-4.34-3.95-9.96-7.5-10-1.04.012-2.082.502-3.046 1.297"></path>
-<line x1="2" x2="22" y1="2" y2="22"></line>"#,
+<line x2="22" y2="22" x1="2" y1="2"></line>"#,
 };
 
 pub const EGG: IconType = IconType{ 
@@ -3331,15 +3329,15 @@ pub const EGG: IconType = IconType{
 
 pub const EQUAL_NOT: IconType = IconType{ 
  content: r#"
-<line x2="19" y2="9" x1="5" y1="9"></line>
-<line x1="5" y1="15" y2="15" x2="19"></line>
-<line y1="5" y2="19" x2="5" x1="19"></line>"#,
+<line y2="9" x1="5" x2="19" y1="9"></line>
+<line y2="15" x1="5" x2="19" y1="15"></line>
+<line x1="19" x2="5" y1="5" y2="19"></line>"#,
 };
 
 pub const EQUAL: IconType = IconType{ 
  content: r#"
 <line y1="9" y2="9" x1="5" x2="19"></line>
-<line x1="5" x2="19" y2="15" y1="15"></line>"#,
+<line x2="19" y1="15" y2="15" x1="5"></line>"#,
 };
 
 pub const ERASER: IconType = IconType{ 
@@ -3368,7 +3366,7 @@ pub const EXTERNAL_LINK: IconType = IconType{
  content: r#"
 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
 <polyline points="15 3 21 3 21 9"></polyline>
-<line x2="21" y2="3" x1="10" y1="14"></line>"#,
+<line y1="14" y2="3" x1="10" x2="21"></line>"#,
 };
 
 pub const EYE_OFF: IconType = IconType{ 
@@ -3376,13 +3374,13 @@ pub const EYE_OFF: IconType = IconType{
 <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
 <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
 <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
-<line x1="2" y2="22" x2="22" y1="2"></line>"#,
+<line x2="22" y1="2" x1="2" y2="22"></line>"#,
 };
 
 pub const EYE: IconType = IconType{ 
  content: r#"
 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-<circle r="3" cx="12" cy="12"></circle>"#,
+<circle cx="12" cy="12" r="3"></circle>"#,
 };
 
 pub const FACEBOOK: IconType = IconType{ 
@@ -3413,13 +3411,13 @@ pub const FAST_FORWARD: IconType = IconType{
 pub const FEATHER: IconType = IconType{ 
  content: r#"
 <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-<line x1="16" x2="2" y1="8" y2="22"></line>
-<line x2="9" y2="15" y1="15" x1="17.5"></line>"#,
+<line x1="16" y2="22" x2="2" y1="8"></line>
+<line y1="15" x1="17.5" x2="9" y2="15"></line>"#,
 };
 
 pub const FERRIS_WHEEL: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="2"></circle>
+<circle r="2" cx="12" cy="12"></circle>
 <path d="M12 2v4"></path>
 <path d="m6.8 15-3.5 2"></path>
 <path d="m20.7 7-3.5 2"></path>
@@ -3454,8 +3452,8 @@ pub const FILE_AUDIO_2: IconType = IconType{
 <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v2"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
 <path d="M2 17v-3a4 4 0 0 1 8 0v3"></path>
-<circle cx="9" cy="17" r="1"></circle>
-<circle cy="17" r="1" cx="3"></circle>"#,
+<circle cy="17" cx="9" r="1"></circle>
+<circle cx="3" r="1" cy="17"></circle>"#,
 };
 
 pub const FILE_AUDIO: IconType = IconType{ 
@@ -3536,7 +3534,7 @@ pub const FILE_CLOCK: IconType = IconType{
  content: r#"
 <path d="M16 22h2c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V7.5L14.5 2H6c-.5 0-1 .2-1.4.6C4.2 3 4 3.5 4 4v3"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<circle cy="16" r="6" cx="8"></circle>
+<circle cx="8" cy="16" r="6"></circle>
 <path d="M9.5 17.5 8 16.25V14"></path>"#,
 };
 
@@ -3558,7 +3556,7 @@ pub const FILE_CODE: IconType = IconType{
 
 pub const FILE_COG: IconType = IconType{ 
  content: r#"
-<circle cx="6" cy="13" r="3"></circle>
+<circle r="3" cx="6" cy="13"></circle>
 <path d="m9.7 14.4-.9-.3"></path>
 <path d="m3.2 11.9-.9-.3"></path>
 <path d="m4.6 16.7.3-.9"></path>
@@ -3581,7 +3579,7 @@ pub const FILE_DIFF: IconType = IconType{
 
 pub const FILE_DIGIT: IconType = IconType{ 
  content: r#"
-<rect width="4" y="12" rx="2" height="6" x="2"></rect>
+<rect x="2" height="6" width="4" y="12" rx="2"></rect>
 <path d="M14 2v6h6"></path>
 <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
 <path d="M10 12h2v6"></path>
@@ -3614,7 +3612,7 @@ pub const FILE_IMAGE: IconType = IconType{
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<circle cy="13" cx="10" r="2"></circle>
+<circle cy="13" r="2" cx="10"></circle>
 <path d="m20 17-1.09-1.09a2 2 0 0 0-2.82 0L10 22"></path>"#,
 };
 
@@ -3646,7 +3644,7 @@ pub const FILE_KEY_2: IconType = IconType{
  content: r#"
 <path d="M4 10V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<circle cx="4" r="2" cy="16"></circle>
+<circle cy="16" r="2" cx="4"></circle>
 <path d="m10 10-4.5 4.5"></path>
 <path d="m9 11 1 1"></path>"#,
 };
@@ -3654,7 +3652,7 @@ pub const FILE_KEY_2: IconType = IconType{
 pub const FILE_KEY: IconType = IconType{ 
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<circle r="2" cx="10" cy="16"></circle>
+<circle r="2" cy="16" cx="10"></circle>
 <path d="m16 10-4.5 4.5"></path>
 <path d="m15 11 1 1"></path>"#,
 };
@@ -3670,14 +3668,14 @@ pub const FILE_LOCK_2: IconType = IconType{
  content: r#"
 <path d="M4 5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<rect x="2" rx="1" y="13" width="8" height="5"></rect>
+<rect x="2" rx="1" height="5" width="8" y="13"></rect>
 <path d="M8 13v-2a2 2 0 1 0-4 0v2"></path>"#,
 };
 
 pub const FILE_LOCK: IconType = IconType{ 
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<rect x="8" width="8" rx="1" height="6" y="12"></rect>
+<rect width="8" rx="1" y="12" height="6" x="8"></rect>
 <path d="M15 12v-2a3 3 0 1 0-6 0v2"></path>"#,
 };
 
@@ -3692,7 +3690,7 @@ pub const FILE_MINUS: IconType = IconType{
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<line y1="15" y2="15" x1="9" x2="15"></line>"#,
+<line x2="15" y1="15" x1="9" y2="15"></line>"#,
 };
 
 pub const FILE_OUTPUT: IconType = IconType{ 
@@ -3723,8 +3721,8 @@ pub const FILE_PLUS: IconType = IconType{
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<line x2="12" y1="18" y2="12" x1="12"></line>
-<line y1="15" y2="15" x1="9" x2="15"></line>"#,
+<line y1="18" x1="12" y2="12" x2="12"></line>
+<line y1="15" y2="15" x2="15" x1="9"></line>"#,
 };
 
 pub const FILE_QUESTION: IconType = IconType{ 
@@ -3748,7 +3746,7 @@ pub const FILE_SEARCH_2: IconType = IconType{
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<circle cx="11.5" r="2.5" cy="14.5"></circle>
+<circle r="2.5" cx="11.5" cy="14.5"></circle>
 <path d="M13.25 16.25 15 18"></path>"#,
 };
 
@@ -3805,9 +3803,9 @@ pub const FILE_TEXT: IconType = IconType{
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<line y1="13" y2="13" x2="8" x1="16"></line>
-<line x2="8" y1="17" x1="16" y2="17"></line>
-<line x2="8" y2="9" x1="10" y1="9"></line>"#,
+<line y2="13" x1="16" x2="8" y1="13"></line>
+<line x2="8" x1="16" y1="17" y2="17"></line>
+<line x1="10" y1="9" x2="8" y2="9"></line>"#,
 };
 
 pub const FILE_TYPE_2: IconType = IconType{ 
@@ -3841,7 +3839,7 @@ pub const FILE_VIDEO_2: IconType = IconType{
 <path d="M4 8V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
 <path d="m10 15.5 4 2.5v-6l-4 2.5"></path>
-<rect y="12" height="6" width="8" x="2" rx="1"></rect>"#,
+<rect width="8" x="2" y="12" height="6" rx="1"></rect>"#,
 };
 
 pub const FILE_VIDEO: IconType = IconType{ 
@@ -3887,8 +3885,8 @@ pub const FILE_X: IconType = IconType{
  content: r#"
 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 <polyline points="14 2 14 8 20 8"></polyline>
-<line x1="9.5" y1="12.5" x2="14.5" y2="17.5"></line>
-<line y1="12.5" x1="14.5" x2="9.5" y2="17.5"></line>"#,
+<line y1="12.5" x1="9.5" y2="17.5" x2="14.5"></line>
+<line y1="12.5" x1="14.5" y2="17.5" x2="9.5"></line>"#,
 };
 
 pub const FILE: IconType = IconType{ 
@@ -3906,7 +3904,7 @@ pub const FILES: IconType = IconType{
 
 pub const FILM: IconType = IconType{ 
  content: r#"
-<rect y="3" x="3" rx="2" width="18" height="18"></rect>
+<rect x="3" width="18" rx="2" height="18" y="3"></rect>
 <path d="M7 3v18"></path>
 <path d="M3 7.5h4"></path>
 <path d="M3 12h18"></path>
@@ -3968,7 +3966,7 @@ pub const FLAG_OFF: IconType = IconType{
 <path d="M8 2c3 0 5 2 8 2s4-1 4-1v11"></path>
 <path d="M4 22V4"></path>
 <path d="M4 15s1-1 4-1 5 2 8 2"></path>
-<line y2="22" x1="2" y1="2" x2="22"></line>"#,
+<line x2="22" y1="2" y2="22" x1="2"></line>"#,
 };
 
 pub const FLAG_TRIANGLE_LEFT: IconType = IconType{ 
@@ -3984,7 +3982,7 @@ pub const FLAG_TRIANGLE_RIGHT: IconType = IconType{
 pub const FLAG: IconType = IconType{ 
  content: r#"
 <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-<line x1="4" y1="22" x2="4" y2="15"></line>"#,
+<line x2="4" x1="4" y1="22" y2="15"></line>"#,
 };
 
 pub const FLAME: IconType = IconType{ 
@@ -3996,15 +3994,15 @@ pub const FLASHLIGHT_OFF: IconType = IconType{
  content: r#"
 <path d="M16 16v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4"></path>
 <path d="M7 2h11v4c0 2-2 2-2 4v1"></path>
-<line x1="11" y2="6" x2="18" y1="6"></line>
-<line x1="2" y1="2" x2="22" y2="22"></line>"#,
+<line y1="6" y2="6" x1="11" x2="18"></line>
+<line y1="2" x2="22" x1="2" y2="22"></line>"#,
 };
 
 pub const FLASHLIGHT: IconType = IconType{ 
  content: r#"
 <path d="M18 6c0 2-2 2-2 4v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4V2h12z"></path>
-<line y2="6" y1="6" x1="6" x2="18"></line>
-<line y1="12" x1="12" x2="12" y2="12"></line>"#,
+<line x1="6" y2="6" y1="6" x2="18"></line>
+<line y2="12" x2="12" y1="12" x1="12"></line>"#,
 };
 
 pub const FLASK_CONICAL_OFF: IconType = IconType{ 
@@ -4014,7 +4012,7 @@ pub const FLASK_CONICAL_OFF: IconType = IconType{
 <path d="M14 2v6.343"></path>
 <path d="M8.5 2h7"></path>
 <path d="M7 16h9"></path>
-<line x1="2" y2="22" x2="22" y1="2"></line>"#,
+<line x2="22" y2="22" x1="2" y1="2"></line>"#,
 };
 
 pub const FLASK_CONICAL: IconType = IconType{ 
@@ -4076,7 +4074,7 @@ pub const FLIP_VERTICAL: IconType = IconType{
 pub const FLOWER_2: IconType = IconType{ 
  content: r#"
 <path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path>
-<circle cx="12" r="2" cy="8"></circle>
+<circle cx="12" cy="8" r="2"></circle>
 <path d="M12 10v12"></path>
 <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path>
 <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path>"#,
@@ -4085,7 +4083,7 @@ pub const FLOWER_2: IconType = IconType{
 pub const FLOWER: IconType = IconType{ 
  content: r#"
 <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"></path>
-<circle cy="12" cx="12" r="3"></circle>
+<circle r="3" cx="12" cy="12"></circle>
 <path d="m8 16 1.5-1.5"></path>
 <path d="M14.5 9.5 16 8"></path>
 <path d="m8 8 1.5 1.5"></path>
@@ -4094,7 +4092,7 @@ pub const FLOWER: IconType = IconType{
 
 pub const FOCUS: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="3"></circle>
+<circle cy="12" r="3" cx="12"></circle>
 <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
 <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
 <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
@@ -4142,7 +4140,7 @@ pub const FOLDER_CHECK: IconType = IconType{
 pub const FOLDER_CLOCK: IconType = IconType{ 
  content: r#"
 <path d="M7 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2"></path>
-<circle cx="16" r="6" cy="16"></circle>
+<circle r="6" cy="16" cx="16"></circle>
 <path d="M16 14v2l1 1"></path>"#,
 };
 
@@ -4154,7 +4152,7 @@ pub const FOLDER_CLOSED: IconType = IconType{
 
 pub const FOLDER_COG: IconType = IconType{ 
  content: r#"
-<circle r="3" cx="18" cy="18"></circle>
+<circle r="3" cy="18" cx="18"></circle>
 <path d="M10.5 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v3.5"></path>
 <path d="m21.7 19.4-.9-.3"></path>
 <path d="m15.2 16.9-.9-.3"></path>
@@ -4169,7 +4167,7 @@ pub const FOLDER_COG: IconType = IconType{
 pub const FOLDER_DOT: IconType = IconType{ 
  content: r#"
 <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle cy="13" cx="12" r="1"></circle>"#,
+<circle cy="13" r="1" cx="12"></circle>"#,
 };
 
 pub const FOLDER_DOWN: IconType = IconType{ 
@@ -4188,15 +4186,15 @@ pub const FOLDER_EDIT: IconType = IconType{
 pub const FOLDER_GIT_2: IconType = IconType{ 
  content: r#"
 <path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"></path>
-<circle r="2" cy="12" cx="13"></circle>
+<circle cy="12" r="2" cx="13"></circle>
 <path d="M18 19c-2.8 0-5-2.2-5-5v8"></path>
-<circle cy="19" r="2" cx="20"></circle>"#,
+<circle cx="20" r="2" cy="19"></circle>"#,
 };
 
 pub const FOLDER_GIT: IconType = IconType{ 
  content: r#"
 <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle cy="13" r="2" cx="12"></circle>
+<circle cx="12" cy="13" r="2"></circle>
 <path d="M14 13h3"></path>
 <path d="M7 13h3"></path>"#,
 };
@@ -4225,7 +4223,7 @@ pub const FOLDER_KANBAN: IconType = IconType{
 pub const FOLDER_KEY: IconType = IconType{ 
  content: r#"
 <path d="M10 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v2"></path>
-<circle r="2" cy="20" cx="16"></circle>
+<circle r="2" cx="16" cy="20"></circle>
 <path d="m22 14-4.5 4.5"></path>
 <path d="m21 15 1 1"></path>"#,
 };
@@ -4233,20 +4231,20 @@ pub const FOLDER_KEY: IconType = IconType{
 pub const FOLDER_LOCK: IconType = IconType{ 
  content: r#"
 <path d="M10 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v2.5"></path>
-<rect width="8" y="17" rx="1" x="14" height="5"></rect>
+<rect height="5" rx="1" x="14" y="17" width="8"></rect>
 <path d="M20 17v-2a2 2 0 1 0-4 0v2"></path>"#,
 };
 
 pub const FOLDER_MINUS: IconType = IconType{ 
  content: r#"
 <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<line y1="13" y2="13" x2="15" x1="9"></line>"#,
+<line y1="13" y2="13" x1="9" x2="15"></line>"#,
 };
 
 pub const FOLDER_OPEN_DOT: IconType = IconType{ 
  content: r#"
 <path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"></path>
-<circle cy="15" r="1" cx="14"></circle>"#,
+<circle cx="14" cy="15" r="1"></circle>"#,
 };
 
 pub const FOLDER_OPEN: IconType = IconType{ 
@@ -4264,28 +4262,28 @@ pub const FOLDER_OUTPUT: IconType = IconType{
 pub const FOLDER_PLUS: IconType = IconType{ 
  content: r#"
 <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<line y1="10" x1="12" x2="12" y2="16"></line>
-<line x2="15" y2="13" x1="9" y1="13"></line>"#,
+<line y1="10" x2="12" x1="12" y2="16"></line>
+<line y1="13" x2="15" y2="13" x1="9"></line>"#,
 };
 
 pub const FOLDER_ROOT: IconType = IconType{ 
  content: r#"
 <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle cy="13" r="2" cx="12"></circle>
+<circle cx="12" cy="13" r="2"></circle>
 <path d="M12 15v5"></path>"#,
 };
 
 pub const FOLDER_SEARCH_2: IconType = IconType{ 
  content: r#"
 <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle cy="12.5" cx="11.5" r="2.5"></circle>
+<circle cy="12.5" r="2.5" cx="11.5"></circle>
 <path d="M13.27 14.27 15 16"></path>"#,
 };
 
 pub const FOLDER_SEARCH: IconType = IconType{ 
  content: r#"
 <path d="M11 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v4"></path>
-<circle cy="17" cx="17" r="3"></circle>
+<circle r="3" cx="17" cy="17"></circle>
 <path d="m21 21-1.5-1.5"></path>"#,
 };
 
@@ -4350,13 +4348,13 @@ pub const FORKLIFT: IconType = IconType{
  content: r#"
 <path d="M12 12H5a2 2 0 0 0-2 2v5"></path>
 <circle cx="13" cy="19" r="2"></circle>
-<circle cx="5" cy="19" r="2"></circle>
+<circle cy="19" r="2" cx="5"></circle>
 <path d="M8 19h3m5-17v17h6M6 12V7c0-1.1.9-2 2-2h3l5 5"></path>"#,
 };
 
 pub const FORM_INPUT: IconType = IconType{ 
  content: r#"
-<rect rx="2" y="6" x="2" height="12" width="20"></rect>
+<rect width="20" x="2" height="12" y="6" rx="2"></rect>
 <path d="M12 12h.01"></path>
 <path d="M17 12h.01"></path>
 <path d="M7 12h.01"></path>"#,
@@ -4370,10 +4368,10 @@ pub const FORWARD: IconType = IconType{
 
 pub const FRAME: IconType = IconType{ 
  content: r#"
-<line y2="6" x1="22" x2="2" y1="6"></line>
-<line y1="18" x1="22" x2="2" y2="18"></line>
-<line y2="22" x1="6" x2="6" y1="2"></line>
-<line y1="2" x1="18" y2="22" x2="18"></line>"#,
+<line x2="2" y1="6" x1="22" y2="6"></line>
+<line x2="2" y1="18" y2="18" x1="22"></line>
+<line x1="6" y2="22" y1="2" x2="6"></line>
+<line y1="2" y2="22" x1="18" x2="18"></line>"#,
 };
 
 pub const FRAMER: IconType = IconType{ 
@@ -4383,23 +4381,23 @@ pub const FRAMER: IconType = IconType{
 
 pub const FROWN: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
-<line y2="9" y1="9" x1="9" x2="9.01"></line>
-<line x1="15" y1="9" x2="15.01" y2="9"></line>"#,
+<line y1="9" x2="9.01" y2="9" x1="9"></line>
+<line y1="9" x1="15" y2="9" x2="15.01"></line>"#,
 };
 
 pub const FUEL: IconType = IconType{ 
  content: r#"
-<line x2="15" y1="22" y2="22" x1="3"></line>
-<line x1="4" x2="14" y1="9" y2="9"></line>
+<line x1="3" y1="22" x2="15" y2="22"></line>
+<line x1="4" x2="14" y2="9" y1="9"></line>
 <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"></path>
 <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path>"#,
 };
 
 pub const FUNCTION_SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" width="18" height="18" y="3" rx="2" ry="2"></rect>
+<rect height="18" x="3" width="18" y="3" rx="2" ry="2"></rect>
 <path d="M9 17c2 0 2.8-1 2.8-2.8V10c0-2 1-3.3 3.2-3"></path>
 <path d="M9 11.2h5.7"></path>"#,
 };
@@ -4408,19 +4406,19 @@ pub const GALLERY_HORIZONTAL_END: IconType = IconType{
  content: r#"
 <path d="M2 7v10"></path>
 <path d="M6 5v14"></path>
-<rect rx="2" width="12" y="3" height="18" x="10"></rect>"#,
+<rect y="3" height="18" x="10" rx="2" width="12"></rect>"#,
 };
 
 pub const GALLERY_HORIZONTAL: IconType = IconType{ 
  content: r#"
 <path d="M2 3v18"></path>
-<rect height="18" width="12" x="6" y="3" rx="2"></rect>
+<rect rx="2" width="12" height="18" y="3" x="6"></rect>
 <path d="M22 3v18"></path>"#,
 };
 
 pub const GALLERY_THUMBNAILS: IconType = IconType{ 
  content: r#"
-<rect rx="2" y="3" width="18" x="3" height="14"></rect>
+<rect rx="2" width="18" height="14" x="3" y="3"></rect>
 <path d="M4 21h1"></path>
 <path d="M9 21h1"></path>
 <path d="M14 21h1"></path>
@@ -4431,37 +4429,37 @@ pub const GALLERY_VERTICAL_END: IconType = IconType{
  content: r#"
 <path d="M7 2h10"></path>
 <path d="M5 6h14"></path>
-<rect x="3" height="12" y="10" rx="2" width="18"></rect>"#,
+<rect rx="2" width="18" x="3" y="10" height="12"></rect>"#,
 };
 
 pub const GALLERY_VERTICAL: IconType = IconType{ 
  content: r#"
 <path d="M3 2h18"></path>
-<rect rx="2" width="18" y="6" height="12" x="3"></rect>
+<rect height="12" width="18" rx="2" x="3" y="6"></rect>
 <path d="M3 22h18"></path>"#,
 };
 
 pub const GAMEPAD_2: IconType = IconType{ 
  content: r#"
-<line y1="11" y2="11" x1="6" x2="10"></line>
-<line y1="9" x2="8" x1="8" y2="13"></line>
-<line x2="15.01" x1="15" y2="12" y1="12"></line>
-<line y1="10" x2="18.01" y2="10" x1="18"></line>
+<line y2="11" x1="6" x2="10" y1="11"></line>
+<line y2="13" x2="8" y1="9" x1="8"></line>
+<line y2="12" x1="15" x2="15.01" y1="12"></line>
+<line y2="10" y1="10" x1="18" x2="18.01"></line>
 <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path>"#,
 };
 
 pub const GAMEPAD: IconType = IconType{ 
  content: r#"
-<line x1="6" y2="12" x2="10" y1="12"></line>
-<line x1="8" x2="8" y1="10" y2="14"></line>
-<line x2="15.01" x1="15" y1="13" y2="13"></line>
+<line y2="12" x1="6" x2="10" y1="12"></line>
+<line y1="10" x1="8" x2="8" y2="14"></line>
+<line x2="15.01" y1="13" x1="15" y2="13"></line>
 <line y1="11" x1="18" y2="11" x2="18.01"></line>
-<rect y="6" width="20" height="12" rx="2" x="2"></rect>"#,
+<rect width="20" rx="2" height="12" x="2" y="6"></rect>"#,
 };
 
 pub const GANTT_CHART_SQUARE: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" x="3" rx="2" y="3"></rect>
+<rect height="18" y="3" rx="2" width="18" x="3"></rect>
 <path d="M9 8h7"></path>
 <path d="M8 12h6"></path>
 <path d="M11 16h5"></path>"#,
@@ -4477,7 +4475,7 @@ pub const GANTT_CHART: IconType = IconType{
 pub const GAUGE_CIRCLE: IconType = IconType{ 
  content: r#"
 <path d="M15.6 2.7a10 10 0 1 0 5.7 5.7"></path>
-<circle cx="12" cy="12" r="2"></circle>
+<circle r="2" cx="12" cy="12"></circle>
 <path d="M13.4 10.6 19 5"></path>"#,
 };
 
@@ -4513,8 +4511,8 @@ pub const GHOST: IconType = IconType{
 pub const GIFT: IconType = IconType{ 
  content: r#"
 <polyline points="20 12 20 22 4 22 4 12"></polyline>
-<rect width="20" height="5" y="7" x="2"></rect>
-<line y1="22" y2="7" x1="12" x2="12"></line>
+<rect y="7" width="20" height="5" x="2"></rect>
+<line x1="12" y1="22" y2="7" x2="12"></line>
 <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
 <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>"#,
 };
@@ -4531,22 +4529,22 @@ pub const GIT_BRANCH_PLUS: IconType = IconType{
 
 pub const GIT_BRANCH: IconType = IconType{ 
  content: r#"
-<line y2="15" y1="3" x1="6" x2="6"></line>
-<circle r="3" cy="6" cx="18"></circle>
-<circle cx="6" r="3" cy="18"></circle>
+<line x1="6" x2="6" y1="3" y2="15"></line>
+<circle r="3" cx="18" cy="6"></circle>
+<circle cx="6" cy="18" r="3"></circle>
 <path d="M18 9a9 9 0 0 1-9 9"></path>"#,
 };
 
 pub const GIT_COMMIT: IconType = IconType{ 
  content: r#"
 <circle r="3" cx="12" cy="12"></circle>
-<line x2="9" y2="12" y1="12" x1="3"></line>
-<line x1="15" x2="21" y1="12" y2="12"></line>"#,
+<line x2="9" y1="12" x1="3" y2="12"></line>
+<line x2="21" x1="15" y2="12" y1="12"></line>"#,
 };
 
 pub const GIT_COMPARE: IconType = IconType{ 
  content: r#"
-<circle r="3" cx="18" cy="18"></circle>
+<circle cx="18" cy="18" r="3"></circle>
 <circle cx="6" cy="6" r="3"></circle>
 <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
 <path d="M11 18H8a2 2 0 0 1-2-2V9"></path>"#,
@@ -4554,45 +4552,45 @@ pub const GIT_COMPARE: IconType = IconType{
 
 pub const GIT_FORK: IconType = IconType{ 
  content: r#"
-<circle cy="18" cx="12" r="3"></circle>
-<circle cy="6" cx="6" r="3"></circle>
-<circle cy="6" r="3" cx="18"></circle>
+<circle cy="18" r="3" cx="12"></circle>
+<circle cx="6" r="3" cy="6"></circle>
+<circle r="3" cx="18" cy="6"></circle>
 <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"></path>
 <path d="M12 12v3"></path>"#,
 };
 
 pub const GIT_MERGE: IconType = IconType{ 
  content: r#"
-<circle cx="18" r="3" cy="18"></circle>
-<circle cx="6" cy="6" r="3"></circle>
+<circle cy="18" r="3" cx="18"></circle>
+<circle cx="6" r="3" cy="6"></circle>
 <path d="M6 21V9a9 9 0 0 0 9 9"></path>"#,
 };
 
 pub const GIT_PULL_REQUEST_CLOSED: IconType = IconType{ 
  content: r#"
-<circle cx="18" r="3" cy="18"></circle>
-<circle r="3" cx="6" cy="6"></circle>
+<circle cx="18" cy="18" r="3"></circle>
+<circle cx="6" r="3" cy="6"></circle>
 <path d="M18 11.5V15"></path>
 <path d="m21 3-6 6"></path>
 <path d="m21 9-6-6"></path>
-<line y2="21" x1="6" y1="9" x2="6"></line>"#,
+<line x1="6" y1="9" x2="6" y2="21"></line>"#,
 };
 
 pub const GIT_PULL_REQUEST_DRAFT: IconType = IconType{ 
  content: r#"
-<circle r="3" cy="18" cx="18"></circle>
-<circle cx="6" r="3" cy="6"></circle>
+<circle cy="18" r="3" cx="18"></circle>
+<circle cy="6" cx="6" r="3"></circle>
 <path d="M18 6V5"></path>
 <path d="M18 11v-1"></path>
-<line x1="6" x2="6" y1="9" y2="21"></line>"#,
+<line x2="6" y1="9" y2="21" x1="6"></line>"#,
 };
 
 pub const GIT_PULL_REQUEST: IconType = IconType{ 
  content: r#"
-<circle r="3" cx="18" cy="18"></circle>
+<circle cx="18" r="3" cy="18"></circle>
 <circle r="3" cx="6" cy="6"></circle>
 <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-<line x1="6" y1="9" y2="21" x2="6"></line>"#,
+<line x2="6" x1="6" y2="21" y1="9"></line>"#,
 };
 
 pub const GITHUB: IconType = IconType{ 
@@ -4614,8 +4612,8 @@ pub const GLASS_WATER: IconType = IconType{
 
 pub const GLASSES: IconType = IconType{ 
  content: r#"
-<circle cx="6" cy="15" r="4"></circle>
-<circle cy="15" r="4" cx="18"></circle>
+<circle r="4" cx="6" cy="15"></circle>
+<circle cx="18" cy="15" r="4"></circle>
 <path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"></path>
 <path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"></path>
 <path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"></path>"#,
@@ -4626,13 +4624,13 @@ pub const GLOBE_2: IconType = IconType{
 <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path>
 <path d="M7 3.34V5a3 3 0 0 0 3 3v0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2v0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17"></path>
 <path d="M11 21.95V18a2 2 0 0 0-2-2v0a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path>
-<circle cy="12" r="10" cx="12"></circle>"#,
+<circle r="10" cx="12" cy="12"></circle>"#,
 };
 
 pub const GLOBE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
-<line x1="2" y1="12" x2="22" y2="12"></line>
+<circle r="10" cx="12" cy="12"></circle>
+<line y1="12" x2="22" y2="12" x1="2"></line>
 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>"#,
 };
 
@@ -4661,26 +4659,26 @@ pub const GRADUATION_CAP: IconType = IconType{
 pub const GRAPE: IconType = IconType{ 
  content: r#"
 <path d="M22 5V2l-5.89 5.89"></path>
-<circle cy="15.89" r="3" cx="16.6"></circle>
-<circle r="3" cx="8.11" cy="7.4"></circle>
-<circle cx="12.35" cy="11.65" r="3"></circle>
-<circle r="3" cy="5.85" cx="13.91"></circle>
-<circle r="3" cx="18.15" cy="10.09"></circle>
-<circle cx="6.56" r="3" cy="13.2"></circle>
+<circle cx="16.6" cy="15.89" r="3"></circle>
+<circle cx="8.11" r="3" cy="7.4"></circle>
+<circle cy="11.65" cx="12.35" r="3"></circle>
+<circle cy="5.85" cx="13.91" r="3"></circle>
+<circle cx="18.15" r="3" cy="10.09"></circle>
+<circle r="3" cy="13.2" cx="6.56"></circle>
 <circle cx="10.8" cy="17.44" r="3"></circle>
-<circle cx="5" cy="19" r="3"></circle>"#,
+<circle r="3" cy="19" cx="5"></circle>"#,
 };
 
 pub const GRID_2_X_2: IconType = IconType{ 
  content: r#"
-<rect x="3" y="3" height="18" width="18" rx="2"></rect>
+<rect height="18" x="3" y="3" width="18" rx="2"></rect>
 <path d="M3 12h18"></path>
 <path d="M12 3v18"></path>"#,
 };
 
 pub const GRID_3_X_3: IconType = IconType{ 
  content: r#"
-<rect x="3" height="18" width="18" y="3" rx="2"></rect>
+<rect x="3" width="18" y="3" rx="2" height="18"></rect>
 <path d="M3 9h18"></path>
 <path d="M3 15h18"></path>
 <path d="M9 3v18"></path>
@@ -4690,34 +4688,34 @@ pub const GRID_3_X_3: IconType = IconType{
 pub const GRIP_HORIZONTAL: IconType = IconType{ 
  content: r#"
 <circle cx="12" cy="9" r="1"></circle>
-<circle cy="9" r="1" cx="19"></circle>
-<circle cx="5" r="1" cy="9"></circle>
-<circle cy="15" cx="12" r="1"></circle>
-<circle r="1" cx="19" cy="15"></circle>
+<circle cx="19" r="1" cy="9"></circle>
+<circle cx="5" cy="9" r="1"></circle>
+<circle cx="12" cy="15" r="1"></circle>
+<circle cy="15" cx="19" r="1"></circle>
 <circle cy="15" r="1" cx="5"></circle>"#,
 };
 
 pub const GRIP_VERTICAL: IconType = IconType{ 
  content: r#"
-<circle cx="9" cy="12" r="1"></circle>
+<circle cy="12" r="1" cx="9"></circle>
 <circle cx="9" cy="5" r="1"></circle>
-<circle cx="9" cy="19" r="1"></circle>
-<circle cy="12" r="1" cx="15"></circle>
-<circle cy="5" cx="15" r="1"></circle>
-<circle cx="15" cy="19" r="1"></circle>"#,
+<circle r="1" cy="19" cx="9"></circle>
+<circle cx="15" cy="12" r="1"></circle>
+<circle cx="15" cy="5" r="1"></circle>
+<circle cy="19" cx="15" r="1"></circle>"#,
 };
 
 pub const GRIP: IconType = IconType{ 
  content: r#"
-<circle r="1" cx="12" cy="5"></circle>
-<circle cx="19" r="1" cy="5"></circle>
-<circle r="1" cx="5" cy="5"></circle>
-<circle cy="12" cx="12" r="1"></circle>
-<circle r="1" cx="19" cy="12"></circle>
-<circle cx="5" r="1" cy="12"></circle>
-<circle r="1" cx="12" cy="19"></circle>
-<circle r="1" cx="19" cy="19"></circle>
-<circle cy="19" cx="5" r="1"></circle>"#,
+<circle cy="5" cx="12" r="1"></circle>
+<circle r="1" cx="19" cy="5"></circle>
+<circle r="1" cy="5" cx="5"></circle>
+<circle r="1" cx="12" cy="12"></circle>
+<circle cx="19" cy="12" r="1"></circle>
+<circle cy="12" r="1" cx="5"></circle>
+<circle cy="19" r="1" cx="12"></circle>
+<circle cx="19" r="1" cy="19"></circle>
+<circle r="1" cx="5" cy="19"></circle>"#,
 };
 
 pub const GROUP: IconType = IconType{ 
@@ -4726,8 +4724,8 @@ pub const GROUP: IconType = IconType{
 <path d="M17 3h2c1.1 0 2 .9 2 2v2"></path>
 <path d="M21 17v2c0 1.1-.9 2-2 2h-2"></path>
 <path d="M7 21H5c-1.1 0-2-.9-2-2v-2"></path>
-<rect height="5" y="7" width="7" x="7" rx="1"></rect>
-<rect rx="1" x="10" width="7" height="5" y="12"></rect>"#,
+<rect y="7" x="7" width="7" rx="1" height="5"></rect>
+<rect rx="1" y="12" width="7" height="5" x="10"></rect>"#,
 };
 
 pub const HAMMER: IconType = IconType{ 
@@ -4757,7 +4755,7 @@ pub const HARD_DRIVE_DOWNLOAD: IconType = IconType{
  content: r#"
 <path d="M12 2v8"></path>
 <path d="m16 6-4 4-4-4"></path>
-<rect x="2" height="8" width="20" y="14" rx="2"></rect>
+<rect x="2" width="20" y="14" height="8" rx="2"></rect>
 <path d="M6 18h.01"></path>
 <path d="M10 18h.01"></path>"#,
 };
@@ -4766,17 +4764,17 @@ pub const HARD_DRIVE_UPLOAD: IconType = IconType{
  content: r#"
 <path d="m16 6-4-4-4 4"></path>
 <path d="M12 2v8"></path>
-<rect height="8" x="2" y="14" rx="2" width="20"></rect>
+<rect rx="2" x="2" width="20" height="8" y="14"></rect>
 <path d="M6 18h.01"></path>
 <path d="M10 18h.01"></path>"#,
 };
 
 pub const HARD_DRIVE: IconType = IconType{ 
  content: r#"
-<line y1="12" x1="22" y2="12" x2="2"></line>
+<line x1="22" y1="12" x2="2" y2="12"></line>
 <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-<line x1="6" x2="6.01" y2="16" y1="16"></line>
-<line x1="10" y1="16" x2="10.01" y2="16"></line>"#,
+<line x1="6" x2="6.01" y1="16" y2="16"></line>
+<line y2="16" x2="10.01" x1="10" y1="16"></line>"#,
 };
 
 pub const HARD_HAT: IconType = IconType{ 
@@ -4789,10 +4787,10 @@ pub const HARD_HAT: IconType = IconType{
 
 pub const HASH: IconType = IconType{ 
  content: r#"
-<line y2="9" y1="9" x2="20" x1="4"></line>
-<line y1="15" x1="4" x2="20" y2="15"></line>
-<line x1="10" y2="21" y1="3" x2="8"></line>
-<line x1="16" y2="21" y1="3" x2="14"></line>"#,
+<line x2="20" y2="9" y1="9" x1="4"></line>
+<line x1="4" y1="15" x2="20" y2="15"></line>
+<line y1="3" x2="8" x1="10" y2="21"></line>
+<line x1="16" y1="3" x2="14" y2="21"></line>"#,
 };
 
 pub const HAZE: IconType = IconType{ 
@@ -4861,7 +4859,7 @@ pub const HEADING_6: IconType = IconType{
 <path d="M4 12h8"></path>
 <path d="M4 18V6"></path>
 <path d="M12 18V6"></path>
-<circle cx="19" cy="16" r="2"></circle>
+<circle cy="16" cx="19" r="2"></circle>
 <path d="M20 10c-2 2-3 3.5-3 6"></path>"#,
 };
 
@@ -4893,7 +4891,7 @@ pub const HEART_HANDSHAKE: IconType = IconType{
 
 pub const HEART_OFF: IconType = IconType{ 
  content: r#"
-<line x2="22" x1="2" y2="22" y1="2"></line>
+<line y1="2" x2="22" y2="22" x1="2"></line>
 <path d="M16.5 16.5 12 21l-7-7c-1.5-1.45-3-3.2-3-5.5a5.5 5.5 0 0 1 2.14-4.35"></path>
 <path d="M8.76 3.1c1.15.22 2.13.78 3.24 1.9 1.5-1.5 2.74-2 4.5-2A5.5 5.5 0 0 1 22 8.5c0 2.12-1.3 3.78-2.67 5.17"></path>"#,
 };
@@ -4911,7 +4909,7 @@ pub const HEART: IconType = IconType{
 
 pub const HELP_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cy="12" cx="12"></circle>
 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
 <path d="M12 17h.01"></path>"#,
 };
@@ -4955,7 +4953,7 @@ pub const HOP_OFF: IconType = IconType{
 <path d="M11.5 20c1.5 1 3.5 2 4.5 2 .5-1.5 0-3-.5-4.5"></path>
 <path d="M22 22c-2 0-3.5-.5-5.5-1.5"></path>
 <path d="M4.783 4.782C1.073 8.492 1 14.5 5 18c1-1 2-4.5 1.5-6.5 1.5 1 4 1 5.5.5M8.227 2.57C11.578 1.335 15.453 2.089 18 5c-.88.88-3.7 1.761-5.726 1.618"></path>
-<line x1="2" y2="22" x2="22" y1="2"></line>"#,
+<line y1="2" x2="22" x1="2" y2="22"></line>"#,
 };
 
 pub const HOP: IconType = IconType{ 
@@ -5008,8 +5006,8 @@ pub const ICE_CREAM: IconType = IconType{
 pub const IMAGE_MINUS: IconType = IconType{ 
  content: r#"
 <path d="M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
-<line x2="22" x1="16" y2="5" y1="5"></line>
-<circle cx="9" cy="9" r="2"></circle>
+<line y1="5" y2="5" x2="22" x1="16"></line>
+<circle cy="9" r="2" cx="9"></circle>
 <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>"#,
 };
 
@@ -5017,8 +5015,8 @@ pub const IMAGE_OFF: IconType = IconType{
  content: r#"
 <line y2="22" y1="2" x1="2" x2="22"></line>
 <path d="M10.41 10.41a2 2 0 1 1-2.83-2.83"></path>
-<line y1="13.5" x2="6" x1="13.5" y2="21"></line>
-<line y2="15" x1="18" x2="21" y1="12"></line>
+<line x2="6" y1="13.5" y2="21" x1="13.5"></line>
+<line x1="18" x2="21" y1="12" y2="15"></line>
 <path d="M3.59 3.59A1.99 1.99 0 0 0 3 5v14a2 2 0 0 0 2 2h14c.55 0 1.052-.22 1.41-.59"></path>
 <path d="M21 15V5a2 2 0 0 0-2-2H9"></path>"#,
 };
@@ -5026,15 +5024,15 @@ pub const IMAGE_OFF: IconType = IconType{
 pub const IMAGE_PLUS: IconType = IconType{ 
  content: r#"
 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
-<line y2="5" x2="22" y1="5" x1="16"></line>
-<line x1="19" y2="8" y1="2" x2="19"></line>
+<line x2="22" y2="5" x1="16" y1="5"></line>
+<line x2="19" y1="2" x1="19" y2="8"></line>
 <circle cx="9" cy="9" r="2"></circle>
 <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>"#,
 };
 
 pub const IMAGE: IconType = IconType{ 
  content: r#"
-<rect rx="2" x="3" y="3" width="18" height="18" ry="2"></rect>
+<rect rx="2" width="18" ry="2" y="3" height="18" x="3"></rect>
 <circle cx="9" r="2" cy="9"></circle>
 <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>"#,
 };
@@ -5055,9 +5053,9 @@ pub const INBOX: IconType = IconType{
 pub const INDENT: IconType = IconType{ 
  content: r#"
 <polyline points="3 8 7 12 3 16"></polyline>
-<line y1="12" x2="11" x1="21" y2="12"></line>
-<line x2="11" y1="6" x1="21" y2="6"></line>
-<line y2="18" x2="11" y1="18" x1="21"></line>"#,
+<line x1="21" x2="11" y2="12" y1="12"></line>
+<line y1="6" x2="11" y2="6" x1="21"></line>
+<line x2="11" y2="18" x1="21" y1="18"></line>"#,
 };
 
 pub const INDIAN_RUPEE: IconType = IconType{ 
@@ -5076,23 +5074,23 @@ pub const INFINITY: IconType = IconType{
 
 pub const INFO: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
+<circle cy="12" cx="12" r="10"></circle>
 <path d="M12 16v-4"></path>
 <path d="M12 8h.01"></path>"#,
 };
 
 pub const INSTAGRAM: IconType = IconType{ 
  content: r#"
-<rect height="20" y="2" x="2" rx="5" ry="5" width="20"></rect>
+<rect x="2" width="20" ry="5" height="20" y="2" rx="5"></rect>
 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-<line y1="6.5" x2="17.51" y2="6.5" x1="17.5"></line>"#,
+<line x1="17.5" y1="6.5" y2="6.5" x2="17.51"></line>"#,
 };
 
 pub const ITALIC: IconType = IconType{ 
  content: r#"
-<line y1="4" x1="19" x2="10" y2="4"></line>
-<line y1="20" x2="5" x1="14" y2="20"></line>
-<line y1="4" x2="9" y2="20" x1="15"></line>"#,
+<line x2="10" y1="4" y2="4" x1="19"></line>
+<line y1="20" x2="5" y2="20" x1="14"></line>
+<line x2="9" y1="4" y2="20" x1="15"></line>"#,
 };
 
 pub const ITERATION_CCW: IconType = IconType{ 
@@ -5119,7 +5117,7 @@ pub const JOYSTICK: IconType = IconType{
 <path d="M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2Z"></path>
 <path d="M6 15v-2"></path>
 <path d="M12 15V9"></path>
-<circle r="3" cy="6" cx="12"></circle>"#,
+<circle cx="12" cy="6" r="3"></circle>"#,
 };
 
 pub const KANBAN_SQUARE_DASHED: IconType = IconType{ 
@@ -5143,7 +5141,7 @@ pub const KANBAN_SQUARE_DASHED: IconType = IconType{
 
 pub const KANBAN_SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" rx="2" height="18" y="3" width="18"></rect>
+<rect rx="2" x="3" width="18" y="3" height="18"></rect>
 <path d="M8 7v7"></path>
 <path d="M12 7v4"></path>
 <path d="M16 7v9"></path>"#,
@@ -5159,7 +5157,7 @@ pub const KANBAN: IconType = IconType{
 pub const KEY_ROUND: IconType = IconType{ 
  content: r#"
 <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z"></path>
-<circle cx="16.5" cy="7.5" r=".5"></circle>"#,
+<circle r=".5" cx="16.5" cy="7.5"></circle>"#,
 };
 
 pub const KEY_SQUARE: IconType = IconType{ 
@@ -5171,14 +5169,14 @@ pub const KEY_SQUARE: IconType = IconType{
 
 pub const KEY: IconType = IconType{ 
  content: r#"
-<circle cx="7.5" cy="15.5" r="5.5"></circle>
+<circle r="5.5" cx="7.5" cy="15.5"></circle>
 <path d="m21 2-9.6 9.6"></path>
 <path d="m15.5 7.5 3 3L22 7l-3-3"></path>"#,
 };
 
 pub const KEYBOARD: IconType = IconType{ 
  content: r#"
-<rect x="2" y="4" rx="2" ry="2" width="20" height="16"></rect>
+<rect height="16" ry="2" rx="2" y="4" width="20" x="2"></rect>
 <path d="M6 8h.001"></path>
 <path d="M10 8h.001"></path>
 <path d="M14 8h.001"></path>
@@ -5234,11 +5232,11 @@ pub const LAMP: IconType = IconType{
 
 pub const LANDMARK: IconType = IconType{ 
  content: r#"
-<line y1="22" x2="21" x1="3" y2="22"></line>
-<line y1="18" x2="6" x1="6" y2="11"></line>
-<line y1="18" x1="10" y2="11" x2="10"></line>
-<line x2="14" y2="11" x1="14" y1="18"></line>
-<line x2="18" y1="18" x1="18" y2="11"></line>
+<line x2="21" y2="22" y1="22" x1="3"></line>
+<line y2="11" y1="18" x2="6" x1="6"></line>
+<line x1="10" x2="10" y1="18" y2="11"></line>
+<line x1="14" y1="18" x2="14" y2="11"></line>
+<line x1="18" x2="18" y1="18" y2="11"></line>
 <polygon points="12 2 20 7 4 7"></polygon>"#,
 };
 
@@ -5254,8 +5252,8 @@ pub const LANGUAGES: IconType = IconType{
 
 pub const LAPTOP_2: IconType = IconType{ 
  content: r#"
-<rect width="18" height="12" x="3" rx="2" y="4" ry="2"></rect>
-<line x2="22" y2="20" x1="2" y1="20"></line>"#,
+<rect height="12" x="3" width="18" rx="2" y="4" ry="2"></rect>
+<line x1="2" x2="22" y1="20" y2="20"></line>"#,
 };
 
 pub const LAPTOP: IconType = IconType{ 
@@ -5283,8 +5281,8 @@ pub const LAUGH: IconType = IconType{
  content: r#"
 <circle cx="12" cy="12" r="10"></circle>
 <path d="M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z"></path>
-<line x2="9.01" y1="9" y2="9" x1="9"></line>
-<line x1="15" y1="9" y2="9" x2="15.01"></line>"#,
+<line y1="9" x2="9.01" y2="9" x1="9"></line>
+<line x2="15.01" x1="15" y1="9" y2="9"></line>"#,
 };
 
 pub const LAYERS: IconType = IconType{ 
@@ -5296,24 +5294,24 @@ pub const LAYERS: IconType = IconType{
 
 pub const LAYOUT_DASHBOARD: IconType = IconType{ 
  content: r#"
-<rect y="3" rx="1" height="9" width="7" x="3"></rect>
-<rect y="3" height="5" x="14" rx="1" width="7"></rect>
-<rect x="14" width="7" height="9" y="12" rx="1"></rect>
-<rect x="3" height="5" width="7" y="16" rx="1"></rect>"#,
+<rect width="7" height="9" rx="1" x="3" y="3"></rect>
+<rect y="3" x="14" rx="1" height="5" width="7"></rect>
+<rect width="7" height="9" y="12" x="14" rx="1"></rect>
+<rect rx="1" width="7" height="5" x="3" y="16"></rect>"#,
 };
 
 pub const LAYOUT_GRID: IconType = IconType{ 
  content: r#"
-<rect x="3" rx="1" y="3" height="7" width="7"></rect>
-<rect rx="1" height="7" x="14" width="7" y="3"></rect>
-<rect height="7" width="7" x="14" rx="1" y="14"></rect>
-<rect height="7" x="3" y="14" rx="1" width="7"></rect>"#,
+<rect y="3" x="3" width="7" rx="1" height="7"></rect>
+<rect height="7" width="7" x="14" y="3" rx="1"></rect>
+<rect x="14" y="14" rx="1" height="7" width="7"></rect>
+<rect x="3" rx="1" y="14" width="7" height="7"></rect>"#,
 };
 
 pub const LAYOUT_LIST: IconType = IconType{ 
  content: r#"
-<rect height="7" y="3" width="7" rx="1" x="3"></rect>
-<rect height="7" width="7" rx="1" x="3" y="14"></rect>
+<rect rx="1" width="7" x="3" y="3" height="7"></rect>
+<rect width="7" height="7" x="3" y="14" rx="1"></rect>
 <path d="M14 4h7"></path>
 <path d="M14 9h7"></path>
 <path d="M14 15h7"></path>
@@ -5322,30 +5320,30 @@ pub const LAYOUT_LIST: IconType = IconType{
 
 pub const LAYOUT_PANEL_LEFT: IconType = IconType{ 
  content: r#"
-<rect x="3" y="3" rx="1" height="18" width="7"></rect>
-<rect rx="1" width="7" height="7" x="14" y="3"></rect>
-<rect y="14" height="7" rx="1" x="14" width="7"></rect>"#,
+<rect y="3" x="3" rx="1" width="7" height="18"></rect>
+<rect height="7" rx="1" y="3" x="14" width="7"></rect>
+<rect x="14" width="7" rx="1" y="14" height="7"></rect>"#,
 };
 
 pub const LAYOUT_PANEL_TOP: IconType = IconType{ 
  content: r#"
-<rect width="18" height="7" y="3" rx="1" x="3"></rect>
-<rect width="7" x="3" y="14" rx="1" height="7"></rect>
-<rect y="14" rx="1" x="14" width="7" height="7"></rect>"#,
+<rect y="3" rx="1" height="7" x="3" width="18"></rect>
+<rect width="7" rx="1" x="3" y="14" height="7"></rect>
+<rect height="7" rx="1" width="7" y="14" x="14"></rect>"#,
 };
 
 pub const LAYOUT_TEMPLATE: IconType = IconType{ 
  content: r#"
-<rect width="18" x="3" height="7" rx="1" y="3"></rect>
-<rect y="14" rx="1" width="9" x="3" height="7"></rect>
-<rect height="7" y="14" x="16" rx="1" width="5"></rect>"#,
+<rect width="18" height="7" y="3" rx="1" x="3"></rect>
+<rect x="3" width="9" rx="1" height="7" y="14"></rect>
+<rect height="7" width="5" x="16" y="14" rx="1"></rect>"#,
 };
 
 pub const LAYOUT: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
-<line y2="9" x1="3" x2="21" y1="9"></line>
-<line x1="9" y1="21" x2="9" y2="9"></line>"#,
+<rect height="18" x="3" width="18" y="3" ry="2" rx="2"></rect>
+<line y1="9" x1="3" x2="21" y2="9"></line>
+<line y2="9" x1="9" y1="21" x2="9"></line>"#,
 };
 
 pub const LEAF: IconType = IconType{ 
@@ -5370,7 +5368,7 @@ pub const LIBRARY: IconType = IconType{
 
 pub const LIFE_BUOY: IconType = IconType{ 
  content: r#"
-<circle cx="12" r="10" cy="12"></circle>
+<circle r="10" cy="12" cx="12"></circle>
 <path d="m4.93 4.93 4.24 4.24"></path>
 <path d="m14.83 9.17 4.24-4.24"></path>
 <path d="m14.83 14.83 4.24 4.24"></path>
@@ -5413,15 +5411,15 @@ pub const LINK_2_OFF: IconType = IconType{
  content: r#"
 <path d="M9 17H7A5 5 0 0 1 7 7"></path>
 <path d="M15 7h2a5 5 0 0 1 4 8"></path>
-<line y2="12" x1="8" x2="12" y1="12"></line>
-<line x1="2" x2="22" y2="22" y1="2"></line>"#,
+<line y1="12" x1="8" x2="12" y2="12"></line>
+<line y2="22" x1="2" x2="22" y1="2"></line>"#,
 };
 
 pub const LINK_2: IconType = IconType{ 
  content: r#"
 <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
 <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-<line y2="12" x1="8" y1="12" x2="16"></line>"#,
+<line x2="16" y1="12" x1="8" y2="12"></line>"#,
 };
 
 pub const LINK: IconType = IconType{ 
@@ -5433,7 +5431,7 @@ pub const LINK: IconType = IconType{
 pub const LINKEDIN: IconType = IconType{ 
  content: r#"
 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-<rect height="12" width="4" y="9" x="2"></rect>
+<rect width="4" height="12" x="2" y="9"></rect>
 <circle cy="4" r="2" cx="4"></circle>"#,
 };
 
@@ -5481,9 +5479,9 @@ pub const LIST_MUSIC: IconType = IconType{
 
 pub const LIST_ORDERED: IconType = IconType{ 
  content: r#"
-<line x1="10" y2="6" x2="21" y1="6"></line>
-<line x1="10" y1="12" y2="12" x2="21"></line>
-<line y1="18" y2="18" x1="10" x2="21"></line>
+<line x1="10" x2="21" y1="6" y2="6"></line>
+<line x1="10" x2="21" y2="12" y1="12"></line>
+<line x1="10" x2="21" y2="18" y1="18"></line>
 <path d="M4 6h1v4"></path>
 <path d="M4 10h2"></path>
 <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"></path>"#,
@@ -5518,7 +5516,7 @@ pub const LIST_START: IconType = IconType{
 
 pub const LIST_TODO: IconType = IconType{ 
  content: r#"
-<rect y="5" x="3" width="6" height="6" rx="1"></rect>
+<rect x="3" y="5" width="6" rx="1" height="6"></rect>
 <path d="m3 17 2 2 4-4"></path>
 <path d="M13 6h8"></path>
 <path d="M13 12h8"></path>
@@ -5553,12 +5551,12 @@ pub const LIST_X: IconType = IconType{
 
 pub const LIST: IconType = IconType{ 
  content: r#"
-<line y2="6" y1="6" x1="8" x2="21"></line>
-<line x2="21" y2="12" y1="12" x1="8"></line>
-<line y2="18" x2="21" x1="8" y1="18"></line>
-<line y2="6" x2="3.01" y1="6" x1="3"></line>
-<line y2="12" y1="12" x1="3" x2="3.01"></line>
-<line y1="18" x1="3" x2="3.01" y2="18"></line>"#,
+<line y1="6" x1="8" y2="6" x2="21"></line>
+<line y1="12" y2="12" x2="21" x1="8"></line>
+<line y2="18" x1="8" y1="18" x2="21"></line>
+<line x1="3" x2="3.01" y1="6" y2="6"></line>
+<line x1="3" x2="3.01" y2="12" y1="12"></line>
+<line x1="3" y1="18" x2="3.01" y2="18"></line>"#,
 };
 
 pub const LOADER_2: IconType = IconType{ 
@@ -5568,49 +5566,49 @@ pub const LOADER_2: IconType = IconType{
 
 pub const LOADER: IconType = IconType{ 
  content: r#"
-<line x1="12" y2="6" x2="12" y1="2"></line>
-<line x1="12" y1="18" y2="22" x2="12"></line>
-<line y1="4.93" x1="4.93" x2="7.76" y2="7.76"></line>
-<line x2="19.07" y2="19.07" y1="16.24" x1="16.24"></line>
-<line x1="2" y1="12" x2="6" y2="12"></line>
-<line y1="12" x2="22" y2="12" x1="18"></line>
-<line y1="19.07" x1="4.93" y2="16.24" x2="7.76"></line>
-<line y2="4.93" x2="19.07" y1="7.76" x1="16.24"></line>"#,
+<line x2="12" y1="2" y2="6" x1="12"></line>
+<line x1="12" y2="22" x2="12" y1="18"></line>
+<line y1="4.93" y2="7.76" x2="7.76" x1="4.93"></line>
+<line y2="19.07" y1="16.24" x1="16.24" x2="19.07"></line>
+<line y2="12" x1="2" y1="12" x2="6"></line>
+<line x2="22" y1="12" x1="18" y2="12"></line>
+<line x2="7.76" x1="4.93" y1="19.07" y2="16.24"></line>
+<line x2="19.07" y1="7.76" y2="4.93" x1="16.24"></line>"#,
 };
 
 pub const LOCATE_FIXED: IconType = IconType{ 
  content: r#"
-<line x1="2" x2="5" y1="12" y2="12"></line>
-<line y1="12" x1="19" x2="22" y2="12"></line>
-<line y1="2" x1="12" y2="5" x2="12"></line>
-<line y1="19" y2="22" x2="12" x1="12"></line>
-<circle cy="12" cx="12" r="7"></circle>
-<circle cx="12" cy="12" r="3"></circle>"#,
+<line y1="12" x1="2" y2="12" x2="5"></line>
+<line x2="22" x1="19" y1="12" y2="12"></line>
+<line y1="2" y2="5" x1="12" x2="12"></line>
+<line x2="12" y2="22" x1="12" y1="19"></line>
+<circle cx="12" cy="12" r="7"></circle>
+<circle r="3" cx="12" cy="12"></circle>"#,
 };
 
 pub const LOCATE_OFF: IconType = IconType{ 
  content: r#"
-<line x1="2" y1="12" y2="12" x2="5"></line>
-<line x1="19" y2="12" x2="22" y1="12"></line>
-<line y1="2" y2="5" x2="12" x1="12"></line>
-<line x1="12" y1="19" x2="12" y2="22"></line>
+<line y1="12" x2="5" y2="12" x1="2"></line>
+<line y1="12" y2="12" x2="22" x1="19"></line>
+<line x1="12" y1="2" x2="12" y2="5"></line>
+<line y1="19" x1="12" x2="12" y2="22"></line>
 <path d="M7.11 7.11C5.83 8.39 5 10.1 5 12c0 3.87 3.13 7 7 7 1.9 0 3.61-.83 4.89-2.11"></path>
 <path d="M18.71 13.96c.19-.63.29-1.29.29-1.96 0-3.87-3.13-7-7-7-.67 0-1.33.1-1.96.29"></path>
-<line x2="22" y1="2" y2="22" x1="2"></line>"#,
+<line x2="22" x1="2" y1="2" y2="22"></line>"#,
 };
 
 pub const LOCATE: IconType = IconType{ 
  content: r#"
-<line x2="5" x1="2" y1="12" y2="12"></line>
-<line x2="22" x1="19" y2="12" y1="12"></line>
-<line y1="2" x2="12" y2="5" x1="12"></line>
-<line x1="12" x2="12" y1="19" y2="22"></line>
-<circle cx="12" cy="12" r="7"></circle>"#,
+<line y1="12" x1="2" x2="5" y2="12"></line>
+<line y1="12" x1="19" y2="12" x2="22"></line>
+<line x2="12" y1="2" y2="5" x1="12"></line>
+<line x1="12" y1="19" y2="22" x2="12"></line>
+<circle r="7" cx="12" cy="12"></circle>"#,
 };
 
 pub const LOCK: IconType = IconType{ 
  content: r#"
-<rect y="11" ry="2" x="3" width="18" height="11" rx="2"></rect>
+<rect rx="2" width="18" ry="2" x="3" height="11" y="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>"#,
 };
 
@@ -5618,19 +5616,19 @@ pub const LOG_IN: IconType = IconType{
  content: r#"
 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
 <polyline points="10 17 15 12 10 7"></polyline>
-<line x2="3" y1="12" x1="15" y2="12"></line>"#,
+<line x1="15" x2="3" y1="12" y2="12"></line>"#,
 };
 
 pub const LOG_OUT: IconType = IconType{ 
  content: r#"
 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
 <polyline points="16 17 21 12 16 7"></polyline>
-<line x1="21" x2="9" y1="12" y2="12"></line>"#,
+<line x1="21" y1="12" x2="9" y2="12"></line>"#,
 };
 
 pub const LOLLIPOP: IconType = IconType{ 
  content: r#"
-<circle cx="11" cy="11" r="8"></circle>
+<circle r="8" cy="11" cx="11"></circle>
 <path d="m21 21-4.3-4.3"></path>
 <path d="M11 11a2 2 0 0 0 4 0 4 4 0 0 0-8 0 6 6 0 0 0 12 0"></path>"#,
 };
@@ -5640,13 +5638,13 @@ pub const LUGGAGE: IconType = IconType{
 <path d="M6 20h0a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h0"></path>
 <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14"></path>
 <path d="M10 20h4"></path>
-<circle r="2" cy="20" cx="16"></circle>
-<circle cx="8" r="2" cy="20"></circle>"#,
+<circle r="2" cx="16" cy="20"></circle>
+<circle cy="20" cx="8" r="2"></circle>"#,
 };
 
 pub const M_SQUARE: IconType = IconType{ 
  content: r#"
-<rect y="3" width="18" height="18" x="3" rx="2"></rect>
+<rect height="18" x="3" y="3" rx="2" width="18"></rect>
 <path d="M8 16V8l4 4 4-4v8"></path>"#,
 };
 
@@ -5698,7 +5696,7 @@ pub const MAIL_SEARCH: IconType = IconType{
 <path d="M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5"></path>
 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
 <path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6v0Z"></path>
-<circle r="3" cy="18" cx="18"></circle>
+<circle cy="18" r="3" cx="18"></circle>
 <path d="m22 22-1.5-1.5"></path>"#,
 };
 
@@ -5720,7 +5718,7 @@ pub const MAIL_X: IconType = IconType{
 
 pub const MAIL: IconType = IconType{ 
  content: r#"
-<rect x="2" height="16" width="20" rx="2" y="4"></rect>
+<rect x="2" y="4" rx="2" width="20" height="16"></rect>
 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>"#,
 };
 
@@ -5729,12 +5727,12 @@ pub const MAILBOX: IconType = IconType{
 <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"></path>
 <polyline points="15,9 18,9 18,11"></polyline>
 <path d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2v0"></path>
-<line x2="7" x1="6" y2="10" y1="10"></line>"#,
+<line y2="10" y1="10" x1="6" x2="7"></line>"#,
 };
 
 pub const MAILS: IconType = IconType{ 
  content: r#"
-<rect height="13" x="6" width="16" y="4" rx="2"></rect>
+<rect x="6" rx="2" y="4" width="16" height="13"></rect>
 <path d="m22 7-7.1 3.78c-.57.3-1.23.3-1.8 0L6 7"></path>
 <path d="M2 8v11c0 1.1.9 2 2 2h14"></path>"#,
 };
@@ -5745,20 +5743,20 @@ pub const MAP_PIN_OFF: IconType = IconType{
 <path d="M19.18 13.52A8.66 8.66 0 0 0 20 10a8 8 0 0 0-8-8 7.88 7.88 0 0 0-3.52.82"></path>
 <path d="M9.13 9.13A2.78 2.78 0 0 0 9 10a3 3 0 0 0 3 3 2.78 2.78 0 0 0 .87-.13"></path>
 <path d="M14.9 9.25a3 3 0 0 0-2.15-2.16"></path>
-<line y1="2" x2="22" y2="22" x1="2"></line>"#,
+<line x1="2" y2="22" x2="22" y1="2"></line>"#,
 };
 
 pub const MAP_PIN: IconType = IconType{ 
  content: r#"
 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-<circle cx="12" cy="10" r="3"></circle>"#,
+<circle r="3" cx="12" cy="10"></circle>"#,
 };
 
 pub const MAP: IconType = IconType{ 
  content: r#"
 <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
-<line y1="3" x2="9" x1="9" y2="18"></line>
-<line x1="15" y1="6" x2="15" y2="21"></line>"#,
+<line x2="9" y2="18" y1="3" x1="9"></line>
+<line y2="21" y1="6" x1="15" x2="15"></line>"#,
 };
 
 pub const MARTINI: IconType = IconType{ 
@@ -5772,8 +5770,8 @@ pub const MAXIMIZE_2: IconType = IconType{
  content: r#"
 <polyline points="15 3 21 3 21 9"></polyline>
 <polyline points="9 21 3 21 3 15"></polyline>
-<line x2="14" x1="21" y1="3" y2="10"></line>
-<line y1="21" y2="14" x2="10" x1="3"></line>"#,
+<line x1="21" y2="10" y1="3" x2="14"></line>
+<line y2="14" x1="3" x2="10" y1="21"></line>"#,
 };
 
 pub const MAXIMIZE: IconType = IconType{ 
@@ -5790,7 +5788,7 @@ pub const MEDAL: IconType = IconType{
 <path d="M11 12 5.12 2.2"></path>
 <path d="m13 12 5.88-9.8"></path>
 <path d="M8 7h8"></path>
-<circle r="5" cx="12" cy="17"></circle>
+<circle r="5" cy="17" cx="12"></circle>
 <path d="M12 18v-2h-.5"></path>"#,
 };
 
@@ -5799,7 +5797,7 @@ pub const MEGAPHONE_OFF: IconType = IconType{
 <path d="M9.26 9.26 3 11v3l14.14 3.14"></path>
 <path d="M21 15.34V6l-7.31 2.03"></path>
 <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
-<line x2="22" y1="2" x1="2" y2="22"></line>"#,
+<line y2="22" y1="2" x1="2" x2="22"></line>"#,
 };
 
 pub const MEGAPHONE: IconType = IconType{ 
@@ -5810,10 +5808,10 @@ pub const MEGAPHONE: IconType = IconType{
 
 pub const MEH: IconType = IconType{ 
  content: r#"
-<circle cx="12" r="10" cy="12"></circle>
+<circle cy="12" cx="12" r="10"></circle>
 <line x2="16" y2="15" y1="15" x1="8"></line>
-<line x1="9" x2="9.01" y1="9" y2="9"></line>
-<line y2="9" y1="9" x2="15.01" x1="15"></line>"#,
+<line x2="9.01" x1="9" y1="9" y2="9"></line>
+<line x2="15.01" y1="9" y2="9" x1="15"></line>"#,
 };
 
 pub const MEMORY_STICK: IconType = IconType{ 
@@ -5831,7 +5829,7 @@ pub const MEMORY_STICK: IconType = IconType{
 
 pub const MENU_SQUARE: IconType = IconType{ 
  content: r#"
-<rect rx="2" x="3" width="18" y="3" height="18"></rect>
+<rect width="18" x="3" y="3" height="18" rx="2"></rect>
 <path d="M7 8h10"></path>
 <path d="M7 12h10"></path>
 <path d="M7 16h10"></path>"#,
@@ -5839,9 +5837,9 @@ pub const MENU_SQUARE: IconType = IconType{
 
 pub const MENU: IconType = IconType{ 
  content: r#"
-<line x2="20" y1="12" y2="12" x1="4"></line>
-<line y1="6" y2="6" x1="4" x2="20"></line>
-<line y2="18" x1="4" x2="20" y1="18"></line>"#,
+<line y1="12" x2="20" x1="4" y2="12"></line>
+<line y1="6" x2="20" y2="6" x1="4"></line>
+<line x2="20" y1="18" x1="4" y2="18"></line>"#,
 };
 
 pub const MERGE: IconType = IconType{ 
@@ -5871,8 +5869,8 @@ pub const MESSAGE_SQUARE_DASHED: IconType = IconType{
 pub const MESSAGE_SQUARE_PLUS: IconType = IconType{ 
  content: r#"
 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-<line y1="10" x1="9" y2="10" x2="15"></line>
-<line y1="7" x1="12" y2="13" x2="12"></line>"#,
+<line x2="15" y2="10" x1="9" y1="10"></line>
+<line x2="12" y1="7" y2="13" x1="12"></line>"#,
 };
 
 pub const MESSAGE_SQUARE: IconType = IconType{ 
@@ -5889,12 +5887,12 @@ pub const MESSAGES_SQUARE: IconType = IconType{
 pub const MIC_2: IconType = IconType{ 
  content: r#"
 <path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"></path>
-<circle r="5" cy="7" cx="17"></circle>"#,
+<circle r="5" cx="17" cy="7"></circle>"#,
 };
 
 pub const MIC_OFF: IconType = IconType{ 
  content: r#"
-<line x1="2" y2="22" y1="2" x2="22"></line>
+<line x2="22" x1="2" y1="2" y2="22"></line>
 <path d="M18.89 13.23A7.12 7.12 0 0 0 19 12v-2"></path>
 <path d="M5 10v2a7 7 0 0 0 12 5"></path>
 <path d="M15 9.34V5a3 3 0 0 0-5.68-1.33"></path>
@@ -5906,7 +5904,7 @@ pub const MIC: IconType = IconType{
  content: r#"
 <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
 <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-<line x2="12" y1="19" x1="12" y2="22"></line>"#,
+<line y1="19" y2="22" x2="12" x1="12"></line>"#,
 };
 
 pub const MICROSCOPE: IconType = IconType{ 
@@ -5921,7 +5919,7 @@ pub const MICROSCOPE: IconType = IconType{
 
 pub const MICROWAVE: IconType = IconType{ 
  content: r#"
-<rect x="2" height="15" y="4" rx="2" width="20"></rect>
+<rect rx="2" height="15" x="2" width="20" y="4"></rect>
 <rect width="8" height="7" y="8" rx="1" x="6"></rect>
 <path d="M18 8v7"></path>
 <path d="M6 19v2"></path>
@@ -5940,7 +5938,7 @@ pub const MILK_OFF: IconType = IconType{
 <path d="M8 2h8"></path>
 <path d="M9 2v1.343M15 2v2.789a4 4 0 0 0 .672 2.219l.656.984a4 4 0 0 1 .672 2.22v1.131M7.8 7.8l-.128.192A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3"></path>
 <path d="M7 15a6.47 6.47 0 0 1 5 0 6.472 6.472 0 0 0 3.435.435"></path>
-<line y1="2" y2="22" x2="22" x1="2"></line>"#,
+<line x1="2" y1="2" y2="22" x2="22"></line>"#,
 };
 
 pub const MILK: IconType = IconType{ 
@@ -5954,8 +5952,8 @@ pub const MINIMIZE_2: IconType = IconType{
  content: r#"
 <polyline points="4 14 10 14 10 20"></polyline>
 <polyline points="20 10 14 10 14 4"></polyline>
-<line x1="14" y1="10" x2="21" y2="3"></line>
-<line y1="21" x1="3" x2="10" y2="14"></line>"#,
+<line x1="14" y1="10" y2="3" x2="21"></line>
+<line x1="3" y2="14" y1="21" x2="10"></line>"#,
 };
 
 pub const MINIMIZE: IconType = IconType{ 
@@ -5968,13 +5966,13 @@ pub const MINIMIZE: IconType = IconType{
 
 pub const MINUS_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
+<circle cy="12" r="10" cx="12"></circle>
 <path d="M8 12h8"></path>"#,
 };
 
 pub const MINUS_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" x="3" y="3" rx="2" width="18"></rect>
+<rect width="18" y="3" rx="2" x="3" height="18"></rect>
 <path d="M8 12h8"></path>"#,
 };
 
@@ -5986,7 +5984,7 @@ pub const MINUS: IconType = IconType{
 pub const MONITOR_CHECK: IconType = IconType{ 
  content: r#"
 <path d="m9 10 2 2 4-4"></path>
-<rect width="20" y="3" rx="2" height="14" x="2"></rect>
+<rect y="3" width="20" x="2" rx="2" height="14"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
@@ -6003,7 +6001,7 @@ pub const MONITOR_DOWN: IconType = IconType{
  content: r#"
 <path d="M12 13V7"></path>
 <path d="m15 10-3 3-3-3"></path>
-<rect height="14" y="3" rx="2" width="20" x="2"></rect>
+<rect width="20" height="14" y="3" rx="2" x="2"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
@@ -6021,7 +6019,7 @@ pub const MONITOR_PAUSE: IconType = IconType{
  content: r#"
 <path d="M10 13V7"></path>
 <path d="M14 13V7"></path>
-<rect x="2" y="3" rx="2" width="20" height="14"></rect>
+<rect height="14" x="2" y="3" width="20" rx="2"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
@@ -6029,7 +6027,7 @@ pub const MONITOR_PAUSE: IconType = IconType{
 pub const MONITOR_PLAY: IconType = IconType{ 
  content: r#"
 <path d="m10 7 5 3-5 3Z"></path>
-<rect rx="2" x="2" y="3" width="20" height="14"></rect>
+<rect rx="2" height="14" width="20" y="3" x="2"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
@@ -6039,22 +6037,22 @@ pub const MONITOR_SMARTPHONE: IconType = IconType{
 <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"></path>
 <path d="M10 19v-3.96 3.15"></path>
 <path d="M7 19h5"></path>
-<rect height="10" width="6" y="12" rx="2" x="16"></rect>"#,
+<rect height="10" rx="2" y="12" width="6" x="16"></rect>"#,
 };
 
 pub const MONITOR_SPEAKER: IconType = IconType{ 
  content: r#"
 <path d="M5.5 20H8"></path>
 <path d="M17 9h.01"></path>
-<rect height="16" y="4" rx="2" width="10" x="12"></rect>
+<rect y="4" rx="2" height="16" width="10" x="12"></rect>
 <path d="M8 6H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4"></path>
-<circle r="1" cy="15" cx="17"></circle>"#,
+<circle r="1" cx="17" cy="15"></circle>"#,
 };
 
 pub const MONITOR_STOP: IconType = IconType{ 
  content: r#"
-<rect y="7" height="6" width="6" x="9"></rect>
-<rect x="2" height="14" y="3" width="20" rx="2"></rect>
+<rect y="7" width="6" height="6" x="9"></rect>
+<rect rx="2" x="2" width="20" height="14" y="3"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
@@ -6063,7 +6061,7 @@ pub const MONITOR_UP: IconType = IconType{
  content: r#"
 <path d="m9 10 3-3 3 3"></path>
 <path d="M12 13V7"></path>
-<rect height="14" y="3" rx="2" width="20" x="2"></rect>
+<rect x="2" rx="2" y="3" width="20" height="14"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
@@ -6072,16 +6070,16 @@ pub const MONITOR_X: IconType = IconType{
  content: r#"
 <path d="m14.5 12.5-5-5"></path>
 <path d="m9.5 12.5 5-5"></path>
-<rect y="3" width="20" rx="2" height="14" x="2"></rect>
+<rect y="3" rx="2" x="2" width="20" height="14"></rect>
 <path d="M12 17v4"></path>
 <path d="M8 21h8"></path>"#,
 };
 
 pub const MONITOR: IconType = IconType{ 
  content: r#"
-<rect width="20" height="14" y="3" rx="2" x="2"></rect>
-<line y1="21" y2="21" x1="8" x2="16"></line>
-<line x2="12" y2="21" x1="12" y1="17"></line>"#,
+<rect width="20" height="14" rx="2" y="3" x="2"></rect>
+<line x1="8" y2="21" x2="16" y1="21"></line>
+<line x1="12" y1="17" x2="12" y2="21"></line>"#,
 };
 
 pub const MOON_STAR: IconType = IconType{ 
@@ -6098,16 +6096,16 @@ pub const MOON: IconType = IconType{
 
 pub const MORE_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="1"></circle>
-<circle cy="12" cx="19" r="1"></circle>
-<circle r="1" cx="5" cy="12"></circle>"#,
+<circle cx="12" cy="12" r="1"></circle>
+<circle cx="19" cy="12" r="1"></circle>
+<circle cx="5" cy="12" r="1"></circle>"#,
 };
 
 pub const MORE_VERTICAL: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="1"></circle>
-<circle cy="5" r="1" cx="12"></circle>
-<circle cx="12" cy="19" r="1"></circle>"#,
+<circle r="1" cx="12" cy="12"></circle>
+<circle cx="12" cy="5" r="1"></circle>
+<circle r="1" cx="12" cy="19"></circle>"#,
 };
 
 pub const MOUNTAIN_SNOW: IconType = IconType{ 
@@ -6161,7 +6159,7 @@ pub const MOUSE_POINTER: IconType = IconType{
 
 pub const MOUSE: IconType = IconType{ 
  content: r#"
-<rect x="5" y="2" height="20" rx="7" width="14"></rect>
+<rect rx="7" x="5" y="2" height="20" width="14"></rect>
 <path d="M12 6v4"></path>"#,
 };
 
@@ -6177,14 +6175,14 @@ pub const MOVE_DIAGONAL_2: IconType = IconType{
  content: r#"
 <polyline points="5 11 5 5 11 5"></polyline>
 <polyline points="19 13 19 19 13 19"></polyline>
-<line y1="5" x1="5" x2="19" y2="19"></line>"#,
+<line y2="19" x1="5" y1="5" x2="19"></line>"#,
 };
 
 pub const MOVE_DIAGONAL: IconType = IconType{ 
  content: r#"
 <polyline points="13 5 19 5 19 11"></polyline>
 <polyline points="11 19 5 19 5 13"></polyline>
-<line y2="19" y1="5" x1="19" x2="5"></line>"#,
+<line y1="5" y2="19" x2="5" x1="19"></line>"#,
 };
 
 pub const MOVE_DOWN_LEFT: IconType = IconType{ 
@@ -6209,7 +6207,7 @@ pub const MOVE_HORIZONTAL: IconType = IconType{
  content: r#"
 <polyline points="18 8 22 12 18 16"></polyline>
 <polyline points="6 8 2 12 6 16"></polyline>
-<line x2="22" y1="12" x1="2" y2="12"></line>"#,
+<line x1="2" x2="22" y2="12" y1="12"></line>"#,
 };
 
 pub const MOVE_LEFT: IconType = IconType{ 
@@ -6246,7 +6244,7 @@ pub const MOVE_VERTICAL: IconType = IconType{
  content: r#"
 <polyline points="8 18 12 22 16 18"></polyline>
 <polyline points="8 6 12 2 16 6"></polyline>
-<line y1="2" x2="12" x1="12" y2="22"></line>"#,
+<line y1="2" x1="12" x2="12" y2="22"></line>"#,
 };
 
 pub const MOVE: IconType = IconType{ 
@@ -6255,8 +6253,8 @@ pub const MOVE: IconType = IconType{
 <polyline points="9 5 12 2 15 5"></polyline>
 <polyline points="15 19 12 22 9 19"></polyline>
 <polyline points="19 9 22 12 19 15"></polyline>
-<line y2="12" x2="22" x1="2" y1="12"></line>
-<line x2="12" x1="12" y1="2" y2="22"></line>"#,
+<line y2="12" x1="2" x2="22" y1="12"></line>
+<line y1="2" x1="12" x2="12" y2="22"></line>"#,
 };
 
 pub const MUSIC_2: IconType = IconType{ 
@@ -6275,22 +6273,22 @@ pub const MUSIC_4: IconType = IconType{
  content: r#"
 <path d="M9 18V5l12-2v13"></path>
 <path d="m9 9 12-2"></path>
-<circle cx="6" cy="18" r="3"></circle>
-<circle r="3" cy="16" cx="18"></circle>"#,
+<circle r="3" cx="6" cy="18"></circle>
+<circle cy="16" r="3" cx="18"></circle>"#,
 };
 
 pub const MUSIC: IconType = IconType{ 
  content: r#"
 <path d="M9 18V5l12-2v13"></path>
-<circle cx="6" cy="18" r="3"></circle>
-<circle cy="16" cx="18" r="3"></circle>"#,
+<circle cx="6" r="3" cy="18"></circle>
+<circle cx="18" cy="16" r="3"></circle>"#,
 };
 
 pub const NAVIGATION_2_OFF: IconType = IconType{ 
  content: r#"
 <path d="M9.31 9.31 5 21l7-4 7 4-1.17-3.17"></path>
 <path d="M14.53 8.88 12 2l-1.17 3.17"></path>
-<line x1="2" y1="2" y2="22" x2="22"></line>"#,
+<line x2="22" x1="2" y2="22" y1="2"></line>"#,
 };
 
 pub const NAVIGATION_2: IconType = IconType{ 
@@ -6312,9 +6310,9 @@ pub const NAVIGATION: IconType = IconType{
 
 pub const NETWORK: IconType = IconType{ 
  content: r#"
-<rect height="6" width="6" y="16" rx="1" x="16"></rect>
-<rect width="6" rx="1" x="2" height="6" y="16"></rect>
-<rect x="9" width="6" height="6" y="2" rx="1"></rect>
+<rect y="16" x="16" height="6" rx="1" width="6"></rect>
+<rect x="2" width="6" height="6" rx="1" y="16"></rect>
+<rect x="9" width="6" y="2" height="6" rx="1"></rect>
 <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
 <path d="M12 12V8"></path>"#,
 };
@@ -6341,7 +6339,7 @@ pub const NUT_OFF: IconType = IconType{
 <path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592a7.01 7.01 0 0 0 4.125-2.939"></path>
 <path d="M19 10v3.343"></path>
 <path d="M12 12c-1.349-.573-1.905-1.005-2.5-2-.546.902-1.048 1.353-2.5 2-1.018-.644-1.46-1.08-2-2-1.028.71-1.69.918-3 1 1.081-1.048 1.757-2.03 2-3 .194-.776.84-1.551 1.79-2.21m11.654 5.997c.887-.457 1.28-.891 1.556-1.787 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4-.74 0-1.461.068-2.15.192"></path>
-<line x1="2" x2="22" y2="22" y1="2"></line>"#,
+<line x2="22" y2="22" y1="2" x1="2"></line>"#,
 };
 
 pub const NUT: IconType = IconType{ 
@@ -6364,9 +6362,9 @@ pub const OPTION: IconType = IconType{
 
 pub const ORBIT: IconType = IconType{ 
  content: r#"
-<circle r="3" cy="12" cx="12"></circle>
-<circle cy="5" r="2" cx="19"></circle>
-<circle cy="19" cx="5" r="2"></circle>
+<circle cx="12" cy="12" r="3"></circle>
+<circle r="2" cx="19" cy="5"></circle>
+<circle cx="5" cy="19" r="2"></circle>
 <path d="M10.4 21.9a10 10 0 0 0 9.941-15.416"></path>
 <path d="M13.5 2.1a10 10 0 0 0-9.841 15.416"></path>"#,
 };
@@ -6374,9 +6372,9 @@ pub const ORBIT: IconType = IconType{
 pub const OUTDENT: IconType = IconType{ 
  content: r#"
 <polyline points="7 8 3 12 7 16"></polyline>
-<line x2="11" y2="12" x1="21" y1="12"></line>
-<line y1="6" y2="6" x2="11" x1="21"></line>
-<line x2="11" x1="21" y1="18" y2="18"></line>"#,
+<line x2="11" y1="12" y2="12" x1="21"></line>
+<line y1="6" x1="21" y2="6" x2="11"></line>
+<line x2="11" y1="18" y2="18" x1="21"></line>"#,
 };
 
 pub const PACKAGE_2: IconType = IconType{ 
@@ -6392,7 +6390,7 @@ pub const PACKAGE_CHECK: IconType = IconType{
 <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
 <path d="m7.5 4.27 9 5.15"></path>
 <polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line x2="12" y2="12" x1="12" y1="22"></line>"#,
+<line x2="12" y1="22" x1="12" y2="12"></line>"#,
 };
 
 pub const PACKAGE_MINUS: IconType = IconType{ 
@@ -6401,14 +6399,14 @@ pub const PACKAGE_MINUS: IconType = IconType{
 <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
 <path d="m7.5 4.27 9 5.15"></path>
 <polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line x1="12" x2="12" y1="22" y2="12"></line>"#,
+<line x1="12" x2="12" y2="12" y1="22"></line>"#,
 };
 
 pub const PACKAGE_OPEN: IconType = IconType{ 
  content: r#"
 <path d="M20.91 8.84 8.56 2.23a1.93 1.93 0 0 0-1.81 0L3.1 4.13a2.12 2.12 0 0 0-.05 3.69l12.22 6.93a2 2 0 0 0 1.94 0L21 12.51a2.12 2.12 0 0 0-.09-3.67Z"></path>
 <path d="m3.09 8.84 12.35-6.61a1.93 1.93 0 0 1 1.81 0l3.65 1.9a2.12 2.12 0 0 1 .1 3.69L8.73 14.75a2 2 0 0 1-1.94 0L3 12.51a2.12 2.12 0 0 1 .09-3.67Z"></path>
-<line x1="12" y1="22" x2="12" y2="13"></line>
+<line x2="12" y2="13" y1="22" x1="12"></line>
 <path d="M20 13.5v3.37a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13.5"></path>"#,
 };
 
@@ -6419,7 +6417,7 @@ pub const PACKAGE_PLUS: IconType = IconType{
 <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
 <path d="m7.5 4.27 9 5.15"></path>
 <polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line y2="12" x2="12" x1="12" y1="22"></line>"#,
+<line y1="22" x1="12" y2="12" x2="12"></line>"#,
 };
 
 pub const PACKAGE_SEARCH: IconType = IconType{ 
@@ -6427,8 +6425,8 @@ pub const PACKAGE_SEARCH: IconType = IconType{
 <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
 <path d="m7.5 4.27 9 5.15"></path>
 <polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line y2="12" x1="12" x2="12" y1="22"></line>
-<circle cx="18.5" cy="15.5" r="2.5"></circle>
+<line y2="12" x1="12" y1="22" x2="12"></line>
+<circle cy="15.5" cx="18.5" r="2.5"></circle>
 <path d="M20.27 17.27 22 19"></path>"#,
 };
 
@@ -6437,7 +6435,7 @@ pub const PACKAGE_X: IconType = IconType{
 <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
 <path d="m7.5 4.27 9 5.15"></path>
 <polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line y1="22" x1="12" y2="12" x2="12"></line>
+<line y2="12" y1="22" x2="12" x1="12"></line>
 <path d="m17 13 5 5m-5 0 5-5"></path>"#,
 };
 
@@ -6475,9 +6473,9 @@ pub const PAINTBRUSH: IconType = IconType{
 pub const PALETTE: IconType = IconType{ 
  content: r#"
 <circle r=".5" cx="13.5" cy="6.5"></circle>
-<circle cy="10.5" r=".5" cx="17.5"></circle>
-<circle r=".5" cx="8.5" cy="7.5"></circle>
-<circle cx="6.5" r=".5" cy="12.5"></circle>
+<circle cx="17.5" cy="10.5" r=".5"></circle>
+<circle cy="7.5" r=".5" cx="8.5"></circle>
+<circle cx="6.5" cy="12.5" r=".5"></circle>
 <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>"#,
 };
 
@@ -6491,14 +6489,14 @@ pub const PALMTREE: IconType = IconType{
 
 pub const PANEL_BOTTOM_CLOSE: IconType = IconType{ 
  content: r#"
-<rect x="3" height="18" rx="2" ry="2" width="18" y="3"></rect>
-<line y2="15" x1="3" x2="21" y1="15"></line>
+<rect x="3" y="3" rx="2" ry="2" width="18" height="18"></rect>
+<line x2="21" y1="15" y2="15" x1="3"></line>
 <path d="m15 8-3 3-3-3"></path>"#,
 };
 
 pub const PANEL_BOTTOM_INACTIVE: IconType = IconType{ 
  content: r#"
-<rect x="3" rx="2" height="18" width="18" y="3"></rect>
+<rect x="3" y="3" rx="2" width="18" height="18"></rect>
 <path d="M14 15h1"></path>
 <path d="M19 15h2"></path>
 <path d="M3 15h2"></path>
@@ -6507,27 +6505,27 @@ pub const PANEL_BOTTOM_INACTIVE: IconType = IconType{
 
 pub const PANEL_BOTTOM_OPEN: IconType = IconType{ 
  content: r#"
-<rect y="3" rx="2" width="18" ry="2" height="18" x="3"></rect>
+<rect width="18" rx="2" height="18" x="3" y="3" ry="2"></rect>
 <line x1="3" x2="21" y1="15" y2="15"></line>
 <path d="m9 10 3-3 3 3"></path>"#,
 };
 
 pub const PANEL_BOTTOM: IconType = IconType{ 
  content: r#"
-<rect height="18" ry="2" rx="2" width="18" x="3" y="3"></rect>
-<line x1="3" y1="15" x2="21" y2="15"></line>"#,
+<rect y="3" width="18" ry="2" height="18" rx="2" x="3"></rect>
+<line y1="15" x2="21" x1="3" y2="15"></line>"#,
 };
 
 pub const PANEL_LEFT_CLOSE: IconType = IconType{ 
  content: r#"
-<rect x="3" height="18" ry="2" width="18" y="3" rx="2"></rect>
+<rect x="3" y="3" rx="2" width="18" height="18" ry="2"></rect>
 <path d="M9 3v18"></path>
 <path d="m16 15-3-3 3-3"></path>"#,
 };
 
 pub const PANEL_LEFT_INACTIVE: IconType = IconType{ 
  content: r#"
-<rect height="18" y="3" rx="2" width="18" x="3"></rect>
+<rect width="18" x="3" y="3" rx="2" height="18"></rect>
 <path d="M9 14v1"></path>
 <path d="M9 19v2"></path>
 <path d="M9 3v2"></path>
@@ -6536,27 +6534,27 @@ pub const PANEL_LEFT_INACTIVE: IconType = IconType{
 
 pub const PANEL_LEFT_OPEN: IconType = IconType{ 
  content: r#"
-<rect x="3" ry="2" y="3" width="18" rx="2" height="18"></rect>
+<rect ry="2" y="3" width="18" x="3" height="18" rx="2"></rect>
 <path d="M9 3v18"></path>
 <path d="m14 9 3 3-3 3"></path>"#,
 };
 
 pub const PANEL_LEFT: IconType = IconType{ 
  content: r#"
-<rect rx="2" width="18" y="3" ry="2" x="3" height="18"></rect>
-<line y1="3" x2="9" x1="9" y2="21"></line>"#,
+<rect width="18" x="3" height="18" rx="2" ry="2" y="3"></rect>
+<line x1="9" y2="21" y1="3" x2="9"></line>"#,
 };
 
 pub const PANEL_RIGHT_CLOSE: IconType = IconType{ 
  content: r#"
-<rect width="18" y="3" rx="2" x="3" height="18" ry="2"></rect>
-<line x2="15" y2="21" x1="15" y1="3"></line>
+<rect y="3" ry="2" height="18" x="3" rx="2" width="18"></rect>
+<line x1="15" y1="3" x2="15" y2="21"></line>
 <path d="m8 9 3 3-3 3"></path>"#,
 };
 
 pub const PANEL_RIGHT_INACTIVE: IconType = IconType{ 
  content: r#"
-<rect rx="2" height="18" width="18" x="3" y="3"></rect>
+<rect height="18" rx="2" width="18" x="3" y="3"></rect>
 <path d="M15 14v1"></path>
 <path d="M15 19v2"></path>
 <path d="M15 3v2"></path>
@@ -6565,27 +6563,27 @@ pub const PANEL_RIGHT_INACTIVE: IconType = IconType{
 
 pub const PANEL_RIGHT_OPEN: IconType = IconType{ 
  content: r#"
-<rect y="3" height="18" ry="2" rx="2" x="3" width="18"></rect>
-<line x1="15" y1="3" y2="21" x2="15"></line>
+<rect width="18" ry="2" y="3" height="18" x="3" rx="2"></rect>
+<line x1="15" y1="3" x2="15" y2="21"></line>
 <path d="m10 15-3-3 3-3"></path>"#,
 };
 
 pub const PANEL_RIGHT: IconType = IconType{ 
  content: r#"
-<rect ry="2" x="3" rx="2" y="3" height="18" width="18"></rect>
+<rect ry="2" width="18" height="18" x="3" y="3" rx="2"></rect>
 <line x2="15" y2="21" y1="3" x1="15"></line>"#,
 };
 
 pub const PANEL_TOP_CLOSE: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" y="3" rx="2" ry="2" x="3"></rect>
-<line x1="3" y1="9" x2="21" y2="9"></line>
+<rect y="3" width="18" rx="2" height="18" x="3" ry="2"></rect>
+<line x2="21" y1="9" x1="3" y2="9"></line>
 <path d="m9 16 3-3 3 3"></path>"#,
 };
 
 pub const PANEL_TOP_INACTIVE: IconType = IconType{ 
  content: r#"
-<rect y="3" rx="2" width="18" height="18" x="3"></rect>
+<rect x="3" y="3" rx="2" height="18" width="18"></rect>
 <path d="M14 9h1"></path>
 <path d="M19 9h2"></path>
 <path d="M3 9h2"></path>
@@ -6594,15 +6592,15 @@ pub const PANEL_TOP_INACTIVE: IconType = IconType{
 
 pub const PANEL_TOP_OPEN: IconType = IconType{ 
  content: r#"
-<rect rx="2" height="18" x="3" y="3" width="18" ry="2"></rect>
-<line y2="9" x2="21" y1="9" x1="3"></line>
+<rect width="18" ry="2" height="18" y="3" x="3" rx="2"></rect>
+<line x2="21" y2="9" y1="9" x1="3"></line>
 <path d="m15 14-3 3-3-3"></path>"#,
 };
 
 pub const PANEL_TOP: IconType = IconType{ 
  content: r#"
-<rect x="3" height="18" rx="2" ry="2" width="18" y="3"></rect>
-<line y2="9" x2="21" y1="9" x1="3"></line>"#,
+<rect width="18" x="3" rx="2" height="18" y="3" ry="2"></rect>
+<line y2="9" x1="3" x2="21" y1="9"></line>"#,
 };
 
 pub const PAPERCLIP: IconType = IconType{ 
@@ -6618,7 +6616,7 @@ pub const PARENTHESES: IconType = IconType{
 
 pub const PARKING_CIRCLE_OFF: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle cy="12" r="10" cx="12"></circle>
 <path d="m5 5 14 14"></path>
 <path d="M13 13a3 3 0 1 0 0-6H9v2"></path>
 <path d="M9 17v-2.34"></path>"#,
@@ -6626,7 +6624,7 @@ pub const PARKING_CIRCLE_OFF: IconType = IconType{
 
 pub const PARKING_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle cy="12" cx="12" r="10"></circle>
 <path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path>"#,
 };
 
@@ -6650,7 +6648,7 @@ pub const PARKING_SQUARE_OFF: IconType = IconType{
 
 pub const PARKING_SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" width="18" rx="2" height="18" y="3"></rect>
+<rect x="3" y="3" width="18" rx="2" height="18"></rect>
 <path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path>"#,
 };
 
@@ -6669,9 +6667,9 @@ pub const PARTY_POPPER: IconType = IconType{
 
 pub const PAUSE_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="10"></circle>
-<line y2="9" x1="10" x2="10" y1="15"></line>
-<line x2="14" x1="14" y1="15" y2="9"></line>"#,
+<circle cx="12" cy="12" r="10"></circle>
+<line y2="9" x2="10" x1="10" y1="15"></line>
+<line x1="14" y1="15" x2="14" y2="9"></line>"#,
 };
 
 pub const PAUSE_OCTAGON: IconType = IconType{ 
@@ -6683,21 +6681,21 @@ pub const PAUSE_OCTAGON: IconType = IconType{
 
 pub const PAUSE: IconType = IconType{ 
  content: r#"
-<rect height="16" x="6" y="4" width="4"></rect>
-<rect y="4" height="16" x="14" width="4"></rect>"#,
+<rect width="4" x="6" y="4" height="16"></rect>
+<rect y="4" height="16" width="4" x="14"></rect>"#,
 };
 
 pub const PAW_PRINT: IconType = IconType{ 
  content: r#"
-<circle cx="11" cy="4" r="2"></circle>
-<circle cx="18" cy="8" r="2"></circle>
-<circle r="2" cx="20" cy="16"></circle>
+<circle cy="4" cx="11" r="2"></circle>
+<circle cy="8" cx="18" r="2"></circle>
+<circle cy="16" cx="20" r="2"></circle>
 <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"></path>"#,
 };
 
 pub const PC_CASE: IconType = IconType{ 
  content: r#"
-<rect height="20" rx="2" y="2" x="5" width="14"></rect>
+<rect height="20" y="2" x="5" rx="2" width="14"></rect>
 <path d="M15 14h.01"></path>
 <path d="M9 6h6"></path>
 <path d="M9 10h6"></path>"#,
@@ -6720,7 +6718,7 @@ pub const PEN_TOOL: IconType = IconType{
 <path d="m12 19 7-7 3 3-7 7-3-3z"></path>
 <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
 <path d="m2 2 7.586 7.586"></path>
-<circle cy="11" r="2" cx="11"></circle>"#,
+<circle r="2" cx="11" cy="11"></circle>"#,
 };
 
 pub const PEN: IconType = IconType{ 
@@ -6753,7 +6751,7 @@ pub const PENCIL: IconType = IconType{
 
 pub const PERCENT_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle cy="12" cx="12" r="10"></circle>
 <path d="m15 9-6 6"></path>
 <path d="M9 9h.01"></path>
 <path d="M15 15h.01"></path>"#,
@@ -6769,7 +6767,7 @@ pub const PERCENT_DIAMOND: IconType = IconType{
 
 pub const PERCENT_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" x="3" y="3" rx="2"></rect>
+<rect height="18" x="3" rx="2" width="18" y="3"></rect>
 <path d="m15 9-6 6"></path>
 <path d="M9 9h.01"></path>
 <path d="M15 15h.01"></path>"#,
@@ -6777,14 +6775,14 @@ pub const PERCENT_SQUARE: IconType = IconType{
 
 pub const PERCENT: IconType = IconType{ 
  content: r#"
-<line y1="5" y2="19" x2="5" x1="19"></line>
-<circle cy="6.5" r="2.5" cx="6.5"></circle>
+<line x2="5" y2="19" x1="19" y1="5"></line>
+<circle cx="6.5" cy="6.5" r="2.5"></circle>
 <circle cy="17.5" cx="17.5" r="2.5"></circle>"#,
 };
 
 pub const PERSON_STANDING: IconType = IconType{ 
  content: r#"
-<circle r="1" cx="12" cy="5"></circle>
+<circle cx="12" cy="5" r="1"></circle>
 <path d="m9 20 3-6 3 6"></path>
 <path d="m6 8 6 2 6-2"></path>
 <path d="M12 10v4"></path>"#,
@@ -6800,21 +6798,21 @@ pub const PHONE_CALL: IconType = IconType{
 pub const PHONE_FORWARDED: IconType = IconType{ 
  content: r#"
 <polyline points="18 2 22 6 18 10"></polyline>
-<line x1="14" y1="6" x2="22" y2="6"></line>
+<line x2="22" y1="6" x1="14" y2="6"></line>
 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#,
 };
 
 pub const PHONE_INCOMING: IconType = IconType{ 
  content: r#"
 <polyline points="16 2 16 8 22 8"></polyline>
-<line x1="22" y1="2" y2="8" x2="16"></line>
+<line y2="8" x1="22" x2="16" y1="2"></line>
 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#,
 };
 
 pub const PHONE_MISSED: IconType = IconType{ 
  content: r#"
-<line x2="16" y2="8" y1="2" x1="22"></line>
-<line y2="8" x2="22" y1="2" x1="16"></line>
+<line x2="16" y2="8" x1="22" y1="2"></line>
+<line x1="16" y1="2" y2="8" x2="22"></line>
 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#,
 };
 
@@ -6827,7 +6825,7 @@ pub const PHONE_OFF: IconType = IconType{
 pub const PHONE_OUTGOING: IconType = IconType{ 
  content: r#"
 <polyline points="22 8 22 2 16 2"></polyline>
-<line y1="8" x1="16" y2="2" x2="22"></line>
+<line x1="16" y2="2" x2="22" y1="8"></line>
 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#,
 };
 
@@ -6838,7 +6836,7 @@ pub const PHONE: IconType = IconType{
 
 pub const PI_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" y="3" rx="2" x="3"></rect>
+<rect y="3" height="18" width="18" rx="2" x="3"></rect>
 <path d="M7 7h10"></path>
 <path d="M10 7v10"></path>
 <path d="M16 17a2 2 0 0 1-2-2V7"></path>"#,
@@ -6846,7 +6844,7 @@ pub const PI_SQUARE: IconType = IconType{
 
 pub const PI: IconType = IconType{ 
  content: r#"
-<line x2="9" x1="9" y2="20" y1="4"></line>
+<line x2="9" x1="9" y1="4" y2="20"></line>
 <path d="M4 7c0-1.7 1.3-3 3-3h13"></path>
 <path d="M18 20c-1.7 0-3-1.3-3-3V4"></path>"#,
 };
@@ -6854,13 +6852,13 @@ pub const PI: IconType = IconType{
 pub const PICTURE_IN_PICTURE_2: IconType = IconType{ 
  content: r#"
 <path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4"></path>
-<rect x="12" rx="2" y="13" width="10" height="7"></rect>"#,
+<rect height="7" width="10" x="12" y="13" rx="2"></rect>"#,
 };
 
 pub const PICTURE_IN_PICTURE: IconType = IconType{ 
  content: r#"
 <path d="M8 4.5v5H3m-1-6 6 6m13 0v-3c0-1.16-.84-2-2-2h-7m-9 9v2c0 1.05.95 2 2 2h3"></path>
-<rect width="10" x="12" y="13.5" ry="2" height="7"></rect>"#,
+<rect ry="2" width="10" height="7" x="12" y="13.5"></rect>"#,
 };
 
 pub const PIE_CHART: IconType = IconType{ 
@@ -6878,7 +6876,7 @@ pub const PIGGY_BANK: IconType = IconType{
 
 pub const PILCROW_SQUARE: IconType = IconType{ 
  content: r#"
-<rect y="3" height="18" width="18" x="3" rx="2"></rect>
+<rect height="18" x="3" width="18" rx="2" y="3"></rect>
 <path d="M12 12H9.5a2.5 2.5 0 0 1 0-5H17"></path>
 <path d="M12 7v10"></path>
 <path d="M16 7v10"></path>"#,
@@ -6899,15 +6897,15 @@ pub const PILL: IconType = IconType{
 
 pub const PIN_OFF: IconType = IconType{ 
  content: r#"
-<line x1="2" x2="22" y2="22" y1="2"></line>
-<line x2="12" x1="12" y1="17" y2="22"></line>
+<line y1="2" x2="22" y2="22" x1="2"></line>
+<line x1="12" y1="17" x2="12" y2="22"></line>
 <path d="M9 9v1.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V17h12"></path>
 <path d="M15 9.34V6h1a2 2 0 0 0 0-4H7.89"></path>"#,
 };
 
 pub const PIN: IconType = IconType{ 
  content: r#"
-<line y1="17" x2="12" x1="12" y2="22"></line>
+<line y1="17" y2="22" x2="12" x1="12"></line>
 <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>"#,
 };
 
@@ -6946,13 +6944,13 @@ pub const PLANE: IconType = IconType{
 
 pub const PLAY_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cy="12" cx="12"></circle>
+<circle cx="12" cy="12" r="10"></circle>
 <polygon points="10 8 16 12 10 16 10 8"></polygon>"#,
 };
 
 pub const PLAY_SQUARE: IconType = IconType{ 
  content: r#"
-<rect rx="2" width="18" y="3" height="18" x="3"></rect>
+<rect height="18" x="3" width="18" y="3" rx="2"></rect>
 <path d="m9 8 6 4-6 4Z"></path>"#,
 };
 
@@ -6998,14 +6996,14 @@ pub const PLUG: IconType = IconType{
 
 pub const PLUS_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cy="12" r="10" cx="12"></circle>
+<circle cx="12" cy="12" r="10"></circle>
 <path d="M8 12h8"></path>
 <path d="M12 8v8"></path>"#,
 };
 
 pub const PLUS_SQUARE: IconType = IconType{ 
  content: r#"
-<rect rx="2" width="18" x="3" height="18" y="3"></rect>
+<rect height="18" y="3" x="3" width="18" rx="2"></rect>
 <path d="M8 12h8"></path>
 <path d="M12 8v8"></path>"#,
 };
@@ -7033,7 +7031,7 @@ pub const POCKET: IconType = IconType{
 
 pub const PODCAST: IconType = IconType{ 
  content: r#"
-<circle cy="11" r="1" cx="12"></circle>
+<circle cx="12" cy="11" r="1"></circle>
 <path d="M11 17a1 1 0 0 1 2 0c0 .5-.34 3-.5 4.5a.5.5 0 0 1-1 0c-.16-1.5-.5-4-.5-4.5Z"></path>
 <path d="M8 14a5 5 0 1 1 8 0"></path>
 <path d="M17 18.5a9 9 0 1 0-10 0"></path>"#,
@@ -7081,7 +7079,7 @@ pub const POWER_OFF: IconType = IconType{
 pub const POWER: IconType = IconType{ 
  content: r#"
 <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
-<line x2="12" y2="12" x1="12" y1="2"></line>"#,
+<line x1="12" y2="12" y1="2" x2="12"></line>"#,
 };
 
 pub const PRESENTATION: IconType = IconType{ 
@@ -7095,7 +7093,7 @@ pub const PRINTER: IconType = IconType{
  content: r#"
 <polyline points="6 9 6 2 18 2 18 9"></polyline>
 <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-<rect width="12" x="6" y="14" height="8"></rect>"#,
+<rect width="12" height="8" y="14" x="6"></rect>"#,
 };
 
 pub const PROJECTOR: IconType = IconType{ 
@@ -7115,9 +7113,9 @@ pub const PUZZLE: IconType = IconType{
 
 pub const QR_CODE: IconType = IconType{ 
  content: r#"
-<rect rx="1" x="3" height="5" y="3" width="5"></rect>
-<rect y="3" rx="1" width="5" height="5" x="16"></rect>
-<rect width="5" y="16" x="3" height="5" rx="1"></rect>
+<rect rx="1" x="3" width="5" height="5" y="3"></rect>
+<rect rx="1" height="5" y="3" x="16" width="5"></rect>
+<rect x="3" y="16" rx="1" height="5" width="5"></rect>
 <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
 <path d="M21 21v.01"></path>
 <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
@@ -7152,7 +7150,7 @@ pub const RADAR: IconType = IconType{
 <path d="M16.24 7.76A6 6 0 1 0 8.23 16.67"></path>
 <path d="M12 18h.01"></path>
 <path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"></path>
-<circle cx="12" cy="12" r="2"></circle>
+<circle r="2" cx="12" cy="12"></circle>
 <path d="m13.41 10.59 5.66-5.66"></path>"#,
 };
 
@@ -7168,7 +7166,7 @@ pub const RADIO_RECEIVER: IconType = IconType{
  content: r#"
 <path d="M5 16v2"></path>
 <path d="M19 16v2"></path>
-<rect x="2" y="8" rx="2" width="20" height="8"></rect>
+<rect y="8" rx="2" height="8" width="20" x="2"></rect>
 <path d="M18 12h0"></path>"#,
 };
 
@@ -7176,7 +7174,7 @@ pub const RADIO_TOWER: IconType = IconType{
  content: r#"
 <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9"></path>
 <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5"></path>
-<circle cx="12" cy="9" r="2"></circle>
+<circle cy="9" cx="12" r="2"></circle>
 <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47"></path>
 <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1"></path>
 <path d="M9.5 18h5"></path>
@@ -7187,7 +7185,7 @@ pub const RADIO: IconType = IconType{
  content: r#"
 <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path>
 <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path>
-<circle cy="12" r="2" cx="12"></circle>
+<circle cx="12" cy="12" r="2"></circle>
 <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"></path>
 <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"></path>"#,
 };
@@ -7217,8 +7215,8 @@ pub const RAT: IconType = IconType{
 
 pub const RATIO: IconType = IconType{ 
  content: r#"
-<rect width="12" y="2" height="20" x="6" rx="2"></rect>
-<rect x="2" y="6" width="20" rx="2" height="12"></rect>"#,
+<rect height="20" rx="2" y="2" width="12" x="6"></rect>
+<rect rx="2" x="2" width="20" height="12" y="6"></rect>"#,
 };
 
 pub const RECEIPT: IconType = IconType{ 
@@ -7230,12 +7228,12 @@ pub const RECEIPT: IconType = IconType{
 
 pub const RECTANGLE_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<rect x="2" width="20" rx="2" height="12" y="6"></rect>"#,
+<rect height="12" x="2" rx="2" width="20" y="6"></rect>"#,
 };
 
 pub const RECTANGLE_VERTICAL: IconType = IconType{ 
  content: r#"
-<rect x="6" y="2" width="12" height="20" rx="2"></rect>"#,
+<rect x="6" rx="2" width="12" y="2" height="20"></rect>"#,
 };
 
 pub const RECYCLE: IconType = IconType{ 
@@ -7256,7 +7254,7 @@ pub const REDO_2: IconType = IconType{
 
 pub const REDO_DOT: IconType = IconType{ 
  content: r#"
-<circle cy="17" r="1" cx="12"></circle>
+<circle cx="12" r="1" cy="17"></circle>
 <path d="M21 7v6h-6"></path>
 <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path>"#,
 };
@@ -7273,7 +7271,7 @@ pub const REFRESH_CCW_DOT: IconType = IconType{
 <path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path>
 <path d="M21 22v-6h-6"></path>
 <path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"></path>
-<circle cy="12" r="1" cx="12"></circle>"#,
+<circle cx="12" cy="12" r="1"></circle>"#,
 };
 
 pub const REFRESH_CCW: IconType = IconType{ 
@@ -7360,7 +7358,7 @@ pub const REPLACE_ALL: IconType = IconType{
 <path d="M16 10c-1.1 0-2-.9-2-2"></path>
 <path d="m3 7 3 3 3-3"></path>
 <path d="M6 10V5c0-1.7 1.3-3 3-3h1"></path>
-<rect rx="2" x="2" height="8" width="8" y="14"></rect>
+<rect rx="2" height="8" x="2" width="8" y="14"></rect>
 <path d="M14 14c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>
 <path d="M20 14c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>"#,
 };
@@ -7373,7 +7371,7 @@ pub const REPLACE: IconType = IconType{
 <path d="M16 10c-1.1 0-2-.9-2-2"></path>
 <path d="m3 7 3 3 3-3"></path>
 <path d="M6 10V5c0-1.7 1.3-3 3-3h1"></path>
-<rect x="2" y="14" width="8" rx="2" height="8"></rect>"#,
+<rect width="8" height="8" x="2" y="14" rx="2"></rect>"#,
 };
 
 pub const REPLY_ALL: IconType = IconType{ 
@@ -7406,8 +7404,8 @@ pub const ROCKET: IconType = IconType{
 pub const ROCKING_CHAIR: IconType = IconType{ 
  content: r#"
 <polyline points="3.5 2 6.5 12.5 18 12.5"></polyline>
-<line y2="20" x2="5.5" x1="9.5" y1="12.5"></line>
-<line x2="18.5" x1="15" y1="12.5" y2="20"></line>
+<line y1="12.5" x2="5.5" y2="20" x1="9.5"></line>
+<line x1="15" y2="20" x2="18.5" y1="12.5"></line>
 <path d="M2.75 18a13 13 0 0 0 18.5 0"></path>"#,
 };
 
@@ -7443,7 +7441,7 @@ pub const ROTATE_CW: IconType = IconType{
 
 pub const ROUTER: IconType = IconType{ 
  content: r#"
-<rect y="14" x="2" rx="2" width="20" height="8"></rect>
+<rect width="20" x="2" height="8" y="14" rx="2"></rect>
 <path d="M6.01 18H6"></path>
 <path d="M10.01 18H10"></path>
 <path d="M15 10v4"></path>
@@ -7453,15 +7451,15 @@ pub const ROUTER: IconType = IconType{
 
 pub const ROWS: IconType = IconType{ 
  content: r#"
-<rect ry="2" x="3" width="18" y="3" rx="2" height="18"></rect>
-<line y1="12" x2="21" x1="3" y2="12"></line>"#,
+<rect x="3" ry="2" y="3" rx="2" width="18" height="18"></rect>
+<line x1="3" x2="21" y2="12" y1="12"></line>"#,
 };
 
 pub const RSS: IconType = IconType{ 
  content: r#"
 <path d="M4 11a9 9 0 0 1 9 9"></path>
 <path d="M4 4a16 16 0 0 1 16 16"></path>
-<circle r="1" cy="19" cx="5"></circle>"#,
+<circle r="1" cx="5" cy="19"></circle>"#,
 };
 
 pub const RULER: IconType = IconType{ 
@@ -7537,8 +7535,8 @@ pub const SAVE: IconType = IconType{
 
 pub const SCALE_3_D: IconType = IconType{ 
  content: r#"
-<circle cx="19" r="2" cy="19"></circle>
-<circle r="2" cy="5" cx="5"></circle>
+<circle r="2" cy="19" cx="19"></circle>
+<circle cx="5" r="2" cy="5"></circle>
 <path d="M5 7v12h12"></path>
 <path d="m5 19 6-6"></path>"#,
 };
@@ -7577,7 +7575,7 @@ pub const SCAN_LINE: IconType = IconType{
 <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
 <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
 <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
-<line y2="12" x1="7" x2="17" y1="12"></line>"#,
+<line x2="17" x1="7" y1="12" y2="12"></line>"#,
 };
 
 pub const SCAN: IconType = IconType{ 
@@ -7590,17 +7588,17 @@ pub const SCAN: IconType = IconType{
 
 pub const SCATTER_CHART: IconType = IconType{ 
  content: r#"
-<circle r=".5" cx="7.5" cy="7.5"></circle>
-<circle r=".5" cx="18.5" cy="5.5"></circle>
-<circle r=".5" cx="11.5" cy="11.5"></circle>
-<circle cx="7.5" cy="16.5" r=".5"></circle>
+<circle r=".5" cy="7.5" cx="7.5"></circle>
+<circle cx="18.5" cy="5.5" r=".5"></circle>
+<circle cx="11.5" cy="11.5" r=".5"></circle>
+<circle cy="16.5" cx="7.5" r=".5"></circle>
 <circle r=".5" cy="14.5" cx="17.5"></circle>
 <path d="M3 3v18h18"></path>"#,
 };
 
 pub const SCHOOL_2: IconType = IconType{ 
  content: r#"
-<circle r="1" cx="12" cy="10"></circle>
+<circle cx="12" r="1" cy="10"></circle>
 <path d="M22 20V8h-4l-6-4-6 4H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2Z"></path>
 <path d="M6 17v.01"></path>
 <path d="M6 13v.01"></path>
@@ -7616,13 +7614,13 @@ pub const SCHOOL: IconType = IconType{
 <path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"></path>
 <path d="M18 5v17"></path>
 <path d="M6 5v17"></path>
-<circle r="2" cx="12" cy="9"></circle>"#,
+<circle r="2" cy="9" cx="12"></circle>"#,
 };
 
 pub const SCISSORS_LINE_DASHED: IconType = IconType{ 
  content: r#"
 <path d="M5.42 9.42 8 12"></path>
-<circle r="2" cx="4" cy="8"></circle>
+<circle cx="4" cy="8" r="2"></circle>
 <path d="m14 6-8.58 8.58"></path>
 <circle cx="4" cy="16" r="2"></circle>
 <path d="M10.8 14.8 14 18"></path>
@@ -7644,17 +7642,17 @@ pub const SCISSORS_SQUARE_DASHED_BOTTOM: IconType = IconType{
 
 pub const SCISSORS_SQUARE: IconType = IconType{ 
  content: r#"
-<rect y="2" rx="2" x="2" width="20" height="20"></rect>
-<circle cx="8" cy="8" r="2"></circle>
+<rect y="2" rx="2" width="20" height="20" x="2"></rect>
+<circle r="2" cx="8" cy="8"></circle>
 <path d="M9.414 9.414 12 12"></path>
 <path d="M14.8 14.8 18 18"></path>
-<circle r="2" cy="16" cx="8"></circle>
+<circle cy="16" r="2" cx="8"></circle>
 <path d="m18 6-8.586 8.586"></path>"#,
 };
 
 pub const SCISSORS: IconType = IconType{ 
  content: r#"
-<circle cx="6" cy="6" r="3"></circle>
+<circle cy="6" cx="6" r="3"></circle>
 <path d="M8.12 8.12 12 12"></path>
 <path d="M20 4 8.12 15.88"></path>
 <circle cy="18" cx="6" r="3"></circle>
@@ -7696,7 +7694,7 @@ pub const SCROLL: IconType = IconType{
 pub const SEARCH_CHECK: IconType = IconType{ 
  content: r#"
 <path d="m8 11 2 2 4-4"></path>
-<circle cy="11" r="8" cx="11"></circle>
+<circle cy="11" cx="11" r="8"></circle>
 <path d="m21 21-4.3-4.3"></path>"#,
 };
 
@@ -7704,14 +7702,14 @@ pub const SEARCH_CODE: IconType = IconType{
  content: r#"
 <path d="m9 9-2 2 2 2"></path>
 <path d="m13 13 2-2-2-2"></path>
-<circle r="8" cx="11" cy="11"></circle>
+<circle cx="11" cy="11" r="8"></circle>
 <path d="m21 21-4.3-4.3"></path>"#,
 };
 
 pub const SEARCH_SLASH: IconType = IconType{ 
  content: r#"
 <path d="m13.5 8.5-5 5"></path>
-<circle r="8" cy="11" cx="11"></circle>
+<circle r="8" cx="11" cy="11"></circle>
 <path d="m21 21-4.3-4.3"></path>"#,
 };
 
@@ -7719,13 +7717,13 @@ pub const SEARCH_X: IconType = IconType{
  content: r#"
 <path d="m13.5 8.5-5 5"></path>
 <path d="m8.5 8.5 5 5"></path>
-<circle cx="11" r="8" cy="11"></circle>
+<circle cy="11" r="8" cx="11"></circle>
 <path d="m21 21-4.3-4.3"></path>"#,
 };
 
 pub const SEARCH: IconType = IconType{ 
  content: r#"
-<circle cy="11" r="8" cx="11"></circle>
+<circle r="8" cx="11" cy="11"></circle>
 <path d="m21 21-4.3-4.3"></path>"#,
 };
 
@@ -7737,8 +7735,8 @@ pub const SEND_HORIZONTAL: IconType = IconType{
 
 pub const SEND_TO_BACK: IconType = IconType{ 
  content: r#"
-<rect rx="2" y="14" width="8" x="14" height="8"></rect>
-<rect y="2" x="2" width="8" rx="2" height="8"></rect>
+<rect height="8" width="8" x="14" rx="2" y="14"></rect>
+<rect x="2" y="2" width="8" rx="2" height="8"></rect>
 <path d="M7 14v1a2 2 0 0 0 2 2h1"></path>
 <path d="M14 7h1a2 2 0 0 1 2 2v1"></path>"#,
 };
@@ -7751,14 +7749,14 @@ pub const SEND: IconType = IconType{
 
 pub const SEPARATOR_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<line y2="12" x1="3" x2="21" y1="12"></line>
+<line x1="3" y2="12" x2="21" y1="12"></line>
 <polyline points="8 8 12 4 16 8"></polyline>
 <polyline points="16 16 12 20 8 16"></polyline>"#,
 };
 
 pub const SEPARATOR_VERTICAL: IconType = IconType{ 
  content: r#"
-<line x2="12" x1="12" y1="3" y2="21"></line>
+<line y1="3" x2="12" x1="12" y2="21"></line>
 <polyline points="8 8 4 12 8 16"></polyline>
 <polyline points="16 16 20 12 16 8"></polyline>"#,
 };
@@ -7801,10 +7799,10 @@ pub const SERVER_OFF: IconType = IconType{
 
 pub const SERVER: IconType = IconType{ 
  content: r#"
-<rect width="20" ry="2" x="2" y="2" height="8" rx="2"></rect>
-<rect x="2" y="14" rx="2" width="20" ry="2" height="8"></rect>
-<line y1="6" x1="6" x2="6.01" y2="6"></line>
-<line y1="18" x2="6.01" x1="6" y2="18"></line>"#,
+<rect y="2" height="8" width="20" x="2" rx="2" ry="2"></rect>
+<rect y="14" width="20" height="8" x="2" rx="2" ry="2"></rect>
+<line y2="6" y1="6" x1="6" x2="6.01"></line>
+<line x1="6" y2="18" x2="6.01" y1="18"></line>"#,
 };
 
 pub const SETTINGS_2: IconType = IconType{ 
@@ -7818,39 +7816,39 @@ pub const SETTINGS_2: IconType = IconType{
 pub const SETTINGS: IconType = IconType{ 
  content: r#"
 <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
-<circle r="3" cx="12" cy="12"></circle>"#,
+<circle cx="12" cy="12" r="3"></circle>"#,
 };
 
 pub const SHAPES: IconType = IconType{ 
  content: r#"
 <path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"></path>
-<rect rx="1" width="7" x="3" y="14" height="7"></rect>
+<rect y="14" width="7" rx="1" x="3" height="7"></rect>
 <circle cx="17.5" cy="17.5" r="3.5"></circle>"#,
 };
 
 pub const SHARE_2: IconType = IconType{ 
  content: r#"
 <circle cx="18" cy="5" r="3"></circle>
-<circle cy="12" cx="6" r="3"></circle>
-<circle cy="19" r="3" cx="18"></circle>
-<line x2="15.42" y2="17.49" y1="13.51" x1="8.59"></line>
-<line x1="15.41" y2="10.49" x2="8.59" y1="6.51"></line>"#,
+<circle cx="6" r="3" cy="12"></circle>
+<circle cy="19" cx="18" r="3"></circle>
+<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+<line y1="6.51" x2="8.59" x1="15.41" y2="10.49"></line>"#,
 };
 
 pub const SHARE: IconType = IconType{ 
  content: r#"
 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
 <polyline points="16 6 12 2 8 6"></polyline>
-<line y1="2" x1="12" x2="12" y2="15"></line>"#,
+<line y1="2" y2="15" x2="12" x1="12"></line>"#,
 };
 
 pub const SHEET: IconType = IconType{ 
  content: r#"
-<rect y="3" height="18" x="3" ry="2" width="18" rx="2"></rect>
-<line y2="9" x1="3" y1="9" x2="21"></line>
-<line x1="3" y2="15" x2="21" y1="15"></line>
-<line x1="9" y1="9" y2="21" x2="9"></line>
-<line x2="15" y1="9" y2="21" x1="15"></line>"#,
+<rect x="3" width="18" ry="2" y="3" rx="2" height="18"></rect>
+<line x2="21" y2="9" y1="9" x1="3"></line>
+<line y1="15" x2="21" x1="3" y2="15"></line>
+<line y1="9" x2="9" x1="9" y2="21"></line>
+<line y2="21" x2="15" y1="9" x1="15"></line>"#,
 };
 
 pub const SHELL: IconType = IconType{ 
@@ -7932,7 +7930,7 @@ pub const SHIELD: IconType = IconType{
 
 pub const SHIP_WHEEL: IconType = IconType{ 
  content: r#"
-<circle r="8" cy="12" cx="12"></circle>
+<circle cx="12" cy="12" r="8"></circle>
 <path d="M12 2v7.5"></path>
 <path d="m19 5-5.23 5.23"></path>
 <path d="M22 12h-7.5"></path>
@@ -7978,8 +7976,8 @@ pub const SHOPPING_BASKET: IconType = IconType{
 
 pub const SHOPPING_CART: IconType = IconType{ 
  content: r#"
-<circle r="1" cx="8" cy="21"></circle>
-<circle cx="19" cy="21" r="1"></circle>
+<circle cy="21" cx="8" r="1"></circle>
+<circle r="1" cx="19" cy="21"></circle>
 <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>"#,
 };
 
@@ -8030,7 +8028,7 @@ pub const SHUFFLE: IconType = IconType{
 
 pub const SIGMA_SQUARE: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" rx="2" y="3" x="3"></rect>
+<rect x="3" rx="2" width="18" height="18" y="3"></rect>
 <path d="M16 8.9V7H8l4 5-4 5h8v-1.9"></path>"#,
 };
 
@@ -8089,19 +8087,19 @@ pub const SIREN: IconType = IconType{
 pub const SKIP_BACK: IconType = IconType{ 
  content: r#"
 <polygon points="19 20 9 12 19 4 19 20"></polygon>
-<line y1="19" x2="5" y2="5" x1="5"></line>"#,
+<line x2="5" y2="5" y1="19" x1="5"></line>"#,
 };
 
 pub const SKIP_FORWARD: IconType = IconType{ 
  content: r#"
 <polygon points="5 4 15 12 5 20 5 4"></polygon>
-<line y2="19" x2="19" y1="5" x1="19"></line>"#,
+<line x1="19" x2="19" y1="5" y2="19"></line>"#,
 };
 
 pub const SKULL: IconType = IconType{ 
  content: r#"
-<circle r="1" cx="9" cy="12"></circle>
-<circle cx="15" cy="12" r="1"></circle>
+<circle cx="9" cy="12" r="1"></circle>
+<circle cy="12" cx="15" r="1"></circle>
 <path d="M8 20v2h8v-2"></path>
 <path d="m12.5 17-.5-1-.5 1h1z"></path>
 <path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"></path>"#,
@@ -8109,13 +8107,13 @@ pub const SKULL: IconType = IconType{
 
 pub const SLACK: IconType = IconType{ 
  content: r#"
-<rect width="3" x="13" height="8" y="2" rx="1.5"></rect>
+<rect height="8" width="3" y="2" x="13" rx="1.5"></rect>
 <path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"></path>
-<rect y="14" x="8" rx="1.5" width="3" height="8"></rect>
+<rect width="3" height="8" y="14" rx="1.5" x="8"></rect>
 <path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"></path>
-<rect x="14" width="8" height="3" y="13" rx="1.5"></rect>
+<rect height="3" y="13" rx="1.5" x="14" width="8"></rect>
 <path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"></path>
-<rect rx="1.5" x="2" width="8" height="3" y="8"></rect>
+<rect width="8" x="2" rx="1.5" height="3" y="8"></rect>
 <path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"></path>"#,
 };
 
@@ -8132,39 +8130,39 @@ pub const SLICE: IconType = IconType{
 
 pub const SLIDERS_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<line y2="4" x1="21" x2="14" y1="4"></line>
-<line x1="10" y2="4" x2="3" y1="4"></line>
-<line x2="12" y1="12" x1="21" y2="12"></line>
-<line x1="8" y1="12" x2="3" y2="12"></line>
-<line x2="16" x1="21" y2="20" y1="20"></line>
-<line x1="12" x2="3" y1="20" y2="20"></line>
-<line y1="2" x2="14" y2="6" x1="14"></line>
-<line x2="8" y2="14" y1="10" x1="8"></line>
-<line x2="16" y1="18" x1="16" y2="22"></line>"#,
+<line x1="21" y2="4" y1="4" x2="14"></line>
+<line x2="3" y1="4" x1="10" y2="4"></line>
+<line y1="12" y2="12" x2="12" x1="21"></line>
+<line y2="12" x2="3" y1="12" x1="8"></line>
+<line y1="20" x1="21" y2="20" x2="16"></line>
+<line x2="3" y1="20" x1="12" y2="20"></line>
+<line x2="14" y1="2" y2="6" x1="14"></line>
+<line x1="8" y1="10" y2="14" x2="8"></line>
+<line y2="22" x2="16" y1="18" x1="16"></line>"#,
 };
 
 pub const SLIDERS: IconType = IconType{ 
  content: r#"
 <line x1="4" y1="21" y2="14" x2="4"></line>
-<line y1="10" y2="3" x2="4" x1="4"></line>
-<line x2="12" x1="12" y1="21" y2="12"></line>
-<line y2="3" x1="12" y1="8" x2="12"></line>
-<line x2="20" x1="20" y2="16" y1="21"></line>
-<line x2="20" x1="20" y2="3" y1="12"></line>
-<line x1="2" x2="6" y1="14" y2="14"></line>
-<line x2="14" x1="10" y1="8" y2="8"></line>
-<line y1="16" y2="16" x2="22" x1="18"></line>"#,
+<line x1="4" x2="4" y1="10" y2="3"></line>
+<line y1="21" y2="12" x1="12" x2="12"></line>
+<line x1="12" y1="8" y2="3" x2="12"></line>
+<line y1="21" y2="16" x2="20" x1="20"></line>
+<line x1="20" y1="12" x2="20" y2="3"></line>
+<line y1="14" x2="6" y2="14" x1="2"></line>
+<line x1="10" x2="14" y1="8" y2="8"></line>
+<line x2="22" x1="18" y2="16" y1="16"></line>"#,
 };
 
 pub const SMARTPHONE_CHARGING: IconType = IconType{ 
  content: r#"
-<rect height="20" width="14" x="5" rx="2" y="2" ry="2"></rect>
+<rect x="5" rx="2" y="2" ry="2" width="14" height="20"></rect>
 <path d="M12.667 8 10 12h4l-2.667 4"></path>"#,
 };
 
 pub const SMARTPHONE_NFC: IconType = IconType{ 
  content: r#"
-<rect width="7" x="2" rx="1" y="6" height="12"></rect>
+<rect width="7" rx="1" x="2" height="12" y="6"></rect>
 <path d="M13 8.32a7.43 7.43 0 0 1 0 7.36"></path>
 <path d="M16.46 6.21a11.76 11.76 0 0 1 0 11.58"></path>
 <path d="M19.91 4.1a15.91 15.91 0 0 1 .01 15.8"></path>"#,
@@ -8172,7 +8170,7 @@ pub const SMARTPHONE_NFC: IconType = IconType{
 
 pub const SMARTPHONE: IconType = IconType{ 
  content: r#"
-<rect height="20" x="5" y="2" width="14" rx="2" ry="2"></rect>
+<rect width="14" height="20" y="2" rx="2" x="5" ry="2"></rect>
 <path d="M12 18h.01"></path>"#,
 };
 
@@ -8180,18 +8178,18 @@ pub const SMILE_PLUS: IconType = IconType{
  content: r#"
 <path d="M22 11v1a10 10 0 1 1-9-10"></path>
 <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-<line x2="9.01" y1="9" y2="9" x1="9"></line>
-<line y1="9" y2="9" x2="15.01" x1="15"></line>
+<line x2="9.01" x1="9" y1="9" y2="9"></line>
+<line x2="15.01" x1="15" y2="9" y1="9"></line>
 <path d="M16 5h6"></path>
 <path d="M19 2v6"></path>"#,
 };
 
 pub const SMILE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-<line x1="9" x2="9.01" y1="9" y2="9"></line>
-<line x1="15" y2="9" x2="15.01" y1="9"></line>"#,
+<line x1="9" y2="9" y1="9" x2="9.01"></line>
+<line y1="9" y2="9" x1="15" x2="15.01"></line>"#,
 };
 
 pub const SNAIL: IconType = IconType{ 
@@ -8205,8 +8203,8 @@ pub const SNAIL: IconType = IconType{
 
 pub const SNOWFLAKE: IconType = IconType{ 
  content: r#"
-<line y1="12" x2="22" x1="2" y2="12"></line>
-<line x1="12" x2="12" y1="2" y2="22"></line>
+<line x1="2" y1="12" y2="12" x2="22"></line>
+<line y1="2" y2="22" x2="12" x1="12"></line>
 <path d="m20 16-4-4 4-4"></path>
 <path d="m4 8 4 4-4 4"></path>
 <path d="m16 4-4 4-4-4"></path>
@@ -8259,9 +8257,9 @@ pub const SPARKLES: IconType = IconType{
 
 pub const SPEAKER: IconType = IconType{ 
  content: r#"
-<rect ry="2" width="16" y="2" height="20" x="4" rx="2"></rect>
+<rect rx="2" height="20" x="4" y="2" ry="2" width="16"></rect>
 <circle cy="14" cx="12" r="4"></circle>
-<line x2="12.01" x1="12" y1="6" y2="6"></line>"#,
+<line y1="6" x1="12" y2="6" x2="12.01"></line>"#,
 };
 
 pub const SPELL_CHECK_2: IconType = IconType{ 
@@ -8280,8 +8278,8 @@ pub const SPELL_CHECK: IconType = IconType{
 
 pub const SPLINE: IconType = IconType{ 
  content: r#"
-<circle cx="19" r="2" cy="5"></circle>
-<circle r="2" cx="5" cy="19"></circle>
+<circle cy="5" r="2" cx="19"></circle>
+<circle cx="5" cy="19" r="2"></circle>
 <path d="M5 17A12 12 0 0 1 17 5"></path>"#,
 };
 
@@ -8289,14 +8287,14 @@ pub const SPLIT_SQUARE_HORIZONTAL: IconType = IconType{
  content: r#"
 <path d="M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3"></path>
 <path d="M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3"></path>
-<line x1="12" x2="12" y1="4" y2="20"></line>"#,
+<line x1="12" y2="20" y1="4" x2="12"></line>"#,
 };
 
 pub const SPLIT_SQUARE_VERTICAL: IconType = IconType{ 
  content: r#"
 <path d="M5 8V5c0-1 1-2 2-2h10c1 0 2 1 2 2v3"></path>
 <path d="M19 16v3c0 1-1 2-2 2H7c-1 0-2-1-2-2v-3"></path>
-<line y1="12" x1="4" x2="20" y2="12"></line>"#,
+<line y2="12" x1="4" x2="20" y1="12"></line>"#,
 };
 
 pub const SPLIT: IconType = IconType{ 
@@ -8315,7 +8313,7 @@ pub const SPRAY_CAN: IconType = IconType{
 <path d="M3 7h.01"></path>
 <path d="M7 9h.01"></path>
 <path d="M3 11h.01"></path>
-<rect height="4" x="15" y="5" width="4"></rect>
+<rect x="15" y="5" width="4" height="4"></rect>
 <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"></path>
 <path d="m13 14 8-2"></path>
 <path d="m13 19 8-2"></path>"#,
@@ -8331,7 +8329,7 @@ pub const SPROUT: IconType = IconType{
 
 pub const SQUARE_ASTERISK: IconType = IconType{ 
  content: r#"
-<rect height="18" x="3" width="18" y="3" rx="2"></rect>
+<rect y="3" rx="2" height="18" x="3" width="18"></rect>
 <path d="M12 8v8"></path>
 <path d="m8.5 14 7-4"></path>
 <path d="m8.5 10 7 4"></path>"#,
@@ -8339,7 +8337,7 @@ pub const SQUARE_ASTERISK: IconType = IconType{
 
 pub const SQUARE_CODE: IconType = IconType{ 
  content: r#"
-<rect rx="2" width="18" y="3" height="18" x="3"></rect>
+<rect width="18" x="3" y="3" height="18" rx="2"></rect>
 <path d="m10 10-2 2 2 2"></path>
 <path d="m14 14 2-2-2-2"></path>"#,
 };
@@ -8362,33 +8360,33 @@ pub const SQUARE_DASHED_BOTTOM: IconType = IconType{
 
 pub const SQUARE_DOT: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" x="3" y="3" rx="2"></rect>
-<circle cx="12" cy="12" r="1"></circle>"#,
+<rect width="18" height="18" x="3" y="3" rx="2"></rect>
+<circle r="1" cx="12" cy="12"></circle>"#,
 };
 
 pub const SQUARE_EQUAL: IconType = IconType{ 
  content: r#"
-<rect width="18" height="18" y="3" rx="2" x="3"></rect>
+<rect height="18" width="18" y="3" rx="2" x="3"></rect>
 <path d="M7 10h10"></path>
 <path d="M7 14h10"></path>"#,
 };
 
 pub const SQUARE_SLASH: IconType = IconType{ 
  content: r#"
-<rect width="18" rx="2" y="3" height="18" x="3"></rect>
-<line y2="9" x2="15" y1="15" x1="9"></line>"#,
+<rect x="3" height="18" y="3" rx="2" width="18"></rect>
+<line y1="15" y2="9" x2="15" x1="9"></line>"#,
 };
 
 pub const SQUARE_STACK: IconType = IconType{ 
  content: r#"
 <path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"></path>
 <path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"></path>
-<rect x="14" width="8" rx="2" height="8" y="14"></rect>"#,
+<rect y="14" width="8" rx="2" height="8" x="14"></rect>"#,
 };
 
 pub const SQUARE: IconType = IconType{ 
  content: r#"
-<rect x="3" height="18" width="18" y="3" rx="2"></rect>"#,
+<rect x="3" height="18" y="3" rx="2" width="18"></rect>"#,
 };
 
 pub const SQUIRREL: IconType = IconType{ 
@@ -8415,7 +8413,7 @@ pub const STAR_OFF: IconType = IconType{
  content: r#"
 <path d="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43"></path>
 <path d="M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91"></path>
-<line x1="2" y2="22" y1="2" x2="22"></line>"#,
+<line y1="2" x1="2" y2="22" x2="22"></line>"#,
 };
 
 pub const STAR: IconType = IconType{ 
@@ -8425,13 +8423,13 @@ pub const STAR: IconType = IconType{
 
 pub const STEP_BACK: IconType = IconType{ 
  content: r#"
-<line y1="20" x2="18" x1="18" y2="4"></line>
+<line y1="20" x2="18" y2="4" x1="18"></line>
 <polygon points="14,20 4,12 14,4"></polygon>"#,
 };
 
 pub const STEP_FORWARD: IconType = IconType{ 
  content: r#"
-<line x2="6" x1="6" y2="20" y1="4"></line>
+<line x2="6" y2="20" y1="4" x1="6"></line>
 <polygon points="10,4 20,12 10,20"></polygon>"#,
 };
 
@@ -8439,7 +8437,7 @@ pub const STETHOSCOPE: IconType = IconType{
  content: r#"
 <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path>
 <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path>
-<circle cy="10" cx="20" r="2"></circle>"#,
+<circle cx="20" r="2" cy="10"></circle>"#,
 };
 
 pub const STICKER: IconType = IconType{ 
@@ -8459,8 +8457,8 @@ pub const STICKY_NOTE: IconType = IconType{
 
 pub const STOP_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
-<rect width="6" x="9" y="9" height="6"></rect>"#,
+<circle cy="12" r="10" cx="12"></circle>
+<rect x="9" height="6" width="6" y="9"></rect>"#,
 };
 
 pub const STORE: IconType = IconType{ 
@@ -8474,21 +8472,21 @@ pub const STORE: IconType = IconType{
 
 pub const STRETCH_HORIZONTAL: IconType = IconType{ 
  content: r#"
-<rect y="4" width="20" x="2" height="6" rx="2"></rect>
-<rect y="14" x="2" rx="2" width="20" height="6"></rect>"#,
+<rect width="20" y="4" x="2" height="6" rx="2"></rect>
+<rect x="2" y="14" rx="2" height="6" width="20"></rect>"#,
 };
 
 pub const STRETCH_VERTICAL: IconType = IconType{ 
  content: r#"
-<rect height="20" width="6" x="4" y="2" rx="2"></rect>
-<rect y="2" height="20" x="14" width="6" rx="2"></rect>"#,
+<rect width="6" x="4" y="2" rx="2" height="20"></rect>
+<rect width="6" height="20" x="14" rx="2" y="2"></rect>"#,
 };
 
 pub const STRIKETHROUGH: IconType = IconType{ 
  content: r#"
 <path d="M16 4H9a3 3 0 0 0-2.83 4"></path>
 <path d="M14 12a4 4 0 0 1 0 8H6"></path>
-<line x1="4" y1="12" y2="12" x2="20"></line>"#,
+<line x2="20" x1="4" y1="12" y2="12"></line>"#,
 };
 
 pub const SUBSCRIPT: IconType = IconType{ 
@@ -8509,7 +8507,7 @@ pub const SUBTITLES: IconType = IconType{
 
 pub const SUN_DIM: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="4"></circle>
+<circle cx="12" r="4" cy="12"></circle>
 <path d="M12 4h.01"></path>
 <path d="M20 12h.01"></path>
 <path d="M12 20h.01"></path>
@@ -8522,7 +8520,7 @@ pub const SUN_DIM: IconType = IconType{
 
 pub const SUN_MEDIUM: IconType = IconType{ 
  content: r#"
-<circle r="4" cx="12" cy="12"></circle>
+<circle cy="12" cx="12" r="4"></circle>
 <path d="M12 3v1"></path>
 <path d="M12 20v1"></path>
 <path d="M3 12h1"></path>
@@ -8563,7 +8561,7 @@ pub const SUN_SNOW: IconType = IconType{
 
 pub const SUN: IconType = IconType{ 
  content: r#"
-<circle cy="12" cx="12" r="4"></circle>
+<circle r="4" cx="12" cy="12"></circle>
 <path d="M12 2v2"></path>
 <path d="M12 20v2"></path>
 <path d="m4.93 4.93 1.41 1.41"></path>
@@ -8616,7 +8614,7 @@ pub const SWITCH_CAMERA: IconType = IconType{
  content: r#"
 <path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path>
 <path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"></path>
-<circle cy="12" r="3" cx="12"></circle>
+<circle r="3" cy="12" cx="12"></circle>
 <path d="m18 22-3-3 3-3"></path>
 <path d="m6 2 3 3-3 3"></path>"#,
 };
@@ -8624,21 +8622,21 @@ pub const SWITCH_CAMERA: IconType = IconType{
 pub const SWORD: IconType = IconType{ 
  content: r#"
 <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
-<line y2="13" x1="13" x2="19" y1="19"></line>
-<line x1="16" x2="20" y1="16" y2="20"></line>
-<line x2="21" x1="19" y1="21" y2="19"></line>"#,
+<line y2="13" x2="19" y1="19" x1="13"></line>
+<line y2="20" x1="16" y1="16" x2="20"></line>
+<line y1="21" x2="21" y2="19" x1="19"></line>"#,
 };
 
 pub const SWORDS: IconType = IconType{ 
  content: r#"
 <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
-<line y1="19" y2="13" x2="19" x1="13"></line>
-<line x2="20" y1="16" y2="20" x1="16"></line>
-<line x1="19" x2="21" y1="21" y2="19"></line>
+<line x1="13" x2="19" y1="19" y2="13"></line>
+<line x1="16" x2="20" y1="16" y2="20"></line>
+<line x2="21" y1="21" x1="19" y2="19"></line>
 <polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline>
-<line y1="14" x2="9" y2="18" x1="5"></line>
-<line x1="7" y1="17" y2="20" x2="4"></line>
-<line x1="3" x2="5" y1="19" y2="21"></line>"#,
+<line y2="18" x1="5" x2="9" y1="14"></line>
+<line y1="17" x2="4" y2="20" x1="7"></line>
+<line y1="19" x1="3" y2="21" x2="5"></line>"#,
 };
 
 pub const SYRINGE: IconType = IconType{ 
@@ -8659,7 +8657,7 @@ pub const TABLE_2: IconType = IconType{
 pub const TABLE_PROPERTIES: IconType = IconType{ 
  content: r#"
 <path d="M15 3v18"></path>
-<rect width="18" x="3" y="3" height="18" rx="2"></rect>
+<rect y="3" rx="2" x="3" width="18" height="18"></rect>
 <path d="M21 9H3"></path>
 <path d="M21 15H3"></path>"#,
 };
@@ -8667,28 +8665,28 @@ pub const TABLE_PROPERTIES: IconType = IconType{
 pub const TABLE: IconType = IconType{ 
  content: r#"
 <path d="M12 3v18"></path>
-<rect width="18" height="18" x="3" y="3" rx="2"></rect>
+<rect rx="2" width="18" height="18" x="3" y="3"></rect>
 <path d="M3 9h18"></path>
 <path d="M3 15h18"></path>"#,
 };
 
 pub const TABLET_SMARTPHONE: IconType = IconType{ 
  content: r#"
-<rect x="3" rx="2" y="8" width="10" height="14"></rect>
+<rect rx="2" width="10" x="3" height="14" y="8"></rect>
 <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"></path>
 <path d="M8 18h.01"></path>"#,
 };
 
 pub const TABLET: IconType = IconType{ 
  content: r#"
-<rect ry="2" width="16" height="20" x="4" rx="2" y="2"></rect>
-<line y1="18" x1="12" y2="18" x2="12.01"></line>"#,
+<rect rx="2" ry="2" y="2" x="4" height="20" width="16"></rect>
+<line x2="12.01" y2="18" x1="12" y1="18"></line>"#,
 };
 
 pub const TABLETS: IconType = IconType{ 
  content: r#"
-<circle cy="7" r="5" cx="7"></circle>
-<circle r="5" cy="17" cx="17"></circle>
+<circle r="5" cx="7" cy="7"></circle>
+<circle r="5" cx="17" cy="17"></circle>
 <path d="M12 17h10"></path>
 <path d="m3.46 10.54 7.08-7.08"></path>"#,
 };
@@ -8743,7 +8741,7 @@ pub const TALLY_5: IconType = IconType{
 
 pub const TARGET: IconType = IconType{ 
  content: r#"
-<circle r="10" cx="12" cy="12"></circle>
+<circle cy="12" cx="12" r="10"></circle>
 <circle r="6" cx="12" cy="12"></circle>
 <circle cy="12" r="2" cx="12"></circle>"#,
 };
@@ -8761,13 +8759,13 @@ pub const TERMINAL_SQUARE: IconType = IconType{
  content: r#"
 <path d="m7 11 2-2-2-2"></path>
 <path d="M11 13h4"></path>
-<rect y="3" rx="2" ry="2" width="18" x="3" height="18"></rect>"#,
+<rect rx="2" x="3" y="3" ry="2" height="18" width="18"></rect>"#,
 };
 
 pub const TERMINAL: IconType = IconType{ 
  content: r#"
 <polyline points="4 17 10 11 4 5"></polyline>
-<line y1="19" x1="12" y2="19" x2="20"></line>"#,
+<line x1="12" x2="20" y2="19" y1="19"></line>"#,
 };
 
 pub const TEST_TUBE_2: IconType = IconType{ 
@@ -8832,9 +8830,9 @@ pub const TEXT_SELECT: IconType = IconType{
 <path d="M21 9v1"></path>
 <path d="M3 14v1"></path>
 <path d="M21 14v1"></path>
-<line x2="15" y2="8" x1="7" y1="8"></line>
-<line x1="7" y1="12" x2="17" y2="12"></line>
-<line x1="7" x2="13" y2="16" y1="16"></line>"#,
+<line y2="8" y1="8" x2="15" x1="7"></line>
+<line x1="7" y2="12" y1="12" x2="17"></line>
+<line y1="16" y2="16" x1="7" x2="13"></line>"#,
 };
 
 pub const TEXT: IconType = IconType{ 
@@ -8908,21 +8906,21 @@ pub const TIMER_RESET: IconType = IconType{
 
 pub const TIMER: IconType = IconType{ 
  content: r#"
-<line y1="2" y2="2" x1="10" x2="14"></line>
-<line y2="11" x1="12" x2="15" y1="14"></line>
-<circle cy="14" r="8" cx="12"></circle>"#,
+<line y2="2" x2="14" x1="10" y1="2"></line>
+<line x1="12" y2="11" x2="15" y1="14"></line>
+<circle r="8" cx="12" cy="14"></circle>"#,
 };
 
 pub const TOGGLE_LEFT: IconType = IconType{ 
  content: r#"
-<rect rx="6" width="20" height="12" y="6" ry="6" x="2"></rect>
-<circle cx="8" cy="12" r="2"></circle>"#,
+<rect width="20" height="12" y="6" rx="6" x="2" ry="6"></rect>
+<circle r="2" cx="8" cy="12"></circle>"#,
 };
 
 pub const TOGGLE_RIGHT: IconType = IconType{ 
  content: r#"
-<rect y="6" ry="6" width="20" height="12" x="2" rx="6"></rect>
-<circle cx="16" cy="12" r="2"></circle>"#,
+<rect rx="6" ry="6" width="20" height="12" x="2" y="6"></rect>
+<circle r="2" cx="16" cy="12"></circle>"#,
 };
 
 pub const TORNADO: IconType = IconType{ 
@@ -8946,7 +8944,7 @@ pub const TOUCHPAD_OFF: IconType = IconType{
 
 pub const TOUCHPAD: IconType = IconType{ 
  content: r#"
-<rect height="16" y="4" width="20" rx="2" x="2"></rect>
+<rect width="20" y="4" rx="2" height="16" x="2"></rect>
 <path d="M2 14h20"></path>
 <path d="M12 20v-6"></path>"#,
 };
@@ -8964,7 +8962,7 @@ pub const TOWER_CONTROL: IconType = IconType{
 
 pub const TOY_BRICK: IconType = IconType{ 
  content: r#"
-<rect x="3" rx="1" y="8" height="12" width="18"></rect>
+<rect width="18" x="3" y="8" height="12" rx="1"></rect>
 <path d="M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3"></path>
 <path d="M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3"></path>"#,
 };
@@ -8976,10 +8974,10 @@ pub const TRACTOR: IconType = IconType{
 <path d="M8 10V4"></path>
 <path d="M18 5c-.6 0-1 .4-1 1v5.6"></path>
 <path d="m10 11 11 .9c.6 0 .9.5.8 1.1l-.8 5h-1"></path>
-<circle cx="7" cy="15" r=".5"></circle>
-<circle cx="7" cy="15" r="5"></circle>
+<circle cx="7" r=".5" cy="15"></circle>
+<circle cy="15" r="5" cx="7"></circle>
 <path d="M16 18h-5"></path>
-<circle cx="18" cy="18" r="2"></circle>"#,
+<circle r="2" cx="18" cy="18"></circle>"#,
 };
 
 pub const TRAFFIC_CONE: IconType = IconType{ 
@@ -9024,7 +9022,7 @@ pub const TRAIN_TRACK: IconType = IconType{
 
 pub const TRAM_FRONT: IconType = IconType{ 
  content: r#"
-<rect y="3" width="16" height="16" rx="2" x="4"></rect>
+<rect y="3" rx="2" width="16" height="16" x="4"></rect>
 <path d="M4 11h16"></path>
 <path d="M12 3v8"></path>
 <path d="m8 19-2 3"></path>
@@ -9038,8 +9036,8 @@ pub const TRASH_2: IconType = IconType{
 <path d="M3 6h18"></path>
 <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
 <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-<line x2="10" x1="10" y1="11" y2="17"></line>
-<line x2="14" y2="17" x1="14" y1="11"></line>"#,
+<line x1="10" x2="10" y1="11" y2="17"></line>
+<line x1="14" x2="14" y2="17" y1="11"></line>"#,
 };
 
 pub const TRASH: IconType = IconType{ 
@@ -9071,9 +9069,9 @@ pub const TREES: IconType = IconType{
 
 pub const TRELLO: IconType = IconType{ 
  content: r#"
-<rect width="18" rx="2" height="18" x="3" y="3" ry="2"></rect>
-<rect x="7" width="3" height="9" y="7"></rect>
-<rect y="7" x="14" width="3" height="5"></rect>"#,
+<rect height="18" x="3" width="18" y="3" rx="2" ry="2"></rect>
+<rect x="7" width="3" y="7" height="9"></rect>
+<rect width="3" height="5" y="7" x="14"></rect>"#,
 };
 
 pub const TRENDING_DOWN: IconType = IconType{ 
@@ -9114,7 +9112,7 @@ pub const TRUCK: IconType = IconType{
 <path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"></path>
 <circle cx="7" cy="18" r="2"></circle>
 <path d="M15 18H9"></path>
-<circle cx="17" cy="18" r="2"></circle>"#,
+<circle r="2" cx="17" cy="18"></circle>"#,
 };
 
 pub const TURTLE: IconType = IconType{ 
@@ -9128,12 +9126,12 @@ pub const TURTLE: IconType = IconType{
 pub const TV_2: IconType = IconType{ 
  content: r#"
 <path d="M7 21h10"></path>
-<rect y="3" height="14" width="20" x="2" rx="2"></rect>"#,
+<rect width="20" rx="2" height="14" x="2" y="3"></rect>"#,
 };
 
 pub const TV: IconType = IconType{ 
  content: r#"
-<rect width="20" y="7" ry="2" rx="2" height="15" x="2"></rect>
+<rect y="7" rx="2" width="20" x="2" ry="2" height="15"></rect>
 <polyline points="17 2 12 7 7 2"></polyline>"#,
 };
 
@@ -9150,7 +9148,7 @@ pub const TWITTER: IconType = IconType{
 pub const TYPE: IconType = IconType{ 
  content: r#"
 <polyline points="4 7 4 4 20 4 20 7"></polyline>
-<line x1="9" y2="20" x2="15" y1="20"></line>
+<line x2="15" y1="20" y2="20" x1="9"></line>
 <line x2="12" y1="4" y2="20" x1="12"></line>"#,
 };
 
@@ -9164,7 +9162,7 @@ pub const UMBRELLA: IconType = IconType{
 pub const UNDERLINE: IconType = IconType{ 
  content: r#"
 <path d="M6 4v6a6 6 0 0 0 12 0V4"></path>
-<line x1="4" x2="20" y2="20" y1="20"></line>"#,
+<line x1="4" x2="20" y1="20" y2="20"></line>"#,
 };
 
 pub const UNDO_2: IconType = IconType{ 
@@ -9175,7 +9173,7 @@ pub const UNDO_2: IconType = IconType{
 
 pub const UNDO_DOT: IconType = IconType{ 
  content: r#"
-<circle r="1" cy="17" cx="12"></circle>
+<circle cx="12" cy="17" r="1"></circle>
 <path d="M3 7v6h6"></path>
 <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>"#,
 };
@@ -9212,8 +9210,8 @@ pub const UNFOLD_VERTICAL: IconType = IconType{
 
 pub const UNGROUP: IconType = IconType{ 
  content: r#"
-<rect height="6" width="8" x="5" y="4" rx="1"></rect>
-<rect width="8" y="14" x="11" height="6" rx="1"></rect>"#,
+<rect width="8" height="6" x="5" y="4" rx="1"></rect>
+<rect rx="1" x="11" width="8" y="14" height="6"></rect>"#,
 };
 
 pub const UNLINK_2: IconType = IconType{ 
@@ -9225,15 +9223,15 @@ pub const UNLINK: IconType = IconType{
  content: r#"
 <path d="m18.84 12.25 1.72-1.71h-.02a5.004 5.004 0 0 0-.12-7.07 5.006 5.006 0 0 0-6.95 0l-1.72 1.71"></path>
 <path d="m5.17 11.75-1.71 1.71a5.004 5.004 0 0 0 .12 7.07 5.006 5.006 0 0 0 6.95 0l1.71-1.71"></path>
-<line x1="8" y1="2" y2="5" x2="8"></line>
-<line y1="8" x1="2" x2="5" y2="8"></line>
-<line x1="16" x2="16" y1="19" y2="22"></line>
-<line y1="16" x1="19" y2="16" x2="22"></line>"#,
+<line x1="8" y1="2" x2="8" y2="5"></line>
+<line y1="8" y2="8" x2="5" x1="2"></line>
+<line x1="16" y1="19" y2="22" x2="16"></line>
+<line x1="19" y1="16" y2="16" x2="22"></line>"#,
 };
 
 pub const UNLOCK: IconType = IconType{ 
  content: r#"
-<rect ry="2" y="11" height="11" width="18" rx="2" x="3"></rect>
+<rect x="3" y="11" ry="2" width="18" rx="2" height="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>"#,
 };
 
@@ -9258,13 +9256,13 @@ pub const UPLOAD: IconType = IconType{
  content: r#"
 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
 <polyline points="17 8 12 3 7 8"></polyline>
-<line x1="12" x2="12" y1="3" y2="15"></line>"#,
+<line x1="12" y2="15" x2="12" y1="3"></line>"#,
 };
 
 pub const USB: IconType = IconType{ 
  content: r#"
-<circle cx="10" cy="7" r="1"></circle>
-<circle cx="4" cy="20" r="1"></circle>
+<circle cx="10" r="1" cy="7"></circle>
+<circle cx="4" r="1" cy="20"></circle>
 <path d="M4.7 19.3 19 5"></path>
 <path d="m21 3-3 1 2 2Z"></path>
 <path d="M9.26 7.68 5 12l2 5"></path>
@@ -9274,42 +9272,42 @@ pub const USB: IconType = IconType{
 
 pub const USER_2: IconType = IconType{ 
  content: r#"
-<circle cy="8" r="5" cx="12"></circle>
+<circle r="5" cy="8" cx="12"></circle>
 <path d="M20 21a8 8 0 1 0-16 0"></path>"#,
 };
 
 pub const USER_CHECK_2: IconType = IconType{ 
  content: r#"
 <path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle cx="8" cy="9" r="4"></circle>
+<circle cx="8" r="4" cy="9"></circle>
 <polyline points="16 11 18 13 22 9"></polyline>"#,
 };
 
 pub const USER_CHECK: IconType = IconType{ 
  content: r#"
 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cy="7" r="4" cx="9"></circle>
+<circle cx="9" cy="7" r="4"></circle>
 <polyline points="16 11 18 13 22 9"></polyline>"#,
 };
 
 pub const USER_CIRCLE_2: IconType = IconType{ 
  content: r#"
 <path d="M18 20a6 6 0 0 0-12 0"></path>
-<circle r="4" cx="12" cy="10"></circle>
+<circle cy="10" cx="12" r="4"></circle>
 <circle cx="12" r="10" cy="12"></circle>"#,
 };
 
 pub const USER_CIRCLE: IconType = IconType{ 
  content: r#"
 <circle cy="12" cx="12" r="10"></circle>
-<circle cx="12" r="3" cy="10"></circle>
+<circle cx="12" cy="10" r="3"></circle>
 <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path>"#,
 };
 
 pub const USER_COG_2: IconType = IconType{ 
  content: r#"
-<circle cy="15" r="3" cx="18"></circle>
-<circle r="4" cx="8" cy="9"></circle>
+<circle cx="18" cy="15" r="3"></circle>
+<circle cx="8" cy="9" r="4"></circle>
 <path d="M10.5 13.5A6 6 0 0 0 2 19"></path>
 <path d="m21.7 16.4-.9-.3"></path>
 <path d="m15.2 13.9-.9-.3"></path>
@@ -9324,7 +9322,7 @@ pub const USER_COG_2: IconType = IconType{
 pub const USER_COG: IconType = IconType{ 
  content: r#"
 <circle cy="15" r="3" cx="18"></circle>
-<circle r="4" cx="9" cy="7"></circle>
+<circle cx="9" cy="7" r="4"></circle>
 <path d="M10 15H6a4 4 0 0 0-4 4v2"></path>
 <path d="m21.7 16.4-.9-.3"></path>
 <path d="m15.2 13.9-.9-.3"></path>
@@ -9339,44 +9337,44 @@ pub const USER_COG: IconType = IconType{
 pub const USER_MINUS_2: IconType = IconType{ 
  content: r#"
 <path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle r="4" cx="8" cy="9"></circle>
-<line y2="11" y1="11" x1="22" x2="16"></line>"#,
+<circle cy="9" r="4" cx="8"></circle>
+<line x1="22" y1="11" y2="11" x2="16"></line>"#,
 };
 
 pub const USER_MINUS: IconType = IconType{ 
  content: r#"
 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
+<circle r="4" cx="9" cy="7"></circle>
 <line x1="22" y1="11" y2="11" x2="16"></line>"#,
 };
 
 pub const USER_PLUS_2: IconType = IconType{ 
  content: r#"
 <path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle r="4" cy="9" cx="8"></circle>
-<line x1="19" y2="14" y1="8" x2="19"></line>
-<line x2="16" y2="11" x1="22" y1="11"></line>"#,
+<circle cx="8" r="4" cy="9"></circle>
+<line x2="19" x1="19" y1="8" y2="14"></line>
+<line y1="11" x1="22" y2="11" x2="16"></line>"#,
 };
 
 pub const USER_PLUS: IconType = IconType{ 
  content: r#"
 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
-<line x2="19" x1="19" y2="14" y1="8"></line>
-<line x2="16" x1="22" y1="11" y2="11"></line>"#,
+<circle cy="7" cx="9" r="4"></circle>
+<line x2="19" y1="8" x1="19" y2="14"></line>
+<line y1="11" y2="11" x1="22" x2="16"></line>"#,
 };
 
 pub const USER_SQUARE_2: IconType = IconType{ 
  content: r#"
 <path d="M18 21a6 6 0 0 0-12 0"></path>
-<circle cy="11" r="4" cx="12"></circle>
-<rect height="18" rx="2" y="3" x="3" width="18"></rect>"#,
+<circle cx="12" cy="11" r="4"></circle>
+<rect width="18" x="3" y="3" rx="2" height="18"></rect>"#,
 };
 
 pub const USER_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" rx="2" y="3" x="3" width="18"></rect>
-<circle r="3" cx="12" cy="10"></circle>
+<rect rx="2" x="3" width="18" y="3" height="18"></rect>
+<circle r="3" cy="10" cx="12"></circle>
 <path d="M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>"#,
 };
 
@@ -9384,35 +9382,35 @@ pub const USER_X_2: IconType = IconType{
  content: r#"
 <path d="M14 19a6 6 0 0 0-12 0"></path>
 <circle cy="9" r="4" cx="8"></circle>
-<line y2="13" x1="17" x2="22" y1="8"></line>
-<line x2="17" y2="13" x1="22" y1="8"></line>"#,
+<line y1="8" x2="22" x1="17" y2="13"></line>
+<line y1="8" x1="22" x2="17" y2="13"></line>"#,
 };
 
 pub const USER_X: IconType = IconType{ 
  content: r#"
 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cy="7" cx="9" r="4"></circle>
-<line y2="13" x2="22" y1="8" x1="17"></line>
-<line x1="22" y1="8" x2="17" y2="13"></line>"#,
+<circle cx="9" r="4" cy="7"></circle>
+<line x2="22" y2="13" x1="17" y1="8"></line>
+<line y2="13" x2="17" x1="22" y1="8"></line>"#,
 };
 
 pub const USER: IconType = IconType{ 
  content: r#"
 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-<circle cx="12" cy="7" r="4"></circle>"#,
+<circle cy="7" cx="12" r="4"></circle>"#,
 };
 
 pub const USERS_2: IconType = IconType{ 
  content: r#"
 <path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle r="4" cx="8" cy="9"></circle>
+<circle cx="8" r="4" cy="9"></circle>
 <path d="M22 19a6 6 0 0 0-6-6 4 4 0 1 0 0-8"></path>"#,
 };
 
 pub const USERS: IconType = IconType{ 
  content: r#"
 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
+<circle cy="7" r="4" cx="9"></circle>
 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>"#,
 };
@@ -9447,8 +9445,8 @@ pub const VARIABLE: IconType = IconType{
  content: r#"
 <path d="M8 21s-4-3-4-9 4-9 4-9"></path>
 <path d="M16 3s4 3 4 9-4 9-4 9"></path>
-<line y1="9" y2="15" x1="15" x2="9"></line>
-<line x1="9" y1="9" y2="15" x2="15"></line>"#,
+<line x1="15" x2="9" y2="15" y1="9"></line>
+<line y2="15" x1="9" x2="15" y1="9"></line>"#,
 };
 
 pub const VEGAN: IconType = IconType{ 
@@ -9471,36 +9469,36 @@ pub const VIBRATE_OFF: IconType = IconType{
 <path d="m22 8-2 2 2 2-2 2 2 2"></path>
 <path d="M8 8v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2"></path>
 <path d="M16 10.34V6c0-.55-.45-1-1-1h-4.34"></path>
-<line x1="2" y1="2" x2="22" y2="22"></line>"#,
+<line x2="22" y1="2" y2="22" x1="2"></line>"#,
 };
 
 pub const VIBRATE: IconType = IconType{ 
  content: r#"
 <path d="m2 8 2 2-2 2 2 2-2 2"></path>
 <path d="m22 8-2 2 2 2-2 2 2 2"></path>
-<rect y="5" width="8" x="8" height="14" rx="1"></rect>"#,
+<rect y="5" height="14" rx="1" width="8" x="8"></rect>"#,
 };
 
 pub const VIDEO_OFF: IconType = IconType{ 
  content: r#"
 <path d="M10.66 6H14a2 2 0 0 1 2 2v2.34l1 1L22 8v8"></path>
 <path d="M16 16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2l10 10Z"></path>
-<line y2="22" x2="22" y1="2" x1="2"></line>"#,
+<line x1="2" x2="22" y1="2" y2="22"></line>"#,
 };
 
 pub const VIDEO: IconType = IconType{ 
  content: r#"
 <path d="m22 8-6 4 6 4V8Z"></path>
-<rect y="6" height="12" rx="2" width="14" x="2" ry="2"></rect>"#,
+<rect x="2" height="12" width="14" y="6" rx="2" ry="2"></rect>"#,
 };
 
 pub const VIDEOTAPE: IconType = IconType{ 
  content: r#"
-<rect height="16" y="4" width="20" x="2" rx="2"></rect>
+<rect width="20" x="2" height="16" y="4" rx="2"></rect>
 <path d="M2 8h20"></path>
-<circle r="2" cx="8" cy="14"></circle>
+<circle cy="14" r="2" cx="8"></circle>
 <path d="M8 12h8"></path>
-<circle r="2" cx="16" cy="14"></circle>"#,
+<circle cy="14" cx="16" r="2"></circle>"#,
 };
 
 pub const VIEW: IconType = IconType{ 
@@ -9513,9 +9511,9 @@ pub const VIEW: IconType = IconType{
 
 pub const VOICEMAIL: IconType = IconType{ 
  content: r#"
-<circle cx="6" cy="12" r="4"></circle>
-<circle r="4" cy="12" cx="18"></circle>
-<line x1="6" x2="18" y1="16" y2="16"></line>"#,
+<circle r="4" cx="6" cy="12"></circle>
+<circle cx="18" cy="12" r="4"></circle>
+<line y1="16" x1="6" x2="18" y2="16"></line>"#,
 };
 
 pub const VOLUME_1: IconType = IconType{ 
@@ -9534,8 +9532,8 @@ pub const VOLUME_2: IconType = IconType{
 pub const VOLUME_X: IconType = IconType{ 
  content: r#"
 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-<line x2="16" y2="15" x1="22" y1="9"></line>
-<line y1="9" y2="15" x2="22" x1="16"></line>"#,
+<line y2="15" y1="9" x1="22" x2="16"></line>
+<line x1="16" x2="22" y1="9" y2="15"></line>"#,
 };
 
 pub const VOLUME: IconType = IconType{ 
@@ -9558,7 +9556,7 @@ pub const WALLET_2: IconType = IconType{
 
 pub const WALLET_CARDS: IconType = IconType{ 
  content: r#"
-<rect width="18" x="3" rx="2" y="3" height="18"></rect>
+<rect rx="2" height="18" x="3" y="3" width="18"></rect>
 <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"></path>
 <path d="M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21"></path>"#,
 };
@@ -9572,7 +9570,7 @@ pub const WALLET: IconType = IconType{
 
 pub const WALLPAPER: IconType = IconType{ 
  content: r#"
-<circle cy="9" r="2" cx="8"></circle>
+<circle cx="8" r="2" cy="9"></circle>
 <path d="m9 17 6.1-6.1a2 2 0 0 1 2.81.01L22 15V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2"></path>
 <path d="M8 21h8"></path>
 <path d="M12 17v4"></path>"#,
@@ -9608,7 +9606,7 @@ pub const WAREHOUSE: IconType = IconType{
 <path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"></path>
 <path d="M6 18h12"></path>
 <path d="M6 14h12"></path>
-<rect width="12" height="12" y="10" x="6"></rect>"#,
+<rect y="10" height="12" width="12" x="6"></rect>"#,
 };
 
 pub const WATCH: IconType = IconType{ 
@@ -9628,8 +9626,8 @@ pub const WAVES: IconType = IconType{
 
 pub const WEBCAM: IconType = IconType{ 
  content: r#"
-<circle r="8" cy="10" cx="12"></circle>
-<circle cx="12" r="3" cy="10"></circle>
+<circle cy="10" r="8" cx="12"></circle>
+<circle cy="10" cx="12" r="3"></circle>
 <path d="M7 22h10"></path>
 <path d="M12 22v-4"></path>"#,
 };
@@ -9652,7 +9650,7 @@ pub const WHEAT_OFF: IconType = IconType{
 <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path>
 <path d="m16 16-.53.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.49 3.49 0 0 1 1.97-.98"></path>
 <path d="M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28"></path>
-<line y1="2" x2="22" y2="22" x1="2"></line>"#,
+<line x1="2" x2="22" y1="2" y2="22"></line>"#,
 };
 
 pub const WHEAT: IconType = IconType{ 
@@ -9671,20 +9669,20 @@ pub const WHOLE_WORD: IconType = IconType{
  content: r#"
 <circle cx="7" r="3" cy="12"></circle>
 <path d="M10 9v6"></path>
-<circle cy="12" cx="17" r="3"></circle>
+<circle r="3" cx="17" cy="12"></circle>
 <path d="M14 7v8"></path>
 <path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1"></path>"#,
 };
 
 pub const WIFI_OFF: IconType = IconType{ 
  content: r#"
-<line y2="22" y1="2" x1="2" x2="22"></line>
+<line x2="22" x1="2" y1="2" y2="22"></line>
 <path d="M8.5 16.5a5 5 0 0 1 7 0"></path>
 <path d="M2 8.82a15 15 0 0 1 4.17-2.65"></path>
 <path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"></path>
 <path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"></path>
 <path d="M5 13a10 10 0 0 1 5.24-2.76"></path>
-<line x2="12.01" y1="20" y2="20" x1="12"></line>"#,
+<line x2="12.01" x1="12" y2="20" y1="20"></line>"#,
 };
 
 pub const WIFI: IconType = IconType{ 
@@ -9692,7 +9690,7 @@ pub const WIFI: IconType = IconType{
 <path d="M5 13a10 10 0 0 1 14 0"></path>
 <path d="M8.5 16.5a5 5 0 0 1 7 0"></path>
 <path d="M2 8.82a15 15 0 0 1 20 0"></path>
-<line x2="12.01" y2="20" y1="20" x1="12"></line>"#,
+<line y2="20" y1="20" x1="12" x2="12.01"></line>"#,
 };
 
 pub const WIND: IconType = IconType{ 
@@ -9708,7 +9706,7 @@ pub const WINE_OFF: IconType = IconType{
 <path d="M7 10h3m7 0h-1.343"></path>
 <path d="M12 15v7"></path>
 <path d="M7.307 7.307A12.33 12.33 0 0 0 7 10a5 5 0 0 0 7.391 4.391M8.638 2.981C8.75 2.668 8.872 2.34 9 2h6c1.5 4 2 6 2 8 0 .407-.05.809-.145 1.198"></path>
-<line x2="22" x1="2" y1="2" y2="22"></line>"#,
+<line y1="2" y2="22" x1="2" x2="22"></line>"#,
 };
 
 pub const WINE: IconType = IconType{ 
@@ -9721,17 +9719,17 @@ pub const WINE: IconType = IconType{
 
 pub const WORKFLOW: IconType = IconType{ 
  content: r#"
-<rect height="8" width="8" y="3" rx="2" x="3"></rect>
+<rect x="3" width="8" y="3" rx="2" height="8"></rect>
 <path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
-<rect y="13" rx="2" width="8" height="8" x="13"></rect>"#,
+<rect rx="2" height="8" width="8" x="13" y="13"></rect>"#,
 };
 
 pub const WRAP_TEXT: IconType = IconType{ 
  content: r#"
-<line y1="6" x2="21" y2="6" x1="3"></line>
+<line x2="21" x1="3" y1="6" y2="6"></line>
 <path d="M3 12h15a3 3 0 1 1 0 6h-4"></path>
 <polyline points="16 16 14 18 16 20"></polyline>
-<line x1="3" y1="18" y2="18" x2="10"></line>"#,
+<line x1="3" y2="18" x2="10" y1="18"></line>"#,
 };
 
 pub const WRENCH: IconType = IconType{ 
@@ -9741,7 +9739,7 @@ pub const WRENCH: IconType = IconType{
 
 pub const X_CIRCLE: IconType = IconType{ 
  content: r#"
-<circle cx="12" cy="12" r="10"></circle>
+<circle r="10" cx="12" cy="12"></circle>
 <path d="m15 9-6 6"></path>
 <path d="m9 9 6 6"></path>"#,
 };
@@ -9755,7 +9753,7 @@ pub const X_OCTAGON: IconType = IconType{
 
 pub const X_SQUARE: IconType = IconType{ 
  content: r#"
-<rect height="18" width="18" y="3" ry="2" rx="2" x="3"></rect>
+<rect height="18" width="18" x="3" y="3" rx="2" ry="2"></rect>
 <path d="m15 9-6 6"></path>
 <path d="m9 9 6 6"></path>"#,
 };
@@ -9777,7 +9775,7 @@ pub const ZAP_OFF: IconType = IconType{
 <polyline points="12.41 6.75 13 2 10.57 4.92"></polyline>
 <polyline points="18.57 12.91 21 10 15.66 10"></polyline>
 <polyline points="8 8 3 14 12 14 11 22 16 16"></polyline>
-<line y2="22" x2="22" x1="2" y1="2"></line>"#,
+<line x1="2" y1="2" y2="22" x2="22"></line>"#,
 };
 
 pub const ZAP: IconType = IconType{ 
@@ -9787,15 +9785,1273 @@ pub const ZAP: IconType = IconType{
 
 pub const ZOOM_IN: IconType = IconType{ 
  content: r#"
-<circle cx="11" cy="11" r="8"></circle>
-<line x1="21" y1="21" y2="16.65" x2="16.65"></line>
-<line y2="14" x1="11" y1="8" x2="11"></line>
-<line x2="14" y1="11" y2="11" x1="8"></line>"#,
+<circle cx="11" r="8" cy="11"></circle>
+<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+<line x1="11" y1="8" y2="14" x2="11"></line>
+<line x2="14" y1="11" x1="8" y2="11"></line>"#,
 };
 
 pub const ZOOM_OUT: IconType = IconType{ 
  content: r#"
-<circle cy="11" r="8" cx="11"></circle>
-<line y1="21" x1="21" x2="16.65" y2="16.65"></line>
-<line y1="11" x2="14" x1="8" y2="11"></line>"#,
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" y1="21" y2="16.65" x2="16.65"></line>
+<line x2="14" y2="11" x1="8" y1="11"></line>"#,
 };
+
+
+pub const ALL_ICONS: [IconType; 1256] = [ACCESSIBILITY,
+ACTIVITY_SQUARE,
+ACTIVITY,
+AIR_VENT,
+AIRPLAY,
+ALARM_CHECK,
+ALARM_CLOCK_OFF,
+ALARM_CLOCK,
+ALARM_MINUS,
+ALARM_PLUS,
+ALBUM,
+ALERT_CIRCLE,
+ALERT_OCTAGON,
+ALERT_TRIANGLE,
+ALIGN_CENTER_HORIZONTAL,
+ALIGN_CENTER_VERTICAL,
+ALIGN_CENTER,
+ALIGN_END_HORIZONTAL,
+ALIGN_END_VERTICAL,
+ALIGN_HORIZONTAL_DISTRIBUTE_CENTER,
+ALIGN_HORIZONTAL_DISTRIBUTE_END,
+ALIGN_HORIZONTAL_DISTRIBUTE_START,
+ALIGN_HORIZONTAL_JUSTIFY_CENTER,
+ALIGN_HORIZONTAL_JUSTIFY_END,
+ALIGN_HORIZONTAL_JUSTIFY_START,
+ALIGN_HORIZONTAL_SPACE_AROUND,
+ALIGN_HORIZONTAL_SPACE_BETWEEN,
+ALIGN_JUSTIFY,
+ALIGN_LEFT,
+ALIGN_RIGHT,
+ALIGN_START_HORIZONTAL,
+ALIGN_START_VERTICAL,
+ALIGN_VERTICAL_DISTRIBUTE_CENTER,
+ALIGN_VERTICAL_DISTRIBUTE_END,
+ALIGN_VERTICAL_DISTRIBUTE_START,
+ALIGN_VERTICAL_JUSTIFY_CENTER,
+ALIGN_VERTICAL_JUSTIFY_END,
+ALIGN_VERTICAL_JUSTIFY_START,
+ALIGN_VERTICAL_SPACE_AROUND,
+ALIGN_VERTICAL_SPACE_BETWEEN,
+AMPERSAND,
+AMPERSANDS,
+ANCHOR,
+ANGRY,
+ANNOYED,
+ANTENNA,
+APERTURE,
+APP_WINDOW,
+APPLE,
+ARCHIVE_RESTORE,
+ARCHIVE_X,
+ARCHIVE,
+AREA_CHART,
+ARMCHAIR,
+ARROW_BIG_DOWN_DASH,
+ARROW_BIG_DOWN,
+ARROW_BIG_LEFT_DASH,
+ARROW_BIG_LEFT,
+ARROW_BIG_RIGHT_DASH,
+ARROW_BIG_RIGHT,
+ARROW_BIG_UP_DASH,
+ARROW_BIG_UP,
+ARROW_DOWN_0_1,
+ARROW_DOWN_1_0,
+ARROW_DOWN_A_Z,
+ARROW_DOWN_CIRCLE,
+ARROW_DOWN_FROM_LINE,
+ARROW_DOWN_LEFT_FROM_CIRCLE,
+ARROW_DOWN_LEFT_SQUARE,
+ARROW_DOWN_LEFT,
+ARROW_DOWN_NARROW_WIDE,
+ARROW_DOWN_RIGHT_FROM_CIRCLE,
+ARROW_DOWN_RIGHT_SQUARE,
+ARROW_DOWN_RIGHT,
+ARROW_DOWN_SQUARE,
+ARROW_DOWN_TO_DOT,
+ARROW_DOWN_TO_LINE,
+ARROW_DOWN_UP,
+ARROW_DOWN_WIDE_NARROW,
+ARROW_DOWN_Z_A,
+ARROW_DOWN,
+ARROW_LEFT_CIRCLE,
+ARROW_LEFT_FROM_LINE,
+ARROW_LEFT_RIGHT,
+ARROW_LEFT_SQUARE,
+ARROW_LEFT_TO_LINE,
+ARROW_LEFT,
+ARROW_RIGHT_CIRCLE,
+ARROW_RIGHT_FROM_LINE,
+ARROW_RIGHT_LEFT,
+ARROW_RIGHT_SQUARE,
+ARROW_RIGHT_TO_LINE,
+ARROW_RIGHT,
+ARROW_UP_0_1,
+ARROW_UP_1_0,
+ARROW_UP_A_Z,
+ARROW_UP_CIRCLE,
+ARROW_UP_DOWN,
+ARROW_UP_FROM_DOT,
+ARROW_UP_FROM_LINE,
+ARROW_UP_LEFT_FROM_CIRCLE,
+ARROW_UP_LEFT_SQUARE,
+ARROW_UP_LEFT,
+ARROW_UP_NARROW_WIDE,
+ARROW_UP_RIGHT_FROM_CIRCLE,
+ARROW_UP_RIGHT_SQUARE,
+ARROW_UP_RIGHT,
+ARROW_UP_SQUARE,
+ARROW_UP_TO_LINE,
+ARROW_UP_WIDE_NARROW,
+ARROW_UP_Z_A,
+ARROW_UP,
+ARROWS_UP_FROM_LINE,
+ASTERISK,
+AT_SIGN,
+ATOM,
+AWARD,
+AXE,
+AXIS_3_D,
+BABY,
+BACKPACK,
+BADGE_ALERT,
+BADGE_CENT,
+BADGE_CHECK,
+BADGE_DOLLAR_SIGN,
+BADGE_EURO,
+BADGE_HELP,
+BADGE_INDIAN_RUPEE,
+BADGE_INFO,
+BADGE_JAPANESE_YEN,
+BADGE_MINUS,
+BADGE_PERCENT,
+BADGE_PLUS,
+BADGE_POUND_STERLING,
+BADGE_RUSSIAN_RUBLE,
+BADGE_SWISS_FRANC,
+BADGE_X,
+BADGE,
+BAGGAGE_CLAIM,
+BAN,
+BANANA,
+BANKNOTE,
+BAR_CHART_2,
+BAR_CHART_3,
+BAR_CHART_4,
+BAR_CHART_BIG,
+BAR_CHART_HORIZONTAL_BIG,
+BAR_CHART_HORIZONTAL,
+BAR_CHART,
+BASELINE,
+BATH,
+BATTERY_CHARGING,
+BATTERY_FULL,
+BATTERY_LOW,
+BATTERY_MEDIUM,
+BATTERY_WARNING,
+BATTERY,
+BEAKER,
+BEAN_OFF,
+BEAN,
+BED_DOUBLE,
+BED_SINGLE,
+BED,
+BEEF,
+BEER,
+BELL_DOT,
+BELL_MINUS,
+BELL_OFF,
+BELL_PLUS,
+BELL_RING,
+BELL,
+BIKE,
+BINARY,
+BIOHAZARD,
+BIRD,
+BITCOIN,
+BLINDS,
+BLOCKS,
+BLUETOOTH_CONNECTED,
+BLUETOOTH_OFF,
+BLUETOOTH_SEARCHING,
+BLUETOOTH,
+BOLD,
+BOMB,
+BONE,
+BOOK_COPY,
+BOOK_DOWN,
+BOOK_KEY,
+BOOK_LOCK,
+BOOK_MARKED,
+BOOK_MINUS,
+BOOK_OPEN_CHECK,
+BOOK_OPEN,
+BOOK_PLUS,
+BOOK_TEMPLATE,
+BOOK_UP_2,
+BOOK_UP,
+BOOK_X,
+BOOK,
+BOOKMARK_MINUS,
+BOOKMARK_PLUS,
+BOOKMARK,
+BOOM_BOX,
+BOT,
+BOX_SELECT,
+BOX,
+BOXES,
+BRACES,
+BRACKETS,
+BRAIN_CIRCUIT,
+BRAIN_COG,
+BRAIN,
+BRIEFCASE,
+BRING_TO_FRONT,
+BRUSH,
+BUG_OFF,
+BUG_PLAY,
+BUG,
+BUILDING_2,
+BUILDING,
+BUS_FRONT,
+BUS,
+CABLE_CAR,
+CABLE,
+CAKE_SLICE,
+CAKE,
+CALCULATOR,
+CALENDAR_CHECK_2,
+CALENDAR_CHECK,
+CALENDAR_CLOCK,
+CALENDAR_DAYS,
+CALENDAR_HEART,
+CALENDAR_MINUS,
+CALENDAR_OFF,
+CALENDAR_PLUS,
+CALENDAR_RANGE,
+CALENDAR_SEARCH,
+CALENDAR_X_2,
+CALENDAR_X,
+CALENDAR,
+CAMERA_OFF,
+CAMERA,
+CANDLESTICK_CHART,
+CANDY_CANE,
+CANDY_OFF,
+CANDY,
+CAR_FRONT,
+CAR_TAXI_FRONT,
+CAR,
+CARROT,
+CASE_LOWER,
+CASE_SENSITIVE,
+CASE_UPPER,
+CASSETTE_TAPE,
+CAST,
+CASTLE,
+CAT,
+CHECK_CHECK,
+CHECK_CIRCLE_2,
+CHECK_CIRCLE,
+CHECK_SQUARE,
+CHECK,
+CHEF_HAT,
+CHERRY,
+CHEVRON_DOWN_CIRCLE,
+CHEVRON_DOWN_SQUARE,
+CHEVRON_DOWN,
+CHEVRON_FIRST,
+CHEVRON_LAST,
+CHEVRON_LEFT_CIRCLE,
+CHEVRON_LEFT_SQUARE,
+CHEVRON_LEFT,
+CHEVRON_RIGHT_CIRCLE,
+CHEVRON_RIGHT_SQUARE,
+CHEVRON_RIGHT,
+CHEVRON_UP_CIRCLE,
+CHEVRON_UP_SQUARE,
+CHEVRON_UP,
+CHEVRONS_DOWN_UP,
+CHEVRONS_DOWN,
+CHEVRONS_LEFT_RIGHT,
+CHEVRONS_LEFT,
+CHEVRONS_RIGHT_LEFT,
+CHEVRONS_RIGHT,
+CHEVRONS_UP_DOWN,
+CHEVRONS_UP,
+CHROME,
+CHURCH,
+CIGARETTE_OFF,
+CIGARETTE,
+CIRCLE_DASHED,
+CIRCLE_DOLLAR_SIGN,
+CIRCLE_DOT_DASHED,
+CIRCLE_DOT,
+CIRCLE_ELLIPSIS,
+CIRCLE_EQUAL,
+CIRCLE_OFF,
+CIRCLE_SLASH_2,
+CIRCLE_SLASH,
+CIRCLE,
+CIRCUIT_BOARD,
+CITRUS,
+CLAPPERBOARD,
+CLIPBOARD_CHECK,
+CLIPBOARD_COPY,
+CLIPBOARD_EDIT,
+CLIPBOARD_LIST,
+CLIPBOARD_PASTE,
+CLIPBOARD_SIGNATURE,
+CLIPBOARD_TYPE,
+CLIPBOARD_X,
+CLIPBOARD,
+CLOCK_1,
+CLOCK_10,
+CLOCK_11,
+CLOCK_12,
+CLOCK_2,
+CLOCK_3,
+CLOCK_4,
+CLOCK_5,
+CLOCK_6,
+CLOCK_7,
+CLOCK_8,
+CLOCK_9,
+CLOCK,
+CLOUD_COG,
+CLOUD_DRIZZLE,
+CLOUD_FOG,
+CLOUD_HAIL,
+CLOUD_LIGHTNING,
+CLOUD_MOON_RAIN,
+CLOUD_MOON,
+CLOUD_OFF,
+CLOUD_RAIN_WIND,
+CLOUD_RAIN,
+CLOUD_SNOW,
+CLOUD_SUN_RAIN,
+CLOUD_SUN,
+CLOUD,
+CLOUDY,
+CLOVER,
+CLUB,
+CODE_2,
+CODE,
+CODEPEN,
+CODESANDBOX,
+COFFEE,
+COG,
+COINS,
+COLUMNS,
+COMBINE,
+COMMAND,
+COMPASS,
+COMPONENT,
+COMPUTER,
+CONCIERGE_BELL,
+CONSTRUCTION,
+CONTACT_2,
+CONTACT,
+CONTAINER,
+CONTRAST,
+COOKIE,
+COPY_CHECK,
+COPY_MINUS,
+COPY_PLUS,
+COPY_SLASH,
+COPY_X,
+COPY,
+COPYLEFT,
+COPYRIGHT,
+CORNER_DOWN_LEFT,
+CORNER_DOWN_RIGHT,
+CORNER_LEFT_DOWN,
+CORNER_LEFT_UP,
+CORNER_RIGHT_DOWN,
+CORNER_RIGHT_UP,
+CORNER_UP_LEFT,
+CORNER_UP_RIGHT,
+CPU,
+CREATIVE_COMMONS,
+CREDIT_CARD,
+CROISSANT,
+CROP,
+CROSS,
+CROSSHAIR,
+CROWN,
+CUP_SODA,
+CURRENCY,
+DATABASE_BACKUP,
+DATABASE_ZAP,
+DATABASE,
+DELETE,
+DESSERT,
+DIAMOND,
+DICE_1,
+DICE_2,
+DICE_3,
+DICE_4,
+DICE_5,
+DICE_6,
+DICES,
+DIFF,
+DISC_2,
+DISC_3,
+DISC,
+DIVIDE_CIRCLE,
+DIVIDE_SQUARE,
+DIVIDE,
+DNA_OFF,
+DNA,
+DOG,
+DOLLAR_SIGN,
+DONUT,
+DOOR_CLOSED,
+DOOR_OPEN,
+DOT,
+DOWNLOAD_CLOUD,
+DOWNLOAD,
+DRIBBBLE,
+DROPLET,
+DROPLETS,
+DRUMSTICK,
+DUMBBELL,
+EAR_OFF,
+EAR,
+EGG_FRIED,
+EGG_OFF,
+EGG,
+EQUAL_NOT,
+EQUAL,
+ERASER,
+EURO,
+EXPAND,
+EXTERNAL_LINK,
+EYE_OFF,
+EYE,
+FACEBOOK,
+FACTORY,
+FAN,
+FAST_FORWARD,
+FEATHER,
+FERRIS_WHEEL,
+FIGMA,
+FILE_ARCHIVE,
+FILE_AUDIO_2,
+FILE_AUDIO,
+FILE_AXIS_3_D,
+FILE_BADGE_2,
+FILE_BADGE,
+FILE_BAR_CHART_2,
+FILE_BAR_CHART,
+FILE_BOX,
+FILE_CHECK_2,
+FILE_CHECK,
+FILE_CLOCK,
+FILE_CODE_2,
+FILE_CODE,
+FILE_COG,
+FILE_DIFF,
+FILE_DIGIT,
+FILE_DOWN,
+FILE_EDIT,
+FILE_HEART,
+FILE_IMAGE,
+FILE_INPUT,
+FILE_JSON_2,
+FILE_JSON,
+FILE_KEY_2,
+FILE_KEY,
+FILE_LINE_CHART,
+FILE_LOCK_2,
+FILE_LOCK,
+FILE_MINUS_2,
+FILE_MINUS,
+FILE_OUTPUT,
+FILE_PIE_CHART,
+FILE_PLUS_2,
+FILE_PLUS,
+FILE_QUESTION,
+FILE_SCAN,
+FILE_SEARCH_2,
+FILE_SEARCH,
+FILE_SIGNATURE,
+FILE_SPREADSHEET,
+FILE_STACK,
+FILE_SYMLINK,
+FILE_TERMINAL,
+FILE_TEXT,
+FILE_TYPE_2,
+FILE_TYPE,
+FILE_UP,
+FILE_VIDEO_2,
+FILE_VIDEO,
+FILE_VOLUME_2,
+FILE_VOLUME,
+FILE_WARNING,
+FILE_X_2,
+FILE_X,
+FILE,
+FILES,
+FILM,
+FILTER_X,
+FILTER,
+FINGERPRINT,
+FISH_OFF,
+FISH_SYMBOL,
+FISH,
+FLAG_OFF,
+FLAG_TRIANGLE_LEFT,
+FLAG_TRIANGLE_RIGHT,
+FLAG,
+FLAME,
+FLASHLIGHT_OFF,
+FLASHLIGHT,
+FLASK_CONICAL_OFF,
+FLASK_CONICAL,
+FLASK_ROUND,
+FLIP_HORIZONTAL_2,
+FLIP_HORIZONTAL,
+FLIP_VERTICAL_2,
+FLIP_VERTICAL,
+FLOWER_2,
+FLOWER,
+FOCUS,
+FOLD_HORIZONTAL,
+FOLD_VERTICAL,
+FOLDER_ARCHIVE,
+FOLDER_CHECK,
+FOLDER_CLOCK,
+FOLDER_CLOSED,
+FOLDER_COG,
+FOLDER_DOT,
+FOLDER_DOWN,
+FOLDER_EDIT,
+FOLDER_GIT_2,
+FOLDER_GIT,
+FOLDER_HEART,
+FOLDER_INPUT,
+FOLDER_KANBAN,
+FOLDER_KEY,
+FOLDER_LOCK,
+FOLDER_MINUS,
+FOLDER_OPEN_DOT,
+FOLDER_OPEN,
+FOLDER_OUTPUT,
+FOLDER_PLUS,
+FOLDER_ROOT,
+FOLDER_SEARCH_2,
+FOLDER_SEARCH,
+FOLDER_SYMLINK,
+FOLDER_SYNC,
+FOLDER_TREE,
+FOLDER_UP,
+FOLDER_X,
+FOLDER,
+FOLDERS,
+FOOTPRINTS,
+FORKLIFT,
+FORM_INPUT,
+FORWARD,
+FRAME,
+FRAMER,
+FROWN,
+FUEL,
+FUNCTION_SQUARE,
+GALLERY_HORIZONTAL_END,
+GALLERY_HORIZONTAL,
+GALLERY_THUMBNAILS,
+GALLERY_VERTICAL_END,
+GALLERY_VERTICAL,
+GAMEPAD_2,
+GAMEPAD,
+GANTT_CHART_SQUARE,
+GANTT_CHART,
+GAUGE_CIRCLE,
+GAUGE,
+GAVEL,
+GEM,
+GHOST,
+GIFT,
+GIT_BRANCH_PLUS,
+GIT_BRANCH,
+GIT_COMMIT,
+GIT_COMPARE,
+GIT_FORK,
+GIT_MERGE,
+GIT_PULL_REQUEST_CLOSED,
+GIT_PULL_REQUEST_DRAFT,
+GIT_PULL_REQUEST,
+GITHUB,
+GITLAB,
+GLASS_WATER,
+GLASSES,
+GLOBE_2,
+GLOBE,
+GOAL,
+GRAB,
+GRADUATION_CAP,
+GRAPE,
+GRID_2_X_2,
+GRID_3_X_3,
+GRIP_HORIZONTAL,
+GRIP_VERTICAL,
+GRIP,
+GROUP,
+HAMMER,
+HAND_METAL,
+HAND,
+HARD_DRIVE_DOWNLOAD,
+HARD_DRIVE_UPLOAD,
+HARD_DRIVE,
+HARD_HAT,
+HASH,
+HAZE,
+HDMI_PORT,
+HEADING_1,
+HEADING_2,
+HEADING_3,
+HEADING_4,
+HEADING_5,
+HEADING_6,
+HEADING,
+HEADPHONES,
+HEART_CRACK,
+HEART_HANDSHAKE,
+HEART_OFF,
+HEART_PULSE,
+HEART,
+HELP_CIRCLE,
+HELPING_HAND,
+HEXAGON,
+HIGHLIGHTER,
+HISTORY,
+HOME,
+HOP_OFF,
+HOP,
+HOTEL,
+HOURGLASS,
+ICE_CREAM_2,
+ICE_CREAM,
+IMAGE_MINUS,
+IMAGE_OFF,
+IMAGE_PLUS,
+IMAGE,
+IMPORT,
+INBOX,
+INDENT,
+INDIAN_RUPEE,
+INFINITY,
+INFO,
+INSTAGRAM,
+ITALIC,
+ITERATION_CCW,
+ITERATION_CW,
+JAPANESE_YEN,
+JOYSTICK,
+KANBAN_SQUARE_DASHED,
+KANBAN_SQUARE,
+KANBAN,
+KEY_ROUND,
+KEY_SQUARE,
+KEY,
+KEYBOARD,
+LAMP_CEILING,
+LAMP_DESK,
+LAMP_FLOOR,
+LAMP_WALL_DOWN,
+LAMP_WALL_UP,
+LAMP,
+LANDMARK,
+LANGUAGES,
+LAPTOP_2,
+LAPTOP,
+LASSO_SELECT,
+LASSO,
+LAUGH,
+LAYERS,
+LAYOUT_DASHBOARD,
+LAYOUT_GRID,
+LAYOUT_LIST,
+LAYOUT_PANEL_LEFT,
+LAYOUT_PANEL_TOP,
+LAYOUT_TEMPLATE,
+LAYOUT,
+LEAF,
+LEAFY_GREEN,
+LIBRARY,
+LIFE_BUOY,
+LIGATURE,
+LIGHTBULB_OFF,
+LIGHTBULB,
+LINE_CHART,
+LINK_2_OFF,
+LINK_2,
+LINK,
+LINKEDIN,
+LIST_CHECKS,
+LIST_END,
+LIST_FILTER,
+LIST_MINUS,
+LIST_MUSIC,
+LIST_ORDERED,
+LIST_PLUS,
+LIST_RESTART,
+LIST_START,
+LIST_TODO,
+LIST_TREE,
+LIST_VIDEO,
+LIST_X,
+LIST,
+LOADER_2,
+LOADER,
+LOCATE_FIXED,
+LOCATE_OFF,
+LOCATE,
+LOCK,
+LOG_IN,
+LOG_OUT,
+LOLLIPOP,
+LUGGAGE,
+M_SQUARE,
+MAGNET,
+MAIL_CHECK,
+MAIL_MINUS,
+MAIL_OPEN,
+MAIL_PLUS,
+MAIL_QUESTION,
+MAIL_SEARCH,
+MAIL_WARNING,
+MAIL_X,
+MAIL,
+MAILBOX,
+MAILS,
+MAP_PIN_OFF,
+MAP_PIN,
+MAP,
+MARTINI,
+MAXIMIZE_2,
+MAXIMIZE,
+MEDAL,
+MEGAPHONE_OFF,
+MEGAPHONE,
+MEH,
+MEMORY_STICK,
+MENU_SQUARE,
+MENU,
+MERGE,
+MESSAGE_CIRCLE,
+MESSAGE_SQUARE_DASHED,
+MESSAGE_SQUARE_PLUS,
+MESSAGE_SQUARE,
+MESSAGES_SQUARE,
+MIC_2,
+MIC_OFF,
+MIC,
+MICROSCOPE,
+MICROWAVE,
+MILESTONE,
+MILK_OFF,
+MILK,
+MINIMIZE_2,
+MINIMIZE,
+MINUS_CIRCLE,
+MINUS_SQUARE,
+MINUS,
+MONITOR_CHECK,
+MONITOR_DOT,
+MONITOR_DOWN,
+MONITOR_OFF,
+MONITOR_PAUSE,
+MONITOR_PLAY,
+MONITOR_SMARTPHONE,
+MONITOR_SPEAKER,
+MONITOR_STOP,
+MONITOR_UP,
+MONITOR_X,
+MONITOR,
+MOON_STAR,
+MOON,
+MORE_HORIZONTAL,
+MORE_VERTICAL,
+MOUNTAIN_SNOW,
+MOUNTAIN,
+MOUSE_POINTER_2,
+MOUSE_POINTER_CLICK,
+MOUSE_POINTER_SQUARE_DASHED,
+MOUSE_POINTER_SQUARE,
+MOUSE_POINTER,
+MOUSE,
+MOVE_3_D,
+MOVE_DIAGONAL_2,
+MOVE_DIAGONAL,
+MOVE_DOWN_LEFT,
+MOVE_DOWN_RIGHT,
+MOVE_DOWN,
+MOVE_HORIZONTAL,
+MOVE_LEFT,
+MOVE_RIGHT,
+MOVE_UP_LEFT,
+MOVE_UP_RIGHT,
+MOVE_UP,
+MOVE_VERTICAL,
+MOVE,
+MUSIC_2,
+MUSIC_3,
+MUSIC_4,
+MUSIC,
+NAVIGATION_2_OFF,
+NAVIGATION_2,
+NAVIGATION_OFF,
+NAVIGATION,
+NETWORK,
+NEWSPAPER,
+NFC,
+NUT_OFF,
+NUT,
+OCTAGON,
+OPTION,
+ORBIT,
+OUTDENT,
+PACKAGE_2,
+PACKAGE_CHECK,
+PACKAGE_MINUS,
+PACKAGE_OPEN,
+PACKAGE_PLUS,
+PACKAGE_SEARCH,
+PACKAGE_X,
+PACKAGE,
+PAINT_BUCKET,
+PAINTBRUSH_2,
+PAINTBRUSH,
+PALETTE,
+PALMTREE,
+PANEL_BOTTOM_CLOSE,
+PANEL_BOTTOM_INACTIVE,
+PANEL_BOTTOM_OPEN,
+PANEL_BOTTOM,
+PANEL_LEFT_CLOSE,
+PANEL_LEFT_INACTIVE,
+PANEL_LEFT_OPEN,
+PANEL_LEFT,
+PANEL_RIGHT_CLOSE,
+PANEL_RIGHT_INACTIVE,
+PANEL_RIGHT_OPEN,
+PANEL_RIGHT,
+PANEL_TOP_CLOSE,
+PANEL_TOP_INACTIVE,
+PANEL_TOP_OPEN,
+PANEL_TOP,
+PAPERCLIP,
+PARENTHESES,
+PARKING_CIRCLE_OFF,
+PARKING_CIRCLE,
+PARKING_METER,
+PARKING_SQUARE_OFF,
+PARKING_SQUARE,
+PARTY_POPPER,
+PAUSE_CIRCLE,
+PAUSE_OCTAGON,
+PAUSE,
+PAW_PRINT,
+PC_CASE,
+PEN_LINE,
+PEN_SQUARE,
+PEN_TOOL,
+PEN,
+PENCIL_LINE,
+PENCIL_RULER,
+PENCIL,
+PERCENT_CIRCLE,
+PERCENT_DIAMOND,
+PERCENT_SQUARE,
+PERCENT,
+PERSON_STANDING,
+PHONE_CALL,
+PHONE_FORWARDED,
+PHONE_INCOMING,
+PHONE_MISSED,
+PHONE_OFF,
+PHONE_OUTGOING,
+PHONE,
+PI_SQUARE,
+PI,
+PICTURE_IN_PICTURE_2,
+PICTURE_IN_PICTURE,
+PIE_CHART,
+PIGGY_BANK,
+PILCROW_SQUARE,
+PILCROW,
+PILL,
+PIN_OFF,
+PIN,
+PIPETTE,
+PIZZA,
+PLANE_LANDING,
+PLANE_TAKEOFF,
+PLANE,
+PLAY_CIRCLE,
+PLAY_SQUARE,
+PLAY,
+PLUG_2,
+PLUG_ZAP_2,
+PLUG_ZAP,
+PLUG,
+PLUS_CIRCLE,
+PLUS_SQUARE,
+PLUS,
+POCKET_KNIFE,
+POCKET,
+PODCAST,
+POINTER,
+POPCORN,
+POPSICLE,
+POUND_STERLING,
+POWER_OFF,
+POWER,
+PRESENTATION,
+PRINTER,
+PROJECTOR,
+PUZZLE,
+QR_CODE,
+QUOTE,
+RABBIT,
+RADAR,
+RADIATION,
+RADIO_RECEIVER,
+RADIO_TOWER,
+RADIO,
+RAIL_SYMBOL,
+RAINBOW,
+RAT,
+RATIO,
+RECEIPT,
+RECTANGLE_HORIZONTAL,
+RECTANGLE_VERTICAL,
+RECYCLE,
+REDO_2,
+REDO_DOT,
+REDO,
+REFRESH_CCW_DOT,
+REFRESH_CCW,
+REFRESH_CW_OFF,
+REFRESH_CW,
+REFRIGERATOR,
+REGEX,
+REMOVE_FORMATTING,
+REPEAT_1,
+REPEAT_2,
+REPEAT,
+REPLACE_ALL,
+REPLACE,
+REPLY_ALL,
+REPLY,
+REWIND,
+ROCKET,
+ROCKING_CHAIR,
+ROLLER_COASTER,
+ROTATE_3_D,
+ROTATE_CCW,
+ROTATE_CW,
+ROUTER,
+ROWS,
+RSS,
+RULER,
+RUSSIAN_RUBLE,
+SAILBOAT,
+SALAD,
+SANDWICH,
+SATELLITE_DISH,
+SATELLITE,
+SAVE_ALL,
+SAVE,
+SCALE_3_D,
+SCALE,
+SCALING,
+SCAN_FACE,
+SCAN_LINE,
+SCAN,
+SCATTER_CHART,
+SCHOOL_2,
+SCHOOL,
+SCISSORS_LINE_DASHED,
+SCISSORS_SQUARE_DASHED_BOTTOM,
+SCISSORS_SQUARE,
+SCISSORS,
+SCREEN_SHARE_OFF,
+SCREEN_SHARE,
+SCROLL_TEXT,
+SCROLL,
+SEARCH_CHECK,
+SEARCH_CODE,
+SEARCH_SLASH,
+SEARCH_X,
+SEARCH,
+SEND_HORIZONTAL,
+SEND_TO_BACK,
+SEND,
+SEPARATOR_HORIZONTAL,
+SEPARATOR_VERTICAL,
+SERVER_COG,
+SERVER_CRASH,
+SERVER_OFF,
+SERVER,
+SETTINGS_2,
+SETTINGS,
+SHAPES,
+SHARE_2,
+SHARE,
+SHEET,
+SHELL,
+SHIELD_ALERT,
+SHIELD_BAN,
+SHIELD_CHECK,
+SHIELD_ELLIPSIS,
+SHIELD_HALF,
+SHIELD_MINUS,
+SHIELD_OFF,
+SHIELD_PLUS,
+SHIELD_QUESTION,
+SHIELD_X,
+SHIELD,
+SHIP_WHEEL,
+SHIP,
+SHIRT,
+SHOPPING_BAG,
+SHOPPING_BASKET,
+SHOPPING_CART,
+SHOVEL,
+SHOWER_HEAD,
+SHRINK,
+SHRUB,
+SHUFFLE,
+SIGMA_SQUARE,
+SIGMA,
+SIGNAL_HIGH,
+SIGNAL_LOW,
+SIGNAL_MEDIUM,
+SIGNAL_ZERO,
+SIGNAL,
+SIREN,
+SKIP_BACK,
+SKIP_FORWARD,
+SKULL,
+SLACK,
+SLASH,
+SLICE,
+SLIDERS_HORIZONTAL,
+SLIDERS,
+SMARTPHONE_CHARGING,
+SMARTPHONE_NFC,
+SMARTPHONE,
+SMILE_PLUS,
+SMILE,
+SNAIL,
+SNOWFLAKE,
+SOFA,
+SOUP,
+SPACE,
+SPADE,
+SPARKLE,
+SPARKLES,
+SPEAKER,
+SPELL_CHECK_2,
+SPELL_CHECK,
+SPLINE,
+SPLIT_SQUARE_HORIZONTAL,
+SPLIT_SQUARE_VERTICAL,
+SPLIT,
+SPRAY_CAN,
+SPROUT,
+SQUARE_ASTERISK,
+SQUARE_CODE,
+SQUARE_DASHED_BOTTOM_CODE,
+SQUARE_DASHED_BOTTOM,
+SQUARE_DOT,
+SQUARE_EQUAL,
+SQUARE_SLASH,
+SQUARE_STACK,
+SQUARE,
+SQUIRREL,
+STAMP,
+STAR_HALF,
+STAR_OFF,
+STAR,
+STEP_BACK,
+STEP_FORWARD,
+STETHOSCOPE,
+STICKER,
+STICKY_NOTE,
+STOP_CIRCLE,
+STORE,
+STRETCH_HORIZONTAL,
+STRETCH_VERTICAL,
+STRIKETHROUGH,
+SUBSCRIPT,
+SUBTITLES,
+SUN_DIM,
+SUN_MEDIUM,
+SUN_MOON,
+SUN_SNOW,
+SUN,
+SUNRISE,
+SUNSET,
+SUPERSCRIPT,
+SWISS_FRANC,
+SWITCH_CAMERA,
+SWORD,
+SWORDS,
+SYRINGE,
+TABLE_2,
+TABLE_PROPERTIES,
+TABLE,
+TABLET_SMARTPHONE,
+TABLET,
+TABLETS,
+TAG,
+TAGS,
+TALLY_1,
+TALLY_2,
+TALLY_3,
+TALLY_4,
+TALLY_5,
+TARGET,
+TENT,
+TERMINAL_SQUARE,
+TERMINAL,
+TEST_TUBE_2,
+TEST_TUBE,
+TEST_TUBES,
+TEXT_CURSOR_INPUT,
+TEXT_CURSOR,
+TEXT_QUOTE,
+TEXT_SELECT,
+TEXT,
+THERMOMETER_SNOWFLAKE,
+THERMOMETER_SUN,
+THERMOMETER,
+THUMBS_DOWN,
+THUMBS_UP,
+TICKET,
+TIMER_OFF,
+TIMER_RESET,
+TIMER,
+TOGGLE_LEFT,
+TOGGLE_RIGHT,
+TORNADO,
+TOUCHPAD_OFF,
+TOUCHPAD,
+TOWER_CONTROL,
+TOY_BRICK,
+TRACTOR,
+TRAFFIC_CONE,
+TRAIN_FRONT_TUNNEL,
+TRAIN_FRONT,
+TRAIN_TRACK,
+TRAM_FRONT,
+TRASH_2,
+TRASH,
+TREE_DECIDUOUS,
+TREE_PINE,
+TREES,
+TRELLO,
+TRENDING_DOWN,
+TRENDING_UP,
+TRIANGLE_RIGHT,
+TRIANGLE,
+TROPHY,
+TRUCK,
+TURTLE,
+TV_2,
+TV,
+TWITCH,
+TWITTER,
+TYPE,
+UMBRELLA,
+UNDERLINE,
+UNDO_2,
+UNDO_DOT,
+UNDO,
+UNFOLD_HORIZONTAL,
+UNFOLD_VERTICAL,
+UNGROUP,
+UNLINK_2,
+UNLINK,
+UNLOCK,
+UNPLUG,
+UPLOAD_CLOUD,
+UPLOAD,
+USB,
+USER_2,
+USER_CHECK_2,
+USER_CHECK,
+USER_CIRCLE_2,
+USER_CIRCLE,
+USER_COG_2,
+USER_COG,
+USER_MINUS_2,
+USER_MINUS,
+USER_PLUS_2,
+USER_PLUS,
+USER_SQUARE_2,
+USER_SQUARE,
+USER_X_2,
+USER_X,
+USER,
+USERS_2,
+USERS,
+UTENSILS_CROSSED,
+UTENSILS,
+UTILITY_POLE,
+VARIABLE,
+VEGAN,
+VENETIAN_MASK,
+VIBRATE_OFF,
+VIBRATE,
+VIDEO_OFF,
+VIDEO,
+VIDEOTAPE,
+VIEW,
+VOICEMAIL,
+VOLUME_1,
+VOLUME_2,
+VOLUME_X,
+VOLUME,
+VOTE,
+WALLET_2,
+WALLET_CARDS,
+WALLET,
+WALLPAPER,
+WAND_2,
+WAND,
+WAREHOUSE,
+WATCH,
+WAVES,
+WEBCAM,
+WEBHOOK,
+WHEAT_OFF,
+WHEAT,
+WHOLE_WORD,
+WIFI_OFF,
+WIFI,
+WIND,
+WINE_OFF,
+WINE,
+WORKFLOW,
+WRAP_TEXT,
+WRENCH,
+X_CIRCLE,
+X_OCTAGON,
+X_SQUARE,
+X,
+YOUTUBE,
+ZAP_OFF,
+ZAP,
+ZOOM_IN,
+ZOOM_OUT];

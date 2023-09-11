@@ -1,6 +1,3 @@
-# ![feature(const_trait_impl)]
-
-
 mod generated_icons;
 pub use generated_icons::*;
 use leptos::*;
@@ -11,6 +8,11 @@ const DEFAULT_FILL: &str = "none";
 const DEFAULT_STROKE: &str = "black";
 const DEFAULT_STROKE_WIDTH: u16 = 2;
 
+
+#[derive(Copy, Clone, Debug)]
+pub struct IconType<'a> {
+    pub content: &'a str,
+}
 
 # [component]
 pub fn Icon<'a>(

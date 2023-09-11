@@ -34,16 +34,13 @@ fn main() {
         .open("../lucide_icons/src/generated_icons.rs").unwrap();
 
 
-    write!(file, r#"pub struct IconType<'a> {{
-        pub content: &'a str,
-    }}
-    "#).expect("write icon type");
+    write!(file, "use crate::IconType;\n").expect("write icon type");
 
-    entries.iter().for_each(|path| {
+    let names: Vec<String> = entries.iter().map(|path| {
         // println!("{:?}", path);
         let icon_name = path.file_stem()
                                    .unwrap()
-                                   .to_str().unwrap().to_case(Case::UpperCamel);
+                                   .to_str().unwrap().to_case(Case::UpperSnake);
         println!("{:?} --> {}",  path, icon_name);
 
         //read file
@@ -52,10 +49,19 @@ fn main() {
         writeln!(file, "\npub const {}: IconType = IconType{{ \
         \n content: r#\"{}\"#,\
         \n}};",
-             icon_name.to_case(Case::UpperSnake),
+            icon_name,
              only_children(content)).expect("write icon");
 
-    });
+        icon_name
+
+    }).collect();
+
+    writeln!(
+        file,
+        "\n\npub const ALL_ICONS: [IconType; {}] = [{}];",
+        names.len(),
+        names.join(",\n")
+    ).expect("write icon");
 
 
 }
