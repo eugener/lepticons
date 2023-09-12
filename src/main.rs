@@ -16,9 +16,9 @@ fn App(cx: Scope) -> impl IntoView {
             {
                 ALL_ICONS.iter().map(|it|
                     view! { cx,
-                        <div class="p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group">
+                        <div class="relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group">
                             <Icon kind={*it}/>
-                            <div class="absolute group:top-1/2 group:left-1/2 -translate-x-1/2 translate-y-5 z-1 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs text-white bg-orange-700/90 rounded" >
+                            <div class="absolute left-1/2 -translate-x-1/2 translate-y-5 z-50 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 rounded" >
                                {it.name}
                             </div>
                         </div>
@@ -30,12 +30,4 @@ fn App(cx: Scope) -> impl IntoView {
         </div>
     }
 }
-
-// fn Tooltip(cs:Scope) -> impl IntoView {
-//    view! { cx,
-//       <div class="tooltip">Hover over me
-//         <span class="tooltiptext">Tooltip text</span>
-//       </div>
-//    }
-// }
 
