@@ -7,7 +7,7 @@ edition = "2021"
 
 [[bin]]
 name = "generator"
-path = "src/generator.rs"
+path = "src/generate_lucide.rs"
 
 [dependencies]
 leptos = { version = "0.4.10", features = ["csr"] }

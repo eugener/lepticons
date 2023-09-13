@@ -1,6 +1,13 @@
-mod generated_icons;
-pub use generated_icons::*;
+extern crate core;
+
+use core::fmt;
+use fmt::Result;
+
+mod lucide_icon_data;
+pub use lucide_icon_data::*;
+
 use leptos::*;
+use strum::{EnumProperty};
 
 
 const DEFAULT_SIZE: u16 = 24;
@@ -8,17 +15,10 @@ const DEFAULT_FILL: &str = "none";
 const DEFAULT_STROKE: &str = "black";
 const DEFAULT_STROKE_WIDTH: u16 = 2;
 
-
-#[derive(Copy, Clone, Debug)]
-pub struct IconType<'a> {
-    pub name: &'a str,
-    pub content: &'a str,
-}
-
 # [component]
-pub fn Icon<'a>(
+pub fn Icon(
     cx: Scope,
-    kind: IconType<'a>,
+    icon: LucideIcon,
     #[prop(default = DEFAULT_SIZE)]
     size: u16,
     #[prop(default = DEFAULT_FILL.to_string())]
@@ -40,9 +40,14 @@ pub fn Icon<'a>(
               stroke-width=format!("{}", stroke_width)
               stroke-linecap="round"
               stroke-linejoin="round"
-              inner_html={kind.content.to_string()}
+              inner_html={icon.svg()}
             />
         }
 }
 
+impl fmt::Display for LucideIcon {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:?}", self)
+    }
+}
 

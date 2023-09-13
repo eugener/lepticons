@@ -922,6 +922,8 @@ name = "lucide_icons"
 version = "0.2.0"
 dependencies = [
  "leptos",
+ "strum",
+ "strum_macros",
 ]
 
 [[package]]

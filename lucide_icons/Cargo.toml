@@ -11,6 +11,9 @@ bench = false
 
 [dependencies]
 leptos = { version = "0.4.10", features = ["csr"] }
+strum = "0.25"
+strum_macros = "0.25"
+
 
 [features]
 all_icons = ["accessibility",
