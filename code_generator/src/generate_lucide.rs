@@ -125,3 +125,4 @@ fn only_children(svg_content: String ) -> String {
         .collect::<Vec<_>>()
         .join("\n")
 }
+

@@ -7,7 +7,8 @@ edition = "2021"
 
 [[bin]]
 name = "generator"
-path = "src/generate_lucide.rs"
+#path = "src/generate_lucide.rs"
+path = "src/compress.rs"
 
 [dependencies]
 leptos = { version = "0.4.10", features = ["csr"] }
@@ -16,6 +17,9 @@ strum = "0.25"
 strum_macros = "0.25"
 convert_case = "0.6.0"
 scraper = "0.17.1"
+flate2 = "1.0.26"
+base64 = "0.21.2"
+
 
 
 

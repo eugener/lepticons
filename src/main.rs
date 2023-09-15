@@ -1,5 +1,5 @@
-use leptos::*;
 use leptos::log;
+use leptos::*;
 use leptos_meta::*;
 use lucide_icons::*;
 use strum::IntoEnumIterator;
@@ -8,10 +8,8 @@ fn main() {
     mount_to_body(|cx| view! { cx, <App/> })
 }
 
-
 #[component]
 fn App(cx: Scope) -> impl IntoView {
-
     let (icon_filter, set_icon_filter) = create_signal(cx, "".to_string());
 
     view! { cx,
@@ -49,17 +47,15 @@ fn IconTable(
     icon_filter: String,
     //&'static [IconType<'static>],
 ) -> impl IntoView {
-
     log!("Value: {}", icon_filter);
 
     let filter = icon_filter.to_lowercase();
     let filtered_icons: Vec<LucideIcon> = match filter.as_str() {
         "" => LucideIcon::iter().collect(),
-        _ =>  LucideIcon::iter()
+        _ => LucideIcon::iter()
             .filter(|icon| icon.to_string().to_lowercase().contains(&filter))
             .collect(),
     };
-
 
     view! { cx,
 
@@ -80,4 +76,3 @@ fn IconTable(
 
     }
 }
-
