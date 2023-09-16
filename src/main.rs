@@ -1,18 +1,18 @@
-use leptos::log;
+use leptos::logging::log;
 use leptos::*;
 use leptos_meta::*;
 use lucide_icons::*;
 use strum::IntoEnumIterator;
 
 fn main() {
-    mount_to_body(|cx| view! { cx, <App/> })
+    mount_to_body(|| view! { <App/> })
 }
 
 #[component]
-fn App(cx: Scope) -> impl IntoView {
-    let (icon_filter, set_icon_filter) = create_signal(cx, "".to_string());
+fn App() -> impl IntoView {
+    let (icon_filter, set_icon_filter) = create_signal( "".to_string());
 
-    view! { cx,
+    view! {
         <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
 
         <div class="m-5 flex flex-col gap-4">
@@ -42,7 +42,6 @@ fn App(cx: Scope) -> impl IntoView {
 
 #[component]
 fn IconTable(
-    cx: Scope,
     //icons: Vec<&'static IconType<'static>>
     icon_filter: String,
     //&'static [IconType<'static>],
@@ -57,12 +56,12 @@ fn IconTable(
             .collect(),
     };
 
-    view! { cx,
+    view! {
 
         <div class="flex flex-row flex-wrap gap-2">
         {
             filtered_icons.iter().cloned().map( |icon|
-                view! { cx,
+                view! {
                     <div class="relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group">
                         <Icon icon={icon.clone()}/>
                         <div class="absolute left-1/2 -translate-x-1/2 translate-y-5 z-50 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 rounded" >

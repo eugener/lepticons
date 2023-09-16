@@ -5,6 +5,9 @@ use std::path::{Path, PathBuf};
 use convert_case::{Case, Casing};
 use scraper::{ElementRef, Html, Selector};
 
+mod compress;
+use compress::compress_string;
+
 fn main() {
 
     let icon_path: &Path = Path::new("../lucide/icons");
@@ -61,17 +64,18 @@ fn main() {
 
     entries.iter().for_each(|entry| {
 
-        writeln!(file, "const {}: &str = r#\"{}\"#;\n",
+        writeln!(file, "const {}: &'static str = r#\"{}\"#;\n",
             entry.const_name,
-            entry.content()).expect("write icon const");
+            //compress_string(entry.content().as_str()).unwrap()).expect("write icon const");
+             entry.content()).expect("write icon const");
     });
 
     writeln!(file, r#"impl LucideIcon {{
-        pub fn svg(&self) -> String {{
+        pub fn svg(&self) -> &'static str {{
            match self {{
     "#).expect("write impl header");
     entries.iter().for_each(|entry| {
-        writeln!(file, " &Self::{} => {}.to_string(),",
+        writeln!(file, " &Self::{} => {},",
             entry.icon_name,
             entry.const_name).expect("write icon const");
 
