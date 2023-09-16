@@ -1,9813 +1,5143 @@
-use strum_macros::{EnumProperty,EnumIter};
+
+use base64::*;
 use core::fmt;
-
+use flate2::read::ZlibDecoder;
 use fmt::Result;
+use std::io::prelude::*;
+use strum_macros::{EnumIter, EnumProperty};
 
-#[derive(EnumIter, EnumProperty, PartialEq, Eq, Debug, Clone )]
+#[derive(EnumIter, EnumProperty, PartialEq, Eq, Debug, Clone)]
 pub enum LucideIcon {
-   Accessibility,
-   ActivitySquare,
-   Activity,
-   AirVent,
-   Airplay,
-   AlarmCheck,
-   AlarmClockOff,
-   AlarmClock,
-   AlarmMinus,
-   AlarmPlus,
-   Album,
-   AlertCircle,
-   AlertOctagon,
-   AlertTriangle,
-   AlignCenterHorizontal,
-   AlignCenterVertical,
-   AlignCenter,
-   AlignEndHorizontal,
-   AlignEndVertical,
-   AlignHorizontalDistributeCenter,
-   AlignHorizontalDistributeEnd,
-   AlignHorizontalDistributeStart,
-   AlignHorizontalJustifyCenter,
-   AlignHorizontalJustifyEnd,
-   AlignHorizontalJustifyStart,
-   AlignHorizontalSpaceAround,
-   AlignHorizontalSpaceBetween,
-   AlignJustify,
-   AlignLeft,
-   AlignRight,
-   AlignStartHorizontal,
-   AlignStartVertical,
-   AlignVerticalDistributeCenter,
-   AlignVerticalDistributeEnd,
-   AlignVerticalDistributeStart,
-   AlignVerticalJustifyCenter,
-   AlignVerticalJustifyEnd,
-   AlignVerticalJustifyStart,
-   AlignVerticalSpaceAround,
-   AlignVerticalSpaceBetween,
-   Ampersand,
-   Ampersands,
-   Anchor,
-   Angry,
-   Annoyed,
-   Antenna,
-   Aperture,
-   AppWindow,
-   Apple,
-   ArchiveRestore,
-   ArchiveX,
-   Archive,
-   AreaChart,
-   Armchair,
-   ArrowBigDownDash,
-   ArrowBigDown,
-   ArrowBigLeftDash,
-   ArrowBigLeft,
-   ArrowBigRightDash,
-   ArrowBigRight,
-   ArrowBigUpDash,
-   ArrowBigUp,
-   ArrowDown01,
-   ArrowDown10,
-   ArrowDownAZ,
-   ArrowDownCircle,
-   ArrowDownFromLine,
-   ArrowDownLeftFromCircle,
-   ArrowDownLeftSquare,
-   ArrowDownLeft,
-   ArrowDownNarrowWide,
-   ArrowDownRightFromCircle,
-   ArrowDownRightSquare,
-   ArrowDownRight,
-   ArrowDownSquare,
-   ArrowDownToDot,
-   ArrowDownToLine,
-   ArrowDownUp,
-   ArrowDownWideNarrow,
-   ArrowDownZA,
-   ArrowDown,
-   ArrowLeftCircle,
-   ArrowLeftFromLine,
-   ArrowLeftRight,
-   ArrowLeftSquare,
-   ArrowLeftToLine,
-   ArrowLeft,
-   ArrowRightCircle,
-   ArrowRightFromLine,
-   ArrowRightLeft,
-   ArrowRightSquare,
-   ArrowRightToLine,
-   ArrowRight,
-   ArrowUp01,
-   ArrowUp10,
-   ArrowUpAZ,
-   ArrowUpCircle,
-   ArrowUpDown,
-   ArrowUpFromDot,
-   ArrowUpFromLine,
-   ArrowUpLeftFromCircle,
-   ArrowUpLeftSquare,
-   ArrowUpLeft,
-   ArrowUpNarrowWide,
-   ArrowUpRightFromCircle,
-   ArrowUpRightSquare,
-   ArrowUpRight,
-   ArrowUpSquare,
-   ArrowUpToLine,
-   ArrowUpWideNarrow,
-   ArrowUpZA,
-   ArrowUp,
-   ArrowsUpFromLine,
-   Asterisk,
-   AtSign,
-   Atom,
-   Award,
-   Axe,
-   Axis3D,
-   Baby,
-   Backpack,
-   BadgeAlert,
-   BadgeCent,
-   BadgeCheck,
-   BadgeDollarSign,
-   BadgeEuro,
-   BadgeHelp,
-   BadgeIndianRupee,
-   BadgeInfo,
-   BadgeJapaneseYen,
-   BadgeMinus,
-   BadgePercent,
-   BadgePlus,
-   BadgePoundSterling,
-   BadgeRussianRuble,
-   BadgeSwissFranc,
-   BadgeX,
-   Badge,
-   BaggageClaim,
-   Ban,
-   Banana,
-   Banknote,
-   BarChart2,
-   BarChart3,
-   BarChart4,
-   BarChartBig,
-   BarChartHorizontalBig,
-   BarChartHorizontal,
-   BarChart,
-   Baseline,
-   Bath,
-   BatteryCharging,
-   BatteryFull,
-   BatteryLow,
-   BatteryMedium,
-   BatteryWarning,
-   Battery,
-   Beaker,
-   BeanOff,
-   Bean,
-   BedDouble,
-   BedSingle,
-   Bed,
-   Beef,
-   Beer,
-   BellDot,
-   BellMinus,
-   BellOff,
-   BellPlus,
-   BellRing,
-   Bell,
-   Bike,
-   Binary,
-   Biohazard,
-   Bird,
-   Bitcoin,
-   Blinds,
-   Blocks,
-   BluetoothConnected,
-   BluetoothOff,
-   BluetoothSearching,
-   Bluetooth,
-   Bold,
-   Bomb,
-   Bone,
-   BookCopy,
-   BookDown,
-   BookKey,
-   BookLock,
-   BookMarked,
-   BookMinus,
-   BookOpenCheck,
-   BookOpen,
-   BookPlus,
-   BookTemplate,
-   BookUp2,
-   BookUp,
-   BookX,
-   Book,
-   BookmarkMinus,
-   BookmarkPlus,
-   Bookmark,
-   BoomBox,
-   Bot,
-   BoxSelect,
-   Box,
-   Boxes,
-   Braces,
-   Brackets,
-   BrainCircuit,
-   BrainCog,
-   Brain,
-   Briefcase,
-   BringToFront,
-   Brush,
-   BugOff,
-   BugPlay,
-   Bug,
-   Building2,
-   Building,
-   BusFront,
-   Bus,
-   CableCar,
-   Cable,
-   CakeSlice,
-   Cake,
-   Calculator,
-   CalendarCheck2,
-   CalendarCheck,
-   CalendarClock,
-   CalendarDays,
-   CalendarHeart,
-   CalendarMinus,
-   CalendarOff,
-   CalendarPlus,
-   CalendarRange,
-   CalendarSearch,
-   CalendarX2,
-   CalendarX,
-   Calendar,
-   CameraOff,
-   Camera,
-   CandlestickChart,
-   CandyCane,
-   CandyOff,
-   Candy,
-   CarFront,
-   CarTaxiFront,
-   Car,
-   Carrot,
-   CaseLower,
-   CaseSensitive,
-   CaseUpper,
-   CassetteTape,
-   Cast,
-   Castle,
-   Cat,
-   CheckCheck,
-   CheckCircle2,
-   CheckCircle,
-   CheckSquare,
-   Check,
-   ChefHat,
-   Cherry,
-   ChevronDownCircle,
-   ChevronDownSquare,
-   ChevronDown,
-   ChevronFirst,
-   ChevronLast,
-   ChevronLeftCircle,
-   ChevronLeftSquare,
-   ChevronLeft,
-   ChevronRightCircle,
-   ChevronRightSquare,
-   ChevronRight,
-   ChevronUpCircle,
-   ChevronUpSquare,
-   ChevronUp,
-   ChevronsDownUp,
-   ChevronsDown,
-   ChevronsLeftRight,
-   ChevronsLeft,
-   ChevronsRightLeft,
-   ChevronsRight,
-   ChevronsUpDown,
-   ChevronsUp,
-   Chrome,
-   Church,
-   CigaretteOff,
-   Cigarette,
-   CircleDashed,
-   CircleDollarSign,
-   CircleDotDashed,
-   CircleDot,
-   CircleEllipsis,
-   CircleEqual,
-   CircleOff,
-   CircleSlash2,
-   CircleSlash,
-   Circle,
-   CircuitBoard,
-   Citrus,
-   Clapperboard,
-   ClipboardCheck,
-   ClipboardCopy,
-   ClipboardEdit,
-   ClipboardList,
-   ClipboardPaste,
-   ClipboardSignature,
-   ClipboardType,
-   ClipboardX,
-   Clipboard,
-   Clock1,
-   Clock10,
-   Clock11,
-   Clock12,
-   Clock2,
-   Clock3,
-   Clock4,
-   Clock5,
-   Clock6,
-   Clock7,
-   Clock8,
-   Clock9,
-   Clock,
-   CloudCog,
-   CloudDrizzle,
-   CloudFog,
-   CloudHail,
-   CloudLightning,
-   CloudMoonRain,
-   CloudMoon,
-   CloudOff,
-   CloudRainWind,
-   CloudRain,
-   CloudSnow,
-   CloudSunRain,
-   CloudSun,
-   Cloud,
-   Cloudy,
-   Clover,
-   Club,
-   Code2,
-   Code,
-   Codepen,
-   Codesandbox,
-   Coffee,
-   Cog,
-   Coins,
-   Columns,
-   Combine,
-   Command,
-   Compass,
-   Component,
-   Computer,
-   ConciergeBell,
-   Construction,
-   Contact2,
-   Contact,
-   Container,
-   Contrast,
-   Cookie,
-   CopyCheck,
-   CopyMinus,
-   CopyPlus,
-   CopySlash,
-   CopyX,
-   Copy,
-   Copyleft,
-   Copyright,
-   CornerDownLeft,
-   CornerDownRight,
-   CornerLeftDown,
-   CornerLeftUp,
-   CornerRightDown,
-   CornerRightUp,
-   CornerUpLeft,
-   CornerUpRight,
-   Cpu,
-   CreativeCommons,
-   CreditCard,
-   Croissant,
-   Crop,
-   Cross,
-   Crosshair,
-   Crown,
-   CupSoda,
-   Currency,
-   DatabaseBackup,
-   DatabaseZap,
-   Database,
-   Delete,
-   Dessert,
-   Diamond,
-   Dice1,
-   Dice2,
-   Dice3,
-   Dice4,
-   Dice5,
-   Dice6,
-   Dices,
-   Diff,
-   Disc2,
-   Disc3,
-   Disc,
-   DivideCircle,
-   DivideSquare,
-   Divide,
-   DnaOff,
-   Dna,
-   Dog,
-   DollarSign,
-   Donut,
-   DoorClosed,
-   DoorOpen,
-   Dot,
-   DownloadCloud,
-   Download,
-   Dribbble,
-   Droplet,
-   Droplets,
-   Drumstick,
-   Dumbbell,
-   EarOff,
-   Ear,
-   EggFried,
-   EggOff,
-   Egg,
-   EqualNot,
-   Equal,
-   Eraser,
-   Euro,
-   Expand,
-   ExternalLink,
-   EyeOff,
-   Eye,
-   Facebook,
-   Factory,
-   Fan,
-   FastForward,
-   Feather,
-   FerrisWheel,
-   Figma,
-   FileArchive,
-   FileAudio2,
-   FileAudio,
-   FileAxis3D,
-   FileBadge2,
-   FileBadge,
-   FileBarChart2,
-   FileBarChart,
-   FileBox,
-   FileCheck2,
-   FileCheck,
-   FileClock,
-   FileCode2,
-   FileCode,
-   FileCog,
-   FileDiff,
-   FileDigit,
-   FileDown,
-   FileEdit,
-   FileHeart,
-   FileImage,
-   FileInput,
-   FileJson2,
-   FileJson,
-   FileKey2,
-   FileKey,
-   FileLineChart,
-   FileLock2,
-   FileLock,
-   FileMinus2,
-   FileMinus,
-   FileOutput,
-   FilePieChart,
-   FilePlus2,
-   FilePlus,
-   FileQuestion,
-   FileScan,
-   FileSearch2,
-   FileSearch,
-   FileSignature,
-   FileSpreadsheet,
-   FileStack,
-   FileSymlink,
-   FileTerminal,
-   FileText,
-   FileType2,
-   FileType,
-   FileUp,
-   FileVideo2,
-   FileVideo,
-   FileVolume2,
-   FileVolume,
-   FileWarning,
-   FileX2,
-   FileX,
-   File,
-   Files,
-   Film,
-   FilterX,
-   Filter,
-   Fingerprint,
-   FishOff,
-   FishSymbol,
-   Fish,
-   FlagOff,
-   FlagTriangleLeft,
-   FlagTriangleRight,
-   Flag,
-   Flame,
-   FlashlightOff,
-   Flashlight,
-   FlaskConicalOff,
-   FlaskConical,
-   FlaskRound,
-   FlipHorizontal2,
-   FlipHorizontal,
-   FlipVertical2,
-   FlipVertical,
-   Flower2,
-   Flower,
-   Focus,
-   FoldHorizontal,
-   FoldVertical,
-   FolderArchive,
-   FolderCheck,
-   FolderClock,
-   FolderClosed,
-   FolderCog,
-   FolderDot,
-   FolderDown,
-   FolderEdit,
-   FolderGit2,
-   FolderGit,
-   FolderHeart,
-   FolderInput,
-   FolderKanban,
-   FolderKey,
-   FolderLock,
-   FolderMinus,
-   FolderOpenDot,
-   FolderOpen,
-   FolderOutput,
-   FolderPlus,
-   FolderRoot,
-   FolderSearch2,
-   FolderSearch,
-   FolderSymlink,
-   FolderSync,
-   FolderTree,
-   FolderUp,
-   FolderX,
-   Folder,
-   Folders,
-   Footprints,
-   Forklift,
-   FormInput,
-   Forward,
-   Frame,
-   Framer,
-   Frown,
-   Fuel,
-   FunctionSquare,
-   GalleryHorizontalEnd,
-   GalleryHorizontal,
-   GalleryThumbnails,
-   GalleryVerticalEnd,
-   GalleryVertical,
-   Gamepad2,
-   Gamepad,
-   GanttChartSquare,
-   GanttChart,
-   GaugeCircle,
-   Gauge,
-   Gavel,
-   Gem,
-   Ghost,
-   Gift,
-   GitBranchPlus,
-   GitBranch,
-   GitCommit,
-   GitCompare,
-   GitFork,
-   GitMerge,
-   GitPullRequestClosed,
-   GitPullRequestDraft,
-   GitPullRequest,
-   Github,
-   Gitlab,
-   GlassWater,
-   Glasses,
-   Globe2,
-   Globe,
-   Goal,
-   Grab,
-   GraduationCap,
-   Grape,
-   Grid2X2,
-   Grid3X3,
-   GripHorizontal,
-   GripVertical,
-   Grip,
-   Group,
-   Hammer,
-   HandMetal,
-   Hand,
-   HardDriveDownload,
-   HardDriveUpload,
-   HardDrive,
-   HardHat,
-   Hash,
-   Haze,
-   HdmiPort,
-   Heading1,
-   Heading2,
-   Heading3,
-   Heading4,
-   Heading5,
-   Heading6,
-   Heading,
-   Headphones,
-   HeartCrack,
-   HeartHandshake,
-   HeartOff,
-   HeartPulse,
-   Heart,
-   HelpCircle,
-   HelpingHand,
-   Hexagon,
-   Highlighter,
-   History,
-   Home,
-   HopOff,
-   Hop,
-   Hotel,
-   Hourglass,
-   IceCream2,
-   IceCream,
-   ImageMinus,
-   ImageOff,
-   ImagePlus,
-   Image,
-   Import,
-   Inbox,
-   Indent,
-   IndianRupee,
-   Infinity,
-   Info,
-   Instagram,
-   Italic,
-   IterationCcw,
-   IterationCw,
-   JapaneseYen,
-   Joystick,
-   KanbanSquareDashed,
-   KanbanSquare,
-   Kanban,
-   KeyRound,
-   KeySquare,
-   Key,
-   Keyboard,
-   LampCeiling,
-   LampDesk,
-   LampFloor,
-   LampWallDown,
-   LampWallUp,
-   Lamp,
-   Landmark,
-   Languages,
-   Laptop2,
-   Laptop,
-   LassoSelect,
-   Lasso,
-   Laugh,
-   Layers,
-   LayoutDashboard,
-   LayoutGrid,
-   LayoutList,
-   LayoutPanelLeft,
-   LayoutPanelTop,
-   LayoutTemplate,
-   Layout,
-   Leaf,
-   LeafyGreen,
-   Library,
-   LifeBuoy,
-   Ligature,
-   LightbulbOff,
-   Lightbulb,
-   LineChart,
-   Link2Off,
-   Link2,
-   Link,
-   Linkedin,
-   ListChecks,
-   ListEnd,
-   ListFilter,
-   ListMinus,
-   ListMusic,
-   ListOrdered,
-   ListPlus,
-   ListRestart,
-   ListStart,
-   ListTodo,
-   ListTree,
-   ListVideo,
-   ListX,
-   List,
-   Loader2,
-   Loader,
-   LocateFixed,
-   LocateOff,
-   Locate,
-   Lock,
-   LogIn,
-   LogOut,
-   Lollipop,
-   Luggage,
-   MSquare,
-   Magnet,
-   MailCheck,
-   MailMinus,
-   MailOpen,
-   MailPlus,
-   MailQuestion,
-   MailSearch,
-   MailWarning,
-   MailX,
-   Mail,
-   Mailbox,
-   Mails,
-   MapPinOff,
-   MapPin,
-   Map,
-   Martini,
-   Maximize2,
-   Maximize,
-   Medal,
-   MegaphoneOff,
-   Megaphone,
-   Meh,
-   MemoryStick,
-   MenuSquare,
-   Menu,
-   Merge,
-   MessageCircle,
-   MessageSquareDashed,
-   MessageSquarePlus,
-   MessageSquare,
-   MessagesSquare,
-   Mic2,
-   MicOff,
-   Mic,
-   Microscope,
-   Microwave,
-   Milestone,
-   MilkOff,
-   Milk,
-   Minimize2,
-   Minimize,
-   MinusCircle,
-   MinusSquare,
-   Minus,
-   MonitorCheck,
-   MonitorDot,
-   MonitorDown,
-   MonitorOff,
-   MonitorPause,
-   MonitorPlay,
-   MonitorSmartphone,
-   MonitorSpeaker,
-   MonitorStop,
-   MonitorUp,
-   MonitorX,
-   Monitor,
-   MoonStar,
-   Moon,
-   MoreHorizontal,
-   MoreVertical,
-   MountainSnow,
-   Mountain,
-   MousePointer2,
-   MousePointerClick,
-   MousePointerSquareDashed,
-   MousePointerSquare,
-   MousePointer,
-   Mouse,
-   Move3D,
-   MoveDiagonal2,
-   MoveDiagonal,
-   MoveDownLeft,
-   MoveDownRight,
-   MoveDown,
-   MoveHorizontal,
-   MoveLeft,
-   MoveRight,
-   MoveUpLeft,
-   MoveUpRight,
-   MoveUp,
-   MoveVertical,
-   Move,
-   Music2,
-   Music3,
-   Music4,
-   Music,
-   Navigation2Off,
-   Navigation2,
-   NavigationOff,
-   Navigation,
-   Network,
-   Newspaper,
-   Nfc,
-   NutOff,
-   Nut,
-   Octagon,
-   Option,
-   Orbit,
-   Outdent,
-   Package2,
-   PackageCheck,
-   PackageMinus,
-   PackageOpen,
-   PackagePlus,
-   PackageSearch,
-   PackageX,
-   Package,
-   PaintBucket,
-   Paintbrush2,
-   Paintbrush,
-   Palette,
-   Palmtree,
-   PanelBottomClose,
-   PanelBottomInactive,
-   PanelBottomOpen,
-   PanelBottom,
-   PanelLeftClose,
-   PanelLeftInactive,
-   PanelLeftOpen,
-   PanelLeft,
-   PanelRightClose,
-   PanelRightInactive,
-   PanelRightOpen,
-   PanelRight,
-   PanelTopClose,
-   PanelTopInactive,
-   PanelTopOpen,
-   PanelTop,
-   Paperclip,
-   Parentheses,
-   ParkingCircleOff,
-   ParkingCircle,
-   ParkingMeter,
-   ParkingSquareOff,
-   ParkingSquare,
-   PartyPopper,
-   PauseCircle,
-   PauseOctagon,
-   Pause,
-   PawPrint,
-   PcCase,
-   PenLine,
-   PenSquare,
-   PenTool,
-   Pen,
-   PencilLine,
-   PencilRuler,
-   Pencil,
-   PercentCircle,
-   PercentDiamond,
-   PercentSquare,
-   Percent,
-   PersonStanding,
-   PhoneCall,
-   PhoneForwarded,
-   PhoneIncoming,
-   PhoneMissed,
-   PhoneOff,
-   PhoneOutgoing,
-   Phone,
-   PiSquare,
-   Pi,
-   PictureInPicture2,
-   PictureInPicture,
-   PieChart,
-   PiggyBank,
-   PilcrowSquare,
-   Pilcrow,
-   Pill,
-   PinOff,
-   Pin,
-   Pipette,
-   Pizza,
-   PlaneLanding,
-   PlaneTakeoff,
-   Plane,
-   PlayCircle,
-   PlaySquare,
-   Play,
-   Plug2,
-   PlugZap2,
-   PlugZap,
-   Plug,
-   PlusCircle,
-   PlusSquare,
-   Plus,
-   PocketKnife,
-   Pocket,
-   Podcast,
-   Pointer,
-   Popcorn,
-   Popsicle,
-   PoundSterling,
-   PowerOff,
-   Power,
-   Presentation,
-   Printer,
-   Projector,
-   Puzzle,
-   QrCode,
-   Quote,
-   Rabbit,
-   Radar,
-   Radiation,
-   RadioReceiver,
-   RadioTower,
-   Radio,
-   RailSymbol,
-   Rainbow,
-   Rat,
-   Ratio,
-   Receipt,
-   RectangleHorizontal,
-   RectangleVertical,
-   Recycle,
-   Redo2,
-   RedoDot,
-   Redo,
-   RefreshCcwDot,
-   RefreshCcw,
-   RefreshCwOff,
-   RefreshCw,
-   Refrigerator,
-   Regex,
-   RemoveFormatting,
-   Repeat1,
-   Repeat2,
-   Repeat,
-   ReplaceAll,
-   Replace,
-   ReplyAll,
-   Reply,
-   Rewind,
-   Rocket,
-   RockingChair,
-   RollerCoaster,
-   Rotate3D,
-   RotateCcw,
-   RotateCw,
-   Router,
-   Rows,
-   Rss,
-   Ruler,
-   RussianRuble,
-   Sailboat,
-   Salad,
-   Sandwich,
-   SatelliteDish,
-   Satellite,
-   SaveAll,
-   Save,
-   Scale3D,
-   Scale,
-   Scaling,
-   ScanFace,
-   ScanLine,
-   Scan,
-   ScatterChart,
-   School2,
-   School,
-   ScissorsLineDashed,
-   ScissorsSquareDashedBottom,
-   ScissorsSquare,
-   Scissors,
-   ScreenShareOff,
-   ScreenShare,
-   ScrollText,
-   Scroll,
-   SearchCheck,
-   SearchCode,
-   SearchSlash,
-   SearchX,
-   Search,
-   SendHorizontal,
-   SendToBack,
-   Send,
-   SeparatorHorizontal,
-   SeparatorVertical,
-   ServerCog,
-   ServerCrash,
-   ServerOff,
-   Server,
-   Settings2,
-   Settings,
-   Shapes,
-   Share2,
-   Share,
-   Sheet,
-   Shell,
-   ShieldAlert,
-   ShieldBan,
-   ShieldCheck,
-   ShieldEllipsis,
-   ShieldHalf,
-   ShieldMinus,
-   ShieldOff,
-   ShieldPlus,
-   ShieldQuestion,
-   ShieldX,
-   Shield,
-   ShipWheel,
-   Ship,
-   Shirt,
-   ShoppingBag,
-   ShoppingBasket,
-   ShoppingCart,
-   Shovel,
-   ShowerHead,
-   Shrink,
-   Shrub,
-   Shuffle,
-   SigmaSquare,
-   Sigma,
-   SignalHigh,
-   SignalLow,
-   SignalMedium,
-   SignalZero,
-   Signal,
-   Siren,
-   SkipBack,
-   SkipForward,
-   Skull,
-   Slack,
-   Slash,
-   Slice,
-   SlidersHorizontal,
-   Sliders,
-   SmartphoneCharging,
-   SmartphoneNfc,
-   Smartphone,
-   SmilePlus,
-   Smile,
-   Snail,
-   Snowflake,
-   Sofa,
-   Soup,
-   Space,
-   Spade,
-   Sparkle,
-   Sparkles,
-   Speaker,
-   SpellCheck2,
-   SpellCheck,
-   Spline,
-   SplitSquareHorizontal,
-   SplitSquareVertical,
-   Split,
-   SprayCan,
-   Sprout,
-   SquareAsterisk,
-   SquareCode,
-   SquareDashedBottomCode,
-   SquareDashedBottom,
-   SquareDot,
-   SquareEqual,
-   SquareSlash,
-   SquareStack,
-   Square,
-   Squirrel,
-   Stamp,
-   StarHalf,
-   StarOff,
-   Star,
-   StepBack,
-   StepForward,
-   Stethoscope,
-   Sticker,
-   StickyNote,
-   StopCircle,
-   Store,
-   StretchHorizontal,
-   StretchVertical,
-   Strikethrough,
-   Subscript,
-   Subtitles,
-   SunDim,
-   SunMedium,
-   SunMoon,
-   SunSnow,
-   Sun,
-   Sunrise,
-   Sunset,
-   Superscript,
-   SwissFranc,
-   SwitchCamera,
-   Sword,
-   Swords,
-   Syringe,
-   Table2,
-   TableProperties,
-   Table,
-   TabletSmartphone,
-   Tablet,
-   Tablets,
-   Tag,
-   Tags,
-   Tally1,
-   Tally2,
-   Tally3,
-   Tally4,
-   Tally5,
-   Target,
-   Tent,
-   TerminalSquare,
-   Terminal,
-   TestTube2,
-   TestTube,
-   TestTubes,
-   TextCursorInput,
-   TextCursor,
-   TextQuote,
-   TextSelect,
-   Text,
-   ThermometerSnowflake,
-   ThermometerSun,
-   Thermometer,
-   ThumbsDown,
-   ThumbsUp,
-   Ticket,
-   TimerOff,
-   TimerReset,
-   Timer,
-   ToggleLeft,
-   ToggleRight,
-   Tornado,
-   TouchpadOff,
-   Touchpad,
-   TowerControl,
-   ToyBrick,
-   Tractor,
-   TrafficCone,
-   TrainFrontTunnel,
-   TrainFront,
-   TrainTrack,
-   TramFront,
-   Trash2,
-   Trash,
-   TreeDeciduous,
-   TreePine,
-   Trees,
-   Trello,
-   TrendingDown,
-   TrendingUp,
-   TriangleRight,
-   Triangle,
-   Trophy,
-   Truck,
-   Turtle,
-   Tv2,
-   Tv,
-   Twitch,
-   Twitter,
-   Type,
-   Umbrella,
-   Underline,
-   Undo2,
-   UndoDot,
-   Undo,
-   UnfoldHorizontal,
-   UnfoldVertical,
-   Ungroup,
-   Unlink2,
-   Unlink,
-   Unlock,
-   Unplug,
-   UploadCloud,
-   Upload,
-   Usb,
-   User2,
-   UserCheck2,
-   UserCheck,
-   UserCircle2,
-   UserCircle,
-   UserCog2,
-   UserCog,
-   UserMinus2,
-   UserMinus,
-   UserPlus2,
-   UserPlus,
-   UserSquare2,
-   UserSquare,
-   UserX2,
-   UserX,
-   User,
-   Users2,
-   Users,
-   UtensilsCrossed,
-   Utensils,
-   UtilityPole,
-   Variable,
-   Vegan,
-   VenetianMask,
-   VibrateOff,
-   Vibrate,
-   VideoOff,
-   Video,
-   Videotape,
-   View,
-   Voicemail,
-   Volume1,
-   Volume2,
-   VolumeX,
-   Volume,
-   Vote,
-   Wallet2,
-   WalletCards,
-   Wallet,
-   Wallpaper,
-   Wand2,
-   Wand,
-   Warehouse,
-   Watch,
-   Waves,
-   Webcam,
-   Webhook,
-   WheatOff,
-   Wheat,
-   WholeWord,
-   WifiOff,
-   Wifi,
-   Wind,
-   WineOff,
-   Wine,
-   Workflow,
-   WrapText,
-   Wrench,
-   XCircle,
-   XOctagon,
-   XSquare,
-   X,
-   Youtube,
-   ZapOff,
-   Zap,
-   ZoomIn,
-   ZoomOut,
+    Accessibility,
+    ActivitySquare,
+    Activity,
+    AirVent,
+    Airplay,
+    AlarmCheck,
+    AlarmClockOff,
+    AlarmClock,
+    AlarmMinus,
+    AlarmPlus,
+    Album,
+    AlertCircle,
+    AlertOctagon,
+    AlertTriangle,
+    AlignCenterHorizontal,
+    AlignCenterVertical,
+    AlignCenter,
+    AlignEndHorizontal,
+    AlignEndVertical,
+    AlignHorizontalDistributeCenter,
+    AlignHorizontalDistributeEnd,
+    AlignHorizontalDistributeStart,
+    AlignHorizontalJustifyCenter,
+    AlignHorizontalJustifyEnd,
+    AlignHorizontalJustifyStart,
+    AlignHorizontalSpaceAround,
+    AlignHorizontalSpaceBetween,
+    AlignJustify,
+    AlignLeft,
+    AlignRight,
+    AlignStartHorizontal,
+    AlignStartVertical,
+    AlignVerticalDistributeCenter,
+    AlignVerticalDistributeEnd,
+    AlignVerticalDistributeStart,
+    AlignVerticalJustifyCenter,
+    AlignVerticalJustifyEnd,
+    AlignVerticalJustifyStart,
+    AlignVerticalSpaceAround,
+    AlignVerticalSpaceBetween,
+    Ampersand,
+    Ampersands,
+    Anchor,
+    Angry,
+    Annoyed,
+    Antenna,
+    Aperture,
+    AppWindow,
+    Apple,
+    ArchiveRestore,
+    ArchiveX,
+    Archive,
+    AreaChart,
+    Armchair,
+    ArrowBigDownDash,
+    ArrowBigDown,
+    ArrowBigLeftDash,
+    ArrowBigLeft,
+    ArrowBigRightDash,
+    ArrowBigRight,
+    ArrowBigUpDash,
+    ArrowBigUp,
+    ArrowDown01,
+    ArrowDown10,
+    ArrowDownAZ,
+    ArrowDownCircle,
+    ArrowDownFromLine,
+    ArrowDownLeftFromCircle,
+    ArrowDownLeftSquare,
+    ArrowDownLeft,
+    ArrowDownNarrowWide,
+    ArrowDownRightFromCircle,
+    ArrowDownRightSquare,
+    ArrowDownRight,
+    ArrowDownSquare,
+    ArrowDownToDot,
+    ArrowDownToLine,
+    ArrowDownUp,
+    ArrowDownWideNarrow,
+    ArrowDownZA,
+    ArrowDown,
+    ArrowLeftCircle,
+    ArrowLeftFromLine,
+    ArrowLeftRight,
+    ArrowLeftSquare,
+    ArrowLeftToLine,
+    ArrowLeft,
+    ArrowRightCircle,
+    ArrowRightFromLine,
+    ArrowRightLeft,
+    ArrowRightSquare,
+    ArrowRightToLine,
+    ArrowRight,
+    ArrowUp01,
+    ArrowUp10,
+    ArrowUpAZ,
+    ArrowUpCircle,
+    ArrowUpDown,
+    ArrowUpFromDot,
+    ArrowUpFromLine,
+    ArrowUpLeftFromCircle,
+    ArrowUpLeftSquare,
+    ArrowUpLeft,
+    ArrowUpNarrowWide,
+    ArrowUpRightFromCircle,
+    ArrowUpRightSquare,
+    ArrowUpRight,
+    ArrowUpSquare,
+    ArrowUpToLine,
+    ArrowUpWideNarrow,
+    ArrowUpZA,
+    ArrowUp,
+    ArrowsUpFromLine,
+    Asterisk,
+    AtSign,
+    Atom,
+    Award,
+    Axe,
+    Axis3D,
+    Baby,
+    Backpack,
+    BadgeAlert,
+    BadgeCent,
+    BadgeCheck,
+    BadgeDollarSign,
+    BadgeEuro,
+    BadgeHelp,
+    BadgeIndianRupee,
+    BadgeInfo,
+    BadgeJapaneseYen,
+    BadgeMinus,
+    BadgePercent,
+    BadgePlus,
+    BadgePoundSterling,
+    BadgeRussianRuble,
+    BadgeSwissFranc,
+    BadgeX,
+    Badge,
+    BaggageClaim,
+    Ban,
+    Banana,
+    Banknote,
+    BarChart2,
+    BarChart3,
+    BarChart4,
+    BarChartBig,
+    BarChartHorizontalBig,
+    BarChartHorizontal,
+    BarChart,
+    Baseline,
+    Bath,
+    BatteryCharging,
+    BatteryFull,
+    BatteryLow,
+    BatteryMedium,
+    BatteryWarning,
+    Battery,
+    Beaker,
+    BeanOff,
+    Bean,
+    BedDouble,
+    BedSingle,
+    Bed,
+    Beef,
+    Beer,
+    BellDot,
+    BellMinus,
+    BellOff,
+    BellPlus,
+    BellRing,
+    Bell,
+    Bike,
+    Binary,
+    Biohazard,
+    Bird,
+    Bitcoin,
+    Blinds,
+    Blocks,
+    BluetoothConnected,
+    BluetoothOff,
+    BluetoothSearching,
+    Bluetooth,
+    Bold,
+    Bomb,
+    Bone,
+    BookCopy,
+    BookDown,
+    BookKey,
+    BookLock,
+    BookMarked,
+    BookMinus,
+    BookOpenCheck,
+    BookOpen,
+    BookPlus,
+    BookTemplate,
+    BookUp2,
+    BookUp,
+    BookX,
+    Book,
+    BookmarkMinus,
+    BookmarkPlus,
+    Bookmark,
+    BoomBox,
+    Bot,
+    BoxSelect,
+    Box,
+    Boxes,
+    Braces,
+    Brackets,
+    BrainCircuit,
+    BrainCog,
+    Brain,
+    Briefcase,
+    BringToFront,
+    Brush,
+    BugOff,
+    BugPlay,
+    Bug,
+    Building2,
+    Building,
+    BusFront,
+    Bus,
+    CableCar,
+    Cable,
+    CakeSlice,
+    Cake,
+    Calculator,
+    CalendarCheck2,
+    CalendarCheck,
+    CalendarClock,
+    CalendarDays,
+    CalendarHeart,
+    CalendarMinus,
+    CalendarOff,
+    CalendarPlus,
+    CalendarRange,
+    CalendarSearch,
+    CalendarX2,
+    CalendarX,
+    Calendar,
+    CameraOff,
+    Camera,
+    CandlestickChart,
+    CandyCane,
+    CandyOff,
+    Candy,
+    CarFront,
+    CarTaxiFront,
+    Car,
+    Carrot,
+    CaseLower,
+    CaseSensitive,
+    CaseUpper,
+    CassetteTape,
+    Cast,
+    Castle,
+    Cat,
+    CheckCheck,
+    CheckCircle2,
+    CheckCircle,
+    CheckSquare,
+    Check,
+    ChefHat,
+    Cherry,
+    ChevronDownCircle,
+    ChevronDownSquare,
+    ChevronDown,
+    ChevronFirst,
+    ChevronLast,
+    ChevronLeftCircle,
+    ChevronLeftSquare,
+    ChevronLeft,
+    ChevronRightCircle,
+    ChevronRightSquare,
+    ChevronRight,
+    ChevronUpCircle,
+    ChevronUpSquare,
+    ChevronUp,
+    ChevronsDownUp,
+    ChevronsDown,
+    ChevronsLeftRight,
+    ChevronsLeft,
+    ChevronsRightLeft,
+    ChevronsRight,
+    ChevronsUpDown,
+    ChevronsUp,
+    Chrome,
+    Church,
+    CigaretteOff,
+    Cigarette,
+    CircleDashed,
+    CircleDollarSign,
+    CircleDotDashed,
+    CircleDot,
+    CircleEllipsis,
+    CircleEqual,
+    CircleOff,
+    CircleSlash2,
+    CircleSlash,
+    Circle,
+    CircuitBoard,
+    Citrus,
+    Clapperboard,
+    ClipboardCheck,
+    ClipboardCopy,
+    ClipboardEdit,
+    ClipboardList,
+    ClipboardPaste,
+    ClipboardSignature,
+    ClipboardType,
+    ClipboardX,
+    Clipboard,
+    Clock1,
+    Clock10,
+    Clock11,
+    Clock12,
+    Clock2,
+    Clock3,
+    Clock4,
+    Clock5,
+    Clock6,
+    Clock7,
+    Clock8,
+    Clock9,
+    Clock,
+    CloudCog,
+    CloudDrizzle,
+    CloudFog,
+    CloudHail,
+    CloudLightning,
+    CloudMoonRain,
+    CloudMoon,
+    CloudOff,
+    CloudRainWind,
+    CloudRain,
+    CloudSnow,
+    CloudSunRain,
+    CloudSun,
+    Cloud,
+    Cloudy,
+    Clover,
+    Club,
+    Code2,
+    Code,
+    Codepen,
+    Codesandbox,
+    Coffee,
+    Cog,
+    Coins,
+    Columns,
+    Combine,
+    Command,
+    Compass,
+    Component,
+    Computer,
+    ConciergeBell,
+    Construction,
+    Contact2,
+    Contact,
+    Container,
+    Contrast,
+    Cookie,
+    CopyCheck,
+    CopyMinus,
+    CopyPlus,
+    CopySlash,
+    CopyX,
+    Copy,
+    Copyleft,
+    Copyright,
+    CornerDownLeft,
+    CornerDownRight,
+    CornerLeftDown,
+    CornerLeftUp,
+    CornerRightDown,
+    CornerRightUp,
+    CornerUpLeft,
+    CornerUpRight,
+    Cpu,
+    CreativeCommons,
+    CreditCard,
+    Croissant,
+    Crop,
+    Cross,
+    Crosshair,
+    Crown,
+    CupSoda,
+    Currency,
+    DatabaseBackup,
+    DatabaseZap,
+    Database,
+    Delete,
+    Dessert,
+    Diamond,
+    Dice1,
+    Dice2,
+    Dice3,
+    Dice4,
+    Dice5,
+    Dice6,
+    Dices,
+    Diff,
+    Disc2,
+    Disc3,
+    Disc,
+    DivideCircle,
+    DivideSquare,
+    Divide,
+    DnaOff,
+    Dna,
+    Dog,
+    DollarSign,
+    Donut,
+    DoorClosed,
+    DoorOpen,
+    Dot,
+    DownloadCloud,
+    Download,
+    Dribbble,
+    Droplet,
+    Droplets,
+    Drumstick,
+    Dumbbell,
+    EarOff,
+    Ear,
+    EggFried,
+    EggOff,
+    Egg,
+    EqualNot,
+    Equal,
+    Eraser,
+    Euro,
+    Expand,
+    ExternalLink,
+    EyeOff,
+    Eye,
+    Facebook,
+    Factory,
+    Fan,
+    FastForward,
+    Feather,
+    FerrisWheel,
+    Figma,
+    FileArchive,
+    FileAudio2,
+    FileAudio,
+    FileAxis3D,
+    FileBadge2,
+    FileBadge,
+    FileBarChart2,
+    FileBarChart,
+    FileBox,
+    FileCheck2,
+    FileCheck,
+    FileClock,
+    FileCode2,
+    FileCode,
+    FileCog,
+    FileDiff,
+    FileDigit,
+    FileDown,
+    FileEdit,
+    FileHeart,
+    FileImage,
+    FileInput,
+    FileJson2,
+    FileJson,
+    FileKey2,
+    FileKey,
+    FileLineChart,
+    FileLock2,
+    FileLock,
+    FileMinus2,
+    FileMinus,
+    FileOutput,
+    FilePieChart,
+    FilePlus2,
+    FilePlus,
+    FileQuestion,
+    FileScan,
+    FileSearch2,
+    FileSearch,
+    FileSignature,
+    FileSpreadsheet,
+    FileStack,
+    FileSymlink,
+    FileTerminal,
+    FileText,
+    FileType2,
+    FileType,
+    FileUp,
+    FileVideo2,
+    FileVideo,
+    FileVolume2,
+    FileVolume,
+    FileWarning,
+    FileX2,
+    FileX,
+    File,
+    Files,
+    Film,
+    FilterX,
+    Filter,
+    Fingerprint,
+    FishOff,
+    FishSymbol,
+    Fish,
+    FlagOff,
+    FlagTriangleLeft,
+    FlagTriangleRight,
+    Flag,
+    Flame,
+    FlashlightOff,
+    Flashlight,
+    FlaskConicalOff,
+    FlaskConical,
+    FlaskRound,
+    FlipHorizontal2,
+    FlipHorizontal,
+    FlipVertical2,
+    FlipVertical,
+    Flower2,
+    Flower,
+    Focus,
+    FoldHorizontal,
+    FoldVertical,
+    FolderArchive,
+    FolderCheck,
+    FolderClock,
+    FolderClosed,
+    FolderCog,
+    FolderDot,
+    FolderDown,
+    FolderEdit,
+    FolderGit2,
+    FolderGit,
+    FolderHeart,
+    FolderInput,
+    FolderKanban,
+    FolderKey,
+    FolderLock,
+    FolderMinus,
+    FolderOpenDot,
+    FolderOpen,
+    FolderOutput,
+    FolderPlus,
+    FolderRoot,
+    FolderSearch2,
+    FolderSearch,
+    FolderSymlink,
+    FolderSync,
+    FolderTree,
+    FolderUp,
+    FolderX,
+    Folder,
+    Folders,
+    Footprints,
+    Forklift,
+    FormInput,
+    Forward,
+    Frame,
+    Framer,
+    Frown,
+    Fuel,
+    FunctionSquare,
+    GalleryHorizontalEnd,
+    GalleryHorizontal,
+    GalleryThumbnails,
+    GalleryVerticalEnd,
+    GalleryVertical,
+    Gamepad2,
+    Gamepad,
+    GanttChartSquare,
+    GanttChart,
+    GaugeCircle,
+    Gauge,
+    Gavel,
+    Gem,
+    Ghost,
+    Gift,
+    GitBranchPlus,
+    GitBranch,
+    GitCommit,
+    GitCompare,
+    GitFork,
+    GitMerge,
+    GitPullRequestClosed,
+    GitPullRequestDraft,
+    GitPullRequest,
+    Github,
+    Gitlab,
+    GlassWater,
+    Glasses,
+    Globe2,
+    Globe,
+    Goal,
+    Grab,
+    GraduationCap,
+    Grape,
+    Grid2X2,
+    Grid3X3,
+    GripHorizontal,
+    GripVertical,
+    Grip,
+    Group,
+    Hammer,
+    HandMetal,
+    Hand,
+    HardDriveDownload,
+    HardDriveUpload,
+    HardDrive,
+    HardHat,
+    Hash,
+    Haze,
+    HdmiPort,
+    Heading1,
+    Heading2,
+    Heading3,
+    Heading4,
+    Heading5,
+    Heading6,
+    Heading,
+    Headphones,
+    HeartCrack,
+    HeartHandshake,
+    HeartOff,
+    HeartPulse,
+    Heart,
+    HelpCircle,
+    HelpingHand,
+    Hexagon,
+    Highlighter,
+    History,
+    Home,
+    HopOff,
+    Hop,
+    Hotel,
+    Hourglass,
+    IceCream2,
+    IceCream,
+    ImageMinus,
+    ImageOff,
+    ImagePlus,
+    Image,
+    Import,
+    Inbox,
+    Indent,
+    IndianRupee,
+    Infinity,
+    Info,
+    Instagram,
+    Italic,
+    IterationCcw,
+    IterationCw,
+    JapaneseYen,
+    Joystick,
+    KanbanSquareDashed,
+    KanbanSquare,
+    Kanban,
+    KeyRound,
+    KeySquare,
+    Key,
+    Keyboard,
+    LampCeiling,
+    LampDesk,
+    LampFloor,
+    LampWallDown,
+    LampWallUp,
+    Lamp,
+    Landmark,
+    Languages,
+    Laptop2,
+    Laptop,
+    LassoSelect,
+    Lasso,
+    Laugh,
+    Layers,
+    LayoutDashboard,
+    LayoutGrid,
+    LayoutList,
+    LayoutPanelLeft,
+    LayoutPanelTop,
+    LayoutTemplate,
+    Layout,
+    Leaf,
+    LeafyGreen,
+    Library,
+    LifeBuoy,
+    Ligature,
+    LightbulbOff,
+    Lightbulb,
+    LineChart,
+    Link2Off,
+    Link2,
+    Link,
+    Linkedin,
+    ListChecks,
+    ListEnd,
+    ListFilter,
+    ListMinus,
+    ListMusic,
+    ListOrdered,
+    ListPlus,
+    ListRestart,
+    ListStart,
+    ListTodo,
+    ListTree,
+    ListVideo,
+    ListX,
+    List,
+    Loader2,
+    Loader,
+    LocateFixed,
+    LocateOff,
+    Locate,
+    Lock,
+    LogIn,
+    LogOut,
+    Lollipop,
+    Luggage,
+    MSquare,
+    Magnet,
+    MailCheck,
+    MailMinus,
+    MailOpen,
+    MailPlus,
+    MailQuestion,
+    MailSearch,
+    MailWarning,
+    MailX,
+    Mail,
+    Mailbox,
+    Mails,
+    MapPinOff,
+    MapPin,
+    Map,
+    Martini,
+    Maximize2,
+    Maximize,
+    Medal,
+    MegaphoneOff,
+    Megaphone,
+    Meh,
+    MemoryStick,
+    MenuSquare,
+    Menu,
+    Merge,
+    MessageCircle,
+    MessageSquareDashed,
+    MessageSquarePlus,
+    MessageSquare,
+    MessagesSquare,
+    Mic2,
+    MicOff,
+    Mic,
+    Microscope,
+    Microwave,
+    Milestone,
+    MilkOff,
+    Milk,
+    Minimize2,
+    Minimize,
+    MinusCircle,
+    MinusSquare,
+    Minus,
+    MonitorCheck,
+    MonitorDot,
+    MonitorDown,
+    MonitorOff,
+    MonitorPause,
+    MonitorPlay,
+    MonitorSmartphone,
+    MonitorSpeaker,
+    MonitorStop,
+    MonitorUp,
+    MonitorX,
+    Monitor,
+    MoonStar,
+    Moon,
+    MoreHorizontal,
+    MoreVertical,
+    MountainSnow,
+    Mountain,
+    MousePointer2,
+    MousePointerClick,
+    MousePointerSquareDashed,
+    MousePointerSquare,
+    MousePointer,
+    Mouse,
+    Move3D,
+    MoveDiagonal2,
+    MoveDiagonal,
+    MoveDownLeft,
+    MoveDownRight,
+    MoveDown,
+    MoveHorizontal,
+    MoveLeft,
+    MoveRight,
+    MoveUpLeft,
+    MoveUpRight,
+    MoveUp,
+    MoveVertical,
+    Move,
+    Music2,
+    Music3,
+    Music4,
+    Music,
+    Navigation2Off,
+    Navigation2,
+    NavigationOff,
+    Navigation,
+    Network,
+    Newspaper,
+    Nfc,
+    NutOff,
+    Nut,
+    Octagon,
+    Option,
+    Orbit,
+    Outdent,
+    Package2,
+    PackageCheck,
+    PackageMinus,
+    PackageOpen,
+    PackagePlus,
+    PackageSearch,
+    PackageX,
+    Package,
+    PaintBucket,
+    Paintbrush2,
+    Paintbrush,
+    Palette,
+    Palmtree,
+    PanelBottomClose,
+    PanelBottomInactive,
+    PanelBottomOpen,
+    PanelBottom,
+    PanelLeftClose,
+    PanelLeftInactive,
+    PanelLeftOpen,
+    PanelLeft,
+    PanelRightClose,
+    PanelRightInactive,
+    PanelRightOpen,
+    PanelRight,
+    PanelTopClose,
+    PanelTopInactive,
+    PanelTopOpen,
+    PanelTop,
+    Paperclip,
+    Parentheses,
+    ParkingCircleOff,
+    ParkingCircle,
+    ParkingMeter,
+    ParkingSquareOff,
+    ParkingSquare,
+    PartyPopper,
+    PauseCircle,
+    PauseOctagon,
+    Pause,
+    PawPrint,
+    PcCase,
+    PenLine,
+    PenSquare,
+    PenTool,
+    Pen,
+    PencilLine,
+    PencilRuler,
+    Pencil,
+    PercentCircle,
+    PercentDiamond,
+    PercentSquare,
+    Percent,
+    PersonStanding,
+    PhoneCall,
+    PhoneForwarded,
+    PhoneIncoming,
+    PhoneMissed,
+    PhoneOff,
+    PhoneOutgoing,
+    Phone,
+    PiSquare,
+    Pi,
+    PictureInPicture2,
+    PictureInPicture,
+    PieChart,
+    PiggyBank,
+    PilcrowSquare,
+    Pilcrow,
+    Pill,
+    PinOff,
+    Pin,
+    Pipette,
+    Pizza,
+    PlaneLanding,
+    PlaneTakeoff,
+    Plane,
+    PlayCircle,
+    PlaySquare,
+    Play,
+    Plug2,
+    PlugZap2,
+    PlugZap,
+    Plug,
+    PlusCircle,
+    PlusSquare,
+    Plus,
+    PocketKnife,
+    Pocket,
+    Podcast,
+    Pointer,
+    Popcorn,
+    Popsicle,
+    PoundSterling,
+    PowerOff,
+    Power,
+    Presentation,
+    Printer,
+    Projector,
+    Puzzle,
+    QrCode,
+    Quote,
+    Rabbit,
+    Radar,
+    Radiation,
+    RadioReceiver,
+    RadioTower,
+    Radio,
+    RailSymbol,
+    Rainbow,
+    Rat,
+    Ratio,
+    Receipt,
+    RectangleHorizontal,
+    RectangleVertical,
+    Recycle,
+    Redo2,
+    RedoDot,
+    Redo,
+    RefreshCcwDot,
+    RefreshCcw,
+    RefreshCwOff,
+    RefreshCw,
+    Refrigerator,
+    Regex,
+    RemoveFormatting,
+    Repeat1,
+    Repeat2,
+    Repeat,
+    ReplaceAll,
+    Replace,
+    ReplyAll,
+    Reply,
+    Rewind,
+    Rocket,
+    RockingChair,
+    RollerCoaster,
+    Rotate3D,
+    RotateCcw,
+    RotateCw,
+    Router,
+    Rows,
+    Rss,
+    Ruler,
+    RussianRuble,
+    Sailboat,
+    Salad,
+    Sandwich,
+    SatelliteDish,
+    Satellite,
+    SaveAll,
+    Save,
+    Scale3D,
+    Scale,
+    Scaling,
+    ScanFace,
+    ScanLine,
+    Scan,
+    ScatterChart,
+    School2,
+    School,
+    ScissorsLineDashed,
+    ScissorsSquareDashedBottom,
+    ScissorsSquare,
+    Scissors,
+    ScreenShareOff,
+    ScreenShare,
+    ScrollText,
+    Scroll,
+    SearchCheck,
+    SearchCode,
+    SearchSlash,
+    SearchX,
+    Search,
+    SendHorizontal,
+    SendToBack,
+    Send,
+    SeparatorHorizontal,
+    SeparatorVertical,
+    ServerCog,
+    ServerCrash,
+    ServerOff,
+    Server,
+    Settings2,
+    Settings,
+    Shapes,
+    Share2,
+    Share,
+    Sheet,
+    Shell,
+    ShieldAlert,
+    ShieldBan,
+    ShieldCheck,
+    ShieldEllipsis,
+    ShieldHalf,
+    ShieldMinus,
+    ShieldOff,
+    ShieldPlus,
+    ShieldQuestion,
+    ShieldX,
+    Shield,
+    ShipWheel,
+    Ship,
+    Shirt,
+    ShoppingBag,
+    ShoppingBasket,
+    ShoppingCart,
+    Shovel,
+    ShowerHead,
+    Shrink,
+    Shrub,
+    Shuffle,
+    SigmaSquare,
+    Sigma,
+    SignalHigh,
+    SignalLow,
+    SignalMedium,
+    SignalZero,
+    Signal,
+    Siren,
+    SkipBack,
+    SkipForward,
+    Skull,
+    Slack,
+    Slash,
+    Slice,
+    SlidersHorizontal,
+    Sliders,
+    SmartphoneCharging,
+    SmartphoneNfc,
+    Smartphone,
+    SmilePlus,
+    Smile,
+    Snail,
+    Snowflake,
+    Sofa,
+    Soup,
+    Space,
+    Spade,
+    Sparkle,
+    Sparkles,
+    Speaker,
+    SpellCheck2,
+    SpellCheck,
+    Spline,
+    SplitSquareHorizontal,
+    SplitSquareVertical,
+    Split,
+    SprayCan,
+    Sprout,
+    SquareAsterisk,
+    SquareCode,
+    SquareDashedBottomCode,
+    SquareDashedBottom,
+    SquareDot,
+    SquareEqual,
+    SquareSlash,
+    SquareStack,
+    Square,
+    Squirrel,
+    Stamp,
+    StarHalf,
+    StarOff,
+    Star,
+    StepBack,
+    StepForward,
+    Stethoscope,
+    Sticker,
+    StickyNote,
+    StopCircle,
+    Store,
+    StretchHorizontal,
+    StretchVertical,
+    Strikethrough,
+    Subscript,
+    Subtitles,
+    SunDim,
+    SunMedium,
+    SunMoon,
+    SunSnow,
+    Sun,
+    Sunrise,
+    Sunset,
+    Superscript,
+    SwissFranc,
+    SwitchCamera,
+    Sword,
+    Swords,
+    Syringe,
+    Table2,
+    TableProperties,
+    Table,
+    TabletSmartphone,
+    Tablet,
+    Tablets,
+    Tag,
+    Tags,
+    Tally1,
+    Tally2,
+    Tally3,
+    Tally4,
+    Tally5,
+    Target,
+    Tent,
+    TerminalSquare,
+    Terminal,
+    TestTube2,
+    TestTube,
+    TestTubes,
+    TextCursorInput,
+    TextCursor,
+    TextQuote,
+    TextSelect,
+    Text,
+    ThermometerSnowflake,
+    ThermometerSun,
+    Thermometer,
+    ThumbsDown,
+    ThumbsUp,
+    Ticket,
+    TimerOff,
+    TimerReset,
+    Timer,
+    ToggleLeft,
+    ToggleRight,
+    Tornado,
+    TouchpadOff,
+    Touchpad,
+    TowerControl,
+    ToyBrick,
+    Tractor,
+    TrafficCone,
+    TrainFrontTunnel,
+    TrainFront,
+    TrainTrack,
+    TramFront,
+    Trash2,
+    Trash,
+    TreeDeciduous,
+    TreePine,
+    Trees,
+    Trello,
+    TrendingDown,
+    TrendingUp,
+    TriangleRight,
+    Triangle,
+    Trophy,
+    Truck,
+    Turtle,
+    Tv2,
+    Tv,
+    Twitch,
+    Twitter,
+    Type,
+    Umbrella,
+    Underline,
+    Undo2,
+    UndoDot,
+    Undo,
+    UnfoldHorizontal,
+    UnfoldVertical,
+    Ungroup,
+    Unlink2,
+    Unlink,
+    Unlock,
+    Unplug,
+    UploadCloud,
+    Upload,
+    Usb,
+    User2,
+    UserCheck2,
+    UserCheck,
+    UserCircle2,
+    UserCircle,
+    UserCog2,
+    UserCog,
+    UserMinus2,
+    UserMinus,
+    UserPlus2,
+    UserPlus,
+    UserSquare2,
+    UserSquare,
+    UserX2,
+    UserX,
+    User,
+    Users2,
+    Users,
+    UtensilsCrossed,
+    Utensils,
+    UtilityPole,
+    Variable,
+    Vegan,
+    VenetianMask,
+    VibrateOff,
+    Vibrate,
+    VideoOff,
+    Video,
+    Videotape,
+    View,
+    Voicemail,
+    Volume1,
+    Volume2,
+    VolumeX,
+    Volume,
+    Vote,
+    Wallet2,
+    WalletCards,
+    Wallet,
+    Wallpaper,
+    Wand2,
+    Wand,
+    Warehouse,
+    Watch,
+    Waves,
+    Webcam,
+    Webhook,
+    WheatOff,
+    Wheat,
+    WholeWord,
+    WifiOff,
+    Wifi,
+    Wind,
+    WineOff,
+    Wine,
+    Workflow,
+    WrapText,
+    Wrench,
+    XCircle,
+    XOctagon,
+    XSquare,
+    X,
+    Youtube,
+    ZapOff,
+    Zap,
+    ZoomIn,
+    ZoomOut,
 }
-const ACCESSIBILITY: &'static str = r#"
-<circle cy="4" cx="16" r="1"></circle>
-<path d="m18 19 1-7-6 1"></path>
-<path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
-<path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
-<path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>"#;
-
-const ACTIVITY_SQUARE: &'static str = r#"
-<rect rx="2" height="18" y="3" width="18" x="3"></rect>
-<path d="M17 12h-2l-2 5-2-10-2 5H7"></path>"#;
-
-const ACTIVITY: &'static str = r#"
-<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>"#;
-
-const AIR_VENT: &'static str = r#"
-<path d="M6 12H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-<path d="M6 8h12"></path>
-<path d="M18.3 17.7a2.5 2.5 0 0 1-3.16 3.83 2.53 2.53 0 0 1-1.14-2V12"></path>
-<path d="M6.6 15.6A2 2 0 1 0 10 17v-5"></path>"#;
-
-const AIRPLAY: &'static str = r#"
-<path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
-<polygon points="12 15 17 21 7 21 12 15"></polygon>"#;
-
-const ALARM_CHECK: &'static str = r#"
-<circle cy="13" r="8" cx="12"></circle>
-<path d="M5 3 2 6"></path>
-<path d="m22 6-3-3"></path>
-<path d="M6.38 18.7 4 21"></path>
-<path d="M17.64 18.67 20 21"></path>
-<path d="m9 13 2 2 4-4"></path>"#;
-
-const ALARM_CLOCK_OFF: &'static str = r#"
-<path d="M6.87 6.87a8 8 0 1 0 11.26 11.26"></path>
-<path d="M19.9 14.25a8 8 0 0 0-9.15-9.15"></path>
-<path d="m22 6-3-3"></path>
-<path d="M6.26 18.67 4 21"></path>
-<path d="m2 2 20 20"></path>
-<path d="M4 4 2 6"></path>"#;
-
-const ALARM_CLOCK: &'static str = r#"
-<circle cy="13" cx="12" r="8"></circle>
-<path d="M12 9v4l2 2"></path>
-<path d="M5 3 2 6"></path>
-<path d="m22 6-3-3"></path>
-<path d="M6.38 18.7 4 21"></path>
-<path d="M17.64 18.67 20 21"></path>"#;
-
-const ALARM_MINUS: &'static str = r#"
-<circle cx="12" cy="13" r="8"></circle>
-<path d="M5 3 2 6"></path>
-<path d="m22 6-3-3"></path>
-<path d="M6.38 18.7 4 21"></path>
-<path d="M17.64 18.67 20 21"></path>
-<path d="M9 13h6"></path>"#;
-
-const ALARM_PLUS: &'static str = r#"
-<circle cx="12" cy="13" r="8"></circle>
-<path d="M5 3 2 6"></path>
-<path d="m22 6-3-3"></path>
-<path d="M6.38 18.7 4 21"></path>
-<path d="M17.64 18.67 20 21"></path>
-<path d="M12 10v6"></path>
-<path d="M9 13h6"></path>"#;
-
-const ALBUM: &'static str = r#"
-<rect width="18" y="3" ry="2" height="18" rx="2" x="3"></rect>
-<polyline points="11 3 11 11 14 8 17 11 17 3"></polyline>"#;
-
-const ALERT_CIRCLE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<line y2="12" x1="12" y1="8" x2="12"></line>
-<line y1="16" y2="16" x2="12.01" x1="12"></line>"#;
-
-const ALERT_OCTAGON: &'static str = r#"
-<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
-<line x2="12" x1="12" y1="8" y2="12"></line>
-<line x2="12.01" y1="16" y2="16" x1="12"></line>"#;
-
-const ALERT_TRIANGLE: &'static str = r#"
-<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
-<path d="M12 9v4"></path>
-<path d="M12 17h.01"></path>"#;
-
-const ALIGN_CENTER_HORIZONTAL: &'static str = r#"
-<path d="M2 12h20"></path>
-<path d="M10 16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4"></path>
-<path d="M10 8V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4"></path>
-<path d="M20 16v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-1"></path>
-<path d="M14 8V7c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v1"></path>"#;
-
-const ALIGN_CENTER_VERTICAL: &'static str = r#"
-<path d="M12 2v20"></path>
-<path d="M8 10H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h4"></path>
-<path d="M16 10h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4"></path>
-<path d="M8 20H7a2 2 0 0 1-2-2v-2c0-1.1.9-2 2-2h1"></path>
-<path d="M16 14h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1"></path>"#;
-
-const ALIGN_CENTER: &'static str = r#"
-<line y1="6" x1="21" x2="3" y2="6"></line>
-<line x2="7" y2="12" y1="12" x1="17"></line>
-<line y2="18" x1="19" x2="5" y1="18"></line>"#;
-
-const ALIGN_END_HORIZONTAL: &'static str = r#"
-<rect x="4" height="16" rx="2" width="6" y="2"></rect>
-<rect width="6" y="9" height="9" rx="2" x="14"></rect>
-<path d="M22 22H2"></path>"#;
-
-const ALIGN_END_VERTICAL: &'static str = r#"
-<rect y="4" rx="2" width="16" x="2" height="6"></rect>
-<rect rx="2" y="14" height="6" x="9" width="9"></rect>
-<path d="M22 22V2"></path>"#;
-
-const ALIGN_HORIZONTAL_DISTRIBUTE_CENTER: &'static str = r#"
-<rect rx="2" width="6" y="5" height="14" x="4"></rect>
-<rect x="14" rx="2" y="7" width="6" height="10"></rect>
-<path d="M17 22v-5"></path>
-<path d="M17 7V2"></path>
-<path d="M7 22v-3"></path>
-<path d="M7 5V2"></path>"#;
-
-const ALIGN_HORIZONTAL_DISTRIBUTE_END: &'static str = r#"
-<rect y="5" width="6" height="14" rx="2" x="4"></rect>
-<rect x="14" y="7" height="10" rx="2" width="6"></rect>
-<path d="M10 2v20"></path>
-<path d="M20 2v20"></path>"#;
-
-const ALIGN_HORIZONTAL_DISTRIBUTE_START: &'static str = r#"
-<rect y="5" width="6" x="4" rx="2" height="14"></rect>
-<rect height="10" x="14" width="6" y="7" rx="2"></rect>
-<path d="M4 2v20"></path>
-<path d="M14 2v20"></path>"#;
-
-const ALIGN_HORIZONTAL_JUSTIFY_CENTER: &'static str = r#"
-<rect width="6" height="14" x="2" y="5" rx="2"></rect>
-<rect x="16" y="7" rx="2" height="10" width="6"></rect>
-<path d="M12 2v20"></path>"#;
-
-const ALIGN_HORIZONTAL_JUSTIFY_END: &'static str = r#"
-<rect x="2" width="6" y="5" rx="2" height="14"></rect>
-<rect width="6" height="10" x="12" y="7" rx="2"></rect>
-<path d="M22 2v20"></path>"#;
-
-const ALIGN_HORIZONTAL_JUSTIFY_START: &'static str = r#"
-<rect width="6" y="5" rx="2" height="14" x="6"></rect>
-<rect height="10" width="6" y="7" rx="2" x="16"></rect>
-<path d="M2 2v20"></path>"#;
-
-const ALIGN_HORIZONTAL_SPACE_AROUND: &'static str = r#"
-<rect width="6" x="9" height="10" y="7" rx="2"></rect>
-<path d="M4 22V2"></path>
-<path d="M20 22V2"></path>"#;
-
-const ALIGN_HORIZONTAL_SPACE_BETWEEN: &'static str = r#"
-<rect x="3" rx="2" height="14" width="6" y="5"></rect>
-<rect height="10" width="6" x="15" rx="2" y="7"></rect>
-<path d="M3 2v20"></path>
-<path d="M21 2v20"></path>"#;
-
-const ALIGN_JUSTIFY: &'static str = r#"
-<line y1="6" x1="3" y2="6" x2="21"></line>
-<line y2="12" x1="3" y1="12" x2="21"></line>
-<line y2="18" x1="3" y1="18" x2="21"></line>"#;
-
-const ALIGN_LEFT: &'static str = r#"
-<line y1="6" x2="3" y2="6" x1="21"></line>
-<line x1="15" x2="3" y2="12" y1="12"></line>
-<line x2="3" y1="18" x1="17" y2="18"></line>"#;
-
-const ALIGN_RIGHT: &'static str = r#"
-<line x1="21" x2="3" y1="6" y2="6"></line>
-<line y2="12" x1="21" x2="9" y1="12"></line>
-<line x1="21" y1="18" y2="18" x2="7"></line>"#;
-
-const ALIGN_START_HORIZONTAL: &'static str = r#"
-<rect rx="2" y="6" height="16" x="4" width="6"></rect>
-<rect rx="2" height="9" width="6" x="14" y="6"></rect>
-<path d="M22 2H2"></path>"#;
-
-const ALIGN_START_VERTICAL: &'static str = r#"
-<rect height="6" rx="2" width="9" x="6" y="14"></rect>
-<rect x="6" y="4" rx="2" width="16" height="6"></rect>
-<path d="M2 2v20"></path>"#;
-
-const ALIGN_VERTICAL_DISTRIBUTE_CENTER: &'static str = r#"
-<rect height="6" width="14" x="5" y="14" rx="2"></rect>
-<rect y="4" height="6" x="7" width="10" rx="2"></rect>
-<path d="M22 7h-5"></path>
-<path d="M7 7H1"></path>
-<path d="M22 17h-3"></path>
-<path d="M5 17H2"></path>"#;
-
-const ALIGN_VERTICAL_DISTRIBUTE_END: &'static str = r#"
-<rect width="14" x="5" rx="2" height="6" y="14"></rect>
-<rect width="10" height="6" x="7" y="4" rx="2"></rect>
-<path d="M2 20h20"></path>
-<path d="M2 10h20"></path>"#;
-
-const ALIGN_VERTICAL_DISTRIBUTE_START: &'static str = r#"
-<rect y="14" rx="2" x="5" height="6" width="14"></rect>
-<rect x="7" y="4" height="6" width="10" rx="2"></rect>
-<path d="M2 14h20"></path>
-<path d="M2 4h20"></path>"#;
-
-const ALIGN_VERTICAL_JUSTIFY_CENTER: &'static str = r#"
-<rect width="14" x="5" y="16" rx="2" height="6"></rect>
-<rect y="2" width="10" x="7" rx="2" height="6"></rect>
-<path d="M2 12h20"></path>"#;
-
-const ALIGN_VERTICAL_JUSTIFY_END: &'static str = r#"
-<rect y="12" width="14" height="6" x="5" rx="2"></rect>
-<rect height="6" rx="2" width="10" y="2" x="7"></rect>
-<path d="M2 22h20"></path>"#;
-
-const ALIGN_VERTICAL_JUSTIFY_START: &'static str = r#"
-<rect y="16" rx="2" x="5" width="14" height="6"></rect>
-<rect width="10" x="7" rx="2" y="6" height="6"></rect>
-<path d="M2 2h20"></path>"#;
-
-const ALIGN_VERTICAL_SPACE_AROUND: &'static str = r#"
-<rect x="7" rx="2" height="6" width="10" y="9"></rect>
-<path d="M22 20H2"></path>
-<path d="M22 4H2"></path>"#;
-
-const ALIGN_VERTICAL_SPACE_BETWEEN: &'static str = r#"
-<rect x="5" rx="2" height="6" y="15" width="14"></rect>
-<rect x="7" rx="2" y="3" width="10" height="6"></rect>
-<path d="M2 21h20"></path>
-<path d="M2 3h20"></path>"#;
-
-const AMPERSAND: &'static str = r#"
-<path d="M17.5 12c0 4.4-3.6 8-8 8A4.5 4.5 0 0 1 5 15.5c0-6 8-4 8-8.5a3 3 0 1 0-6 0c0 3 2.5 8.5 12 13"></path>
-<path d="M16 12h3"></path>"#;
-
-const AMPERSANDS: &'static str = r#"
-<path d="M10 17c-5-3-7-7-7-9a2 2 0 0 1 4 0c0 2.5-5 2.5-5 6 0 1.7 1.3 3 3 3 2.8 0 5-2.2 5-5"></path>
-<path d="M22 17c-5-3-7-7-7-9a2 2 0 0 1 4 0c0 2.5-5 2.5-5 6 0 1.7 1.3 3 3 3 2.8 0 5-2.2 5-5"></path>"#;
-
-const ANCHOR: &'static str = r#"
-<circle cx="12" r="3" cy="5"></circle>
-<line x2="12" x1="12" y1="22" y2="8"></line>
-<path d="M5 12H2a10 10 0 0 0 20 0h-3"></path>"#;
-
-const ANGRY: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
-<path d="M7.5 8 10 9"></path>
-<path d="m14 9 2.5-1"></path>
-<path d="M9 10h0"></path>
-<path d="M15 10h0"></path>"#;
-
-const ANNOYED: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M8 15h8"></path>
-<path d="M8 9h2"></path>
-<path d="M14 9h2"></path>"#;
-
-const ANTENNA: &'static str = r#"
-<path d="M2 12 7 2"></path>
-<path d="m7 12 5-10"></path>
-<path d="m12 12 5-10"></path>
-<path d="m17 12 5-10"></path>
-<path d="M4.5 7h15"></path>
-<path d="M12 16v6"></path>"#;
-
-const APERTURE: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<line x2="20.05" y1="8" x1="14.31" y2="17.94"></line>
-<line y2="8" x2="21.17" y1="8" x1="9.69"></line>
-<line y2="2.06" x1="7.38" x2="13.12" y1="12"></line>
-<line y2="6.06" y1="16" x2="3.95" x1="9.69"></line>
-<line x2="2.83" y1="16" y2="16" x1="14.31"></line>
-<line x1="16.62" x2="10.88" y2="21.94" y1="12"></line>"#;
-
-const APP_WINDOW: &'static str = r#"
-<rect y="4" width="20" rx="2" height="16" x="2"></rect>
-<path d="M10 4v4"></path>
-<path d="M2 8h20"></path>
-<path d="M6 4v4"></path>"#;
-
-const APPLE: &'static str = r#"
-<path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path>
-<path d="M10 2c1 .5 2 2 2 5"></path>"#;
-
-const ARCHIVE_RESTORE: &'static str = r#"
-<rect x="2" width="20" height="5" rx="1" y="3"></rect>
-<path d="M4 8v11a2 2 0 0 0 2 2h2"></path>
-<path d="M20 8v11a2 2 0 0 1-2 2h-2"></path>
-<path d="m9 15 3-3 3 3"></path>
-<path d="M12 12v9"></path>"#;
-
-const ARCHIVE_X: &'static str = r#"
-<rect y="3" height="5" x="2" rx="1" width="20"></rect>
-<path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path>
-<path d="m9.5 17 5-5"></path>
-<path d="m9.5 12 5 5"></path>"#;
-
-const ARCHIVE: &'static str = r#"
-<rect y="3" height="5" width="20" rx="1" x="2"></rect>
-<path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"></path>
-<path d="M10 12h4"></path>"#;
-
-const AREA_CHART: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<path d="M7 12v5h12V8l-5 5-4-4Z"></path>"#;
-
-const ARMCHAIR: &'static str = r#"
-<path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"></path>
-<path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0Z"></path>
-<path d="M5 18v2"></path>
-<path d="M19 18v2"></path>"#;
-
-const ARROW_BIG_DOWN_DASH: &'static str = r#"
-<path d="M15 5H9"></path>
-<path d="M15 9v3h4l-7 7-7-7h4V9h6z"></path>"#;
-
-const ARROW_BIG_DOWN: &'static str = r#"
-<path d="M15 6v6h4l-7 7-7-7h4V6h6z"></path>"#;
-
-const ARROW_BIG_LEFT_DASH: &'static str = r#"
-<path d="M19 15V9"></path>
-<path d="M15 15h-3v4l-7-7 7-7v4h3v6z"></path>"#;
-
-const ARROW_BIG_LEFT: &'static str = r#"
-<path d="M18 15h-6v4l-7-7 7-7v4h6v6z"></path>"#;
-
-const ARROW_BIG_RIGHT_DASH: &'static str = r#"
-<path d="M5 9v6"></path>
-<path d="M9 9h3V5l7 7-7 7v-4H9V9z"></path>"#;
-
-const ARROW_BIG_RIGHT: &'static str = r#"
-<path d="M6 9h6V5l7 7-7 7v-4H6V9z"></path>"#;
-
-const ARROW_BIG_UP_DASH: &'static str = r#"
-<path d="M9 19h6"></path>
-<path d="M9 15v-3H5l7-7 7 7h-4v3H9z"></path>"#;
-
-const ARROW_BIG_UP: &'static str = r#"
-<path d="M9 18v-6H5l7-7 7 7h-4v6H9z"></path>"#;
-
-const ARROW_DOWN_01: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 20V4"></path>
-<rect width="4" ry="2" height="6" y="4" x="15"></rect>
-<path d="M17 20v-6h-2"></path>
-<path d="M15 20h4"></path>"#;
-
-const ARROW_DOWN_10: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 20V4"></path>
-<path d="M17 10V4h-2"></path>
-<path d="M15 10h4"></path>
-<rect ry="2" width="4" height="6" x="15" y="14"></rect>"#;
-
-const ARROW_DOWN_AZ: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 20V4"></path>
-<path d="M20 8h-5"></path>
-<path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10"></path>
-<path d="M15 14h5l-5 6h5"></path>"#;
-
-const ARROW_DOWN_CIRCLE: &'static str = r#"
-<circle r="10" cy="12" cx="12"></circle>
-<path d="M12 8v8"></path>
-<path d="m8 12 4 4 4-4"></path>"#;
-
-const ARROW_DOWN_FROM_LINE: &'static str = r#"
-<path d="M19 3H5"></path>
-<path d="M12 21V7"></path>
-<path d="m6 15 6 6 6-6"></path>"#;
-
-const ARROW_DOWN_LEFT_FROM_CIRCLE: &'static str = r#"
-<path d="M2 12a10 10 0 1 1 10 10"></path>
-<path d="m2 22 10-10"></path>
-<path d="M8 22H2v-6"></path>"#;
-
-const ARROW_DOWN_LEFT_SQUARE: &'static str = r#"
-<rect rx="2" width="18" height="18" x="3" y="3"></rect>
-<path d="m16 8-8 8"></path>
-<path d="M16 16H8V8"></path>"#;
-
-const ARROW_DOWN_LEFT: &'static str = r#"
-<path d="M17 7 7 17"></path>
-<path d="M17 17H7V7"></path>"#;
-
-const ARROW_DOWN_NARROW_WIDE: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 20V4"></path>
-<path d="M11 4h4"></path>
-<path d="M11 8h7"></path>
-<path d="M11 12h10"></path>"#;
-
-const ARROW_DOWN_RIGHT_FROM_CIRCLE: &'static str = r#"
-<path d="M12 22a10 10 0 1 1 10-10"></path>
-<path d="M22 22 12 12"></path>
-<path d="M22 16v6h-6"></path>"#;
-
-const ARROW_DOWN_RIGHT_SQUARE: &'static str = r#"
-<rect rx="2" width="18" height="18" x="3" y="3"></rect>
-<path d="m8 8 8 8"></path>
-<path d="M16 8v8H8"></path>"#;
-
-const ARROW_DOWN_RIGHT: &'static str = r#"
-<path d="m7 7 10 10"></path>
-<path d="M17 7v10H7"></path>"#;
-
-const ARROW_DOWN_SQUARE: &'static str = r#"
-<rect y="3" height="18" width="18" rx="2" x="3"></rect>
-<path d="M12 8v8"></path>
-<path d="m8 12 4 4 4-4"></path>"#;
-
-const ARROW_DOWN_TO_DOT: &'static str = r#"
-<path d="M12 2v14"></path>
-<path d="m19 9-7 7-7-7"></path>
-<circle cy="21" cx="12" r="1"></circle>"#;
-
-const ARROW_DOWN_TO_LINE: &'static str = r#"
-<path d="M12 17V3"></path>
-<path d="m6 11 6 6 6-6"></path>
-<path d="M19 21H5"></path>"#;
-
-const ARROW_DOWN_UP: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 20V4"></path>
-<path d="m21 8-4-4-4 4"></path>
-<path d="M17 4v16"></path>"#;
-
-const ARROW_DOWN_WIDE_NARROW: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 20V4"></path>
-<path d="M11 4h10"></path>
-<path d="M11 8h7"></path>
-<path d="M11 12h4"></path>"#;
-
-const ARROW_DOWN_ZA: &'static str = r#"
-<path d="m3 16 4 4 4-4"></path>
-<path d="M7 4v16"></path>
-<path d="M15 4h5l-5 6h5"></path>
-<path d="M15 20v-3.5a2.5 2.5 0 0 1 5 0V20"></path>
-<path d="M20 18h-5"></path>"#;
-
-const ARROW_DOWN: &'static str = r#"
-<path d="M12 5v14"></path>
-<path d="m19 12-7 7-7-7"></path>"#;
-
-const ARROW_LEFT_CIRCLE: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="M16 12H8"></path>
-<path d="m12 8-4 4 4 4"></path>"#;
-
-const ARROW_LEFT_FROM_LINE: &'static str = r#"
-<path d="m9 6-6 6 6 6"></path>
-<path d="M3 12h14"></path>
-<path d="M21 19V5"></path>"#;
-
-const ARROW_LEFT_RIGHT: &'static str = r#"
-<path d="M8 3 4 7l4 4"></path>
-<path d="M4 7h16"></path>
-<path d="m16 21 4-4-4-4"></path>
-<path d="M20 17H4"></path>"#;
-
-const ARROW_LEFT_SQUARE: &'static str = r#"
-<rect y="3" height="18" x="3" width="18" rx="2"></rect>
-<path d="m12 8-4 4 4 4"></path>
-<path d="M16 12H8"></path>"#;
-
-const ARROW_LEFT_TO_LINE: &'static str = r#"
-<path d="M3 19V5"></path>
-<path d="m13 6-6 6 6 6"></path>
-<path d="M7 12h14"></path>"#;
-
-const ARROW_LEFT: &'static str = r#"
-<path d="m12 19-7-7 7-7"></path>
-<path d="M19 12H5"></path>"#;
-
-const ARROW_RIGHT_CIRCLE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="M8 12h8"></path>
-<path d="m12 16 4-4-4-4"></path>"#;
-
-const ARROW_RIGHT_FROM_LINE: &'static str = r#"
-<path d="M3 5v14"></path>
-<path d="M21 12H7"></path>
-<path d="m15 18 6-6-6-6"></path>"#;
-
-const ARROW_RIGHT_LEFT: &'static str = r#"
-<path d="m16 3 4 4-4 4"></path>
-<path d="M20 7H4"></path>
-<path d="m8 21-4-4 4-4"></path>
-<path d="M4 17h16"></path>"#;
-
-const ARROW_RIGHT_SQUARE: &'static str = r#"
-<rect width="18" x="3" rx="2" height="18" y="3"></rect>
-<path d="M8 12h8"></path>
-<path d="m12 16 4-4-4-4"></path>"#;
-
-const ARROW_RIGHT_TO_LINE: &'static str = r#"
-<path d="M17 12H3"></path>
-<path d="m11 18 6-6-6-6"></path>
-<path d="M21 5v14"></path>"#;
-
-const ARROW_RIGHT: &'static str = r#"
-<path d="M5 12h14"></path>
-<path d="m12 5 7 7-7 7"></path>"#;
-
-const ARROW_UP_01: &'static str = r#"
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>
-<rect height="6" ry="2" x="15" y="4" width="4"></rect>
-<path d="M17 20v-6h-2"></path>
-<path d="M15 20h4"></path>"#;
-
-const ARROW_UP_10: &'static str = r#"
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>
-<path d="M17 10V4h-2"></path>
-<path d="M15 10h4"></path>
-<rect y="14" height="6" ry="2" width="4" x="15"></rect>"#;
-
-const ARROW_UP_AZ: &'static str = r#"
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>
-<path d="M20 8h-5"></path>
-<path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10"></path>
-<path d="M15 14h5l-5 6h5"></path>"#;
-
-const ARROW_UP_CIRCLE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="m16 12-4-4-4 4"></path>
-<path d="M12 16V8"></path>"#;
-
-const ARROW_UP_DOWN: &'static str = r#"
-<path d="m21 16-4 4-4-4"></path>
-<path d="M17 20V4"></path>
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>"#;
-
-const ARROW_UP_FROM_DOT: &'static str = r#"
-<path d="m5 9 7-7 7 7"></path>
-<path d="M12 16V2"></path>
-<circle r="1" cx="12" cy="21"></circle>"#;
-
-const ARROW_UP_FROM_LINE: &'static str = r#"
-<path d="m18 9-6-6-6 6"></path>
-<path d="M12 3v14"></path>
-<path d="M5 21h14"></path>"#;
-
-const ARROW_UP_LEFT_FROM_CIRCLE: &'static str = r#"
-<path d="M2 8V2h6"></path>
-<path d="m2 2 10 10"></path>
-<path d="M12 2A10 10 0 1 1 2 12"></path>"#;
-
-const ARROW_UP_LEFT_SQUARE: &'static str = r#"
-<rect height="18" y="3" x="3" width="18" rx="2"></rect>
-<path d="M8 16V8h8"></path>
-<path d="M16 16 8 8"></path>"#;
-
-const ARROW_UP_LEFT: &'static str = r#"
-<path d="M7 17V7h10"></path>
-<path d="M17 17 7 7"></path>"#;
-
-const ARROW_UP_NARROW_WIDE: &'static str = r#"
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>
-<path d="M11 12h4"></path>
-<path d="M11 16h7"></path>
-<path d="M11 20h10"></path>"#;
-
-const ARROW_UP_RIGHT_FROM_CIRCLE: &'static str = r#"
-<path d="M22 12A10 10 0 1 1 12 2"></path>
-<path d="M22 2 12 12"></path>
-<path d="M16 2h6v6"></path>"#;
-
-const ARROW_UP_RIGHT_SQUARE: &'static str = r#"
-<rect width="18" height="18" y="3" x="3" rx="2"></rect>
-<path d="M8 8h8v8"></path>
-<path d="m8 16 8-8"></path>"#;
-
-const ARROW_UP_RIGHT: &'static str = r#"
-<path d="M7 7h10v10"></path>
-<path d="M7 17 17 7"></path>"#;
-
-const ARROW_UP_SQUARE: &'static str = r#"
-<rect rx="2" height="18" x="3" width="18" y="3"></rect>
-<path d="m16 12-4-4-4 4"></path>
-<path d="M12 16V8"></path>"#;
-
-const ARROW_UP_TO_LINE: &'static str = r#"
-<path d="M5 3h14"></path>
-<path d="m18 13-6-6-6 6"></path>
-<path d="M12 7v14"></path>"#;
-
-const ARROW_UP_WIDE_NARROW: &'static str = r#"
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>
-<path d="M11 12h10"></path>
-<path d="M11 16h7"></path>
-<path d="M11 20h4"></path>"#;
-
-const ARROW_UP_ZA: &'static str = r#"
-<path d="m3 8 4-4 4 4"></path>
-<path d="M7 4v16"></path>
-<path d="M15 4h5l-5 6h5"></path>
-<path d="M15 20v-3.5a2.5 2.5 0 0 1 5 0V20"></path>
-<path d="M20 18h-5"></path>"#;
-
-const ARROW_UP: &'static str = r#"
-<path d="m5 12 7-7 7 7"></path>
-<path d="M12 19V5"></path>"#;
-
-const ARROWS_UP_FROM_LINE: &'static str = r#"
-<path d="m4 6 3-3 3 3"></path>
-<path d="M7 17V3"></path>
-<path d="m14 6 3-3 3 3"></path>
-<path d="M17 17V3"></path>
-<path d="M4 21h16"></path>"#;
-
-const ASTERISK: &'static str = r#"
-<path d="M12 6v12"></path>
-<path d="M17.196 9 6.804 15"></path>
-<path d="m6.804 9 10.392 6"></path>"#;
-
-const AT_SIGN: &'static str = r#"
-<circle r="4" cy="12" cx="12"></circle>
-<path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"></path>"#;
-
-const ATOM: &'static str = r#"
-<circle r="1" cy="12" cx="12"></circle>
-<path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"></path>
-<path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"></path>"#;
-
-const AWARD: &'static str = r#"
-<circle cy="8" r="6" cx="12"></circle>
-<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>"#;
-
-const AXE: &'static str = r#"
-<path d="m14 12-8.5 8.5a2.12 2.12 0 1 1-3-3L11 9"></path>
-<path d="M15 13 9 7l4-4 6 6h3a8 8 0 0 1-7 7z"></path>"#;
-
-const AXIS_3_D: &'static str = r#"
-<path d="M4 4v16h16"></path>
-<path d="m4 20 7-7"></path>"#;
-
-const BABY: &'static str = r#"
-<path d="M9 12h.01"></path>
-<path d="M15 12h.01"></path>
-<path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path>
-<path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path>"#;
-
-const BACKPACK: &'static str = r#"
-<path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path>
-<path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
-<path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path>
-<path d="M8 10h8"></path>
-<path d="M8 18h8"></path>"#;
-
-const BADGE_ALERT: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line y2="12" x1="12" x2="12" y1="8"></line>
-<line x2="12.01" y1="16" y2="16" x1="12"></line>"#;
-
-const BADGE_CENT: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M12 7v10"></path>
-<path d="M15.4 10a4 4 0 1 0 0 4"></path>"#;
-
-const BADGE_CHECK: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="m9 12 2 2 4-4"></path>"#;
-
-const BADGE_DOLLAR_SIGN: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
-<path d="M12 18V6"></path>"#;
-
-const BADGE_EURO: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M7 12h5"></path>
-<path d="M15 9.4a4 4 0 1 0 0 5.2"></path>"#;
-
-const BADGE_HELP: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-<line y2="17" x1="12" x2="12.01" y1="17"></line>"#;
-
-const BADGE_INDIAN_RUPEE: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M8 8h8"></path>
-<path d="M8 12h8"></path>
-<path d="m13 17-5-1h1a4 4 0 0 0 0-8"></path>"#;
-
-const BADGE_INFO: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line x1="12" y2="12" y1="16" x2="12"></line>
-<line x1="12" x2="12.01" y2="8" y1="8"></line>"#;
-
-const BADGE_JAPANESE_YEN: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="m9 8 3 3v7"></path>
-<path d="m12 11 3-3"></path>
-<path d="M9 12h6"></path>
-<path d="M9 16h6"></path>"#;
-
-const BADGE_MINUS: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line y2="12" x2="16" y1="12" x1="8"></line>"#;
-
-const BADGE_PERCENT: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="m15 9-6 6"></path>
-<path d="M9 9h.01"></path>
-<path d="M15 15h.01"></path>"#;
-
-const BADGE_PLUS: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line y1="8" y2="16" x1="12" x2="12"></line>
-<line y1="12" y2="12" x2="16" x1="8"></line>"#;
-
-const BADGE_POUND_STERLING: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M8 12h4"></path>
-<path d="M10 16V9.5a2.5 2.5 0 0 1 5 0"></path>
-<path d="M8 16h7"></path>"#;
-
-const BADGE_RUSSIAN_RUBLE: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M9 16h5"></path>
-<path d="M9 12h5a2 2 0 1 0 0-4h-3v9"></path>"#;
-
-const BADGE_SWISS_FRANC: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<path d="M11 17V8h4"></path>
-<path d="M11 12h3"></path>
-<path d="M9 16h4"></path>"#;
-
-const BADGE_X: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
-<line y1="9" x2="9" x1="15" y2="15"></line>
-<line y2="15" x1="9" x2="15" y1="9"></line>"#;
-
-const BADGE: &'static str = r#"
-<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>"#;
-
-const BAGGAGE_CLAIM: &'static str = r#"
-<path d="M22 18H6a2 2 0 0 1-2-2V7a2 2 0 0 0-2-2"></path>
-<path d="M17 14V4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v10"></path>
-<rect x="8" height="8" rx="1" width="13" y="6"></rect>
-<circle r="2" cx="18" cy="20"></circle>
-<circle cx="9" cy="20" r="2"></circle>"#;
-
-const BAN: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="m4.9 4.9 14.2 14.2"></path>"#;
-
-const BANANA: &'static str = r#"
-<path d="M4 13c3.5-2 8-2 10 2a5.5 5.5 0 0 1 8 5"></path>
-<path d="M5.15 17.89c5.52-1.52 8.65-6.89 7-12C11.55 4 11.5 2 13 2c3.22 0 5 5.5 5 8 0 6.5-4.2 12-10.49 12C5.11 22 2 22 2 20c0-1.5 1.14-1.55 3.15-2.11Z"></path>"#;
-
-const BANKNOTE: &'static str = r#"
-<rect rx="2" x="2" height="12" width="20" y="6"></rect>
-<circle cy="12" r="2" cx="12"></circle>
-<path d="M6 12h.01M18 12h.01"></path>"#;
-
-const BAR_CHART_2: &'static str = r#"
-<line x1="18" x2="18" y1="20" y2="10"></line>
-<line x1="12" x2="12" y2="4" y1="20"></line>
-<line y2="14" x2="6" x1="6" y1="20"></line>"#;
-
-const BAR_CHART_3: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<path d="M18 17V9"></path>
-<path d="M13 17V5"></path>
-<path d="M8 17v-3"></path>"#;
-
-const BAR_CHART_4: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<path d="M13 17V9"></path>
-<path d="M18 17V5"></path>
-<path d="M8 17v-3"></path>"#;
-
-const BAR_CHART_BIG: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<rect rx="1" width="4" height="7" x="7" y="10"></rect>
-<rect y="5" width="4" rx="1" height="12" x="15"></rect>"#;
-
-const BAR_CHART_HORIZONTAL_BIG: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<rect x="7" y="5" rx="1" width="12" height="4"></rect>
-<rect width="7" rx="1" height="4" x="7" y="13"></rect>"#;
-
-const BAR_CHART_HORIZONTAL: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<path d="M7 16h8"></path>
-<path d="M7 11h12"></path>
-<path d="M7 6h3"></path>"#;
-
-const BAR_CHART: &'static str = r#"
-<line x1="12" y1="20" y2="10" x2="12"></line>
-<line y1="20" y2="4" x2="18" x1="18"></line>
-<line x1="6" y1="20" x2="6" y2="16"></line>"#;
-
-const BASELINE: &'static str = r#"
-<path d="M4 20h16"></path>
-<path d="m6 16 6-12 6 12"></path>
-<path d="M8 12h8"></path>"#;
-
-const BATH: &'static str = r#"
-<path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path>
-<line y1="5" x1="10" y2="7" x2="8"></line>
-<line x1="2" y1="12" y2="12" x2="22"></line>
-<line x1="7" x2="7" y1="19" y2="21"></line>
-<line y2="21" x1="17" y1="19" x2="17"></line>"#;
-
-const BATTERY_CHARGING: &'static str = r#"
-<path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"></path>
-<path d="M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"></path>
-<path d="m11 7-3 5h4l-3 5"></path>
-<line x1="22" y1="11" x2="22" y2="13"></line>"#;
-
-const BATTERY_FULL: &'static str = r#"
-<rect x="2" height="10" rx="2" width="16" ry="2" y="7"></rect>
-<line x1="22" x2="22" y1="11" y2="13"></line>
-<line x1="6" y1="11" y2="13" x2="6"></line>
-<line x1="10" y1="11" y2="13" x2="10"></line>
-<line y2="13" y1="11" x1="14" x2="14"></line>"#;
-
-const BATTERY_LOW: &'static str = r#"
-<rect height="10" ry="2" rx="2" x="2" y="7" width="16"></rect>
-<line y2="13" y1="11" x2="22" x1="22"></line>
-<line x2="6" y2="13" y1="11" x1="6"></line>"#;
-
-const BATTERY_MEDIUM: &'static str = r#"
-<rect rx="2" ry="2" y="7" width="16" height="10" x="2"></rect>
-<line y2="13" x2="22" y1="11" x1="22"></line>
-<line y1="11" x2="6" y2="13" x1="6"></line>
-<line x1="10" x2="10" y1="11" y2="13"></line>"#;
-
-const BATTERY_WARNING: &'static str = r#"
-<path d="M14 7h2a2 2 0 0 1 2 2v6c0 1-1 2-2 2h-2"></path>
-<path d="M6 7H4a2 2 0 0 0-2 2v6c0 1 1 2 2 2h2"></path>
-<line y1="11" x2="22" y2="13" x1="22"></line>
-<line x1="10" y1="7" y2="13" x2="10"></line>
-<line y1="17" x1="10" y2="17.01" x2="10"></line>"#;
-
-const BATTERY: &'static str = r#"
-<rect height="10" rx="2" x="2" y="7" ry="2" width="16"></rect>
-<line x1="22" y2="13" y1="11" x2="22"></line>"#;
-
-const BEAKER: &'static str = r#"
-<path d="M4.5 3h15"></path>
-<path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"></path>
-<path d="M6 14h12"></path>"#;
-
-const BEAN_OFF: &'static str = r#"
-<path d="M9 9c-.64.64-1.521.954-2.402 1.165A6 6 0 0 0 8 22a13.96 13.96 0 0 0 9.9-4.1"></path>
-<path d="M10.75 5.093A6 6 0 0 1 22 8c0 2.411-.61 4.68-1.683 6.66"></path>
-<path d="M5.341 10.62a4 4 0 0 0 6.487 1.208M10.62 5.341a4.015 4.015 0 0 1 2.039 2.04"></path>
-<line x1="2" y1="2" x2="22" y2="22"></line>"#;
-
-const BEAN: &'static str = r#"
-<path d="M10.165 6.598C9.954 7.478 9.64 8.36 9 9c-.64.64-1.521.954-2.402 1.165A6 6 0 0 0 8 22c7.732 0 14-6.268 14-14a6 6 0 0 0-11.835-1.402Z"></path>
-<path d="M5.341 10.62a4 4 0 1 0 5.279-5.28"></path>"#;
-
-const BED_DOUBLE: &'static str = r#"
-<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path>
-<path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path>
-<path d="M12 4v6"></path>
-<path d="M2 18h20"></path>"#;
-
-const BED_SINGLE: &'static str = r#"
-<path d="M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8"></path>
-<path d="M5 10V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"></path>
-<path d="M3 18h18"></path>"#;
-
-const BED: &'static str = r#"
-<path d="M2 4v16"></path>
-<path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-<path d="M2 17h20"></path>
-<path d="M6 8v9"></path>"#;
-
-const BEEF: &'static str = r#"
-<circle cy="8.5" r="2.5" cx="12.5"></circle>
-<path d="M12.5 2a6.5 6.5 0 0 0-6.22 4.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3A6.5 6.5 0 0 0 12.5 2Z"></path>
-<path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1 .31 2 6.49 6.49 0 0 1-2.6 5.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"></path>"#;
-
-const BEER: &'static str = r#"
-<path d="M17 11h1a3 3 0 0 1 0 6h-1"></path>
-<path d="M9 12v6"></path>
-<path d="M13 12v6"></path>
-<path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 2 11 2s2 1.5 3 1.5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"></path>
-<path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"></path>"#;
-
-const BELL_DOT: &'static str = r#"
-<path d="M19.4 14.9C20.2 16.4 21 17 21 17H3s3-2 3-9c0-3.3 2.7-6 6-6 .7 0 1.3.1 1.9.3"></path>
-<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-<circle r="3" cy="8" cx="18"></circle>"#;
-
-const BELL_MINUS: &'static str = r#"
-<path d="M18.4 12c.8 3.8 2.6 5 2.6 5H3s3-2 3-9c0-3.3 2.7-6 6-6 1.8 0 3.4.8 4.5 2"></path>
-<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-<path d="M15 8h6"></path>"#;
-
-const BELL_OFF: &'static str = r#"
-<path d="M8.7 3A6 6 0 0 1 18 8a21.3 21.3 0 0 0 .6 5"></path>
-<path d="M17 17H3s3-2 3-9a4.67 4.67 0 0 1 .3-1.7"></path>
-<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-<path d="m2 2 20 20"></path>"#;
-
-const BELL_PLUS: &'static str = r#"
-<path d="M19.3 14.8C20.1 16.4 21 17 21 17H3s3-2 3-9c0-3.3 2.7-6 6-6 1 0 1.9.2 2.8.7"></path>
-<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-<path d="M15 8h6"></path>
-<path d="M18 5v6"></path>"#;
-
-const BELL_RING: &'static str = r#"
-<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
-<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-<path d="M4 2C2.8 3.7 2 5.7 2 8"></path>
-<path d="M22 8c0-2.3-.8-4.3-2-6"></path>"#;
-
-const BELL: &'static str = r#"
-<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
-<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>"#;
-
-const BIKE: &'static str = r#"
-<circle cy="17.5" r="3.5" cx="18.5"></circle>
-<circle cy="17.5" cx="5.5" r="3.5"></circle>
-<circle r="1" cx="15" cy="5"></circle>
-<path d="M12 17.5V14l-3-3 4-3 2 3h2"></path>"#;
-
-const BINARY: &'static str = r#"
-<rect y="14" height="6" x="14" width="4" rx="2"></rect>
-<rect rx="2" y="4" height="6" width="4" x="6"></rect>
-<path d="M6 20h4"></path>
-<path d="M14 10h4"></path>
-<path d="M6 14h2v6"></path>
-<path d="M14 4h2v6"></path>"#;
-
-const BIOHAZARD: &'static str = r#"
-<circle r="2" cy="11.9" cx="12"></circle>
-<path d="M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6"></path>
-<path d="m8.9 10.1 1.4.8"></path>
-<path d="M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5"></path>
-<path d="m15.1 10.1-1.4.8"></path>
-<path d="M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2"></path>
-<path d="M12 13.9v1.6"></path>
-<path d="M13.5 5.4c-1-.2-2-.2-3 0"></path>
-<path d="M17 16.4c.7-.7 1.2-1.6 1.5-2.5"></path>
-<path d="M5.5 13.9c.3.9.8 1.8 1.5 2.5"></path>"#;
-
-const BIRD: &'static str = r#"
-<path d="M16 7h.01"></path>
-<path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"></path>
-<path d="m20 7 2 .5-2 .5"></path>
-<path d="M10 18v3"></path>
-<path d="M14 17.75V21"></path>
-<path d="M7 18a6 6 0 0 0 3.84-10.61"></path>"#;
-
-const BITCOIN: &'static str = r#"
-<path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727"></path>"#;
-
-const BLINDS: &'static str = r#"
-<path d="M3 3h18"></path>
-<path d="M20 7H8"></path>
-<path d="M20 11H8"></path>
-<path d="M10 19h10"></path>
-<path d="M8 15h12"></path>
-<path d="M4 3v14"></path>
-<circle r="2" cy="19" cx="4"></circle>"#;
-
-const BLOCKS: &'static str = r#"
-<rect y="3" rx="1" height="7" width="7" x="14"></rect>
-<path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"></path>"#;
-
-const BLUETOOTH_CONNECTED: &'static str = r#"
-<path d="m7 7 10 10-5 5V2l5 5L7 17"></path>
-<line x1="18" y1="12" y2="12" x2="21"></line>
-<line y2="12" x2="6" x1="3" y1="12"></line>"#;
-
-const BLUETOOTH_OFF: &'static str = r#"
-<path d="m17 17-5 5V12l-5 5"></path>
-<path d="m2 2 20 20"></path>
-<path d="M14.5 9.5 17 7l-5-5v4.5"></path>"#;
-
-const BLUETOOTH_SEARCHING: &'static str = r#"
-<path d="m7 7 10 10-5 5V2l5 5L7 17"></path>
-<path d="M20.83 14.83a4 4 0 0 0 0-5.66"></path>
-<path d="M18 12h.01"></path>"#;
-
-const BLUETOOTH: &'static str = r#"
-<path d="m7 7 10 10-5 5V2l5 5L7 17"></path>"#;
-
-const BOLD: &'static str = r#"
-<path d="M14 12a4 4 0 0 0 0-8H6v8"></path>
-<path d="M15 20a4 4 0 0 0 0-8H6v8Z"></path>"#;
-
-const BOMB: &'static str = r#"
-<circle cx="11" r="9" cy="13"></circle>
-<path d="m19.5 9.5 1.8-1.8a2.4 2.4 0 0 0 0-3.4l-1.6-1.6a2.41 2.41 0 0 0-3.4 0l-1.8 1.8"></path>
-<path d="m22 2-1.5 1.5"></path>"#;
-
-const BONE: &'static str = r#"
-<path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path>"#;
-
-const BOOK_COPY: &'static str = r#"
-<path d="M2 16V4a2 2 0 0 1 2-2h11"></path>
-<path d="M5 14H4a2 2 0 1 0 0 4h1"></path>
-<path d="M22 18H11a2 2 0 1 0 0 4h11V6H11a2 2 0 0 0-2 2v12"></path>"#;
-
-const BOOK_DOWN: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<path d="M12 13V7"></path>
-<path d="m9 10 3 3 3-3"></path>"#;
-
-const BOOK_KEY: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H14"></path>
-<path d="M20 8v14H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<circle r="2" cx="14" cy="8"></circle>
-<path d="m20 2-4.5 4.5"></path>
-<path d="m19 3 1 1"></path>"#;
-
-const BOOK_LOCK: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H10"></path>
-<path d="M20 15v7H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<rect width="8" height="5" x="12" y="6" rx="1"></rect>
-<path d="M18 6V4a2 2 0 1 0-4 0v2"></path>"#;
-
-const BOOK_MARKED: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<polyline points="10 2 10 10 13 7 16 10 16 2"></polyline>"#;
-
-const BOOK_MINUS: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<path d="M9 10h6"></path>"#;
-
-const BOOK_OPEN_CHECK: &'static str = r#"
-<path d="M8 3H2v15h7c1.7 0 3 1.3 3 3V7c0-2.2-1.8-4-4-4Z"></path>
-<path d="m16 12 2 2 4-4"></path>
-<path d="M22 6V3h-6c-2.2 0-4 1.8-4 4v14c0-1.7 1.3-3 3-3h7v-2.3"></path>"#;
-
-const BOOK_OPEN: &'static str = r#"
-<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>"#;
-
-const BOOK_PLUS: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<path d="M9 10h6"></path>
-<path d="M12 7v6"></path>"#;
-
-const BOOK_TEMPLATE: &'static str = r#"
-<path d="M20 22h-2"></path>
-<path d="M20 15v2h-2"></path>
-<path d="M4 19.5V15"></path>
-<path d="M20 8v3"></path>
-<path d="M18 2h2v2"></path>
-<path d="M4 11V9"></path>
-<path d="M12 2h2"></path>
-<path d="M12 22h2"></path>
-<path d="M12 17h2"></path>
-<path d="M8 22H6.5a2.5 2.5 0 0 1 0-5H8"></path>
-<path d="M4 5v-.5A2.5 2.5 0 0 1 6.5 2H8"></path>"#;
-
-const BOOK_UP_2: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2"></path>
-<path d="M18 2h2v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<path d="M12 13V7"></path>
-<path d="m9 10 3-3 3 3"></path>
-<path d="m9 5 3-3 3 3"></path>"#;
-
-const BOOK_UP: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<path d="M12 13V7"></path>
-<path d="m9 10 3-3 3 3"></path>"#;
-
-const BOOK_X: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-<path d="m14.5 7-5 5"></path>
-<path d="m9.5 7 5 5"></path>"#;
-
-const BOOK: &'static str = r#"
-<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>"#;
-
-const BOOKMARK_MINUS: &'static str = r#"
-<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
-<line y2="10" y1="10" x2="9" x1="15"></line>"#;
-
-const BOOKMARK_PLUS: &'static str = r#"
-<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
-<line y1="7" x1="12" y2="13" x2="12"></line>
-<line y2="10" x1="15" x2="9" y1="10"></line>"#;
-
-const BOOKMARK: &'static str = r#"
-<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>"#;
-
-const BOOM_BOX: &'static str = r#"
-<path d="M4 9V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path>
-<path d="M8 8v1"></path>
-<path d="M12 8v1"></path>
-<path d="M16 8v1"></path>
-<rect rx="2" x="2" height="12" width="20" y="9"></rect>
-<circle r="2" cx="8" cy="15"></circle>
-<circle cx="16" cy="15" r="2"></circle>"#;
-
-const BOT: &'static str = r#"
-<path d="M12 8V4H8"></path>
-<rect y="8" height="12" width="16" x="4" rx="2"></rect>
-<path d="M2 14h2"></path>
-<path d="M20 14h2"></path>
-<path d="M15 13v2"></path>
-<path d="M9 13v2"></path>"#;
-
-const BOX_SELECT: &'static str = r#"
-<path d="M5 3a2 2 0 0 0-2 2"></path>
-<path d="M19 3a2 2 0 0 1 2 2"></path>
-<path d="M21 19a2 2 0 0 1-2 2"></path>
-<path d="M5 21a2 2 0 0 1-2-2"></path>
-<path d="M9 3h1"></path>
-<path d="M9 21h1"></path>
-<path d="M14 3h1"></path>
-<path d="M14 21h1"></path>
-<path d="M3 9v1"></path>
-<path d="M21 9v1"></path>
-<path d="M3 14v1"></path>
-<path d="M21 14v1"></path>"#;
-
-const BOX: &'static str = r#"
-<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-<path d="m3.3 7 8.7 5 8.7-5"></path>
-<path d="M12 22V12"></path>"#;
-
-const BOXES: &'static str = r#"
-<path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"></path>
-<path d="m7 16.5-4.74-2.85"></path>
-<path d="m7 16.5 5-3"></path>
-<path d="M7 16.5v5.17"></path>
-<path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"></path>
-<path d="m17 16.5-5-3"></path>
-<path d="m17 16.5 4.74-2.85"></path>
-<path d="M17 16.5v5.17"></path>
-<path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"></path>
-<path d="M12 8 7.26 5.15"></path>
-<path d="m12 8 4.74-2.85"></path>
-<path d="M12 13.5V8"></path>"#;
-
-const BRACES: &'static str = r#"
-<path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"></path>
-<path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"></path>"#;
-
-const BRACKETS: &'static str = r#"
-<path d="M16 3h3v18h-3"></path>
-<path d="M8 21H5V3h3"></path>"#;
-
-const BRAIN_CIRCUIT: &'static str = r#"
-<path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"></path>
-<path d="M16 8V5c0-1.1.9-2 2-2"></path>
-<path d="M12 13h4"></path>
-<path d="M12 18h6a2 2 0 0 1 2 2v1"></path>
-<path d="M12 8h8"></path>
-<path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
-<path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
-<path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
-<path d="M18.5 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>"#;
-
-const BRAIN_COG: &'static str = r#"
-<circle cy="12" r="3" cx="12"></circle>
-<path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"></path>
-<path d="m15.7 10.4-.9.4"></path>
-<path d="m9.2 13.2-.9.4"></path>
-<path d="m13.6 15.7-.4-.9"></path>
-<path d="m10.8 9.2-.4-.9"></path>
-<path d="m15.7 13.5-.9-.4"></path>
-<path d="m9.2 10.9-.9-.4"></path>
-<path d="m10.5 15.7.4-.9"></path>
-<path d="m13.1 9.2.4-.9"></path>"#;
-
-const BRAIN: &'static str = r#"
-<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path>
-<path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path>"#;
-
-const BRIEFCASE: &'static str = r#"
-<rect y="7" width="20" height="14" ry="2" x="2" rx="2"></rect>
-<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>"#;
-
-const BRING_TO_FRONT: &'static str = r#"
-<rect width="8" y="8" rx="2" height="8" x="8"></rect>
-<path d="M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2"></path>
-<path d="M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2"></path>"#;
-
-const BRUSH: &'static str = r#"
-<path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"></path>
-<path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"></path>"#;
-
-const BUG_OFF: &'static str = r#"
-<path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2"></path>
-<path d="M14.12 3.88 16 2"></path>
-<path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3"></path>
-<path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"></path>
-<path d="m2 2 20 20"></path>
-<path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13"></path>
-<path d="M12 20v-8"></path>
-<path d="M6 13H2"></path>
-<path d="M3 21c0-2.1 1.7-3.9 3.8-4"></path>"#;
-
-const BUG_PLAY: &'static str = r#"
-<path d="m8 2 1.88 1.88"></path>
-<path d="M14.12 3.88 16 2"></path>
-<path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"></path>
-<path d="M18 11a4 4 0 0 0-4-4h-4a4 4 0 0 0-4 4v3a6.1 6.1 0 0 0 2 4.5"></path>
-<path d="M6.53 9C4.6 8.8 3 7.1 3 5"></path>
-<path d="M6 13H2"></path>
-<path d="M3 21c0-2.1 1.7-3.9 3.8-4"></path>
-<path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"></path>
-<path d="m12 12 8 5-8 5Z"></path>"#;
-
-const BUG: &'static str = r#"
-<path d="m8 2 1.88 1.88"></path>
-<path d="M14.12 3.88 16 2"></path>
-<path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"></path>
-<path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"></path>
-<path d="M12 20v-9"></path>
-<path d="M6.53 9C4.6 8.8 3 7.1 3 5"></path>
-<path d="M6 13H2"></path>
-<path d="M3 21c0-2.1 1.7-3.9 3.8-4"></path>
-<path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"></path>
-<path d="M22 13h-4"></path>
-<path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"></path>"#;
-
-const BUILDING_2: &'static str = r#"
-<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-<path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-<path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-<path d="M10 6h4"></path>
-<path d="M10 10h4"></path>
-<path d="M10 14h4"></path>
-<path d="M10 18h4"></path>"#;
-
-const BUILDING: &'static str = r#"
-<rect rx="2" ry="2" width="16" x="4" height="20" y="2"></rect>
-<path d="M9 22v-4h6v4"></path>
-<path d="M8 6h.01"></path>
-<path d="M16 6h.01"></path>
-<path d="M12 6h.01"></path>
-<path d="M12 10h.01"></path>
-<path d="M12 14h.01"></path>
-<path d="M16 10h.01"></path>
-<path d="M16 14h.01"></path>
-<path d="M8 10h.01"></path>
-<path d="M8 14h.01"></path>"#;
-
-const BUS_FRONT: &'static str = r#"
-<path d="M4 6 2 7"></path>
-<path d="M10 6h4"></path>
-<path d="m22 7-2-1"></path>
-<rect width="16" x="4" y="3" rx="2" height="16"></rect>
-<path d="M4 11h16"></path>
-<path d="M8 15h.01"></path>
-<path d="M16 15h.01"></path>
-<path d="M6 19v2"></path>
-<path d="M18 21v-2"></path>"#;
-
-const BUS: &'static str = r#"
-<path d="M8 6v6"></path>
-<path d="M15 6v6"></path>
-<path d="M2 12h19.6"></path>
-<path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path>
-<circle cx="7" r="2" cy="18"></circle>
-<path d="M9 18h5"></path>
-<circle cx="16" cy="18" r="2"></circle>"#;
-
-const CABLE_CAR: &'static str = r#"
-<path d="M10 3h.01"></path>
-<path d="M14 2h.01"></path>
-<path d="m2 9 20-5"></path>
-<path d="M12 12V6.5"></path>
-<rect rx="3" width="16" x="4" y="12" height="10"></rect>
-<path d="M9 12v5"></path>
-<path d="M15 12v5"></path>
-<path d="M4 17h16"></path>"#;
-
-const CABLE: &'static str = r#"
-<path d="M4 9a2 2 0 0 1-2-2V5h6v2a2 2 0 0 1-2 2Z"></path>
-<path d="M3 5V3"></path>
-<path d="M7 5V3"></path>
-<path d="M19 15V6.5a3.5 3.5 0 0 0-7 0v11a3.5 3.5 0 0 1-7 0V9"></path>
-<path d="M17 21v-2"></path>
-<path d="M21 21v-2"></path>
-<path d="M22 19h-6v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2Z"></path>"#;
-
-const CAKE_SLICE: &'static str = r#"
-<circle r="2" cx="9" cy="7"></circle>
-<path d="M7.2 7.9 3 11v9c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-9c0-2-3-6-7-8l-3.6 2.6"></path>
-<path d="M16 13H3"></path>
-<path d="M16 17H3"></path>"#;
-
-const CAKE: &'static str = r#"
-<path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path>
-<path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path>
-<path d="M2 21h20"></path>
-<path d="M7 8v2"></path>
-<path d="M12 8v2"></path>
-<path d="M17 8v2"></path>
-<path d="M7 4h.01"></path>
-<path d="M12 4h.01"></path>
-<path d="M17 4h.01"></path>"#;
-
-const CALCULATOR: &'static str = r#"
-<rect rx="2" height="20" width="16" x="4" y="2"></rect>
-<line y2="6" x1="8" x2="16" y1="6"></line>
-<line y1="14" x2="16" y2="18" x1="16"></line>
-<path d="M16 10h.01"></path>
-<path d="M12 10h.01"></path>
-<path d="M8 10h.01"></path>
-<path d="M12 14h.01"></path>
-<path d="M8 14h.01"></path>
-<path d="M12 18h.01"></path>
-<path d="M8 18h.01"></path>"#;
-
-const CALENDAR_CHECK_2: &'static str = r#"
-<path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line y2="6" x2="16" y1="2" x1="16"></line>
-<line x2="8" y1="2" y2="6" x1="8"></line>
-<line x2="21" y1="10" y2="10" x1="3"></line>
-<path d="m16 20 2 2 4-4"></path>"#;
-
-const CALENDAR_CHECK: &'static str = r#"
-<rect rx="2" width="18" ry="2" height="18" x="3" y="4"></rect>
-<line y1="2" x2="16" x1="16" y2="6"></line>
-<line x1="8" y2="6" y1="2" x2="8"></line>
-<line x1="3" y1="10" x2="21" y2="10"></line>
-<path d="m9 16 2 2 4-4"></path>"#;
-
-const CALENDAR_CLOCK: &'static str = r#"
-<path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"></path>
-<path d="M16 2v4"></path>
-<path d="M8 2v4"></path>
-<path d="M3 10h5"></path>
-<path d="M17.5 17.5 16 16.25V14"></path>
-<path d="M22 16a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"></path>"#;
-
-const CALENDAR_DAYS: &'static str = r#"
-<rect x="3" height="18" y="4" width="18" ry="2" rx="2"></rect>
-<line y1="2" x2="16" y2="6" x1="16"></line>
-<line x2="8" y1="2" y2="6" x1="8"></line>
-<line x2="21" x1="3" y1="10" y2="10"></line>
-<path d="M8 14h.01"></path>
-<path d="M12 14h.01"></path>
-<path d="M16 14h.01"></path>
-<path d="M8 18h.01"></path>
-<path d="M12 18h.01"></path>
-<path d="M16 18h.01"></path>"#;
-
-const CALENDAR_HEART: &'static str = r#"
-<path d="M21 10V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7"></path>
-<path d="M16 2v4"></path>
-<path d="M8 2v4"></path>
-<path d="M3 10h18"></path>
-<path d="M21.29 14.7a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-2.65-.53c-.3.12-.56.3-.79.53-.95.94-1 2.53.2 3.74L17.5 22l3.6-3.55c1.2-1.21 1.14-2.8.19-3.74Z"></path>"#;
-
-const CALENDAR_MINUS: &'static str = r#"
-<path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line x1="16" x2="16" y1="2" y2="6"></line>
-<line y2="6" x1="8" y1="2" x2="8"></line>
-<line y1="10" x1="3" y2="10" x2="21"></line>
-<line x1="16" y1="19" x2="22" y2="19"></line>"#;
-
-const CALENDAR_OFF: &'static str = r#"
-<path d="M4.18 4.18A2 2 0 0 0 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 1.82-1.18"></path>
-<path d="M21 15.5V6a2 2 0 0 0-2-2H9.5"></path>
-<path d="M16 2v4"></path>
-<path d="M3 10h7"></path>
-<path d="M21 10h-5.5"></path>
-<line x2="22" y1="2" y2="22" x1="2"></line>"#;
-
-const CALENDAR_PLUS: &'static str = r#"
-<path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line y1="2" y2="6" x1="16" x2="16"></line>
-<line x1="8" y2="6" x2="8" y1="2"></line>
-<line x1="3" x2="21" y1="10" y2="10"></line>
-<line x2="19" y1="16" x1="19" y2="22"></line>
-<line x2="22" y2="19" y1="19" x1="16"></line>"#;
-
-const CALENDAR_RANGE: &'static str = r#"
-<rect height="18" x="3" width="18" y="4" rx="2" ry="2"></rect>
-<line y1="2" x1="16" y2="6" x2="16"></line>
-<line y1="2" y2="6" x1="8" x2="8"></line>
-<line x2="21" y1="10" x1="3" y2="10"></line>
-<path d="M17 14h-6"></path>
-<path d="M13 18H7"></path>
-<path d="M7 14h.01"></path>
-<path d="M17 18h.01"></path>"#;
-
-const CALENDAR_SEARCH: &'static str = r#"
-<path d="M21 12V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7.5"></path>
-<path d="M16 2v4"></path>
-<path d="M8 2v4"></path>
-<path d="M3 10h18"></path>
-<path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6v0Z"></path>
-<path d="m22 22-1.5-1.5"></path>"#;
-
-const CALENDAR_X_2: &'static str = r#"
-<path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
-<line x2="16" x1="16" y2="6" y1="2"></line>
-<line x1="8" x2="8" y1="2" y2="6"></line>
-<line x2="21" x1="3" y1="10" y2="10"></line>
-<line y2="22" x2="22" x1="17" y1="17"></line>
-<line x2="22" y2="17" y1="22" x1="17"></line>"#;
-
-const CALENDAR_X: &'static str = r#"
-<rect height="18" x="3" y="4" rx="2" ry="2" width="18"></rect>
-<line y2="6" x1="16" y1="2" x2="16"></line>
-<line y1="2" y2="6" x2="8" x1="8"></line>
-<line y1="10" x2="21" x1="3" y2="10"></line>
-<line y1="14" x2="14" x1="10" y2="18"></line>
-<line x2="10" y1="14" y2="18" x1="14"></line>"#;
-
-const CALENDAR: &'static str = r#"
-<rect x="3" width="18" y="4" height="18" rx="2" ry="2"></rect>
-<line x2="16" y1="2" y2="6" x1="16"></line>
-<line y2="6" x1="8" x2="8" y1="2"></line>
-<line y2="10" x1="3" y1="10" x2="21"></line>"#;
-
-const CAMERA_OFF: &'static str = r#"
-<line y1="2" y2="22" x1="2" x2="22"></line>
-<path d="M7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16"></path>
-<path d="M9.5 4h5L17 7h3a2 2 0 0 1 2 2v7.5"></path>
-<path d="M14.121 15.121A3 3 0 1 1 9.88 10.88"></path>"#;
-
-const CAMERA: &'static str = r#"
-<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path>
-<circle r="3" cx="12" cy="13"></circle>"#;
-
-const CANDLESTICK_CHART: &'static str = r#"
-<path d="M9 5v4"></path>
-<rect width="4" y="9" x="7" rx="1" height="6"></rect>
-<path d="M9 15v2"></path>
-<path d="M17 3v2"></path>
-<rect height="8" rx="1" width="4" y="5" x="15"></rect>
-<path d="M17 13v3"></path>
-<path d="M3 3v18h18"></path>"#;
-
-const CANDY_CANE: &'static str = r#"
-<path d="M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.464-2 2 2 0 1 0-3.464-2Z"></path>
-<path d="M17.75 7 15 2.1"></path>
-<path d="M10.9 4.8 13 9"></path>
-<path d="m7.9 9.7 2 4.4"></path>
-<path d="M4.9 14.7 7 18.9"></path>"#;
-
-const CANDY_OFF: &'static str = r#"
-<path d="m8.5 8.5-1 1a4.95 4.95 0 0 0 7 7l1-1"></path>
-<path d="M11.843 6.187A4.947 4.947 0 0 1 16.5 7.5a4.947 4.947 0 0 1 1.313 4.657"></path>
-<path d="M14 16.5V14"></path>
-<path d="M14 6.5v1.843"></path>
-<path d="M10 10v7.5"></path>
-<path d="m16 7 1-5 1.367.683A3 3 0 0 0 19.708 3H21v1.292a3 3 0 0 0 .317 1.341L22 7l-5 1"></path>
-<path d="m8 17-1 5-1.367-.683A3 3 0 0 0 4.292 21H3v-1.292a3 3 0 0 0-.317-1.341L2 17l5-1"></path>
-<line x1="2" x2="22" y1="2" y2="22"></line>"#;
-
-const CANDY: &'static str = r#"
-<path d="m9.5 7.5-2 2a4.95 4.95 0 1 0 7 7l2-2a4.95 4.95 0 1 0-7-7Z"></path>
-<path d="M14 6.5v10"></path>
-<path d="M10 7.5v10"></path>
-<path d="m16 7 1-5 1.37.68A3 3 0 0 0 19.7 3H21v1.3c0 .46.1.92.32 1.33L22 7l-5 1"></path>
-<path d="m8 17-1 5-1.37-.68A3 3 0 0 0 4.3 21H3v-1.3a3 3 0 0 0-.32-1.33L2 17l5-1"></path>"#;
-
-const CAR_FRONT: &'static str = r#"
-<path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"></path>
-<path d="M7 14h.01"></path>
-<path d="M17 14h.01"></path>
-<rect x="3" y="10" width="18" rx="2" height="8"></rect>
-<path d="M5 18v2"></path>
-<path d="M19 18v2"></path>"#;
-
-const CAR_TAXI_FRONT: &'static str = r#"
-<path d="M10 2h4"></path>
-<path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"></path>
-<path d="M7 14h.01"></path>
-<path d="M17 14h.01"></path>
-<rect x="3" width="18" y="10" height="8" rx="2"></rect>
-<path d="M5 18v2"></path>
-<path d="M19 18v2"></path>"#;
-
-const CAR: &'static str = r#"
-<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
-<circle cx="7" r="2" cy="17"></circle>
-<path d="M9 17h6"></path>
-<circle cx="17" cy="17" r="2"></circle>"#;
-
-const CARROT: &'static str = r#"
-<path d="M2.27 21.7s9.87-3.5 12.73-6.36a4.5 4.5 0 0 0-6.36-6.37C5.77 11.84 2.27 21.7 2.27 21.7zM8.64 14l-2.05-2.04M15.34 15l-2.46-2.46"></path>
-<path d="M22 9s-1.33-2-3.5-2C16.86 7 15 9 15 9s1.33 2 3.5 2S22 9 22 9z"></path>
-<path d="M15 2s-2 1.33-2 3.5S15 9 15 9s2-1.84 2-3.5C17 3.33 15 2 15 2z"></path>"#;
-
-const CASE_LOWER: &'static str = r#"
-<circle cy="12" r="3" cx="7"></circle>
-<path d="M10 9v6"></path>
-<circle cx="17" r="3" cy="12"></circle>
-<path d="M14 7v8"></path>"#;
-
-const CASE_SENSITIVE: &'static str = r#"
-<path d="m3 15 4-8 4 8"></path>
-<path d="M4 13h6"></path>
-<circle cx="18" cy="12" r="3"></circle>
-<path d="M21 9v6"></path>"#;
-
-const CASE_UPPER: &'static str = r#"
-<path d="m3 15 4-8 4 8"></path>
-<path d="M4 13h6"></path>
-<path d="M15 11h4.5a2 2 0 0 1 0 4H15V7h4a2 2 0 0 1 0 4"></path>"#;
-
-const CASSETTE_TAPE: &'static str = r#"
-<rect y="4" x="2" height="16" rx="2" width="20"></rect>
-<circle cy="10" r="2" cx="8"></circle>
-<path d="M8 12h8"></path>
-<circle r="2" cx="16" cy="10"></circle>
-<path d="m6 20 .7-2.9A1.4 1.4 0 0 1 8.1 16h7.8a1.4 1.4 0 0 1 1.4 1l.7 3"></path>"#;
-
-const CAST: &'static str = r#"
-<path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path>
-<path d="M2 12a9 9 0 0 1 8 8"></path>
-<path d="M2 16a5 5 0 0 1 4 4"></path>
-<line y2="20" y1="20" x2="2.01" x1="2"></line>"#;
-
-const CASTLE: &'static str = r#"
-<path d="M22 20v-9H2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2Z"></path>
-<path d="M18 11V4H6v7"></path>
-<path d="M15 22v-4a3 3 0 0 0-3-3v0a3 3 0 0 0-3 3v4"></path>
-<path d="M22 11V9"></path>
-<path d="M2 11V9"></path>
-<path d="M6 4V2"></path>
-<path d="M18 4V2"></path>
-<path d="M10 4V2"></path>
-<path d="M14 4V2"></path>"#;
-
-const CAT: &'static str = r#"
-<path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"></path>
-<path d="M8 14v.5"></path>
-<path d="M16 14v.5"></path>
-<path d="M11.25 16.25h1.5L12 17l-.75-.75Z"></path>"#;
-
-const CHECK_CHECK: &'static str = r#"
-<path d="M18 6 7 17l-5-5"></path>
-<path d="m22 10-7.5 7.5L13 16"></path>"#;
-
-const CHECK_CIRCLE_2: &'static str = r#"
-<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-<path d="m9 12 2 2 4-4"></path>"#;
-
-const CHECK_CIRCLE: &'static str = r#"
-<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-<polyline points="22 4 12 14.01 9 11.01"></polyline>"#;
-
-const CHECK_SQUARE: &'static str = r#"
-<polyline points="9 11 12 14 22 4"></polyline>
-<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>"#;
-
-const CHECK: &'static str = r#"
-<polyline points="20 6 9 17 4 12"></polyline>"#;
-
-const CHEF_HAT: &'static str = r#"
-<path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"></path>
-<line x2="18" x1="6" y2="17" y1="17"></line>"#;
-
-const CHERRY: &'static str = r#"
-<path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path>
-<path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path>
-<path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12"></path>
-<path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z"></path>"#;
-
-const CHEVRON_DOWN_CIRCLE: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="m16 10-4 4-4-4"></path>"#;
-
-const CHEVRON_DOWN_SQUARE: &'static str = r#"
-<rect x="3" rx="2" y="3" width="18" height="18"></rect>
-<path d="m16 10-4 4-4-4"></path>"#;
-
-const CHEVRON_DOWN: &'static str = r#"
-<path d="m6 9 6 6 6-6"></path>"#;
-
-const CHEVRON_FIRST: &'static str = r#"
-<path d="m17 18-6-6 6-6"></path>
-<path d="M7 6v12"></path>"#;
-
-const CHEVRON_LAST: &'static str = r#"
-<path d="m7 18 6-6-6-6"></path>
-<path d="M17 6v12"></path>"#;
-
-const CHEVRON_LEFT_CIRCLE: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="m14 16-4-4 4-4"></path>"#;
-
-const CHEVRON_LEFT_SQUARE: &'static str = r#"
-<rect height="18" width="18" y="3" x="3" rx="2"></rect>
-<path d="m14 16-4-4 4-4"></path>"#;
-
-const CHEVRON_LEFT: &'static str = r#"
-<path d="m15 18-6-6 6-6"></path>"#;
-
-const CHEVRON_RIGHT_CIRCLE: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="m10 8 4 4-4 4"></path>"#;
-
-const CHEVRON_RIGHT_SQUARE: &'static str = r#"
-<rect rx="2" y="3" x="3" width="18" height="18"></rect>
-<path d="m10 8 4 4-4 4"></path>"#;
-
-const CHEVRON_RIGHT: &'static str = r#"
-<path d="m9 18 6-6-6-6"></path>"#;
-
-const CHEVRON_UP_CIRCLE: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<path d="m8 14 4-4 4 4"></path>"#;
-
-const CHEVRON_UP_SQUARE: &'static str = r#"
-<rect y="3" width="18" height="18" rx="2" x="3"></rect>
-<path d="m8 14 4-4 4 4"></path>"#;
-
-const CHEVRON_UP: &'static str = r#"
-<path d="m18 15-6-6-6 6"></path>"#;
-
-const CHEVRONS_DOWN_UP: &'static str = r#"
-<path d="m7 20 5-5 5 5"></path>
-<path d="m7 4 5 5 5-5"></path>"#;
-
-const CHEVRONS_DOWN: &'static str = r#"
-<path d="m7 6 5 5 5-5"></path>
-<path d="m7 13 5 5 5-5"></path>"#;
-
-const CHEVRONS_LEFT_RIGHT: &'static str = r#"
-<path d="m9 7-5 5 5 5"></path>
-<path d="m15 7 5 5-5 5"></path>"#;
-
-const CHEVRONS_LEFT: &'static str = r#"
-<path d="m11 17-5-5 5-5"></path>
-<path d="m18 17-5-5 5-5"></path>"#;
-
-const CHEVRONS_RIGHT_LEFT: &'static str = r#"
-<path d="m20 17-5-5 5-5"></path>
-<path d="m4 17 5-5-5-5"></path>"#;
-
-const CHEVRONS_RIGHT: &'static str = r#"
-<path d="m6 17 5-5-5-5"></path>
-<path d="m13 17 5-5-5-5"></path>"#;
-
-const CHEVRONS_UP_DOWN: &'static str = r#"
-<path d="m7 15 5 5 5-5"></path>
-<path d="m7 9 5-5 5 5"></path>"#;
-
-const CHEVRONS_UP: &'static str = r#"
-<path d="m17 11-5-5-5 5"></path>
-<path d="m17 18-5-5-5 5"></path>"#;
-
-const CHROME: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<circle cx="12" r="4" cy="12"></circle>
-<line y2="8" x1="21.17" y1="8" x2="12"></line>
-<line y1="6.06" x2="8.54" x1="3.95" y2="14"></line>
-<line y2="14" x1="10.88" y1="21.94" x2="15.46"></line>"#;
-
-const CHURCH: &'static str = r#"
-<path d="m18 7 4 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9l4-2"></path>
-<path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"></path>
-<path d="M18 22V5l-6-3-6 3v17"></path>
-<path d="M12 7v5"></path>
-<path d="M10 9h4"></path>"#;
-
-const CIGARETTE_OFF: &'static str = r#"
-<line x2="22" x1="2" y1="2" y2="22"></line>
-<path d="M12 12H2v4h14"></path>
-<path d="M22 12v4"></path>
-<path d="M18 12h-.5"></path>
-<path d="M7 12v4"></path>
-<path d="M18 8c0-2.5-2-2.5-2-5"></path>
-<path d="M22 8c0-2.5-2-2.5-2-5"></path>"#;
-
-const CIGARETTE: &'static str = r#"
-<path d="M18 12H2v4h16"></path>
-<path d="M22 12v4"></path>
-<path d="M7 12v4"></path>
-<path d="M18 8c0-2.5-2-2.5-2-5"></path>
-<path d="M22 8c0-2.5-2-2.5-2-5"></path>"#;
-
-const CIRCLE_DASHED: &'static str = r#"
-<path d="M10.1 2.18a9.93 9.93 0 0 1 3.8 0"></path>
-<path d="M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7"></path>
-<path d="M21.82 10.1a9.93 9.93 0 0 1 0 3.8"></path>
-<path d="M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69"></path>
-<path d="M13.9 21.82a9.94 9.94 0 0 1-3.8 0"></path>
-<path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7"></path>
-<path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8"></path>
-<path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69"></path>"#;
-
-const CIRCLE_DOLLAR_SIGN: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
-<path d="M12 18V6"></path>"#;
-
-const CIRCLE_DOT_DASHED: &'static str = r#"
-<path d="M10.1 2.18a9.93 9.93 0 0 1 3.8 0"></path>
-<path d="M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7"></path>
-<path d="M21.82 10.1a9.93 9.93 0 0 1 0 3.8"></path>
-<path d="M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69"></path>
-<path d="M13.9 21.82a9.94 9.94 0 0 1-3.8 0"></path>
-<path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7"></path>
-<path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8"></path>
-<path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69"></path>
-<circle cx="12" r="1" cy="12"></circle>"#;
-
-const CIRCLE_DOT: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<circle cx="12" r="1" cy="12"></circle>"#;
-
-const CIRCLE_ELLIPSIS: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="M17 12h.01"></path>
-<path d="M12 12h.01"></path>
-<path d="M7 12h.01"></path>"#;
-
-const CIRCLE_EQUAL: &'static str = r#"
-<path d="M7 10h10"></path>
-<path d="M7 14h10"></path>
-<circle r="10" cx="12" cy="12"></circle>"#;
-
-const CIRCLE_OFF: &'static str = r#"
-<path d="m2 2 20 20"></path>
-<path d="M8.35 2.69A10 10 0 0 1 21.3 15.65"></path>
-<path d="M19.08 19.08A10 10 0 1 1 4.92 4.92"></path>"#;
-
-const CIRCLE_SLASH_2: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M22 2 2 22"></path>"#;
-
-const CIRCLE_SLASH: &'static str = r#"
-<line y2="9" x1="9" x2="15" y1="15"></line>
-<circle cy="12" r="10" cx="12"></circle>"#;
-
-const CIRCLE: &'static str = r#"
-<circle cx="12" r="10" cy="12"></circle>"#;
-
-const CIRCUIT_BOARD: &'static str = r#"
-<rect height="18" rx="2" width="18" y="3" x="3"></rect>
-<path d="M11 9h4a2 2 0 0 0 2-2V3"></path>
-<circle cx="9" cy="9" r="2"></circle>
-<path d="M7 21v-4a2 2 0 0 1 2-2h4"></path>
-<circle r="2" cy="15" cx="15"></circle>"#;
-
-const CITRUS: &'static str = r#"
-<path d="M21.66 17.67a1.08 1.08 0 0 1-.04 1.6A12 12 0 0 1 4.73 2.38a1.1 1.1 0 0 1 1.61-.04z"></path>
-<path d="M19.65 15.66A8 8 0 0 1 8.35 4.34"></path>
-<path d="m14 10-5.5 5.5"></path>
-<path d="M14 17.85V10H6.15"></path>"#;
-
-const CLAPPERBOARD: &'static str = r#"
-<path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"></path>
-<path d="m6.2 5.3 3.1 3.9"></path>
-<path d="m12.4 3.4 3.1 4"></path>
-<path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path>"#;
-
-const CLIPBOARD_CHECK: &'static str = r#"
-<rect y="2" ry="1" rx="1" x="8" height="4" width="8"></rect>
-<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-<path d="m9 14 2 2 4-4"></path>"#;
-
-const CLIPBOARD_COPY: &'static str = r#"
-<rect x="8" ry="1" width="8" y="2" rx="1" height="4"></rect>
-<path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-<path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
-<path d="M21 14H11"></path>
-<path d="m15 10-4 4 4 4"></path>"#;
-
-const CLIPBOARD_EDIT: &'static str = r#"
-<rect y="2" x="8" rx="1" ry="1" width="8" height="4"></rect>
-<path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95 5.43-5.44Z"></path>
-<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5.5"></path>
-<path d="M4 13.5V6a2 2 0 0 1 2-2h2"></path>"#;
-
-const CLIPBOARD_LIST: &'static str = r#"
-<rect x="8" height="4" width="8" y="2" ry="1" rx="1"></rect>
-<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-<path d="M12 11h4"></path>
-<path d="M12 16h4"></path>
-<path d="M8 11h.01"></path>
-<path d="M8 16h.01"></path>"#;
-
-const CLIPBOARD_PASTE: &'static str = r#"
-<path d="M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1Z"></path>
-<path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M16 4h2a2 2 0 0 1 2 2v2M11 14h10"></path>
-<path d="m17 10 4 4-4 4"></path>"#;
-
-const CLIPBOARD_SIGNATURE: &'static str = r#"
-<rect width="8" ry="1" rx="1" height="4" x="8" y="2"></rect>
-<path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.5"></path>
-<path d="M16 4h2a2 2 0 0 1 1.73 1"></path>
-<path d="M18.42 9.61a2.1 2.1 0 1 1 2.97 2.97L16.95 17 13 18l.99-3.95 4.43-4.44Z"></path>
-<path d="M8 18h1"></path>"#;
-
-const CLIPBOARD_TYPE: &'static str = r#"
-<rect width="8" x="8" height="4" ry="1" rx="1" y="2"></rect>
-<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-<path d="M9 12v-1h6v1"></path>
-<path d="M11 17h2"></path>
-<path d="M12 11v6"></path>"#;
-
-const CLIPBOARD_X: &'static str = r#"
-<rect width="8" ry="1" rx="1" y="2" x="8" height="4"></rect>
-<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-<path d="m15 11-6 6"></path>
-<path d="m9 11 6 6"></path>"#;
-
-const CLIPBOARD: &'static str = r#"
-<rect width="8" y="2" rx="1" ry="1" x="8" height="4"></rect>
-<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>"#;
-
-const CLOCK_1: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<polyline points="12 6 12 12 14.5 8"></polyline>"#;
-
-const CLOCK_10: &'static str = r#"
-<circle r="10" cy="12" cx="12"></circle>
-<polyline points="12 6 12 12 8 10"></polyline>"#;
-
-const CLOCK_11: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<polyline points="12 6 12 12 9.5 8"></polyline>"#;
-
-const CLOCK_12: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<polyline points="12 6 12 12"></polyline>"#;
-
-const CLOCK_2: &'static str = r#"
-<circle r="10" cy="12" cx="12"></circle>
-<polyline points="12 6 12 12 16 10"></polyline>"#;
-
-const CLOCK_3: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<polyline points="12 6 12 12 16.5 12"></polyline>"#;
-
-const CLOCK_4: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<polyline points="12 6 12 12 16 14"></polyline>"#;
-
-const CLOCK_5: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<polyline points="12 6 12 12 14.5 16"></polyline>"#;
-
-const CLOCK_6: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<polyline points="12 6 12 12 12 16.5"></polyline>"#;
-
-const CLOCK_7: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<polyline points="12 6 12 12 9.5 16"></polyline>"#;
-
-const CLOCK_8: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<polyline points="12 6 12 12 8 14"></polyline>"#;
-
-const CLOCK_9: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<polyline points="12 6 12 12 7.5 12"></polyline>"#;
-
-const CLOCK: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<polyline points="12 6 12 12 16 14"></polyline>"#;
-
-const CLOUD_COG: &'static str = r#"
-<circle r="3" cx="12" cy="17"></circle>
-<path d="M4.2 15.1A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2"></path>
-<path d="m15.7 18.4-.9-.3"></path>
-<path d="m9.2 15.9-.9-.3"></path>
-<path d="m10.6 20.7.3-.9"></path>
-<path d="m13.1 14.2.3-.9"></path>
-<path d="m13.6 20.7-.4-1"></path>
-<path d="m10.8 14.3-.4-1"></path>
-<path d="m8.3 18.6 1-.4"></path>
-<path d="m14.7 15.8 1-.4"></path>"#;
-
-const CLOUD_DRIZZLE: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M8 19v1"></path>
-<path d="M8 14v1"></path>
-<path d="M16 19v1"></path>
-<path d="M16 14v1"></path>
-<path d="M12 21v1"></path>
-<path d="M12 16v1"></path>"#;
-
-const CLOUD_FOG: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M16 17H7"></path>
-<path d="M17 21H9"></path>"#;
-
-const CLOUD_HAIL: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M16 14v2"></path>
-<path d="M8 14v2"></path>
-<path d="M16 20h.01"></path>
-<path d="M8 20h.01"></path>
-<path d="M12 16v2"></path>
-<path d="M12 22h.01"></path>"#;
-
-const CLOUD_LIGHTNING: &'static str = r#"
-<path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"></path>
-<path d="m13 12-3 5h4l-3 5"></path>"#;
-
-const CLOUD_MOON_RAIN: &'static str = r#"
-<path d="M10.083 9A6.002 6.002 0 0 1 16 4a4.243 4.243 0 0 0 6 6c0 2.22-1.206 4.16-3 5.197"></path>
-<path d="M3 20a5 5 0 1 1 8.9-4H13a3 3 0 0 1 2 5.24"></path>
-<path d="M11 20v2"></path>
-<path d="M7 19v2"></path>"#;
-
-const CLOUD_MOON: &'static str = r#"
-<path d="M13 16a3 3 0 1 1 0 6H7a5 5 0 1 1 4.9-6Z"></path>
-<path d="M10.1 9A6 6 0 0 1 16 4a4.24 4.24 0 0 0 6 6 6 6 0 0 1-3 5.197"></path>"#;
-
-const CLOUD_OFF: &'static str = r#"
-<path d="m2 2 20 20"></path>
-<path d="M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193"></path>
-<path d="M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07"></path>"#;
-
-const CLOUD_RAIN_WIND: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="m9.2 22 3-7"></path>
-<path d="m9 13-3 7"></path>
-<path d="m17 13-3 7"></path>"#;
-
-const CLOUD_RAIN: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M16 14v6"></path>
-<path d="M8 14v6"></path>
-<path d="M12 16v6"></path>"#;
-
-const CLOUD_SNOW: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M8 15h.01"></path>
-<path d="M8 19h.01"></path>
-<path d="M12 17h.01"></path>
-<path d="M12 21h.01"></path>
-<path d="M16 15h.01"></path>
-<path d="M16 19h.01"></path>"#;
-
-const CLOUD_SUN_RAIN: &'static str = r#"
-<path d="M12 2v2"></path>
-<path d="m4.93 4.93 1.41 1.41"></path>
-<path d="M20 12h2"></path>
-<path d="m19.07 4.93-1.41 1.41"></path>
-<path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"></path>
-<path d="M3 20a5 5 0 1 1 8.9-4H13a3 3 0 0 1 2 5.24"></path>
-<path d="M11 20v2"></path>
-<path d="M7 19v2"></path>"#;
-
-const CLOUD_SUN: &'static str = r#"
-<path d="M12 2v2"></path>
-<path d="m4.93 4.93 1.41 1.41"></path>
-<path d="M20 12h2"></path>
-<path d="m19.07 4.93-1.41 1.41"></path>
-<path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"></path>
-<path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path>"#;
-
-const CLOUD: &'static str = r#"
-<path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>"#;
-
-const CLOUDY: &'static str = r#"
-<path d="M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
-<path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5"></path>"#;
-
-const CLOVER: &'static str = r#"
-<path d="M16.2 3.8a2.7 2.7 0 0 0-3.81 0l-.4.38-.4-.4a2.7 2.7 0 0 0-3.82 0C6.73 4.85 6.67 6.64 8 8l4 4 4-4c1.33-1.36 1.27-3.15.2-4.2z"></path>
-<path d="M8 8c-1.36-1.33-3.15-1.27-4.2-.2a2.7 2.7 0 0 0 0 3.81l.38.4-.4.4a2.7 2.7 0 0 0 0 3.82C4.85 17.27 6.64 17.33 8 16"></path>
-<path d="M16 16c1.36 1.33 3.15 1.27 4.2.2a2.7 2.7 0 0 0 0-3.81l-.38-.4.4-.4a2.7 2.7 0 0 0 0-3.82C19.15 6.73 17.36 6.67 16 8"></path>
-<path d="M7.8 20.2a2.7 2.7 0 0 0 3.81 0l.4-.38.4.4a2.7 2.7 0 0 0 3.82 0c1.06-1.06 1.12-2.85-.21-4.21l-4-4-4 4c-1.33 1.36-1.27 3.15-.2 4.2z"></path>
-<path d="m7 17-5 5"></path>"#;
-
-const CLUB: &'static str = r#"
-<path d="M17.28 9.05a5.5 5.5 0 1 0-10.56 0A5.5 5.5 0 1 0 12 17.66a5.5 5.5 0 1 0 5.28-8.6Z"></path>
-<path d="M12 17.66L12 22"></path>"#;
-
-const CODE_2: &'static str = r#"
-<path d="m18 16 4-4-4-4"></path>
-<path d="m6 8-4 4 4 4"></path>
-<path d="m14.5 4-5 16"></path>"#;
-
-const CODE: &'static str = r#"
-<polyline points="16 18 22 12 16 6"></polyline>
-<polyline points="8 6 2 12 8 18"></polyline>"#;
-
-const CODEPEN: &'static str = r#"
-<polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-<line x1="12" y2="15.5" x2="12" y1="22"></line>
-<polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-<polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-<line y1="2" y2="8.5" x1="12" x2="12"></line>"#;
-
-const CODESANDBOX: &'static str = r#"
-<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-<polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
-<polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
-<polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
-<polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-<line y1="22.08" x1="12" x2="12" y2="12"></line>"#;
-
-const COFFEE: &'static str = r#"
-<path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
-<path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
-<line x1="6" x2="6" y1="2" y2="4"></line>
-<line x2="10" x1="10" y1="2" y2="4"></line>
-<line y2="4" x1="14" x2="14" y1="2"></line>"#;
-
-const COG: &'static str = r#"
-<path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
-<path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-<path d="M12 2v2"></path>
-<path d="M12 22v-2"></path>
-<path d="m17 20.66-1-1.73"></path>
-<path d="M11 10.27 7 3.34"></path>
-<path d="m20.66 17-1.73-1"></path>
-<path d="m3.34 7 1.73 1"></path>
-<path d="M14 12h8"></path>
-<path d="M2 12h2"></path>
-<path d="m20.66 7-1.73 1"></path>
-<path d="m3.34 17 1.73-1"></path>
-<path d="m17 3.34-1 1.73"></path>
-<path d="m11 13.73-4 6.93"></path>"#;
-
-const COINS: &'static str = r#"
-<circle cx="8" cy="8" r="6"></circle>
-<path d="M18.09 10.37A6 6 0 1 1 10.34 18"></path>
-<path d="M7 6h1v4"></path>
-<path d="m16.71 13.88.7.71-2.82 2.82"></path>"#;
-
-const COLUMNS: &'static str = r#"
-<rect rx="2" y="3" x="3" ry="2" width="18" height="18"></rect>
-<line x2="12" y2="21" x1="12" y1="3"></line>"#;
-
-const COMBINE: &'static str = r#"
-<rect height="8" rx="2" y="2" width="8" x="2"></rect>
-<path d="M14 2c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>
-<path d="M20 2c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>
-<path d="M10 18H5c-1.7 0-3-1.3-3-3v-1"></path>
-<polyline points="7 21 10 18 7 15"></polyline>
-<rect y="14" x="14" width="8" height="8" rx="2"></rect>"#;
-
-const COMMAND: &'static str = r#"
-<path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path>"#;
-
-const COMPASS: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>"#;
-
-const COMPONENT: &'static str = r#"
-<path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"></path>
-<path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z"></path>
-<path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z"></path>
-<path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z"></path>"#;
-
-const COMPUTER: &'static str = r#"
-<rect height="8" y="2" width="14" x="5" rx="2"></rect>
-<rect width="20" height="8" x="2" y="14" rx="2"></rect>
-<path d="M6 18h2"></path>
-<path d="M12 18h6"></path>"#;
-
-const CONCIERGE_BELL: &'static str = r#"
-<path d="M2 18a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2H2v-2Z"></path>
-<path d="M20 16a8 8 0 1 0-16 0"></path>
-<path d="M12 4v4"></path>
-<path d="M10 4h4"></path>"#;
-
-const CONSTRUCTION: &'static str = r#"
-<rect y="6" x="2" width="20" height="8" rx="1"></rect>
-<path d="M17 14v7"></path>
-<path d="M7 14v7"></path>
-<path d="M17 3v3"></path>
-<path d="M7 3v3"></path>
-<path d="M10 14 2.3 6.3"></path>
-<path d="m14 6 7.7 7.7"></path>
-<path d="m8 6 8 8"></path>"#;
-
-const CONTACT_2: &'static str = r#"
-<path d="M16 18a4 4 0 0 0-8 0"></path>
-<circle r="3" cy="11" cx="12"></circle>
-<rect y="4" width="18" height="18" x="3" rx="2"></rect>
-<line y2="4" x2="8" y1="2" x1="8"></line>
-<line y2="4" x2="16" y1="2" x1="16"></line>"#;
-
-const CONTACT: &'static str = r#"
-<path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
-<rect height="18" width="18" x="3" rx="2" y="4"></rect>
-<circle cy="10" cx="12" r="2"></circle>
-<line y2="4" x2="8" y1="2" x1="8"></line>
-<line x2="16" y2="4" y1="2" x1="16"></line>"#;
-
-const CONTAINER: &'static str = r#"
-<path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z"></path>
-<path d="M10 21.9V14L2.1 9.1"></path>
-<path d="m10 14 11.9-6.9"></path>
-<path d="M14 19.8v-8.1"></path>
-<path d="M18 17.5V9.4"></path>"#;
-
-const CONTRAST: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M12 18a6 6 0 0 0 0-12v12z"></path>"#;
-
-const COOKIE: &'static str = r#"
-<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
-<path d="M8.5 8.5v.01"></path>
-<path d="M16 15.5v.01"></path>
-<path d="M12 12v.01"></path>
-<path d="M11 17v.01"></path>
-<path d="M7 14v.01"></path>"#;
-
-const COPY_CHECK: &'static str = r#"
-<path d="m12 15 2 2 4-4"></path>
-<rect height="14" width="14" x="8" y="8" rx="2" ry="2"></rect>
-<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#;
-
-const COPY_MINUS: &'static str = r#"
-<line x1="12" x2="18" y1="15" y2="15"></line>
-<rect width="14" y="8" x="8" rx="2" height="14" ry="2"></rect>
-<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#;
-
-const COPY_PLUS: &'static str = r#"
-<line x1="15" y2="18" x2="15" y1="12"></line>
-<line y1="15" y2="15" x2="18" x1="12"></line>
-<rect x="8" ry="2" width="14" height="14" y="8" rx="2"></rect>
-<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#;
-
-const COPY_SLASH: &'static str = r#"
-<line x1="12" x2="18" y1="18" y2="12"></line>
-<rect rx="2" x="8" height="14" width="14" y="8" ry="2"></rect>
-<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#;
-
-const COPY_X: &'static str = r#"
-<line x1="12" x2="18" y1="12" y2="18"></line>
-<line x2="18" y1="18" y2="12" x1="12"></line>
-<rect width="14" ry="2" y="8" rx="2" height="14" x="8"></rect>
-<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#;
-
-const COPY: &'static str = r#"
-<rect y="8" rx="2" ry="2" x="8" width="14" height="14"></rect>
-<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>"#;
-
-const COPYLEFT: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="M9 9.35a4 4 0 1 1 0 5.3"></path>"#;
-
-const COPYRIGHT: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M15 9.354a4 4 0 1 0 0 5.292"></path>"#;
-
-const CORNER_DOWN_LEFT: &'static str = r#"
-<polyline points="9 10 4 15 9 20"></polyline>
-<path d="M20 4v7a4 4 0 0 1-4 4H4"></path>"#;
-
-const CORNER_DOWN_RIGHT: &'static str = r#"
-<polyline points="15 10 20 15 15 20"></polyline>
-<path d="M4 4v7a4 4 0 0 0 4 4h12"></path>"#;
-
-const CORNER_LEFT_DOWN: &'static str = r#"
-<polyline points="14 15 9 20 4 15"></polyline>
-<path d="M20 4h-7a4 4 0 0 0-4 4v12"></path>"#;
-
-const CORNER_LEFT_UP: &'static str = r#"
-<polyline points="14 9 9 4 4 9"></polyline>
-<path d="M20 20h-7a4 4 0 0 1-4-4V4"></path>"#;
-
-const CORNER_RIGHT_DOWN: &'static str = r#"
-<polyline points="10 15 15 20 20 15"></polyline>
-<path d="M4 4h7a4 4 0 0 1 4 4v12"></path>"#;
-
-const CORNER_RIGHT_UP: &'static str = r#"
-<polyline points="10 9 15 4 20 9"></polyline>
-<path d="M4 20h7a4 4 0 0 0 4-4V4"></path>"#;
-
-const CORNER_UP_LEFT: &'static str = r#"
-<polyline points="9 14 4 9 9 4"></polyline>
-<path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>"#;
-
-const CORNER_UP_RIGHT: &'static str = r#"
-<polyline points="15 14 20 9 15 4"></polyline>
-<path d="M4 20v-7a4 4 0 0 1 4-4h12"></path>"#;
-
-const CPU: &'static str = r#"
-<rect x="4" y="4" width="16" height="16" rx="2"></rect>
-<rect width="6" height="6" y="9" x="9"></rect>
-<path d="M15 2v2"></path>
-<path d="M15 20v2"></path>
-<path d="M2 15h2"></path>
-<path d="M2 9h2"></path>
-<path d="M20 15h2"></path>
-<path d="M20 9h2"></path>
-<path d="M9 2v2"></path>
-<path d="M9 20v2"></path>"#;
-
-const CREATIVE_COMMONS: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M10 9.3a2.8 2.8 0 0 0-3.5 1 3.1 3.1 0 0 0 0 3.4 2.7 2.7 0 0 0 3.5 1"></path>
-<path d="M17 9.3a2.8 2.8 0 0 0-3.5 1 3.1 3.1 0 0 0 0 3.4 2.7 2.7 0 0 0 3.5 1"></path>"#;
-
-const CREDIT_CARD: &'static str = r#"
-<rect x="2" width="20" rx="2" y="5" height="14"></rect>
-<line y2="10" x1="2" y1="10" x2="22"></line>"#;
-
-const CROISSANT: &'static str = r#"
-<path d="m4.6 13.11 5.79-3.21c1.89-1.05 4.79 1.78 3.71 3.71l-3.22 5.81C8.8 23.16.79 15.23 4.6 13.11Z"></path>
-<path d="m10.5 9.5-1-2.29C9.2 6.48 8.8 6 8 6H4.5C2.79 6 2 6.5 2 8.5a7.71 7.71 0 0 0 2 4.83"></path>
-<path d="M8 6c0-1.55.24-4-2-4-2 0-2.5 2.17-2.5 4"></path>
-<path d="m14.5 13.5 2.29 1c.73.3 1.21.7 1.21 1.5v3.5c0 1.71-.5 2.5-2.5 2.5a7.71 7.71 0 0 1-4.83-2"></path>
-<path d="M18 16c1.55 0 4-.24 4 2 0 2-2.17 2.5-4 2.5"></path>"#;
-
-const CROP: &'static str = r#"
-<path d="M6 2v14a2 2 0 0 0 2 2h14"></path>
-<path d="M18 22V8a2 2 0 0 0-2-2H2"></path>"#;
-
-const CROSS: &'static str = r#"
-<path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"></path>"#;
-
-const CROSSHAIR: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<line y1="12" x2="18" y2="12" x1="22"></line>
-<line x1="6" x2="2" y1="12" y2="12"></line>
-<line y2="2" x1="12" x2="12" y1="6"></line>
-<line y2="18" x1="12" y1="22" x2="12"></line>"#;
-
-const CROWN: &'static str = r#"
-<path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>"#;
-
-const CUP_SODA: &'static str = r#"
-<path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"></path>
-<path d="M5 8h14"></path>
-<path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"></path>
-<path d="m12 8 1-6h2"></path>"#;
-
-const CURRENCY: &'static str = r#"
-<circle r="8" cy="12" cx="12"></circle>
-<line y1="3" x1="3" x2="6" y2="6"></line>
-<line x1="21" y2="6" x2="18" y1="3"></line>
-<line x1="3" y2="18" x2="6" y1="21"></line>
-<line y2="18" x1="21" y1="21" x2="18"></line>"#;
-
-const DATABASE_BACKUP: &'static str = r#"
-<ellipse ry="3" cy="5" cx="12" rx="9"></ellipse>
-<path d="M3 12a9 3 0 0 0 5 2.69"></path>
-<path d="M21 9.3V5"></path>
-<path d="M3 5v14a9 3 0 0 0 6.47 2.88"></path>
-<path d="M12 12v4h4"></path>
-<path d="M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16"></path>"#;
-
-const DATABASE_ZAP: &'static str = r#"
-<ellipse rx="9" ry="3" cx="12" cy="5"></ellipse>
-<path d="M3 5V19A9 3 0 0 0 15 21.84"></path>
-<path d="M21 5V8"></path>
-<path d="M21 12L18 17H22L19 22"></path>
-<path d="M3 12A9 3 0 0 0 14.59 14.87"></path>"#;
-
-const DATABASE: &'static str = r#"
-<ellipse rx="9" ry="3" cy="5" cx="12"></ellipse>
-<path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
-<path d="M3 12A9 3 0 0 0 21 12"></path>"#;
-
-const DELETE: &'static str = r#"
-<path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-<line x1="18" y1="9" y2="15" x2="12"></line>
-<line x1="12" x2="18" y1="9" y2="15"></line>"#;
-
-const DESSERT: &'static str = r#"
-<circle cy="4" r="2" cx="12"></circle>
-<path d="M10.2 3.2C5.5 4 2 8.1 2 13a2 2 0 0 0 4 0v-1a2 2 0 0 1 4 0v4a2 2 0 0 0 4 0v-4a2 2 0 0 1 4 0v1a2 2 0 0 0 4 0c0-4.9-3.5-9-8.2-9.8"></path>
-<path d="M3.2 14.8a9 9 0 0 0 17.6 0"></path>"#;
-
-const DIAMOND: &'static str = r#"
-<path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"></path>"#;
-
-const DICE_1: &'static str = r#"
-<rect ry="2" height="18" y="3" rx="2" width="18" x="3"></rect>
-<path d="M12 12h.01"></path>"#;
-
-const DICE_2: &'static str = r#"
-<rect y="3" width="18" x="3" height="18" rx="2" ry="2"></rect>
-<path d="M15 9h.01"></path>
-<path d="M9 15h.01"></path>"#;
-
-const DICE_3: &'static str = r#"
-<rect x="3" height="18" ry="2" y="3" rx="2" width="18"></rect>
-<path d="M16 8h.01"></path>
-<path d="M12 12h.01"></path>
-<path d="M8 16h.01"></path>"#;
-
-const DICE_4: &'static str = r#"
-<rect x="3" rx="2" height="18" ry="2" y="3" width="18"></rect>
-<path d="M16 8h.01"></path>
-<path d="M8 8h.01"></path>
-<path d="M8 16h.01"></path>
-<path d="M16 16h.01"></path>"#;
-
-const DICE_5: &'static str = r#"
-<rect width="18" x="3" y="3" height="18" ry="2" rx="2"></rect>
-<path d="M16 8h.01"></path>
-<path d="M8 8h.01"></path>
-<path d="M8 16h.01"></path>
-<path d="M16 16h.01"></path>
-<path d="M12 12h.01"></path>"#;
-
-const DICE_6: &'static str = r#"
-<rect x="3" width="18" height="18" rx="2" ry="2" y="3"></rect>
-<path d="M16 8h.01"></path>
-<path d="M16 12h.01"></path>
-<path d="M16 16h.01"></path>
-<path d="M8 8h.01"></path>
-<path d="M8 12h.01"></path>
-<path d="M8 16h.01"></path>"#;
-
-const DICES: &'static str = r#"
-<rect width="12" x="2" y="10" height="12" rx="2" ry="2"></rect>
-<path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"></path>
-<path d="M6 18h.01"></path>
-<path d="M10 14h.01"></path>
-<path d="M15 6h.01"></path>
-<path d="M18 9h.01"></path>"#;
-
-const DIFF: &'static str = r#"
-<path d="M12 3v14"></path>
-<path d="M5 10h14"></path>
-<path d="M5 21h14"></path>"#;
-
-const DISC_2: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<circle cy="12" r="4" cx="12"></circle>
-<path d="M12 12h.01"></path>"#;
-
-const DISC_3: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="M6 12c0-1.7.7-3.2 1.8-4.2"></path>
-<circle cy="12" r="2" cx="12"></circle>
-<path d="M18 12c0 1.7-.7 3.2-1.8 4.2"></path>"#;
-
-const DISC: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<circle cx="12" cy="12" r="2"></circle>"#;
-
-const DIVIDE_CIRCLE: &'static str = r#"
-<line x2="16" y2="12" x1="8" y1="12"></line>
-<line y2="16" x1="12" x2="12" y1="16"></line>
-<line y1="8" y2="8" x1="12" x2="12"></line>
-<circle r="10" cx="12" cy="12"></circle>"#;
-
-const DIVIDE_SQUARE: &'static str = r#"
-<rect x="3" ry="2" rx="2" width="18" y="3" height="18"></rect>
-<line y2="12" y1="12" x1="8" x2="16"></line>
-<line x2="12" y2="16" y1="16" x1="12"></line>
-<line x1="12" y1="8" y2="8" x2="12"></line>"#;
-
-const DIVIDE: &'static str = r#"
-<circle r="1" cx="12" cy="6"></circle>
-<line y2="12" x1="5" x2="19" y1="12"></line>
-<circle cx="12" r="1" cy="18"></circle>"#;
-
-const DNA_OFF: &'static str = r#"
-<path d="M15 2c-1.35 1.5-2.092 3-2.5 4.5M9 22c1.35-1.5 2.092-3 2.5-4.5"></path>
-<path d="M2 15c3.333-3 6.667-3 10-3m10-3c-1.5 1.35-3 2.092-4.5 2.5"></path>
-<path d="m17 6-2.5-2.5"></path>
-<path d="m14 8-1.5-1.5"></path>
-<path d="m7 18 2.5 2.5"></path>
-<path d="m3.5 14.5.5.5"></path>
-<path d="m20 9 .5.5"></path>
-<path d="m6.5 12.5 1 1"></path>
-<path d="m16.5 10.5 1 1"></path>
-<path d="m10 16 1.5 1.5"></path>
-<line x1="2" x2="22" y2="22" y1="2"></line>"#;
-
-const DNA: &'static str = r#"
-<path d="M2 15c6.667-6 13.333 0 20-6"></path>
-<path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"></path>
-<path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"></path>
-<path d="m17 6-2.5-2.5"></path>
-<path d="m14 8-1-1"></path>
-<path d="m7 18 2.5 2.5"></path>
-<path d="m3.5 14.5.5.5"></path>
-<path d="m20 9 .5.5"></path>
-<path d="m6.5 12.5 1 1"></path>
-<path d="m16.5 10.5 1 1"></path>
-<path d="m10 16 1.5 1.5"></path>"#;
-
-const DOG: &'static str = r#"
-<path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5"></path>
-<path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"></path>
-<path d="M8 14v.5"></path>
-<path d="M16 14v.5"></path>
-<path d="M11.25 16.25h1.5L12 17l-.75-.75Z"></path>
-<path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444c0-1.061-.162-2.2-.493-3.309m-9.243-6.082A8.801 8.801 0 0 1 12 5c.78 0 1.5.108 2.161.306"></path>"#;
-
-const DOLLAR_SIGN: &'static str = r#"
-<line y1="2" x1="12" y2="22" x2="12"></line>
-<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>"#;
-
-const DONUT: &'static str = r#"
-<path d="M20.5 10a2.5 2.5 0 0 1-2.4-3H18a2.95 2.95 0 0 1-2.6-4.4 10 10 0 1 0 6.3 7.1c-.3.2-.8.3-1.2.3"></path>
-<circle r="3" cx="12" cy="12"></circle>"#;
-
-const DOOR_CLOSED: &'static str = r#"
-<path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"></path>
-<path d="M2 20h20"></path>
-<path d="M14 12v.01"></path>"#;
-
-const DOOR_OPEN: &'static str = r#"
-<path d="M13 4h3a2 2 0 0 1 2 2v14"></path>
-<path d="M2 20h3"></path>
-<path d="M13 20h9"></path>
-<path d="M10 12v.01"></path>
-<path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"></path>"#;
-
-const DOT: &'static str = r#"
-<circle cx="12.1" cy="12.1" r="1"></circle>"#;
-
-const DOWNLOAD_CLOUD: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M12 12v9"></path>
-<path d="m8 17 4 4 4-4"></path>"#;
-
-const DOWNLOAD: &'static str = r#"
-<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-<polyline points="7 10 12 15 17 10"></polyline>
-<line x2="12" y2="3" x1="12" y1="15"></line>"#;
-
-const DRIBBBLE: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
-<path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path>
-<path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path>"#;
-
-const DROPLET: &'static str = r#"
-<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path>"#;
-
-const DROPLETS: &'static str = r#"
-<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"></path>
-<path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"></path>"#;
-
-const DRUMSTICK: &'static str = r#"
-<path d="M15.45 15.4c-2.13.65-4.3.32-5.7-1.1-2.29-2.27-1.76-6.5 1.17-9.42 2.93-2.93 7.15-3.46 9.43-1.18 1.41 1.41 1.74 3.57 1.1 5.71-1.4-.51-3.26-.02-4.64 1.36-1.38 1.38-1.87 3.23-1.36 4.63z"></path>
-<path d="m11.25 15.6-2.16 2.16a2.5 2.5 0 1 1-4.56 1.73 2.49 2.49 0 0 1-1.41-4.24 2.5 2.5 0 0 1 3.14-.32l2.16-2.16"></path>"#;
-
-const DUMBBELL: &'static str = r#"
-<path d="m6.5 6.5 11 11"></path>
-<path d="m21 21-1-1"></path>
-<path d="m3 3 1 1"></path>
-<path d="m18 22 4-4"></path>
-<path d="m2 6 4-4"></path>
-<path d="m3 10 7-7"></path>
-<path d="m14 21 7-7"></path>"#;
-
-const EAR_OFF: &'static str = r#"
-<path d="M6 18.5a3.5 3.5 0 1 0 7 0c0-1.57.92-2.52 2.04-3.46"></path>
-<path d="M6 8.5c0-.75.13-1.47.36-2.14"></path>
-<path d="M8.8 3.15A6.5 6.5 0 0 1 19 8.5c0 1.63-.44 2.81-1.09 3.76"></path>
-<path d="M12.5 6A2.5 2.5 0 0 1 15 8.5M10 13a2 2 0 0 0 1.82-1.18"></path>
-<line x2="22" x1="2" y1="2" y2="22"></line>"#;
-
-const EAR: &'static str = r#"
-<path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"></path>
-<path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"></path>"#;
-
-const EGG_FRIED: &'static str = r#"
-<circle cx="11.5" cy="12.5" r="3.5"></circle>
-<path d="M3 8c0-3.5 2.5-6 6.5-6 5 0 4.83 3 7.5 5s5 2 5 6c0 4.5-2.5 6.5-7 6.5-2.5 0-2.5 2.5-6 2.5s-7-2-7-5.5c0-3 1.5-3 1.5-5C3.5 10 3 9 3 8Z"></path>"#;
-
-const EGG_OFF: &'static str = r#"
-<path d="M6.399 6.399C5.362 8.157 4.65 10.189 4.5 12c-.37 4.43 1.27 9.95 7.5 10 3.256-.026 5.259-1.547 6.375-3.625"></path>
-<path d="M19.532 13.875A14.07 14.07 0 0 0 19.5 12c-.36-4.34-3.95-9.96-7.5-10-1.04.012-2.082.502-3.046 1.297"></path>
-<line y2="22" x2="22" x1="2" y1="2"></line>"#;
-
-const EGG: &'static str = r#"
-<path d="M12 22c6.23-.05 7.87-5.57 7.5-10-.36-4.34-3.95-9.96-7.5-10-3.55.04-7.14 5.66-7.5 10-.37 4.43 1.27 9.95 7.5 10z"></path>"#;
-
-const EQUAL_NOT: &'static str = r#"
-<line x1="5" y1="9" x2="19" y2="9"></line>
-<line y1="15" x1="5" x2="19" y2="15"></line>
-<line y1="5" x2="5" x1="19" y2="19"></line>"#;
-
-const EQUAL: &'static str = r#"
-<line y1="9" x1="5" y2="9" x2="19"></line>
-<line x2="19" x1="5" y1="15" y2="15"></line>"#;
-
-const ERASER: &'static str = r#"
-<path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"></path>
-<path d="M22 21H7"></path>
-<path d="m5 11 9 9"></path>"#;
-
-const EURO: &'static str = r#"
-<path d="M4 10h12"></path>
-<path d="M4 14h9"></path>
-<path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path>"#;
-
-const EXPAND: &'static str = r#"
-<path d="m21 21-6-6m6 6v-4.8m0 4.8h-4.8"></path>
-<path d="M3 16.2V21m0 0h4.8M3 21l6-6"></path>
-<path d="M21 7.8V3m0 0h-4.8M21 3l-6 6"></path>
-<path d="M3 7.8V3m0 0h4.8M3 3l6 6"></path>"#;
-
-const EXTERNAL_LINK: &'static str = r#"
-<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-<polyline points="15 3 21 3 21 9"></polyline>
-<line x1="10" x2="21" y1="14" y2="3"></line>"#;
-
-const EYE_OFF: &'static str = r#"
-<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
-<path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
-<path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
-<line x1="2" x2="22" y1="2" y2="22"></line>"#;
-
-const EYE: &'static str = r#"
-<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-<circle cx="12" r="3" cy="12"></circle>"#;
-
-const FACEBOOK: &'static str = r#"
-<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>"#;
-
-const FACTORY: &'static str = r#"
-<path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
-<path d="M17 18h1"></path>
-<path d="M12 18h1"></path>
-<path d="M7 18h1"></path>"#;
-
-const FAN: &'static str = r#"
-<path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z"></path>
-<path d="M12 12v.01"></path>"#;
-
-const FAST_FORWARD: &'static str = r#"
-<polygon points="13 19 22 12 13 5 13 19"></polygon>
-<polygon points="2 19 11 12 2 5 2 19"></polygon>"#;
-
-const FEATHER: &'static str = r#"
-<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-<line x1="16" x2="2" y1="8" y2="22"></line>
-<line y2="15" x1="17.5" x2="9" y1="15"></line>"#;
-
-const FERRIS_WHEEL: &'static str = r#"
-<circle cx="12" cy="12" r="2"></circle>
-<path d="M12 2v4"></path>
-<path d="m6.8 15-3.5 2"></path>
-<path d="m20.7 7-3.5 2"></path>
-<path d="M6.8 9 3.3 7"></path>
-<path d="m20.7 17-3.5-2"></path>
-<path d="m9 22 3-8 3 8"></path>
-<path d="M8 22h8"></path>
-<path d="M18 18.7a9 9 0 1 0-12 0"></path>"#;
-
-const FIGMA: &'static str = r#"
-<path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
-<path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
-<path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
-<path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
-<path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>"#;
-
-const FILE_ARCHIVE: &'static str = r#"
-<path d="M4 22V4c0-.5.2-1 .6-1.4C5 2.2 5.5 2 6 2h8.5L20 7.5V20c0 .5-.2 1-.6 1.4-.4.4-.9.6-1.4.6h-2"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<circle r="2" cy="20" cx="10"></circle>
-<path d="M10 7V6"></path>
-<path d="M10 12v-1"></path>
-<path d="M10 18v-2"></path>"#;
-
-const FILE_AUDIO_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v2"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M2 17v-3a4 4 0 0 1 8 0v3"></path>
-<circle cx="9" r="1" cy="17"></circle>
-<circle cy="17" r="1" cx="3"></circle>"#;
-
-const FILE_AUDIO: &'static str = r#"
-<path d="M17.5 22h.5c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V7.5L14.5 2H6c-.5 0-1 .2-1.4.6C4.2 3 4 3.5 4 4v3"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M10 20v-1a2 2 0 1 1 4 0v1a2 2 0 1 1-4 0Z"></path>
-<path d="M6 20v-1a2 2 0 1 0-4 0v1a2 2 0 1 0 4 0Z"></path>
-<path d="M2 19v-3a6 6 0 0 1 12 0v3"></path>"#;
-
-const FILE_AXIS_3_D: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M8 10v8h8"></path>
-<path d="m8 18 4-4"></path>"#;
-
-const FILE_BADGE_2: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-<path d="m14 12.5 1 5.5-3-1-3 1 1-5.5"></path>"#;
-
-const FILE_BADGE: &'static str = r#"
-<path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2h-6"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-<path d="M7 16.5 8 22l-3-1-3 1 1-5.5"></path>"#;
-
-const FILE_BAR_CHART_2: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M12 18v-6"></path>
-<path d="M8 18v-1"></path>
-<path d="M16 18v-3"></path>"#;
-
-const FILE_BAR_CHART: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M12 18v-4"></path>
-<path d="M8 18v-2"></path>
-<path d="M16 18v-6"></path>"#;
-
-const FILE_BOX: &'static str = r#"
-<path d="M14.5 22H18a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M2.97 13.12c-.6.36-.97 1.02-.97 1.74v3.28c0 .72.37 1.38.97 1.74l3 1.83c.63.39 1.43.39 2.06 0l3-1.83c.6-.36.97-1.02.97-1.74v-3.28c0-.72-.37-1.38-.97-1.74l-3-1.83a1.97 1.97 0 0 0-2.06 0l-3 1.83Z"></path>
-<path d="m7 17-4.74-2.85"></path>
-<path d="m7 17 4.74-2.85"></path>
-<path d="M7 17v5"></path>"#;
-
-const FILE_CHECK_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m3 15 2 2 4-4"></path>"#;
-
-const FILE_CHECK: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m9 15 2 2 4-4"></path>"#;
-
-const FILE_CLOCK: &'static str = r#"
-<path d="M16 22h2c.5 0 1-.2 1.4-.6.4-.4.6-.9.6-1.4V7.5L14.5 2H6c-.5 0-1 .2-1.4.6C4.2 3 4 3.5 4 4v3"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<circle r="6" cx="8" cy="16"></circle>
-<path d="M9.5 17.5 8 16.25V14"></path>"#;
-
-const FILE_CODE_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m9 18 3-3-3-3"></path>
-<path d="m5 12-3 3 3 3"></path>"#;
-
-const FILE_CODE: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m10 13-2 2 2 2"></path>
-<path d="m14 17 2-2-2-2"></path>"#;
-
-const FILE_COG: &'static str = r#"
-<circle cx="6" cy="13" r="3"></circle>
-<path d="m9.7 14.4-.9-.3"></path>
-<path d="m3.2 11.9-.9-.3"></path>
-<path d="m4.6 16.7.3-.9"></path>
-<path d="m7.6 16.7-.4-1"></path>
-<path d="m4.8 10.3-.4-1"></path>
-<path d="m2.3 14.6 1-.4"></path>
-<path d="m8.7 11.8 1-.4"></path>
-<path d="m7.4 9.3-.3.9"></path>
-<path d="M14 2v6h6"></path>
-<path d="M4 5.5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-1.5"></path>"#;
-
-const FILE_DIFF: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<path d="M12 13V7"></path>
-<path d="M9 10h6"></path>
-<path d="M9 17h6"></path>"#;
-
-const FILE_DIGIT: &'static str = r#"
-<rect x="2" width="4" y="12" rx="2" height="6"></rect>
-<path d="M14 2v6h6"></path>
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<path d="M10 12h2v6"></path>
-<path d="M10 18h4"></path>"#;
-
-const FILE_DOWN: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M12 18v-6"></path>
-<path d="m9 15 3 3 3-3"></path>"#;
-
-const FILE_EDIT: &'static str = r#"
-<path d="M4 13.5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2h-5.5"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95 5.43-5.44Z"></path>"#;
-
-const FILE_HEART: &'static str = r#"
-<path d="M4 6V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M10.29 10.7a2.43 2.43 0 0 0-2.66-.52c-.29.12-.56.3-.78.53l-.35.34-.35-.34a2.43 2.43 0 0 0-2.65-.53c-.3.12-.56.3-.79.53-.95.94-1 2.53.2 3.74L6.5 18l3.6-3.55c1.2-1.21 1.14-2.8.19-3.74Z"></path>"#;
-
-const FILE_IMAGE: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<circle cy="13" r="2" cx="10"></circle>
-<path d="m20 17-1.09-1.09a2 2 0 0 0-2.82 0L10 22"></path>"#;
-
-const FILE_INPUT: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M2 15h10"></path>
-<path d="m9 18 3-3-3-3"></path>"#;
-
-const FILE_JSON_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M4 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1"></path>
-<path d="M8 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1"></path>"#;
-
-const FILE_JSON: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1"></path>
-<path d="M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1"></path>"#;
-
-const FILE_KEY_2: &'static str = r#"
-<path d="M4 10V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<circle r="2" cx="4" cy="16"></circle>
-<path d="m10 10-4.5 4.5"></path>
-<path d="m9 11 1 1"></path>"#;
-
-const FILE_KEY: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<circle cx="10" r="2" cy="16"></circle>
-<path d="m16 10-4.5 4.5"></path>
-<path d="m15 11 1 1"></path>"#;
-
-const FILE_LINE_CHART: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m16 13-3.5 3.5-2-2L8 17"></path>"#;
-
-const FILE_LOCK_2: &'static str = r#"
-<path d="M4 5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<rect rx="1" x="2" width="8" height="5" y="13"></rect>
-<path d="M8 13v-2a2 2 0 1 0-4 0v2"></path>"#;
-
-const FILE_LOCK: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<rect rx="1" width="8" height="6" x="8" y="12"></rect>
-<path d="M15 12v-2a3 3 0 1 0-6 0v2"></path>"#;
-
-const FILE_MINUS_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M3 15h6"></path>"#;
-
-const FILE_MINUS: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<line y2="15" x2="15" y1="15" x1="9"></line>"#;
-
-const FILE_OUTPUT: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M2 15h10"></path>
-<path d="m5 12-3 3 3 3"></path>"#;
-
-const FILE_PIE_CHART: &'static str = r#"
-<path d="M16 22h2a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v3"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M4.04 11.71a5.84 5.84 0 1 0 8.2 8.29"></path>
-<path d="M13.83 16A5.83 5.83 0 0 0 8 10.17V16h5.83Z"></path>"#;
-
-const FILE_PLUS_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M3 15h6"></path>
-<path d="M6 12v6"></path>"#;
-
-const FILE_PLUS: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<line x2="12" y2="12" x1="12" y1="18"></line>
-<line x1="9" y1="15" y2="15" x2="15"></line>"#;
-
-const FILE_QUESTION: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<path d="M10 10.3c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3 0 1.3-2 2-2 2"></path>
-<path d="M12 17h.01"></path>"#;
-
-const FILE_SCAN: &'static str = r#"
-<path d="M20 10V7.5L14.5 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h4.5"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M16 22a2 2 0 0 1-2-2"></path>
-<path d="M20 22a2 2 0 0 0 2-2"></path>
-<path d="M20 14a2 2 0 0 1 2 2"></path>
-<path d="M16 14a2 2 0 0 0-2 2"></path>"#;
-
-const FILE_SEARCH_2: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<circle cx="11.5" cy="14.5" r="2.5"></circle>
-<path d="M13.25 16.25 15 18"></path>"#;
-
-const FILE_SEARCH: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v3"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-<path d="m9 18-1.5-1.5"></path>"#;
-
-const FILE_SIGNATURE: &'static str = r#"
-<path d="M20 19.5v.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8.5L18 5.5"></path>
-<path d="M8 18h1"></path>
-<path d="M18.42 9.61a2.1 2.1 0 1 1 2.97 2.97L16.95 17 13 18l.99-3.95 4.43-4.44Z"></path>"#;
-
-const FILE_SPREADSHEET: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M8 13h2"></path>
-<path d="M8 17h2"></path>
-<path d="M14 13h2"></path>
-<path d="M14 17h2"></path>"#;
-
-const FILE_STACK: &'static str = r#"
-<path d="M16 2v5h5"></path>
-<path d="M21 6v6.5c0 .8-.7 1.5-1.5 1.5h-7c-.8 0-1.5-.7-1.5-1.5v-9c0-.8.7-1.5 1.5-1.5H17l4 4z"></path>
-<path d="M7 8v8.8c0 .3.2.6.4.8.2.2.5.4.8.4H15"></path>
-<path d="M3 12v8.8c0 .3.2.6.4.8.2.2.5.4.8.4H11"></path>"#;
-
-const FILE_SYMLINK: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v7"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m10 18 3-3-3-3"></path>
-<path d="M4 18v-1a2 2 0 0 1 2-2h6"></path>"#;
-
-const FILE_TERMINAL: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m8 16 2-2-2-2"></path>
-<path d="M12 18h4"></path>"#;
-
-const FILE_TEXT: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<line y2="13" y1="13" x1="16" x2="8"></line>
-<line y2="17" x2="8" x1="16" y1="17"></line>
-<line x2="8" x1="10" y1="9" y2="9"></line>"#;
-
-const FILE_TYPE_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M2 13v-1h6v1"></path>
-<path d="M4 18h2"></path>
-<path d="M5 12v6"></path>"#;
-
-const FILE_TYPE: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M9 13v-1h6v1"></path>
-<path d="M11 18h2"></path>
-<path d="M12 12v6"></path>"#;
-
-const FILE_UP: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M12 12v6"></path>
-<path d="m15 15-3-3-3 3"></path>"#;
-
-const FILE_VIDEO_2: &'static str = r#"
-<path d="M4 8V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m10 15.5 4 2.5v-6l-4 2.5"></path>
-<rect y="12" rx="1" width="8" x="2" height="6"></rect>"#;
-
-const FILE_VIDEO: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m10 11 5 3-5 3v-6Z"></path>"#;
-
-const FILE_VOLUME_2: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="M11.5 13.5c.32.4.5.94.5 1.5s-.18 1.1-.5 1.5"></path>
-<path d="M15 12c.64.8 1 1.87 1 3s-.36 2.2-1 3"></path>
-<path d="M8 15h.01"></path>"#;
-
-const FILE_VOLUME: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v3"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<path d="m7 10-3 2H2v4h2l3 2v-8Z"></path>
-<path d="M11 11c.64.8 1 1.87 1 3s-.36 2.2-1 3"></path>"#;
-
-const FILE_WARNING: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<path d="M12 9v4"></path>
-<path d="M12 17h.01"></path>"#;
-
-const FILE_X_2: &'static str = r#"
-<path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-<path d="M14 2v6h6"></path>
-<path d="m3 12.5 5 5"></path>
-<path d="m8 12.5-5 5"></path>"#;
-
-const FILE_X: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>
-<line y2="17.5" x1="9.5" x2="14.5" y1="12.5"></line>
-<line y2="17.5" x1="14.5" y1="12.5" x2="9.5"></line>"#;
-
-const FILE: &'static str = r#"
-<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-<polyline points="14 2 14 8 20 8"></polyline>"#;
-
-const FILES: &'static str = r#"
-<path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z"></path>
-<path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h9.8"></path>
-<path d="M15 2v5h5"></path>"#;
-
-const FILM: &'static str = r#"
-<rect x="3" height="18" y="3" rx="2" width="18"></rect>
-<path d="M7 3v18"></path>
-<path d="M3 7.5h4"></path>
-<path d="M3 12h18"></path>
-<path d="M3 16.5h4"></path>
-<path d="M17 3v18"></path>
-<path d="M17 7.5h4"></path>
-<path d="M17 16.5h4"></path>"#;
-
-const FILTER_X: &'static str = r#"
-<path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055"></path>
-<path d="m22 3-5 5"></path>
-<path d="m17 3 5 5"></path>"#;
-
-const FILTER: &'static str = r#"
-<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>"#;
-
-const FINGERPRINT: &'static str = r#"
-<path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"></path>
-<path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2"></path>
-<path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path>
-<path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path>
-<path d="M8.65 22c.21-.66.45-1.32.57-2"></path>
-<path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path>
-<path d="M2 16h.01"></path>
-<path d="M21.8 16c.2-2 .131-5.354 0-6"></path>
-<path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2"></path>"#;
-
-const FISH_OFF: &'static str = r#"
-<path d="M18 12.47v.03m0-.5v.47m-.475 5.056A6.744 6.744 0 0 1 15 18c-3.56 0-7.56-2.53-8.5-6 .348-1.28 1.114-2.433 2.121-3.38m3.444-2.088A8.802 8.802 0 0 1 15 6c3.56 0 6.06 2.54 7 6-.309 1.14-.786 2.177-1.413 3.058"></path>
-<path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33m7.48-4.372A9.77 9.77 0 0 1 16 6.07m0 11.86a9.77 9.77 0 0 1-1.728-3.618"></path>
-<path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98M8.53 3h5.27a2 2 0 0 1 1.98 1.67l.23 1.4M2 2l20 20"></path>"#;
-
-const FISH_SYMBOL: &'static str = r#"
-<path d="M2 16s9-15 20-4C11 23 2 8 2 8"></path>"#;
-
-const FISH: &'static str = r#"
-<path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"></path>
-<path d="M18 12v.5"></path>
-<path d="M16 17.93a9.77 9.77 0 0 1 0-11.86"></path>
-<path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"></path>
-<path d="M10.46 7.26C10.2 5.88 9.17 4.24 8 3h5.8a2 2 0 0 1 1.98 1.67l.23 1.4"></path>
-<path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98"></path>"#;
-
-const FLAG_OFF: &'static str = r#"
-<path d="M8 2c3 0 5 2 8 2s4-1 4-1v11"></path>
-<path d="M4 22V4"></path>
-<path d="M4 15s1-1 4-1 5 2 8 2"></path>
-<line x1="2" x2="22" y2="22" y1="2"></line>"#;
-
-const FLAG_TRIANGLE_LEFT: &'static str = r#"
-<path d="M17 22V2L7 7l10 5"></path>"#;
-
-const FLAG_TRIANGLE_RIGHT: &'static str = r#"
-<path d="M7 22V2l10 5-10 5"></path>"#;
-
-const FLAG: &'static str = r#"
-<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-<line y2="15" x1="4" x2="4" y1="22"></line>"#;
-
-const FLAME: &'static str = r#"
-<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>"#;
-
-const FLASHLIGHT_OFF: &'static str = r#"
-<path d="M16 16v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4"></path>
-<path d="M7 2h11v4c0 2-2 2-2 4v1"></path>
-<line y2="6" x1="11" x2="18" y1="6"></line>
-<line x1="2" x2="22" y2="22" y1="2"></line>"#;
-
-const FLASHLIGHT: &'static str = r#"
-<path d="M18 6c0 2-2 2-2 4v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4V2h12z"></path>
-<line x2="18" y1="6" x1="6" y2="6"></line>
-<line y1="12" y2="12" x2="12" x1="12"></line>"#;
-
-const FLASK_CONICAL_OFF: &'static str = r#"
-<path d="M10 10 4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-1.272-2.542"></path>
-<path d="M10 2v2.343"></path>
-<path d="M14 2v6.343"></path>
-<path d="M8.5 2h7"></path>
-<path d="M7 16h9"></path>
-<line y1="2" x1="2" y2="22" x2="22"></line>"#;
-
-const FLASK_CONICAL: &'static str = r#"
-<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path>
-<path d="M8.5 2h7"></path>
-<path d="M7 16h10"></path>"#;
-
-const FLASK_ROUND: &'static str = r#"
-<path d="M10 2v7.31"></path>
-<path d="M14 9.3V1.99"></path>
-<path d="M8.5 2h7"></path>
-<path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
-<path d="M5.52 16h12.96"></path>"#;
-
-const FLIP_HORIZONTAL_2: &'static str = r#"
-<path d="m3 7 5 5-5 5V7"></path>
-<path d="m21 7-5 5 5 5V7"></path>
-<path d="M12 20v2"></path>
-<path d="M12 14v2"></path>
-<path d="M12 8v2"></path>
-<path d="M12 2v2"></path>"#;
-
-const FLIP_HORIZONTAL: &'static str = r#"
-<path d="M8 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h3"></path>
-<path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"></path>
-<path d="M12 20v2"></path>
-<path d="M12 14v2"></path>
-<path d="M12 8v2"></path>
-<path d="M12 2v2"></path>"#;
-
-const FLIP_VERTICAL_2: &'static str = r#"
-<path d="m17 3-5 5-5-5h10"></path>
-<path d="m17 21-5-5-5 5h10"></path>
-<path d="M4 12H2"></path>
-<path d="M10 12H8"></path>
-<path d="M16 12h-2"></path>
-<path d="M22 12h-2"></path>"#;
-
-const FLIP_VERTICAL: &'static str = r#"
-<path d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3"></path>
-<path d="M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3"></path>
-<path d="M4 12H2"></path>
-<path d="M10 12H8"></path>
-<path d="M16 12h-2"></path>
-<path d="M22 12h-2"></path>"#;
-
-const FLOWER_2: &'static str = r#"
-<path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path>
-<circle cy="8" cx="12" r="2"></circle>
-<path d="M12 10v12"></path>
-<path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path>
-<path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path>"#;
-
-const FLOWER: &'static str = r#"
-<path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"></path>
-<circle r="3" cy="12" cx="12"></circle>
-<path d="m8 16 1.5-1.5"></path>
-<path d="M14.5 9.5 16 8"></path>
-<path d="m8 8 1.5 1.5"></path>
-<path d="M14.5 14.5 16 16"></path>"#;
-
-const FOCUS: &'static str = r#"
-<circle r="3" cy="12" cx="12"></circle>
-<path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-<path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-<path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-<path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>"#;
-
-const FOLD_HORIZONTAL: &'static str = r#"
-<path d="M2 12h6"></path>
-<path d="M22 12h-6"></path>
-<path d="M12 2v2"></path>
-<path d="M12 8v2"></path>
-<path d="M12 14v2"></path>
-<path d="M12 20v2"></path>
-<path d="m19 9-3 3 3 3"></path>
-<path d="m5 15 3-3-3-3"></path>"#;
-
-const FOLD_VERTICAL: &'static str = r#"
-<path d="M12 22v-6"></path>
-<path d="M12 8V2"></path>
-<path d="M4 12H2"></path>
-<path d="M10 12H8"></path>
-<path d="M16 12h-2"></path>
-<path d="M22 12h-2"></path>
-<path d="m15 19-3-3-3 3"></path>
-<path d="m15 5-3 3-3-3"></path>"#;
-
-const FOLDER_ARCHIVE: &'static str = r#"
-<path d="M22 20V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2h6"></path>
-<circle cy="19" cx="16" r="2"></circle>
-<path d="M16 11v-1"></path>
-<path d="M16 17v-2"></path>"#;
-
-const FOLDER_CHECK: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<path d="m9 13 2 2 4-4"></path>"#;
-
-const FOLDER_CLOCK: &'static str = r#"
-<path d="M7 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2"></path>
-<circle cy="16" cx="16" r="6"></circle>
-<path d="M16 14v2l1 1"></path>"#;
-
-const FOLDER_CLOSED: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<path d="M2 10h20"></path>"#;
-
-const FOLDER_COG: &'static str = r#"
-<circle cx="18" r="3" cy="18"></circle>
-<path d="M10.5 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v3.5"></path>
-<path d="m21.7 19.4-.9-.3"></path>
-<path d="m15.2 16.9-.9-.3"></path>
-<path d="m16.6 21.7.3-.9"></path>
-<path d="m19.1 15.2.3-.9"></path>
-<path d="m19.6 21.7-.4-1"></path>
-<path d="m16.8 15.3-.4-1"></path>
-<path d="m14.3 19.6 1-.4"></path>
-<path d="m20.7 16.8 1-.4"></path>"#;
-
-const FOLDER_DOT: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle r="1" cx="12" cy="13"></circle>"#;
-
-const FOLDER_DOWN: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<path d="M12 10v6"></path>
-<path d="m15 13-3 3-3-3"></path>"#;
-
-const FOLDER_EDIT: &'static str = r#"
-<path d="M8.42 10.61a2.1 2.1 0 1 1 2.97 2.97L5.95 19 2 20l.99-3.95 5.43-5.44Z"></path>
-<path d="M2 11.5V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-9.5"></path>"#;
-
-const FOLDER_GIT_2: &'static str = r#"
-<path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"></path>
-<circle cx="13" cy="12" r="2"></circle>
-<path d="M18 19c-2.8 0-5-2.2-5-5v8"></path>
-<circle cy="19" r="2" cx="20"></circle>"#;
-
-const FOLDER_GIT: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle cy="13" r="2" cx="12"></circle>
-<path d="M14 13h3"></path>
-<path d="M7 13h3"></path>"#;
-
-const FOLDER_HEART: &'static str = r#"
-<path d="M11 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v1.5"></path>
-<path d="M21.29 13.7a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-2.65-.53c-.3.12-.56.3-.79.53-.95.94-1 2.53.2 3.74L17.5 21l3.6-3.55c1.2-1.21 1.14-2.8.19-3.74Z"></path>"#;
-
-const FOLDER_INPUT: &'static str = r#"
-<path d="M2 9V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1"></path>
-<path d="M2 13h10"></path>
-<path d="m9 16 3-3-3-3"></path>"#;
-
-const FOLDER_KANBAN: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<path d="M8 10v4"></path>
-<path d="M12 10v2"></path>
-<path d="M16 10v6"></path>"#;
-
-const FOLDER_KEY: &'static str = r#"
-<path d="M10 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v2"></path>
-<circle cx="16" cy="20" r="2"></circle>
-<path d="m22 14-4.5 4.5"></path>
-<path d="m21 15 1 1"></path>"#;
-
-const FOLDER_LOCK: &'static str = r#"
-<path d="M10 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v2.5"></path>
-<rect width="8" x="14" height="5" y="17" rx="1"></rect>
-<path d="M20 17v-2a2 2 0 1 0-4 0v2"></path>"#;
-
-const FOLDER_MINUS: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<line x1="9" x2="15" y1="13" y2="13"></line>"#;
-
-const FOLDER_OPEN_DOT: &'static str = r#"
-<path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"></path>
-<circle cx="14" r="1" cy="15"></circle>"#;
-
-const FOLDER_OPEN: &'static str = r#"
-<path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2"></path>"#;
-
-const FOLDER_OUTPUT: &'static str = r#"
-<path d="M2 7.5V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2"></path>
-<path d="M2 13h10"></path>
-<path d="m5 10-3 3 3 3"></path>"#;
-
-const FOLDER_PLUS: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<line y2="16" x1="12" x2="12" y1="10"></line>
-<line x1="9" y1="13" y2="13" x2="15"></line>"#;
-
-const FOLDER_ROOT: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle cy="13" r="2" cx="12"></circle>
-<path d="M12 15v5"></path>"#;
-
-const FOLDER_SEARCH_2: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<circle r="2.5" cy="12.5" cx="11.5"></circle>
-<path d="M13.27 14.27 15 16"></path>"#;
-
-const FOLDER_SEARCH: &'static str = r#"
-<path d="M11 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v4"></path>
-<circle cy="17" r="3" cx="17"></circle>
-<path d="m21 21-1.5-1.5"></path>"#;
-
-const FOLDER_SYMLINK: &'static str = r#"
-<path d="M2 9V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2"></path>
-<path d="m8 16 3-3-3-3"></path>
-<path d="M2 16v-1a2 2 0 0 1 2-2h6"></path>"#;
-
-const FOLDER_SYNC: &'static str = r#"
-<path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v1"></path>
-<path d="M12 10v4h4"></path>
-<path d="m12 14 1.5-1.5c.9-.9 2.2-1.5 3.5-1.5s2.6.6 3.5 1.5c.4.4.8 1 1 1.5"></path>
-<path d="M22 22v-4h-4"></path>
-<path d="m22 18-1.5 1.5c-.9.9-2.1 1.5-3.5 1.5s-2.6-.6-3.5-1.5c-.4-.4-.8-1-1-1.5"></path>"#;
-
-const FOLDER_TREE: &'static str = r#"
-<path d="M13 10h7a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"></path>
-<path d="M13 21h7a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.88a1 1 0 0 1-.9-.55l-.44-.9a1 1 0 0 0-.9-.55H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"></path>
-<path d="M3 3v2c0 1.1.9 2 2 2h3"></path>
-<path d="M3 3v13c0 1.1.9 2 2 2h3"></path>"#;
-
-const FOLDER_UP: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<path d="M12 10v6"></path>
-<path d="m9 13 3-3 3 3"></path>"#;
-
-const FOLDER_X: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
-<path d="m9.5 10.5 5 5"></path>
-<path d="m14.5 10.5-5 5"></path>"#;
-
-const FOLDER: &'static str = r#"
-<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>"#;
-
-const FOLDERS: &'static str = r#"
-<path d="M8 17h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.93a2 2 0 0 1-1.66-.9l-.82-1.2a2 2 0 0 0-1.66-.9H8a2 2 0 0 0-2 2v9c0 1.1.9 2 2 2Z"></path>
-<path d="M2 8v11c0 1.1.9 2 2 2h14"></path>"#;
-
-const FOOTPRINTS: &'static str = r#"
-<path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"></path>
-<path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"></path>
-<path d="M16 17h4"></path>
-<path d="M4 13h4"></path>"#;
-
-const FORKLIFT: &'static str = r#"
-<path d="M12 12H5a2 2 0 0 0-2 2v5"></path>
-<circle cx="13" cy="19" r="2"></circle>
-<circle r="2" cx="5" cy="19"></circle>
-<path d="M8 19h3m5-17v17h6M6 12V7c0-1.1.9-2 2-2h3l5 5"></path>"#;
-
-const FORM_INPUT: &'static str = r#"
-<rect x="2" height="12" y="6" rx="2" width="20"></rect>
-<path d="M12 12h.01"></path>
-<path d="M17 12h.01"></path>
-<path d="M7 12h.01"></path>"#;
-
-const FORWARD: &'static str = r#"
-<polyline points="15 17 20 12 15 7"></polyline>
-<path d="M4 18v-2a4 4 0 0 1 4-4h12"></path>"#;
-
-const FRAME: &'static str = r#"
-<line y2="6" x2="2" x1="22" y1="6"></line>
-<line x2="2" y1="18" x1="22" y2="18"></line>
-<line x1="6" y2="22" x2="6" y1="2"></line>
-<line x1="18" y1="2" x2="18" y2="22"></line>"#;
-
-const FRAMER: &'static str = r#"
-<path d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"></path>"#;
-
-const FROWN: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
-<line y1="9" y2="9" x1="9" x2="9.01"></line>
-<line x1="15" y2="9" x2="15.01" y1="9"></line>"#;
-
-const FUEL: &'static str = r#"
-<line y2="22" x1="3" x2="15" y1="22"></line>
-<line x1="4" x2="14" y2="9" y1="9"></line>
-<path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"></path>
-<path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path>"#;
-
-const FUNCTION_SQUARE: &'static str = r#"
-<rect rx="2" x="3" ry="2" width="18" height="18" y="3"></rect>
-<path d="M9 17c2 0 2.8-1 2.8-2.8V10c0-2 1-3.3 3.2-3"></path>
-<path d="M9 11.2h5.7"></path>"#;
-
-const GALLERY_HORIZONTAL_END: &'static str = r#"
-<path d="M2 7v10"></path>
-<path d="M6 5v14"></path>
-<rect width="12" height="18" x="10" y="3" rx="2"></rect>"#;
-
-const GALLERY_HORIZONTAL: &'static str = r#"
-<path d="M2 3v18"></path>
-<rect width="12" height="18" y="3" x="6" rx="2"></rect>
-<path d="M22 3v18"></path>"#;
-
-const GALLERY_THUMBNAILS: &'static str = r#"
-<rect height="14" y="3" rx="2" width="18" x="3"></rect>
-<path d="M4 21h1"></path>
-<path d="M9 21h1"></path>
-<path d="M14 21h1"></path>
-<path d="M19 21h1"></path>"#;
-
-const GALLERY_VERTICAL_END: &'static str = r#"
-<path d="M7 2h10"></path>
-<path d="M5 6h14"></path>
-<rect height="12" x="3" width="18" rx="2" y="10"></rect>"#;
-
-const GALLERY_VERTICAL: &'static str = r#"
-<path d="M3 2h18"></path>
-<rect rx="2" width="18" height="12" x="3" y="6"></rect>
-<path d="M3 22h18"></path>"#;
-
-const GAMEPAD_2: &'static str = r#"
-<line x1="6" y1="11" y2="11" x2="10"></line>
-<line y1="9" y2="13" x1="8" x2="8"></line>
-<line x2="15.01" y1="12" x1="15" y2="12"></line>
-<line x1="18" y2="10" x2="18.01" y1="10"></line>
-<path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path>"#;
-
-const GAMEPAD: &'static str = r#"
-<line y2="12" x2="10" y1="12" x1="6"></line>
-<line x1="8" y2="14" x2="8" y1="10"></line>
-<line y1="13" x2="15.01" x1="15" y2="13"></line>
-<line x2="18.01" x1="18" y2="11" y1="11"></line>
-<rect x="2" y="6" height="12" rx="2" width="20"></rect>"#;
-
-const GANTT_CHART_SQUARE: &'static str = r#"
-<rect x="3" width="18" y="3" rx="2" height="18"></rect>
-<path d="M9 8h7"></path>
-<path d="M8 12h6"></path>
-<path d="M11 16h5"></path>"#;
-
-const GANTT_CHART: &'static str = r#"
-<path d="M8 6h10"></path>
-<path d="M6 12h9"></path>
-<path d="M11 18h7"></path>"#;
-
-const GAUGE_CIRCLE: &'static str = r#"
-<path d="M15.6 2.7a10 10 0 1 0 5.7 5.7"></path>
-<circle cx="12" r="2" cy="12"></circle>
-<path d="M13.4 10.6 19 5"></path>"#;
-
-const GAUGE: &'static str = r#"
-<path d="m12 14 4-4"></path>
-<path d="M3.34 19a10 10 0 1 1 17.32 0"></path>"#;
-
-const GAVEL: &'static str = r#"
-<path d="m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L11 10"></path>
-<path d="m16 16 6-6"></path>
-<path d="m8 8 6-6"></path>
-<path d="m9 7 8 8"></path>
-<path d="m21 11-8-8"></path>"#;
-
-const GEM: &'static str = r#"
-<path d="M6 3h12l4 6-10 13L2 9Z"></path>
-<path d="M11 3 8 9l4 13 4-13-3-6"></path>
-<path d="M2 9h20"></path>"#;
-
-const GHOST: &'static str = r#"
-<path d="M9 10h.01"></path>
-<path d="M15 10h.01"></path>
-<path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"></path>"#;
-
-const GIFT: &'static str = r#"
-<polyline points="20 12 20 22 4 22 4 12"></polyline>
-<rect x="2" y="7" width="20" height="5"></rect>
-<line y2="7" x1="12" y1="22" x2="12"></line>
-<path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-<path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>"#;
-
-const GIT_BRANCH_PLUS: &'static str = r#"
-<path d="M6 3v12"></path>
-<path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-<path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-<path d="M15 6a9 9 0 0 0-9 9"></path>
-<path d="M18 15v6"></path>
-<path d="M21 18h-6"></path>"#;
-
-const GIT_BRANCH: &'static str = r#"
-<line y2="15" x1="6" x2="6" y1="3"></line>
-<circle cx="18" cy="6" r="3"></circle>
-<circle cy="18" r="3" cx="6"></circle>
-<path d="M18 9a9 9 0 0 1-9 9"></path>"#;
-
-const GIT_COMMIT: &'static str = r#"
-<circle cx="12" r="3" cy="12"></circle>
-<line x1="3" x2="9" y1="12" y2="12"></line>
-<line x2="21" y1="12" y2="12" x1="15"></line>"#;
-
-const GIT_COMPARE: &'static str = r#"
-<circle r="3" cx="18" cy="18"></circle>
-<circle cx="6" r="3" cy="6"></circle>
-<path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-<path d="M11 18H8a2 2 0 0 1-2-2V9"></path>"#;
-
-const GIT_FORK: &'static str = r#"
-<circle cy="18" cx="12" r="3"></circle>
-<circle r="3" cx="6" cy="6"></circle>
-<circle cy="6" cx="18" r="3"></circle>
-<path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"></path>
-<path d="M12 12v3"></path>"#;
-
-const GIT_MERGE: &'static str = r#"
-<circle cy="18" r="3" cx="18"></circle>
-<circle r="3" cx="6" cy="6"></circle>
-<path d="M6 21V9a9 9 0 0 0 9 9"></path>"#;
-
-const GIT_PULL_REQUEST_CLOSED: &'static str = r#"
-<circle cx="18" cy="18" r="3"></circle>
-<circle cx="6" r="3" cy="6"></circle>
-<path d="M18 11.5V15"></path>
-<path d="m21 3-6 6"></path>
-<path d="m21 9-6-6"></path>
-<line x1="6" x2="6" y1="9" y2="21"></line>"#;
-
-const GIT_PULL_REQUEST_DRAFT: &'static str = r#"
-<circle r="3" cx="18" cy="18"></circle>
-<circle r="3" cx="6" cy="6"></circle>
-<path d="M18 6V5"></path>
-<path d="M18 11v-1"></path>
-<line x2="6" y2="21" y1="9" x1="6"></line>"#;
-
-const GIT_PULL_REQUEST: &'static str = r#"
-<circle cy="18" cx="18" r="3"></circle>
-<circle r="3" cx="6" cy="6"></circle>
-<path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
-<line x1="6" x2="6" y1="9" y2="21"></line>"#;
-
-const GITHUB: &'static str = r#"
-<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-<path d="M9 18c-4.51 2-5-2-7-2"></path>"#;
-
-const GITLAB: &'static str = r#"
-<path d="m22 13.29-3.33-10a.42.42 0 0 0-.14-.18.38.38 0 0 0-.22-.11.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18l-2.26 6.67H8.32L6.1 3.26a.42.42 0 0 0-.1-.18.38.38 0 0 0-.26-.08.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18L2 13.29a.74.74 0 0 0 .27.83L12 21l9.69-6.88a.71.71 0 0 0 .31-.83Z"></path>"#;
-
-const GLASS_WATER: &'static str = r#"
-<path d="M15.2 22H8.8a2 2 0 0 1-2-1.79L5 3h14l-1.81 17.21A2 2 0 0 1 15.2 22Z"></path>
-<path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>"#;
-
-const GLASSES: &'static str = r#"
-<circle r="4" cx="6" cy="15"></circle>
-<circle r="4" cx="18" cy="15"></circle>
-<path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2"></path>
-<path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"></path>
-<path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"></path>"#;
-
-const GLOBE_2: &'static str = r#"
-<path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path>
-<path d="M7 3.34V5a3 3 0 0 0 3 3v0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2v0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17"></path>
-<path d="M11 21.95V18a2 2 0 0 0-2-2v0a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path>
-<circle r="10" cx="12" cy="12"></circle>"#;
-
-const GLOBE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<line y1="12" y2="12" x2="22" x1="2"></line>
-<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>"#;
-
-const GOAL: &'static str = r#"
-<path d="M12 13V2l8 4-8 4"></path>
-<path d="M20.55 10.23A9 9 0 1 1 8 4.94"></path>
-<path d="M8 10a5 5 0 1 0 8.9 2.02"></path>"#;
-
-const GRAB: &'static str = r#"
-<path d="M18 11.5V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1.4"></path>
-<path d="M14 10V8a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path>
-<path d="M10 9.9V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5"></path>
-<path d="M6 14v0a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
-<path d="M18 11v0a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8 2 2 0 1 1 4 0"></path>"#;
-
-const GRADUATION_CAP: &'static str = r#"
-<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-<path d="M6 12v5c3 3 9 3 12 0v-5"></path>"#;
-
-const GRAPE: &'static str = r#"
-<path d="M22 5V2l-5.89 5.89"></path>
-<circle cx="16.6" r="3" cy="15.89"></circle>
-<circle cy="7.4" cx="8.11" r="3"></circle>
-<circle cx="12.35" cy="11.65" r="3"></circle>
-<circle r="3" cx="13.91" cy="5.85"></circle>
-<circle cx="18.15" r="3" cy="10.09"></circle>
-<circle r="3" cx="6.56" cy="13.2"></circle>
-<circle cy="17.44" cx="10.8" r="3"></circle>
-<circle r="3" cx="5" cy="19"></circle>"#;
-
-const GRID_2_X_2: &'static str = r#"
-<rect height="18" x="3" y="3" rx="2" width="18"></rect>
-<path d="M3 12h18"></path>
-<path d="M12 3v18"></path>"#;
-
-const GRID_3_X_3: &'static str = r#"
-<rect rx="2" x="3" height="18" width="18" y="3"></rect>
-<path d="M3 9h18"></path>
-<path d="M3 15h18"></path>
-<path d="M9 3v18"></path>
-<path d="M15 3v18"></path>"#;
-
-const GRIP_HORIZONTAL: &'static str = r#"
-<circle cx="12" cy="9" r="1"></circle>
-<circle cy="9" cx="19" r="1"></circle>
-<circle cy="9" cx="5" r="1"></circle>
-<circle cy="15" cx="12" r="1"></circle>
-<circle cy="15" cx="19" r="1"></circle>
-<circle cy="15" r="1" cx="5"></circle>"#;
-
-const GRIP_VERTICAL: &'static str = r#"
-<circle cy="12" r="1" cx="9"></circle>
-<circle cx="9" cy="5" r="1"></circle>
-<circle cx="9" r="1" cy="19"></circle>
-<circle cy="12" cx="15" r="1"></circle>
-<circle r="1" cy="5" cx="15"></circle>
-<circle cy="19" r="1" cx="15"></circle>"#;
-
-const GRIP: &'static str = r#"
-<circle cy="5" cx="12" r="1"></circle>
-<circle cx="19" cy="5" r="1"></circle>
-<circle cy="5" cx="5" r="1"></circle>
-<circle cy="12" cx="12" r="1"></circle>
-<circle cy="12" r="1" cx="19"></circle>
-<circle cx="5" r="1" cy="12"></circle>
-<circle cy="19" r="1" cx="12"></circle>
-<circle cy="19" r="1" cx="19"></circle>
-<circle r="1" cx="5" cy="19"></circle>"#;
-
-const GROUP: &'static str = r#"
-<path d="M3 7V5c0-1.1.9-2 2-2h2"></path>
-<path d="M17 3h2c1.1 0 2 .9 2 2v2"></path>
-<path d="M21 17v2c0 1.1-.9 2-2 2h-2"></path>
-<path d="M7 21H5c-1.1 0-2-.9-2-2v-2"></path>
-<rect height="5" width="7" x="7" y="7" rx="1"></rect>
-<rect x="10" width="7" height="5" rx="1" y="12"></rect>"#;
-
-const HAMMER: &'static str = r#"
-<path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"></path>
-<path d="M17.64 15 22 10.64"></path>
-<path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"></path>"#;
-
-const HAND_METAL: &'static str = r#"
-<path d="M18 12.5V10a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1.4"></path>
-<path d="M14 11V9a2 2 0 1 0-4 0v2"></path>
-<path d="M10 10.5V5a2 2 0 1 0-4 0v9"></path>
-<path d="m7 15-1.76-1.76a2 2 0 0 0-2.83 2.82l3.6 3.6C7.5 21.14 9.2 22 12 22h2a8 8 0 0 0 8-8V7a2 2 0 1 0-4 0v5"></path>"#;
-
-const HAND: &'static str = r#"
-<path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
-<path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path>
-<path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
-<path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>"#;
-
-const HARD_DRIVE_DOWNLOAD: &'static str = r#"
-<path d="M12 2v8"></path>
-<path d="m16 6-4 4-4-4"></path>
-<rect rx="2" x="2" y="14" height="8" width="20"></rect>
-<path d="M6 18h.01"></path>
-<path d="M10 18h.01"></path>"#;
-
-const HARD_DRIVE_UPLOAD: &'static str = r#"
-<path d="m16 6-4-4-4 4"></path>
-<path d="M12 2v8"></path>
-<rect height="8" x="2" width="20" y="14" rx="2"></rect>
-<path d="M6 18h.01"></path>
-<path d="M10 18h.01"></path>"#;
-
-const HARD_DRIVE: &'static str = r#"
-<line y2="12" x1="22" x2="2" y1="12"></line>
-<path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-<line x1="6" x2="6.01" y2="16" y1="16"></line>
-<line x2="10.01" x1="10" y1="16" y2="16"></line>"#;
-
-const HARD_HAT: &'static str = r#"
-<path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"></path>
-<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"></path>
-<path d="M4 15v-3a6 6 0 0 1 6-6h0"></path>
-<path d="M14 6h0a6 6 0 0 1 6 6v3"></path>"#;
-
-const HASH: &'static str = r#"
-<line y2="9" y1="9" x2="20" x1="4"></line>
-<line x2="20" x1="4" y2="15" y1="15"></line>
-<line y1="3" x2="8" y2="21" x1="10"></line>
-<line x1="16" y1="3" x2="14" y2="21"></line>"#;
-
-const HAZE: &'static str = r#"
-<path d="m5.2 6.2 1.4 1.4"></path>
-<path d="M2 13h2"></path>
-<path d="M20 13h2"></path>
-<path d="m17.4 7.6 1.4-1.4"></path>
-<path d="M22 17H2"></path>
-<path d="M22 21H2"></path>
-<path d="M16 13a4 4 0 0 0-8 0"></path>
-<path d="M12 5V2.5"></path>"#;
-
-const HDMI_PORT: &'static str = r#"
-<path d="M22 9a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1l2 2h12l2-2h1a1 1 0 0 0 1-1Z"></path>
-<path d="M7.5 12h9"></path>"#;
-
-const HEADING_1: &'static str = r#"
-<path d="M4 12h8"></path>
-<path d="M4 18V6"></path>
-<path d="M12 18V6"></path>
-<path d="m17 12 3-2v8"></path>"#;
-
-const HEADING_2: &'static str = r#"
-<path d="M4 12h8"></path>
-<path d="M4 18V6"></path>
-<path d="M12 18V6"></path>
-<path d="M21 18h-4c0-4 4-3 4-6 0-1.5-2-2.5-4-1"></path>"#;
-
-const HEADING_3: &'static str = r#"
-<path d="M4 12h8"></path>
-<path d="M4 18V6"></path>
-<path d="M12 18V6"></path>
-<path d="M17.5 10.5c1.7-1 3.5 0 3.5 1.5a2 2 0 0 1-2 2"></path>
-<path d="M17 17.5c2 1.5 4 .3 4-1.5a2 2 0 0 0-2-2"></path>"#;
-
-const HEADING_4: &'static str = r#"
-<path d="M4 12h8"></path>
-<path d="M4 18V6"></path>
-<path d="M12 18V6"></path>
-<path d="M17 10v4h4"></path>
-<path d="M21 10v8"></path>"#;
-
-const HEADING_5: &'static str = r#"
-<path d="M4 12h8"></path>
-<path d="M4 18V6"></path>
-<path d="M12 18V6"></path>
-<path d="M17 13v-3h4"></path>
-<path d="M17 17.7c.4.2.8.3 1.3.3 1.5 0 2.7-1.1 2.7-2.5S19.8 13 18.3 13H17"></path>"#;
-
-const HEADING_6: &'static str = r#"
-<path d="M4 12h8"></path>
-<path d="M4 18V6"></path>
-<path d="M12 18V6"></path>
-<circle cx="19" r="2" cy="16"></circle>
-<path d="M20 10c-2 2-3 3.5-3 6"></path>"#;
-
-const HEADING: &'static str = r#"
-<path d="M6 12h12"></path>
-<path d="M6 20V4"></path>
-<path d="M18 20V4"></path>"#;
-
-const HEADPHONES: &'static str = r#"
-<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>"#;
-
-const HEART_CRACK: &'static str = r#"
-<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
-<path d="m12 13-1-1 2-2-3-3 2-2"></path>"#;
-
-const HEART_HANDSHAKE: &'static str = r#"
-<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
-<path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path>
-<path d="m18 15-2-2"></path>
-<path d="m15 18-2-2"></path>"#;
-
-const HEART_OFF: &'static str = r#"
-<line y1="2" x2="22" x1="2" y2="22"></line>
-<path d="M16.5 16.5 12 21l-7-7c-1.5-1.45-3-3.2-3-5.5a5.5 5.5 0 0 1 2.14-4.35"></path>
-<path d="M8.76 3.1c1.15.22 2.13.78 3.24 1.9 1.5-1.5 2.74-2 4.5-2A5.5 5.5 0 0 1 22 8.5c0 2.12-1.3 3.78-2.67 5.17"></path>"#;
-
-const HEART_PULSE: &'static str = r#"
-<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
-<path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"></path>"#;
-
-const HEART: &'static str = r#"
-<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>"#;
-
-const HELP_CIRCLE: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-<path d="M12 17h.01"></path>"#;
-
-const HELPING_HAND: &'static str = r#"
-<path d="m3 15 5.12-5.12A3 3 0 0 1 10.24 9H13a2 2 0 1 1 0 4h-2.5m4-.68 4.17-4.89a1.88 1.88 0 0 1 2.92 2.36l-4.2 5.94A3 3 0 0 1 14.96 17H9.83a2 2 0 0 0-1.42.59L7 19"></path>
-<path d="m2 14 6 6"></path>"#;
-
-const HEXAGON: &'static str = r#"
-<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>"#;
-
-const HIGHLIGHTER: &'static str = r#"
-<path d="m9 11-6 6v3h9l3-3"></path>
-<path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"></path>"#;
-
-const HISTORY: &'static str = r#"
-<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-<path d="M3 3v5h5"></path>
-<path d="M12 7v5l4 2"></path>"#;
-
-const HOME: &'static str = r#"
-<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-<polyline points="9 22 9 12 15 12 15 22"></polyline>"#;
-
-const HOP_OFF: &'static str = r#"
-<path d="M17.5 5.5C19 7 20.5 9 21 11c-1.323.265-2.646.39-4.118.226"></path>
-<path d="M5.5 17.5C7 19 9 20.5 11 21c.5-2.5.5-5-1-8.5"></path>
-<path d="M17.5 17.5c-2.5 0-4 0-6-1"></path>
-<path d="M20 11.5c1 1.5 2 3.5 2 4.5"></path>
-<path d="M11.5 20c1.5 1 3.5 2 4.5 2 .5-1.5 0-3-.5-4.5"></path>
-<path d="M22 22c-2 0-3.5-.5-5.5-1.5"></path>
-<path d="M4.783 4.782C1.073 8.492 1 14.5 5 18c1-1 2-4.5 1.5-6.5 1.5 1 4 1 5.5.5M8.227 2.57C11.578 1.335 15.453 2.089 18 5c-.88.88-3.7 1.761-5.726 1.618"></path>
-<line x2="22" y2="22" x1="2" y1="2"></line>"#;
-
-const HOP: &'static str = r#"
-<path d="M17.5 5.5C19 7 20.5 9 21 11c-2.5.5-5 .5-8.5-1"></path>
-<path d="M5.5 17.5C7 19 9 20.5 11 21c.5-2.5.5-5-1-8.5"></path>
-<path d="M16.5 11.5c1 2 1 3.5 1 6-2.5 0-4 0-6-1"></path>
-<path d="M20 11.5c1 1.5 2 3.5 2 4.5-1.5.5-3 0-4.5-.5"></path>
-<path d="M11.5 20c1.5 1 3.5 2 4.5 2 .5-1.5 0-3-.5-4.5"></path>
-<path d="M20.5 16.5c1 2 1.5 3.5 1.5 5.5-2 0-3.5-.5-5.5-1.5"></path>
-<path d="M4.783 4.782C8.493 1.072 14.5 1 18 5c-1 1-4.5 2-6.5 1.5 1 1.5 1 4 .5 5.5-1.5.5-4 .5-5.5-.5C7 13.5 6 17 5 18c-4-3.5-3.927-9.508-.217-13.218Z"></path>
-<path d="M4.5 4.5 3 3c-.184-.185-.184-.816 0-1"></path>"#;
-
-const HOTEL: &'static str = r#"
-<path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"></path>
-<path d="m9 16 .348-.24c1.465-1.013 3.84-1.013 5.304 0L15 16"></path>
-<path d="M8 7h.01"></path>
-<path d="M16 7h.01"></path>
-<path d="M12 7h.01"></path>
-<path d="M12 11h.01"></path>
-<path d="M16 11h.01"></path>
-<path d="M8 11h.01"></path>
-<path d="M10 22v-6.5m4 0V22"></path>"#;
-
-const HOURGLASS: &'static str = r#"
-<path d="M5 22h14"></path>
-<path d="M5 2h14"></path>
-<path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path>
-<path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path>"#;
-
-const ICE_CREAM_2: &'static str = r#"
-<path d="M12 17c5 0 8-2.69 8-6H4c0 3.31 3 6 8 6Zm-4 4h8m-4-3v3M5.14 11a3.5 3.5 0 1 1 6.71 0"></path>
-<path d="M12.14 11a3.5 3.5 0 1 1 6.71 0"></path>
-<path d="M15.5 6.5a3.5 3.5 0 1 0-7 0"></path>"#;
-
-const ICE_CREAM: &'static str = r#"
-<path d="m7 11 4.08 10.35a1 1 0 0 0 1.84 0L17 11"></path>
-<path d="M17 7A5 5 0 0 0 7 7"></path>
-<path d="M17 7a2 2 0 0 1 0 4H7a2 2 0 0 1 0-4"></path>"#;
-
-const IMAGE_MINUS: &'static str = r#"
-<path d="M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
-<line x1="16" y2="5" y1="5" x2="22"></line>
-<circle cx="9" cy="9" r="2"></circle>
-<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>"#;
-
-const IMAGE_OFF: &'static str = r#"
-<line y1="2" x2="22" x1="2" y2="22"></line>
-<path d="M10.41 10.41a2 2 0 1 1-2.83-2.83"></path>
-<line y2="21" y1="13.5" x1="13.5" x2="6"></line>
-<line x1="18" x2="21" y1="12" y2="15"></line>
-<path d="M3.59 3.59A1.99 1.99 0 0 0 3 5v14a2 2 0 0 0 2 2h14c.55 0 1.052-.22 1.41-.59"></path>
-<path d="M21 15V5a2 2 0 0 0-2-2H9"></path>"#;
-
-const IMAGE_PLUS: &'static str = r#"
-<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
-<line x1="16" x2="22" y1="5" y2="5"></line>
-<line x2="19" y2="8" x1="19" y1="2"></line>
-<circle cy="9" r="2" cx="9"></circle>
-<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>"#;
-
-const IMAGE: &'static str = r#"
-<rect height="18" width="18" y="3" rx="2" x="3" ry="2"></rect>
-<circle r="2" cx="9" cy="9"></circle>
-<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>"#;
-
-const IMPORT: &'static str = r#"
-<path d="M12 3v12"></path>
-<path d="m8 11 4 4 4-4"></path>
-<path d="M8 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4"></path>"#;
-
-const INBOX: &'static str = r#"
-<polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-<path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>"#;
-
-const INDENT: &'static str = r#"
-<polyline points="3 8 7 12 3 16"></polyline>
-<line x2="11" x1="21" y2="12" y1="12"></line>
-<line x2="11" y2="6" x1="21" y1="6"></line>
-<line x1="21" y1="18" y2="18" x2="11"></line>"#;
-
-const INDIAN_RUPEE: &'static str = r#"
-<path d="M6 3h12"></path>
-<path d="M6 8h12"></path>
-<path d="m6 13 8.5 8"></path>
-<path d="M6 13h3"></path>
-<path d="M9 13c6.667 0 6.667-10 0-10"></path>"#;
-
-const INFINITY: &'static str = r#"
-<path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"></path>"#;
-
-const INFO: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M12 16v-4"></path>
-<path d="M12 8h.01"></path>"#;
-
-const INSTAGRAM: &'static str = r#"
-<rect ry="5" width="20" height="20" x="2" y="2" rx="5"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-<line x2="17.51" y2="6.5" x1="17.5" y1="6.5"></line>"#;
-
-const ITALIC: &'static str = r#"
-<line y2="4" x1="19" x2="10" y1="4"></line>
-<line x2="5" y1="20" y2="20" x1="14"></line>
-<line x1="15" y2="20" x2="9" y1="4"></line>"#;
-
-const ITERATION_CCW: &'static str = r#"
-<path d="M20 10c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8h8"></path>
-<polyline points="16 14 20 18 16 22"></polyline>"#;
-
-const ITERATION_CW: &'static str = r#"
-<path d="M4 10c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8H4"></path>
-<polyline points="8 22 4 18 8 14"></polyline>"#;
-
-const JAPANESE_YEN: &'static str = r#"
-<path d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3"></path>
-<path d="M6 15h12"></path>
-<path d="M6 11h12"></path>"#;
-
-const JOYSTICK: &'static str = r#"
-<path d="M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2Z"></path>
-<path d="M6 15v-2"></path>
-<path d="M12 15V9"></path>
-<circle cy="6" cx="12" r="3"></circle>"#;
-
-const KANBAN_SQUARE_DASHED: &'static str = r#"
-<path d="M8 7v7"></path>
-<path d="M12 7v4"></path>
-<path d="M16 7v9"></path>
-<path d="M5 3a2 2 0 0 0-2 2"></path>
-<path d="M9 3h1"></path>
-<path d="M14 3h1"></path>
-<path d="M19 3a2 2 0 0 1 2 2"></path>
-<path d="M21 9v1"></path>
-<path d="M21 14v1"></path>
-<path d="M21 19a2 2 0 0 1-2 2"></path>
-<path d="M14 21h1"></path>
-<path d="M9 21h1"></path>
-<path d="M5 21a2 2 0 0 1-2-2"></path>
-<path d="M3 14v1"></path>
-<path d="M3 9v1"></path>"#;
-
-const KANBAN_SQUARE: &'static str = r#"
-<rect x="3" width="18" rx="2" height="18" y="3"></rect>
-<path d="M8 7v7"></path>
-<path d="M12 7v4"></path>
-<path d="M16 7v9"></path>"#;
-
-const KANBAN: &'static str = r#"
-<path d="M6 5v11"></path>
-<path d="M12 5v6"></path>
-<path d="M18 5v14"></path>"#;
-
-const KEY_ROUND: &'static str = r#"
-<path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z"></path>
-<circle r=".5" cx="16.5" cy="7.5"></circle>"#;
-
-const KEY_SQUARE: &'static str = r#"
-<path d="M12.4 2.7c.9-.9 2.5-.9 3.4 0l5.5 5.5c.9.9.9 2.5 0 3.4l-3.7 3.7c-.9.9-2.5.9-3.4 0L8.7 9.8c-.9-.9-.9-2.5 0-3.4Z"></path>
-<path d="m14 7 3 3"></path>
-<path d="M9.4 10.6 2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4"></path>"#;
-
-const KEY: &'static str = r#"
-<circle r="5.5" cy="15.5" cx="7.5"></circle>
-<path d="m21 2-9.6 9.6"></path>
-<path d="m15.5 7.5 3 3L22 7l-3-3"></path>"#;
-
-const KEYBOARD: &'static str = r#"
-<rect width="20" y="4" rx="2" height="16" x="2" ry="2"></rect>
-<path d="M6 8h.001"></path>
-<path d="M10 8h.001"></path>
-<path d="M14 8h.001"></path>
-<path d="M18 8h.001"></path>
-<path d="M8 12h.001"></path>
-<path d="M12 12h.001"></path>
-<path d="M16 12h.001"></path>
-<path d="M7 16h10"></path>"#;
-
-const LAMP_CEILING: &'static str = r#"
-<path d="M12 2v5"></path>
-<path d="M6 7h12l4 9H2l4-9Z"></path>
-<path d="M9.17 16a3 3 0 1 0 5.66 0"></path>"#;
-
-const LAMP_DESK: &'static str = r#"
-<path d="m14 5-3 3 2 7 8-8-7-2Z"></path>
-<path d="m14 5-3 3-3-3 3-3 3 3Z"></path>
-<path d="M9.5 6.5 4 12l3 6"></path>
-<path d="M3 22v-2c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2H3Z"></path>"#;
-
-const LAMP_FLOOR: &'static str = r#"
-<path d="M9 2h6l3 7H6l3-7Z"></path>
-<path d="M12 9v13"></path>
-<path d="M9 22h6"></path>"#;
-
-const LAMP_WALL_DOWN: &'static str = r#"
-<path d="M11 13h6l3 7H8l3-7Z"></path>
-<path d="M14 13V8a2 2 0 0 0-2-2H8"></path>
-<path d="M4 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4v6Z"></path>"#;
-
-const LAMP_WALL_UP: &'static str = r#"
-<path d="M11 4h6l3 7H8l3-7Z"></path>
-<path d="M14 11v5a2 2 0 0 1-2 2H8"></path>
-<path d="M4 15h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H4v-6Z"></path>"#;
-
-const LAMP: &'static str = r#"
-<path d="M8 2h8l4 10H4L8 2Z"></path>
-<path d="M12 12v6"></path>
-<path d="M8 22v-2c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2H8Z"></path>"#;
-
-const LANDMARK: &'static str = r#"
-<line y1="22" y2="22" x1="3" x2="21"></line>
-<line x2="6" y1="18" x1="6" y2="11"></line>
-<line x2="10" x1="10" y2="11" y1="18"></line>
-<line x1="14" y1="18" y2="11" x2="14"></line>
-<line x2="18" x1="18" y2="11" y1="18"></line>
-<polygon points="12 2 20 7 4 7"></polygon>"#;
-
-const LANGUAGES: &'static str = r#"
-<path d="m5 8 6 6"></path>
-<path d="m4 14 6-6 2-3"></path>
-<path d="M2 5h12"></path>
-<path d="M7 2h1"></path>
-<path d="m22 22-5-10-5 10"></path>
-<path d="M14 18h6"></path>"#;
-
-const LAPTOP_2: &'static str = r#"
-<rect y="4" height="12" width="18" x="3" rx="2" ry="2"></rect>
-<line x1="2" y1="20" y2="20" x2="22"></line>"#;
-
-const LAPTOP: &'static str = r#"
-<path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path>"#;
-
-const LASSO_SELECT: &'static str = r#"
-<path d="M7 22a5 5 0 0 1-2-4"></path>
-<path d="M7 16.93c.96.43 1.96.74 2.99.91"></path>
-<path d="M3.34 14A6.8 6.8 0 0 1 2 10c0-4.42 4.48-8 10-8s10 3.58 10 8a7.19 7.19 0 0 1-.33 2"></path>
-<path d="M5 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
-<path d="M14.33 22h-.09a.35.35 0 0 1-.24-.32v-10a.34.34 0 0 1 .33-.34c.08 0 .15.03.21.08l7.34 6a.33.33 0 0 1-.21.59h-4.49l-2.57 3.85a.35.35 0 0 1-.28.14v0z"></path>"#;
-
-const LASSO: &'static str = r#"
-<path d="M7 22a5 5 0 0 1-2-4"></path>
-<path d="M3.3 14A6.8 6.8 0 0 1 2 10c0-4.4 4.5-8 10-8s10 3.6 10 8-4.5 8-10 8a12 12 0 0 1-5-1"></path>
-<path d="M5 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>"#;
-
-const LAUGH: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<path d="M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z"></path>
-<line x1="9" y2="9" y1="9" x2="9.01"></line>
-<line x2="15.01" y1="9" x1="15" y2="9"></line>"#;
-
-const LAYERS: &'static str = r#"
-<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-<polyline points="2 17 12 22 22 17"></polyline>
-<polyline points="2 12 12 17 22 12"></polyline>"#;
-
-const LAYOUT_DASHBOARD: &'static str = r#"
-<rect rx="1" width="7" height="9" x="3" y="3"></rect>
-<rect height="5" rx="1" y="3" x="14" width="7"></rect>
-<rect width="7" height="9" x="14" rx="1" y="12"></rect>
-<rect y="16" x="3" rx="1" width="7" height="5"></rect>"#;
-
-const LAYOUT_GRID: &'static str = r#"
-<rect y="3" height="7" x="3" width="7" rx="1"></rect>
-<rect y="3" rx="1" height="7" width="7" x="14"></rect>
-<rect width="7" height="7" x="14" y="14" rx="1"></rect>
-<rect x="3" y="14" width="7" height="7" rx="1"></rect>"#;
-
-const LAYOUT_LIST: &'static str = r#"
-<rect height="7" width="7" y="3" rx="1" x="3"></rect>
-<rect width="7" height="7" x="3" rx="1" y="14"></rect>
-<path d="M14 4h7"></path>
-<path d="M14 9h7"></path>
-<path d="M14 15h7"></path>
-<path d="M14 20h7"></path>"#;
-
-const LAYOUT_PANEL_LEFT: &'static str = r#"
-<rect height="18" rx="1" x="3" width="7" y="3"></rect>
-<rect rx="1" y="3" x="14" height="7" width="7"></rect>
-<rect height="7" x="14" y="14" rx="1" width="7"></rect>"#;
-
-const LAYOUT_PANEL_TOP: &'static str = r#"
-<rect height="7" rx="1" width="18" x="3" y="3"></rect>
-<rect width="7" y="14" x="3" rx="1" height="7"></rect>
-<rect height="7" y="14" width="7" rx="1" x="14"></rect>"#;
-
-const LAYOUT_TEMPLATE: &'static str = r#"
-<rect y="3" width="18" rx="1" height="7" x="3"></rect>
-<rect width="9" y="14" height="7" x="3" rx="1"></rect>
-<rect width="5" y="14" rx="1" x="16" height="7"></rect>"#;
-
-const LAYOUT: &'static str = r#"
-<rect rx="2" width="18" ry="2" height="18" y="3" x="3"></rect>
-<line x1="3" y1="9" y2="9" x2="21"></line>
-<line y2="9" x2="9" x1="9" y1="21"></line>"#;
-
-const LEAF: &'static str = r#"
-<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-<path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>"#;
-
-const LEAFY_GREEN: &'static str = r#"
-<path d="M2 22c1.25-.987 2.27-1.975 3.9-2.2a5.56 5.56 0 0 1 3.8 1.5 4 4 0 0 0 6.187-2.353 3.5 3.5 0 0 0 3.69-5.116A3.5 3.5 0 0 0 20.95 8 3.5 3.5 0 1 0 16 3.05a3.5 3.5 0 0 0-5.831 1.373 3.5 3.5 0 0 0-5.116 3.69 4 4 0 0 0-2.348 6.155C3.499 15.42 4.409 16.712 4.2 18.1 3.926 19.743 3.014 20.732 2 22"></path>
-<path d="M2 22 17 7"></path>"#;
-
-const LIBRARY: &'static str = r#"
-<path d="m16 6 4 14"></path>
-<path d="M12 6v14"></path>
-<path d="M8 8v12"></path>
-<path d="M4 4v16"></path>"#;
-
-const LIFE_BUOY: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="m4.93 4.93 4.24 4.24"></path>
-<path d="m14.83 9.17 4.24-4.24"></path>
-<path d="m14.83 14.83 4.24 4.24"></path>
-<path d="m9.17 14.83-4.24 4.24"></path>
-<circle r="4" cx="12" cy="12"></circle>"#;
-
-const LIGATURE: &'static str = r#"
-<path d="M8 20V8c0-2.2 1.8-4 4-4 1.5 0 2.8.8 3.5 2"></path>
-<path d="M6 12h4"></path>
-<path d="M14 12h2v8"></path>
-<path d="M6 20h4"></path>
-<path d="M14 20h4"></path>"#;
-
-const LIGHTBULB_OFF: &'static str = r#"
-<path d="M16.8 11.2c.8-.9 1.2-2 1.2-3.2a6 6 0 0 0-9.3-5"></path>
-<path d="m2 2 20 20"></path>
-<path d="M6.3 6.3a4.67 4.67 0 0 0 1.2 5.2c.7.7 1.3 1.5 1.5 2.5"></path>
-<path d="M9 18h6"></path>
-<path d="M10 22h4"></path>"#;
-
-const LIGHTBULB: &'static str = r#"
-<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
-<path d="M9 18h6"></path>
-<path d="M10 22h4"></path>"#;
-
-const LINE_CHART: &'static str = r#"
-<path d="M3 3v18h18"></path>
-<path d="m19 9-5 5-4-4-3 3"></path>"#;
-
-const LINK_2_OFF: &'static str = r#"
-<path d="M9 17H7A5 5 0 0 1 7 7"></path>
-<path d="M15 7h2a5 5 0 0 1 4 8"></path>
-<line x2="12" x1="8" y1="12" y2="12"></line>
-<line x1="2" x2="22" y1="2" y2="22"></line>"#;
-
-const LINK_2: &'static str = r#"
-<path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
-<path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-<line x1="8" x2="16" y2="12" y1="12"></line>"#;
-
-const LINK: &'static str = r#"
-<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>"#;
-
-const LINKEDIN: &'static str = r#"
-<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-<rect y="9" width="4" x="2" height="12"></rect>
-<circle r="2" cx="4" cy="4"></circle>"#;
-
-const LIST_CHECKS: &'static str = r#"
-<path d="m3 17 2 2 4-4"></path>
-<path d="m3 7 2 2 4-4"></path>
-<path d="M13 6h8"></path>
-<path d="M13 12h8"></path>
-<path d="M13 18h8"></path>"#;
-
-const LIST_END: &'static str = r#"
-<path d="M16 12H3"></path>
-<path d="M16 6H3"></path>
-<path d="M10 18H3"></path>
-<path d="M21 6v10a2 2 0 0 1-2 2h-5"></path>
-<path d="m16 16-2 2 2 2"></path>"#;
-
-const LIST_FILTER: &'static str = r#"
-<path d="M3 6h18"></path>
-<path d="M7 12h10"></path>
-<path d="M10 18h4"></path>"#;
-
-const LIST_MINUS: &'static str = r#"
-<path d="M11 12H3"></path>
-<path d="M16 6H3"></path>
-<path d="M16 18H3"></path>
-<path d="M21 12h-6"></path>"#;
-
-const LIST_MUSIC: &'static str = r#"
-<path d="M21 15V6"></path>
-<path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
-<path d="M12 12H3"></path>
-<path d="M16 6H3"></path>
-<path d="M12 18H3"></path>"#;
-
-const LIST_ORDERED: &'static str = r#"
-<line x2="21" y1="6" y2="6" x1="10"></line>
-<line y2="12" x2="21" y1="12" x1="10"></line>
-<line x1="10" y1="18" y2="18" x2="21"></line>
-<path d="M4 6h1v4"></path>
-<path d="M4 10h2"></path>
-<path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"></path>"#;
-
-const LIST_PLUS: &'static str = r#"
-<path d="M11 12H3"></path>
-<path d="M16 6H3"></path>
-<path d="M16 18H3"></path>
-<path d="M18 9v6"></path>
-<path d="M21 12h-6"></path>"#;
-
-const LIST_RESTART: &'static str = r#"
-<path d="M21 6H3"></path>
-<path d="M7 12H3"></path>
-<path d="M7 18H3"></path>
-<path d="M12 18a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L11 14"></path>
-<path d="M11 10v4h4"></path>"#;
-
-const LIST_START: &'static str = r#"
-<path d="M16 12H3"></path>
-<path d="M16 18H3"></path>
-<path d="M10 6H3"></path>
-<path d="M21 18V8a2 2 0 0 0-2-2h-5"></path>
-<path d="m16 8-2-2 2-2"></path>"#;
-
-const LIST_TODO: &'static str = r#"
-<rect x="3" y="5" height="6" rx="1" width="6"></rect>
-<path d="m3 17 2 2 4-4"></path>
-<path d="M13 6h8"></path>
-<path d="M13 12h8"></path>
-<path d="M13 18h8"></path>"#;
-
-const LIST_TREE: &'static str = r#"
-<path d="M21 12h-8"></path>
-<path d="M21 6H8"></path>
-<path d="M21 18h-8"></path>
-<path d="M3 6v4c0 1.1.9 2 2 2h3"></path>
-<path d="M3 10v6c0 1.1.9 2 2 2h3"></path>"#;
-
-const LIST_VIDEO: &'static str = r#"
-<path d="M12 12H3"></path>
-<path d="M16 6H3"></path>
-<path d="M12 18H3"></path>
-<path d="m16 12 5 3-5 3v-6Z"></path>"#;
-
-const LIST_X: &'static str = r#"
-<path d="M11 12H3"></path>
-<path d="M16 6H3"></path>
-<path d="M16 18H3"></path>
-<path d="m19 10-4 4"></path>
-<path d="m15 10 4 4"></path>"#;
-
-const LIST: &'static str = r#"
-<line x1="8" x2="21" y1="6" y2="6"></line>
-<line y1="12" y2="12" x2="21" x1="8"></line>
-<line x1="8" x2="21" y1="18" y2="18"></line>
-<line y2="6" x1="3" y1="6" x2="3.01"></line>
-<line x2="3.01" y1="12" x1="3" y2="12"></line>
-<line y1="18" x1="3" x2="3.01" y2="18"></line>"#;
-
-const LOADER_2: &'static str = r#"
-<path d="M21 12a9 9 0 1 1-6.219-8.56"></path>"#;
-
-const LOADER: &'static str = r#"
-<line x1="12" y1="2" y2="6" x2="12"></line>
-<line x2="12" x1="12" y1="18" y2="22"></line>
-<line y1="4.93" x2="7.76" x1="4.93" y2="7.76"></line>
-<line y1="16.24" x2="19.07" x1="16.24" y2="19.07"></line>
-<line y2="12" y1="12" x1="2" x2="6"></line>
-<line y1="12" y2="12" x2="22" x1="18"></line>
-<line y2="16.24" x1="4.93" y1="19.07" x2="7.76"></line>
-<line y1="7.76" x1="16.24" y2="4.93" x2="19.07"></line>"#;
-
-const LOCATE_FIXED: &'static str = r#"
-<line y1="12" y2="12" x2="5" x1="2"></line>
-<line y1="12" x2="22" y2="12" x1="19"></line>
-<line y2="5" x2="12" x1="12" y1="2"></line>
-<line x1="12" y1="19" y2="22" x2="12"></line>
-<circle cx="12" cy="12" r="7"></circle>
-<circle cy="12" cx="12" r="3"></circle>"#;
-
-const LOCATE_OFF: &'static str = r#"
-<line y2="12" x2="5" y1="12" x1="2"></line>
-<line y2="12" x1="19" x2="22" y1="12"></line>
-<line x1="12" x2="12" y1="2" y2="5"></line>
-<line x1="12" y1="19" y2="22" x2="12"></line>
-<path d="M7.11 7.11C5.83 8.39 5 10.1 5 12c0 3.87 3.13 7 7 7 1.9 0 3.61-.83 4.89-2.11"></path>
-<path d="M18.71 13.96c.19-.63.29-1.29.29-1.96 0-3.87-3.13-7-7-7-.67 0-1.33.1-1.96.29"></path>
-<line y1="2" x2="22" y2="22" x1="2"></line>"#;
-
-const LOCATE: &'static str = r#"
-<line x2="5" x1="2" y2="12" y1="12"></line>
-<line x1="19" x2="22" y2="12" y1="12"></line>
-<line x2="12" y1="2" x1="12" y2="5"></line>
-<line x1="12" y1="19" x2="12" y2="22"></line>
-<circle cy="12" r="7" cx="12"></circle>"#;
-
-const LOCK: &'static str = r#"
-<rect x="3" height="11" width="18" y="11" ry="2" rx="2"></rect>
-<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>"#;
-
-const LOG_IN: &'static str = r#"
-<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-<polyline points="10 17 15 12 10 7"></polyline>
-<line x2="3" y2="12" x1="15" y1="12"></line>"#;
-
-const LOG_OUT: &'static str = r#"
-<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-<polyline points="16 17 21 12 16 7"></polyline>
-<line y1="12" x2="9" x1="21" y2="12"></line>"#;
-
-const LOLLIPOP: &'static str = r#"
-<circle cx="11" r="8" cy="11"></circle>
-<path d="m21 21-4.3-4.3"></path>
-<path d="M11 11a2 2 0 0 0 4 0 4 4 0 0 0-8 0 6 6 0 0 0 12 0"></path>"#;
-
-const LUGGAGE: &'static str = r#"
-<path d="M6 20h0a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h0"></path>
-<path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14"></path>
-<path d="M10 20h4"></path>
-<circle cy="20" r="2" cx="16"></circle>
-<circle cy="20" r="2" cx="8"></circle>"#;
-
-const M_SQUARE: &'static str = r#"
-<rect height="18" y="3" x="3" rx="2" width="18"></rect>
-<path d="M8 16V8l4 4 4-4v8"></path>"#;
-
-const MAGNET: &'static str = r#"
-<path d="m6 15-4-4 6.75-6.77a7.79 7.79 0 0 1 11 11L13 22l-4-4 6.39-6.36a2.14 2.14 0 0 0-3-3L6 15"></path>
-<path d="m5 8 4 4"></path>
-<path d="m12 15 4 4"></path>"#;
-
-const MAIL_CHECK: &'static str = r#"
-<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="m16 19 2 2 4-4"></path>"#;
-
-const MAIL_MINUS: &'static str = r#"
-<path d="M22 15V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="M16 19h6"></path>"#;
-
-const MAIL_OPEN: &'static str = r#"
-<path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"></path>
-<path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"></path>"#;
-
-const MAIL_PLUS: &'static str = r#"
-<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="M19 16v6"></path>
-<path d="M16 19h6"></path>"#;
-
-const MAIL_QUESTION: &'static str = r#"
-<path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="M18 15.28c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3 0 1.3-2 2-2 2"></path>
-<path d="M20 22v.01"></path>"#;
-
-const MAIL_SEARCH: &'static str = r#"
-<path d="M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6v0Z"></path>
-<circle cx="18" cy="18" r="3"></circle>
-<path d="m22 22-1.5-1.5"></path>"#;
-
-const MAIL_WARNING: &'static str = r#"
-<path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="M20 14v4"></path>
-<path d="M20 22v.01"></path>"#;
-
-const MAIL_X: &'static str = r#"
-<path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9"></path>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-<path d="m17 17 4 4"></path>
-<path d="m21 17-4 4"></path>"#;
-
-const MAIL: &'static str = r#"
-<rect width="20" height="16" rx="2" x="2" y="4"></rect>
-<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>"#;
-
-const MAILBOX: &'static str = r#"
-<path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"></path>
-<polyline points="15,9 18,9 18,11"></polyline>
-<path d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2v0"></path>
-<line y1="10" x2="7" x1="6" y2="10"></line>"#;
-
-const MAILS: &'static str = r#"
-<rect height="13" x="6" width="16" y="4" rx="2"></rect>
-<path d="m22 7-7.1 3.78c-.57.3-1.23.3-1.8 0L6 7"></path>
-<path d="M2 8v11c0 1.1.9 2 2 2h14"></path>"#;
-
-const MAP_PIN_OFF: &'static str = r#"
-<path d="M5.43 5.43A8.06 8.06 0 0 0 4 10c0 6 8 12 8 12a29.94 29.94 0 0 0 5-5"></path>
-<path d="M19.18 13.52A8.66 8.66 0 0 0 20 10a8 8 0 0 0-8-8 7.88 7.88 0 0 0-3.52.82"></path>
-<path d="M9.13 9.13A2.78 2.78 0 0 0 9 10a3 3 0 0 0 3 3 2.78 2.78 0 0 0 .87-.13"></path>
-<path d="M14.9 9.25a3 3 0 0 0-2.15-2.16"></path>
-<line x1="2" y1="2" x2="22" y2="22"></line>"#;
-
-const MAP_PIN: &'static str = r#"
-<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-<circle cx="12" cy="10" r="3"></circle>"#;
-
-const MAP: &'static str = r#"
-<polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
-<line x1="9" x2="9" y1="3" y2="18"></line>
-<line x1="15" x2="15" y1="6" y2="21"></line>"#;
-
-const MARTINI: &'static str = r#"
-<path d="M8 22h8"></path>
-<path d="M12 11v11"></path>
-<path d="m19 3-7 8-7-8Z"></path>"#;
-
-const MAXIMIZE_2: &'static str = r#"
-<polyline points="15 3 21 3 21 9"></polyline>
-<polyline points="9 21 3 21 3 15"></polyline>
-<line y1="3" y2="10" x1="21" x2="14"></line>
-<line y2="14" x2="10" y1="21" x1="3"></line>"#;
-
-const MAXIMIZE: &'static str = r#"
-<path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
-<path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
-<path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
-<path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>"#;
-
-const MEDAL: &'static str = r#"
-<path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"></path>
-<path d="M11 12 5.12 2.2"></path>
-<path d="m13 12 5.88-9.8"></path>
-<path d="M8 7h8"></path>
-<circle r="5" cy="17" cx="12"></circle>
-<path d="M12 18v-2h-.5"></path>"#;
-
-const MEGAPHONE_OFF: &'static str = r#"
-<path d="M9.26 9.26 3 11v3l14.14 3.14"></path>
-<path d="M21 15.34V6l-7.31 2.03"></path>
-<path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
-<line x1="2" x2="22" y1="2" y2="22"></line>"#;
-
-const MEGAPHONE: &'static str = r#"
-<path d="m3 11 18-5v12L3 14v-3z"></path>
-<path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>"#;
-
-const MEH: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<line x1="8" y1="15" x2="16" y2="15"></line>
-<line x2="9.01" x1="9" y1="9" y2="9"></line>
-<line y2="9" x1="15" x2="15.01" y1="9"></line>"#;
-
-const MEMORY_STICK: &'static str = r#"
-<path d="M6 19v-3"></path>
-<path d="M10 19v-3"></path>
-<path d="M14 19v-3"></path>
-<path d="M18 19v-3"></path>
-<path d="M8 11V9"></path>
-<path d="M16 11V9"></path>
-<path d="M12 11V9"></path>
-<path d="M2 15h20"></path>
-<path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z"></path>"#;
-
-const MENU_SQUARE: &'static str = r#"
-<rect rx="2" y="3" width="18" height="18" x="3"></rect>
-<path d="M7 8h10"></path>
-<path d="M7 12h10"></path>
-<path d="M7 16h10"></path>"#;
-
-const MENU: &'static str = r#"
-<line x2="20" y2="12" x1="4" y1="12"></line>
-<line x1="4" y1="6" y2="6" x2="20"></line>
-<line x2="20" y2="18" x1="4" y1="18"></line>"#;
-
-const MERGE: &'static str = r#"
-<path d="m8 6 4-4 4 4"></path>
-<path d="M12 2v10.3a4 4 0 0 1-1.172 2.872L4 22"></path>
-<path d="m20 22-5-5"></path>"#;
-
-const MESSAGE_CIRCLE: &'static str = r#"
-<path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>"#;
-
-const MESSAGE_SQUARE_DASHED: &'static str = r#"
-<path d="M3 6V5c0-1.1.9-2 2-2h2"></path>
-<path d="M11 3h3"></path>
-<path d="M18 3h1c1.1 0 2 .9 2 2"></path>
-<path d="M21 9v2"></path>
-<path d="M21 15c0 1.1-.9 2-2 2h-1"></path>
-<path d="M14 17h-3"></path>
-<path d="m7 17-4 4v-5"></path>
-<path d="M3 12v-2"></path>"#;
-
-const MESSAGE_SQUARE_PLUS: &'static str = r#"
-<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-<line x2="15" y1="10" x1="9" y2="10"></line>
-<line x1="12" y2="13" x2="12" y1="7"></line>"#;
-
-const MESSAGE_SQUARE: &'static str = r#"
-<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>"#;
-
-const MESSAGES_SQUARE: &'static str = r#"
-<path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path>
-<path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>"#;
-
-const MIC_2: &'static str = r#"
-<path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12"></path>
-<circle cx="17" r="5" cy="7"></circle>"#;
-
-const MIC_OFF: &'static str = r#"
-<line y2="22" y1="2" x1="2" x2="22"></line>
-<path d="M18.89 13.23A7.12 7.12 0 0 0 19 12v-2"></path>
-<path d="M5 10v2a7 7 0 0 0 12 5"></path>
-<path d="M15 9.34V5a3 3 0 0 0-5.68-1.33"></path>
-<path d="M9 9v3a3 3 0 0 0 5.12 2.12"></path>
-<line y2="22" x1="12" x2="12" y1="19"></line>"#;
-
-const MIC: &'static str = r#"
-<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
-<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-<line x2="12" y2="22" y1="19" x1="12"></line>"#;
-
-const MICROSCOPE: &'static str = r#"
-<path d="M6 18h8"></path>
-<path d="M3 22h18"></path>
-<path d="M14 22a7 7 0 1 0 0-14h-1"></path>
-<path d="M9 14h2"></path>
-<path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path>
-<path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path>"#;
-
-const MICROWAVE: &'static str = r#"
-<rect rx="2" width="20" y="4" height="15" x="2"></rect>
-<rect width="8" rx="1" y="8" height="7" x="6"></rect>
-<path d="M18 8v7"></path>
-<path d="M6 19v2"></path>
-<path d="M18 19v2"></path>"#;
-
-const MILESTONE: &'static str = r#"
-<path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3.5L18 6Z"></path>
-<path d="M12 13v8"></path>
-<path d="M12 3v3"></path>"#;
-
-const MILK_OFF: &'static str = r#"
-<path d="M8 2h8"></path>
-<path d="M9 2v1.343M15 2v2.789a4 4 0 0 0 .672 2.219l.656.984a4 4 0 0 1 .672 2.22v1.131M7.8 7.8l-.128.192A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3"></path>
-<path d="M7 15a6.47 6.47 0 0 1 5 0 6.472 6.472 0 0 0 3.435.435"></path>
-<line x2="22" y1="2" x1="2" y2="22"></line>"#;
-
-const MILK: &'static str = r#"
-<path d="M8 2h8"></path>
-<path d="M9 2v2.789a4 4 0 0 1-.672 2.219l-.656.984A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9.789a4 4 0 0 0-.672-2.219l-.656-.984A4 4 0 0 1 15 4.788V2"></path>
-<path d="M7 15a6.472 6.472 0 0 1 5 0 6.47 6.47 0 0 0 5 0"></path>"#;
-
-const MINIMIZE_2: &'static str = r#"
-<polyline points="4 14 10 14 10 20"></polyline>
-<polyline points="20 10 14 10 14 4"></polyline>
-<line x1="14" y2="3" y1="10" x2="21"></line>
-<line x1="3" y1="21" y2="14" x2="10"></line>"#;
-
-const MINIMIZE: &'static str = r#"
-<path d="M8 3v3a2 2 0 0 1-2 2H3"></path>
-<path d="M21 8h-3a2 2 0 0 1-2-2V3"></path>
-<path d="M3 16h3a2 2 0 0 1 2 2v3"></path>
-<path d="M16 21v-3a2 2 0 0 1 2-2h3"></path>"#;
-
-const MINUS_CIRCLE: &'static str = r#"
-<circle r="10" cy="12" cx="12"></circle>
-<path d="M8 12h8"></path>"#;
-
-const MINUS_SQUARE: &'static str = r#"
-<rect rx="2" height="18" width="18" x="3" y="3"></rect>
-<path d="M8 12h8"></path>"#;
-
-const MINUS: &'static str = r#"
-<path d="M5 12h14"></path>"#;
-
-const MONITOR_CHECK: &'static str = r#"
-<path d="m9 10 2 2 4-4"></path>
-<rect x="2" rx="2" height="14" width="20" y="3"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_DOT: &'static str = r#"
-<circle cx="19" r="3" cy="6"></circle>
-<path d="M22 12v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"></path>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_DOWN: &'static str = r#"
-<path d="M12 13V7"></path>
-<path d="m15 10-3 3-3-3"></path>
-<rect x="2" rx="2" width="20" height="14" y="3"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_OFF: &'static str = r#"
-<path d="M17 17H4a2 2 0 0 1-2-2V5c0-1.5 1-2 1-2"></path>
-<path d="M22 15V5a2 2 0 0 0-2-2H9"></path>
-<path d="M8 21h8"></path>
-<path d="M12 17v4"></path>
-<path d="m2 2 20 20"></path>"#;
-
-const MONITOR_PAUSE: &'static str = r#"
-<path d="M10 13V7"></path>
-<path d="M14 13V7"></path>
-<rect rx="2" x="2" width="20" height="14" y="3"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_PLAY: &'static str = r#"
-<path d="m10 7 5 3-5 3Z"></path>
-<rect y="3" rx="2" width="20" x="2" height="14"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_SMARTPHONE: &'static str = r#"
-<path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"></path>
-<path d="M10 19v-3.96 3.15"></path>
-<path d="M7 19h5"></path>
-<rect y="12" rx="2" width="6" height="10" x="16"></rect>"#;
-
-const MONITOR_SPEAKER: &'static str = r#"
-<path d="M5.5 20H8"></path>
-<path d="M17 9h.01"></path>
-<rect rx="2" height="16" width="10" x="12" y="4"></rect>
-<path d="M8 6H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4"></path>
-<circle cx="17" cy="15" r="1"></circle>"#;
-
-const MONITOR_STOP: &'static str = r#"
-<rect height="6" x="9" width="6" y="7"></rect>
-<rect y="3" width="20" x="2" rx="2" height="14"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_UP: &'static str = r#"
-<path d="m9 10 3-3 3 3"></path>
-<path d="M12 13V7"></path>
-<rect x="2" y="3" width="20" rx="2" height="14"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR_X: &'static str = r#"
-<path d="m14.5 12.5-5-5"></path>
-<path d="m9.5 12.5 5-5"></path>
-<rect height="14" y="3" width="20" rx="2" x="2"></rect>
-<path d="M12 17v4"></path>
-<path d="M8 21h8"></path>"#;
-
-const MONITOR: &'static str = r#"
-<rect width="20" height="14" x="2" y="3" rx="2"></rect>
-<line y2="21" x1="8" y1="21" x2="16"></line>
-<line y2="21" x1="12" y1="17" x2="12"></line>"#;
-
-const MOON_STAR: &'static str = r#"
-<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-<path d="M19 3v4"></path>
-<path d="M21 5h-4"></path>"#;
-
-const MOON: &'static str = r#"
-<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>"#;
-
-const MORE_HORIZONTAL: &'static str = r#"
-<circle cx="12" cy="12" r="1"></circle>
-<circle cy="12" cx="19" r="1"></circle>
-<circle cx="5" r="1" cy="12"></circle>"#;
-
-const MORE_VERTICAL: &'static str = r#"
-<circle r="1" cx="12" cy="12"></circle>
-<circle r="1" cx="12" cy="5"></circle>
-<circle cy="19" r="1" cx="12"></circle>"#;
-
-const MOUNTAIN_SNOW: &'static str = r#"
-<path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
-<path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"></path>"#;
-
-const MOUNTAIN: &'static str = r#"
-<path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>"#;
-
-const MOUSE_POINTER_2: &'static str = r#"
-<path d="m4 4 7.07 17 2.51-7.39L21 11.07z"></path>"#;
-
-const MOUSE_POINTER_CLICK: &'static str = r#"
-<path d="m9 9 5 12 1.774-5.226L21 14 9 9z"></path>
-<path d="m16.071 16.071 4.243 4.243"></path>
-<path d="m7.188 2.239.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656-2.12 2.122"></path>"#;
-
-const MOUSE_POINTER_SQUARE_DASHED: &'static str = r#"
-<path d="M5 3a2 2 0 0 0-2 2"></path>
-<path d="M19 3a2 2 0 0 1 2 2"></path>
-<path d="m12 12 4 10 1.7-4.3L22 16Z"></path>
-<path d="M5 21a2 2 0 0 1-2-2"></path>
-<path d="M9 3h1"></path>
-<path d="M9 21h2"></path>
-<path d="M14 3h1"></path>
-<path d="M3 9v1"></path>
-<path d="M21 9v2"></path>
-<path d="M3 14v1"></path>"#;
-
-const MOUSE_POINTER_SQUARE: &'static str = r#"
-<path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"></path>
-<path d="m12 12 4 10 1.7-4.3L22 16Z"></path>"#;
-
-const MOUSE_POINTER: &'static str = r#"
-<path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
-<path d="m13 13 6 6"></path>"#;
-
-const MOUSE: &'static str = r#"
-<rect rx="7" y="2" width="14" x="5" height="20"></rect>
-<path d="M12 6v4"></path>"#;
-
-const MOVE_3_D: &'static str = r#"
-<path d="M5 3v16h16"></path>
-<path d="m5 19 6-6"></path>
-<path d="m2 6 3-3 3 3"></path>
-<path d="m18 16 3 3-3 3"></path>"#;
-
-const MOVE_DIAGONAL_2: &'static str = r#"
-<polyline points="5 11 5 5 11 5"></polyline>
-<polyline points="19 13 19 19 13 19"></polyline>
-<line x1="5" y2="19" y1="5" x2="19"></line>"#;
-
-const MOVE_DIAGONAL: &'static str = r#"
-<polyline points="13 5 19 5 19 11"></polyline>
-<polyline points="11 19 5 19 5 13"></polyline>
-<line x1="19" y2="19" x2="5" y1="5"></line>"#;
-
-const MOVE_DOWN_LEFT: &'static str = r#"
-<path d="M11 19H5V13"></path>
-<path d="M19 5L5 19"></path>"#;
-
-const MOVE_DOWN_RIGHT: &'static str = r#"
-<path d="M19 13V19H13"></path>
-<path d="M5 5L19 19"></path>"#;
-
-const MOVE_DOWN: &'static str = r#"
-<path d="M8 18L12 22L16 18"></path>
-<path d="M12 2V22"></path>"#;
-
-const MOVE_HORIZONTAL: &'static str = r#"
-<polyline points="18 8 22 12 18 16"></polyline>
-<polyline points="6 8 2 12 6 16"></polyline>
-<line y2="12" x1="2" y1="12" x2="22"></line>"#;
-
-const MOVE_LEFT: &'static str = r#"
-<path d="M6 8L2 12L6 16"></path>
-<path d="M2 12H22"></path>"#;
-
-const MOVE_RIGHT: &'static str = r#"
-<path d="M18 8L22 12L18 16"></path>
-<path d="M2 12H22"></path>"#;
-
-const MOVE_UP_LEFT: &'static str = r#"
-<path d="M5 11V5H11"></path>
-<path d="M5 5L19 19"></path>"#;
-
-const MOVE_UP_RIGHT: &'static str = r#"
-<path d="M13 5H19V11"></path>
-<path d="M19 5L5 19"></path>"#;
-
-const MOVE_UP: &'static str = r#"
-<path d="M8 6L12 2L16 6"></path>
-<path d="M12 2V22"></path>"#;
-
-const MOVE_VERTICAL: &'static str = r#"
-<polyline points="8 18 12 22 16 18"></polyline>
-<polyline points="8 6 12 2 16 6"></polyline>
-<line x1="12" x2="12" y1="2" y2="22"></line>"#;
-
-const MOVE: &'static str = r#"
-<polyline points="5 9 2 12 5 15"></polyline>
-<polyline points="9 5 12 2 15 5"></polyline>
-<polyline points="15 19 12 22 9 19"></polyline>
-<polyline points="19 9 22 12 19 15"></polyline>
-<line x1="2" x2="22" y1="12" y2="12"></line>
-<line y1="2" x1="12" x2="12" y2="22"></line>"#;
-
-const MUSIC_2: &'static str = r#"
-<circle cy="18" cx="8" r="4"></circle>
-<path d="M12 18V2l7 4"></path>"#;
-
-const MUSIC_3: &'static str = r#"
-<circle cy="18" cx="12" r="4"></circle>
-<path d="M16 18V2"></path>"#;
-
-const MUSIC_4: &'static str = r#"
-<path d="M9 18V5l12-2v13"></path>
-<path d="m9 9 12-2"></path>
-<circle cx="6" cy="18" r="3"></circle>
-<circle r="3" cy="16" cx="18"></circle>"#;
-
-const MUSIC: &'static str = r#"
-<path d="M9 18V5l12-2v13"></path>
-<circle cx="6" cy="18" r="3"></circle>
-<circle cy="16" r="3" cx="18"></circle>"#;
-
-const NAVIGATION_2_OFF: &'static str = r#"
-<path d="M9.31 9.31 5 21l7-4 7 4-1.17-3.17"></path>
-<path d="M14.53 8.88 12 2l-1.17 3.17"></path>
-<line y2="22" x1="2" x2="22" y1="2"></line>"#;
-
-const NAVIGATION_2: &'static str = r#"
-<polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>"#;
-
-const NAVIGATION_OFF: &'static str = r#"
-<path d="M8.43 8.43 3 11l8 2 2 8 2.57-5.43"></path>
-<path d="M17.39 11.73 22 2l-9.73 4.61"></path>
-<line x1="2" x2="22" y1="2" y2="22"></line>"#;
-
-const NAVIGATION: &'static str = r#"
-<polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>"#;
-
-const NETWORK: &'static str = r#"
-<rect rx="1" y="16" width="6" x="16" height="6"></rect>
-<rect height="6" rx="1" x="2" y="16" width="6"></rect>
-<rect height="6" width="6" rx="1" y="2" x="9"></rect>
-<path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
-<path d="M12 12V8"></path>"#;
-
-const NEWSPAPER: &'static str = r#"
-<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path>
-<path d="M18 14h-8"></path>
-<path d="M15 18h-5"></path>
-<path d="M10 6h8v4h-8V6Z"></path>"#;
-
-const NFC: &'static str = r#"
-<path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"></path>
-<path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"></path>
-<path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"></path>
-<path d="M16.37 2a20.16 20.16 0 0 1 0 20"></path>"#;
-
-const NUT_OFF: &'static str = r#"
-<path d="M12 4V2"></path>
-<path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592a7.01 7.01 0 0 0 4.125-2.939"></path>
-<path d="M19 10v3.343"></path>
-<path d="M12 12c-1.349-.573-1.905-1.005-2.5-2-.546.902-1.048 1.353-2.5 2-1.018-.644-1.46-1.08-2-2-1.028.71-1.69.918-3 1 1.081-1.048 1.757-2.03 2-3 .194-.776.84-1.551 1.79-2.21m11.654 5.997c.887-.457 1.28-.891 1.556-1.787 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4-.74 0-1.461.068-2.15.192"></path>
-<line y2="22" x1="2" x2="22" y1="2"></line>"#;
-
-const NUT: &'static str = r#"
-<path d="M12 4V2"></path>
-<path d="M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592A7.003 7.003 0 0 0 19 14v-4"></path>
-<path d="M12 4C8 4 4.5 6 4 8c-.243.97-.919 1.952-2 3 1.31-.082 1.972-.29 3-1 .54.92.982 1.356 2 2 1.452-.647 1.954-1.098 2.5-2 .595.995 1.151 1.427 2.5 2 1.31-.621 1.862-1.058 2.5-2 .629.977 1.162 1.423 2.5 2 1.209-.548 1.68-.967 2-2 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4Z"></path>"#;
-
-const OCTAGON: &'static str = r#"
-<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>"#;
-
-const OPTION: &'static str = r#"
-<path d="M3 3h6l6 18h6"></path>
-<path d="M14 3h7"></path>"#;
-
-const ORBIT: &'static str = r#"
-<circle cy="12" cx="12" r="3"></circle>
-<circle r="2" cx="19" cy="5"></circle>
-<circle cx="5" cy="19" r="2"></circle>
-<path d="M10.4 21.9a10 10 0 0 0 9.941-15.416"></path>
-<path d="M13.5 2.1a10 10 0 0 0-9.841 15.416"></path>"#;
-
-const OUTDENT: &'static str = r#"
-<polyline points="7 8 3 12 7 16"></polyline>
-<line y2="12" x2="11" x1="21" y1="12"></line>
-<line y1="6" x1="21" x2="11" y2="6"></line>
-<line x2="11" y1="18" y2="18" x1="21"></line>"#;
-
-const PACKAGE_2: &'static str = r#"
-<path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
-<path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
-<path d="M12 3v6"></path>"#;
-
-const PACKAGE_CHECK: &'static str = r#"
-<path d="m16 16 2 2 4-4"></path>
-<path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
-<path d="m7.5 4.27 9 5.15"></path>
-<polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line x1="12" y1="22" y2="12" x2="12"></line>"#;
-
-const PACKAGE_MINUS: &'static str = r#"
-<path d="M16 16h6"></path>
-<path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
-<path d="m7.5 4.27 9 5.15"></path>
-<polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line y1="22" x2="12" x1="12" y2="12"></line>"#;
-
-const PACKAGE_OPEN: &'static str = r#"
-<path d="M20.91 8.84 8.56 2.23a1.93 1.93 0 0 0-1.81 0L3.1 4.13a2.12 2.12 0 0 0-.05 3.69l12.22 6.93a2 2 0 0 0 1.94 0L21 12.51a2.12 2.12 0 0 0-.09-3.67Z"></path>
-<path d="m3.09 8.84 12.35-6.61a1.93 1.93 0 0 1 1.81 0l3.65 1.9a2.12 2.12 0 0 1 .1 3.69L8.73 14.75a2 2 0 0 1-1.94 0L3 12.51a2.12 2.12 0 0 1 .09-3.67Z"></path>
-<line y2="13" x2="12" x1="12" y1="22"></line>
-<path d="M20 13.5v3.37a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13.5"></path>"#;
-
-const PACKAGE_PLUS: &'static str = r#"
-<path d="M16 16h6"></path>
-<path d="M19 13v6"></path>
-<path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
-<path d="m7.5 4.27 9 5.15"></path>
-<polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line x2="12" x1="12" y2="12" y1="22"></line>"#;
-
-const PACKAGE_SEARCH: &'static str = r#"
-<path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
-<path d="m7.5 4.27 9 5.15"></path>
-<polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line x2="12" y2="12" x1="12" y1="22"></line>
-<circle cx="18.5" r="2.5" cy="15.5"></circle>
-<path d="M20.27 17.27 22 19"></path>"#;
-
-const PACKAGE_X: &'static str = r#"
-<path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path>
-<path d="m7.5 4.27 9 5.15"></path>
-<polyline points="3.29 7 12 12 20.71 7"></polyline>
-<line x2="12" y1="22" x1="12" y2="12"></line>
-<path d="m17 13 5 5m-5 0 5-5"></path>"#;
-
-const PACKAGE: &'static str = r#"
-<path d="m7.5 4.27 9 5.15"></path>
-<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-<path d="m3.3 7 8.7 5 8.7-5"></path>
-<path d="M12 22V12"></path>"#;
-
-const PAINT_BUCKET: &'static str = r#"
-<path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"></path>
-<path d="m5 2 5 5"></path>
-<path d="M2 13h15"></path>
-<path d="M22 20a2 2 0 1 1-4 0c0-1.6 1.7-2.4 2-4 .3 1.6 2 2.4 2 4Z"></path>"#;
-
-const PAINTBRUSH_2: &'static str = r#"
-<path d="M14 19.9V16h3a2 2 0 0 0 2-2v-2H5v2c0 1.1.9 2 2 2h3v3.9a2 2 0 1 0 4 0Z"></path>
-<path d="M6 12V2h12v10"></path>
-<path d="M14 2v4"></path>
-<path d="M10 2v2"></path>"#;
-
-const PAINTBRUSH: &'static str = r#"
-<path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z"></path>
-<path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"></path>
-<path d="M14.5 17.5 4.5 15"></path>"#;
-
-const PALETTE: &'static str = r#"
-<circle cy="6.5" cx="13.5" r=".5"></circle>
-<circle cy="10.5" r=".5" cx="17.5"></circle>
-<circle cy="7.5" r=".5" cx="8.5"></circle>
-<circle r=".5" cx="6.5" cy="12.5"></circle>
-<path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>"#;
-
-const PALMTREE: &'static str = r#"
-<path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4"></path>
-<path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3"></path>
-<path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35z"></path>
-<path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"></path>"#;
-
-const PANEL_BOTTOM_CLOSE: &'static str = r#"
-<rect y="3" rx="2" ry="2" height="18" x="3" width="18"></rect>
-<line y2="15" x2="21" y1="15" x1="3"></line>
-<path d="m15 8-3 3-3-3"></path>"#;
-
-const PANEL_BOTTOM_INACTIVE: &'static str = r#"
-<rect x="3" y="3" rx="2" height="18" width="18"></rect>
-<path d="M14 15h1"></path>
-<path d="M19 15h2"></path>
-<path d="M3 15h2"></path>
-<path d="M9 15h1"></path>"#;
-
-const PANEL_BOTTOM_OPEN: &'static str = r#"
-<rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect>
-<line x1="3" y1="15" x2="21" y2="15"></line>
-<path d="m9 10 3-3 3 3"></path>"#;
-
-const PANEL_BOTTOM: &'static str = r#"
-<rect ry="2" height="18" width="18" x="3" y="3" rx="2"></rect>
-<line x2="21" x1="3" y1="15" y2="15"></line>"#;
-
-const PANEL_LEFT_CLOSE: &'static str = r#"
-<rect rx="2" width="18" x="3" ry="2" height="18" y="3"></rect>
-<path d="M9 3v18"></path>
-<path d="m16 15-3-3 3-3"></path>"#;
-
-const PANEL_LEFT_INACTIVE: &'static str = r#"
-<rect x="3" y="3" rx="2" height="18" width="18"></rect>
-<path d="M9 14v1"></path>
-<path d="M9 19v2"></path>
-<path d="M9 3v2"></path>
-<path d="M9 9v1"></path>"#;
-
-const PANEL_LEFT_OPEN: &'static str = r#"
-<rect x="3" y="3" rx="2" height="18" ry="2" width="18"></rect>
-<path d="M9 3v18"></path>
-<path d="m14 9 3 3-3 3"></path>"#;
-
-const PANEL_LEFT: &'static str = r#"
-<rect ry="2" x="3" rx="2" width="18" y="3" height="18"></rect>
-<line x1="9" y1="3" x2="9" y2="21"></line>"#;
-
-const PANEL_RIGHT_CLOSE: &'static str = r#"
-<rect x="3" width="18" y="3" rx="2" ry="2" height="18"></rect>
-<line y1="3" y2="21" x2="15" x1="15"></line>
-<path d="m8 9 3 3-3 3"></path>"#;
-
-const PANEL_RIGHT_INACTIVE: &'static str = r#"
-<rect height="18" rx="2" y="3" width="18" x="3"></rect>
-<path d="M15 14v1"></path>
-<path d="M15 19v2"></path>
-<path d="M15 3v2"></path>
-<path d="M15 9v1"></path>"#;
-
-const PANEL_RIGHT_OPEN: &'static str = r#"
-<rect width="18" height="18" x="3" ry="2" y="3" rx="2"></rect>
-<line y2="21" y1="3" x2="15" x1="15"></line>
-<path d="m10 15-3-3 3-3"></path>"#;
-
-const PANEL_RIGHT: &'static str = r#"
-<rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
-<line x2="15" x1="15" y1="3" y2="21"></line>"#;
-
-const PANEL_TOP_CLOSE: &'static str = r#"
-<rect x="3" width="18" y="3" rx="2" ry="2" height="18"></rect>
-<line x1="3" y1="9" x2="21" y2="9"></line>
-<path d="m9 16 3-3 3 3"></path>"#;
-
-const PANEL_TOP_INACTIVE: &'static str = r#"
-<rect x="3" width="18" y="3" rx="2" height="18"></rect>
-<path d="M14 9h1"></path>
-<path d="M19 9h2"></path>
-<path d="M3 9h2"></path>
-<path d="M9 9h1"></path>"#;
-
-const PANEL_TOP_OPEN: &'static str = r#"
-<rect x="3" rx="2" width="18" ry="2" y="3" height="18"></rect>
-<line x1="3" y1="9" x2="21" y2="9"></line>
-<path d="m15 14-3 3-3-3"></path>"#;
-
-const PANEL_TOP: &'static str = r#"
-<rect y="3" rx="2" height="18" x="3" ry="2" width="18"></rect>
-<line y1="9" y2="9" x1="3" x2="21"></line>"#;
-
-const PAPERCLIP: &'static str = r#"
-<path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>"#;
-
-const PARENTHESES: &'static str = r#"
-<path d="M8 21s-4-3-4-9 4-9 4-9"></path>
-<path d="M16 3s4 3 4 9-4 9-4 9"></path>"#;
-
-const PARKING_CIRCLE_OFF: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="m5 5 14 14"></path>
-<path d="M13 13a3 3 0 1 0 0-6H9v2"></path>
-<path d="M9 17v-2.34"></path>"#;
-
-const PARKING_CIRCLE: &'static str = r#"
-<circle cx="12" cy="12" r="10"></circle>
-<path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path>"#;
-
-const PARKING_METER: &'static str = r#"
-<path d="M9 9a3 3 0 1 1 6 0"></path>
-<path d="M12 12v3"></path>
-<path d="M11 15h2"></path>
-<path d="M19 9a7 7 0 1 0-13.6 2.3C6.4 14.4 8 19 8 19h8s1.6-4.6 2.6-7.7c.3-.8.4-1.5.4-2.3"></path>
-<path d="M12 19v3"></path>"#;
-
-const PARKING_SQUARE_OFF: &'static str = r#"
-<path d="M3.6 3.6A2 2 0 0 1 5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-.59 1.41"></path>
-<path d="M3 8.7V19a2 2 0 0 0 2 2h10.3"></path>
-<path d="m2 2 20 20"></path>
-<path d="M13 13a3 3 0 1 0 0-6H9v2"></path>
-<path d="M9 17v-2.3"></path>"#;
-
-const PARKING_SQUARE: &'static str = r#"
-<rect y="3" height="18" width="18" x="3" rx="2"></rect>
-<path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path>"#;
-
-const PARTY_POPPER: &'static str = r#"
-<path d="M5.8 11.3 2 22l10.7-3.79"></path>
-<path d="M4 3h.01"></path>
-<path d="M22 8h.01"></path>
-<path d="M15 2h.01"></path>
-<path d="M22 20h.01"></path>
-<path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"></path>
-<path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.7-.72 1.22-1.43 1.22H17"></path>
-<path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98v0C9.52 4.9 9 5.52 9 6.23V7"></path>
-<path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"></path>"#;
-
-const PAUSE_CIRCLE: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<line y1="15" x1="10" x2="10" y2="9"></line>
-<line x2="14" y1="15" y2="9" x1="14"></line>"#;
-
-const PAUSE_OCTAGON: &'static str = r#"
-<path d="M10 15V9"></path>
-<path d="M14 15V9"></path>
-<path d="M7.714 2h8.572L22 7.714v8.572L16.286 22H7.714L2 16.286V7.714L7.714 2z"></path>"#;
-
-const PAUSE: &'static str = r#"
-<rect x="6" width="4" height="16" y="4"></rect>
-<rect width="4" x="14" y="4" height="16"></rect>"#;
-
-const PAW_PRINT: &'static str = r#"
-<circle cy="4" cx="11" r="2"></circle>
-<circle cy="8" r="2" cx="18"></circle>
-<circle cx="20" r="2" cy="16"></circle>
-<path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"></path>"#;
-
-const PC_CASE: &'static str = r#"
-<rect y="2" height="20" width="14" rx="2" x="5"></rect>
-<path d="M15 14h.01"></path>
-<path d="M9 6h6"></path>
-<path d="M9 10h6"></path>"#;
-
-const PEN_LINE: &'static str = r#"
-<path d="M12 20h9"></path>
-<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>"#;
-
-const PEN_SQUARE: &'static str = r#"
-<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-<path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"></path>"#;
-
-const PEN_TOOL: &'static str = r#"
-<path d="m12 19 7-7 3 3-7 7-3-3z"></path>
-<path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-<path d="m2 2 7.586 7.586"></path>
-<circle cx="11" cy="11" r="2"></circle>"#;
-
-const PEN: &'static str = r#"
-<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>"#;
-
-const PENCIL_LINE: &'static str = r#"
-<path d="M12 20h9"></path>
-<path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
-<path d="m15 5 3 3"></path>"#;
-
-const PENCIL_RULER: &'static str = r#"
-<path d="m15 5 4 4"></path>
-<path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"></path>
-<path d="m8 6 2-2"></path>
-<path d="m2 22 5.5-1.5L21.17 6.83a2.82 2.82 0 0 0-4-4L3.5 16.5Z"></path>
-<path d="m18 16 2-2"></path>
-<path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"></path>"#;
-
-const PENCIL: &'static str = r#"
-<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
-<path d="m15 5 4 4"></path>"#;
-
-const PERCENT_CIRCLE: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="m15 9-6 6"></path>
-<path d="M9 9h.01"></path>
-<path d="M15 15h.01"></path>"#;
-
-const PERCENT_DIAMOND: &'static str = r#"
-<path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0Z"></path>
-<path d="M9.2 9.2h.01"></path>
-<path d="m14.5 9.5-5 5"></path>
-<path d="M14.7 14.8h.01"></path>"#;
-
-const PERCENT_SQUARE: &'static str = r#"
-<rect y="3" height="18" rx="2" width="18" x="3"></rect>
-<path d="m15 9-6 6"></path>
-<path d="M9 9h.01"></path>
-<path d="M15 15h.01"></path>"#;
-
-const PERCENT: &'static str = r#"
-<line x2="5" y1="5" y2="19" x1="19"></line>
-<circle cy="6.5" cx="6.5" r="2.5"></circle>
-<circle cy="17.5" r="2.5" cx="17.5"></circle>"#;
-
-const PERSON_STANDING: &'static str = r#"
-<circle cx="12" r="1" cy="5"></circle>
-<path d="m9 20 3-6 3 6"></path>
-<path d="m6 8 6 2 6-2"></path>
-<path d="M12 10v4"></path>"#;
-
-const PHONE_CALL: &'static str = r#"
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-<path d="M14.05 2a9 9 0 0 1 8 7.94"></path>
-<path d="M14.05 6A5 5 0 0 1 18 10"></path>"#;
-
-const PHONE_FORWARDED: &'static str = r#"
-<polyline points="18 2 22 6 18 10"></polyline>
-<line y1="6" x1="14" y2="6" x2="22"></line>
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#;
-
-const PHONE_INCOMING: &'static str = r#"
-<polyline points="16 2 16 8 22 8"></polyline>
-<line x1="22" y1="2" y2="8" x2="16"></line>
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#;
-
-const PHONE_MISSED: &'static str = r#"
-<line x1="22" y2="8" y1="2" x2="16"></line>
-<line x2="22" y2="8" x1="16" y1="2"></line>
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#;
-
-const PHONE_OFF: &'static str = r#"
-<path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path>
-<line y2="22" y1="2" x1="22" x2="2"></line>"#;
-
-const PHONE_OUTGOING: &'static str = r#"
-<polyline points="22 8 22 2 16 2"></polyline>
-<line y1="8" x2="22" y2="2" x1="16"></line>
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#;
-
-const PHONE: &'static str = r#"
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>"#;
-
-const PI_SQUARE: &'static str = r#"
-<rect y="3" x="3" width="18" height="18" rx="2"></rect>
-<path d="M7 7h10"></path>
-<path d="M10 7v10"></path>
-<path d="M16 17a2 2 0 0 1-2-2V7"></path>"#;
-
-const PI: &'static str = r#"
-<line y1="4" y2="20" x1="9" x2="9"></line>
-<path d="M4 7c0-1.7 1.3-3 3-3h13"></path>
-<path d="M18 20c-1.7 0-3-1.3-3-3V4"></path>"#;
-
-const PICTURE_IN_PICTURE_2: &'static str = r#"
-<path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4"></path>
-<rect y="13" height="7" x="12" rx="2" width="10"></rect>"#;
-
-const PICTURE_IN_PICTURE: &'static str = r#"
-<path d="M8 4.5v5H3m-1-6 6 6m13 0v-3c0-1.16-.84-2-2-2h-7m-9 9v2c0 1.05.95 2 2 2h3"></path>
-<rect width="10" ry="2" height="7" x="12" y="13.5"></rect>"#;
-
-const PIE_CHART: &'static str = r#"
-<path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-<path d="M22 12A10 10 0 0 0 12 2v10z"></path>"#;
-
-const PIGGY_BANK: &'static str = r#"
-<path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2h0V5z"></path>
-<path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
-<path d="M16 11h0"></path>"#;
-
-const PILCROW_SQUARE: &'static str = r#"
-<rect x="3" rx="2" width="18" height="18" y="3"></rect>
-<path d="M12 12H9.5a2.5 2.5 0 0 1 0-5H17"></path>
-<path d="M12 7v10"></path>
-<path d="M16 7v10"></path>"#;
-
-const PILCROW: &'static str = r#"
-<path d="M13 4v16"></path>
-<path d="M17 4v16"></path>
-<path d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13"></path>"#;
-
-const PILL: &'static str = r#"
-<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
-<path d="m8.5 8.5 7 7"></path>"#;
-
-const PIN_OFF: &'static str = r#"
-<line y1="2" y2="22" x1="2" x2="22"></line>
-<line x1="12" x2="12" y1="17" y2="22"></line>
-<path d="M9 9v1.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V17h12"></path>
-<path d="M15 9.34V6h1a2 2 0 0 0 0-4H7.89"></path>"#;
-
-const PIN: &'static str = r#"
-<line x1="12" y2="22" y1="17" x2="12"></line>
-<path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>"#;
-
-const PIPETTE: &'static str = r#"
-<path d="m2 22 1-1h3l9-9"></path>
-<path d="M3 21v-3l9-9"></path>
-<path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z"></path>"#;
-
-const PIZZA: &'static str = r#"
-<path d="M15 11h.01"></path>
-<path d="M11 15h.01"></path>
-<path d="M16 16h.01"></path>
-<path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"></path>
-<path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4"></path>"#;
-
-const PLANE_LANDING: &'static str = r#"
-<path d="M2 22h20"></path>
-<path d="M3.77 10.77 2 9l2-4.5 1.1.55c.55.28.9.84.9 1.45s.35 1.17.9 1.45L8 8.5l3-6 1.05.53a2 2 0 0 1 1.09 1.52l.72 5.4a2 2 0 0 0 1.09 1.52l4.4 2.2c.42.22.78.55 1.01.96l.6 1.03c.49.88-.06 1.98-1.06 2.1l-1.18.15c-.47.06-.95-.02-1.37-.24L4.29 11.15a2 2 0 0 1-.52-.38Z"></path>"#;
-
-const PLANE_TAKEOFF: &'static str = r#"
-<path d="M2 22h20"></path>
-<path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"></path>"#;
-
-const PLANE: &'static str = r#"
-<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path>"#;
-
-const PLAY_CIRCLE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<polygon points="10 8 16 12 10 16 10 8"></polygon>"#;
-
-const PLAY_SQUARE: &'static str = r#"
-<rect height="18" y="3" width="18" x="3" rx="2"></rect>
-<path d="m9 8 6 4-6 4Z"></path>"#;
-
-const PLAY: &'static str = r#"
-<polygon points="5 3 19 12 5 21 5 3"></polygon>"#;
-
-const PLUG_2: &'static str = r#"
-<path d="M9 2v6"></path>
-<path d="M15 2v6"></path>
-<path d="M12 17v5"></path>
-<path d="M5 8h14"></path>
-<path d="M6 11V8h12v3a6 6 0 1 1-12 0v0Z"></path>"#;
-
-const PLUG_ZAP_2: &'static str = r#"
-<path d="m13 2-2 2.5h3L12 7"></path>
-<path d="M10 14v-3"></path>
-<path d="M14 14v-3"></path>
-<path d="M11 19c-1.7 0-3-1.3-3-3v-2h8v2c0 1.7-1.3 3-3 3Z"></path>
-<path d="M12 22v-3"></path>"#;
-
-const PLUG_ZAP: &'static str = r#"
-<path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"></path>
-<path d="m2 22 3-3"></path>
-<path d="M7.5 13.5 10 11"></path>
-<path d="M10.5 16.5 13 14"></path>
-<path d="m18 3-4 4h6l-4 4"></path>"#;
-
-const PLUG: &'static str = r#"
-<path d="M12 22v-5"></path>
-<path d="M9 8V2"></path>
-<path d="M15 8V2"></path>
-<path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path>"#;
-
-const PLUS_CIRCLE: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="M8 12h8"></path>
-<path d="M12 8v8"></path>"#;
-
-const PLUS_SQUARE: &'static str = r#"
-<rect x="3" width="18" rx="2" height="18" y="3"></rect>
-<path d="M8 12h8"></path>
-<path d="M12 8v8"></path>"#;
-
-const PLUS: &'static str = r#"
-<path d="M5 12h14"></path>
-<path d="M12 5v14"></path>"#;
-
-const POCKET_KNIFE: &'static str = r#"
-<path d="M3 2v1c0 1 2 1 2 2S3 6 3 7s2 1 2 2-2 1-2 2 2 1 2 2"></path>
-<path d="M18 6h.01"></path>
-<path d="M6 18h.01"></path>
-<path d="M20.83 8.83a4 4 0 0 0-5.66-5.66l-12 12a4 4 0 1 0 5.66 5.66Z"></path>
-<path d="M18 11.66V22a4 4 0 0 0 4-4V6"></path>"#;
-
-const POCKET: &'static str = r#"
-<path d="M4 3h16a2 2 0 0 1 2 2v6a10 10 0 0 1-10 10A10 10 0 0 1 2 11V5a2 2 0 0 1 2-2z"></path>
-<polyline points="8 10 12 14 16 10"></polyline>"#;
-
-const PODCAST: &'static str = r#"
-<circle cx="12" r="1" cy="11"></circle>
-<path d="M11 17a1 1 0 0 1 2 0c0 .5-.34 3-.5 4.5a.5.5 0 0 1-1 0c-.16-1.5-.5-4-.5-4.5Z"></path>
-<path d="M8 14a5 5 0 1 1 8 0"></path>
-<path d="M17 18.5a9 9 0 1 0-10 0"></path>"#;
-
-const POINTER: &'static str = r#"
-<path d="M22 14a8 8 0 0 1-8 8"></path>
-<path d="M18 11v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
-<path d="M14 10V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1"></path>
-<path d="M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10"></path>
-<path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>"#;
-
-const POPCORN: &'static str = r#"
-<path d="M18 8a2 2 0 0 0 0-4 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0 0 4"></path>
-<path d="M10 22 9 8"></path>
-<path d="m14 22 1-14"></path>
-<path d="M20 8c.5 0 .9.4.8 1l-2.6 12c-.1.5-.7 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L3.2 9c-.1-.6.3-1 .8-1Z"></path>"#;
-
-const POPSICLE: &'static str = r#"
-<path d="M18.6 14.4c.8-.8.8-2 0-2.8l-8.1-8.1a4.95 4.95 0 1 0-7.1 7.1l8.1 8.1c.9.7 2.1.7 2.9-.1Z"></path>
-<path d="m22 22-5.5-5.5"></path>"#;
-
-const POUND_STERLING: &'static str = r#"
-<path d="M18 7c0-5.333-8-5.333-8 0"></path>
-<path d="M10 7v14"></path>
-<path d="M6 21h12"></path>
-<path d="M6 13h10"></path>"#;
-
-const POWER_OFF: &'static str = r#"
-<path d="M18.36 6.64A9 9 0 0 1 20.77 15"></path>
-<path d="M6.16 6.16a9 9 0 1 0 12.68 12.68"></path>
-<path d="M12 2v4"></path>
-<path d="m2 2 20 20"></path>"#;
-
-const POWER: &'static str = r#"
-<path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
-<line x2="12" y2="12" x1="12" y1="2"></line>"#;
-
-const PRESENTATION: &'static str = r#"
-<path d="M2 3h20"></path>
-<path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"></path>
-<path d="m7 21 5-5 5 5"></path>"#;
-
-const PRINTER: &'static str = r#"
-<polyline points="6 9 6 2 18 2 18 9"></polyline>
-<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-<rect x="6" height="8" y="14" width="12"></rect>"#;
-
-const PROJECTOR: &'static str = r#"
-<path d="M5 7 3 5"></path>
-<path d="M9 6V3"></path>
-<path d="m13 7 2-2"></path>
-<circle cy="13" cx="9" r="3"></circle>
-<path d="M11.83 12H20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h2.17"></path>
-<path d="M16 16h2"></path>"#;
-
-const PUZZLE: &'static str = r#"
-<path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z"></path>"#;
-
-const QR_CODE: &'static str = r#"
-<rect rx="1" height="5" x="3" y="3" width="5"></rect>
-<rect x="16" y="3" width="5" rx="1" height="5"></rect>
-<rect width="5" height="5" y="16" rx="1" x="3"></rect>
-<path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
-<path d="M21 21v.01"></path>
-<path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
-<path d="M3 12h.01"></path>
-<path d="M12 3h.01"></path>
-<path d="M12 16v.01"></path>
-<path d="M16 12h1"></path>
-<path d="M21 12v.01"></path>
-<path d="M12 21v-1"></path>"#;
-
-const QUOTE: &'static str = r#"
-<path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-<path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>"#;
-
-const RABBIT: &'static str = r#"
-<path d="M20 8.54V4a2 2 0 1 0-4 0v3"></path>
-<path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1.93 1.93 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1c-1.7 0-3 1.3-3 3"></path>
-<path d="M7.61 12.53a3 3 0 1 0-1.6 4.3"></path>
-<path d="M13 16a3 3 0 0 1 2.24 5"></path>
-<path d="M18 12h.01"></path>"#;
-
-const RADAR: &'static str = r#"
-<path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"></path>
-<path d="M4 6h.01"></path>
-<path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"></path>
-<path d="M16.24 7.76A6 6 0 1 0 8.23 16.67"></path>
-<path d="M12 18h.01"></path>
-<path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"></path>
-<circle cx="12" cy="12" r="2"></circle>
-<path d="m13.41 10.59 5.66-5.66"></path>"#;
-
-const RADIATION: &'static str = r#"
-<path d="M12 12h0"></path>
-<path d="M7.5 4.2c-.3-.5-.9-.7-1.3-.4C3.9 5.5 2.3 8.1 2 11c-.1.5.4 1 1 1h5c0-1.5.8-2.8 2-3.4-1.1-1.9-2-3.5-2.5-4.4z"></path>
-<path d="M21 12c.6 0 1-.4 1-1-.3-2.9-1.8-5.5-4.1-7.1-.4-.3-1.1-.2-1.3.3-.6.9-1.5 2.5-2.6 4.3 1.2.7 2 2 2 3.5h5z"></path>
-<path d="M7.5 19.8c-.3.5-.1 1.1.4 1.3 2.6 1.2 5.6 1.2 8.2 0 .5-.2.7-.8.4-1.3-.5-.9-1.4-2.5-2.5-4.3-1.2.7-2.8.7-4 0-1.1 1.8-2 3.4-2.5 4.3z"></path>"#;
-
-const RADIO_RECEIVER: &'static str = r#"
-<path d="M5 16v2"></path>
-<path d="M19 16v2"></path>
-<rect width="20" y="8" height="8" x="2" rx="2"></rect>
-<path d="M18 12h0"></path>"#;
-
-const RADIO_TOWER: &'static str = r#"
-<path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9"></path>
-<path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5"></path>
-<circle cy="9" r="2" cx="12"></circle>
-<path d="M16.2 4.8c2 2 2.26 5.11.8 7.47"></path>
-<path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1"></path>
-<path d="M9.5 18h5"></path>
-<path d="m8 22 4-11 4 11"></path>"#;
-
-const RADIO: &'static str = r#"
-<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path>
-<path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path>
-<circle cx="12" cy="12" r="2"></circle>
-<path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"></path>
-<path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"></path>"#;
-
-const RAIL_SYMBOL: &'static str = r#"
-<path d="M5 15h14"></path>
-<path d="M5 9h14"></path>
-<path d="m14 20-5-5 6-6-5-5"></path>"#;
-
-const RAINBOW: &'static str = r#"
-<path d="M22 17a10 10 0 0 0-20 0"></path>
-<path d="M6 17a6 6 0 0 1 12 0"></path>
-<path d="M10 17a2 2 0 0 1 4 0"></path>"#;
-
-const RAT: &'static str = r#"
-<path d="M17 5c0-1.7-1.3-3-3-3s-3 1.3-3 3c0 .8.3 1.5.8 2H11c-3.9 0-7 3.1-7 7v0c0 2.2 1.8 4 4 4"></path>
-<path d="M16.8 3.9c.3-.3.6-.5 1-.7 1.5-.6 3.3.1 3.9 1.6.6 1.5-.1 3.3-1.6 3.9l1.6 2.8c.2.3.2.7.2 1-.2.8-.9 1.2-1.7 1.1 0 0-1.6-.3-2.7-.6H17c-1.7 0-3 1.3-3 3"></path>
-<path d="M13.2 18a3 3 0 0 0-2.2-5"></path>
-<path d="M13 22H4a2 2 0 0 1 0-4h12"></path>
-<path d="M16 9h.01"></path>"#;
-
-const RATIO: &'static str = r#"
-<rect y="2" width="12" height="20" rx="2" x="6"></rect>
-<rect x="2" width="20" y="6" height="12" rx="2"></rect>"#;
-
-const RECEIPT: &'static str = r#"
-<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z"></path>
-<path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
-<path d="M12 17V7"></path>"#;
-
-const RECTANGLE_HORIZONTAL: &'static str = r#"
-<rect x="2" height="12" y="6" width="20" rx="2"></rect>"#;
-
-const RECTANGLE_VERTICAL: &'static str = r#"
-<rect width="12" height="20" y="2" x="6" rx="2"></rect>"#;
-
-const RECYCLE: &'static str = r#"
-<path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"></path>
-<path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"></path>
-<path d="m14 16-3 3 3 3"></path>
-<path d="M8.293 13.596 7.196 9.5 3.1 10.598"></path>
-<path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"></path>
-<path d="m13.378 9.633 4.096 1.098 1.097-4.096"></path>"#;
-
-const REDO_2: &'static str = r#"
-<path d="m15 14 5-5-5-5"></path>
-<path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0A5.5 5.5 0 0 0 9.5 20H13"></path>"#;
-
-const REDO_DOT: &'static str = r#"
-<circle cx="12" cy="17" r="1"></circle>
-<path d="M21 7v6h-6"></path>
-<path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path>"#;
-
-const REDO: &'static str = r#"
-<path d="M21 7v6h-6"></path>
-<path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path>"#;
-
-const REFRESH_CCW_DOT: &'static str = r#"
-<path d="M3 2v6h6"></path>
-<path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path>
-<path d="M21 22v-6h-6"></path>
-<path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"></path>
-<circle r="1" cx="12" cy="12"></circle>"#;
-
-const REFRESH_CCW: &'static str = r#"
-<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-<path d="M3 3v5h5"></path>
-<path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
-<path d="M16 16h5v5"></path>"#;
-
-const REFRESH_CW_OFF: &'static str = r#"
-<path d="M21 8L18.74 5.74A9.75 9.75 0 0 0 12 3C11 3 10.03 3.16 9.13 3.47"></path>
-<path d="M8 16H3v5"></path>
-<path d="M3 12C3 9.51 4 7.26 5.64 5.64"></path>
-<path d="m3 16 2.26 2.26A9.75 9.75 0 0 0 12 21c2.49 0 4.74-1 6.36-2.64"></path>
-<path d="M21 12c0 1-.16 1.97-.47 2.87"></path>
-<path d="M21 3v5h-5"></path>
-<path d="M22 22 2 2"></path>"#;
-
-const REFRESH_CW: &'static str = r#"
-<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-<path d="M21 3v5h-5"></path>
-<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-<path d="M8 16H3v5"></path>"#;
-
-const REFRIGERATOR: &'static str = r#"
-<path d="M5 6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z"></path>
-<path d="M5 10h14"></path>
-<path d="M15 7v6"></path>"#;
-
-const REGEX: &'static str = r#"
-<path d="M17 3v10"></path>
-<path d="m12.67 5.5 8.66 5"></path>
-<path d="m12.67 10.5 8.66-5"></path>
-<path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z"></path>"#;
-
-const REMOVE_FORMATTING: &'static str = r#"
-<path d="M4 7V4h16v3"></path>
-<path d="M5 20h6"></path>
-<path d="M13 4 8 20"></path>
-<path d="m15 15 5 5"></path>
-<path d="m20 15-5 5"></path>"#;
-
-const REPEAT_1: &'static str = r#"
-<path d="m17 2 4 4-4 4"></path>
-<path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
-<path d="m7 22-4-4 4-4"></path>
-<path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
-<path d="M11 10h1v4"></path>"#;
-
-const REPEAT_2: &'static str = r#"
-<path d="m2 9 3-3 3 3"></path>
-<path d="M13 18H7a2 2 0 0 1-2-2V6"></path>
-<path d="m22 15-3 3-3-3"></path>
-<path d="M11 6h6a2 2 0 0 1 2 2v10"></path>"#;
-
-const REPEAT: &'static str = r#"
-<path d="m17 2 4 4-4 4"></path>
-<path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
-<path d="m7 22-4-4 4-4"></path>
-<path d="M21 13v1a4 4 0 0 1-4 4H3"></path>"#;
-
-const REPLACE_ALL: &'static str = r#"
-<path d="M14 4c0-1.1.9-2 2-2"></path>
-<path d="M20 2c1.1 0 2 .9 2 2"></path>
-<path d="M22 8c0 1.1-.9 2-2 2"></path>
-<path d="M16 10c-1.1 0-2-.9-2-2"></path>
-<path d="m3 7 3 3 3-3"></path>
-<path d="M6 10V5c0-1.7 1.3-3 3-3h1"></path>
-<rect y="14" height="8" x="2" width="8" rx="2"></rect>
-<path d="M14 14c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>
-<path d="M20 14c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2"></path>"#;
-
-const REPLACE: &'static str = r#"
-<path d="M14 4c0-1.1.9-2 2-2"></path>
-<path d="M20 2c1.1 0 2 .9 2 2"></path>
-<path d="M22 8c0 1.1-.9 2-2 2"></path>
-<path d="M16 10c-1.1 0-2-.9-2-2"></path>
-<path d="m3 7 3 3 3-3"></path>
-<path d="M6 10V5c0-1.7 1.3-3 3-3h1"></path>
-<rect width="8" x="2" height="8" rx="2" y="14"></rect>"#;
-
-const REPLY_ALL: &'static str = r#"
-<polyline points="7 17 2 12 7 7"></polyline>
-<polyline points="12 17 7 12 12 7"></polyline>
-<path d="M22 18v-2a4 4 0 0 0-4-4H7"></path>"#;
-
-const REPLY: &'static str = r#"
-<polyline points="9 17 4 12 9 7"></polyline>
-<path d="M20 18v-2a4 4 0 0 0-4-4H4"></path>"#;
-
-const REWIND: &'static str = r#"
-<polygon points="11 19 2 12 11 5 11 19"></polygon>
-<polygon points="22 19 13 12 22 5 22 19"></polygon>"#;
-
-const ROCKET: &'static str = r#"
-<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-<path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-<path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-<path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>"#;
-
-const ROCKING_CHAIR: &'static str = r#"
-<polyline points="3.5 2 6.5 12.5 18 12.5"></polyline>
-<line y1="12.5" x1="9.5" y2="20" x2="5.5"></line>
-<line x1="15" y1="12.5" y2="20" x2="18.5"></line>
-<path d="M2.75 18a13 13 0 0 0 18.5 0"></path>"#;
-
-const ROLLER_COASTER: &'static str = r#"
-<path d="M6 19V5"></path>
-<path d="M10 19V6.8"></path>
-<path d="M14 19v-7.8"></path>
-<path d="M18 5v4"></path>
-<path d="M18 19v-6"></path>
-<path d="M22 19V9"></path>
-<path d="M2 19V9a4 4 0 0 1 4-4c2 0 4 1.33 6 4s4 4 6 4a4 4 0 1 0-3-6.65"></path>"#;
-
-const ROTATE_3_D: &'static str = r#"
-<path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2"></path>
-<path d="m15.194 13.707 3.814 1.86-1.86 3.814"></path>
-<path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4"></path>"#;
-
-const ROTATE_CCW: &'static str = r#"
-<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-<path d="M3 3v5h5"></path>"#;
-
-const ROTATE_CW: &'static str = r#"
-<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path>
-<path d="M21 3v5h-5"></path>"#;
-
-const ROUTER: &'static str = r#"
-<rect height="8" x="2" width="20" y="14" rx="2"></rect>
-<path d="M6.01 18H6"></path>
-<path d="M10.01 18H10"></path>
-<path d="M15 10v4"></path>
-<path d="M17.84 7.17a4 4 0 0 0-5.66 0"></path>
-<path d="M20.66 4.34a8 8 0 0 0-11.31 0"></path>"#;
-
-const ROWS: &'static str = r#"
-<rect rx="2" width="18" height="18" x="3" y="3" ry="2"></rect>
-<line x2="21" y2="12" y1="12" x1="3"></line>"#;
-
-const RSS: &'static str = r#"
-<path d="M4 11a9 9 0 0 1 9 9"></path>
-<path d="M4 4a16 16 0 0 1 16 16"></path>
-<circle r="1" cx="5" cy="19"></circle>"#;
-
-const RULER: &'static str = r#"
-<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path>
-<path d="m14.5 12.5 2-2"></path>
-<path d="m11.5 9.5 2-2"></path>
-<path d="m8.5 6.5 2-2"></path>
-<path d="m17.5 15.5 2-2"></path>"#;
-
-const RUSSIAN_RUBLE: &'static str = r#"
-<path d="M6 11h8a4 4 0 0 0 0-8H9v18"></path>
-<path d="M6 15h8"></path>"#;
-
-const SAILBOAT: &'static str = r#"
-<path d="M22 18H2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4Z"></path>
-<path d="M21 14 10 2 3 14h18Z"></path>
-<path d="M10 2v16"></path>"#;
-
-const SALAD: &'static str = r#"
-<path d="M7 21h10"></path>
-<path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path>
-<path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"></path>
-<path d="m13 12 4-4"></path>
-<path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"></path>"#;
-
-const SANDWICH: &'static str = r#"
-<path d="M3 11v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3"></path>
-<path d="M12 19H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3.83"></path>
-<path d="m3 11 7.77-6.04a2 2 0 0 1 2.46 0L21 11H3Z"></path>
-<path d="M12.97 19.77 7 15h12.5l-3.75 4.5a2 2 0 0 1-2.78.27Z"></path>"#;
-
-const SATELLITE_DISH: &'static str = r#"
-<path d="M4 10a7.31 7.31 0 0 0 10 10Z"></path>
-<path d="m9 15 3-3"></path>
-<path d="M17 13a6 6 0 0 0-6-6"></path>
-<path d="M21 13A10 10 0 0 0 11 3"></path>"#;
-
-const SATELLITE: &'static str = r#"
-<path d="M13 7 9 3 5 7l4 4"></path>
-<path d="m17 11 4 4-4 4-4-4"></path>
-<path d="m8 12 4 4 6-6-4-4Z"></path>
-<path d="m16 8 3-3"></path>
-<path d="M9 21a6 6 0 0 0-6-6"></path>"#;
-
-const SAVE_ALL: &'static str = r#"
-<path d="M6 4a2 2 0 0 1 2-2h10l4 4v10.2a2 2 0 0 1-2 1.8H8a2 2 0 0 1-2-2Z"></path>
-<path d="M10 2v4h6"></path>
-<path d="M18 18v-7h-8v7"></path>
-<path d="M18 22H4a2 2 0 0 1-2-2V6"></path>"#;
-
-const SAVE: &'static str = r#"
-<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-<polyline points="17 21 17 13 7 13 7 21"></polyline>
-<polyline points="7 3 7 8 15 8"></polyline>"#;
-
-const SCALE_3_D: &'static str = r#"
-<circle cy="19" cx="19" r="2"></circle>
-<circle r="2" cx="5" cy="5"></circle>
-<path d="M5 7v12h12"></path>
-<path d="m5 19 6-6"></path>"#;
-
-const SCALE: &'static str = r#"
-<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-<path d="M7 21h10"></path>
-<path d="M12 3v18"></path>
-<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>"#;
-
-const SCALING: &'static str = r#"
-<path d="M21 3 9 15"></path>
-<path d="M12 3H3v18h18v-9"></path>
-<path d="M16 3h5v5"></path>
-<path d="M14 15H9v-5"></path>"#;
-
-const SCAN_FACE: &'static str = r#"
-<path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-<path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-<path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-<path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
-<path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-<path d="M9 9h.01"></path>
-<path d="M15 9h.01"></path>"#;
-
-const SCAN_LINE: &'static str = r#"
-<path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-<path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-<path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-<path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
-<line x2="17" x1="7" y1="12" y2="12"></line>"#;
-
-const SCAN: &'static str = r#"
-<path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-<path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-<path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-<path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>"#;
-
-const SCATTER_CHART: &'static str = r#"
-<circle r=".5" cy="7.5" cx="7.5"></circle>
-<circle cy="5.5" r=".5" cx="18.5"></circle>
-<circle cx="11.5" cy="11.5" r=".5"></circle>
-<circle cy="16.5" cx="7.5" r=".5"></circle>
-<circle cx="17.5" cy="14.5" r=".5"></circle>
-<path d="M3 3v18h18"></path>"#;
-
-const SCHOOL_2: &'static str = r#"
-<circle cx="12" r="1" cy="10"></circle>
-<path d="M22 20V8h-4l-6-4-6 4H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2Z"></path>
-<path d="M6 17v.01"></path>
-<path d="M6 13v.01"></path>
-<path d="M18 17v.01"></path>
-<path d="M18 13v.01"></path>
-<path d="M14 22v-5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5"></path>"#;
-
-const SCHOOL: &'static str = r#"
-<path d="m4 6 8-4 8 4"></path>
-<path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"></path>
-<path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"></path>
-<path d="M18 5v17"></path>
-<path d="M6 5v17"></path>
-<circle cy="9" r="2" cx="12"></circle>"#;
-
-const SCISSORS_LINE_DASHED: &'static str = r#"
-<path d="M5.42 9.42 8 12"></path>
-<circle r="2" cx="4" cy="8"></circle>
-<path d="m14 6-8.58 8.58"></path>
-<circle cy="16" cx="4" r="2"></circle>
-<path d="M10.8 14.8 14 18"></path>
-<path d="M16 12h-2"></path>
-<path d="M22 12h-2"></path>"#;
-
-const SCISSORS_SQUARE_DASHED_BOTTOM: &'static str = r#"
-<path d="M4 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2"></path>
-<path d="M10 22H8"></path>
-<path d="M16 22h-2"></path>
-<circle cy="8" r="2" cx="8"></circle>
-<path d="M9.414 9.414 12 12"></path>
-<path d="M14.8 14.8 18 18"></path>
-<circle r="2" cx="8" cy="16"></circle>
-<path d="m18 6-8.586 8.586"></path>"#;
-
-const SCISSORS_SQUARE: &'static str = r#"
-<rect rx="2" height="20" y="2" width="20" x="2"></rect>
-<circle cy="8" cx="8" r="2"></circle>
-<path d="M9.414 9.414 12 12"></path>
-<path d="M14.8 14.8 18 18"></path>
-<circle r="2" cx="8" cy="16"></circle>
-<path d="m18 6-8.586 8.586"></path>"#;
-
-const SCISSORS: &'static str = r#"
-<circle cx="6" cy="6" r="3"></circle>
-<path d="M8.12 8.12 12 12"></path>
-<path d="M20 4 8.12 15.88"></path>
-<circle cx="6" cy="18" r="3"></circle>
-<path d="M14.8 14.8 20 20"></path>"#;
-
-const SCREEN_SHARE_OFF: &'static str = r#"
-<path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3"></path>
-<path d="M8 21h8"></path>
-<path d="M12 17v4"></path>
-<path d="m22 3-5 5"></path>
-<path d="m17 3 5 5"></path>"#;
-
-const SCREEN_SHARE: &'static str = r#"
-<path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3"></path>
-<path d="M8 21h8"></path>
-<path d="M12 17v4"></path>
-<path d="m17 8 5-5"></path>
-<path d="M17 3h5v5"></path>"#;
-
-const SCROLL_TEXT: &'static str = r#"
-<path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"></path>
-<path d="M19 17V5a2 2 0 0 0-2-2H4"></path>
-<path d="M15 8h-5"></path>
-<path d="M15 12h-5"></path>"#;
-
-const SCROLL: &'static str = r#"
-<path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"></path>
-<path d="M19 17V5a2 2 0 0 0-2-2H4"></path>"#;
-
-const SEARCH_CHECK: &'static str = r#"
-<path d="m8 11 2 2 4-4"></path>
-<circle r="8" cy="11" cx="11"></circle>
-<path d="m21 21-4.3-4.3"></path>"#;
-
-const SEARCH_CODE: &'static str = r#"
-<path d="m9 9-2 2 2 2"></path>
-<path d="m13 13 2-2-2-2"></path>
-<circle r="8" cx="11" cy="11"></circle>
-<path d="m21 21-4.3-4.3"></path>"#;
-
-const SEARCH_SLASH: &'static str = r#"
-<path d="m13.5 8.5-5 5"></path>
-<circle r="8" cx="11" cy="11"></circle>
-<path d="m21 21-4.3-4.3"></path>"#;
-
-const SEARCH_X: &'static str = r#"
-<path d="m13.5 8.5-5 5"></path>
-<path d="m8.5 8.5 5 5"></path>
-<circle cx="11" r="8" cy="11"></circle>
-<path d="m21 21-4.3-4.3"></path>"#;
-
-const SEARCH: &'static str = r#"
-<circle cx="11" cy="11" r="8"></circle>
-<path d="m21 21-4.3-4.3"></path>"#;
-
-const SEND_HORIZONTAL: &'static str = r#"
-<path d="m3 3 3 9-3 9 19-9Z"></path>
-<path d="M6 12h16"></path>"#;
-
-const SEND_TO_BACK: &'static str = r#"
-<rect y="14" width="8" height="8" rx="2" x="14"></rect>
-<rect height="8" x="2" y="2" width="8" rx="2"></rect>
-<path d="M7 14v1a2 2 0 0 0 2 2h1"></path>
-<path d="M14 7h1a2 2 0 0 1 2 2v1"></path>"#;
-
-const SEND: &'static str = r#"
-<path d="m22 2-7 20-4-9-9-4Z"></path>
-<path d="M22 2 11 13"></path>"#;
-
-const SEPARATOR_HORIZONTAL: &'static str = r#"
-<line x2="21" y1="12" x1="3" y2="12"></line>
-<polyline points="8 8 12 4 16 8"></polyline>
-<polyline points="16 16 12 20 8 16"></polyline>"#;
-
-const SEPARATOR_VERTICAL: &'static str = r#"
-<line y2="21" x1="12" x2="12" y1="3"></line>
-<polyline points="8 8 4 12 8 16"></polyline>
-<polyline points="16 16 20 12 16 8"></polyline>"#;
-
-const SERVER_COG: &'static str = r#"
-<circle cy="12" r="3" cx="12"></circle>
-<path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5"></path>
-<path d="M4.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5"></path>
-<path d="M6 6h.01"></path>
-<path d="M6 18h.01"></path>
-<path d="m15.7 13.4-.9-.3"></path>
-<path d="m9.2 10.9-.9-.3"></path>
-<path d="m10.6 15.7.3-.9"></path>
-<path d="m13.6 15.7-.4-1"></path>
-<path d="m10.8 9.3-.4-1"></path>
-<path d="m8.3 13.6 1-.4"></path>
-<path d="m14.7 10.8 1-.4"></path>
-<path d="m13.4 8.3-.3.9"></path>"#;
-
-const SERVER_CRASH: &'static str = r#"
-<path d="M6 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"></path>
-<path d="M6 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2"></path>
-<path d="M6 6h.01"></path>
-<path d="M6 18h.01"></path>
-<path d="m13 6-4 6h6l-4 6"></path>"#;
-
-const SERVER_OFF: &'static str = r#"
-<path d="M7 2h13a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-5"></path>
-<path d="M10 10 2.5 2.5C2 2 2 2.5 2 5v3a2 2 0 0 0 2 2h6z"></path>
-<path d="M22 17v-1a2 2 0 0 0-2-2h-1"></path>
-<path d="M4 14a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16.5l1-.5.5.5-8-8H4z"></path>
-<path d="M6 18h.01"></path>
-<path d="m2 2 20 20"></path>"#;
-
-const SERVER: &'static str = r#"
-<rect ry="2" width="20" y="2" x="2" height="8" rx="2"></rect>
-<rect height="8" y="14" rx="2" ry="2" width="20" x="2"></rect>
-<line y2="6" x1="6" y1="6" x2="6.01"></line>
-<line x2="6.01" x1="6" y1="18" y2="18"></line>"#;
-
-const SETTINGS_2: &'static str = r#"
-<path d="M20 7h-9"></path>
-<path d="M14 17H5"></path>
-<circle cx="17" cy="17" r="3"></circle>
-<circle cx="7" r="3" cy="7"></circle>"#;
-
-const SETTINGS: &'static str = r#"
-<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
-<circle cy="12" r="3" cx="12"></circle>"#;
-
-const SHAPES: &'static str = r#"
-<path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"></path>
-<rect width="7" x="3" height="7" rx="1" y="14"></rect>
-<circle r="3.5" cy="17.5" cx="17.5"></circle>"#;
-
-const SHARE_2: &'static str = r#"
-<circle cx="18" cy="5" r="3"></circle>
-<circle cx="6" cy="12" r="3"></circle>
-<circle cx="18" cy="19" r="3"></circle>
-<line y2="17.49" x2="15.42" y1="13.51" x1="8.59"></line>
-<line y1="6.51" y2="10.49" x1="15.41" x2="8.59"></line>"#;
-
-const SHARE: &'static str = r#"
-<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-<polyline points="16 6 12 2 8 6"></polyline>
-<line x2="12" y1="2" y2="15" x1="12"></line>"#;
-
-const SHEET: &'static str = r#"
-<rect y="3" ry="2" height="18" x="3" rx="2" width="18"></rect>
-<line y1="9" x2="21" x1="3" y2="9"></line>
-<line x1="3" x2="21" y1="15" y2="15"></line>
-<line y2="21" x2="9" x1="9" y1="9"></line>
-<line y2="21" x2="15" x1="15" y1="9"></line>"#;
-
-const SHELL: &'static str = r#"
-<path d="M14 11a2 2 0 1 1-4 0 4 4 0 0 1 8 0 6 6 0 0 1-12 0 8 8 0 0 1 16 0 10 10 0 1 1-20 0 11.93 11.93 0 0 1 2.42-7.22 2 2 0 1 1 3.16 2.44"></path>"#;
-
-const SHIELD_ALERT: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="M12 8v4"></path>
-<path d="M12 16h.01"></path>"#;
-
-const SHIELD_BAN: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="m4 5 14 12"></path>"#;
-
-const SHIELD_CHECK: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="m9 12 2 2 4-4"></path>"#;
-
-const SHIELD_ELLIPSIS: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="M8 11h.01"></path>
-<path d="M12 11h.01"></path>
-<path d="M16 11h.01"></path>"#;
-
-const SHIELD_HALF: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="M12 22V2"></path>"#;
-
-const SHIELD_MINUS: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="M8 11h8"></path>"#;
-
-const SHIELD_OFF: &'static str = r#"
-<path d="M19.7 14a6.9 6.9 0 0 0 .3-2V5l-8-3-3.2 1.2"></path>
-<path d="m2 2 20 20"></path>
-<path d="M4.7 4.7 4 5v7c0 6 8 10 8 10a20.3 20.3 0 0 0 5.62-4.38"></path>"#;
-
-const SHIELD_PLUS: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="M8 11h8"></path>
-<path d="M12 15V7"></path>"#;
-
-const SHIELD_QUESTION: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3"></path>
-<path d="M12 17h.01"></path>"#;
-
-const SHIELD_X: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-<path d="m14.5 9-5 5"></path>
-<path d="m9.5 9 5 5"></path>"#;
-
-const SHIELD: &'static str = r#"
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>"#;
-
-const SHIP_WHEEL: &'static str = r#"
-<circle cx="12" r="8" cy="12"></circle>
-<path d="M12 2v7.5"></path>
-<path d="m19 5-5.23 5.23"></path>
-<path d="M22 12h-7.5"></path>
-<path d="m19 19-5.23-5.23"></path>
-<path d="M12 14.5V22"></path>
-<path d="M10.23 13.77 5 19"></path>
-<path d="M9.5 12H2"></path>
-<path d="M10.23 10.23 5 5"></path>
-<circle cx="12" r="2.5" cy="12"></circle>"#;
-
-const SHIP: &'static str = r#"
-<path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-<path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"></path>
-<path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path>
-<path d="M12 10v4"></path>
-<path d="M12 2v3"></path>"#;
-
-const SHIRT: &'static str = r#"
-<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>"#;
-
-const SHOPPING_BAG: &'static str = r#"
-<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-<path d="M3 6h18"></path>
-<path d="M16 10a4 4 0 0 1-8 0"></path>"#;
-
-const SHOPPING_BASKET: &'static str = r#"
-<path d="m5 11 4-7"></path>
-<path d="m19 11-4-7"></path>
-<path d="M2 11h20"></path>
-<path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
-<path d="m9 11 1 9"></path>
-<path d="M4.5 15.5h15"></path>
-<path d="m15 11-1 9"></path>"#;
-
-const SHOPPING_CART: &'static str = r#"
-<circle cy="21" r="1" cx="8"></circle>
-<circle cy="21" r="1" cx="19"></circle>
-<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>"#;
-
-const SHOVEL: &'static str = r#"
-<path d="M2 22v-5l5-5 5 5-5 5z"></path>
-<path d="M9.5 14.5 16 8"></path>
-<path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5L17 2"></path>"#;
-
-const SHOWER_HEAD: &'static str = r#"
-<path d="m4 4 2.5 2.5"></path>
-<path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"></path>
-<path d="M15 5 5 15"></path>
-<path d="M14 17v.01"></path>
-<path d="M10 16v.01"></path>
-<path d="M13 13v.01"></path>
-<path d="M16 10v.01"></path>
-<path d="M11 20v.01"></path>
-<path d="M17 14v.01"></path>
-<path d="M20 11v.01"></path>"#;
-
-const SHRINK: &'static str = r#"
-<path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8"></path>
-<path d="M9 19.8V15m0 0H4.2M9 15l-6 6"></path>
-<path d="M15 4.2V9m0 0h4.8M15 9l6-6"></path>
-<path d="M9 4.2V9m0 0H4.2M9 9 3 3"></path>"#;
-
-const SHRUB: &'static str = r#"
-<path d="M12 22v-7l-2-2"></path>
-<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z"></path>
-<path d="m14 14-2 2"></path>"#;
-
-const SHUFFLE: &'static str = r#"
-<path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"></path>
-<path d="m18 2 4 4-4 4"></path>
-<path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"></path>
-<path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"></path>
-<path d="m18 14 4 4-4 4"></path>"#;
-
-const SIGMA_SQUARE: &'static str = r#"
-<rect x="3" y="3" height="18" width="18" rx="2"></rect>
-<path d="M16 8.9V7H8l4 5-4 5h8v-1.9"></path>"#;
-
-const SIGMA: &'static str = r#"
-<path d="M18 7V4H6l6 8-6 8h12v-3"></path>"#;
-
-const SIGNAL_HIGH: &'static str = r#"
-<path d="M2 20h.01"></path>
-<path d="M7 20v-4"></path>
-<path d="M12 20v-8"></path>
-<path d="M17 20V8"></path>"#;
-
-const SIGNAL_LOW: &'static str = r#"
-<path d="M2 20h.01"></path>
-<path d="M7 20v-4"></path>"#;
-
-const SIGNAL_MEDIUM: &'static str = r#"
-<path d="M2 20h.01"></path>
-<path d="M7 20v-4"></path>
-<path d="M12 20v-8"></path>"#;
-
-const SIGNAL_ZERO: &'static str = r#"
-<path d="M2 20h.01"></path>"#;
-
-const SIGNAL: &'static str = r#"
-<path d="M2 20h.01"></path>
-<path d="M7 20v-4"></path>
-<path d="M12 20v-8"></path>
-<path d="M17 20V8"></path>
-<path d="M22 4v16"></path>"#;
-
-const SIREN: &'static str = r#"
-<path d="M7 12a5 5 0 0 1 5-5v0a5 5 0 0 1 5 5v6H7v-6Z"></path>
-<path d="M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2H5v-2Z"></path>
-<path d="M21 12h1"></path>
-<path d="M18.5 4.5 18 5"></path>
-<path d="M2 12h1"></path>
-<path d="M12 2v1"></path>
-<path d="m4.929 4.929.707.707"></path>
-<path d="M12 12v6"></path>"#;
-
-const SKIP_BACK: &'static str = r#"
-<polygon points="19 20 9 12 19 4 19 20"></polygon>
-<line x1="5" x2="5" y2="5" y1="19"></line>"#;
-
-const SKIP_FORWARD: &'static str = r#"
-<polygon points="5 4 15 12 5 20 5 4"></polygon>
-<line x1="19" x2="19" y1="5" y2="19"></line>"#;
-
-const SKULL: &'static str = r#"
-<circle cy="12" r="1" cx="9"></circle>
-<circle r="1" cy="12" cx="15"></circle>
-<path d="M8 20v2h8v-2"></path>
-<path d="m12.5 17-.5-1-.5 1h1z"></path>
-<path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"></path>"#;
-
-const SLACK: &'static str = r#"
-<rect width="3" x="13" y="2" height="8" rx="1.5"></rect>
-<path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"></path>
-<rect x="8" rx="1.5" y="14" width="3" height="8"></rect>
-<path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"></path>
-<rect rx="1.5" x="14" y="13" width="8" height="3"></rect>
-<path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"></path>
-<rect height="3" width="8" y="8" x="2" rx="1.5"></rect>
-<path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"></path>"#;
-
-const SLASH: &'static str = r#"
-<path d="M22 2 2 22"></path>"#;
-
-const SLICE: &'static str = r#"
-<path d="m8 14-6 6h9v-3"></path>
-<path d="M18.37 3.63 8 14l3 3L21.37 6.63a2.12 2.12 0 1 0-3-3Z"></path>"#;
-
-const SLIDERS_HORIZONTAL: &'static str = r#"
-<line x1="21" y2="4" x2="14" y1="4"></line>
-<line y2="4" x2="3" y1="4" x1="10"></line>
-<line y1="12" y2="12" x1="21" x2="12"></line>
-<line x1="8" y1="12" x2="3" y2="12"></line>
-<line x2="16" y1="20" x1="21" y2="20"></line>
-<line x1="12" y2="20" x2="3" y1="20"></line>
-<line y1="2" y2="6" x2="14" x1="14"></line>
-<line x2="8" y2="14" x1="8" y1="10"></line>
-<line y2="22" x2="16" y1="18" x1="16"></line>"#;
-
-const SLIDERS: &'static str = r#"
-<line x1="4" y2="14" y1="21" x2="4"></line>
-<line x1="4" y2="3" x2="4" y1="10"></line>
-<line y1="21" x1="12" x2="12" y2="12"></line>
-<line y1="8" x2="12" y2="3" x1="12"></line>
-<line y1="21" x1="20" x2="20" y2="16"></line>
-<line x1="20" y2="3" y1="12" x2="20"></line>
-<line x1="2" y1="14" x2="6" y2="14"></line>
-<line x1="10" y1="8" x2="14" y2="8"></line>
-<line y1="16" x1="18" x2="22" y2="16"></line>"#;
-
-const SMARTPHONE_CHARGING: &'static str = r#"
-<rect rx="2" height="20" x="5" width="14" y="2" ry="2"></rect>
-<path d="M12.667 8 10 12h4l-2.667 4"></path>"#;
-
-const SMARTPHONE_NFC: &'static str = r#"
-<rect height="12" rx="1" x="2" y="6" width="7"></rect>
-<path d="M13 8.32a7.43 7.43 0 0 1 0 7.36"></path>
-<path d="M16.46 6.21a11.76 11.76 0 0 1 0 11.58"></path>
-<path d="M19.91 4.1a15.91 15.91 0 0 1 .01 15.8"></path>"#;
-
-const SMARTPHONE: &'static str = r#"
-<rect y="2" width="14" x="5" ry="2" rx="2" height="20"></rect>
-<path d="M12 18h.01"></path>"#;
-
-const SMILE_PLUS: &'static str = r#"
-<path d="M22 11v1a10 10 0 1 1-9-10"></path>
-<path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-<line x1="9" x2="9.01" y1="9" y2="9"></line>
-<line x1="15" y2="9" x2="15.01" y1="9"></line>
-<path d="M16 5h6"></path>
-<path d="M19 2v6"></path>"#;
-
-const SMILE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-<line x1="9" x2="9.01" y1="9" y2="9"></line>
-<line x1="15" x2="15.01" y1="9" y2="9"></line>"#;
-
-const SNAIL: &'static str = r#"
-<path d="M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0"></path>
-<circle cx="10" cy="13" r="8"></circle>
-<path d="M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6"></path>
-<path d="M18 3 19.1 5.2"></path>
-<path d="M22 3 20.9 5.2"></path>"#;
-
-const SNOWFLAKE: &'static str = r#"
-<line y1="12" y2="12" x1="2" x2="22"></line>
-<line y2="22" y1="2" x1="12" x2="12"></line>
-<path d="m20 16-4-4 4-4"></path>
-<path d="m4 8 4 4-4 4"></path>
-<path d="m16 4-4 4-4-4"></path>
-<path d="m8 20 4-4 4 4"></path>"#;
-
-const SOFA: &'static str = r#"
-<path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path>
-<path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"></path>
-<path d="M4 18v2"></path>
-<path d="M20 18v2"></path>
-<path d="M12 4v9"></path>"#;
-
-const SOUP: &'static str = r#"
-<path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path>
-<path d="M7 21h10"></path>
-<path d="M19.5 12 22 6"></path>
-<path d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62"></path>
-<path d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62"></path>
-<path d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62"></path>"#;
-
-const SPACE: &'static str = r#"
-<path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1"></path>"#;
-
-const SPADE: &'static str = r#"
-<path d="M5 9c-1.5 1.5-3 3.2-3 5.5A5.5 5.5 0 0 0 7.5 20c1.8 0 3-.5 4.5-2 1.5 1.5 2.7 2 4.5 2a5.5 5.5 0 0 0 5.5-5.5c0-2.3-1.5-4-3-5.5l-7-7-7 7Z"></path>
-<path d="M12 18v4"></path>"#;
-
-const SPARKLE: &'static str = r#"
-<path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z"></path>"#;
-
-const SPARKLES: &'static str = r#"
-<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
-<path d="M5 3v4"></path>
-<path d="M19 17v4"></path>
-<path d="M3 5h4"></path>
-<path d="M17 19h4"></path>"#;
-
-const SPEAKER: &'static str = r#"
-<rect width="16" height="20" x="4" y="2" ry="2" rx="2"></rect>
-<circle cy="14" r="4" cx="12"></circle>
-<line x2="12.01" y1="6" x1="12" y2="6"></line>"#;
-
-const SPELL_CHECK_2: &'static str = r#"
-<path d="m6 16 6-12 6 12"></path>
-<path d="M8 12h8"></path>
-<path d="M4 21c1.1 0 1.1-1 2.3-1s1.1 1 2.3 1c1.1 0 1.1-1 2.3-1 1.1 0 1.1 1 2.3 1 1.1 0 1.1-1 2.3-1 1.1 0 1.1 1 2.3 1 1.1 0 1.1-1 2.3-1"></path>"#;
-
-const SPELL_CHECK: &'static str = r#"
-<path d="m6 16 6-12 6 12"></path>
-<path d="M8 12h8"></path>
-<path d="m16 20 2 2 4-4"></path>"#;
-
-const SPLINE: &'static str = r#"
-<circle cx="19" r="2" cy="5"></circle>
-<circle cx="5" cy="19" r="2"></circle>
-<path d="M5 17A12 12 0 0 1 17 5"></path>"#;
-
-const SPLIT_SQUARE_HORIZONTAL: &'static str = r#"
-<path d="M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3"></path>
-<path d="M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3"></path>
-<line y2="20" x2="12" y1="4" x1="12"></line>"#;
-
-const SPLIT_SQUARE_VERTICAL: &'static str = r#"
-<path d="M5 8V5c0-1 1-2 2-2h10c1 0 2 1 2 2v3"></path>
-<path d="M19 16v3c0 1-1 2-2 2H7c-1 0-2-1-2-2v-3"></path>
-<line y2="12" x2="20" x1="4" y1="12"></line>"#;
-
-const SPLIT: &'static str = r#"
-<path d="M16 3h5v5"></path>
-<path d="M8 3H3v5"></path>
-<path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3"></path>
-<path d="m15 9 6-6"></path>"#;
-
-const SPRAY_CAN: &'static str = r#"
-<path d="M3 3h.01"></path>
-<path d="M7 5h.01"></path>
-<path d="M11 7h.01"></path>
-<path d="M3 7h.01"></path>
-<path d="M7 9h.01"></path>
-<path d="M3 11h.01"></path>
-<rect x="15" y="5" width="4" height="4"></rect>
-<path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"></path>
-<path d="m13 14 8-2"></path>
-<path d="m13 19 8-2"></path>"#;
-
-const SPROUT: &'static str = r#"
-<path d="M7 20h10"></path>
-<path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
-<path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"></path>
-<path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"></path>"#;
-
-const SQUARE_ASTERISK: &'static str = r#"
-<rect rx="2" y="3" width="18" height="18" x="3"></rect>
-<path d="M12 8v8"></path>
-<path d="m8.5 14 7-4"></path>
-<path d="m8.5 10 7 4"></path>"#;
-
-const SQUARE_CODE: &'static str = r#"
-<rect height="18" width="18" rx="2" x="3" y="3"></rect>
-<path d="m10 10-2 2 2 2"></path>
-<path d="m14 14 2-2-2-2"></path>"#;
-
-const SQUARE_DASHED_BOTTOM_CODE: &'static str = r#"
-<path d="m10 10-2 2 2 2"></path>
-<path d="m14 14 2-2-2-2"></path>
-<path d="M5 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2"></path>
-<path d="M9 21h1"></path>
-<path d="M14 21h1"></path>"#;
-
-const SQUARE_DASHED_BOTTOM: &'static str = r#"
-<path d="M5 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2"></path>
-<path d="M9 21h1"></path>
-<path d="M14 21h1"></path>"#;
-
-const SQUARE_DOT: &'static str = r#"
-<rect y="3" x="3" height="18" width="18" rx="2"></rect>
-<circle cx="12" r="1" cy="12"></circle>"#;
-
-const SQUARE_EQUAL: &'static str = r#"
-<rect rx="2" y="3" width="18" height="18" x="3"></rect>
-<path d="M7 10h10"></path>
-<path d="M7 14h10"></path>"#;
-
-const SQUARE_SLASH: &'static str = r#"
-<rect y="3" rx="2" x="3" width="18" height="18"></rect>
-<line y1="15" x2="15" x1="9" y2="9"></line>"#;
-
-const SQUARE_STACK: &'static str = r#"
-<path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"></path>
-<path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"></path>
-<rect x="14" height="8" y="14" rx="2" width="8"></rect>"#;
-
-const SQUARE: &'static str = r#"
-<rect rx="2" height="18" width="18" x="3" y="3"></rect>"#;
-
-const SQUIRREL: &'static str = r#"
-<path d="M18 6a4 4 0 0 0-4 4 7 7 0 0 0-7 7c0-5 4-5 4-10.5a4.5 4.5 0 1 0-9 0 2.5 2.5 0 0 0 5 0C7 10 3 11 3 17c0 2.8 2.2 5 5 5h10"></path>
-<path d="M16 20c0-1.7 1.3-3 3-3h1a2 2 0 0 0 2-2v-2a4 4 0 0 0-4-4V4"></path>
-<path d="M15.2 22a3 3 0 0 0-2.2-5"></path>
-<path d="M18 13h.01"></path>"#;
-
-const STAMP: &'static str = r#"
-<path d="M5 22h14"></path>
-<path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"></path>
-<path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-3-3c-1.66 0-3 1-3 3s1 2 1 3.5V13"></path>"#;
-
-const STAR_HALF: &'static str = r#"
-<path d="M12 17.8 5.8 21 7 14.1 2 9.3l7-1L12 2"></path>"#;
-
-const STAR_OFF: &'static str = r#"
-<path d="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43"></path>
-<path d="M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91"></path>
-<line x1="2" y1="2" y2="22" x2="22"></line>"#;
-
-const STAR: &'static str = r#"
-<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>"#;
-
-const STEP_BACK: &'static str = r#"
-<line y1="20" x2="18" x1="18" y2="4"></line>
-<polygon points="14,20 4,12 14,4"></polygon>"#;
-
-const STEP_FORWARD: &'static str = r#"
-<line y2="20" x1="6" x2="6" y1="4"></line>
-<polygon points="10,4 20,12 10,20"></polygon>"#;
-
-const STETHOSCOPE: &'static str = r#"
-<path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path>
-<path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path>
-<circle cy="10" r="2" cx="20"></circle>"#;
-
-const STICKER: &'static str = r#"
-<path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"></path>
-<path d="M15 3v6h6"></path>
-<path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1"></path>
-<path d="M8 13h0"></path>
-<path d="M16 13h0"></path>"#;
-
-const STICKY_NOTE: &'static str = r#"
-<path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"></path>
-<path d="M15 3v6h6"></path>"#;
-
-const STOP_CIRCLE: &'static str = r#"
-<circle cy="12" cx="12" r="10"></circle>
-<rect height="6" y="9" x="9" width="6"></rect>"#;
-
-const STORE: &'static str = r#"
-<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
-<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-<path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
-<path d="M2 7h20"></path>
-<path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7"></path>"#;
-
-const STRETCH_HORIZONTAL: &'static str = r#"
-<rect height="6" x="2" y="4" width="20" rx="2"></rect>
-<rect y="14" x="2" width="20" rx="2" height="6"></rect>"#;
-
-const STRETCH_VERTICAL: &'static str = r#"
-<rect width="6" height="20" rx="2" y="2" x="4"></rect>
-<rect width="6" height="20" x="14" y="2" rx="2"></rect>"#;
-
-const STRIKETHROUGH: &'static str = r#"
-<path d="M16 4H9a3 3 0 0 0-2.83 4"></path>
-<path d="M14 12a4 4 0 0 1 0 8H6"></path>
-<line y1="12" y2="12" x2="20" x1="4"></line>"#;
-
-const SUBSCRIPT: &'static str = r#"
-<path d="m4 5 8 8"></path>
-<path d="m12 5-8 8"></path>
-<path d="M20 19h-4c0-1.5.44-2 1.5-2.5S20 15.33 20 14c0-.47-.17-.93-.48-1.29a2.11 2.11 0 0 0-2.62-.44c-.42.24-.74.62-.9 1.07"></path>"#;
-
-const SUBTITLES: &'static str = r#"
-<path d="M7 13h4"></path>
-<path d="M15 13h2"></path>
-<path d="M7 9h2"></path>
-<path d="M13 9h4"></path>
-<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"></path>"#;
-
-const SUN_DIM: &'static str = r#"
-<circle cy="12" cx="12" r="4"></circle>
-<path d="M12 4h.01"></path>
-<path d="M20 12h.01"></path>
-<path d="M12 20h.01"></path>
-<path d="M4 12h.01"></path>
-<path d="M17.657 6.343h.01"></path>
-<path d="M17.657 17.657h.01"></path>
-<path d="M6.343 17.657h.01"></path>
-<path d="M6.343 6.343h.01"></path>"#;
-
-const SUN_MEDIUM: &'static str = r#"
-<circle r="4" cx="12" cy="12"></circle>
-<path d="M12 3v1"></path>
-<path d="M12 20v1"></path>
-<path d="M3 12h1"></path>
-<path d="M20 12h1"></path>
-<path d="m18.364 5.636-.707.707"></path>
-<path d="m6.343 17.657-.707.707"></path>
-<path d="m5.636 5.636.707.707"></path>
-<path d="m17.657 17.657.707.707"></path>"#;
-
-const SUN_MOON: &'static str = r#"
-<path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"></path>
-<path d="M12 2v2"></path>
-<path d="M12 20v2"></path>
-<path d="m4.9 4.9 1.4 1.4"></path>
-<path d="m17.7 17.7 1.4 1.4"></path>
-<path d="M2 12h2"></path>
-<path d="M20 12h2"></path>
-<path d="m6.3 17.7-1.4 1.4"></path>
-<path d="m19.1 4.9-1.4 1.4"></path>"#;
-
-const SUN_SNOW: &'static str = r#"
-<path d="M10 9a3 3 0 1 0 0 6"></path>
-<path d="M2 12h1"></path>
-<path d="M14 21V3"></path>
-<path d="M10 4V3"></path>
-<path d="M10 21v-1"></path>
-<path d="m3.64 18.36.7-.7"></path>
-<path d="m4.34 6.34-.7-.7"></path>
-<path d="M14 12h8"></path>
-<path d="m17 4-3 3"></path>
-<path d="m14 17 3 3"></path>
-<path d="m21 15-3-3 3-3"></path>"#;
-
-const SUN: &'static str = r#"
-<circle r="4" cy="12" cx="12"></circle>
-<path d="M12 2v2"></path>
-<path d="M12 20v2"></path>
-<path d="m4.93 4.93 1.41 1.41"></path>
-<path d="m17.66 17.66 1.41 1.41"></path>
-<path d="M2 12h2"></path>
-<path d="M20 12h2"></path>
-<path d="m6.34 17.66-1.41 1.41"></path>
-<path d="m19.07 4.93-1.41 1.41"></path>"#;
-
-const SUNRISE: &'static str = r#"
-<path d="M12 2v8"></path>
-<path d="m4.93 10.93 1.41 1.41"></path>
-<path d="M2 18h2"></path>
-<path d="M20 18h2"></path>
-<path d="m19.07 10.93-1.41 1.41"></path>
-<path d="M22 22H2"></path>
-<path d="m8 6 4-4 4 4"></path>
-<path d="M16 18a4 4 0 0 0-8 0"></path>"#;
-
-const SUNSET: &'static str = r#"
-<path d="M12 10V2"></path>
-<path d="m4.93 10.93 1.41 1.41"></path>
-<path d="M2 18h2"></path>
-<path d="M20 18h2"></path>
-<path d="m19.07 10.93-1.41 1.41"></path>
-<path d="M22 22H2"></path>
-<path d="m16 6-4 4-4-4"></path>
-<path d="M16 18a4 4 0 0 0-8 0"></path>"#;
-
-const SUPERSCRIPT: &'static str = r#"
-<path d="m4 19 8-8"></path>
-<path d="m12 19-8-8"></path>
-<path d="M20 12h-4c0-1.5.442-2 1.5-2.5S20 8.334 20 7.002c0-.472-.17-.93-.484-1.29a2.105 2.105 0 0 0-2.617-.436c-.42.239-.738.614-.899 1.06"></path>"#;
-
-const SWISS_FRANC: &'static str = r#"
-<path d="M10 21V3h8"></path>
-<path d="M6 16h9"></path>
-<path d="M10 9.5h7"></path>"#;
-
-const SWITCH_CAMERA: &'static str = r#"
-<path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"></path>
-<path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"></path>
-<circle cx="12" r="3" cy="12"></circle>
-<path d="m18 22-3-3 3-3"></path>
-<path d="m6 2 3 3-3 3"></path>"#;
-
-const SWORD: &'static str = r#"
-<polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
-<line y1="19" x2="19" y2="13" x1="13"></line>
-<line x2="20" y1="16" y2="20" x1="16"></line>
-<line y1="21" x2="21" x1="19" y2="19"></line>"#;
-
-const SWORDS: &'static str = r#"
-<polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
-<line y2="13" x1="13" y1="19" x2="19"></line>
-<line x1="16" x2="20" y1="16" y2="20"></line>
-<line x2="21" y2="19" y1="21" x1="19"></line>
-<polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline>
-<line y1="14" y2="18" x2="9" x1="5"></line>
-<line x1="7" x2="4" y1="17" y2="20"></line>
-<line y2="21" x1="3" x2="5" y1="19"></line>"#;
-
-const SYRINGE: &'static str = r#"
-<path d="m18 2 4 4"></path>
-<path d="m17 7 3-3"></path>
-<path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"></path>
-<path d="m9 11 4 4"></path>
-<path d="m5 19-3 3"></path>
-<path d="m14 4 6 6"></path>"#;
-
-const TABLE_2: &'static str = r#"
-<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"></path>"#;
-
-const TABLE_PROPERTIES: &'static str = r#"
-<path d="M15 3v18"></path>
-<rect x="3" y="3" rx="2" height="18" width="18"></rect>
-<path d="M21 9H3"></path>
-<path d="M21 15H3"></path>"#;
-
-const TABLE: &'static str = r#"
-<path d="M12 3v18"></path>
-<rect height="18" x="3" y="3" width="18" rx="2"></rect>
-<path d="M3 9h18"></path>
-<path d="M3 15h18"></path>"#;
-
-const TABLET_SMARTPHONE: &'static str = r#"
-<rect height="14" y="8" rx="2" x="3" width="10"></rect>
-<path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"></path>
-<path d="M8 18h.01"></path>"#;
-
-const TABLET: &'static str = r#"
-<rect width="16" height="20" x="4" rx="2" y="2" ry="2"></rect>
-<line x1="12" y1="18" x2="12.01" y2="18"></line>"#;
-
-const TABLETS: &'static str = r#"
-<circle r="5" cx="7" cy="7"></circle>
-<circle cy="17" cx="17" r="5"></circle>
-<path d="M12 17h10"></path>
-<path d="m3.46 10.54 7.08-7.08"></path>"#;
-
-const TAG: &'static str = r#"
-<path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"></path>
-<path d="M7 7h.01"></path>"#;
-
-const TAGS: &'static str = r#"
-<path d="M9 5H2v7l6.29 6.29c.94.94 2.48.94 3.42 0l3.58-3.58c.94-.94.94-2.48 0-3.42L9 5Z"></path>
-<path d="M6 9.01V9"></path>
-<path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path>"#;
-
-const TALLY_1: &'static str = r#"
-<path d="M4 4v16"></path>"#;
-
-const TALLY_2: &'static str = r#"
-<path d="M4 4v16"></path>
-<path d="M9 4v16"></path>"#;
-
-const TALLY_3: &'static str = r#"
-<path d="M4 4v16"></path>
-<path d="M9 4v16"></path>
-<path d="M14 4v16"></path>"#;
-
-const TALLY_4: &'static str = r#"
-<path d="M4 4v16"></path>
-<path d="M9 4v16"></path>
-<path d="M14 4v16"></path>
-<path d="M19 4v16"></path>"#;
-
-const TALLY_5: &'static str = r#"
-<path d="M4 4v16"></path>
-<path d="M9 4v16"></path>
-<path d="M14 4v16"></path>
-<path d="M19 4v16"></path>
-<path d="M22 6 2 18"></path>"#;
-
-const TARGET: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<circle cy="12" r="6" cx="12"></circle>
-<circle r="2" cx="12" cy="12"></circle>"#;
-
-const TENT: &'static str = r#"
-<path d="M19 20 10 4"></path>
-<path d="m5 20 9-16"></path>
-<path d="M3 20h18"></path>
-<path d="m12 15-3 5"></path>
-<path d="m12 15 3 5"></path>"#;
-
-const TERMINAL_SQUARE: &'static str = r#"
-<path d="m7 11 2-2-2-2"></path>
-<path d="M11 13h4"></path>
-<rect width="18" height="18" x="3" ry="2" y="3" rx="2"></rect>"#;
-
-const TERMINAL: &'static str = r#"
-<polyline points="4 17 10 11 4 5"></polyline>
-<line x1="12" x2="20" y1="19" y2="19"></line>"#;
-
-const TEST_TUBE_2: &'static str = r#"
-<path d="M21 7 6.82 21.18a2.83 2.83 0 0 1-3.99-.01v0a2.83 2.83 0 0 1 0-4L17 3"></path>
-<path d="m16 2 6 6"></path>
-<path d="M12 16H4"></path>"#;
-
-const TEST_TUBE: &'static str = r#"
-<path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5h0c-1.4 0-2.5-1.1-2.5-2.5V2"></path>
-<path d="M8.5 2h7"></path>
-<path d="M14.5 16h-5"></path>"#;
-
-const TEST_TUBES: &'static str = r#"
-<path d="M9 2v17.5A2.5 2.5 0 0 1 6.5 22v0A2.5 2.5 0 0 1 4 19.5V2"></path>
-<path d="M20 2v17.5a2.5 2.5 0 0 1-2.5 2.5v0a2.5 2.5 0 0 1-2.5-2.5V2"></path>
-<path d="M3 2h7"></path>
-<path d="M14 2h7"></path>
-<path d="M9 16H4"></path>
-<path d="M20 16h-5"></path>"#;
-
-const TEXT_CURSOR_INPUT: &'static str = r#"
-<path d="M5 4h1a3 3 0 0 1 3 3 3 3 0 0 1 3-3h1"></path>
-<path d="M13 20h-1a3 3 0 0 1-3-3 3 3 0 0 1-3 3H5"></path>
-<path d="M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1"></path>
-<path d="M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7"></path>
-<path d="M9 7v10"></path>"#;
-
-const TEXT_CURSOR: &'static str = r#"
-<path d="M17 22h-1a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4h1"></path>
-<path d="M7 22h1a4 4 0 0 0 4-4v-1"></path>
-<path d="M7 2h1a4 4 0 0 1 4 4v1"></path>"#;
-
-const TEXT_QUOTE: &'static str = r#"
-<path d="M17 6H3"></path>
-<path d="M21 12H8"></path>
-<path d="M21 18H8"></path>
-<path d="M3 12v6"></path>"#;
-
-const TEXT_SELECT: &'static str = r#"
-<path d="M5 3a2 2 0 0 0-2 2"></path>
-<path d="M19 3a2 2 0 0 1 2 2"></path>
-<path d="M21 19a2 2 0 0 1-2 2"></path>
-<path d="M5 21a2 2 0 0 1-2-2"></path>
-<path d="M9 3h1"></path>
-<path d="M9 21h1"></path>
-<path d="M14 3h1"></path>
-<path d="M14 21h1"></path>
-<path d="M3 9v1"></path>
-<path d="M21 9v1"></path>
-<path d="M3 14v1"></path>
-<path d="M21 14v1"></path>
-<line y2="8" x1="7" y1="8" x2="15"></line>
-<line y2="12" y1="12" x1="7" x2="17"></line>
-<line y1="16" x2="13" y2="16" x1="7"></line>"#;
-
-const TEXT: &'static str = r#"
-<path d="M17 6.1H3"></path>
-<path d="M21 12.1H3"></path>
-<path d="M15.1 18H3"></path>"#;
-
-const THERMOMETER_SNOWFLAKE: &'static str = r#"
-<path d="M2 12h10"></path>
-<path d="M9 4v16"></path>
-<path d="m3 9 3 3-3 3"></path>
-<path d="M12 6 9 9 6 6"></path>
-<path d="m6 18 3-3 1.5 1.5"></path>
-<path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>"#;
-
-const THERMOMETER_SUN: &'static str = r#"
-<path d="M12 9a4 4 0 0 0-2 7.5"></path>
-<path d="M12 3v2"></path>
-<path d="m6.6 18.4-1.4 1.4"></path>
-<path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
-<path d="M4 13H2"></path>
-<path d="M6.34 7.34 4.93 5.93"></path>"#;
-
-const THERMOMETER: &'static str = r#"
-<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>"#;
-
-const THUMBS_DOWN: &'static str = r#"
-<path d="M17 14V2"></path>
-<path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>"#;
-
-const THUMBS_UP: &'static str = r#"
-<path d="M7 10v12"></path>
-<path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>"#;
-
-const TICKET: &'static str = r#"
-<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
-<path d="M13 5v2"></path>
-<path d="M13 17v2"></path>
-<path d="M13 11v2"></path>"#;
-
-const TIMER_OFF: &'static str = r#"
-<path d="M10 2h4"></path>
-<path d="M4.6 11a8 8 0 0 0 1.7 8.7 8 8 0 0 0 8.7 1.7"></path>
-<path d="M7.4 7.4a8 8 0 0 1 10.3 1 8 8 0 0 1 .9 10.2"></path>
-<path d="m2 2 20 20"></path>
-<path d="M12 12v-2"></path>"#;
-
-const TIMER_RESET: &'static str = r#"
-<path d="M10 2h4"></path>
-<path d="M12 14v-4"></path>
-<path d="M4 13a8 8 0 0 1 8-7 8 8 0 1 1-5.3 14L4 17.6"></path>
-<path d="M9 17H4v5"></path>"#;
-
-const TIMER: &'static str = r#"
-<line x2="14" y1="2" y2="2" x1="10"></line>
-<line x1="12" x2="15" y2="11" y1="14"></line>
-<circle r="8" cx="12" cy="14"></circle>"#;
-
-const TOGGLE_LEFT: &'static str = r#"
-<rect width="20" height="12" ry="6" x="2" y="6" rx="6"></rect>
-<circle cx="8" cy="12" r="2"></circle>"#;
-
-const TOGGLE_RIGHT: &'static str = r#"
-<rect ry="6" y="6" width="20" height="12" x="2" rx="6"></rect>
-<circle cy="12" r="2" cx="16"></circle>"#;
-
-const TORNADO: &'static str = r#"
-<path d="M21 4H3"></path>
-<path d="M18 8H6"></path>
-<path d="M19 12H9"></path>
-<path d="M16 16h-6"></path>
-<path d="M11 20H9"></path>"#;
-
-const TOUCHPAD_OFF: &'static str = r#"
-<path d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16"></path>
-<path d="M2 14h12"></path>
-<path d="M22 14h-2"></path>
-<path d="M12 20v-6"></path>
-<path d="m2 2 20 20"></path>
-<path d="M22 16V6a2 2 0 0 0-2-2H10"></path>"#;
-
-const TOUCHPAD: &'static str = r#"
-<rect width="20" x="2" height="16" y="4" rx="2"></rect>
-<path d="M2 14h20"></path>
-<path d="M12 20v-6"></path>"#;
-
-const TOWER_CONTROL: &'static str = r#"
-<path d="M18.2 12.27 20 6H4l1.8 6.27a1 1 0 0 0 .95.73h10.5a1 1 0 0 0 .96-.73Z"></path>
-<path d="M8 13v9"></path>
-<path d="M16 22v-9"></path>
-<path d="m9 6 1 7"></path>
-<path d="m15 6-1 7"></path>
-<path d="M12 6V2"></path>
-<path d="M13 2h-2"></path>"#;
-
-const TOY_BRICK: &'static str = r#"
-<rect height="12" width="18" y="8" x="3" rx="1"></rect>
-<path d="M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3"></path>
-<path d="M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3"></path>"#;
-
-const TRACTOR: &'static str = r#"
-<path d="M3 4h9l1 7"></path>
-<path d="M4 11V4"></path>
-<path d="M8 10V4"></path>
-<path d="M18 5c-.6 0-1 .4-1 1v5.6"></path>
-<path d="m10 11 11 .9c.6 0 .9.5.8 1.1l-.8 5h-1"></path>
-<circle r=".5" cx="7" cy="15"></circle>
-<circle r="5" cy="15" cx="7"></circle>
-<path d="M16 18h-5"></path>
-<circle cx="18" cy="18" r="2"></circle>"#;
-
-const TRAFFIC_CONE: &'static str = r#"
-<path d="M9.3 6.2a4.55 4.55 0 0 0 5.4 0"></path>
-<path d="M7.9 10.7c.9.8 2.4 1.3 4.1 1.3s3.2-.5 4.1-1.3"></path>
-<path d="M13.9 3.5a1.93 1.93 0 0 0-3.8-.1l-3 10c-.1.2-.1.4-.1.6 0 1.7 2.2 3 5 3s5-1.3 5-3c0-.2 0-.4-.1-.5Z"></path>
-<path d="m7.5 12.2-4.7 2.7c-.5.3-.8.7-.8 1.1s.3.8.8 1.1l7.6 4.5c.9.5 2.1.5 3 0l7.6-4.5c.7-.3 1-.7 1-1.1s-.3-.8-.8-1.1l-4.7-2.8"></path>"#;
-
-const TRAIN_FRONT_TUNNEL: &'static str = r#"
-<path d="M2 22V12a10 10 0 1 1 20 0v10"></path>
-<path d="M15 6.8v1.4a3 2.8 0 1 1-6 0V6.8"></path>
-<path d="M10 15h.01"></path>
-<path d="M14 15h.01"></path>
-<path d="M10 19a4 4 0 0 1-4-4v-3a6 6 0 1 1 12 0v3a4 4 0 0 1-4 4Z"></path>
-<path d="m9 19-2 3"></path>
-<path d="m15 19 2 3"></path>"#;
-
-const TRAIN_FRONT: &'static str = r#"
-<path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"></path>
-<path d="m9 15-1-1"></path>
-<path d="m15 15 1-1"></path>
-<path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"></path>
-<path d="m8 19-2 3"></path>
-<path d="m16 19 2 3"></path>"#;
-
-const TRAIN_TRACK: &'static str = r#"
-<path d="M2 17 17 2"></path>
-<path d="m2 14 8 8"></path>
-<path d="m5 11 8 8"></path>
-<path d="m8 8 8 8"></path>
-<path d="m11 5 8 8"></path>
-<path d="m14 2 8 8"></path>
-<path d="M7 22 22 7"></path>"#;
-
-const TRAM_FRONT: &'static str = r#"
-<rect height="16" y="3" width="16" x="4" rx="2"></rect>
-<path d="M4 11h16"></path>
-<path d="M12 3v8"></path>
-<path d="m8 19-2 3"></path>
-<path d="m18 22-2-3"></path>
-<path d="M8 15h0"></path>
-<path d="M16 15h0"></path>"#;
-
-const TRASH_2: &'static str = r#"
-<path d="M3 6h18"></path>
-<path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-<path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-<line y2="17" y1="11" x2="10" x1="10"></line>
-<line x1="14" x2="14" y1="11" y2="17"></line>"#;
-
-const TRASH: &'static str = r#"
-<path d="M3 6h18"></path>
-<path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-<path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>"#;
-
-const TREE_DECIDUOUS: &'static str = r#"
-<path d="M8 19h8a4 4 0 0 0 3.8-2.8 4 4 0 0 0-1.6-4.5c1-1.1 1-2.7.4-4-.7-1.2-2.2-2-3.6-1.7a3 3 0 0 0-3-3 3 3 0 0 0-3 3c-1.4-.2-2.9.5-3.6 1.7-.7 1.3-.5 2.9.4 4a4 4 0 0 0-1.6 4.5A4 4 0 0 0 8 19Z"></path>
-<path d="M12 19v3"></path>"#;
-
-const TREE_PINE: &'static str = r#"
-<path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"></path>
-<path d="M12 22v-3"></path>"#;
-
-const TREES: &'static str = r#"
-<path d="M10 10v.2A3 3 0 0 1 8.9 16v0H5v0h0a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"></path>
-<path d="M7 16v6"></path>
-<path d="M13 19v3"></path>
-<path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"></path>"#;
-
-const TRELLO: &'static str = r#"
-<rect y="3" x="3" ry="2" rx="2" width="18" height="18"></rect>
-<rect width="3" y="7" x="7" height="9"></rect>
-<rect height="5" y="7" width="3" x="14"></rect>"#;
-
-const TRENDING_DOWN: &'static str = r#"
-<polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
-<polyline points="16 17 22 17 22 11"></polyline>"#;
-
-const TRENDING_UP: &'static str = r#"
-<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-<polyline points="16 7 22 7 22 13"></polyline>"#;
-
-const TRIANGLE_RIGHT: &'static str = r#"
-<path d="M22 18a2 2 0 0 1-2 2H3c-1.1 0-1.3-.6-.4-1.3L20.4 4.3c.9-.7 1.6-.4 1.6.7Z"></path>"#;
-
-const TRIANGLE: &'static str = r#"
-<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>"#;
-
-const TROPHY: &'static str = r#"
-<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-<path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-<path d="M4 22h16"></path>
-<path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-<path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-<path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>"#;
-
-const TRUCK: &'static str = r#"
-<path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"></path>
-<path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"></path>
-<circle cy="18" cx="7" r="2"></circle>
-<path d="M15 18H9"></path>
-<circle cy="18" r="2" cx="17"></circle>"#;
-
-const TURTLE: &'static str = r#"
-<path d="m12 10 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a8 8 0 1 0-16 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3l2-4h4Z"></path>
-<path d="M4.82 7.9 8 10"></path>
-<path d="M15.18 7.9 12 10"></path>
-<path d="M16.93 10H20a2 2 0 0 1 0 4H2"></path>"#;
-
-const TV_2: &'static str = r#"
-<path d="M7 21h10"></path>
-<rect width="20" x="2" rx="2" y="3" height="14"></rect>"#;
-
-const TV: &'static str = r#"
-<rect rx="2" x="2" y="7" ry="2" height="15" width="20"></rect>
-<polyline points="17 2 12 7 7 2"></polyline>"#;
-
-const TWITCH: &'static str = r#"
-<path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path>"#;
-
-const TWITTER: &'static str = r#"
-<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>"#;
-
-const TYPE: &'static str = r#"
-<polyline points="4 7 4 4 20 4 20 7"></polyline>
-<line x2="15" y1="20" y2="20" x1="9"></line>
-<line y2="20" x1="12" x2="12" y1="4"></line>"#;
-
-const UMBRELLA: &'static str = r#"
-<path d="M22 12a10.06 10.06 1 0 0-20 0Z"></path>
-<path d="M12 12v8a2 2 0 0 0 4 0"></path>
-<path d="M12 2v1"></path>"#;
-
-const UNDERLINE: &'static str = r#"
-<path d="M6 4v6a6 6 0 0 0 12 0V4"></path>
-<line x2="20" y1="20" y2="20" x1="4"></line>"#;
-
-const UNDO_2: &'static str = r#"
-<path d="M9 14 4 9l5-5"></path>
-<path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"></path>"#;
-
-const UNDO_DOT: &'static str = r#"
-<circle cy="17" r="1" cx="12"></circle>
-<path d="M3 7v6h6"></path>
-<path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>"#;
-
-const UNDO: &'static str = r#"
-<path d="M3 7v6h6"></path>
-<path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>"#;
-
-const UNFOLD_HORIZONTAL: &'static str = r#"
-<path d="M16 12h6"></path>
-<path d="M8 12H2"></path>
-<path d="M12 2v2"></path>
-<path d="M12 8v2"></path>
-<path d="M12 14v2"></path>
-<path d="M12 20v2"></path>
-<path d="m19 15 3-3-3-3"></path>
-<path d="m5 9-3 3 3 3"></path>"#;
-
-const UNFOLD_VERTICAL: &'static str = r#"
-<path d="M12 22v-6"></path>
-<path d="M12 8V2"></path>
-<path d="M4 12H2"></path>
-<path d="M10 12H8"></path>
-<path d="M16 12h-2"></path>
-<path d="M22 12h-2"></path>
-<path d="m15 19-3 3-3-3"></path>
-<path d="m15 5-3-3-3 3"></path>"#;
-
-const UNGROUP: &'static str = r#"
-<rect height="6" rx="1" x="5" width="8" y="4"></rect>
-<rect x="11" height="6" rx="1" width="8" y="14"></rect>"#;
-
-const UNLINK_2: &'static str = r#"
-<path d="M15 7h2a5 5 0 0 1 0 10h-2m-6 0H7A5 5 0 0 1 7 7h2"></path>"#;
-
-const UNLINK: &'static str = r#"
-<path d="m18.84 12.25 1.72-1.71h-.02a5.004 5.004 0 0 0-.12-7.07 5.006 5.006 0 0 0-6.95 0l-1.72 1.71"></path>
-<path d="m5.17 11.75-1.71 1.71a5.004 5.004 0 0 0 .12 7.07 5.006 5.006 0 0 0 6.95 0l1.71-1.71"></path>
-<line x2="8" x1="8" y1="2" y2="5"></line>
-<line x2="5" y2="8" x1="2" y1="8"></line>
-<line x2="16" y1="19" y2="22" x1="16"></line>
-<line x1="19" x2="22" y1="16" y2="16"></line>"#;
-
-const UNLOCK: &'static str = r#"
-<rect ry="2" height="11" x="3" y="11" width="18" rx="2"></rect>
-<path d="M7 11V7a5 5 0 0 1 9.9-1"></path>"#;
-
-const UNPLUG: &'static str = r#"
-<path d="m19 5 3-3"></path>
-<path d="m2 22 3-3"></path>
-<path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"></path>
-<path d="M7.5 13.5 10 11"></path>
-<path d="M10.5 16.5 13 14"></path>
-<path d="m12 6 6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z"></path>"#;
-
-const UPLOAD_CLOUD: &'static str = r#"
-<path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
-<path d="M12 12v9"></path>
-<path d="m16 16-4-4-4 4"></path>"#;
-
-const UPLOAD: &'static str = r#"
-<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-<polyline points="17 8 12 3 7 8"></polyline>
-<line y1="3" y2="15" x2="12" x1="12"></line>"#;
-
-const USB: &'static str = r#"
-<circle cx="10" cy="7" r="1"></circle>
-<circle cy="20" cx="4" r="1"></circle>
-<path d="M4.7 19.3 19 5"></path>
-<path d="m21 3-3 1 2 2Z"></path>
-<path d="M9.26 7.68 5 12l2 5"></path>
-<path d="m10 14 5 2 3.5-3.5"></path>
-<path d="m18 12 1-1 1 1-1 1Z"></path>"#;
-
-const USER_2: &'static str = r#"
-<circle cy="8" r="5" cx="12"></circle>
-<path d="M20 21a8 8 0 1 0-16 0"></path>"#;
-
-const USER_CHECK_2: &'static str = r#"
-<path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle cx="8" cy="9" r="4"></circle>
-<polyline points="16 11 18 13 22 9"></polyline>"#;
-
-const USER_CHECK: &'static str = r#"
-<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle r="4" cy="7" cx="9"></circle>
-<polyline points="16 11 18 13 22 9"></polyline>"#;
-
-const USER_CIRCLE_2: &'static str = r#"
-<path d="M18 20a6 6 0 0 0-12 0"></path>
-<circle r="4" cx="12" cy="10"></circle>
-<circle r="10" cx="12" cy="12"></circle>"#;
-
-const USER_CIRCLE: &'static str = r#"
-<circle cy="12" r="10" cx="12"></circle>
-<circle r="3" cx="12" cy="10"></circle>
-<path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path>"#;
-
-const USER_COG_2: &'static str = r#"
-<circle r="3" cx="18" cy="15"></circle>
-<circle r="4" cy="9" cx="8"></circle>
-<path d="M10.5 13.5A6 6 0 0 0 2 19"></path>
-<path d="m21.7 16.4-.9-.3"></path>
-<path d="m15.2 13.9-.9-.3"></path>
-<path d="m16.6 18.7.3-.9"></path>
-<path d="m19.1 12.2.3-.9"></path>
-<path d="m19.6 18.7-.4-1"></path>
-<path d="m16.8 12.3-.4-1"></path>
-<path d="m14.3 16.6 1-.4"></path>
-<path d="m20.7 13.8 1-.4"></path>"#;
-
-const USER_COG: &'static str = r#"
-<circle cy="15" r="3" cx="18"></circle>
-<circle cy="7" cx="9" r="4"></circle>
-<path d="M10 15H6a4 4 0 0 0-4 4v2"></path>
-<path d="m21.7 16.4-.9-.3"></path>
-<path d="m15.2 13.9-.9-.3"></path>
-<path d="m16.6 18.7.3-.9"></path>
-<path d="m19.1 12.2.3-.9"></path>
-<path d="m19.6 18.7-.4-1"></path>
-<path d="m16.8 12.3-.4-1"></path>
-<path d="m14.3 16.6 1-.4"></path>
-<path d="m20.7 13.8 1-.4"></path>"#;
-
-const USER_MINUS_2: &'static str = r#"
-<path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle cy="9" r="4" cx="8"></circle>
-<line y2="11" x1="22" y1="11" x2="16"></line>"#;
-
-const USER_MINUS: &'static str = r#"
-<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
-<line x1="22" y1="11" y2="11" x2="16"></line>"#;
-
-const USER_PLUS_2: &'static str = r#"
-<path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle cx="8" cy="9" r="4"></circle>
-<line y1="8" y2="14" x1="19" x2="19"></line>
-<line x2="16" y1="11" y2="11" x1="22"></line>"#;
-
-const USER_PLUS: &'static str = r#"
-<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" r="4" cy="7"></circle>
-<line y1="8" x2="19" y2="14" x1="19"></line>
-<line y2="11" x1="22" x2="16" y1="11"></line>"#;
-
-const USER_SQUARE_2: &'static str = r#"
-<path d="M18 21a6 6 0 0 0-12 0"></path>
-<circle cy="11" r="4" cx="12"></circle>
-<rect rx="2" width="18" x="3" height="18" y="3"></rect>"#;
-
-const USER_SQUARE: &'static str = r#"
-<rect width="18" height="18" y="3" x="3" rx="2"></rect>
-<circle cx="12" r="3" cy="10"></circle>
-<path d="M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>"#;
-
-const USER_X_2: &'static str = r#"
-<path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle cx="8" cy="9" r="4"></circle>
-<line y2="13" x2="22" x1="17" y1="8"></line>
-<line x1="22" x2="17" y1="8" y2="13"></line>"#;
-
-const USER_X: &'static str = r#"
-<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle r="4" cy="7" cx="9"></circle>
-<line x2="22" y2="13" x1="17" y1="8"></line>
-<line y2="13" x1="22" x2="17" y1="8"></line>"#;
-
-const USER: &'static str = r#"
-<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-<circle r="4" cy="7" cx="12"></circle>"#;
-
-const USERS_2: &'static str = r#"
-<path d="M14 19a6 6 0 0 0-12 0"></path>
-<circle cy="9" r="4" cx="8"></circle>
-<path d="M22 19a6 6 0 0 0-6-6 4 4 0 1 0 0-8"></path>"#;
-
-const USERS: &'static str = r#"
-<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle r="4" cy="7" cx="9"></circle>
-<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>"#;
-
-const UTENSILS_CROSSED: &'static str = r#"
-<path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"></path>
-<path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"></path>
-<path d="m2.1 21.8 6.4-6.3"></path>
-<path d="m19 5-7 7"></path>"#;
-
-const UTENSILS: &'static str = r#"
-<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
-<path d="M7 2v20"></path>
-<path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>"#;
-
-const UTILITY_POLE: &'static str = r#"
-<path d="M12 2v20"></path>
-<path d="M2 5h20"></path>
-<path d="M3 3v2"></path>
-<path d="M7 3v2"></path>
-<path d="M17 3v2"></path>
-<path d="M21 3v2"></path>
-<path d="m19 5-7 7-7-7"></path>"#;
-
-const VARIABLE: &'static str = r#"
-<path d="M8 21s-4-3-4-9 4-9 4-9"></path>
-<path d="M16 3s4 3 4 9-4 9-4 9"></path>
-<line y1="9" x1="15" x2="9" y2="15"></line>
-<line x1="9" x2="15" y1="9" y2="15"></line>"#;
-
-const VEGAN: &'static str = r#"
-<path d="M2 2a26.6 26.6 0 0 1 10 20c.9-6.82 1.5-9.5 4-14"></path>
-<path d="M16 8c4 0 6-2 6-6-4 0-6 2-6 6"></path>
-<path d="M17.41 3.6a10 10 0 1 0 3 3"></path>"#;
-
-const VENETIAN_MASK: &'static str = r#"
-<path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"></path>
-<path d="M6 11c1.5 0 3 .5 3 2-2 0-3 0-3-2Z"></path>
-<path d="M18 11c-1.5 0-3 .5-3 2 2 0 3 0 3-2Z"></path>"#;
-
-const VIBRATE_OFF: &'static str = r#"
-<path d="m2 8 2 2-2 2 2 2-2 2"></path>
-<path d="m22 8-2 2 2 2-2 2 2 2"></path>
-<path d="M8 8v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2"></path>
-<path d="M16 10.34V6c0-.55-.45-1-1-1h-4.34"></path>
-<line y2="22" y1="2" x2="22" x1="2"></line>"#;
-
-const VIBRATE: &'static str = r#"
-<path d="m2 8 2 2-2 2 2 2-2 2"></path>
-<path d="m22 8-2 2 2 2-2 2 2 2"></path>
-<rect x="8" y="5" rx="1" width="8" height="14"></rect>"#;
-
-const VIDEO_OFF: &'static str = r#"
-<path d="M10.66 6H14a2 2 0 0 1 2 2v2.34l1 1L22 8v8"></path>
-<path d="M16 16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2l10 10Z"></path>
-<line y2="22" x1="2" x2="22" y1="2"></line>"#;
-
-const VIDEO: &'static str = r#"
-<path d="m22 8-6 4 6 4V8Z"></path>
-<rect ry="2" x="2" rx="2" width="14" height="12" y="6"></rect>"#;
-
-const VIDEOTAPE: &'static str = r#"
-<rect rx="2" height="16" width="20" x="2" y="4"></rect>
-<path d="M2 8h20"></path>
-<circle cx="8" cy="14" r="2"></circle>
-<path d="M8 12h8"></path>
-<circle r="2" cx="16" cy="14"></circle>"#;
-
-const VIEW: &'static str = r#"
-<path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"></path>
-<path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
-<path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
-<path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"></path>"#;
-
-const VOICEMAIL: &'static str = r#"
-<circle r="4" cx="6" cy="12"></circle>
-<circle cy="12" cx="18" r="4"></circle>
-<line x1="6" y1="16" y2="16" x2="18"></line>"#;
-
-const VOLUME_1: &'static str = r#"
-<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-<path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>"#;
-
-const VOLUME_2: &'static str = r#"
-<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-<path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-<path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>"#;
-
-const VOLUME_X: &'static str = r#"
-<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-<line x2="16" y2="15" x1="22" y1="9"></line>
-<line x1="16" y2="15" y1="9" x2="22"></line>"#;
-
-const VOLUME: &'static str = r#"
-<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>"#;
-
-const VOTE: &'static str = r#"
-<path d="m9 12 2 2 4-4"></path>
-<path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"></path>
-<path d="M22 19H2"></path>"#;
-
-const WALLET_2: &'static str = r#"
-<path d="M17 14h.01"></path>
-<path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"></path>"#;
-
-const WALLET_CARDS: &'static str = r#"
-<rect rx="2" height="18" width="18" x="3" y="3"></rect>
-<path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2"></path>
-<path d="M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21"></path>"#;
-
-const WALLET: &'static str = r#"
-<path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-<path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-<path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>"#;
-
-const WALLPAPER: &'static str = r#"
-<circle cy="9" r="2" cx="8"></circle>
-<path d="m9 17 6.1-6.1a2 2 0 0 1 2.81.01L22 15V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2"></path>
-<path d="M8 21h8"></path>
-<path d="M12 17v4"></path>"#;
-
-const WAND_2: &'static str = r#"
-<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"></path>
-<path d="m14 7 3 3"></path>
-<path d="M5 6v4"></path>
-<path d="M19 14v4"></path>
-<path d="M10 2v2"></path>
-<path d="M7 8H3"></path>
-<path d="M21 16h-4"></path>
-<path d="M11 3H9"></path>"#;
-
-const WAND: &'static str = r#"
-<path d="M15 4V2"></path>
-<path d="M15 16v-2"></path>
-<path d="M8 9h2"></path>
-<path d="M20 9h2"></path>
-<path d="M17.8 11.8 19 13"></path>
-<path d="M15 9h0"></path>
-<path d="M17.8 6.2 19 5"></path>
-<path d="m3 21 9-9"></path>
-<path d="M12.2 6.2 11 5"></path>"#;
-
-const WAREHOUSE: &'static str = r#"
-<path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"></path>
-<path d="M6 18h12"></path>
-<path d="M6 14h12"></path>
-<rect height="12" y="10" x="6" width="12"></rect>"#;
-
-const WATCH: &'static str = r#"
-<circle cx="12" r="6" cy="12"></circle>
-<polyline points="12 10 12 12 13 13"></polyline>
-<path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05"></path>
-<path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05"></path>"#;
-
-const WAVES: &'static str = r#"
-<path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-<path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-<path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>"#;
-
-const WEBCAM: &'static str = r#"
-<circle cx="12" cy="10" r="8"></circle>
-<circle r="3" cy="10" cx="12"></circle>
-<path d="M7 22h10"></path>
-<path d="M12 22v-4"></path>"#;
-
-const WEBHOOK: &'static str = r#"
-<path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"></path>
-<path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"></path>
-<path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"></path>"#;
-
-const WHEAT_OFF: &'static str = r#"
-<path d="m2 22 10-10"></path>
-<path d="m16 8-1.17 1.17"></path>
-<path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path>
-<path d="m8 8-.53.53a3.5 3.5 0 0 0 0 4.94L9 15l1.53-1.53c.55-.55.88-1.25.98-1.97"></path>
-<path d="M10.91 5.26c.15-.26.34-.51.56-.73L13 3l1.53 1.53a3.5 3.5 0 0 1 .28 4.62"></path>
-<path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"></path>
-<path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path>
-<path d="m16 16-.53.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.49 3.49 0 0 1 1.97-.98"></path>
-<path d="M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28"></path>
-<line y1="2" y2="22" x1="2" x2="22"></line>"#;
-
-const WHEAT: &'static str = r#"
-<path d="M2 22 16 8"></path>
-<path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path>
-<path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path>
-<path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"></path>
-<path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"></path>
-<path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path>
-<path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path>
-<path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"></path>"#;
-
-const WHOLE_WORD: &'static str = r#"
-<circle r="3" cy="12" cx="7"></circle>
-<path d="M10 9v6"></path>
-<circle r="3" cy="12" cx="17"></circle>
-<path d="M14 7v8"></path>
-<path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1"></path>"#;
-
-const WIFI_OFF: &'static str = r#"
-<line y1="2" x1="2" y2="22" x2="22"></line>
-<path d="M8.5 16.5a5 5 0 0 1 7 0"></path>
-<path d="M2 8.82a15 15 0 0 1 4.17-2.65"></path>
-<path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"></path>
-<path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"></path>
-<path d="M5 13a10 10 0 0 1 5.24-2.76"></path>
-<line x1="12" x2="12.01" y1="20" y2="20"></line>"#;
-
-const WIFI: &'static str = r#"
-<path d="M5 13a10 10 0 0 1 14 0"></path>
-<path d="M8.5 16.5a5 5 0 0 1 7 0"></path>
-<path d="M2 8.82a15 15 0 0 1 20 0"></path>
-<line y2="20" x2="12.01" y1="20" x1="12"></line>"#;
-
-const WIND: &'static str = r#"
-<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"></path>
-<path d="M9.6 4.6A2 2 0 1 1 11 8H2"></path>
-<path d="M12.6 19.4A2 2 0 1 0 14 16H2"></path>"#;
-
-const WINE_OFF: &'static str = r#"
-<path d="M8 22h8"></path>
-<path d="M7 10h3m7 0h-1.343"></path>
-<path d="M12 15v7"></path>
-<path d="M7.307 7.307A12.33 12.33 0 0 0 7 10a5 5 0 0 0 7.391 4.391M8.638 2.981C8.75 2.668 8.872 2.34 9 2h6c1.5 4 2 6 2 8 0 .407-.05.809-.145 1.198"></path>
-<line y2="22" x2="22" y1="2" x1="2"></line>"#;
-
-const WINE: &'static str = r#"
-<path d="M8 22h8"></path>
-<path d="M7 10h10"></path>
-<path d="M12 15v7"></path>
-<path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"></path>"#;
-
-const WORKFLOW: &'static str = r#"
-<rect rx="2" y="3" height="8" x="3" width="8"></rect>
-<path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
-<rect x="13" y="13" width="8" rx="2" height="8"></rect>"#;
-
-const WRAP_TEXT: &'static str = r#"
-<line y2="6" x2="21" x1="3" y1="6"></line>
-<path d="M3 12h15a3 3 0 1 1 0 6h-4"></path>
-<polyline points="16 16 14 18 16 20"></polyline>
-<line x2="10" y1="18" x1="3" y2="18"></line>"#;
-
-const WRENCH: &'static str = r#"
-<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>"#;
-
-const X_CIRCLE: &'static str = r#"
-<circle r="10" cx="12" cy="12"></circle>
-<path d="m15 9-6 6"></path>
-<path d="m9 9 6 6"></path>"#;
-
-const X_OCTAGON: &'static str = r#"
-<polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
-<path d="m15 9-6 6"></path>
-<path d="m9 9 6 6"></path>"#;
-
-const X_SQUARE: &'static str = r#"
-<rect width="18" ry="2" height="18" rx="2" x="3" y="3"></rect>
-<path d="m15 9-6 6"></path>
-<path d="m9 9 6 6"></path>"#;
-
-const X: &'static str = r#"
-<path d="M18 6 6 18"></path>
-<path d="m6 6 12 12"></path>"#;
-
-const YOUTUBE: &'static str = r#"
-<path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-<path d="m10 15 5-3-5-3z"></path>"#;
-
-const ZAP_OFF: &'static str = r#"
-<polyline points="12.41 6.75 13 2 10.57 4.92"></polyline>
-<polyline points="18.57 12.91 21 10 15.66 10"></polyline>
-<polyline points="8 8 3 14 12 14 11 22 16 16"></polyline>
-<line x2="22" y1="2" y2="22" x1="2"></line>"#;
-
-const ZAP: &'static str = r#"
-<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>"#;
-
-const ZOOM_IN: &'static str = r#"
-<circle cx="11" cy="11" r="8"></circle>
-<line x2="16.65" x1="21" y1="21" y2="16.65"></line>
-<line y1="8" y2="14" x1="11" x2="11"></line>
-<line x1="8" y1="11" y2="11" x2="14"></line>"#;
-
-const ZOOM_OUT: &'static str = r#"
-<circle r="8" cx="11" cy="11"></circle>
-<line y2="16.65" x1="21" x2="16.65" y1="21"></line>
-<line y2="11" x1="8" y1="11" x2="14"></line>"#;
+const ACCESSIBILITY: &'static str = r#"eJxtzVEKwjAMxvGrfOS90axNWqHdDTzEqIKCggwf9PZ282GDjTyE8P9Bcr2P9XFF/RQSI9RvoUAY20V9Pvxrn1/D+4ZLoackyAniojPMYiqrrkjwzkNZ2+7YGzzrFp4DdwESWAeF4jiPcUqwHSyeY/sX19pN2i36B+E3Mq0="#;
+
+const ACTIVITY_SQUARE: &'static str = r#"eJwdi7EKgDAMRH8lZC+aiOjQdnbxI8QWU3CQElD/XtPluOPe8zXvCpLLIRqQZoQn4IDwtqz/YIS7JJX2Rt+ZEP21qUAKuNIExOL4dAyjY0e9lWUy1KD4AUbJGkQ="#;
+
+const ACTIVITY: &'static str = r#"eJyzKUgsyVBIsVXyNTJSMDTK0DXJ0TVWsPSxVDAGMzyMlOxs9EGK7AD2QAsc"#;
+
+const AIR_VENT: &'static str = r#"eJxtT7sOwjAM/BWrewzn1E6GUImNhZU9EkNGBtTvx1EQZKj8kHxnn87lVd+NnpflbgS5rVVI6OyBIEEe+p/J5wabAZJd5wOSFmTZyqmLbmWSzg1HBDJHQuJUhZV6DaXIMIqcY8e+bTBgrO7rUM3Yf1C267CEXp5pD/rb/gCvNjbM"#;
+
+const AIRPLAY: &'static str = r#"eJxNTb0KgCAYfJXDXer76Gcx55bWdiHIIFRIgt4+tSE5OLjjflQw0WKbxNKDxrkzDEabQJIlr/2vkbSloTbAN7V1A2wlCa2avKpV8Oeze4fgDxevSRCD8g2YUKgYJf8l9Qs3UyJk"#;
+
+const ALARM_CHECK: &'static str = r#"eJxtjUEKwjAQRa/ymX2iMxOTCElv0ENIFBQsSHHR3r4JhXbRrj689+Cn8hnL94UxUySUKRNL3bmuUpcuq+7S7/F/45mpv0Eh8M01tptBKjZq9Kh6bzWCow1wED4JOFjvWuED5HraDHdwuxY44za9AKfuMts="#;
+
+const ALARM_CLOCK_OFF: &'static str = r#"eJxtjjEOgCAMRa/y4061FSsk6A08BImDi4mD94+ARgfJb9/U1zYc8dywTs2i5EZkRAeHDpybSfRmM4c2z87hNdiTB1uS4VFSjCceCv7CLgI1vekru7QccqQjLIRrMlK6VBXbZgnfjxfqOjWs"#;
+
+const ALARM_CLOCK: &'static str = r#"eJxti0EKgzAQRa/ymb1pZyZNUki8QQ9R0kILCiIienujbgRdfXjv/Zj/fW6+6BMFQp4TsZadygrV8bbrOnbv4YdPohcLnqNtBJte8UE+oBC4s2ml4EorvTg5owEcjIeF8EXA3ji7Fs5D7sdmAZNjMvs="#;
+
+const ALARM_MINUS: &'static str = r#"eJxtjUEKhDAQBL/SzN3szoybZCHxBz5CoqCgIOJBf6/Bgwc9dlVBhzQsaeyQ9kishCWSJ6TtXEJV+Fy6CnOz9mgj1T8oBDa7zG4zyYkLLfSpamvUg71xKCH8ErAztsyFdZDve/MHa38fH4LGMgA="#;
+
+const ALARM_PLUS: &'static str = r#"eJx1zUEKgzAQheGrPGZv6szYJIXEG+QQJS1YaKGIiN5egwsX6mrgfT9MyJ8+f9/IUyQWQp7Xq4Q+kqc23DZuw/85dHhFSncoBLZY2Xb5yTpXWumRkjXqwd44NBA+CdgZ25TCOkh90Qi4Hk8+pwdYux0W+YE5Xw=="#;
+
+const ALBUM: &'static str = r#"eJw1i1EKgCAQRK8yeIEwg/xQL1OSgqiYkN4+1wiWfQMzTxV7VDTNBMPjz+o045LBWX+5+uU+yzKwDjSCUQt5RuUUevDRIicf6z0EDoHx6DZI8H3GHYKkf25e4mog9Q=="#;
+
+const ALERT_CIRCLE: &'static str = r#"eJxNyzEOwCAIBdCrEA7QikPTAb0McTAxHZzw9rVFEify+e+z1C6tgIyEFBH6PAFB9I+ZT+szt/oU0GhqUMIbQWnF6PpTbvfywrU9Atl8vty/Hy8h/Q=="#;
+
+const ALERT_OCTAGON: &'static str = r#"eJxFjFEKgCAQRK+y7AGsXcL6UG8TIYgK9ZG3z3TLr2HePMbkFMqRIuTk43VaXNWmgYG0oqUmM3TyIRkGHm4jHaMzkzw7E3zcobBFYoRbspDFrVZqteqvJa5AcdVMXSeN/Ub//gM2Ly3l"#;
+
+const ALERT_TRIANGLE: &'static str = r#"eJxtjDEKgDAUQ68S3H9tfj9aoQoewAu4CQ4dFBzE80sHdZFseclLx3JmrH21K10bwChRaItC4UskOIvwm0TQxreGQZnZfEOUv4S5GlJdpEN61BMV3WX/gG12ni+7AUBZIpk="#;
+
+const ALIGN_CENTER_HORIZONTAL: &'static str = r#"eJxtjysOgDAMQK/S4Atts/BJxjQGi19ATCLIzs+KYIMsNf29vtSe/gpwzM0qwBKEGmc77Tn7TpiA+2i8gAClYEzZ0pc1SkRTR8ctk6SbBUl6KdZAeZz8dQaUv5RrUpOkw07ILbeTgpg+yySoNIM3FO0+Iw=="#;
+
+const ALIGN_CENTER_VERTICAL: &'static str = r#"eJx1j7sOgDAIRX+FuKNAGh9JdXZxdTc6MDoYv1/awaqpYYKbc0/w+3IobH0xsYCcQsXgq3Ab/J20wDS6xXIgG0ZBmeuVkEsuO7Q7iroMyLWRmkiCSKY9NCm6rFNobN7OE+Uj5R+pU04oxMeeVWDShF5EPj45"#;
+
+const ALIGN_CENTER: &'static str = r#"eJxVy0EKwCAMRNGrSC5QktJqIfU2XRTEtd7e6Ijg6i/mjaY/f67wS8LkqvW2yEixnBT16CbqkuyxeUgWHK27HWOAvQjXZ9qwbANo0CC2"#;
+
+const ALIGN_END_HORIZONTAL: &'static str = r#"eJxNjE0KgCAQha8yzAWiQQLBcd2mQ0RK4y5kILt9KoTt3t/3XI6HQmE0CA8jIdwpqDAuCBLTKco4V51LK72b2t67TtW9/ZofVv1sBm0Hde0qEBg3IiBa+1/L/AsDzSXW"#;
+
+const ALIGN_END_VERTICAL: &'static str = r#"eJxtjE0KgCAQha8yvAuEQwSC4w3ato+UdBcyUN0+dVGbdu/3cyVuSinmPalgAp05aBKYKi8Bg27BCCrdeDe0vXf9VRvzVm1t8UOy3+tYNVEQzMzEvHRey/wDEzMl5A=="#;
+
+const ALIGN_HORIZONTAL_DISTRIBUTE_CENTER: &'static str = r#"eJxtjMsOQDAURH/lZvaCUt30+gNbe0HUTqTx+HuahpR0N5kzZ/Q69pb2ebCGUYHMOE/GMvIStB4MAToZEnTnErVO3b7WP+vwwr1UwUX2XLza0llDA6PJFQmxJdIhV36RakUEeKWIEhkYF9ZAO7g="#;
+
+const ALIGN_HORIZONTAL_DISTRIBUTE_END: &'static str = r#"eJxdjMsNgCAQBVvZvAZE4ufC2oFFGCHCzRCi2L2gkRgue3gzs8qbNdDpdLCMAeQjQ4KscZsNjLYDpSXdi9FjUk32J1VV8TVLJR5//N6VbF+CJc2YW0HykCKTvP2IrMgNjOotgQ=="#;
+
+const ALIGN_HORIZONTAL_DISTRIBUTE_START: &'static str = r#"eJxdjMsNgCAUBFt52QZUgnrh0YFFGCHCzRDip3uBgxCvOzujgt0iXd5Ex5hAN0OCHsYIctbvLjKGtIQEBLTq8l+rYn28L169Nb1Umqt2rNGRYSySxCn6DPLUgOFHXlfeLVc="#;
+
+const ALIGN_HORIZONTAL_JUSTIFY_CENTER: &'static str = r#"eJxFjMsNgCAQRFvZTAMC8XNh6cAijBDhZsjGT/cKJnKZw8y8Z3NYhW7GADqTl8gYQfliGNCXMaQtCkP3cLYrf2cr9Q+qXnUDm+k1Tw3bF4nkGbM2ZA6jylI69wA1/yYo"#;
+
+const ALIGN_HORIZONTAL_JUSTIFY_END: &'static str = r#"eJxNy8sNgCAQBNBWNtOAsPFzYenAIowQ4WYI8dO9YoLhMoeZeSb5NdMtGEBndDkIRlDwcQtZoHtQugQM+tKarvytqWpq1XvR3GBV8c/2JQdygpmZ+GBVltLZBzcZJiU="#;
+
+const ALIGN_HORIZONTAL_JUSTIFY_START: &'static str = r#"eJxty7ENgCAUBNBVfm4BhSg2fDZwCCNE6Az5UdxeodHC5oq7ezaHVSgXhgadyUtkGFBpeTFGUAxpi8JQA5zt6t/Zpp55wq9V5sP6l+2LRPKMWZM+dBtq5W4I2iX7"#;
+
+const ALIGN_HORIZONTAL_SPACE_AROUND: &'static str = r#"eJxVyjEKgDAQRNGrLHMB4yKKkM0NbO3FBDedhAX19prOlDPv+5J2I035UBP0DvQIJlC5BQy6cjQVjKBvzwi+q33w52ZKUbAMxLxyhXr9gF0rLzYyHZ4="#;
+
+const ALIGN_HORIZONTAL_SPACE_BETWEEN: &'static str = r#"eJxVjMkNgCAURFv5mQYUcLnw6cAijBDhZghx6V7QxOBx5s0bHd2S6GL0IO/C6hNDdKB4MiToCDZ5xgDKWcHopuyNfqxciVprUY7G2npvPm2bkyfLmBTJXbYFlKoCUvzJDUyjLVQ="#;
+
+const ALIGN_JUSTIFY: &'static str = r#"eJxlzEEKgDAQA8CvLPmAbATxsO1vPAjiuf7epuKh7SlsmE1c531Y8YQVVphAhz313GpQkWORydGkOudHlP3nYGV2TOts9W9fZVcgpA=="#;
+
+const ALIGN_LEFT: &'static str = r#"eJxdjEsKwCAMBa8ScoGSlH4W0dt0URDXent9fhBcDfOYxMIfP0riWIUpV95MSR2f1RTm7UDjrZXYRFciQ8Fra9v4jOjt/8B+O9sCZlUgrA=="#;
+
+const ALIGN_RIGHT: &'static str = r#"eJxlzEEKACEIheGriBcYdGCmwLpNiyBa1+1TdNfqR/l4MvpssKggE8Ligi/C1vPTsKXKY6aKS/1lF8ROrDFw2z9sCpsuewBoJCCu"#;
+
+const ALIGN_START_HORIZONTAL: &'static str = r#"eJxFzFEKgCAMBuCrjF0gGiIEzudeOkSkNN9CBtXtU0l82tj+73c5HgoPo0HIZRDCy2gR7hRU2iYxnaKMs0Xvppr3rqkRKXA2Xf41nS1DXbsKBMaNCGil+qgn/wHgQCWl"#;
+
+const ALIGN_START_VERTICAL: &'static str = r#"eJxNjFEKgCAQRK+yzAVKiSBwvUGHiJT0L2Qpu31sFPn75r1xJa5CZw6SGBMoxbwlYYygi2EGUKkMC6rKvOvU9+6p6qf9VpO/n6ap9kUSBcZsyR6210GRvwH0OyXR"#;
+
+const ALIGN_VERTICAL_DISTRIBUTE_CENTER: &'static str = r#"eJxtjEEKgCAQRa8yzD5Ky9xo6zYdIiqadiFCdftGqTBw+99737hl8nBZFA2COy1KBFq2lbzFFoEHhXBss6eodKYMQWdi9vgvrqKvfwf8nFT76Almi4OUoKlQgYQtIRp0LzI7F4KTOoMUk15+4Aa3Njt/"#;
+
+const ALIGN_VERTICAL_DISTRIBUTE_END: &'static str = r#"eJxVjMENgCAQBFu5XAMCQf1wdGARRojHz5BL1O4VNEaeu7OzLsdFYE9BmFBbhIOwRzifkO9kEDimlYVwQO+6InjXaKpqY9Xsf/4efNY2C0MgnAwYxUYVUrqG6IZcbustZQ=="#;
+
+const ALIGN_VERTICAL_DISTRIBUTE_START: &'static str = r#"eJxVzMENgCAMheFVmreAQlAvwAYOYYRYboY0UbcXvAiXJu2frzbHXSjfDhrEMR0sDjPoSkHYQRlQaRPo+RZvhwq8bVmZyy/G7k9hjTo3YQoOqyZlWI+11FtXuvACTlQtOw=="#;
+
+const ALIGN_VERTICAL_JUSTIFY_CENTER: &'static str = r#"eJxtzEEKgCAQheGrDO8C6VC2UW/QISKlcRciVLdPhWjT9v18z+a4FTpTKOKgR1C+HBgkMe1SHAyoDhPortnA26EBbzurZf4T753qjD91rEUoOCxMmoVVK23zDzp2Jho="#;
+
+const ALIGN_VERTICAL_JUSTIFY_END: &'static str = r#"eJxVzM0JgDAMhuFVwreAGvy5tN3AIUSL6U1KQLu9bVHEUyBvnpjoV6UzbCoWXQ8SH3ZRixF0WQygmAeDUs4MZ5oCnKksl+knUj19xPu0/dSxqNBmMTMxC9dSdu4GOhAmFw=="#;
+
+const ALIGN_VERTICAL_JUSTIFY_START: &'static str = r#"eJxNjEEKgCAQRa8y/AtkUrZRb9AhIqVxFyJUt2+UqFYDb977Nse1UD4dNIhj2rg4GNDl0MsRPoKOFAoLGOBtVwNvW/bzRZxaZT5d4Rl+q30pTMFh1qRZq/qoyN8RkSXt"#;
+
+const ALIGN_VERTICAL_SPACE_AROUND: &'static str = r#"eJxVyjEKgDAQRNGrLHMB4yKKkE1t4yHEBDedhAX19horrQbmfV/SaqQpb2qCHnQJRtCRo6mgdaBTMIDKM4zgm9oHvy+mFAUzM7GbXqnfX7oP3DUKHYI="#;
+
+const ALIGN_VERTICAL_SPACE_BETWEEN: &'static str = r#"eJxVjEEKgCAQRa8y/AtUlrVRb9AhIqVxFyJUt08Fw1YD/703Krg9Ejt/cNSYQZe3kTWGCXRrSFBIR4CetEkY1eXAqJJVt0f7IflL8ccaf9W5RSarsQoSA4s+k7z9yNiCF2H9LTg="#;
+
+const AMPERSAND: &'static str = r#"eJxFjT0OgCAMha/y4k4FCsiAJB7AQxAcGB28f2xZSNPlfe+nvO0beM7tdgdFON8tAgXDlJBNRr6CyPpWzkEskWK3RnFQC8XG4AlVtVLA8BLIsw+Ot1p2nalljSVBY5EfpI0eCQ=="#;
+
+const AMPERSANDS: &'static str = r#"eJy1jbENgDAMBFex6B2cDyYghWzAEFEoKCnYXziA2ACd/osv/tJRzp22pVu9kI+VlQPHm7mAQGJ4GkiqEJyyvj223UVLoAe4yTZlOFhrl1PfznP6FMBPigsqKSkM"#;
+
+const ANCHOR: &'static str = r#"eJwlirEKwCAMRH8lZC+tEaGDce7SjxArKEgp0kH/vrGScMfdPRtyDSVCZdQIoTEqEu+MBp1d5+psyXeEpubaiXEXk0gSG/210INy9vFvgovxNKDoIK82kJ9HImnRAx6Y+wCBliCu"#;
+
+const ANGRY: &'static str = r#"eJxtjEEKgCAURK8yuLf8kpVg3aBDhAUFBWEt6vapbYpcDJ/PezPGzs4uI+zVMJIMzh/BYM/4tiZ/eGu2/pgwNKyjElTunDLFJS9CEBPkIL3UKlOoQQL6D1cqoCH9CiWa2rcmkQCkvuQGQqkzew=="#;
+
+const ANNOYED: &'static str = r#"eJxtyUEKgCAQQNGrDHOBGikwGL1Bh4gpmKBFiAu9vYorwdWH/1jeIN8DkhySQZDcG2pW9Lx09/xfUeF2eFqgXW2jtgY41Ew+bQMUShEgiQ=="#;
+
+const ANTENNA: &'static str = r#"eJx9zLsNwCAMhOFVTvR52Ipx47ABQ0RKQRMpRZT5kQuoEO19ut/e6yu4z5AZxFBwSLb5mKzRo06y0D4w4hlOnvlYBVpIBuTR+McuFZG1LR8="#;
+
+const APERTURE: &'static str = r#"eJxtT0sOhSAMvArpAfqoKJ8EvQxxYWLewhXc/rXgi4S46m9mOhPTcaVzV6msQBOoi4sGlXIdt/hp9y2ex3dXmXg9oyFQhVsPKk8rTBr1whtuyWGYhSbwm/RHcglow80hJNc4fsTLGbVtQDIovkREqqg4NCNHkAbD0r8RHVt1Ktm+vKHn2GerBtGb8UlFou3slBaFMzezGv1j7Qe0GVYM"#;
+
+const APP_WINDOW: &'static str = r#"eJxli0sKgCAURbfyuBtIRaSBuoMWESk9ZyGPPrtPGxVN7oVzOL7mRegKsCDOZWUJ0A50lCQcYBSonu1Bz0Y/9CD6bRamFDBpRXa3XXT0EoZGbvlfuE9wA1XsJM4="#;
+
+const APPLE: &'static str = r#"eJxFjksKAkEMRK9SzD6xUybzgXFAXHsBd8O4cOnC+2O6G5SQBOoDb33vnxeel+FuBIsufpgGCqhTwLSM8P7OKY4y5xqVvLouhnZKG5sQh1QLRWrHXQIUE40x9WkWSgj37NRer2XE07oR5sg4MedJBnaIkM7Q3mPY1lMF3tY/dqYOQzKzTfwyX+slLWo="#;
+
+const ARCHIVE_RESTORE: &'static str = r#"eJxtzEEKgzAQBdCrfP4+NDOpUCHxBj2EVOm4KBQJtr19ExeiIH8xw8zjx3l8ZHymIVuiesLG6Wk5sSF+iYH4ljsxlyHs4qX6Lr77bBgS71fcFpFeofBrymZaYSU7qP4oxVXpTuirhTQILqDkpEkUoku7ff4IcTOm"#;
+
+const ARCHIVE_X: &'static str = r#"eJx1i70OgkAQhF9lMj3Krm7E5I43sLUnQlwKE0Mu/rw9dzTQkC12Mt98YRoeCb9IJab8hPBhfHqKNOI79skzq4l/5IltOJZ9G95dcvSRtzOaj0inUNTL5eSi26LSe1PM4qzm63owyAVW2R5UGFY4Aw0lLFM="#;
+
+const ARCHIVE: &'static str = r#"eJxNizsKhTAURLcyTP94uVcFi8Qd2NqLitdOJPjZvYmFyDTzO36bhogzUIkrsCC2FIQ4ljFaqh1h0zJbDKzY+H/+N37to2EMbEvUu0ivULhHyZnot/hpV2cyMx9SHEStfJcb+dgkIA=="#;
+
+const AREA_CHART: &'static str = r#"eJw9yiEOwCAMQNGrNPhmKdCsouMGswgcCaICgSCcn2Cw/z8ddRq0z/0BwiIxEpf0OTXpfS+QX2zks3RkYIwYy3UblaES0g=="#;
+
+const ARMCHAIR: &'static str = r#"eJxtTrsKgDAM/JXgHjTns1A7u7g6uBUcOjpIvt920RZKhnBPzt7+CXStzS6GzDF5EKhLx2Bsc44J2jfOtini7BfsSUTH3xg/ggw5wVDOHDxQp7FcGSV5VupHkkVREeLgQnkB4E0xNA=="#;
+
+const ARROW_BIG_DOWN_DASH: &'static str = r#"eJxNiiEKACEQAL+y2OU4Tk8WVrPFahcMGwwGMfh6tYhMmxmqqTFkK8KrQXsUjp6tHN0B+8eqSANGLlhF5H+cdQKREBMR"#;
+
+const ARROW_BIG_DOWN: &'static str =
+    r#"eJyzKUgsyVBIsVXyNTRVMCszyzDJ0TVXMNcFwgyTMLMMsyolOxt9kCI7AAXWDAM="#;
+
+const ARROW_BIG_LEFT_DASH: &'static str = r#"eJxFiiEKACEQAL+y2JdD1BNhzx9ctQuGDQaDbPD1atEwZWao5c5QPvXrANqloCI920W6xa3CaMRW9OhhIZaNvOPME8ayE9Y="#;
+
+const ARROW_BIG_LEFT: &'static str =
+    r#"eJyzKUgsyVBIsVXyNbRQMDTN0DUrM8nRNdc1VwDiMpMMszKzKiU7G32QMjsAG7YMkQ=="#;
+
+const ARROW_BIG_RIGHT_DASH: &'static str = r#"eJw9yisKQCEURdGpXOzywvPDgavZYrULBoPBIAZHrxbDLovNPY9KxYmoCdMIz98Vz89BqH/SzZKVpylVQMJ65wZ4SRKn"#;
+
+const ARROW_BIG_RIGHT: &'static str =
+    r#"eJyzKUgsyVBIsVXyNVOwzDALM80xVzDXBeIyXRMPszDLKiU7G32QGjsA+EYLmw=="#;
+
+const ARROW_BIG_UP_DASH: &'static str = r#"eJxNiiEKACEQAL+y2Jfj8DxZWM0WHyEYNhgMYvD1ahGZNjNcUxPITkWCl+RXnp+tPN/BdNTBFIsWFoJf14HGeSelxRM0"#;
+
+const ARROW_BIG_UP: &'static str =
+    r#"eJyzKUgsyVBIsVXytVQwtCjTNfMwzTHXNVcAwgxdkzIzD8sqJTsbfZAqOwAMiAwN"#;
+
+const ARROW_DOWN_01: &'static str = r#"eJxtjTsOgzAQRK8ymt5K7Bin8XKDtOmjgLIUkRCy+NwetkBQoOnmzSf3n6JohP8HfEI0ucg63wzUecevJ8L9fQJD+y3QtvtpESZi6pqiwkgMizAQs9BXxGLe1rL8ac7b3uiSunBx5quN6vG2Avn8LhQ="#;
+
+const ARROW_DOWN_10: &'static str = r#"eJxtzDEKgDAMBdCrfLKLVqsubW/g6i4qpoMgpaDe3lQQHEqWkJf/zTFFxmJpb6A66DSFJmfKBM58PPSoqzEHqocS4aLOYSvIv1hY54jbktKE0y+RLcl2yaEl8Oo3jpY6QpCftzAF3APTfC30"#;
+
+const ARROW_DOWN_AZ: &'static str = r#"eJx1jDEOgCAQBL+ysQfvkEML5Ae29CQWV2hi4f8jFMYGM9lsMdmNV7kV+zqcEzjAN4wfUhybSPHV2wxHuSccYVEjHcMCphysFGcFLVRh1M5MPwOvchhB0O/xAQRkKyE="#;
+
+const ARROW_DOWN_CIRCLE: &'static str = r#"eJxFyUEKgDAMBMCvLLmLtvSQQ9of+AiJgoKCFBH9vY2CZQ/L7oguWdcJekdynpBLdQS93pmk/TzJPhwzxki98+CTjeyqsDEKBUsTfn4AHk4aeg=="#;
+
+const ARROW_DOWN_FROM_LINE: &'static str = r#"eJxlyaEKACEQRdFfediXZVycRRjNFqtdMFgEg/+PWDTIbfdIz6OiOBXJ4gtGeXnX8nJAQ1P6b2kMMuDVw5sns+EWXA=="#;
+
+const ARROW_DOWN_LEFT_FROM_CIRCLE: &'static str = r#"eJxtijEKACEQA7+y2MtpiuOKPWsbHyFY2AgW4vvdLbSShBCY4Z5HpfKbBPLI3pFURqPfBH5UCbzFBoK4zt5g+gRGTPsetgC6/RlO"#;
+
+const ARROW_DOWN_LEFT_SQUARE: &'static str = r#"eJxFy7EKgDAMBNBfCdlFqlAytJ1dXN3FFtNBkBJQ/96GDl2O4x7nSjoEyutxQqg5Izw5Cns0hMApnyytf4rBjXoI7t6FIXq8jAUaCEhJx05rJWMX2rr9uKQeuQ=="#;
+
+const ARROW_DOWN_LEFT: &'static str =
+    r#"eJxNySEOACAMBMGvNP0AqTpzVGOweBIEEsH/Q6po1u3wzLtlVe0GiQzqLHGd2QwN49sDricPOQ=="#;
+
+const ARROW_DOWN_NARROW_WIDE: &'static str = r#"eJx1yTEOgCAQBMCvbOiNLF7E4uQHtvYmFteYWPD/EAqoIFOO/k82vKf7NnCHVIu4pGuNpK2viODvUZAQm8RhcRwMRt+rAIoRJN8="#;
+
+const ARROW_DOWN_RIGHT_FROM_CIRCLE: &'static str = r#"eJxtiqENACAMBFdp8IR+RVVhA4YgQSARhPmhBkX+8ubOZluDeg4VQiINTJd7Po7gUCx5U+yV4iXB+Vvo1hH1yQP8WBnp"#;
+
+const ARROW_DOWN_RIGHT_SQUARE: &'static str = r#"eJxFy0sKgDAMBNCrDLmAqCBZtF278RBii+lCkBL83F6jixIIwzzGlbQoyuWpI7y/J0jKq6inlglnjip/vA2Da2wQ3D6rIHraGN+ZWFdlagfwwWOlB4DeHm4="#;
+
+const ARROW_DOWN_RIGHT: &'static str =
+    r#"eJw9ySEOACAIQNGrMC4gJAqSLR7CzWBxMzjPLwbZfvpPV9sDesYpIMDkoWl61/RbZcfDVCTsArN7D2Q="#;
+
+const ARROW_DOWN_SQUARE: &'static str = r#"eJxFizsOgCAQRK8y2d4YkIICuIGHMEJcChNDNn5uL1BoppjPy7iSVsHtaSKUaprw9MIpbyyelCVcOQr3GNzYDsEdizCip1lp2LODNv1gt6jINA3mwy/TbB7C"#;
+
+const ARROW_DOWN_TO_DOT: &'static str = r#"eJxFylEKgDAMA9CrhP4PaRHGYOsNPIRUQUFBhoje3g2Rka/kJR7juWBKNLBALu5JY1c3jb/sHBCch3cljW3Nts2wOxELwZ5EwoRcaj19rC8OMxqf"#;
+
+const ARROW_DOWN_TO_LINE: &'static str = r#"eJxlyaEKwCAUheFXOdjHOI7dMbgzr1jtgsEiGHx/xKBF/vZ/WmPLSJ/xtOATLuP0HM/plCIgIaNDdvZ8YfnfSzq25haJ"#;
+
+const ARROW_DOWN_UP: &'static str = r#"eJxtyzEKwCAQBdGrfOwlWbNoio03SJs+YGEjWIjnly20kikfI/VvGekx5QJ5sGbZRDkUokx+A9z5baA4wm1Zw+6jAO7klwzAeR6i"#;
+
+const ARROW_DOWN_WIDE_NARROW: &'static str = r#"eJxtzDEKgDAQRNGrDOnFTFyMxZob2NoLFtsIFrk/IUVIs/zywdf/qYb3DN8G7pDeIqHo2qHo4CsjxdsDEmKMvhyWfWCyOWuEkCTf"#;
+
+const ARROW_DOWN_ZA: &'static str = r#"eJxtzDEOgCAMBdCrNOwglBYdkBu4upM4dNDEwXB+y2BcyE/TJi/9+a6PwLGaK0JIQD2WTMlTh5I/3magFtIAAgMJn5YhCY8dfbPRcUWnt47XBNC9ox98oOoi9i97AUmrK5I="#;
+
+const ARROW_DOWN: &'static str =
+    r#"eJw9yUEKABAQQNGrTPbSTDSpMTdwCGVhoyzk/FjQ3/0no8wGNZmMBGGhNyruPpUnHSMgWQa2p+8b3MgPwg=="#;
+
+const ARROW_LEFT_CIRCLE: &'static str = r#"eJxFybEKgDAMBNBfObKLJoh0SDu7+BESBQUFKQ7699oKlhuOu6e2Rttm2O2JhRDfagh25Rm0/jzoMZ4LJk8Dd2DpXbL0FdlZ4KoWOT8/Lgcaew=="#;
+
+const ARROW_LEFT_FROM_LINE: &'static str = r#"eJxtySsKQCEURdGpHOyPx/UHwtUZWO2CwSIYnD+ioEl224t7HhXFi+ZgP4udCPyvH/hoVCBZST9EEsglc2UCmzUWfQ=="#;
+
+const ARROW_LEFT_RIGHT: &'static str = r#"eJxtyzsOgCAQhOGrTOiNLm7AYqW28RAmFhSaUHD/8CiggEw3X34JT/R4T3Uf2MGwH4OVk7X8Tppm8WRG+MlAE3ipm4R6A9mrSwLUyx6o"#;
+
+const ARROW_LEFT_SQUARE: &'static str = r#"eJxFy7EKgDAQA9BfCbeLXBXp0Dq7+BFii9dBkHKg/r22gxIIhEdcjqviTEHFE1vC5akj3LXzOwxBYtpEK4+uLYfRHYsKgqedDWzTo6ZwgZ9nHsBmsp884qweww=="#;
+
+const ARROW_LEFT_TO_LINE: &'static str = r#"eJxlycEKABEURuFX+bOfpjsGqcsb2NorCxtl4f0TxUZndz5uqRdkJ4IE2aiE53cuzxsqSehHY3VzMKCv0H9kAKk7Fnw="#;
+
+const ARROW_LEFT: &'static str =
+    r#"eJw9ySEKACAMAMCvDLvIBjIGc9niIwSDRTD4f9Sg4dLprKtDS24gAYpnz3A403DH9H1BAaQc/2zIPw+Z"#;
+
+const ARROW_RIGHT_CIRCLE: &'static str = r#"eJxFyUEKgDAMRNGrDNmLJoh0kfYGHkKiUEFBigu9vW0FZRYf5qmtybYFyRN3BLtyJfeuDdq+HvSYzojZ0+jAEl2hcv2ws4AH9E3d5w81hhq1"#;
+
+const ARROW_RIGHT_FROM_LINE: &'static str = r#"eJxlyaEKwCAYReFXudjHuG5uC//MFh9CMFgEg/j8osEip51PSqgJ8Vf+gmm8lZVzLCsLNEHt3l0yDfjhOWbLO9QHFsQ="#;
+
+const ARROW_RIGHT_LEFT: &'static str = r#"eJxtyzsKwCAQRdGtPOyHZMygKSbWabKIQAobIYX7xw9oZXGrw9X/zRHfZRI7HBAI1UzQrUHQwY/d4e8FpBOWqV+0+gTsI7spBbwbHoY="#;
+
+const ARROW_RIGHT_SQUARE: &'static str = r#"eJxFy0EKgDAMBMCvLLmLpIr00PoDHyG2mB4EKQH199oKSi5hZ9fluChOTx3hSEHFE1uCxLSKvv9VMT8dQ6Nry2B0+6yC4GmyYCO2QIl+2NiAB/RNvc9v/1se/Q=="#;
+
+const ARROW_RIGHT_TO_LINE: &'static str = r#"eJxlyTsKwCAURNGtDPYhjPkWL9ZpXIRgYSNYiOsXBW3kdvdIcjnAf8ryAfV/KCN7e0aGRBJ8cW+91a0mrsJzSgXNKRbx"#;
+
+const ARROW_RIGHT: &'static str =
+    r#"eJw9ybEJACAMBdFVPvYiESVNzAYOIVikESzcH7XQ4pp7Mtsy9OJqBkWj5FTCfSpPBkVkMNifPm/J3A9l"#;
+
+const ARROW_UP_01: &'static str = r#"eJxtjksKgDAMRK8yZF+0tVYXrTfwEKJiXAgixc/tbQWpCwlkMS+ZGbt2njE4WgrU0EIjDDU2i3pjX9pW0Ls0CWxj73HMg2dHmnA9m8d5Yu/IELagKMLpSJbxK95/7GQFle/CsFA/YbIMlFONG+TXLgo="#;
+
+const ARROW_UP_10: &'static str = r#"eJxtzDsKgEAMBNCrDOlFV+On2N0b2NqLirEQRBY/tzcKgoWkm5cZu7RB0DuaM1TgiKFH3sZ37u2rdQneTPEDpoRJGpYo/cNcUT5769AFnI4ME2SYRgmOCsI+9UEcaXio5YRVf57Bu+AvzPQt6g=="#;
+
+const ARROW_UP_AZ: &'static str = r#"eJx1jDEOgCAUQ6/SuIN85CMDcgNXdhKHP2jiYDy/MBgXTNM06Usbz3IJtmU4JgQ45VA1pDi2PsWXrjPcTb4DrEEQxR1CDDLZay5WM5pNFaFmJvMzcMK7Ynj5Hh/2jSsX"#;
+
+const ARROW_UP_CIRCLE: &'static str = r#"eJxFyjEKgDAQRNGrDNuLbgjBYpMb2NrLKigoSLDQ2+sSMEzxizeiW9Z9gd6R2BH0Kc1fOkrSFk9yTteKOdLBAewab4O3h0n1gR04jP0vLzwtGtI="#;
+
+const ARROW_UP_DOWN: &'static str = r#"eJxtyyEOwCAQBdGr/OBJu3QDFVtuUFvfBIEhQRDODwhQZOTLSP5LRHhUMgSymsG6p7wcQ7xMf8nBnN9G0oV7XOhtPgeuZBc0vRUeog=="#;
+
+const ARROW_UP_FROM_DOT: &'static str = r#"eJxFyrEKgDAMBNBfObKLJKBFaPIHru4SBQUFKQ7697aIyA0H9y4e47lgUtobdAhVQA5ZrMtu8dOeBdwO8ouvybcZfisJE/xSYiGkXOX0sj3cARoy"#;
+
+const ARROW_UP_FROM_LINE: &'static str =
+    r#"eJxtybsJACEQBcBWHubHsf5QWO3AIgQDE8FArF8MBAOZcLjnUVGCaOTgP7vBisj/jsinE0moSfoxBpLqNQu2hxbl"#;
+
+const ARROW_UP_LEFT_FROM_CIRCLE: &'static str = r#"eJxlijEKwCAUQ68SvEBrhtLhV+gBXLsXOrgUHLw/RkEXSciQ9yy/JeG7XCTOh+lwwbb2BRvkJwi/qyuLXvDuEBpFKqdXAcBbGGM="#;
+
+const ARROW_UP_LEFT_SQUARE: &'static str = r#"eJxNy0EKgCAQBdCrfOYCYYHMQr1B2/aR0rgLGahun7rJzTD/P74r6VA8nhbC22+pYSbcOap4MkyQlE/R/gc3tUFw166C6GllGLuxdGrlQMZWA+O3D7M9Hqw="#;
+
+const ARROW_UP_LEFT: &'static str =
+    r#"eJw9ySEOACAIRuGrMC6gJMovN7Da3QxEg/efUNhr78Pdz+kMnkqiS106G1peQ5kkUlT2AbzUD1I="#;
+
+const ARROW_UP_NARROW_WIDE: &'static str = r#"eJx1yTEOgCAQRNGrTOiNDG7AYuUGHsLEYhsTC+P5lQIqyO/+0/t4DOfmrgUrZBL8uaxz+Vmr7gnyMnaABIPJQKKlvgRv9I0+vWIlMg=="#;
+
+const ARROW_UP_RIGHT_FROM_CIRCLE: &'static str = r#"eJxtirENwCAMBFd5sUDiL1w5SBkgQ0SioKRAzI/dIAr0p2/urP29ojzpIyF85YbjFyOYsl2RZNvDSJ2DFAWrDl1qApTBGP4="#;
+
+const ARROW_UP_RIGHT_SQUARE: &'static str = r#"eJxFyzEKgDAQBMCvLNeLREGuSPIDHyEmeCkECYfG38thkW7Z2fU174o30EyoLdBEkFwO0UCOCU9JKn9stol+tEP016aCFGhlsPDNJtZ1ORluAQ+dPo7fHps="#;
+
+const ARROW_UP_RIGHT: &'static str =
+    r#"eJxNybENACAIBdFVCAsIFc2XDRzCxILSwji/0cKQXHUPs6+gUbkZWahsFXaUex3J9GXfDsEAD2s="#;
+
+const ARROW_UP_SQUARE: &'static str = r#"eJxFyzEKgDAMheGrhOwiqVI6tL2Bq7vYYjoIUgLW20s6KG97H7+veRd4Ak4InMvBEpAcQm0BDULrcJck3P/oRw2ivzZhSAFPskBmmHUwq6v8vpABsqv75AUBwR8a"#;
+
+const ARROW_UP_TO_LINE: &'static str = r#"eJxli7sJACEQBVt5mB/H+g9WO7AIwcBEMBDrFwNBkMlmGO55VJQgkoGqpEXkf6vIJzTyIPXZDezbE0m4eZ0LxYoW5A=="#;
+
+const ARROW_UP_WIDE_NARROW: &'static str = r#"eJx1zTEOgCAQRNGrTOiNDG7AYuUGHsLEYhsTC+P5lYLQQKabV3y9j8dwbu5asEImwT+XdS5/1qp7gryMHSDBYPQDipb6Ery1zge34CUy"#;
+
+const ARROW_UP_ZA: &'static str = r#"eJxtjLEOgCAMRH+lYQehtMiA/IGrO4lDB00cDN9vHYwLuTS93MtdudotsC/mjJCBLIHK1DK9eS0fXWegHtIABAYSPixDEh5z9N1Gxw2dej2vCqB/Qz9ooNIs9h97ACo5K2M="#;
+
+const ARROW_UP: &'static str =
+    r#"eJw9ySEKACAMAMCvDLvIhDGEuR9Y7YLBIhj8P86gXDxZbQ/o2U0CjMCewTiVcEPldbHEVOnPAbejD1g="#;
+
+const ARROWS_UP_FROM_LINE: &'static str = r#"eJx9yzEKwCAUg+GrBPdSUkWXV2/g2r3QwUXo4P1RB51UsuXjl//NEd+tkoGFPjTqlJez/V66Bge6ZwKJ+46rMBhcjLRDChiqJYo="#;
+
+const ASTERISK: &'static str = r#"eJxljMEJgDAQBFtZUsCZjXp6cKYDixB8+BF8iPWrCOaR78wwfiznhnUKMxP0YgrZm5dlL2YQmsKgMsYO7Otm/5SBUVp7Tn9yA/iVGVE="#;
+
+const AT_SIGN: &'static str = r#"eJwli0EKgCAQRa/ymb00kyYu1Bt0CLGgoEVISN2+NP7i8Xk8n/eSjxUlkCHkJ5CMH+/O6IdfR3+ma8MSaBYLV6ekocF9FlyVJGFIuwJWBq61rYkv9/IYhQ=="#;
+
+const ATOM: &'static str = r#"eJxNj0sOwjAMRK9iZW/TuGlDpbQ34ALsUEACiQWqWMDtybhK6GbysV7mJeXHmp83yp/ZeXWUv9u6lsUt6bCNl/S6vO90nd1JO1FCZJUucIleOuUo/chBBvZeJmwCQnmSY+QRxzoAEggcF5AAUrkmzLEJCCWABLANzvCBx87GDxIJka3NcGszvPlYm/maJ4Trq6ZpvaZpvdx8AJIJA4Rv/cbf5gfnI0Wl"#;
+
+const AWARD: &'static str = r#"eJwly0EKgCAQQNGrDLPXmLFJBccbdIiwoMBFSIu6fUmrv/i8VI5W6gZNcUIotyLx10cxYE7Df3M6l2uHVXEmsaP3QGxDBPLAXI0YZwQckBV2JlqiTjvJL8RUGAo="#;
+
+const AXE: &'static str = r#"eJw9yzsKgDAURNGtDPZPnfwDMSvQRQQsUihYWLl6o6DFvd1JRzkr1qnbaUAlobdoFdVT4d0IgqJFzyRil9PwkJw+uNCCGhF+M2Lg4KouAaHBRsXDXz+6AZMwGeM="#;
+
+const AXIS_3_D: &'static str =
+    r#"eJw9ybkJACAMAMBVgr34EJImZgOHECzSCBbi/GKh7Z3Mtgx6cRUBdyJL5FTCVZV3AyFHYM+/DrXGD2Q="#;
+
+const BABY: &'static str = r#"eJx9T0EKw0AI/MqQu1bdmnZhG+gD+oiwPeRYSP9P3aWkOZQgKOrMOJbX/F7wvA2PDLWFRYepnNpwKttK/WAn0LGyc4KyscPAvio7scGI/R8nY+Q0Z2RIhAbzisQ5uPadSPQjNgTpJVrZAygA952EIVXrvHDL2mv4Wanphh1ruVJcEur2zr38fvoA9VM6ug=="#;
+
+const BACKPACK: &'static str = r#"eJxtjL0KgCAUhV/l4C7p5SoG5tzS6tAmNDg2hM+fEZSI3OWen+/4M10ZxyI2BqmoVWIwVD0Nlpxdq8GlFgj0GrJ+q221pF0EPz2bwX/LM2zkv4Zay9RqUKEB50C6SNOR3JFmSGqV3ThwTXAD6no85Q=="#;
+
+const BADGE_ALERT: &'static str = r#"eJxtzs0KwyAMB/BXCbmbGWfVg/YN9gK7FTbYYIweemjfvgn2E4oQ9J+f0dx3wwdeBR93Sg0kCq7z4MHKYvAUk5ESYc8CRd2e0VK2zFa2BcuQEzJCmuMkc/WcVRae2OabfrXNv+//DZMryA5h4oIJYeR6HGssVtXRhrVJlnev16W1+hkeRTiD"#;
+
+const BADGE_CENT: &'static str = r#"eJxtjz0KgDAMha8S3BsTTX+G6g28gFvBwdFBPL+tlmqhBEJ4+Xh58Uc4d9imbhnRaXBohiAgQLEYBK1TsVn4NIM2jTWUW9HoxYqQTSpIRUT/nVTrHCXMrN3s+xR19iUwD2AvptZGowBTfoQfJyncDdeeMrc="#;
+
+const BADGE_CHECK: &'static str = r#"eJxtjksKgDAMRK8S3De2Nf0ItTfwAu4KLtwILrw/NlirBQkMYfKYTDjSucE6dfOA3oBHqxMBgcyjgNB5kcXB61l0vLZQkerJG6tGCWkgkRHzTRJ/7yRjduli6LlqDE/hfQSlgYcE1fMFaJYpxQ=="#;
+
+const BADGE_DOLLAR_SIGN: &'static str = r#"eJxtjrEOgzAMRH/lxJ40SY3jIWXu0rUDWySGjAz8v0hEZEBCliz7/Hx2WvNWsHyG39vKCLEcMoHganiQjWJqijg1trGVd6gn1dyBqdBNbpCpyHh1Mk/nXMN4Hqb0aq9OSR/2DCmGc0DoN6tXIe2bQl952gzw8med7DbPNnI="#;
+
+const BADGE_EURO: &'static str = r#"eJxtj8EKgCAMhl9leHepOTUw36AX6CZ08Nih9yctsQQZjPHv498/f8YrwbGybUZH4NCoqEGDyCVBo3U8NwufZtCWsYdqa5p4sSZUkw7iGaG/Ex+dEwUzOwt+KlGDb4EtSJVosJAEC+r6hnx8CFUDb9hNMrY="#;
+
+const BADGE_HELP: &'static str = r#"eJxtjkkKAjEQRa/yyT5lhs4E6dzAC7gLKiiIuHDR3t6UhrQNElJUPV4N+VGfF5xmsbcUHSJ5UydMUO1pTBSibCFgZZ4Cp1uph8HUVxugD9lIsinud5L8t06x5g+i5B2fWvI4OJFKSNXCdtVRtNBHBSMb5L923a73MxYzC21IaYEXp0Fg0YxarT9189ksbw+eOd8="#;
+
+const BADGE_INDIAN_RUPEE: &'static str = r#"eJxtjz0KgDAMha8S3FMb7U+G2ht4AbeCQxfBwftji6W1UAIhvHy8vLg7PBHObdpXwRpYmCUoUCBTEShhGVOz0DQjbB57qLSqyQ+rQjHpIEyI/jvh6JzMmDkm7+Yc1bsamIEjD3VaRouLViCLGilS/TEVNvYF3tE6rA=="#;
+
+const BADGE_INFO: &'static str = r#"eJxtzsEKgzAMBuBXCbk3a7ra5lB9g73AbsIGG4zhwYO+vamWqiCFpPx8TZOGfvzAq8XHnaQBoeB6Dx6sHgZPUYyWCHsWKObrGZVSM7uxGpQhJ2SUNMdJ5uo7m1l4YpduedUu/b7/N8zcIgeEyWl3CHPpE69dcWYHLJuRSspTslz1AuX5OFQ="#;
+
+const BADGE_JAPANESE_YEN: &'static str = r#"eJxtjk0KhTAMhK8yuG9f09S0Qp838AJvJ7yFG8GFeH5b/McSCGHmYzJx6ucB/2/VsQ41ghbbOziYNASnfVBpeVyaaJ/PJ7SvUzMbdgp7yANSCanvSar0zmRMflUbP7lqG4/CY4MABi++4JEFEVjx2+sakB2kbMjNWAHz+T9x"#;
+
+const BADGE_MINUS: &'static str = r#"eJxtjk0KhDAMha/yyL6dtlPbLmpvMBeYnaCgIOLChd7eBos/IIG85PHxkjg3S4+2pt9XhgpBOtNYWKhcGlb6IHLzuDwnPY9PqLTTUwd2GiXkAYmMVPck8XZOMeb+lOKHX01xHKYOm6lJG8LK6gibLnvWwCxTaQeW0yzF"#;
+
+const BADGE_PERCENT: &'static str = r#"eJxtjksKgDAMRK8yuG9stU1bqN7AC7gTXLgRXHh/bPFbLIEQZl6SCdu0L5i7amjJGTjiZtLQkLEUNFknYrN4NSabxhy62qPJE3uE60gGiYiY7yVReicTxmPVhzpF7cMdeFUGXjD4bw0efiGpCk5cUibzDhktODI="#;
+
+const BADGE_PLUS: &'static str = r#"eJxtzsEKgCAMANBfGd41NVMP1h/0A92CgoKIDh3q79tITCGEzc3nNBzjucDUsr4WvgEvrB4NGJC4FBjhPMfg4OtZ4WhbohhST74sNeKQAnEkTT6J/z0nidmBdaGir3ZhW/cZLt0ypRlc6s031RYz1p4sqdzGs2Tj3c8+Qr43yQ=="#;
+
+const BADGE_POUND_STERLING: &'static str = r#"eJxtjjEOgCAMRa/SuFMBoWCC3sDVwY3EgdHB+8cSCUpCCG3z+/rbcMU7wbkM24TegkfS0YAByU+BQecFBwefRuhy2UIlVE2+WBWKSQMJRuzfSfTWyYzRMaxhzKeuoR7sQelkOg3Fc7TPaKNGC/m/Vpz7NpRcbTxHfDr+"#;
+
+const BADGE_RUSSIAN_RUBLE: &'static str = r#"eJxtjksKwCAMRK8S3Mf6/4D1Br1Ad0IXLrsoPX+Viq0ggSFMHpMJZ7oyHCvZJHUaHDUiKVDAynBQ1DosYuHzDLV1HaEm3WMv1o0WMkBYEP1Pwtk7VjGzkxiWWjWGXtgDN1nPDyLrJEC0LgxVRnn7zj59MTQT"#;
+
+const BADGE_SWISS_FRANC: &'static str = r#"eJx1jj0KwCAMha8SumuN/wXrDbp26CZ0cOzQ+1OlYhUsgRBevrw8d4U7wrlOm6BWgaWaBwkSWCoESY0lqRn4NE1NHnuotKqxF6tCMekgkhDVOpHRO5YxfUzezTmqdzUwIqDZbZQ/Ox7FYLMA6ubkAbZuOB4="#;
+
+const BADGE_X: &'static str = r#"eJxtjksKwzAMRK8yaG/XTv0LOLlBL9BdoIUWSumii+T2kRLnB0EgidHTSPnX/V94NHS76uSRdKg6BwfDYeF0TIpTxKYFHaU9QiWtmpmxVSgmB0gx4vdO6uycESzcqc0XebXNn/f3iaFqyHpCz7UmDHYqvZ1URgVa0G1WzwuyWAwWdATdLTd7"#;
+
+const BADGE: &'static str = r#"eJxtjjEKgDAMRa8SujdWbZsMtTfwAm4FB0cH748JlmpBAp/wePwkneU6YF/MOiMHYIxT8eDByYzgkdhKELwsIunaSzUac4/WQC3pJCtK+DbZv3NOtbiZnAZ9Nd/PhiHB"#;
+
+const BAGGAGE_CLAIM: &'static str = r#"eJxljE0LwjAMhv9KyH3YxLFNaHv24nX30RVb8CCl6Pz3JiibMnLIx/s8sfepJpgdXpiBhnM3MTAYKWq44bFfd6M7entQw9vVox6oHdt/LjX0ewB+kNncEkOFl8MOIcV8TdXhgFAWh4TwzHNNMh0RFr2Lpby3IZdwixAUEzzIAzaiSVPoE2/YN1b8tKPenblALg=="#;
+
+const BAN: &'static str = r#"eJwlikEKwCAMBL8S8gBbxUsh5i8lLbSgIOJBf6/Rw+4cZkj+IvGFEtCeCNIm3WRfZDq2Z8p3/eAJmLy5QGe9ceu0UssDJmwUSg=="#;
+
+const BANANA: &'static str = r#"eJw9jrEOwjAMRH/l1D3GduI2lUKXzvwAWxUGRgb+X1wAVZEdyz6/c3sd7yce1+lWYLlnieSoDFP4ERIYoXyGipi2dhkbWzv3Qixgi9S1U+rJmFBljjSzhyWZ78ZmgA78QXaG08qd2J9BEK6Y6V6Ec1JUyspiJ95Apf+Tdh0WMLGSvtjMA5JTdj+v+wBeFCzP"#;
+
+const BANKNOTE: &'static str = r#"eJwti8EJwCAQBFs5roBEfUgeagcWEU7JCXkEEaLdR7m8dmBnXM3UgHO5uHnUBmF4tAjd4+Qq85bUeJLC4PYVBEel0p2BukQ0ZOvypyR3cM/ZGJLHaEEb3pSO+vhpaesOH4USJDI="#;
+
+const BAR_CHART_2: &'static str = r#"eJxdzE0KABAQBeCraC6ASbIYbmOhZM3t/UZj9Xr1vUc5lSiq9qAdiIo72+ioRs6uIJCcLNDDeDBybD7Ljgysrd1Te2kHlMQhAg=="#;
+
+const BAR_CHART_3: &'static str = r#"eJxtyyEKACAMQNGrDLvIGOKE6Q2sdsFgNIjnlxXT6n982eMsmMU1ArrIC9lVCVqrfEMGTD1bQirREF2upy8PSfIeAA=="#;
+
+const BAR_CHART_4: &'static str =
+    r#"eJxtySEKACAMAMCvDLvIGOKE6Q+sdsFgNIjvlxXT6p3scRbM4hoBXeSF7KoE1Sr/kABTz9awTjRG43r68wBJcB4A"#;
+
+const BAR_CHART_BIG: &'static str = r#"eJxNjMsNgCAQRFvZbAO6IpED0IFFGCEuN0OIn+51jRJvk5l5z65TYQgORwVqI8Nk0NtGWm9znAucDqlFOBwOCBzTwuWJ+W4IYU+hsMNeKPm/lIz6t4pGV+jTUFexC3vBJs0="#;
+
+const BAR_CHART_HORIZONTAL_BIG: &'static str = r#"eJxNzMsJgDAQhOFWlmlA1ih6yNqBRYgGNzcJwUf3JhjF6/B/Y7cpKi2C0ZDZuVfuMdgqr4MNbo50CVrQ4ZeoAq5Bp6ADqfOrRkEDCmnhrHJf1BMly+YN/qTcdZ+6AVelJqE="#;
+
+const BAR_CHART_HORIZONTAL: &'static str =
+    r#"eJx1ybEJACEQBMBWDht49g/U4LQDixAMNjQQ6xcTI01nrNdBackVFZ2IRHTZvq3ZzgWB5yNA/Nfx1OML/ZsdfQ=="#;
+
+const BAR_CHART: &'static str = r#"eJxdjTEOwCAMA7+C8oGSqIo6BH7ToVLFDL+HYMTAZNk+2fZ/5Q2NE0mkUCURy1CGNveRsl2OZZvwhB6U92LdYuNgR6i7w57iRzfaAZOgIQQ="#;
+
+const BASELINE: &'static str = r#"eJxlijEKACEMBL+y2B93CUewiP7ARwgWaQQL/49aaGM3zIy23A0luPSDPyNxUd/lou5SBSSQhxiT+B6Sn9r8CQPOWxbq"#;
+
+const BATH: &'static str = r#"eJxdjU8LwjAMxb9K6L11Sf9t0O7i2av3gsIEEQ8i7tubLBvKKOUleb+8lGd7TXCp5jRAguQieBcbssrv5Fm0Lh6DS70HD4EBqQIEF8+YGwEpx0oT0v/A0ttGM5aDXBnL/fa4wkzVZAMfrAY7Vm57AzO3CynMSopFpB6Kkqqs0o5dmEG9rKlZNwj3sYKuDP6gLWKDv1xhQoQ="#;
+
+const BATTERY_CHARGING: &'static str = r#"eJxljDsKwzAQRK8ybC+iWX/UyKrT5BCGBDbghBQhxLf3yoWNMSpGD97b/Bm/hvsgN3ZIxlGhiP7oq79+5+A/CyolX2pT8lb2SNd2E2M4hrEeMp67F4kUGnTWTnV2Y3q+H5h1EDaCv6+qYKYznbmyy1UrC4epLv0="#;
+
+const BATTERY_FULL: &'static str = r#"eJx1jtEKgCAMRX9l7AdqFvZi/UxJCtGDCOnfN1OLgp4uuzuHTTk9e4gjDgiOQyAYbVfjR6QWIVyNy3HYxRvuJU6qSd6kNrtrCMRr3geRM/JMxMkzdQlOWIW5lA+TXPmHUnlC5CxQdd/w52iW+yL3N3wCqBA9jg=="#;
+
+const BATTERY_LOW: &'static str = r#"eJxFy0kOgCAMBdCrNL2Atia4AS6jREiMC0Ii3N4Wp02n/2pzWApUh4wQQ9picUgjwpnWEmU0CLn1VOosS6feDvrn7Z6OAI0FTgiVJBNZ+e5NdiLFyh6syHzZ/8t6fukF7n8nOA=="#;
+
+const BATTERY_MEDIUM: &'static str = r#"eJx1zlEKgCAMBuCrjF2gtsBezMuUpBA9iFDevk2rh6AXx36/H2aTnzOUCUeEJIMRgo9ryBNSL9FZo/YecclBcoPOdtpzdou7h8ISDqJImGpus8hOpFjZB9+ftWRax/xQJXrMW+G6P/gCypoyXw=="#;
+
+const BATTERY_WARNING: &'static str = r#"eJxVjEEKwkAMRa8Ssh+dxNJspl278RBFhRFEXIi0t+9P2xlaskh+eO+n7/DL9Oj4Jg1Z1kFJKWIEW//tHVfAHZByUO7T2Y0+Va8luzZVi6FqawW0nfV+fZ40acdyYRqxVZkmQRZkWTJgxzbYnxJX2LfDxqXjyC5PO8Wtq+BiVS/8DOagPBA="#;
+
+const BATTERY: &'static str = r#"eJwti1EKgCAQRK+y7AVqDepHvUxJCtGHCLm3b7b8eszMG1/T3kgDb0y1B3aAfnjK0XJgWZn+Pqdy5oZm5ugn+0V/lTtRd9ghKCgLdBkZFDHZtPgCKG8cZw=="#;
+
+const BEAKER: &'static str = r#"eJxtizsOgCAQRK8yofezu0AsVm5ga09isaWF8fwKBaEg08zMy9M7P4Zrd4efA8QouKRLOZM2FCEvxcxgrDV/s63fE58yFMkbcSMfJSwcOg=="#;
+
+const BEAN_OFF: &'static str = r#"eJxtjk0KwjAQha/yyL5jZjIZE6gFD+AhShUURFy4aG/v9Ie6kYQXJnl8X9p3/7njegqXijo0ZOq7YcrCVLM2QhoFTGz5bDDEZRWI9JyoGtZcryvVRolD1x5mbNfucI50zMgUa9ox7BCUIcIdzK5muLy43EqCkdkfUKakDMeZ9ArdxEZajv5LieWyvGHp9UqRM9bclBRTnVN/8OfjdcMopyASMLKfAdM2Tsvo1bnUfQGxSkJh"#;
+
+const BEAN: &'static str = r#"eJw9TrsKAzEM+xVze9yzYzs2pAelc3+gW7gOHTv0/6nTIfiBBJJQ/4zvG17X7UE7kikYavg9MFSgoTSHQBNwrAYBcZZkuYVQmaaqMMrOQNN9MzDY/+PAfDZslZOQFEM2n4BkLFUhQq+aYRnx3I5+mXWOvkopViHIasZDQGZUniK3KPl9WX6EayrH"#;
+
+const BED_DOUBLE: &'static str = r#"eJxtyzEKwCAUA9CrBHfp/0HEwXqDrt2FDo4dyj9/7SJFJEMg4eW7Pg3X7g6CYj7V3pAeBT2bxv8AWnIlbx8qedAAlTPOkpMMC6lEsLg4CE2NMp4XTUop6Q=="#;
+
+const BED_SINGLE: &'static str = r#"eJxtzDEKgDAMheGrPLoXk7RKhtgbuLoXHDI6SM+vLipF3vbg+22vh2Obw5Ig1KJWgYCuMSSKc/4ekKah2HCjYg8dwbROvaRO5h+ZwOr8Nk+HfSK9"#;
+
+const BED: &'static str = r#"eJxtijEKgDAQBL9y5ANmF4knnPmBjwhYXGkh935jIynCFgszY3d7XK4jnZQ1UFK15UPVBqEObRRK7kN/BvK0xOacmSIa+89fUJMgDQ=="#;
+
+const BEEF: &'static str = r#"eJxVkM2KAjEQhF+lyD29050fe2BGkL3uvsDehqygoCDiQd/e7gkiElJUmkrqI1M7Xttpj3afAwuVgPaYg7q5zsEH2+mrZ7bTZbkd8D+HX09Clmrqe/AVK4kgU22RiZGIU6SNmhmjHdSSg+4SUo+jgLVlM0rZbiiYzWRKu49n0bv+nMP73xRnVg9CiEfrLYaTvcVkvQdKDPHB2GWdRqGKQvLNhTJkILFiGPnGZHnhrTE1rFp/xHJc+0+sBE9+MkHY"#;
+
+const BEER: &'static str = r#"eJx1TjEKwzAM/IrILjWSo9iBND/oVOjQzaSDx0JK3l8pLqHQFCH5zJ1ONz7zq8Dj3Fw4AnPhHCBAa8XWfUFupvHkomncpQOwrP0BweEv00EkndFckanrSDEA6YKCDn0wRbHHmjTbBO9PEtSZYnJMGitFeh3MCMRigyzilEX36U5YVfjrBRZjM7OLzmOV3Q9SK6SVJYsdabcyVNL3H+WW9sU3RR5Lvg=="#;
+
+const BELL_DOT: &'static str = r#"eJxFjbEKwzAMRH/l0G7Vsowdg+2lS5d+RHALLXQoaYf272MnQxA6EPd0l9/z94Fboask9hDP6ewsO0jopxNI3PWiHzUOalKzRlnhOJqA0JcjLISVO8eJlWo+jdiaj3A7PmTuvscmdhvtJfbg23Nprzvav9BEWAopof0KyTSY3a0r/BYp9A=="#;
+
+const BELL_MINUS: &'static str = r#"eJxtjbEKgDAMRH8luDcmTa0VqrOLHyE6OAr6/3hV0EVCLpC8u+R9Pjda+2rSxIHUL5zI0J4jNY+OdpjzZK5bxBkbtq2LFNEKUsAHzMDgqyHXJXLIX7AUi87KHR4UkbvgIvnjG0pbfA8XfEgljg=="#;
+
+const BELL_OFF: &'static str = r#"eJxtjcEKhDAMRH9l8N5s07hNha6wNy9+RMGDF0HQ/8cawYsyYQgkbyavZZ8x/ZoxkUL+ERG+isEJqQQmgZk3UcS36fPnpPp8s6xgHWQTFyCuKy1FhdmVReKY9A30ll+YuhZmV49Q3Z7/S0CVr3PfDrAyLRY="#;
+
+const BELL_PLUS: &'static str = r#"eJxtjTsOg0AMRK8yol/Hn2U/0oYmTZocAiUFZSQQ58dAQYMsjyXP87j9x2XC79l9pJJBIpWXMgkkUYT6zKe+bbagsFC/HMxRpRwSkreAIVRJfVcod0N77KlDu7J5P5DRqYhD+CjzH3zH9yhTujMK+vUyNuQDLUU="#;
+
+const BELL_RING: &'static str = r#"eJxtizsOwzAMQ69CZJeqj+vYgJulS5cewkiHjgWa+yOKh0wBIUoQH9uvb198HtM7o/SMDAkp1CCrYIajHvPyv5PBqU5Lux2lpZ1VFXaYduWaMEyGnOO64BPsaVwin2G4Dy8XnMV7FTJ24kIpllE+uR0G8yw/"#;
+
+const BELL: &'static str = r#"eJw9izEOgCAQBL+yoQfvOIOSnNQ2PuKihaWJ/j8CBZnsZosdfey7cW3uSFgtIYEqDI6gk7BAkFt2ecVHiM+u6NSkokNlCoLIxiHP6EUdCXWN/w84fxis"#;
+
+const BIKE: &'static str = r#"eJxtzTsKgDAMBuCrhOxV+kKHtjdwdZcqVOggxUFvb0IHKziE/JAviYt7iXmDeHmUY2cR4k1p4FQ8aurB9RUF12DbiHfnx9KoSon1y0cdy5lg9ThJBXxhliYLLTQYKgU6KdaswgPDOS4j"#;
+
+const BINARY: &'static str = r#"eJxtjFEKgCAQRK+y7AVKEb+0G3SISGn9C1kqb18alIJfA/PmjYl+ZbgsCoWQ3iAfNmKLGiE+RCKcwTFZVDiZIQuTKdpX54N/XfmpkfaFCZzFWYMcqYBcVUAoEH2iQSiSh+5LLboBSQA8rw=="#;
+
+const BIOHAZARD: &'static str = r#"eJx1kEtqAzEQRK/SaK/KtL4jmPEm6zlEUAIJJBBMCMntXT022GB5IanpT70uLf3j2D/fpP+tToOT/s9X0ZwcVxfcYXk6NxyW75efd3ld3VZQJSJ1jyYBWSbJCIyCsPJcmGmsV2koEoRixWRs/CryNXNYJ6goEub7hk0r4o65pfgLhZnklbHliCmmhjzgaDYGQf4haNebMHeqF0/hxMfChOozot/dWUqFEpY27kiKdiPa79DyxlLmID9OvVmxK8o09C7citarJ4s+uXwxg9xhYHLLFDZwBy/M7LST5bb7BAxadIo="#;
+
+const BIRD: &'static str = r#"eJxtjrEOwjAMRH/l1D3GdtLYQ+jMAGv3SAxdkBgQ308KqB0aWbJkn33vyrO+FtzPw00ybCGWYSqndTmVTYqUIH4RrQ4Hf8uDz1YT0m8ORupBKV4VykePhzIMChrD2joQ4cZ4x57S6EY2ztoLZ+2tZuR/rkiegjDl/fYDj1o5KQ=="#;
+
+const BITCOIN: &'static str = r#"eJxdj00KwjAQRq8Sus9nZjKZH6g9QXsI0YULCy68P6YRRNzNB4/3mPl5ed3T7TxtRDC1RIHicRUEC1w9KUiyonBLBCbtt4fseYw0xto6mchRxPaGKN7RIpxRpRsRthOa1uydk687/t1tuOvH3Ya75oqQDO3JBmoHwquDIwlYf2s95vmIbQbxxAVV5VFBrJkMxjYt8+n4d3kDLn40Kw=="#;
+
+const BLINDS: &'static str = r#"eJx1ykEKgCAUhOGrPN4FatQoQV236RBhgUGLkIi6fUpQG1sNzPebbdwDTZYHSTKgY2eqfDnzgqip7X8AKAqS6IC6QB2hCRAFUSQPqA/8Ev06U7QsmPxpWaW5LEPn5lF3A20gNlE="#;
+
+const BLOCKS: &'static str = r#"eJxdjb0KhEAQg18lTL+cUY+7Ynfra661FxXHTmTx5+11Kn8YmJCPkPipaxK2IIVAu6HXFOQjmNYgFNgvBcvQJjUe/cvy0Y91UrRB/syQs/rWBJHZOTr+yqsHZ+YnOJR6B46zez8qChuzmbgDO2Mmmw=="#;
+
+const BLUETOOTH_CONNECTED: &'static str = r#"eJw9i7EKgDAMRH8lZBdNROvQ9guc3QUFhSoODvXvvRZaCHlw984+63vQ5vgyZEg6XDPQsGjAn5EY9rZNkrfhvHeK4lgmpqiOVZg+UBSUTMhJKzLKsXZ529dJUX91kyC/"#;
+
+const BLUETOOTH_OFF: &'static str = r#"eJxlTDEKgDAQ+0roXvWKxyGc/YGru+DgoOAgvr/p0qUkIZCE+Ht8F841PGIQiwrdJd3VQ/axttnbJoGYyL7bZB4UC8Uj40HUn0kbFrcHG1k="#;
+
+const BLUETOOTH_SEARCHING: &'static str = r#"eJxtijsOgCAQRK8yoQd3kV+BnEBbexILCk0svH9cY7QiM3nFzMtnvRq2SR0REUxS7eFXuwtnWaIqeXikkj91sWTSCHbC6uBAb7Q3IXR0TmDbDPH/3cd/HX8="#;
+
+const BLUETOOTH: &'static str = r#"eJyzKUgsyVBIsVXKNVcwVzA0ACJdUwXTMKMcIOkDFDFXsrPRBymyAwDtywrA"#;
+
+const BOLD: &'static str = r#"eJxlyiEKACEQBdCrfOzLqswuhtFs8QI2wWA0iOcXETTIq49ragXZiqAISicCQS6P8X83wvE7j+MzP2h5z7jrAIv2FT0="#;
+
+const BOMB: &'static str = r#"eJxNjUsKgDAMRK8yZG819YNC612kCgoKIi709nYUioQXCI/MuLAcYZ0Qbi9aCg4vnSBc8VLpXf7p3u3DOWP0smlnahA1bRYZrKlAim+y0lRrFA2hVLwrSRTULf9ZwOBfvLWwUTO+TvoBN4Ynrw=="#;
+
+const BONE: &'static str = r#"eJxdj70KhTAMhV/l4J7ctJDbCuob+AJuUgcHBwffH9NUHKQ05Pc7yXCu145t7OaQEKRwIjaH/z0EkRWyVusegn0hBauHliBWespvizVIEXAOTsoNdFBCKgY3hYanL749LRzrjInEWJU+CzidjE5Oyg20dNPwq7dMNyD0KbE="#;
+
+const BOOK_COPY: &'static str = r#"eJxtzLEKgCAYBOBX+XGXusOkwZxdWt2FBseG6Pn7CzIIueU4Pi7s5aiyLWalwGdXKJRRA6FlBUwMw21iaHISuPRKPNrVHqR+zgn4U2T/rRqr7QTbwwWrsiO7"#;
+
+const BOOK_DOWN: &'static str = r#"eJxljLEKgDAMRH8ldG9NUqMUasGti6t7wcFFcJB+v81SEDkO7njw4l2eE47FbCNQcFItycpOQIstBJO+zFgZc9vlS9FKYybFQU0pdh8xkN/nP7kCEILXWN/xC535ISE="#;
+
+const BOOK_KEY: &'static str = r#"eJxljVEKhDAMRK8S8l+3ybaLQivsX388hFRBQUFERG9viqCIhBDCzLxxU7100HisDFCR2VWR/XNmIa2WIfilL5DB0n2Su3RXhjXkK5kglvoZ0soG1nck9nMcWpg9MkLcPeZyNo8n9lRv8ChgVkZosu/ekQr4Sgld0gE5kzK5"#;
+
+const BOOK_LOCK: &'static str = r#"eJxVjcEKwjAMhl8l5L7ZhKZOaAfeevHqvbhhd5NRqr69DcjYCDkk+b4//pVKhingzQJdeqkdyZV7AW3TisDpFMng6E9Kj35zuN2lnmND0lEynUTeKev8KPBeppIDDgjfgA5h/QQkhDwvz1wCCoIuWC3ld49oAHe3iYH/6RZM5S3+BwsYMf0="#;
+
+const BOOK_MARKED: &'static str = r#"eJxVTDkKgDAQ/MqQXt1dTUSIATsbHyEoKIgGFMHfmwQb2YMZ5rB+vBZMrRoqcJPrO2PdSa4Rj8IwTGS90C3UBzz+Vcp00JSzRWxy1h/bs637DH+s+3W2igmC8OKWqMEmQQNJoc/uXrRlIYY="#;
+
+const BOOK_MINUS: &'static str = r#"eJxVjLEKwCAMRH8luGuT0AhCKnRz6UcIHRw7FL+/ySKU4+COB0+f/g64j3DtQCXJjCQnJwEvWgiyv8Y4GZvt/qcYxViourmp6vIVIBx5gQ/5rhkD"#;
+
+const BOOK_OPEN_CHECK: &'static str = r#"eJxljaEOwzAMRH/lVO4strOkICseKS0YmzIQMmlgyvfPntSS6iQT371XP89vx+s2rTP0LoOvvTQOBREKDmpXt9IiSRDiMFPyPKalXny51H3/5gwWeKxw/q8iyJt2ys1ZiJTw5yENTiZwqQnJhKS9DGvpgfkBY3kofQ=="#;
+
+const BOOK_OPEN: &'static str = r#"eJxdyzEKgDAMheGrhO7Bpgm6xM4uHiLgkNFBHDy9qUtA3vDgh09PuxyOtewN2GcTEKgxipebxBj4CxUZeWtP6ToN0zXloJi24s8ShPUl7QuPERw5"#;
+
+const BOOK_PLUS: &'static str = r#"eJxtjLEKgDAMRH8ldG9NgqkUasGtix9RcOjoIP1+k0UR5Di448HLZ7s6HKvbZ6AUZHiSjYOAFTUE0V5lHIxVd/tS9KLMlTyZqeTHl4Cwxx9ADMt4wQ3I/CA4"#;
+
+const BOOK_TEMPLATE: &'static str = r#"eJx1jrEKgDAMRH8luLc2p9EKVXBzcXUXHDo6SL9fu1VICRmSd5dcuM8n0jU3OxwB0aBZQpuXSygRS6rAnniycrDoRp86BbAnRKTKPT4mzYPsqYAq4VEl339sg5UTVii3+4rJGdm8GkqSsbL+1UOeCv0LdedZwg=="#;
+
+const BOOK_UP_2: &'static str = r#"eJxtizsKgDAQRK8y2Ed3N64fiIKdja29YJFGsJCc36QRJGGYYnjz3H08HudUbS14rDUY1kVqRSrFMLq0qtk16Tq7T+AB4iUIrfFx/B0yugqVJAHbvc/JNYIJ1ljEFLFm9AVAAS9x"#;
+
+const BOOK_UP: &'static str = r#"eJxljLEKgDAMRH8ldG9NUqMUasGti6t7wcFFcJB+v+lSEDkO7njw4l2eE47FbCNQcFItycpOoBU1BFN7mbEyZt3lS9GKMpPi0Ewpdh8xkN/nP7kCEIK3HjQdv54tISE="#;
+
+const BOOK_X: &'static str = r#"eJxtzDEKgDAMBdCrhO6tSWmUQiy4dfEQBQcXwUF6fpNBUJAQSHifL2e7dthmtyagHLh74iUGBlvUIRjtqxF7xKp3+yp6VnNFBmsq8vQdlDQzeQb+wWwGb7sBl4ghLQ=="#;
+
+const BOOK: &'static str = r#"eJxVjLEKwCAMRH8luGuT0BQKVujm4kcIDo4O4vebjHIc3PHgxVFnh/a5cgO9QZYn+TkIWFFD8NjLjIsx664nRS/KXIqXmdIG3dMR3A=="#;
+
+const BOOKMARK_MINUS: &'static str = r#"eJxNy0EKgCAUBNCrDO4l/ycTQT1Ge6HAoKJFhHX6/LSJWTwYZsKRz4Ipqo08mLTTvXboR5sZDNNCYM2FzL8AXzQ8KoVO7imsyz6jclRe4W6QadJnFa1sZZVe67MbBg=="#;
+
+const BOOKMARK_PLUS: &'static str = r#"eJxNi0EKhDAQBL/SzD1splc3CNFn7F1QUFDxIKK+3oSoyByKaar8XC8dmlJGLUA1zmTGIfvnNUHYcAoadmrfA7jq75DKf2Je+aGfWuwsRb+CTQMZyMQ9/C660brd6NjkFJJSe6X5456J/CYG"#;
+
+const BOOKMARK: &'static str = r#"eJxNy7EKgCAYReFXubj/5L1YEpiP0S40uAQN0dDTq5uc7cCXnvJWXIe7uUO0aMEiwrkWQfA9QqZKPw/o4/a7nJbBcwMwSBAG"#;
+
+const BOOM_BOX: &'static str = r#"eJx1jEEKgzAQRa/ymX2pM6hESHKDbruXGJpAFyUE296+SQVRUAaG4f/3Rr/GHDAZurUY7t0oEDRlGHKRwLINIHNLVl+rYvUqKqiZD3KWs6LfF8m7jPQxJIRlv+OUQ7kawtfQQAg+PkI2xFK1KljtYnJPD1cI7giuqIqQ6oPCLO1K/eMdy/0G+wE3G0g5"#;
+
+const BOT: &'static str = r#"eJx1jDsOgzAQRK8ymgsku3EiR7Jdp0mbPgooS4eQxef24AaEBN3MPM0L7Tcbqsi3KPzHvTxTuJQxha7+ZQxNlS1SHoTVzd/ykpUYIx0xRXqiW4qWWzmksBoV4kw33wauZ0TukFt/RJ57MAPY8DQa"#;
+
+const BOX_SELECT: &'static str = r#"eJx1jzEOgCAMRa/yw070FxhIkBt4CBIHRgfj+YVFMSnp0vS936bpLFfFsZk9wBWBYO1lW2dyWjrN6XUYB4nQJSEYP2uyKkA4SlaT2rlKdS5UAf0k0cAk4hBv6m/owIF+lviRB3Y+XYo="#;
+
+const BOX: &'static str = r#"eJxljrEKgDAMRH/lcE81qdoOVfADXB3cBAcHBQfx+00FS0ECCVzyLhfO5dqwdsUoDL8IBFUsYmLj7E6O6kzVqRLqIUmw8HcGgvGCepSJkVOnDNN33M5FH8qYoA9fjsMaCwdvHJrYqfnfjKw+MrGk1QOWvyyv"#;
+
+const BOXES: &'static str = r#"eJx9kbtuwzAMRX+FyE5WJPWwATdA93jNkC1Ahw4q0KHQ95dS7TwVQ4AE6F6J95DTz/n3Cz7fd7PQmIBtlw8BAdeWAHuKWpTEn6/XzUqJs9ox3AhCLoI7sL0bCwYKGQMqenJqmpfTbj+91ZL7aS38bV9FCuZJHoWG8NIC9tWzOP+LJRCnjlqjKIUjj1lrbCF9DpwV7znMiRWw4D05rsKBraxrfKA9Kl6wuplXFTagZ94GS5XGW09vxpUgEmvxpClbrtqwY73pAGR8YMalFdhmeuq3coBEEsEi9cbUDJtIyzCGi/YHZ/qXkw=="#;
+
+const BRACES: &'static str = r#"eJxNjr0OgCAMhF+lcS/aGvxJkNnF1Z3o0NHB8PxSTIB0ucvlvp57witwb92xwLjPgYFh0MOkoi2e1ENxkNMrKUNm/ROhzrteed4VKk3AJFS5wMgRUxVzVbHI7Rvk07YzkAUr+QNcHSae"#;
+
+const BRACKETS: &'static str =
+    r#"eJw9yqEOABAQANBfuelm58aEIyuqbhMuCub7US6/x2tsgZlNwwgkdDCJJVPYfSisnMBjDf0VxQsGrRD3"#;
+
+const BRAIN_CIRCUIT: &'static str = r#"eJydj0EKAjEMRa8SZt/YpE3JwDgn0O0s3BVddOlCPL9pFWS0gkopLT8/+S/TOV8KnLbDnhgiSmYUqNfX4yKOyWFMsJYJR4XwJoY6gqNVwl0DDBEERddW+40JAvpX3eIIveyMhf1iOIdhnjYVcZ6eoAl0kWMNNA5nVsc9GwOFEj9UtKRsnS2V7OUr9Z1atFNgb8yaURo6ATmq28pjExPA99nNQeH3xhbI9EeimuPrwBsYdnYr"#;
+
+const BRAIN_COG: &'static str = r#"eJx1kFGKwzAMRK8i/K9Z25KzMSSFPcAeomQXWmihlH60t6/lfhQ3MSFga4bR80zL8bqc/ml5zC5ER9fZiaPlXm+76esl76bL/nagv9n9hkiKtI9IZL+3jxV5YOhA7TggjySroVhE1KLIa0YQpYQ0ttZyygMJ/PjTzgtDyJ8QZBBQ3chgy2jX8XpdJeNKtn4Gy5qh9GAVWTXvgs4h4ZuChzIydMOQUfAFsacXbSBL4Zqx5fAYKVtCz1AZBKnI3IfwpnYMRUyVortDEAyi1Z9/pIV2"#;
+
+const BRAIN: &'static str = r#"eJx1zksKAjEMgOGrhNknpnlIC3XAA3gBdwMuXLoQz2+qIHRaCcniX4SvPrbnHW6n5VLIQc7SbizHJEgCRv5KvnUdjcqRzKCvEhWVOIPGfBupoZNn2D0mlfgiNvSSUXeKj+y6rPXQsGv9kZMNZv5jZpiZGUYzw9TMODe3PphDYT36DbcxRg8="#;
+
+const BRIEFCASE: &'static str = r#"eJxNi8sKgCAQRX9lmL2kg9lG/YO27SWlcRciPf4+rU1cuAcOHFvSWuF2OCGcOVZ2SBKhNEMN14vvOeWNq0Ol0duhd97uoTJEh7MyQGoZAwGB7BMkiIX+C6BDmd72yj/bGx88"#;
+
+const BRING_TO_FRONT: &'static str = r#"eJxVjb0KgDAMhF/l6F5sQweH6hu4uouKcZNS/Hl7mw62Ejhy4e6LD+scweu+cexUq3DtS+S83VmfrCEZUr1vJN77Y4qMpVODgzUTgWDSWE2aRlc8kuefR4ZIvYJYByoUI6mqZYRy6uogbz7MC4/MLiU="#;
+
+const BRUSH: &'static str = r#"eJw9jkEOAjEIRa9CZg9CoZ02GecGHqLRhQtNXLjy9P52oiF5tLQ82F79fafbeXk20UJm0qiKrgyUnqRmmlAyRIj6xGO+j5912bfTkOzbT3VZISALaXFlk1JI2cnEM5KLpmETd06ScciJE4agbNABhlu0oxRHSjKaArYKYoPoEBlN6Ah2HurPf50v+pwtgA=="#;
+
+const BUG_OFF: &'static str = r#"eJxtkL0OwjAMhF/lxB4Tx85PpVKJjQFW9qgMXZAYUJ8fBxAdiLxEyfm7u4yP+lxwO+wuHJGJ5ZqqQODbuEisLhCfC8JuGvdNPI3bihIHCJUCTl1FCGBZnK4uVIV+sep0cUzSW/A0ZMTZw2xNkxreCUXov/oeYGNS3yFlylYoH3+2SGBepSY7fC6YrbAZcC8JN/TqSufJQHLq1RUEnn37MTBliz2842/RX2yzWlg="#;
+
+const BUG_PLAY: &'static str = r#"eJxtkDEOwjAMRa/y1d0mjp00lUoXFhYuwFaVoUslBtTz4xSBGCLHHuyXn++Mz/m14nHutoII4VKO0k3jqU6m8Tu/ibFE6EFkxAYxoGfRnWRWDkHxqQHikRF2aam6mswGc86DjGwl+2/Adp0zu4Tn0XOjxqkhljkphotxRuECrX68NlGIXltLKKIsgaLfFO5Jeag7kzXQGHjokRY3xELir1ZSOaFBb/55fgoSed5/wBtv/12L"#;
+
+const BUG: &'static str = r#"eJx1UbsKAjEQ/JXBftdsdi8POG1sbPyI4yyuESwk3+/mRLCIBAbCPDKbnZ/La8P9dHgURAiXssPhPB87c56//E2MJUJ3RUIcKCoyizaSRTkExQcDxE9CaDJKjYhhJWUXUqLI2TE10sVg7u1uI9vs9w5rugbP126AG5D+ZTeqAyrxpKgX44TCBdqbO04jKUSvo3EVUdbgDXw+r61c+++QDaQxcM2YvLOrSfzVrlSeMFT7InQbBklmJ/PqMb0w923tz/4EvQE+O3JX"#;
+
+const BUILDING_2: &'static str = r#"eJx1jbEKgDAMBX8luBebRykt1M4urg5uBYeMDuL3a6YWacl0XC5JV7mFzmXaPAG7KyCQ/YYJBhJaJjwcjimnWaOcmpSx1tQaXfWVNRV0Qg4UBb8fsbIeEtMtLXlxfcF2aNzQhMa8YhVF7g=="#;
+
+const BUILDING: &'static str = r#"eJx9zcsJgDAMgOFVQu5qW0qo0LqBQ4iK8SZSfGyvxYuI6SkkHz/x69hH4HGeOAY0CuEIaBHOe0FYj2c82z4PkQNqwsZXqWv80kWGIWBbgzFbYZk2mzTdX+qAuFT6RzTJZHKkVcas/E3uSO6cnLlvdQGA8V3z"#;
+
+const BUS_FRONT: &'static str = r#"eJx1zl0OgjAQBOCrTPa9yq61YtJyAw9hhLg8mBjSoN7eAgkQfl7n28mOf9+jogx0s3AQXKjwxy4r/Cicwaldw0vSvRHDEzXVI+IbyBI+dRk1EDtCkxIh/AKdCFrVT409pFpXmL2yYNZBFiNy8FkPGW/tc/uW6NrKVimHcGsm+gOsHUpd"#;
+
+const BUS: &'static str = r#"eJx1TkEKwkAM/ErYe2KTdrcpdHvx4sVHlFVYoQepUvT3Zimoh5ZASGYyk+nv4zPDJbqzQliCG/pDQYb+i7PfIQRYMne0KVJgzfWDPDK1pCikiRipIUFSa0wCle1YUMUVmaw16I9SEUMgM+nKYF4QTs0oYJpSaNPCVa5/r9NtTtMV0iu61kF6R8fqYI5Oys3K/gXsSj6/Keewq/8AykJNzg=="#;
+
+const CABLE_CAR: &'static str = r#"eJx1jb0Kg0AQhF9l2D7mdj0Nwp1vkDZ9iJK1CAQ58vP27hWixdkN8/HNhPc9KYZIV3aotXJMfTjnsg8b8pAyegk6iDs1JUvAcmurHZvHR8I/EgvhOw1JLbaE+RepJug4PTVZ5QjW+OxlY7fZ2eSneNYcEQ++qL2sZAHnZkOX"#;
+
+const CABLE: &'static str = r#"eJx1j7EOwyAQQ3/Fyk7KmR4IieYPujJ0Q+rA2KHi+wtLk0hEpxv8LFty+pRvxfuxPO+IhSBsPzE0zFp945GBr2VLtxHZ0j/ooNlNeLjgEiGa/arFrYrxo96aANtETlAGzHFWEkBphhOLcm0REqvx3d13oW+tJ33c+QNgjUiK"#;
+
+const CAKE_SLICE: &'static str = r#"eJx1zEEKwkAMheGrPLJPbGYkcWCmazceQqJQoQspUvT2dnDTjWSX7/HXeCwx3xGfRk6Id6NCWBolGuvhh2N9Xl8Tbo0uLgkuBRmqa4kBYnKE9pvUQgwDlPuLdeVtwIkzGzufZs4bJ7Ee7sFdVg2az/mP+E6+jeMs7Q=="#;
+
+const CAKE: &'static str = r#"eJx1jMEKhDAMRH9l8J5uM1Ttoet5L/sRwh56XFD6/aYIItISBpKZvEn/dc/4vYcvPahF4koQvo5Q+JnuN1jisKRXhZZ0oQE6bW4UBavcaEQw2WZMEN6986vRYplm+kYyIxY2fGUv6BEzQnZe213d6Ekd9QpP0Q=="#;
+
+const CALCULATOR: &'static str = r#"eJx9i2EKwjAMRq8ScgBtShn90ewGHkJcMQURGQXb29tMwW3Q/Ur43nthjrcMldEiFEaH8E5TFkYaEOay7BLTXXJ7DY7hrMEYHukZoVrGphVi9O3Yb1VJ12aq8zNVWZg6O5fcX35ds8DEeKEByMjJkDJd18z2mT/OXD9zB5nvZ1v0ARNsWqA="#;
+
+const CALENDAR_CHECK_2: &'static str = r#"eJxlzzELwjAQBeC/8rg92HvGkCHp7OLqXlCooOIgUv+9Sa+thZIh3OO74y69unePS5YTFerPoSOIpj5Hx+NhXYMf9f+g/OyjtGlXh7TpfnteMTCLBsFXs1Aw6FSWOFRa0UQtGzuiyTj3baE2JqlG90ZLvNj5lIcGcNwO3vllvx/E4DlC"#;
+
+const CALENDAR_CHECK: &'static str = r#"eJxVzNEKwjAMBdBfCXkXTVdGhab/Iq7YgoqMguvfmyyyMfqQtvfcxDnfG3RGjzAvjA7hW6dWGCkglFwfpdldwkFMV5PiWXspPus7Q3eMowASKLPTumZx61Oooj9VEywLm7T+EeofXYzo1OJgRUe7/dxagYnxdQUawcnxJ6+xBukHeO45jQ=="#;
+
+const CALENDAR_CLOCK: &'static str = r#"eJx1TjEOgzAM/MqJPSk+iNshZe7SlaFbpA4ZGRDvxwEJGIJs2bo7+3RxSnPG/918KXj6MGoiiLaUo+MnXDG4SH8Stpk7H5ohPorPEA83UbvtK8Lrhu8gba46WSrsQ609wyg1A9LUpFDLJRAnJeQON8Lg73hbAYTYPNw="#;
+
+const CALENDAR_DAYS: &'static str = r#"eJx9jGEKwjAMha8ScgBdujH6o90NPIS4YgoiUgp2tzdZkapgfz2S73vPpXDJkDaPBuEZ18weySIUjyMCh3jlXD+iTAipqLm4o/YWd4v3ABvt7WJEnEWUlCi0n6Kq9FYb08lWtL+itoc6pqmOodocm/s4Z4bV48kCTXwYSJE+PxCZDpv/M5m0nUnbmfxmLxSrX1c="#;
+
+const CALENDAR_HEART: &'static str = r#"eJx1ULsOwjAM/BWL3Udtx0kjFWYGWBnYqjJ0YGBAfD8OQsDQKi/nzndxPNzHx0zX3eakQtKd86ik1LXBynrw/zvpU9LUkUBQqRE6l81+2DaT/fC1khyZaYHoV3CLp2fpFxgVaCVJKKMiGb23TznIznCdGAbRCAuM0cPtFlCKGYe3cE1rP21u2lIDY1RHTSwhcIOSoaSjFDip3gyZDe5TFMaxpHUjhWEPqdxSL99vvAC6R0/J"#;
+
+const CALENDAR_MINUS: &'static str = r#"eJxlzc0KwkAMBOBXCbkXO1MtK+z27MWr94JCBREPIvXtm+32v+QwJHxJ/Kf+NnIPeiUExa2sKZQ8VsaMl9OyF/5wnAeWbJxW/hCPVP71fD+kZVCUKn/LGAhKlRb91GhEC+pWxI17e0gkUiSCPC1abizm/zgPyLK/wQl3vb48Tg=="#;
+
+const CALENDAR_OFF: &'static str = r#"eJx1jMEKwjAQRH9lyD0xO01ihTTgzYtX7wWFCCIepNS/NyloFVoWdpbdty8++mfGuVNHZ6RFbXuCsFM1CIO4fl6UKf8txLTUUr5UipvqSvFrpEC88acw85qah53xC7QEcHALhwZi83bFb7P2v7rb9X7ByE6RCq9PSkmFcYqCVii9AQyLPdU="#;
+
+const CALENDAR_PLUS: &'static str = r#"eJx1jssKg0AMRX8lzF5qrq04MLruptvuhRYsFHEh4vy9CRnxAZLFIcm5IWFox44+tXuBiYt32YJAuVaGDM/HvidMfN8GQnSVa8JNjzTh/+u/FFG70tEsYCUboxCqqpRU3VWmClLwSixsxbkFwJaQ/uTq0Cd5fcCbjPPhuJf99u18lBdd50eM"#;
+
+const CALENDAR_RANGE: &'static str = r#"eJxtjcEKwjAMQH8l5K4u7dh6aHf24keIK7YgIqVg/XuTduIGO6XNe4/Y5G8ZikONkD4OFULw8R6yQzII7zjn0J6pVMpOj5M9STfZR3x6KMTGwIiqUdTy5TmIKtJKNU0xP2PptqLsqGuKTAl1CxX93dc1B5gdXmgE6sOh3pPlGmkgcx53SG2OHe1FzMyGfQFF0k+A"#;
+
+const CALENDAR_SEARCH: &'static str = r#"eJx1Tr0KwjAYfJWje2Lu0sQKsbOLq4Nb0CGL4CB9fhMLRWjL8Q333Q+X3vlT8Dx3VxHULWZBcA1GRpfwz6GJ/cOBlvaEJqgcbejGdGg1Y1rKGKu33xCGnb8HXeGwVVUjzB6+buBvR8TMZsTJ3dexl+o4GdrQbtG/o5I7uQ=="#;
+
+const CALENDAR_X_2: &'static str = r#"eJxtzj0LwkAMBuC/ErIXm7fadrjr7OLqXlCoIOIg0v57E3NHPyg3vOTyJCS8+89At8gXCEl1rXsQqLRXoMD5tKwJXznOH5oYWu7CwZZ04fl43WlC5JppkshgGjVEyxH/VGoo02S01zrV8Pk1NAFxUvluKZ1qbqw1G98KJNw41nrngnxmQovhjH9adkd+"#;
+
+const CALENDAR_X: &'static str = r#"eJyFzkEKhDAMBdCrhFxgJnWQLlovM1OmBXEhBdvbm5iKIoKr39D3Q9wcvhmW9MvRI1mEGNI/Zn1Xjx+E4rFDmHkwHEVicC/pDW5MU4BCzHuGRrPSRiuPvVBBJ2pV2kfYqaC3EkkpGrrY7bOtIzmYDszzPS77xlZq5R2vcD1H6w=="#;
+
+const CALENDAR: &'static str = r#"eJxty0EKgCAQBdCrDHOBGotwoV2mJIVoIUJ6+2YUo0Wrz59530S3JbjDnrxF0gjF4owQORRCtjhxybV4Fw6fqlrNILvVnOFykImPC2vVslD1hesiVNCH6v7qUHb6B04N0tikpFBFr30A9P4xhQ=="#;
+
+const CAMERA_OFF: &'static str = r#"eJxtjMEKwjAQRH9lyN3Y2SSmgbTgzYN+REEhgogHKfbvzRasPZSFfbswb/Lj/rxhks6IGHx+ZKXBNKPPew31+TW8C66duUTEkx8EgkZnV68x/f9KKTyoqMpKTDbAl3BmbShuMajGGG3YUOgthWBQHB3cnCeSbVuwqXuRvtqaMLs="#;
+
+const CAMERA: &'static str = r#"eJxNTTsKgDAMvUrIHrVpqwhtZwdd3aUKFRxERNTT2+KgBJK8H8+swx5gtNgJlWlQgXRbQdWogYGhSEPxO+oPx8tBlH+CuK//AeJAciHONMkbnclTizN+3vwygb8sComwWYzbnxFxMr2yewCjdyMO"#;
+
+const CANDLESTICK_CHART: &'static str = r#"eJxtjUEOgzAMBL9i7QcqN6QEKc4P+oiqoJpbhaIAvydBiHDgYsle74z/f6JSL3h3ZFOD4B/lEvw0fCPNYx9V0IB0GH8aBS/QKuhA0yJgUJ5tKZX34C8wtulZaWfALZlrsGsOVrWV3e4mW9XuxpNxbJK5EZnsYafszmwDOsZDTA=="#;
+
+const CANDY_CANE: &'static str = r#"eJxtjrEOwjAMRH/l1D0mdp04kUL/gB9gi8TAABID/y9cqrZDK0++e75z+/TvE4/rcEtkEO4CQfThMFIK8iqUA2vPyIsMjqS+LBz/Oc0aZFPiqtyHqV3m/KltLWxkCQZOEOIzIFKFUgGPqEf/bW7X+VWH9ORe3Wd1wDsK7Qk/1Os2rA=="#;
+
+const CANDY_OFF: &'static str = r#"eJxtkM2qwjAQhV9l6D65nfxNCrXgzsV1676goFDFhRR9e89ERdEQkoGcOd9Jpj+Plz1tF80x20jYhonHYLtI5WjLEpKJDTdD/6f9Q/9yrZltDp6S5SxLOILQ41QbUAlUsXGsSNazx02KUuOG4t1wqIvQ5hJdk4FvZ6T+akdO+AybqPFJbMp+6ck/v8mdlTaTXzkG3HVufGt4ragp8L9zGIciKvxMLBghxqh88xUQFEqOV342XwFGA8wzAJApfs57Opx2dONF4xq6ORTU66uWa7Rq03AHtUtsDQ=="#;
+
+const CANDY: &'static str = r#"eJxtjrEKwkAMhl8ldE+8JHeXHtSCWwd9Abeig0MLDtLnN6dYkJaQDPnzf3+65/h6wP3YzIUSGCUUkDFSSfAZAdjbwCbBzR4N7dr03aFC+u6HunCETGnhsKeFmrKrzZw9iTEBkxrl9qSgnlSLCxnoILy4dgtAMRNTEVKp13oW8R+rdYfbAhsyJKxc/AdHUhAedKniuO7RwfgFu3ly68p9A63CRy0="#;
+
+const CAR_FRONT: &'static str = r#"eJxtTssKwjAQ/JVh743ZPJoUkoI3D/oRxRbTgyAl+Ph7E0FRLHvYYWZndsJlyAljpLNi+EZBNSxso4XbFgz5GraiNS3szgszfOhy2EkNFsq6vQVLaHjqw6ZG9uEdfHBgk4TkFYn/tWU6ZtzmMadI7Alpmk8pRyrwURhJuEfShKUsVW3V8BVZivirWvvV/SpPlXhAPA=="#;
+
+const CAR_TAXI_FRONT: &'static str = r#"eJxtjs0KwkAMhF9lyL3rZn/aLXQL3jzYhyi2uD0IUhZ/3t5UUJSWHDLky0zSXPucMETqWMMkR22zW0Zt8wEXwwiFgSlY+cKqai8a+l3sVelK+ENQrv+OZbHWFqyMr44eEmwR1sFdBXZJad5AvGbzeMp4RmJNuE9DTiIDIY3TOeVIIh+RLGGWZhbbYviJlEfCzWzdqv/JC9lER1o="#;
+
+const CAR: &'static str = r#"eJyNT80KwjAMfpXQe2OTdusK7UC8ePEhJAoTdpApQ9/etAPxKOmX0Hxf/vL9/JzgUsyJElCcWLAHB2QxqKPVenEWk8VoqaFTpAMNGIGcakmf2/xDKa8IlpEVXqzK9UtIW4NBw7HTtM6o2cYFTHMNwJj2XvtWuGYMxGsQB9jXfapNbMa8q1uPWW6LzFeQdzEUDSzFsAF5FROrZmPH/L2wHdj/UU6/9R9MlESR"#;
+
+const CARROT: &'static str = r#"eJxtjz0OwyAMha9iZbcbmx8TKc3CzJQTROrQoUMlOuX0xUQqS4V4Apv3+bG+j88THvepCImCMGldKCk6CsBC6jCSi4dvV9uzrV4y0RxIFZgpefgBxuksiaIH9i8UmoOJLxzItVqwmo9dpm29WZBtHXEElopMzqFYGJTMkVKENi7A0qVaGwQsq+zmAJPzD649l4oCF9Ac+8AIXh+wOZm1dRvWHF0G7guQjUIT"#;
+
+const CASE_LOWER: &'static str = r#"eJx1y8EJgDAMRuFVwr+ARsUqJNnAISQKCh6kSNHtpQjeen2PT3yPfqzkj4IbUFS0IL8VASbVd03O+dpoUUxc05j6vHIyKXIu+I5CGn7/Ahw0JGA="#;
+
+const CASE_SENSITIVE: &'static str = r#"eJxNy1sKgCAQRuGt/Mx7xKiFgbqDFhFTYFAQElG770bY4+HjuKVbI3pPswZXMIWFgaXgyhuC+7g1YB3rDDImmQbI4YkVIXnSBNmveu6Xf79iNFv+T8kHIXw="#;
+
+const CASE_UPPER: &'static str = r#"eJxti7sKgDAQBH9lSe/jkjtNcaa2sbUPWFwjWPj/eBYKgizbzDB61NOwTWFPIAE3GYwcina3KProhUHJhh/hFZFxKzUioveRn2eSdTT+wje/AEDkHbQ="#;
+
+const CASSETTE_TAPE: &'static str = r#"eJyFjWEKwyAMha/yyP8540p1oMIOsEMUK1PoYIiw7fbTFgb9VUJ4JO97iS0xVLzzXJMjJQmfJoSySYr5kaojHglfRwN5e+4Bb0MuYYkIjTMNX+nQEJad2VxvX1NNmB3dDVgl062+2sX77aP8c4SSEPqkxPXGYkBv2YphBIPHpIWZ9sY6LULj8n/7A4EAPfw="#;
+
+const CAST: &'static str = r#"eJxtjMEKwjAQRH9l2Hs0O7QhhTR/4NV7QCGCiAeR+vduSqEtlD28YXg76V0+FbdRLkS8hkIQ3k5Bx6q7Avwq18JZqi5ITuc2ktNmyrwBw/IYEY+lUHr0i9ShW6Xn43XHpKNQMNFw8ir4teSNOtPs5uU/cd4uWw=="#;
+
+const CASTLE: &'static str = r#"eJx1jrEKgDAMRH8luAfbJFYL1dnF1cGt4ODoIPl+q4IotGS53OOOC3s8Nlj7aiICMop+JPUxaTD3JbVZ9zWQlmoI9RUcwhu3HVg7y+i0zdEGiBQlMvDTg4ys5vsDq2SiaVcq9jlSAg5kpvzGAjAlID9wApOkT7o="#;
+
+const CAT: &'static str = r#"eJx1T7FOREEI/BVyPePCwrKbPC8xtvoDduYsrrAw0fj9wjO5a+4KZoFZmGH7ev8508fj4VWU/IQR1EjQHW2REnRkFZOTROusmEYDppntlMEnZ03xjwSPbLcEyi+WT4fZswpJYJEMrKCqNPGbF/eMgI9TY4E6PFfnGNdYeqnuXLxrJlfL+8pskiFSoacdL6n+tNCMdmh1REn42+G4PdSNx+1y6SSxX/gNRsZ9qsyVffWzwF9yucQnI7ziKvMHnzZJmQ=="#;
+
+const CHECK_CHECK: &'static str = r#"eJw9yrENgDAMRNFVTukNXJBjCpMJYAgkCgqQKNhfJEVS/Oo/f4/vwrmGnQsSDLRbVDRkH+vK3sATIziJDYrSxhlMXf2XeBIq"#;
+
+const CHECK_CIRCLE_2: &'static str = r#"eJw9TDsKgDAMvUro3trE1CLE3sDJE4gOLoKgk6fXVCLJ8P5yzNcG6+BGJCBaUkjUQgSMngPnrADjhLnqBJp6r6ue0tNi39+uSKObRWx5763Fnn/7AV3LG5c="#;
+
+const CHECK_CIRCLE: &'static str = r#"eJwtjEEKgCAURK/yca85ZpCg3qBte6EgQVTITbfPJBhm9d6zNbSLDsc2pQgQct2hAiT19SPwRZiZGwHNvJ0+2tta0pNiPqmWmNvtWHc1oQe0kCAzQhj8T/oXX2kbIQ=="#;
+
+const CHECK_SQUARE: &'static str = r#"eJxNjMEKgCAUBH9l8R71HkYE6rlL1+5CgYKokAT9fRYEspcdGEblFO7g44GcfCynFjOIQAySYIYURvW/Y1S2xWHXYuXXuSbLYAx11NW3jC13vDWMyo7oy9WIeQDpTB6r"#;
+
+const CHECK: &'static str = r#"eJyzKcjPqczJzEtVKMjPzCsptlUyMlAwU7BUMDRXMFEwNFKys9GHKbEDAEfUDao="#;
+
+const CHEF_HAT: &'static str = r#"eJxljrEKAjEQRH9lSO+aickmQi5wnY2thd2BgoKIhcX59+7dIRbHwA6zPHanvob3DZfOHRXcScl9RIQ3EVkioUMSEvNY1hSfNpQUkUw/1Bf4foWqpD0U/5ssy5tT4EHPrtXtVKDVx/15xcjOqcPHjNlhDObFcpizsRPVvsQuJgU="#;
+
+const CHERRY: &'static str = r#"eJytjkEOAjEIRa/yM3uwUFqmSZ0beAF3k7pw6cL7RzomunFpSD4Q4PH7Y3/ecTsvF4X4XlCQjpCQkUjZa0ihGfmolApYLTRfl62fJmHrH478C+QQG5lVY7kJjLXRyh5kmj+4VijnNQbN0OKf6A+KKtqgeYxEzmJBy5kkGhR2eTs0rj6zf428AJKEPnE="#;
+
+const CHEVRON_DOWN_CIRCLE: &'static str = r#"eJwlykEKgDAMRNGrDNkXGymu0txFoqCgIMWF3r5pyyze4o/YWezaUTJxJNjvzu7XVZlGV3nW98CW6eYFHENCCr72aEUr2gITiQ=="#;
+
+const CHEVRON_DOWN_SQUARE: &'static str = r#"eJwly8EKgDAMA9BfCb0PnQ7xsPVfxA27gyCjoP69K5JL4CWxlV3xJJoJd80qifxKkFIP0b+3rhPhtQ3HwQ4cr00FOdHpF/jRBQTXY27CHzopF9E="#;
+
+const CHEVRON_DOWN: &'static str = r#"eJyzKUgsyVBIsVXKNVOwVDADQV0zJTsbfZC4HQB8NQfk"#;
+
+const CHEVRON_FIRST: &'static str =
+    r#"eJw9yTEOABAMAMCvNPZGamgN1R94hMRgkRjE+zEw3HQ6ymxQk+skQBEZGQ5n6u+Yvs8CvCj82LwRD5U="#;
+
+const CHEVRON_LAST: &'static str =
+    r#"eJw9ySEKACAMAMCvjHWRGTbD3A98hGCwCAbx/aKgXDwdZTaoCbsARWB3oak/Yfo6kwAvCn82vfwPlQ=="#;
+
+const CHEVRON_LEFT_CIRCLE: &'static str = r#"eJwliksKgDAMRK8yZF80ElyluYtEQUFBigt7+/4Ww/B4T/1Kfh/wHIkXQqo3E/zvaDoNb/pu34k90sMCXoMEQV0rmrEC294TjQ=="#;
+
+const CHEVRON_LEFT_SQUARE: &'static str = r#"eJwlizEKgDAQBL+yXB8kGsQiub+ICV4KQcKB+ntzpNgtZpjYyqGQUk/RRH4jtDfRTOi/EJ6aVQb/DHCcLOB47yrIiS4f4FcXXECfeTP8Az8DF9U="#;
+
+const CHEVRON_LEFT: &'static str = r#"eJyzKUgsyVBIsVXKNTRVMLTQNdM1UwBiJTsbfZCMHQCMUQhe"#;
+
+const CHEVRON_RIGHT_CIRCLE: &'static str = r#"eJwlykEKgCAQheGrPGYfabhoMc5dYgoKCkJc6O0ddfH4Fv9jfZK+F1Ik7whazM2sQ+F1duH/yDfOSJ932BEQFls/9CANxggTQA=="#;
+
+const CHEVRON_RIGHT_SQUARE: &'static str = r#"eJwli8EKgCAQRH9l2HuU5cGD7r9ESushCFmo/j4XD8MMvHmxlUPxJtoIrddKkFJP0UQuEJ6aVcb87MNxNoHjvasgJ7rcggAPP/UYNsA/G9gXiA=="#;
+
+const CHEVRON_RIGHT: &'static str = r#"eJyzKUgsyVBIsVXKtVQwtFAw0wVDJTsbfZCEHQCFAQgx"#;
+
+const CHEVRON_UP_CIRCLE: &'static str = r#"eJwlyjEKgDAMheGrPLKLVjI4pLmLREFBQYpDe/um7fD4hv+J3cmeEylSWAiW3dUtXZV5dJVv/y8ckd4NgcGTD9wOLWgFxnATRA=="#;
+
+const CHEVRON_UP_SQUARE: &'static str = r#"eJwly8EKgCAQBNBfGfYeYXnwoPsvkdJ6CEIWqr/PzcMwA4+JreyKN9FKkFIP0UQuEO6aVcZ8fmy9FuI424HjtakgJzoDnIefeuCNDfgDIcoXjA=="#;
+
+const CHEVRON_UP: &'static str = r#"eJyzKUgsyVBIsVXKNbRQMDTVNQNBBTMlOxt9kIwdAIx0CF4="#;
+
+const CHEVRONS_DOWN_UP: &'static str =
+    r#"eJxNybsJACAMBcBVHumDIgabmF0ECxvBwv3x0yhXno4yG2qmnhA8hAUbmboTpl9H3OO3C+/GD+U="#;
+
+const CHEVRONS_DOWN: &'static str =
+    r#"eJxlyTEKACAMBMGvHOlFRKLNmb8IFjaChf9H0gmy3Q53PxOjyaooUC+oGKN/46Mpf3wB8o4P6Q=="#;
+
+const CHEVRONS_LEFT_RIGHT: &'static str =
+    r#"eJxNybEJACAMBdFVPumDWIQgxOwiWNgIFu6PxELkunu22h7olWaBsuBGbim+29Ms0CD++QDzuA/u"#;
+
+const CHEVRONS_LEFT: &'static str =
+    r#"eJxtySEKACAMBdCrjPUhC0PDd3cRDBbB4P1Rk2XhpYfV9qBeeaqSZjExutiR3jj+l+gPIp8QsA=="#;
+
+const CHEVRONS_RIGHT_LEFT: &'static str =
+    r#"eJxNySsKACAMANCrjPXhB4dl7i6CwSIYvD9uRQwvPdn9TBgNV46QKjExGFQJPirvi7UX/X0BElQQew=="#;
+
+const CHEVRONS_RIGHT: &'static str =
+    r#"eJxtySEKACAQBMCvLNdFDlHLen8RDBbB4P8RDSaZOJx1dbQiI0EzorvE6E8YX2v4/QYVRxB/"#;
+
+const CHEVRONS_UP_DOWN: &'static str =
+    r#"eJxNybEJACAMBMBVQnoRiyDCm10ECxvBwv2RtxC58rDaHtKrzizJ5AqmjshwfF04/LcH8N8P7g=="#;
+
+const CHEVRONS_UP: &'static str =
+    r#"eJxlySEKACAMBdCrjHWRH4aG7+4iGCyCwfsjiyIvPu5+poymC0WAZEFMnTnG+Xz9/gIi4hCw"#;
+
+const CHROME: &'static str = r#"eJxdzcENgCAMBdBVSAeoFAExQZchHkyMB06wvUAhGk8N/PdbH84YrkOEvAEpECHxjGVI2P3E+e6H6/nwxekvu877EFlt4EBkaiMppqk8FSEt1VfXdc0dGs0Fi9KynXE10HaR/lX6Z2Mk0Y0rBrXlNeXQ+rYesrk7Hg=="#;
+
+const CHURCH: &'static str = r#"eJxtjLEKgDAMRH/lcA82sVqF6uzi6i44OCg4SL7fOEg7lCw57t6L9/Yc2Mfq4h4BHqLMm0Dg7Jjsm32eSdbh9CTVFOuPneJvWNhoUUpz983V5dn8voT2hq7tSR011KFRDqWVIGhbKhyGI3lfcQ01rg=="#;
+
+const CIGARETTE_OFF: &'static str = r#"eJx9zbEKgCAQBuBXEXer+0lyUOeWHiIqMIhoCMm3T8OhwVru5/j+4/S27gsLMBzg7MoZKGZcn7C6TiWrj/F0bDZ8IDBCD986ahMneDES+5KQiuJEJQvW/RypqRGopECesvz1u3YDA049QQ=="#;
+
+const CIGARETTE: &'static str = r#"eJx1zCEOwCAQRNGrEDxtdwItYouu6SGaIpAIwvmBhKDAjHmTz/FLQfhbvmQF4UHWgU7peG/geDBQOeuJXCuoRfsfCptR6Gvm5fWtAOAqKss="#;
+
+const CIRCLE_DASHED: &'static str = r#"eJx1kEsKwzAMRK8yZG/VslN/wM0NeohAF1120ftTSVmUJAqG2ViPp9H4rN83Xo/pyZEYibitnXqGRZTHyNQQp2XcdHYZf6JSkc/KStxhsRGJSpeoDpSYWoLKTp6oJg+JlDrUdhQFcZjM2y6T7KA2pWZYbNRVoUIzTOZ4Sg8XheRkUNm5T/D76MkgLudsNeza/AAXpmBD"#;
+
+const CIRCLE_DOLLAR_SIGN: &'static str = r#"eJxNi7EKgCAYhF/lcI/8f0Qc1LmltV0sMGgIaai3TwvE4fi4Oz4b9xyPDdkJkgLxLuTC56O34/97e4YrYXViJg2TBh0YDAkqkVBJtV4XNZnqVqc3GWQW3Z4X6iEf7A=="#;
+
+const CIRCLE_DOT_DASHED: &'static str = r#"eJx1kNEKwjAMRX/l0vfGppvtCtv+wI8YVVDwQYYP+vcm7YPoOgI3D8nl5GZ8LM8rzpM5sSOGJx6WRKlDESfF6GiAM/N40N15/DoiBRlGVscRRarDU0gisWHyTIOHwjYcp6SWxZFPUNo/yAqjwFrXdSQ3KE1dPYpU116gQD0KrMEJye4EkpdBYds8tp1HXwZhNd4W7W+afFvz/YJ1MmyQX9K89HfpslTH8wegzGtN"#;
+
+const CIRCLE_DOT: &'static str =
+    r#"eJxlyrkNACAMQ9FVoizAUYcsY1EgUaWC7TlFQ2VZ/wmKoWZCTxwik83xTGj7qrjTVa5bnZ/+2AB9EhZF"#;
+
+const CIRCLE_ELLIPSIS: &'static str = r#"eJx1yzEKgDAQBMCvLPcAzV1jc8kPfIScQgQLCRb6e41pAiHVsjus2p7s2GCPJxZC+sIR7P5r0LF40HO5IlZPM09giYPjrHmtTfrW3F5NeiIY"#;
+
+const CIRCLE_EQUAL: &'static str = r#"eJxVisEJwCAMAFcJWaBaCv3EbNAhSlqw0IeID93eqB99HdwdhTt5eBxeJ1jjrUGmrTmmuRxLkS/K/0J0qBYkK3dl6dRrdK62Ihnf"#;
+
+const CIRCLE_OFF: &'static str = r#"eJxti8EJgDAQBFtZUsCZu5iQwBmwAIsQfPgRfNg/XgLmJbPsY5fRe39OHIu7BIa3uKpTW6t+35YpRAilsrKHpcEQpgCOlOKPwoV8Ru8hsTFTkV7DeQE/Qx75"#;
+
+const CIRCLE_SLASH_2: &'static str =
+    r#"eJwlibsJQCEMAFcJWeA9U8ds4BASBQULEQvd3h9XHNyx5qYlgg6LhhB0PretH4W/94Wr7wmCRUcEFzr3VFmQnxKW"#;
+
+const CIRCLE_SLASH: &'static str = r#"eJwtirEJwDAMBFcRv0AiQYqArGWEC4NJ4UrePnLi6vi/096eSsEFNyikgC/Q5E1Zt+mxIlNvw3slj7QCGokT5PObWf3eXoymFhg="#;
+
+const CIRCLE: &'static str = r#"eJyzSc4sSs5JVUiusFUyNFJSKAJSBkoKyZVgrp2NPkTeDgDowQs7"#;
+
+const CIRCUIT_BOARD: &'static str = r#"eJx9jDEKwzAMRa8itIdWSkobsH2Drt2DYypDh2JM29y+UjwkU9Dw4Ov/50qKFSTlp1SPdENYPPYI3zxXacFvDYqCMbiTDYJ7T1Vg9ngnglGGiYHhvB53/OitaJXgYi7xlaDYGqJKRsVi0Ep77mxXYPp0m45MJ8OBji7Np9yEf4LHOgM="#;
+
+const CITRUS: &'static str = r#"eJxtTrsOwjAM/JVT95pcEztBCpW6sbCyV2JgQWJg4utxAoKByg/Jp3u43tfHFZfDcJooZmAWyyslFPQVvDhKSH7awgneHUOSHDFJLM4m2rxx53XBc5jrrrnP9ZvBvZiC6klLwccdRaK6XUz/ihs9OIwqCp8tx9ReLnpmOJrwR3kBSy0yAQ=="#;
+
+const CLAPPERBOARD: &'static str = r#"eJxtjssKwkAMRX8ldJ/Ym5mUFsau3fQH3JW66KKCC/H7vVMRBSXkxbl5lNt8X+VybCZvzaWTJMCmNqhbXtSSwsDohK8cG5KF5oWAXEj2GJWfm7Ec6sqxvBdfO44GJclAH/4owFtEeZfkX8FUn1rRP/rZxaWlQVmd4rtX/1x/Ag40MrQ="#;
+
+const CLIPBOARD_CHECK: &'static str = r#"eJxNjLEKwzAMRH/l0G5aCWFasDN36do9NKHKUCjGtOnfx8qQBA13uuNeKuOzosyZmFD+q9g4vaxmUsJvGqpluhBaJYTZfZdOvurSp6+GIdOdI9SkFwjO7bipfFn3IDR3i8c/yCMeB0FMnOzMnfy+gtVp0KBbvQB90yyi"#;
+
+const CLIPBOARD_COPY: &'static str = r#"eJxtjD0KwzAMha8itJvmCTVksDNn6SFCE6oMhRKMm96+tocm0KDhie/9+HW+R7J5eVgMrExb4I5p/QRGlq3Ke5miVZ6xcO8vpdX71xiNpsC3jnRoRyGhppzLX4LuIKsY5AicJFenyshhCi2p7UmUatKToICgA/BvPXElNE6p3s//Asw+O5I="#;
+
+const CLIPBOARD_EDIT: &'static str = r#"eJxtjLEOwjAMRH/F8p5Qu05LpKZfACsDW0QrUokBVRG0f0/cATow2Hc63b1uHm8Z3tOQU8AjQhqne8oBBWENyAjzEpCKrJssWuq7g6767hlzgiHgmSorDMS2ociWQK8CAnW+3d6ptd4BEwgwP6z3ptbAWalNeXJVrAL32AYkcWTgQlNecS+SX2CKS2Xu/owFqLbu0uznhhN/qx++NTyw"#;
+
+const CLIPBOARD_LIST: &'static str = r#"eJx1jDEOgzAMRa9ieU+LrchiSJi7dO2OCqrZKhS19Pa1WQgSKEPs9/x/msdngSVjizD/MhKCjtNLS8aIYICNLyv/TkNRP+zS1VNdevdFYch4J4Go3DMwNPbIfv5Q3ECw6Sb1HvghdSCwsjd7Z93MQKTxxMihaT1yaehYyU79AeDXQkY="#;
+
+const CLIPBOARD_PASTE: &'static str = r#"eJxljjELwkAMhf9K6J7zXoxRoXbu0tXB7TiHWwQHud9vAtIKJYQk3wsvGd/l0+h5GxacSOZrAYFyBHvXpWZKlpQCo1lN5ho4CON+rJmT+cSIeAzTeAjDaVxtL6SzFSH5uXrXoRvwKg3yD1gWGGnbIGKrO/YntCHv77xwJmRSUvZc9S/UAjKN"#;
+
+const CLIPBOARD_SIGNATURE: &'static str = r#"eJxtjbEOgzAMRH/Fyh63Ni4kEmHu0P5AN1RQg9ShQhEtf18nCwwoiu90Oj+38/hM8AvGGfhOQ4rFrcGwgVljUlmLxHF6xRSMmK495a2u/fQpwhDM3YFc656B4ZyfVbeQbIEqR+J9YHmxeMmsTNmxqAaJW5WAsKmAjpoOhcFjTT0jQf6lr843ZdyoRn8BaoAU4d7ova1yIiiV1SGPA67TatwO/gEf1UaZ"#;
+
+const CLIPBOARD_TYPE: &'static str = r#"eJxtjLEOwjAMRH/F8h7BWVEAKenMwspe0Qp3Q1UUyt/jZmgzVB7ufKd7cR5fmZbEV6bvNGStbv4lhslSRcfprTmxZ7JcuIunddXFT5+VhsQPBPIqvZDQ2Q6mUuD3wJm7h/Z38gztwIlW8spsyDeCFAcNBQctQLgc7iAElLA1fw0zO/M="#;
+
+const CLIPBOARD_X: &'static str = r#"eJxtjLEKwzAMRH/l0G5aCde0YGfu0rV7aEKVoVCMaZO/j5wlHoIGSe+4F/P4KshLIib8p6FooishzxswLIR5QzpOby2JPHXxVFtd/PZFMSR6cIBX6QWCsw3blh/7HTi77qH9nTxDW3CiUs3VuZs/fAGzCwgH2c0itNEKBjozgg=="#;
+
+const CLIPBOARD: &'static str = r#"eJxNjLEOgCAQQ3/lcjtRLoQ4ALOLq7tR47EZQhT/3sNF0qHtS1qX9jVD8Tgg3HHL/KXHIyEkMY3Aezw4ezRCSiXBdXUV3Llkhs3jpC0YpoWAoBdpcbq0+YGSNNq2K5ptO1DEVJ/rZ3gBgi0knA=="#;
+
+const CLOCK_1: &'static str = r#"eJw1iksKgDAMBa8ScgB/qLiIuUzoIhDaUl3Y29tQCo83ixkSLWIB5Ltx3RCkdpaGBZnm7plysmoaA+Sk8X28ghPa+fbpgMvrUfEPcRkZcw=="#;
+
+const CLOCK_10: &'static str = r#"eJw1i10KgDAMg68SegF/HsSH2suUPRTKNqYP7vZWZRASQr6wWlNP0H7QshJaxEzQ+6vC078L1+LdLSfUYvk63xkbwkI74hPsYOQBQIoZDA=="#;
+
+const CLOCK_11: &'static str = r#"eJw1iksKgDAMRK8y9AD+QFGouUzoIhDaUl3Y25sqhWHe4j3PUlgDyunmyYEf42KsH8mPvyefk1aVGJCTxPtqGhvsbMewYm9xj+gFVvkZRw=="#;
+
+const CLOCK_12: &'static str = r#"eJw1yjsKwDAMA9CrCF+gn6GT68uYDAaThLRDc/vmQxYJ8cRqRT1A603HSSitdoJ+Ywpv04Vz8uoWA3Ky+D6dcaHFvC2WH9BOGDM="#;
+
+const CLOCK_2: &'static str = r#"eJw1iksKgDAMRK8y9AJWF65iLhO6CIS2VBf29iaKMMyHeSQ6xArkPtK6JQyPnCDznUzL9zP1ZtO0FvSm9Trjxg63kJcc8A/xA1epGTs="#;
+
+const CLOCK_3: &'static str = r#"eJw1iksKwCAMRK8yeID+oK5sLhNcBIKK7aLevrEiDPMW7wWWyhpRL7dvDtyMh/H9SWEdnkLJ2lRSRMmSnrtreNj1+eXEyGdGH4WfGaA="#;
+
+const CLOCK_4: &'static str = r#"eJw1iksKgDAMRK8y9AJ+EFcxlwldBEJbqgt7exNFGObDPBLtYhlyH2lZE7rHnCDjnUzT9zO1asO0ZLSq5Trjxg63kJct4B/iB1fhGT8="#;
+
+const CLOCK_5: &'static str = r#"eJw1ilEKgCAQRK8yeIDKKL9sL7P4sbCoWB95+9wiGGYY3ossjTWB78P51aGNWRy4v5fi/HGKtWhXyQm1SL5OwwgYZdmmHT6Y/mv0AIciGaI="#;
+
+const CLOCK_6: &'static str = r#"eJw1iksKwCAMRK8yeID+oK7SXCa4CAQV20W9fbWtMMwwvEeiRSxA7sOtm0NpszhIfS/T/HGmnKyaxoCcNF5nx/Bo9cdPe9eHxg+G4Rmg"#;
+
+const CLOCK_7: &'static str = r#"eJw1ikEKgDAMBL8S8gC1ggUh5jOhh0BoS/Vgf29KEZadwwyJNrEE0i8MO4K8k82xIdM6PVMt1k1zglo0P/eoIIKf71wOCHHUf8UfcVcZdg=="#;
+
+const CLOCK_8: &'static str = r#"eJw1ikEKgDAMBL+y9ANaEfEQ85nQQyC0pXqwvzdVhGWXZYZEm1iC9CPEJaD5zAFyv5dp+jhTLdZNc0Itmq9zYGzw8uyI63B/hx9AwhkQ"#;
+
+const CLOCK_9: &'static str = r#"eJw1iksKgDAMRK8y9AD+QN3EXCZ0EQhtqS7s7Y0WYZhheI9Eq1iE3EeYl4DqMwVI+y7T2DlTydZMU0TJmq7zxdjg5dmHFd3+LX4Ab3EZcA=="#;
+
+const CLOCK: &'static str = r#"eJw1iksKgDAMRK8y9AJ+EFcxlwldBEJbqgt7exNFGObDPBLtYhlyH2lZE7rHnCDjnUzT9zO1asO0ZLSq5Trjxg63kJct4B/iB1fhGT8="#;
+
+const CLOUD_COG: &'static str = r#"eJx9j00KwjAQha8yZN9nJj8mgbbgATxEiUIFBSku9PbO2IUuUgkhgfnmmzd9vSz1eqb6HAw7Q/UlbzK0DMabsd+t5bG/T4+ZToM5BjjiCD4kSmSJ9UQkpjwzUpkCIum1n6KTX4ZTkxq+nps2EWeEDqWDbxBlnVQ2AbbYk7NI8MK0AA9JJ4n/AKuhkxzcHpHV4LeADK9b7ImFaAmCrhnV8gu8AW08Xzs="#;
+
+const CLOUD_DRIZZLE: &'static str = r#"eJx1zMEJgDAQBMBWFgs43eM0CUTBAiwi4CNPH2L9Gh/iI+E4WBh245HOjH3uNgNNfAirg8MAlhvFET5TXEgmI8oPL+qTvKhpt8S+bCzxW/JguFgHqwKnVqVIo6NQtoTTT26Mzjww"#;
+
+const CLOUD_FOG: &'static str = r#"eJxtjDEKgDAQBL+y5AFnLly8HMSAXRofEbBIaeH/0VikkmVhYGDy1e6Oc3OHgIWS2a5QePBYJGWkzqTWhCLG/SfDS4mCBFfyMholzxKvYK36ZxSBq03zADdVHrg="#;
+
+const CLOUD_HAIL: &'static str = r#"eJx1jMsJgDAQBVt5pIA1u+QLMWABFhHwkKMHsX4TD4KQsCw8GGbSWa6KY1W7ARsKMW4eHhrcz5JnhMrkYzFk0V+/UNoKJEZUTktv5PSV2LXUPSJhBpoiupLmoTRFLGA3DgpEftYDwxw9FA=="#;
+
+const CLOUD_LIGHTNING: &'static str = r#"eJw9jEsKgDAQQ68S3Dt2+psWasEDeIiCiy4UXHh/dAQlhAQSXjnb1bHNwxrBkZyNi0BgwKpAwkidSXLzFKA27/iURFncUMukiFo+0MEObEeH0P2u8V9uMssZVg=="#;
+
+const CLOUD_MOON_RAIN: &'static str = r#"eJxtjTsOwjAQRK8ySu9lf97EkolER8MhLCgoKRDnx2CEUkQjTfPmUx/tecftOF2EiRdDOQUxK4Zzl0AC3pzUDcP5q0BcGUqqSUi5h0giGTJJmae1Hj7ba/0/GJRbRh6bWKgkP4s1g/2OtHfVd6rSGb90h8yQsgFvgzYwWg=="#;
+
+const CLOUD_MOON: &'static str = r#"eJxFjDEKgDAQBL+y2CfmTHIhEAN2Nn7A7sDC0sL/YzyCMrCwMLvlkvvEMQ8beRCLh4cDNRx4TRIRew82G96HWsZ3Uss/dJaQFwY3U11GkGCnAA2ncEcV4xEt5fS9PQTGHV0="#;
+
+const CLOUD_OFF: &'static str = r#"eJxtTkEKwzAM+4rovZqdzHMCWSEP2CMKO+Qy2GH/Z2m79VCKbGEkLFTe86fheR9eAR3SZ5jKZVGn8vceRk8BK1eHQ1ZkaG6JNl9pWHaTlVF8pOZ4khSUFgP0RquHN++nShuVnqtTJGHjny+9gPie+QXScymt"#;
+
+const CLOUD_RAIN_WIND: &'static str = r#"eJxtzEEKgCAUBNCrDO39+b/KVzChA3QIoYWboEX3pwzahAwDAw8mn/Vq2Jdp82BPMaVVobDgnkDKiI1JU/UU0GtflGdFEi9TyXP/KPl7OhIJROCMjhDsjMOIWP92A4dsJvg="#;
+
+const CLOUD_RAIN: &'static str = r#"eJx1zMEJgDAMheFVQgeITUibFGrBARyi4KFHD+L8th7EgxICDz74816PBtvsVgEStJQWBQUPNC6gElgj1FQFA4z3N3JfhizsSp5Go+SnRLGnzvgh9gfEQPElF6hNJkQ="#;
+
+const CLOUD_SNOW: &'static str = r#"eJx1zcEJgDAMBdBVggPEJrSmgVpwAIcoeOjRg/tj40EQDCEQeOT/crarw7FOewSKmFU3AYEAZJNQCHInFG0RE9iGB3lcGTnyVMtsGbW8SXk8dgz0T+oQMZD4xuTZ4teZfftu9RA+Ew=="#;
+
+const CLOUD_SUN_RAIN: &'static str = r#"eJx9TzsKwzAMvcoju1VLlpoY3MxdfAhDhyyFDqXnr2IoFGKC4A3vJ6m82nvD4zZVFshHprVcdmotP+GplBM6MCl3OLqqRLBsozxninMvCGcFbJR19hK6WlMo4j7BWbGgxLIMQgkSm8Hc6sVYKAe9c2oJqecZAiPR0T7X4ujh6kfkP+ELYhNJyA=="#;
+
+const CLOUD_SUN: &'static str = r#"eJx9jb0KwzAMhF9FZLdq/dk1uJmz5AW6GTpkKXQoff7KhnZJCEI3nO4+1Vd7b/C4TSsx8IenuV66Ndff4alYBIYQKg3Zp1aOQLwd9algzAMQzgBkWDQ7BJM1BYXYJ7jLFhSJr0clAeYlNwPztLP7n5AWkiYgA0G+6f7vfgFeCzuq"#;
+
+const CLOUD: &'static str = r#"eJwlizEKgDAQBL+ypPfMgbosxNQ2fsDuwCKlhf/HBBmmGqY88TbcezqdtsJ1KAgiwzub0Sc1NyqWnod/ydCVapnHXj8tUw+0"#;
+
+const CLOUDY: &'static str = r#"eJw9jLEKgDAQQ38luPe8u1qPQnV28QfcDhw6Ovj/WCmUkCwvSXn8rbi36RSjBJUju8HAkKaVTEKuQpZ9afh3J4x8TXuZ//lexokqhD0itkJTiCHWoKRsniixomeHwmSslMbPB+OFH6M="#;
+
+const CLOVER: &'static str = r#"eJxtkrGOgzAMhl/F6m5f7IQkJ3FdmO8hKm64gUodOvXp+9ugSi3IECGw489fGG+X+z/9/Zx+tYpRln4xaeR38mC8UUoLS5HcseLaZxilqUrLVKQPVKU2Xwp16kshBJdZJWfGUknFGqp0EOMi9jidxy/HOI8vGBTOkcxR5skcZchnsXcChFMuAAy+T8L1u00Bpw3brHR4zBmMWg8IFJx13niR5ghBjhltTxCeYCkcHVjaPE367fuEK29fV1lo1g8YmnSytGu2HYl38Yl3rdYDAXtyfckHUGPD9FCnrhCkxYNKWM60qcZ0oRp/wvHBXMHaeKDh9ekJMXV6CA=="#;
+
+const CLUB: &'static str = r#"eJxVjbEKgDAQQ38ldO95PbizQi246w+4FRwcHfx/bEGUDoEQ8pJ0lfvEMbstjCQRE7EWJUUTI4B9YFIDL12KIKiEWV+uTqKPZLvLaWjbOf0PL7JWI/IVHkOeHTU="#;
+
+const CODE_2: &'static str = r#"eJxtzCsKACAQhOGrDHaVhVUMq3cRDBbB4P3xETbJHz9mZNbV0bIZlEARbF+miL9SRD0iWcbro8QunHE4H6obZTgYJQ=="#;
+
+const CODE: &'static str = r#"eJxly0EKABAQRuGr/LmAxmKaxXAbCyUUG7cnZSH1lt/TVvPMqUS0msro3hCDBM6Bdgw2Qe1FQT8uYBwre3vsAgb7G4s="#;
+
+const CODEPEN: &'static str = r#"eJx1jk0KgCAQha8yeIDCgaCFeZsIQVSoRd6+mfGvFuHi6fjevM+k6PMRA6TownVuSiPQQVinhUUvpFom9VG+eKSsmWvcGu/CDhlpAZkU3HxDUl00k6Ik2GgN5yTSerHvHS2t4C/S6V6w30yh4u6B0tAYtpaI+QGhH0aL"#;
+
+const CODESANDBOX: &'static str = r#"eJyFkMEKwjAQRH9lyT2xu41JCrXgB3j1XlCwUNqCRVq/3s2mSDxIyWGXYd7OkHpq5wfcTupCCOiuoSUgKOLTqNH4stde20zlyRLY81eCEsIrA4EvRZBNmRg5vpRhkvhWTX2IJZp6Gvu174Y7TGM3zM+T8uYI1kQbgTMh2jdFoM3+B8TK+Apks8ZxR6QdKgVJhiBpi2d2wNKQ54KVE55MgUAF/4Bov6xwK3IY24KChVcuBiuluaTJjPg/l9to2w=="#;
+
+const COFFEE: &'static str = r#"eJxlzE0KhDAMBeCrhOzLNJ0wjtC6duMF3AkKCiIuRPT2Jlr8Qbp4ffC9+LGaWqgDFpTAv6WKgcECybPSDWHmP2oyf8qvQp7TaEUb+eXJvRsur2XfDQ2sFNAhLBI/hNUFZGlOm0Alb0j2IJrH4kl3E89oxumTbgCLOFM="#;
+
+const COG: &'static str = r#"eJx1j7EKwzAMRH/lyG7XJxs7hTR/0B/oZuiQJdCh5PtrR9B2kBEaxOnpdMurvjc8b9OdAgl1xowAtg6OGTpqMT+mdbl0YF3+Maba2C+WoJNWGkByyECQwxnSztL+8zk7OvoSLZhg8FJQEH1Mxo3zAFjOC47GRgcb33XQ8kigbLOhSBdkaKqeGHpSTc2nqIEcYSffe/LY6YTsr7+ND6UAefk="#;
+
+const COINS: &'static str = r#"eJxli1EKgzAQRK8y5L/brMpmC4nQA/QQJS0oKIiI6O1NFESQhZ0ZZp6P7Ri7P8ZgxCCuwWiSJUvtn0dZ++E7NfgF82El+wJbKt1bILDgfClX4B3J0wvgIA3P1b3pWcgltCRVcsk+CtIC+Z3jDdDKKIk="#;
+
+const COLUMNS: &'static str = r#"eJwly8EJwDAIheFVxAWK6aWHJMu0oQmUHkSobl9NTuLP9zK3U6C3cXcpSAeCFtwRvnFJX4G9JASbnS2emrfY1fyMt4Emhy6U1jWa1DwnChuq/iVvHDw="#;
+
+const COMBINE: &'static str = r#"eJydkMEKgzAQRH9lyD02Gy1aSDz30o8oUZqAqNhg6993E1oQj73sMsO8w4xZehfh+/Dw0YpG4G2FFniFLvqst6yXbLfmlOKtme/Ro7PiRhW0o4KgoFFc+Oi1cgpsySQlGwlLwA7T6i+MONFcz05SUUPJkn/Jt1wl7dLTsA1h7DFPYYxPK2poQkZRg845+c20JtfnjlSJwwrJWQ5r/Ab4AKaLUW0="#;
+
+const COMMAND: &'static str = r#"eJxNjCEOwCAQBL+ywV/a66Yoiq6prSdBIBGE93O4E5vsiJnUy2ioT/j0Rpx6FYI4oTYK3+gZ/B2LveYFMSHkdOxkXnlLE2Y="#;
+
+const COMPASS: &'static str = r#"eJxFjFEKgCAQRK+yeIAtRdTAvIxECKJifeTtM1foZx7MG8b6UH08oO6Mrwz80yk626CzC3lnS47tzAlKDum+ulUoJGjUCrhELmZSMdyGxlD82+9xPrkXEk0fzQ=="#;
+
+const COMPONENT: &'static str = r#"eJyFTTsKgDAMvUroXiWRQAu1J7AXcBMcHBQcvD8m2kIFocOD95L3CedybbCOJnHH4AQekHY7CBNMpEqIHmYTQ6/+GErqQAKCYhbhnw7t0s9PIqHLQ0SfJeT2FHK9RW/aZolV6gajODNM"#;
+
+const COMPUTER: &'static str = r#"eJxdi00KgCAQRq8yzAVKKXGh3qBDRErjLkQob19jv7SZge+9Z1KYMlCIM2WLGqFYlAhpq++4PcIafSaLokNnGvad+VenXqp0x1cm2zdbxkzgLQ4KhCbJgKcPEJKJesgOUxMtSw=="#;
+
+const CONCIERGE_BELL: &'static str = r#"eJxtizEOgCAQBL+yoSfebQihQGobP2BHYkFpYe79og0WZLudmXzVu+Fc3U5oqgQhfQp6No3/AzRuNM/Dlby8Xcmj7kqsCelzxWuETDQlgoUZEIQ2wAPrtiZ6"#;
+
+const CONSTRUCTION: &'static str = r#"eJx1zDEOwjAMBdCrfP0DhCZBSYa4N+AQiFakAxKqogK3x1mqDulgD//5O6/zo+KzTLUI3UCUeXmWKkzE+hVaQrcjfsLAMV/a/Zjf91owCW82wl632KRlBzkFrfjNdxv93A76Cs54BNPxl2JANLFNh5NqQtrlD8joQ5A="#;
+
+const CONTACT_2: &'static str = r#"eJw1i1EKwyAQRK8y7H9p1oaQD/UGPUQwUoVQShCqt++uNuzH7DDv2c9WEnZHT17A6zZjxqR3WzGRt3fdvQ35DEdEqI7YEE5HD0Jo0lihMXt7xlCQYn6lItNK+Oa9pPHW7ogyiy/FqKiCt0d+R1TjSDHu0VgJNKO8gIpcoEy8UBc0B/M3LvQHfyc5JA=="#;
+
+const CONTACT: &'static str = r#"eJxNjcEKwjAMhl8l5D5couiEtmcvPsToii0MkVKwfXuTzsHo4W+S70vMZy4RFotPugFNMwPDqG/ggR/3Yw2MzpyUdyYHX6BZvCBUi2eELMEIMaRXLBZpQvimpcT+FU0FZ3zKfg3gxaQRwYtEYmV1BdrGzqzpHaBR31glZFnlHo31pqCK/EEl6Iq7sCFdkO6O/gAiPTwv"#;
+
+const CONTAINER: &'static str = r#"eJxtj70OwjAQg1/lxH4ml+ankUqfgK4d2KowMBSJAfX5cUDqQhXposT2F2d4Le+H3C+nyXvJyNUpkiKowSt6bnHVhE47lMWQvXyHa4tiFreqOXSSqiK2TGEKhbawJaTqhNeBR49eGo0wOYDJD9ZYmiqigiY1aQPxdhqHc6s6Dnthc+INZbZw9TApsH/Tkybj6/TxF+WIQpWVN+2P8pOxdEacC8KufgD6tEfM"#;
+
+const CONTRAST: &'static str = r#"eJwlyjsKgDAQhOGrDOnF7BbBYrM38BBhFRQsJIiopzcPpviK+cX2bMeKHB15B3uLXHyaKmP/Vc50bViim4lBUwoI8H0D8U381bhG+gO1exYG"#;
+
+const COOKIE: &'static str = r#"eJx1jLEOgCAMRH/lwg5yhIoD8gd+BImDo4Px+60MJiSSXpu2L3f5rNeBfTUbA0Klh0oH2qKKWu1jxUp/mZKn117yF7I4gfbtPH8oZ1DGNIBhxAimAUtg7NADGX01yw=="#;
+
+const COPY_CHECK: &'static str = r#"eJw9TtEKwjAM/JWQ99YmRHHQ9g989V26YfYgyCjo/t5kshHI5XK5cPn96ApjwRcx0BnYSoJgzSdXal6m1mEteEX4bv0zj10LkiDoND+1/+fFVDZYHcztvpr37zcBurRAkSAFDnGwxndpyVfOwLhSatuFZYiDRzli/ABagSn5"#;
+
+const COPY_MINUS: &'static str = r#"eJwlTEsKAyEMvUrIXmvElg6oN+i2++JIFUopIlRvP4mzeY/39Z/6zTAoIFmEaZmvCEP4zpqWjv4itehbTh3+de+FfYfQZkCejYBcLrm+Sz+DuZw2JOa17KL/vXqBPeDDAd2SIk1glFV6Y7BPl4xYooB1IZNWAyzojWEdyUU8AHosLP8="#;
+
+const COPY_PLUS: &'static str = r#"eJxdjMEKgiEQhF9l8a7pYtEP6ht07R7+kkJEiJC+fbvm6b/sMLPfjHuVd4JhvDAoYCDpVUBnfybFqcGdGAtuwn3BfcFjweMA1xQb1OEFsd+yt0xvS5gXVMqpPHP7J30mtTNJbe4F93m0DLsXNwvmEqVRBrREqTY6eLdRc8QOyGej4yQAQW105hBPhB9e8Dg2"#;
+
+const COPY_SLASH: &'static str = r#"eJwljkEKAyEMRa8Ssh9rgpQOqDfotvviSBVKKSJUb9/E2SR5+f+H+Hf9ZJgUkG4Ik6UzwuCTBy2O/qK26FtOHdoMKJ6S66t00R3Crx69nKOIEmxjeYaCpDUX/ffZCxwB7w7omjYyBHbjzexS+OGS1ZUSCBeyaTmAwexS1ht6Iv4Bftws/w=="#;
+
+const COPY_X: &'static str = r#"eJxNjsEKAjEMRH8l5L61KUVcaPsHXr1Lt9iCiJSC2783qa7uZYZk3oS4e3kk6OSRDMK6uWE/IfSPB3cQLLg/vIU7+Fv+wTXFBnX1yMyrLC1zbLnmUeChtY80p3LLbcTcll5wz2vLsHg8W6BjnEgR6MlMamYxFxu1rGQCnjPpOAgwoGaW8YacCG9WFzg2"#;
+
+const COPY: &'static str = r#"eJwljMEKxCAQQ38lzF3XEVm2oP7BXve+2NLprYjQ9u/r2MsjCUliXUpDvRJ5QueHcA7Ksq3SEnEgHNvc5JH11GaOL93luP+bYE70DeB3MWwZznhjpw7/C8VppA7dC7syGvCwU8c40ot8A3t9Icg="#;
+
+const COPYLEFT: &'static str = r#"eJwlikEKgCAQRa/ymQOYpi6EcW7QIWQKClqEtKjbq8hbvMV7rFfV+4B+mdxK0H+6dlkSXmYXfsp7Ys+0JSTjYwkIsHAdi2j8WMciDYnYFRM="#;
+
+const COPYRIGHT: &'static str = r#"eJwlykEKgCAQheGrPDyAqelCGOcGHUKmoKBFSIu6fZMuHt/i/SRHk3NDK8Y7A3nUoL5dpmn8TFe9d6zFLD4h2znFGhHh4HUOyYbc8z/jD9mNFd0="#;
+
+const CORNER_DOWN_LEFT: &'static str = r#"eJw1ykEKgCAQRuGr/LiPVIwQdNZtOoRQkCA6kATdviGQt3mLL3Arb8n1BLdc+x2Vh9FwMAs8rFYU5kEocOoXjqh2K+RZkxOoJTPJbe7HQugDUxcX5g=="#;
+
+const CORNER_DOWN_RIGHT: &'static str = r#"eJw1ylEKgCAQhOGrDF4gFaUX3Rt0CKFAQXQhCbp9myADw//wBe71raVd4F7auKMyHkbDavzhJRSFbSkKnEbGGdXh4J49yUPPSWVjJxZCH42kGIE="#;
+
+const CORNER_LEFT_DOWN: &'static str = r#"eJw1ylEKgCAQRdGtDP5LKkYEOjtoEUKBguhAErT7ZgJ5PxfeCdTrW0u7gHpp447KerAr7OAMSCkMyzQYKI0MZ1SHvFlvyTMyMs31WPdzRvgBlccYkg=="#;
+
+const CORNER_LEFT_UP: &'static str = r#"eJw1ysEKgCAMANBfGd4llUEIc3/QtbtQoCA6yEt/3wriXR/JaHer/QQZtc8rGY8QFapomJY/MEmeBY5ktuAguGLX/CanvEWLO35dEz9bDxf3"#;
+
+const CORNER_RIGHT_DOWN: &'static str = r#"eJw1itEJwCAMBVcJLlAjSn9iNugQQgsKooFKods3FuQd736OpNe3lnaB9NLGHQ1awDBxdoLBMG2rYpI0MpzRHB583pM+WB2q/YPujzXhD4zGGII="#;
+
+const CORNER_RIGHT_UP: &'static str = r#"eJw1ykEKgCAQheGrDO4jjYkIxrlB2/ZCgYLoQG66fZMgb/Pg/0hqfnMqN0hNpT3eOAs7uBUQFn2GaR6ESUKLcHlz/DFuAVXZPpzwxI6V8AdSBRfl"#;
+
+const CORNER_UP_LEFT: &'static str = r#"eJw1ysEKgCAMANBfGd6lJYMQ5s5d+gihIEF0kAT9fUrEuz7Wmp+cygFaU2lXMB5mAgLfkRGe/iCssZ2wB7M5BIe3XeKIOFiytH69J3kBW+4X9g=="#;
+
+const CORNER_UP_RIGHT: &'static str = r#"eJw1ykEKgCAQRuGr/LiXHJmIQL1BhxAKFESFJOj2TUG8zVt8rrdyl1wP9JbrOL2iGcSwBitkWQU3/Sa4HkfC7tX2iksvkcEwEoE1J7IfFxQelrAYkw=="#;
+
+const CPU: &'static str = r#"eJx1jm0KgCAMhq8ydoFUKhhoN+gQUdH8FyJ93L4Uwgr9M7Y97wOvdvPo4TBYI5xxuvtQCDzbhb1B2SLsdvIc105XQej0o1HUKOVT/JVeB88wGexlA2pTAYTXD4gsUSAbzgPK/0XREAWFCq3oW+oCvjhWOA=="#;
+
+const CREATIVE_COMMONS: &'static str = r#"eJytjEEKgCAQRa8yuG/SLCxQb9AhxIKCFiEt6vbNaEEHiM/nwczn2bimuM2QnFBSQDyJDfHK9LYuf2/3cCwwOTEqCQPq0GAPXMmpNHagQGOpfKKxpY3JfS+0Yy3rvlLzm/QGGz0t/A=="#;
+
+const CREDIT_CARD: &'static str = r#"eJwli0EKgDAMBL8S9gO2RW9tP6PFBsRDCRh/b2JPyywzebRdSAsS6C3YQGNCb3x2KYgr6OFDur0BNS8e1Hzx3Ujj7GxiAGkydE4/m+tW/QBOkhpw"#;
+
+const CROISSANT: &'static str = r#"eJxtkLFOBDEMRH/Fut4mduwkKy3XbEPDD9CdQkEBEgXi+xlHaAs4reJdbSYzb7J/3r7e6PXx8uHSSKuoUkjfuIrpVBkbq5Qgxz9S6YOqdF3jPTUG9dBjyCDD4bZkIVbp9Hu5XPeHjLnuZ5gWCdokWNnEtmMToyY+KI0aYT25xGFp1yj3AnNI3HrGr1HWYwga9X/EMzxmAXyAxtnZclFBHqxE+/rwe2xITvKUGdpM6VUqyhv6rxdGfEMwS16J8pLGr/NfROUEZLuDqIO0zUSEzhmc5CiEUpyEy9Rznmd/ANAiXZE="#;
+
+const CROP: &'static str = r#"eJxFyisOwCAQRdGtvOBJOy+kQUzRNbX1JBVIBGH9fATkmiuO5lgS/tu8F1jFRYI4Z/2SOBP0GCbokuJBfn5TS8uHSzZ+uRTQ"#;
+
+const CROSS: &'static str = r#"eJxdzqEOgDAMBNBfafAd62UVJGMag8UvICoRZIKvhzloapon7i6f9TI65mEVIVQQKPbj92u6JCfYI0mQMFF3mDZ18skgMBqrqadfD8NYt+QJ91Dy2NeVB2qWI5I="#;
+
+const CROSSHAIR: &'static str = r#"eJx1jDEKwCAMRa8ScoHWDMXBepngIEgHJ3P7RlOk0Do9kv/+D5wrlwTcTnSEwGKsih1j2CyPoeQrgThLm5I6SW+PIDT+qnftRz6mMzofdfxsTinWaG6xSi/3kWzeT/kG4hA3OQ=="#;
+
+const CROWN: &'static str = r#"eJwBPADD/zxwYXRoIGQ9Im0yIDQgMyAxMmgxNGwzLTEyLTYgNy00LTctNCA3LTYtN3ptMyAxNmgxNCI+PC9wYXRoPr6hDrQ="#;
+
+const CUP_SODA: &'static str = r#"eJxtjkEKgDAMBL+yeLea0LQ5VF+gjyh46EXw4P/RFBRFCexhlgybtrwXLEOzBijIRQGxY80MRl+PDXPxTvyTtkYnUmgzps40Y7pks0AL+Z8igiQH5yNqmIkgZ75Zb+z7vhLbyjYUvssDEdktxA=="#;
+
+const CURRENCY: &'static str = r#"eJxdzDsKwCAQRdGtDG8DQQPBwnEzg4UgKax09zHxk5jqgZ65VkKS6EkyQ2mQlLaJYeDs1r6djeH0lBVjB5U+mnGA8jOV3uQDtVqIMuPwRzt5m0PWwEr746zPbNuBLwvbNmI="#;
+
+const DATABASE_BACKUP: &'static str = r#"eJxtjs0OgjAMgF+l2X2V/iFLgCfQq3eCJJhwIGqIvr0dGsOBLF3X9cvX1sM03ebHAP2rCcQB7p5TgP7dBPPKk4S2Pvywtp675wjXJpwFiLsEAsV6DBjLlNFMbDgmSCgX22kJ2EK6kZSoR/dU1Q5M7AMXHXWvJ8BFZ77E15OigKKtsf5Ef+XoI6H4tMhoXmoUVALy65T95d/9AViJRYg="#;
+
+const DATABASE_ZAP: &'static str = r#"eJxtzbEKg0AMBuBX+ckD2Cbn4QXuhG4d2rV7sUILDlId9O3NiYiDBPKH5IPEtut+/dCimRN5QjMlYiH8LdXCto7qeNlYHfv3+MUn0dPBv1hvCofrWuwhXIQy86wOVthwOD+wPDiAq7vYoBA5Yc7U8VNZeM09VDteAFAJM/0="#;
+
+const DATABASE: &'static str = r#"eJxdykEKgCAQheGrPOYCNUqLARU6QFv3UUKBC7EWdftMIije4ofHZ0KMa9oC8mlJE/JhSQhTCavS8nbkTPMwZ9K4L5gtDRqdZ+kFGm2dYrD4qm/0oax+UL3sAhvvIcg="#;
+
+const DELETE: &'static str = r#"eJxFi7EKgCAURX/l8XYpH4gK6tzS2tAmFBhINDTY36cmyR0u53KuufwdYLM40whi0pFJqAmcewKCsYYYLbIzy7yiM0N5OxOPc4fELXKFkCg3ITyZda6CorjFam4bv09361X97gthyCW7"#;
+
+const DESSERT: &'static str = r#"eJxdjkEKAjEMRa8Ssk9sMqm20M7GtYcoVVBwIYOI3t52lEGHQD78vMBL9TLV6wmmjIpQnxml5yuj4Zg2n+uYbuV+hmPGgzhWGFj3nj0YKASWtmUo2sLNY+AeJEshc2FrwFaA/APVkXGkgT1FCqwUOXSjbvLj01RAjEOJEL/PsuMtuIV9A0S5Mwo="#;
+
+const DIAMOND: &'static str = r#"eJx1jrEKgDAMRH8ldE9MG6UItX/gD7gVHBwcHPx/tGm3thwcd/A4LjzpveDczO7Ig2WS5Gi2oMZV8pfb07JCtgYQjQpgF2DUBRwSWCYOE8OUD8UPV9AfXg=="#;
+
+const DICE_1: &'static str = r#"eJwli7ENgDAMBFexPADg0FDE3oAhEIlwOhRZgmxPTJq/178u1nwaPCWZMtKGoLlcaqM3xhXh/bN2hI7mkDi7J/E+TCEx7hSAgk4L+eerfIrGGO0="#;
+
+const DICE_2: &'static str = r#"eJxVy9EJgDAMBNBVQgZQoxQstN3AIcQW0z8pAev2NvqjP3dwj3MlbQJnjsIeaUYol8exVX2KU95ZXmkwIVTN4Hr9BXeswhA9LmTAcjeQko4fskDmRzd4tSBL"#;
+
+const DICE_3: &'static str = r#"eJx1y8EJgDAMheFVQgZQU0F6aLuBQ4gtpjcpAe32NnrRg6cH/8dzJa0CnPLG4pEswulxRDhyFH5CvUNp3bSpOsH1+gtuX4QhepxpAsvdQEoa32SAzI9ZoOlDF2uNJ/c="#;
+
+const DICE_4: &'static str = r#"eJx9zFEKgCAMBuCrjB2gWoH4oN6gQ0RK8y1kUN4+9SmCfNnP9m0zKewCHOLBYpE0wm1xQcitptLMJXKLK3rhtuTMWO+cOTdh8BZXUqB5mKhSHb5Id4TUD5V/H3sA4F8vVQ=="#;
+
+const DICE_5: &'static str = r#"eJx9zDEOgCAMheGrND2AWkwMA3ADD2GEWDZDSMTbS3XRAZcO/5c+k8KagUPcOFskjZBOiwqh3hHhiD7z08sdUhF1ppc/Z/YlM3iLM02guRtISOKL9I/Q1KC61zYFpD52AYh3NwE="#;
+
+const DICE_6: &'static str = r#"eJx9jMENgCAMRVdpOoCKJqQHYAOHMEIsN0OaKNsL3DTBS3/a1/9MCrvAFb2wRUUIt8UFIbeZyjKXyC04xIOlfTkz1p4z5yYM3uKqNBAPk6qoHt9IzT9Mdxh1jdQX0tf3AKEwPoY="#;
+
+const DICES: &'static str = r#"eJx1jF0KwjAQhK8y5D0xmz9bSHoCPUSxxRQUJATU25s0D6K0LPvDfjPj03zJSO/AFEN6rSvOyzXmwKjc7fNcphzboyhJssEfqnHwjzFHTIHd6Sh6BTLQwvLSoxLKYB2yFdc3brkpsn/GNeSJJFzNrYnf3LMDdVFI2kDFQWaPWbg91KH/QR+ajkKw"#;
+
+const DIFF: &'static str =
+    r#"eJx1ybENABAQBdBVLhbgH7pzGxhCorhSIeYXjWi078lo06gXV8EUF5JT8cdU7mRCsM8w3tlo4hYH"#;
+
+const DISC_2: &'static str = r#"eJxNikEKgDAMBL+y5AHaBI9pfuAjJAoVPEjxoL/XWgo9LTsz6nv2Y4M/kVgI+ZtA8Pu/pmP1pq2rou+nPjuXK2GNNLOAJQ2Biy3UXl9iHfQ="#;
+
+const DISC_3: &'static str = r#"eJxtzTEKgDAQBMCvHOlzelFMiiQ/8BFyCgoWEiz0914MooXVFrvMel4SrxPwERQZBXyWTBK1ir4qffTbsM8wBtV3QIZrTWjR6gYNEDrdosnjPIr+IV8qw+XgTyR3kwJZjRbEFN3B17wAo5orgg=="#;
+
+const DISC: &'static str =
+    r#"eJxFyrsNACAIRdFVCAv4qZFliIWJFZVuL9GYV93iHrHhNjt545KZbEdrdN2qpPdV4LA/Bzt7phZG"#;
+
+const DIVIDE_CIRCLE: &'static str = r#"eJxdzDEKwCAMBdCrSC7Q6iAO1ssEB0E6OJnbNzFpKU6fkPd/7u2ujsIFPoAjrznljpx8Jyj5EFXystMMmVmdaJ2w499w0k6Cd+Kj2Ab26nAqRtIcHKco/ZcHrlQsRw=="#;
+
+const DIVIDE_SQUARE: &'static str = r#"eJx1zUEKgCAQBdCrDHOBmAmihXqZkhSihQjp7ZtRjDat5H/fZ0zyW4bg4xGyRVoRUrHICHfcc+iNFLP0tfVVgzOT7pw54+WhkEVlLHwRIZFUcnvFqhqWP5+Cy8DU8g/uB3SzvpNBH7mIMk0="#;
+
+const DIVIDE: &'static str = r#"eJxVjEEKgDAMBL8S9gOSgqKQ9jOlh0Lx0FPyexsiiKdh2WGk9llHo5nBoKoLadEyDhTZ4i0y+t1IOWMHWQrJOKi+L7fdKvIWvcEn/uUv+QDipyDy"#;
+
+const DNA_OFF: &'static str = r#"eJx1kEEKwjAQRa/y6T4xM9OkFtreoIeQKihYceHC3t6ZWMRFQmk+4f28DBmep9cV57GZKYIXR14iyEfHPvQM0YxofZx7MC9GtaJNo040o1PaTMPBRNPw0zEoLuJFRGvJp9RpUnCy2rJkS9bJLmuztqBaqUOyOVwFtziazv4C7kBHE1fkYnPo3fYVMAf0qLBkR81MoNJcmYc6D6CE7zv86e+3xwUbjw1zgzdpauzbLW+1aqXpA6znbd0="#;
+
+const DNA: &'static str = r#"eJx1kDEKwzAMRa/yyS7XsmLZhjQ36CFKOnQpdOj9qaShdHAwhg/vP1l4e98/Tzyuy62A66FJtZGCJYkIMkomXfbt4rV9+5UHSjk4tdGJ0xgdJVXuJJar5Z4bVcsyUdkKB4WLcClchEvh4sR9cYN63e8Mr7B9iCeogWNJzE0xwmuqfia4ZAycMHXVJzNmD3PwfM4z2P7b+d/4LwfzZpk="#;
+
+const DOG: &'static str = r#"eJx1kk1OAzEMha9idR8TO/5JpFKp6hYuwA6VRRcgIYE4Py8zhXbRajQeZxLbn5+z/Xz9PtHb4+ZZKjlL6gFO4+xKnU0bKUcOCnZqx6LctbFlMRZp+FtrFKMkrp2zNhJO9cUqsoQHCVYaUhClcEcUYXOkbWbI55vd9mFC7LYXFENErjjHivNtINIzcd5GQ2KHh03646ErHgJPOfOUK55y5ikXHrjdfQFCQm3jDlAnsZ/bqHF/C3VQOmBPoH8StJ/vhdPn+3IjwiA4zTDLvTQWx2r91OUx1GL3OMBBe9op2TEohcbTfvXZBWTpJdjMFu3q7FVC51aZ8kGHVsdHGajTcLB23XfuVWi1s9KS0I+4BnPBmETtEFsCs6jxj/4Lg1t75w=="#;
+
+const DOLLAR_SIGN: &'static str = r#"eJxVTEEKgDAM+0rpA6atzCGsPe/iIwYKE0Q8eHC/dxUvEkJISBL37VihsiAzwk2C1LQ2Ncuv1dhZS+OZrwKL4EwBfJqcz4PzYOw/hPLPyLI02oWN9QHjwRoQ"#;
+
+const DONUT: &'static str = r#"eJxFTUEOwjAM+0rVe0yTlLFJbc9ceMQUkEDigCYO8Pul22FKHEt2LJfP/H2Ge403STgHTrM4dSQfJkEmvfLo8tT16TAGysie6OvHMUDDBWwEhRBGKDEEGls59Z5W7LXY+xHsVyNLDPbfealxe9rttgJfCyHo"#;
+
+const DOOR_CLOSED: &'static str = r#"eJxty6EOgCAUheFXOaOj954xR7iSLVY7m4FocDy/UhiBnXT27bcnvwX37k6NoFxbJghp8/Q84vjBqsElW1uUrKc/SKFMRAOUdRHt9gElqxzE"#;
+
+const DOOR_OPEN: &'static str = r#"eJxtjrEOwjAMRH8l6l6Tc+xWkUIldlgZ2CIxZGBgQP1+riBVHSIPHt75ncu7flp4nocbUrCWqgYNkQNuXWHDUk5bZil7kiC21AFUkOQeoVBXiehfmfjEskngcwW7fx+MEDWVPF+d3rtvocN/EIczk+1lIy4H8BfisZd9AaQ/OCY="#;
+
+const DOT: &'static str = r#"eJyzSc4sSs5JVUiusFUyNNIzVFJIroSxioAMJTsbfYgSOwAHXgvJ"#;
+
+const DOWNLOAD_CLOUD: &'static str = r#"eJxljDEKgDAQBL+ypPfMHRcugRjwAT4iYJFGsBDfr7FII8PCwsDks14N++I2BSvFlFaDwYM7gYwRG5OlqhTQ5z8p74skKq7kuTdKHiUWsNzpb44INmhn0qEf09kfsA=="#;
+
+const DOWNLOAD: &'static str = r#"eJxNzDEKgDAMBdCrfLIXTbS4tJ1dPISgoCBaUMTe3rQ4SIb8Dy9xcbwWTJ4GYbC921EgqHXYaOrtvxu5TUvBVfkouHhsaVv3GfFY9+v01IHVif4B51zoh4IrNLEntoQknhrCk6volrLVF/sCTvUm0w=="#;
+
+const DRIBBBLE: &'static str = r#"eJxtjL0KAkEMhF8lXL/jJpv9g71rrH0IWQUFCzks9O3NaqHFkZBJMnzT+nXttzOt88R+ov4yFdPnR5e2+/pLux8fFzrN04ErOFCEr3uOECG7ldhbQ5UEEsdaddCD+mOFkc0VFO0uIYljKDt7jAjHCaGQDdlgC2Ky9By7ImRKVhUqVIgz8o94A1O6Mj8="#;
+
+const DROPLET: &'static str = r#"eJxNTTEKgEAM+0pwb7W9q0VQF2cfIefgKOjk6+05SSAkISTjud0H9qlZRaG6ORzdBycvHSkJJR4okbFdIY1yoGcrxAYNr8hRyIhs6SHCAoOkSvbfgz/NPLb1cH4B+JcZPA=="#;
+
+const DROPLETS: &'static str = r#"eJw9TjsOwjAMvYrFnkecxE4ilUocgKknqMrAiAQTp+clQxXFlu33W9779yXP2+VRRR35SEgSpQRFy2wF0SRyUg+wGnh2TlVDhvatInVxVJMqRnYYs6LYYBRJaGVQumRU37Io18LGnR2R95QIbzJtymy/y7pcR6p1ObMRb04fv2tEZ9JZ43y0yYjpgFGOnyKdUg77ZF6MdgbbHb3JLJMUmKTrwNbT7w85Azev"#;
+
+const DRUMSTICK: &'static str = r#"eJxFTztuQzEMu4qQXerTx/J7wGtu0EME7dChBTJkyulDJkgymLBNkSL38+nyKz+fhy8fVkOI3xrmaT20LC1Dh011c3zHRuBrtrZh3nzqZhUStqUSZJoPTasWEEnlirnyJ8yStDGpFVg7JkptODTRaktgbxfobFBJca64rRO6oGG2YCSvh+P+wQLH/Vnj393iXqPZooVwCiTlWQT74T6aMRJ/tT1gIccgpKPkraAmzZEw449ud9/X5hvxnkEj"#;
+
+const DUMBBELL: &'static str = r#"eJx1zjEKgDAMBdCrfLpHTRpbh9i7CA4ugoP3x3QRhEiS6ZHPt2u7D+xrOsswox+zb2o2dmn2ujCEySewjAx/C4QXiEBJo0SUH/G0CZVqFKhe42MPCnM0mw=="#;
+
+const EAR_OFF: &'static str = r#"eJxtjk0Kg0AMha8S3E86yfwKKngADyFtoYVSuuhCb98XXdiFi0wm4b3vpfvM3wfd+mbKJJXTHDiRlSdBFfJX74RT4VadclJS9tEFjrkZuou5h+6PAQQMXBJLgC8WDhk+iSfqyhVRksaMvLxlWqq0O4WEc3AcIyKrAOZbyMtZrqgRRnv14CTjTIJ/mHH3tjZqVcCkHpzX832nVfpGG1oVDX3Zx2UfITXR8AO3CUTW"#;
+
+const EAR: &'static str = r#"eJw9jDEOgDAMA79isbekKQ0MpT/gEREMjAyI95NWUFmWB9uXL71PHOuwCRafVHxCNSFURdBOECfNgTRaF//ezaCh5LEySu6kkBqKbcZtanKWT1AGf2jC1K8vtAodcg=="#;
+
+const EGG_FRIED: &'static str = r#"eJwtjrEOAiEQRH9lQs8JhwuYAI21P2Bn0EQTC3NnoX/vLGexL8PuMLulP5b+vGGpJkxi0L/V+HmoD5WnamW3mVp5Xd53XKs5BeTuLH+AXhsRBwUO+ykHBCSOZOWYzdi1LZbWYUyD+nKDWwS52mRnlkyi6eD2P+Wou7xj8oGVz3qVXtN+E/gqvA=="#;
+
+const EGG_OFF: &'static str = r#"eJxFjk1KBEEMha8Sel/P/FRSHehpENceQlRQEHHhYub2pqZlhoLkpfKSL9vPy+8HvZ2W54Bl0jU+OSyUVogP6ggnYciapUvqa4PN/24k0EGJdBqzxWRQjwbWIC+ZTeB9zLXDmyHUl317mNB9u6El4aYkhnX4o3TwoCPy9c3+Pzdah/XalN6KG624TbgwXAOiTcGrwlnLwz3mhTnuzK/P73c6y2nRhc5aqfLlKC9HWdZp2v8A5rc84w=="#;
+
+const EGG: &'static str = r#"eJwtjTsOhDAQQ68yoh9vMp/MRgJuwCEQFJQUVJyeBNHZenr2eK7XQfs0LFlIZCsQZSSnwD/Y4dGSc04MLWxQY0V1rqiFP6JwR7JWs5GjvIBeJchgShkS1JQ+28k9zOOvP88P0ZEa4Q=="#;
+
+const EQUAL_NOT: &'static str = r#"eJxdjMsJACEMRFuRNLBMYA9CtBsPgnjW7k38IHh6TPJmpOSaXOdAnlxDoF+hCRo77BrlMyfKNLdiLxh5cVcel9cc7typXHUAUPwgmA=="#;
+
+const EQUAL: &'static str =
+    r#"eJxdjEEKACAIBL8ifiAUOgTqbzoE0dl+XwpdOg2zDCtzrA5OihXBWZEawr4a4IBJicYky9joS9Pz4bUHuLQVuw=="#;
+
+const ERASER: &'static str = r#"eJxljbEKgDAMRH/lcG80rVUK1dlBP0Lq4NCCg/+PSUEXOS7Du3AXr/0+cUxNGWHZ9OTUyXCVJY/OOOpzoMGIk1AIlSsUXfY0wCuHqv5rsrKTumaOrfbP8V3ZrBW+jP+keDAjIHzRA7T1JMo="#;
+
+const EURO: &'static str = r#"eJxtjTsKgDAQRK8ypM+abP4QAx7AQwQtUlp4f0xSiIUsszDzGCZf9W44V7FbaNU0i5KXkZX8JbalH6ATfA0UMKTGSUcseQuUMDQzeGg+FCxZGHKIHcX+uSNDUXYzW+/AA+FjIqY="#;
+
+const EXPAND: &'static str = r#"eJxtzTEOgCAMQNGrNOwgLaYyIDdwZTdxYIDEwXh+i8bowNI0zctv2NcjwzarSgiEmjVXBj71aHy1IDO3VcUwNBnD6xcHyIYSoTCbxciFsEiggyU+GZ/cbVuwXVzR8qqb/vATduUvL5SdLq8="#;
+
+const EXTERNAL_LINK: &'static str = r#"eJxNjMEKhDAMRH9lyF3WpKu40Pa8l73uXVBQEC0oon9vWgUlkMmDl7GhXjo0jn5cgc1a1gJBrsOZXt/iyZn8q5uh3JXk7St2eBumYR/6sUWY+nGZHXEBA+FzfZJ4Kd4mcRNHwoRd0xA21p9cMeY7+sk9AOKPKVM="#;
+
+const EYE_OFF: &'static str = r#"eJxtjV0KwkAMhK8y7Ltxk/0ttIUewEMUFRREBH2ot3eTUn2RZb8JZGbSP+bXBafBHTqqFYo5IMCD248k0eDGfq/Osf/62VMJSOTr1MYYsNJblAXpWHT0KIaZA3HGSjPtmHKBUK5/2jNlhmJqiSQWVPH2pB14hq25oxJhWLeJQqfl/Ou9Xe9nLDI4EYf3ptzUYTFpVjWNHy6DPJQ="#;
+
+const EYE: &'static str = r#"eJwliz0OgDAIha9C2BttO7gAN/ACbgZNNHEw1UFvr8DAx8v7oXO+N1gYxwK5XDUNkHsHBFL9z4X5jgmFOtsJ6d70WEFfxlwQ9InfGKuVIpYPvrEZCg=="#;
+
+const FACEBOOK: &'static str = r#"eJwdjKEOgDAMRH+lmW+gtMsmxjQGi1+COIFAkAq+no2cuCdeXrnbAzrXsEumBawtUqR5jDu5bskN6hnmnKGXsIHtSE1Ifq8/C/QNtUwjVj9wLRT+"#;
+
+const FACTORY: &'static str = r#"eJx1jbsKgDAMRX8ldA82QW2H2NnF1cGt4JDBwcH/xyj4RAnkdbj3ypwXhbFxHQP7bA38XrYp1fcHch8nDFAdo7woGm0fN/DgkhSbfZIzhAJQVPoi/EdekhVwBCwG"#;
+
+const FAN: &'static str = r#"eJxtzzEOgDAIBdCrEHcQUNuaVG/gBdxMHBw6OBjPry2JDhoSFl6AH/fl2GAdqkmYgnoQR43vF0ccFKzzXYKBnAT0xKypo1YUhNruC6EQ4wmzgcJ/ZDHmExaE/zvtrPmUiem5GmOdA4zxjXH/pSexPLMLEfkw9A=="#;
+
+const FAST_FORWARD: &'static str = r#"eJxdy0sKgDAUQ9GthG5AkuJAeHY7IkhfQSfuvh86KmQU7rHiz395RvE7f+8ZGMEDEtgWsWMcIdk2y2QrURdkF2pAS18BljccAw=="#;
+
+const FEATHER: &'static str = r#"eJw1i0EKhDAMRa8Ssp9ME0ynhdYTjFv3goKCiAsX6ultFAn88OC9tHbbCH3GRhxJBSxlOw8enN0nUBXv+SuwI205joH0xDp9La3TPC0D7JJREHbOyB7hMCx8FA6mmvSq5vxI8Y7iI7E+UfmvfQE4/iWf"#;
+
+const FERRIS_WHEEL: &'static str = r#"eJx1j1EKwjAQRK8y5D8xu7FmA0lv0EOUKFRQkCKitzdpof1Jvwb27czuxHyf8+OGOSlWyN+kqOpv0T6eVtzH1/iecE1qIAZ/zhXV0Q6eFyOgTjvTgRuYrfHwR3io7gBnHPyRmRa3boUHMMNpgYM0wqXgqQWovCzGj6HctiBYXerZbfEPQnhL1Q=="#;
+
+const FIGMA: &'static str = r#"eJx9kLsKgDAMRX8luPtIJFahCm5dXN0LDh0dxMGvN3WwSFsJpSXNOVyid3s42MZiYeCK57Zi8KeRQujlRQbpVKaPPh/gKiZde8ekXxMSkJM5G+ZRqgElqpUyCFJEKLk/nVI6KZwBh2R47Hz6KMuPh5KeIb8ETwTXDVYDTAY="#;
+
+const FILE_ARCHIVE: &'static str = r#"eJx1jkELwjAMhf9K6D2xCW2t0O3iVa+7SxU2GNuYY7h/b+YUdvGSEN6X914ablMN98JcHYhULlskT4IMFJDJnT0ICXjSDQGkjuQvYuFIvhKbLZBH1RkpgOJIbh2n7ZlCjWLKdFhDyjT07dI23QOGvummZ2FYM0FHBHWMH/CLlCk3Y24fMBZGDOSXwlb3oqddwU1Wz1991k5V2IXtBJYZ+Y8U513FNxN4Rhk="#;
+
+const FILE_AUDIO_2: &'static str = r#"eJxFzcEKgzAMBuBX+eldZ2OdDtTzDtt199IJFooWJ2W+/WK3WQptSb78ab1eRzw7cVcgGqXSBEIRD2X0qPPqJlVega7n1Mr4F0j07Wkf71s/u83ZaYCf7bS+OiE5DXw1oAJNhD/C+L+RRR2yUiuoGCuZF6FMscYuxg0w705cBMzGubXAws9uvt1DxXK05WGT+gAviT3S"#;
+
+const FILE_AUDIO: &'static str = r#"eJx1j8EKwjAQRH9l6X3XJF1jC20vXjzo1YO3UoUWSluwBPx7J0WlChJYspk3zKSY6rmla5mc7E625Fwr2wYXQ5bFkRVl8XGoeJYcA09noEerkT/4hiPOlsRFTfxeYUxJKYWgpCFNqmITc6piGvtH3w03msZumO9lYpWQopSRM5Qt4AsB/KlmoAa2tQOMZjhKJqx2xn5Zxbyd/sdo+Nto6I8RpfLAae3JA1oy4Fh95QljR0sW"#;
+
+const FILE_AXIS_3_D: &'static str = r#"eJxNTk0LwjAM/SuP3jub0GkO3c4e9Op9oNDB3AqOgf56s09KIAnvixdSM0Y8K3MnX5Tg67lhMNw8Vr+JMkAvR+IcsPy4FOVtNf9MHU5zYB3S0H27tn8hDW0/fipDXk26BOwgi3CTqHjvICA3SZQsZ6PeSgm89Qf1B6d4MEc="#;
+
+const FILE_BADGE_2: &'static str = r#"eJxljLEOgzAQQ3/FYr+0viPpkjJ3aNcO3SJ1YKnUATHw9RxEAiR0w9mW/fK/DD2+9+bFNkToIxWF4rqcuBp5CPxrTz0Gou9biM86npouXxZgl3esglYM5m2u1ITq6qXPefRjC6oTiRiimFDMNcXd1p4BOzQqBA=="#;
+
+const FILE_BADGE: &'static str = r#"eJxNjb0KwzAMhF9FeJdry7+Dkydo1wzdDC04YBJDs/TtqyRNGw6EhL67Sy0vBR6duFkIg80EBIqlgZBKlO5KCoJ0A6n/D3kr6EWfLqu9T22u7zpOT2jzOC2vTmjLLI8IbI8b+EUYPhod6JANmK2Og9HDfu3y91PB4QmgvXRrLlU0qNGwV6OT7gd/ALbOM/I="#;
+
+const FILE_BAR_CHART_2: &'static str = r#"eJxtjr0KhTAMhV8ldK/X5GrtUJ0ddHUXFBREC4qgT2+sP3SQQBLynXOIsfXSQZOKEqMgBspVTUAQniV5W9E78KQOyT9IqpIgLi7zLjLzOwMzY6dhG/qxBTv14zKnAiM2cdNAIWgnvCUsfn9giV6l8nIepB3BD4LKof+LDus9N5k="#;
+
+const FILE_BAR_CHART: &'static str = r#"eJxtjr0KhTAMhV8ldK/XhNrboTo76OouKCiIFhRBn95Yf+gggSTkO+cQ6+qlgyYVJaooAcp1TUAQnyV5WzE48KQOKTxIqv5RUlzmXWT2dwZm1k3DNvRjC27qx2VOBSo2cTNAMRgvvCUsfn9giVmlCnIeZDyhD4LaI/2iA+sCN5s="#;
+
+const FILE_BOX: &'static str = r#"eJx9j8GKAjEMhl8lzD3ZNum0FUbPHtbrHvY2jIJC1QFlwLc3nXbQixJIQv4vf0g39vcj7NfNzjpqgXlrY8/AYOZg5L9A7W8Rt/4loXaTazbdT3bYdOM1PdLpcoDxerrcb+vGOkU1RWADcQYrovBylGkVwApZHpA8icd5QIZrE9wkxHEwQIFJ8kjiIiXREmUgLyQr7d1cmYwHkwSriOqrK5htS1VXLLaotqrnoURc1IRlubfllKb6dLHGcvj/7f360VnxgE49lI3tBwC+ALsMTC/hCXGWYyA="#;
+
+const FILE_CHECK_2: &'static str = r#"eJxFjbsKgDAMRX/l0r1qY3wM1dlBV3dBQcFHQRH8e6MUyoUQyMm51g3XjLFSHYNoNjwQCMkf0tQXUdYajjJQk4eTlu1mVdv4e6+tO9ZnXfYJ7lj266yUERtklKAE5Q96RGDfuKUw4pWwDq4XV/slhw=="#;
+
+const FILE_CHECK: &'static str = r#"eJxNjs0KhDAMhF9l6L2uCe2uC9XzHtard0FBwZ+CIujTm6qIBJIwfDOJ8+XcoEpVTiay4N+7ZDDiUFq2hR6CTG6In4Lm4hPZ/2neVOZeITBzfuzWrh1q+LEd5ilVZMQkLQHHSA7wQgS+fui/IBuOwGhzZ+2HsSkT"#;
+
+const FILE_CLOCK: &'static str = r#"eJw9jr0OgkAQhF9lcv2t7rGckHA0Nhba0puTBBICBImRt3fPv2aKnW9nppqva4dbMBf2cK5zkXLswZYcmMSSTyLkLZUqemoOlJ9ZFHMnH23CLYNc8sgfRR8zCDI1BPLITF3tUkldzdOwDf3YYp76cb0HwwJtERRwexRv8IvUVeyXOLSIm2LeID6DKQyWYHziPq5G/taXWse6TLPYk8sbln/xC3JoOUw="#;
+
+const FILE_CODE_2: &'static str = r#"eJxNjc0KgzAQhF9lyD3WHZM2hei5h/bau9CCgtVApdC3Nwb/GFgWvm9nfajHBq9SPQzIRkxNEHkKNZ+XzN7FZBa8nXek4/YzqvKn+bzyYej+Xdu/EYa2H7+lktiGOByYwyVxUaK8fPxcIQ6FTjl0rdhCqAukbHgCbGwtqg=="#;
+
+const FILE_CODE: &'static str = r#"eJxNTssKg0AM/JVh79pNulYPq+ce2mvvQgsKVhcUQb/eREWWgSQk84gP9dTgW5o3uTQDPx81g2EViUwzRQvp3BDHi4Q/eZq9DvFqKn9Tw8qHoVu6tv8hDG0/jaUhJyIpBdii2IknRcjnD3+yoLvGKiKz6+5AuYYqrvsGYW0xgA=="#;
+
+const FILE_COG: &'static str = r#"eJx1z80KwjAQBOBXGXLP2t38tdD07EGv3ksUKihIEdG3N1HRHiK5JHyTyaZPxzmdDkj3qLxCekTFRmGOyqihX7116C/jdcI+qnNHAWzJauo0vSKFFgFDAuaifwKWPNhTIJMjFQ8f1/kRrt5vwU25XXchUybMJTlR8bb8gEtJ3QNZdKXe1MbbsoXc/OQrZOHI7ewoEDR5MUTL1JLbSIOQSZqf6bxb++VZM7lv6xNedWi3"#;
+
+const FILE_DIFF: &'static str = r#"eJxtjDEOgCAUQ6/yww7yq0BMkNlBV3YSB0YH4+DphTjIQDq06Uvrz3RlOhax86QMYbUJBNJVsqSbm6I4MqMtJKJTZvvGjwh+qIfB/7cgHqPrkJlYZ9sHrgEvUZUo/Q=="#;
+
+const FILE_DIGIT: &'static str = r#"eJx1jTEPgkAMhf9K0x2kL+V0uDI76OpOhFg2Qy6o/947HXCQNGmbfn3vxXm8JvJxunkyDkzz0xhM3/4yljwe05DcWLmLu/LfxXufnAbjsyhhCR4KKscflAlctAeBmk+hwmVftyfRuiUcw4qqvC36x0QaEniO2GAHX1VvAzs2Rg=="#;
+
+const FILE_DOWN: &'static str = r#"eJxNTk0LgzAM/SuP3utMtK6D6nmH7bq7sIGC04Ii6K83VZHyIAnvizhfTw2+pXpTnhjws6gZjDRAyzVTRMjmhjgmNH/uiXkd4VVV7hYKK+eHbuna/gc/tP00lopyCcmw4BR2N54WMV8/iMXOuoh6Tun/ABlkATq75A1ZmTCn"#;
+
+const FILE_EDIT: &'static str = r#"eJxFjt0KwyAMhV8l9N5MY5wKtk/Q3e5id8IGFqQV1pu9/WLZDyEhJB/nnNTyXuA+DhcGY9FdORMQaCkDpKgEdDNp8PIi/f8p2Ypy6IYpnbrGlNpWX3VZH9C2Zd2f42BYaBkBRCAc4AcR+GtrNLJQhGeTCcVTunv3LfpjzB6jAzIgelQxRmX7wSFbScB8+2V4A1iIMYk="#;
+
+const FILE_HEART: &'static str = r#"eJxtj7tuwzAMRX+F8M5b8SFZApzMHdI1QzcjLZAARmKgWfr3oYO8hkDgFSWeS4nDPJ739LPqvpzK1kclpRRLSFn3FXmjiXrkraZnjSP79G49fCzu9TCfpv/pcPyl+XQ4nv9WnXigIZXCXa/gDQn4/qAkaKPQflS40VWW/okVpTCy7jgQiEZeYIw+PmQTwzLMly3C37mjkC3c9mpuccdoGc055osTlAy9bwoySZ0MhQ057wTKEUIC8ehXIY0X8vsx9AVCNUbF"#;
+
+const FILE_IMAGE: &'static str = r#"eJxNTssKgzAQ/JUld9PsVquFmHMP9tq7pIKBVIOVUvv13ahIWNjH7MwwOrRzD89a3DGXBdDt0hIQqFgZbx9MAJ7UI6VARo9SFs0m/gmjT9HQ6DD6xbuhgzC6YX7XAnMWcauAFFQrcacYbd1kfQf2yzQlYKoFCbALX+dI3N7suUd9sQOWGUp1XVuaWFa8NsjJ6AjzBz/NOSY="#;
+
+const FILE_INPUT: &'static str = r#"eJxNjcsKwjAQRX/lkn1qZkw0Qtq1C926LyikUNuARejfdxr64sIwcM7cCakeIt6lelowR7I1g2FyWPPrWrgH2cKB75cdadn+VlXhNJ9XIfXt2DbdB6lvuuFXKpI2yPBgA5/FRRF5/SiGi2QONQv53kAeZ52z4Qmf1yz6"#;
+
+const FILE_JSON_2: &'static str = r#"eJxVjUELgzAMhf/Kw3tdE+rWQ/W8w3bdvbCBgmhhUti/X1tqrQRCXt7LF+PsNuLdN08F5pGUZTBkKhb8urXdg1Tbge/XwxJh8qoZzCWeD8at82+elg/cOi3bt28o0BCaBkvoFMyRED4+ElsCZWaYPBVNUaMonN20qf7vSA3SdUiQFxWzULN5tmVcFOgfdmdBJA=="#;
+
+const FILE_JSON: &'static str = r#"eJxVT8sKgzAQ/JUh99jsom0O0XMP7bV3oQUF0UAl0H59NzbESCDZeewwcb5fBzxbdae6asDXc89gmHi0TIEKQl4eiEtC8+NSNbf/8ld17hQDO+eX6TON8wt+Gef13SqqZUkuCzawmzFZxJw7GEg8gVIBmQJlTBEjIxzVjSkK7P8C2dKlKegiNMcm8SibSOTUHwvTRQQ="#;
+
+const FILE_KEY_2: &'static str = r#"eJxNTs0OgjAMfpUvvYNrMxSTjbMHvXInkwSSCQtykLe3Iv6kadPk+3WpmTtcPV0s2NS2EQiMDkMy6cq8OIvBIS9qMT8s0+9kqXK7l7xyaYxL7IcWaeyH+e6JrVL1lFB1uRI3SuVCP4XYIixK2xMmT0IID0+r4RtVy63XjTXPZDYvoPsX+cGPYNa2/IWeiDg32w=="#;
+
+const FILE_KEY: &'static str = r#"eJxNTcsKwzAM+xXhe7rYLNklyXmH7bp7yQYdbFBKKW2/vg6lD4SRkWwptHXf4B3pydfKQe6+FghsgdFt4JOgLA3LWTDyulXusT7PlMKlBKaQv13+fdBFEkIeI7FVnpR9OVrtFLb2P3uwNSVF54g5fAdmKHZvASy2Lj0="#;
+
+const FILE_LINE_CHART: &'static str = r#"eJxNjrkKhkAMhF9l2H79Tby2WK3/Qlt7QUHBY0ER9OmNByIhB8PMR6yrlhZ1qgoKvQj8jysGwz9Ly7XSR5DNLfFX0FwmXpTf4V1l9ncCM+umfuu7sYGbunGZU0WhhGQYsA9zGR+LmJ8fBopBgQ6EJa0FnhtQ8lIPJsUrKQ=="#;
+
+const FILE_LOCK_2: &'static str = r#"eJxFjsEKwjAQRH9l2Hs12SaYQ9KzB732XmwxgdKWGqr9e7dSlYVhYd4w46cmR7SBrga2Ng2DoeQ0uODoDvbCCqeDrVn9vUK+s6HKH7d05aexX/s0dJjGNORHIG0EFXGQtPuAO1L5ubtlrMKUhGdqcwzkCLFL95gDWcL8EpMgylty46XiO9NBl0vB+xgNVRiohX9j3jHNNxI="#;
+
+const FILE_LOCK: &'static str = r#"eJxNjr0OwjAMhF/l5D2ldklgSDIzwMoe0Yp0Q1UUfp4eBySoPNj6dOc7f0slYwx04m1nIQeXBIK+jdGr8grolsyyBkbOu84ev+YXRb9pD6NfpkvBI9Ce8AzEQrjPY8kfkKf5mksgR1hUws3V9NH/y1iwVCNpwKAxrGUc+iq/gDfTqC13"#;
+
+const FILE_MINUS_2: &'static str = r#"eJxFjbsKgDAUQ38ldPfRa6sO1dlBV3dBoYK0BYvg31uLDy5cAjlJlJu8xtywQYBIczERCHk8SmisUtlzkUpQV/5WEtQhWKuyO94qZ7dzW80CZ1fj94bx0IbwalCOOoIPEuB3sQCXuvxaLoHNJKw="#;
+
+const FILE_MINUS: &'static str = r#"eJxNjEELgzAMhf/KI3edCXZz0Pa8w3bdXdhAQbQwGdZfb2w9SCBfeHwvNrRzh4+jF9elgTyurUBQ7VPo9edToJSO5RwU8r6V5pnLK3l72R96G6YhDv34RZj6cf454lpLuhpIhSaJh+JtEhd2dCdEBRvCIpkxU/3kbq26LBY="#;
+
+const FILE_OUTPUT: &'static str = r#"eJxNjcEKwjAQRH9lyD01OybaQ9qzB716LyikUNuARfDvXUO1ZWBZeG9nY+7mhFtjLh5kEt8RhCuh5fVYhbP4KoCnw4qsbi9v2rj7nrcxT8N76Mc78tSP87Mxom3QUYMOdREXReXfRzVCErepWcgjQGj3KPnjD535LNY="#;
+
+const FILE_PIE_CHART: &'static str = r#"eJxNTsEKwjAM/ZXH7otN1nYVtoE3D3rdwdtAoYOxFRyCf29bdUrIS0je470mDKvHtS3ObCHiZRAIVC4ppa/JnFiTgRzt71XG7VEVXbNL8q4Jy/ScxvmGsIzzem8L1pEawUEUXCZ+KJH8ddSkNJip5sGQ08igwLEdSer9n8WWsyJXge3BpJnhHdeBFXHds/Xpetm0L1GHN+c="#;
+
+const FILE_PLUS_2: &'static str = r#"eJxNjbEKhDAQRH9lSK/nziU5i2h9xV1rLyhEEA0ogn9vFEVZWBbe2xkX6tmjKdRfg/Sia4LIjmHC6pOan+jUgF97oyRei1ale+3vpQtjv/bd0CKM3TBPhZKYhrhyMEN+iKcS5avxDTHePlIuYCFcbrABdJsr4A=="#;
+
+const FILE_PLUS: &'static str = r#"eJxNjM0Kg0AMhF8l5K41wbRbWPfcQ3vtXWhBQXShUtSnN+6qLIFMfr4Z6+uxgU+FLypzAX5cawaGYqtMpz8lB1VuiNNDxu9bLs9oXtDZyxborB+6uWv7L/ih7cdfhVSqSZsBLsAEcEecDeDECjHCfCipGoSJwq6GBA5P2WGJ0B1jhpzsCm0EN0c="#;
+
+const FILE_QUESTION: &'static str = r#"eJxtTjEOwkAM+0rUPeaS67UgHZ0ZYGU/leFGBsTA6zmrUtuhiqxYtmMlv8unyuvaPaxHEr8NxcUlcLSxr+2Etr2a7wX154h0X45/3ZRPLJzyVhvEAuIMV7SQ4oyLWnGYECwhG9DPiEy0QBJDpIHIH4ijZhcbK4Kt3h9K1C5J"#;
+
+const FILE_SCAN: &'static str = r#"eJx1z8EKwjAQBNBfWXJPzC5prJD27EGv3osKLZQ2YBH8eydF2xxaAiEhj5lNiM3U0qNSV7HE9nY0xYWdKUjOvhESsmlpnN7s7yCGzYnSg7Rgqg6HlFCHOPafvhueFMdumF6VYgeErSQklzP8EeB/KXsSWXpYi5YsMhstU7jsKXZrVhpxQ6ExU/PPFvUFnStDKg=="#;
+
+const FILE_SEARCH_2: &'static str = r#"eJxNjsEKgzAMhl8l9G5nMut6aHveYbvuLp1goWhxMuae3lRFJCEJ4fv/xKRm6uBtxRMrqYDudUNAUOYoePriacGdOqTzoqDXTarHJv4LZy7Z0Jk0xDmGvoU0hH76WIEVi7hooBL0Cu6IMz6MPrbgf4yhVAJGKyh3P2chT4xvEDsfD18lKcB6rZz6uL4A9N02NA=="#;
+
+const FILE_SEARCH: &'static str = r#"eJxNTckKwjAQ/ZVH7omdydIIac8e9Oo9oNBCbQMWQb/eNK0LjxlmeFtIce5wacTJgLkjExmMqoAln2tlj2SUBR/cj5L5emjRht1ib0OahufQj1ekqR/neyMopyEvD67gi3CTZPGn0YLqqKFzIpVUh/Vb4V5/BZvntgd5Scou86XfA0AxhQ=="#;
+
+const FILE_SIGNATURE: &'static str = r#"eJxtjLEOAjEIhl+F3F48KPQgqTc7nKuDWxOHDg4OxueXOpwOhvDn/yD56qM9O9yO05lnIEd9oTYGhjmGUrRT+eXEF/kyBHdD3chAUae1HoZvrbvVgKzTnwcZCoNjocYYotghHM2XT2xU0BVoAcphuaN7yuMiKDlFyHX3vgHedC2Q"#;
+
+const FILE_SPREADSHEET: &'static str = r#"eJx1jr0KhEAMhF8lbK9ncnpusVpfoa29oLCC6IIi6NOb9QdSKIEkZOYbYlw9W2gyVWIcJkD/X01AEPkKeFtQHHiSRZKHgKo0TIoT3lRuPj4wN27s174bWnBjN8xTpjBmiJsGikAfxsvC5vsHDfi1JFKEkD4KnPiCeEUyOwoFPgI="#;
+
+const FILE_STACK: &'static str = r#"eJyFjj0OwzAIRq+CskMNMTaV3MxZeojKHTx06FB56OmL+5MpUoUQ6Ht6gnK/PBpcT9OZE0jXptNSDiNcyoaEIfVEWgOQIWVgUvQes2GuSAZhBM7wyzoea3DwSX7GyvkWIT53jmSwbmTjxkxCiaLL4qXvLa6899oMLH803rQX7z85Gw=="#;
+
+const FILE_SYMLINK: &'static str = r#"eJxNjr0KhDAQhF9lSB8vuxc1RbS+4mztBYUI/gQUwbc3BlEZWBb225mxvlkd2kJUGsyOdMNgqCiWXOdJ+iedpOBf9pxk2LZclPZzvpfWz8M+9FMHP/fTuhSCghvCMGAFE8ELCfCVOJICGXxl1MvsaURmk3TH0tnIZTd5AJnKMFo="#;
+
+const FILE_TERMINAL: &'static str = r#"eJxNTrsKgDAM/JXQ3UdC1Q7V2UFXd0Ghgo+CIujXm6qUcpCEy91x2vaHgaEULco4A6rznoAgdYj4OjEgeJNBComIuiLOms98i0onLrDSdpuveVpHsNu0HnspULKJhwJKQb3CX8Liv8OiAHOX6RBk+YqcoIz0nwcasDCA"#;
+
+const FILE_TEXT: &'static str = r#"eJxVjM0KgzAQhF9l2bs22foTIcm5h/bau9CCgmigUrRP393USiSQyUy+GRvauYOHw5su8hLoUrUEBEpOxq+3TgJW6jSlQUb3Oi+vv/IHvT3JoLdhGtahH58Qpn6cXw51wSW+DJACE8EN8TaCCzk0CKtm9oywiFbsKXrmU/b/KVrj3qVoj6yEDabzzbaudvILL5xByg=="#;
+
+const FILE_TYPE_2: &'static str = r#"eJxtjsEKwjAQRH9lyD21OyYxh7RnD3r1XlBIobQBS8C/Nxa1PZSFZeG9nd2Qujni3qirARnFdARRL0XN26myFzGVBc9uRbpM2ag2HD7rbUjT8Br68YE09eP8bJSUNJTmwRp+Eb9KkX8Xi3HMWqLLsola/xEfuQMshNn9wRsecTR9"#;
+
+const FILE_TYPE: &'static str = r#"eJxtTssKwjAQ/JUl99Tu2MYIac8e9Oq9oJBCaQOWgH692yc5lIXdZV6MC83o6VWpBxdZSbiZBgTKp9HyRU4AufCMFNB4XrLyvph/qnanKbB2Yei+Xdu/KQxtP34qxYWYZFlCTnYWrhIRbx2uxOeo2ZvISdTekImtxxEj0YhmZ/5ndDhm"#;
+
+const FILE_UP: &'static str = r#"eJxNTssKhDAM/JWh97omWtdD9byH3eveBQUFHwVF0K83VZEykIR5EeuqpUVdqB+lkQF/sorBiD20XCsFhGxuiUNC8/8dme8V3lVpX76wtG7qt74bG7ipG5e5UJRKSEYOjpGfxtsi5ucHsfCaBTW3MpABGZ14IHn0A1zwMLs="#;
+
+const FILE_VIDEO_2: &'static str = r#"eJxFjcEKgzAQRH9l2HtSXRKbg/HcQ3v1LlWagFWxoa1/7yqCLOwO7JuZcmpSQOvpYeBq0zAYmUwOVhyctnfOcNW25uz8KVE3Q1V52dxVOY390sehwzTGIX085UZQWQ7idjt4IAIfhe9ckqy2EFbbryp6taszdu6eCb/YpuDJEUIXXyF5KgiLVDBh/sslyObNtfHVCvtwNyM="#;
+
+const FILE_VIDEO: &'static str = r#"eJxNjrkKhEAQRH+lmHzc6V7HNRiNN9hNDcwEBQWPAUXQr7c9EGn6oHhVtPPFVKNM1J/CwIK/UcFgmL20XDM9BNlcEz8FzdknsL/TvKrUvfbA1PmhXdqmr+CHpp/GRFEoJhkx2CA+wAsR+PqhIwMiWLy19Kyj/A7cAFeUKm4="#;
+
+const FILE_VOLUME_2: &'static str = r#"eJxtjkELgzAMhf9K8N7MpFY7UM87bNfdxQ0URAVlsP36PecoPUihSV6+99pybtaOHlVyk4wd6SVvlJTS7Rh0L4kEVO1EY8HovWB33c2fpC5PW2BdztPwHvrxSfPUj+tSJZLBhMuTpuR/4B8BHP4giBHLrmWrjEw+b8FQF8Pi0YjZ5+ilYMZCW84zBgjGFygWRpuTshoMBy6wruNUwuoLppFDOQ=="#;
+
+const FILE_VOLUME: &'static str = r#"eJxNjsEKg0AMRH9l8L6pya66B/XcQ3vtoTdpCwpbXVAW+vdNxbYSCBMy85I6dkuPe5OdHUR6dp1AkK8lRi4VFSd2VECO5X9lVCWbtfXhE2/rOIVXGMYH4jSMy9xkrDRo85AcfjVuFjVvF58VODdWyZJcL0FVMv66o35fYwbzjUpHHirJaxJ2NmRLCInR4Zd6A985NVM="#;
+
+const FILE_WARNING: &'static str = r#"eJxtjLEKgCAYhF/lx13zPzQJzLmh1nahwbEhHHr6lKAc5IY77rjPn/FKdMxiY6MsYRkjCKSrZEmZm6I4EqMtJHan7PqebxH8UIHB/1jQlE1/YJeU5m97AO/7Iks="#;
+
+const FILE_X_2: &'static str = r#"eJxtzLEKgDAMRdFfCe6t9plWh9rZQVf3gkMXwUH6/cYOKihvCRxy/R6PROtQzUxAMhxBoKYMCkun7WRYW8LoHlJyZa6Cr6/34O+IkUp2yX1pa8lAOrIf7AuqN55zTScl"#;
+
+const FILE_X: &'static str = r#"eJxdjUELwjAMhf9KyH11Catu0PbsQa/eBwobjK3gkM1fb1IVuhFIHsn7Xlxs5w7uHq9UGQt8PrYMDKVWIepF2UImd8T5ouDbydjLF35jcAcNDC5Owzr04wPi1I/z0yNVAkmrgUuok/FnCS4ZF1aTsQgLeWxUrCKIk9KjPFJuxzSbe8ZoTAr8Mx+hdTo0"#;
+
+const FILE: &'static str = r#"eJxNTM0KgCAYe5UP7/340Y8H9dyhrt2FAgVRIQnq6dPqIINtjG08qKhhE2ShXd0DToNCQGgzquROWgRJUVMsgwrXse7nb3wTyZt8KHnw9rLG7RC8cfEQhHZplIgBtsDe4l+RDwRlIQw="#;
+
+const FILES: &'static str = r#"eJyNjqEOwzAMRH/FKvetTuokk7LigY2OTx0IHJgK9vW11aqooMSyzud3V7/vX6PPrXuKQincC9LEGKhnFAQWCJQRERmKbINMmiWgTD1hgC2r5h7kbdd2NYNjCIURXHRAdJTxzOfoV4I+1uB/N9aLlxnrXilSRjqXdfAtRp216X5aALdbNbI="#;
+
+const FILM: &'static str = r#"eJx1jU0KgCAQha8yzAEKtbKFeoMOESmNuxDp5/apbSJyMwPv43tPBbdEIOdXihrZiHBpFAhnuSE9jnB4G6lQo9osGLXNkcBqnCSI/QE5egEBsump+yWMU8VhQ0Vi1aFEZF36FN4AqkOk"#;
+
+const FILTER_X: &'static str = r#"eJxty6EKgDAQBuBX+bHv3N3tdIO5bLHaBYNhgkF8fjEIBvPHl4/l3LAOzcRKnhU6So1IFLqZUw2Qy0WyUCk5Jm/WlNw+p+R37iJQZ/gj7qH40g1QqR0m"#;
+
+const FILTER: &'static str = r#"eJwti0EKwCAQA78SfEDb3UqhoH5HBHEFvfh7WfWQEMKMq5JHlIIqqfTmDTNeaOgB8WW/NX6QBZP2PhUzwd1HDxOwCBH0"#;
+
+const FINGERPRINT: &'static str = r#"eJxtkDtuAzEMRK9CuOdEpERKC2zcuM4hFpvCZYrcHx7ZgN0I+9FvRvPI/e/4v8vv9+XHxfzmkojnN5fihxXhOx+TIe1y3b+m47q/fSG2IW5Bjw1JsZg/P4uiw1wNtaM29YXXOnwTNxQ/pxaJVtVREVq5ubIQrBxEe0IV5ewkHMUKE0eYwnNJOpCsi0lOTTIqJhwtfQ3XxCpmJby2DqYlB2UfMMZCT7C8o9jqyDB4ymTywqppoEYjfi7UG4PGkWzjq++bBCYFWp9rWFeWKx/mBwdGaeE="#;
+
+const FISH_OFF: &'static str = r#"eJxtUUFqAzEM/IrI3aplWZYMaWDJpZc8YkkPOWShh5L3d7y7LKWUhVlbYkYz8vlr/n7Q5/vpJkFSuPqLsy45sb1wWRLAyDhbmxp7rbRhxickRhL3pGyNcnL8UmHTFGypEWuNJFwgzCIVrapKhaUIKBqLcq2jnCOm4MiFNjzE232TxtDcwLRKTi2x5j40a2KPURd3DKqipHAap8v5beS6nI90TpK5+dUpkMYGdAfTdVzvCePgWciIi2KcDeN1K46Dpb1+XdkS2BK8SBuAMLo4I21l9TJ1dqcV9iRtBPAFZ+Fo858+JngJrKTJP9YXARcazl1XEwg6FTq2pBxU5KOzzcjUaIW8dbl2yPa44UGwm4dx8fkXFy1A8+eue0PvWTKVfPj4AWW/cBc="#;
+
+const FISH_SYMBOL: &'static str =
+    r#"eJyzKUgsyVBIsVXyNVIwNCu21DU0VTAy0DVxNjRUMDJWMFKwAGElOxt9kEI7ABKqCyk="#;
+
+const FISH: &'static str = r#"eJxtUUFqAzEM/IrI3VPLsiUb0kDJpZd+oLclPeTQQqGl7+94s4RClwUhS6OZkfb4uXxf5e3x8OJoouWCUZOhutSZuXQ0RkNzyeLILgWtSognAtioMfGVb9a+UhCZCLG0Tr4eTseHqXE63pW0U+gHba/looFhy0CErCHzU8lJFd13RkI0w+Mc0qWhzTCCJsPm85JUlEZUmqAYN2COUm/FmbS01c/rtHZk43p0wmAw27OZ54UCxc9MC4V6p1sNXo2UXezK0lKkbPYVg9S0+T7FFPU/6YfyunpbP22opz8Mhi5Fnwfawg1d1pBvXdTBnzD6nfUXOYFnOA=="#;
+
+const FLAG_OFF: &'static str = r#"eJxtjLEKgDAQQ38ldBe9s4JD2z9wdRcVFESEirR/75WiLg5HLuQl5hjOBZNVXQsea1RowJDf64IgdxEpZ8qEOfPCGsy9/g2o8ZSrz9SHbes+I5JVrBBZRDRkG7IVNEHuBpSmJoo="#;
+
+const FLAG_TRIANGLE_LEFT: &'static str =
+    r#"eJwBIwDc/zxwYXRoIGQ9Ik0xNyAyMlYyTDcgN2wxMCA1Ij48L3BhdGg+p+oJQA=="#;
+
+const FLAG_TRIANGLE_RIGHT: &'static str = r#"eJyzKUgsyVBIsVXyNVcwMgozyjE0UDDVBRFKdjb6IEk7AKZ7CRg="#;
+
+const FLAG: &'static str = r#"eJwljDEKgDAMRa8SsgdJTKBD2xu4ugsKCiJCHaynN6XDI3nw+PFenh3WhJMCW2FiUMdAIDjafR6LP0zekJFQcLT7hzkObSTH87g2qJKQDeHlhIpQ/Yi4SlNPW5R/On0bhA=="#;
+
+const FLAME: &'static str = r#"eJxVjjsKw0AMRK8yuJey+u3a4BhygBxiSYqUKVLl9NEuboIQvEHoMfu7f154Xpf7ygFxjpsmjC1zRCD6KCRsK3GQkpBlKk1JWdyIVZ2cSziUKs5vhfMGR50sXGGwZENw9IY23BASR5l6CWM3S6lungfr/0XO9F2O/TJKHz+k7yUw"#;
+
+const FLASHLIGHT_OFF: &'static str = r#"eJxVjMEKg0AMRH8l5L50Z1i2Paz+Qa+9iy1YKKWHsujfm6goEkJmwpspv+4/yLPRO7Ig19RRKNEGwdQQTo/AB2IfXSyTtC0Xb2jL3nO1FFBTH4VeYZsqDvDz/r5kZKO4qUx2s8oIszALt4Y6tKGOkLpE/DrDNcIdnQG8yzDQ"#;
+
+const FLASHLIGHT: &'static str = r#"eJxNjD0KgDAMha8SsheTUMSh9Qau7qJCBREHkerpbaNCeYT3w0fcPhwBJo8dN1CPBGJEz55MQ4pASZzHYGw5GOmZRspBZXsJLDe2rso/W7cu2wxRPHKDcLHHOpmoRW2JzExJykuqfz2+/YcfXwAqXA=="#;
+
+const FLASK_CONICAL_OFF: &'static str = r#"eJx1jOEKwjAMhF8l9P9ic2sbB13fwIcYKFQY4g8R9/am7ocKGwkJd99x+T49Kp1HdxJPtoEVBM8xTkJC/jM8kHCIVcCa/vyu+bNdKDpwDHAlH1pnyb/NeIL70G/BYDDtwCNHQtUNoiSpDl8wX28XWmR0cPSCvfZXuazSoi1U3oJ+PKk="#;
+
+const FLASK_CONICAL: &'static str = r#"eJxtjrEKwzAMRH9FZLeqE5YVgxvo3q7dDR08dOhQ+v21MxgCQYt4D+6ufOq30eu6PCCkP2dTr0pK0g+BFeA1p3tk71TYrIKwWyHOBI7WoOzpwMPg72Asqf/CUL/NVEKkPIqeumzlMhZsZe5Y2UibnxgnpAaZ5g8VAStI"#;
+
+const FLASK_ROUND: &'static str = r#"eJx1iysOgDAQRK8ywbN0tz82Kb0BFt8EUYkgnB9qwBQxZt576Shnxb4MKxvIFcnykNPU3pw+5qBkNybVDp3JQ2r87Up4hDYDBo8OpqN68gIOlYU0vPwGYNMp/g=="#;
+
+const FLIP_HORIZONTAL_2: &'static str = r#"eJx1yiEOgDAQRNGrTOoJ7ECziKU3wOJJEBgSBOH8UNNUdMVX79u9PyeOJVwjFBGx+9s0JOuzJCtOgWaEM6xCcHjZFpk8mT1gBR/RPC4Y"#;
+
+const FLIP_HORIZONTAL: &'static str = r#"eJx1zDEOgCAMQNGrNO4gLWgwQWYXD0F06OhgOL80JugA6dL05Tdc6WY412H3YLcpERAYGVW2jO4wgBr1AgLEdohhlCSGGuIMlm0tEd7yO8grVs20iMnUFnQ98T2gHzz3SDhV"#;
+
+const FLIP_VERTICAL_2: &'static str = r#"eJxtyzEKgDAMheGrhO7B5mnVIXZ28RCCQxbBwftj61RKeOP3P33O1+jawi0LjZwocZlJDFmHalnbAsJ/QH5yTCTY4YDEKqsncxFj7wR09AHzYC89"#;
+
+const FLIP_VERTICAL: &'static str = r#"eJxtjLEOgCAQQ3/lwk7kihIGZGZxdSdxYHQwfL/eYtBcOjWvr+msV6NjNRuY4r5UEMhJLCzKpxO6NzlNouQ0ihy6f5csy8FkeepWU2diFCiAnZCokfCQZjUJ+KEbbso4VQ=="#;
+
+const FLOWER_2: &'static str = r#"eJx1jtEOgjAMRX/lpu/FtXOAycYf8AO+kWmCiSSGGKJ/74YgvJg9dDk9va1/dM8el0CtKFxnYWEg6aXfwJbtDxnOKJFJ2hPqjWc1k14GB7NFrH7PMrDCTizU+ENe2Ph4G+P9ivgOVBPiK5AoYQyk2fl2G78/TswkugXsW6rxWGjaWrEUZVml6ngmXGEmqbrz3+HV5cVlhyUPS95++gOXlUjI"#;
+
+const FLOWER: &'static str = r#"eJx9T8EKwjAM/ZXQ++ay2tpCW/C2i9fdSxUULMjwoH9vYjvnEKSkJHkv7yXuFu9nOHpxwB52rYrbVgFHB0ivVhXcf4MddwD7io02NwzJuCbNCoU82MxJt7ZpapUpOB9Q5UZyZ0QlgtvwksGly5SuJ0hPL7AXMHkhBaTHuyJSgYObL8oGUAOSJMWishzMrpbX0mB+cRo3PA1/pstHJvrDeAGy0U+X"#;
+
+const FOCUS: &'static str = r#"eJxtyr0KhDAQBOBXGbYPdztB0iTW11x7veSECBYiEvTt/Wu2kGlmmC/mYc5jj7wlUQrmJF6Q12u18XXfbZy6peCf5OsRfk1HEO8jCjqWS57COA3whRaC9QlSoaEa6Y5W3BMNoH4aKx2rkTud/TR3"#;
+
+const FOLD_HORIZONTAL: &'static str = r#"eJx1yTEKgDAMRuGr/HQPmtSKhdgbeAjBoYvgIJ5fzGCXlLe9T6/9rjjWsAlY6hyKDt8q2sCEPGKBPOLD0gOeeiKjJydnZIqwHE7ghEjWzy/WfDvl"#;
+
+const FOLD_VERTICAL: &'static str = r#"eJx1y7EKgDAMBNBfCd2L5mpLhdjZxdVdcOgiOIjfr1nEIeW2e3dyblelfXILg4DbJ1ek07LIn/IKAwZizBZwr5ItSa9Ub52AFh0ciUcfNBRsj0o6+PgBbzg8QQ=="#;
+
+const FOLDER_ARCHIVE: &'static str = r#"eJxVjsEKAjEMRH8l9J64mZXuFtqCNy9evS9VqLAHWaTo39siVCWHIXmTSfx9eWS6BHMCCMN5XqrQ0IrByDyJG/tMWcVaFreyzKgNDt1OzUnjcf+bQCg6prooKo4aQLYm+l07G326bWm90hYMDKVnMGqrvqq6Zvrg6PuPakm1sH4T/tBUGB29ARr9NNY="#;
+
+const FOLDER_CHECK: &'static str = r#"eJxNjr0KhTAMhV8luCfXnJZeC73C3VxcHdxEhw4KDuLz2wr+kOnLlxNOWIct0vQrWksoo7oBBCrPAaOrHubEkb/izb1TVnGOxc8sFRLg/8TzJZnGvj8QdjVjCoqKpyzQF3X45BZ1uLosntSc1rK99QFHySWH"#;
+
+const FOLDER_CLOCK: &'static str = r#"eJxNjkELwjAMhf9K6L0xyWa10Pa8i1fvIwoTepAhov/eqKMbgfCS95GXdB8fE1yyOx1AaOhHAQGyYi9eznslz8gYve29TB3GbkWAMQSMFY9iUppBizEIbWBTrqTdN7Akvc1ar6Dv7Dg4mLOzrq/fZNDfLql9xwG4f0q1zHbkA4tMLLA="#;
+
+const FOLDER_CLOSED: &'static str = r#"eJxNjq0OhTAMhV+lwbd3PSO7LBkkOAwWgSMgJhAIwvOzIQap+np+csKxnJG2thprgonqFhDIPAfG1LzMiSP/xdvyU1ZxjsXvLA0SoH/j2Ul2qL8NhEvtmoKi4ikLmKsu/PKKLpQtIDURpig3lK4kzg=="#;
+
+const FOLDER_COG: &'static str = r#"eJx9j8EKwjAQRH9lyT1jdtPGBtqee/HqvUShQgUpIvr3Ji3YHlLJJZN5mdmtw20K45XCu1FcKZoaZRWFz6za+rDYbf3onwNdGnVig5LEdEUvJGTiYS1azuWqKerBwm9eGM7Dj6jSVX6GScYRvhOz/U7ysihTfapdy+/COBJ7FBpew2YILiHELtl7hIOjFAQbmRzgEaeMOX+AJUHHQThfUaUEuwsUsDTHcERyi5q06ByzBb7aMGpl"#;
+
+const FOLDER_DOT: &'static str = r#"eJxNjsEKAjEMRH8l9J64mS51C92CNy9ePXhbqlBhD7KI6N+bKriSw/AyMyHpNt0rnUd36Ald1TCBQN1nwDgOK7Nx5a1E/9spq4TAEmeWAQbYrfWWJL/v/y8QHuqLFUUlUjNwcjlt2hc5letS5gsto1NH5WkC05epb6Gvnd+PjCiN"#;
+
+const FOLDER_DOWN: &'static str = r#"eJxljrEOgzAMRH/FYrcbX2hKpBSpW5euHbqhdshQJAbE9+MwBCR00/n5TpemYc70uzevluCyhgEEcpvAeHe7Z/OZbxJ9vSmrhMAS/ywdzOCxx8sn+Wd7bCAs6r8WFJVIBeDT9OlSVvSpblGQuiWcyahXUs/Wy6bKV7zfLS0="#;
+
+const FOLDER_EDIT: &'static str = r#"eJxNTbsOwjAM/BWre47YeVBLoTMDrAxsEQwZOjAgvh+nqqIOtk73LJ/6bfS+TPcZUYg9MlcBUz9PTB3peXu3BE3ESkLiV6i60ImEGJy9+JyWcup9SxmtVslIj/TyjsFQZ1knzYKhGrSJbQQ5Q1fMZocMwe/CVfzBbOjHB6JXNqdIY/4Pc4suCg=="#;
+
+const FOLDER_GIT_2: &'static str = r#"eJxtTsEKwjAM/ZXQe2P6ZrWBruddvHofVZiwgwwZ+ve2DObAEcjLy0teEp/9a6Bbay5KkO7Yg0BSwllYXP2PU+FDw7rpOD4p68ihllgFqcKZtYNs1wmzNyke6sUU82PK453ypzUOhvK7YGNoag3q0CKnuL7nAjnNFhxIrC+Ikv0c9h11cYT8OX4BAuY6bw=="#;
+
+const FOLDER_GIT: &'static str = r#"eJxVjjELAjEMhf9K6N54SUrvCm3BzcXVwe2oQoUb5BDRf2+r0HpkCC9f3uP5+/zIcAnqaICHTHZmYBi+w5pPU9e66KxHdNJupAmt1egWjRMXwftur58gB/OfAPwkScWIhA4q4LOKfldbRJ9ua1qukF5BEStI77JFwRoU16cfjr5VJgMkWXpAI+MWfAAeITcG"#;
+
+const FOLDER_HEART: &'static str = r#"eJx1T7tuwzAM/BUiO6/iUZQtwM2coV07dDPcIYOHDkW/v1RQOFkCCdLxcTze8r3+XOXr9fRuJiyXulIoJY8plR+xFTUYumZeeXV0v7eIoTX0HTMT8iiU/8KF5aE50a8hTuflZaiel0ObSe5ijmklqsvtuQ1SooUiuCkcxoQTXDEjfM9UzZtfDPiM63duG9ypZ07RA71qrpURKCle32xCCG13NHVEbLlY+udwajUHzrCuo/XzsPEHPFZDyw=="#;
+
+const FOLDER_INPUT: &'static str = r#"eJxljjELg0AMhf9KcE+al2uPBq7OLl27Sx1uUHAQf7+niBzIW77kC+GluV8yDZ/ma+S/118ZAnE2MrYcxENfkLQEBIlRfJS3FbRL6Ck60+q40Ipqsb/snvXMtjKaNj32Dm2qmiBk6N1MTogU+MilN2B/LLw="#;
+
+const FOLDER_KANBAN: &'static str = r#"eJxtjrEOwjAMRH/F6m4TXyKTSKESGwsrA1sFQwYGBtTvJ2ZIGSpPz89nXX0vn0bP03RNhNDUFhAo/AaMW96YOzc+Soljp6xixlJeLBkdcN7ifknxkv4/EFaNjx4UlUIucJ/mevAWcx1dMmlY045QuMGeMTc2zBdtjTNy"#;
+
+const FOLDER_KEY: &'static str = r#"eJxNjk0LwjAMhv9K6L0xydpioe15F6/eRxUmTJAhov/eFHWVEPLxvCRvuk33GU7ZHJhAaHSTgABpsBUrR1/JMjJGq3sr84Bx6BJgDAHjgnvRVjZAXzAK/Ym1e4gpadd+llQva13OsGYjBuozGw5aXzpSE31wST+DV9Efzjr0oNnPdK52fPO0sTfHBzT1"#;
+
+const FOLDER_LOCK: &'static str = r#"eJxNTrsOwjAM/BXLu43tvqWkcxdW9qqtSCUGVEUF/p5EgoK8nO/hs7uPMcDs8awCJkM5GhhIGiUju1STkLJyR4knCwV3xc8CynXN3Y1bS9AOQT7CYPJnTmg3rrB3p9zau22ZImxPj4rwWOcYPLYIeS8RwrJeQ/RYIbwS0+RYDvTueNnS1Wanb6+CUAmy29HwBvRlNL0="#;
+
+const FOLDER_MINUS: &'static str = r#"eJxNjjELwkAMhf9KuD2xeVfPHlwP3FxcHdyKCicUcRCx/95ch7ZkeHwv74Wk9/ApdO/duSU0RcMAAjXzgHHpVmbjwgeJfvGUVUJgiSNLBwMc13pNkj+12wuEr/qbFUUlUl3g6nLa1S9yGp+vB03aO/WOfjDdmxpHRxNm27I1lf8/HCiI"#;
+
+const FOLDER_OPEN_DOT: &'static str = r#"eJxVjtEKwjAMRX8l9L2xyZqyQlfwrV/g+6jChAoyRPTvzVTcJA83nHMJSdfxNsFxMJcA5IHQi2WMewYGp0MQkZW7wm5cIWH0wCjNEopAWJV9K6XFbyBbPkh1KlVb5ZanDmP3dzIEjA171pV/wn1FoX5T1u3OJqfd8n5O9TzXdoJ5MGSgPjS85lNTltJH5xeKQTNW"#;
+
+const FOLDER_OPEN: &'static str = r#"eJxVjkEKwlAMRK8Suk9Mpj+fBmrB3T+B+6KLLiq4EM9vFLGVbIb3wjDjfX4sdD12t0pWyKQ4Q+IEAmmeUQiSa4POGzSJQhBf2cSd6qb4o5K2soNgnP2iKVNzcsbSS/R/lbVKrDIgI35Cv6LZsHvO9EQ3jYf3/OkFiKsoRw=="#;
+
+const FOLDER_OUTPUT: &'static str = r#"eJxljbEKgDAMRH8luDcmKVUL1bmLq3vRoYOCg/j9tiKlILc88sKdO8MVYRubWaBHs5iVFCOjVQKiJGq0OiQESmFg7Dq0Ow6SUIqgT3ih6jnRzdUhV3ppJtfm0clV06wj098cBpiUhjdFPxuHKY8="#;
+
+const FOLDER_PLUS: &'static str = r#"eJxNjrEKwkAMhl8lZE+85OrZg2vBzcXVwa2ocEIRB5H69l7q0UqG8CXfH5KewyvDtcNjA+qyhEFBwc2lpKd2ZSqcacfRLzMh4RCI40jcagHdr3EzwR+a/wugb/GXEmThCLbQM/ZpY1/0abw/bjBph6IIH+sBYZLK1p3JplV5lvxPitUxtPF2cb9fADO1"#;
+
+const FOLDER_ROOT: &'static str = r#"eJxNTj0LwjAQ/StH9jt7lzY2kATcXFwd3EoUInSQIkX/vTmFVG54vHsfvPCYngWu0Zx6kK6wmwQEuu8JynncOFZecE/eth8jk3NIfkYapRI5bHF1gj32/w0gK9tcg8TkQQW5mBR2uiKFfF/yfIMlGjGQX9Gw4ruiVdNPTqFNZgEe1qEVfAASLC/x"#;
+
+const FOLDER_SEARCH_2: &'static str = r#"eJxNTsEKwjAM/ZXQe+OSbt0KbcGbF68evI0qVNhBhoj+vWmFbgSSvOS9x/PP+ZXhFtS5B+4y2ZmBoavFmi/ThrXgrEd0pt1IE1qr0S0aJxbAx01emGBO/d4B+E0miRAJHZQHX1X0h5Ii+vRY03KH9A2KGAcFa1B1po9cSDah/knRt+BkkEegvvYByDbDHwP3Mqg="#;
+
+const FOLDER_SEARCH: &'static str = r#"eJxNTssKwkAM/JWQ+8ZNtq0u7O65F6/eSxQqVJAion9vqvZBCEwyw8yke/fo4ZzxyAzi26oTEPA27MTJqVbvmJiis7+TPlAMqwSYmobiQAcxKAvh/0QrfiM29KywpN2UWZJeRx0uoO+MvEcYMwYEfX0vE/3okuaCNzEHtjL1tIvNB2MmLYo="#;
+
+const FOLDER_SYMLINK: &'static str = r#"eJxlTjEKgEAM+0pxb732sHhwOru4uosODgoO4vutoseBZAlJSBL38VhgbopeIAzV5JCJKaCAoCyegh+NgjMwMKlSWKkWo5IM9xqduCxs7ORMuCs7KdpY3pNt/Ia3GljB44O/bb9YT+S82Z5pSl5pryyE"#;
+
+const FOLDER_SYNC: &'static str = r#"eJxtTjEOgzAM/IrFbjcxISUSZWbp2h21Q4ZWqkTF+3tOEUUC2ZFyPvvuuvf4yfS4VNdE6oYwKik5lGdlvTV/TMC5lrSZeIlJ0lNa++pKOCPOkgZ123PS2Vd9dzLHvlt9vZJ3c8hhz72MC1BrGO8uiQUpRQ1R/ZtOKlGiISo7AdVaNoMHdoocOnPIfGQI1rdF3sRgB0+VosWLxYRBZPQSAFuhNO6sNq5f4sFPkw=="#;
+
+const FOLDER_TREE: &'static str = r#"eJyVjrEOwjAMRH/F6m7TixNIpFCJjYWVga2CIQMDA8r3k4IEFlWHyovtu7NffozPQrd9d4IS+rIbQaD+XWCct7+Z21zYSfiuwBJZ/J0lMcQdTDSQNq8NE2qwxwmXbsib6f+QLYXDP0VlnWPEaDkSSwgNxPvWG/NHOELXoyhpddcmCySRm6rogg+6aHwBcFlOJQ=="#;
+
+const FOLDER_UP: &'static str = r#"eJxljrEOwjAMRH/l1N0mvlShkUIlNhZWBrYKhgwgMaB+Pw5DioQsD+fnO115Le+K+2E4j2ColhaCCN+h8DJtWlxX2WuO/WZimpJofohOdMHjZm+fiKfxNwFcLd7cqKYZDfA6zGXXWsyldzHCwpr+yTPDPFR8ETv+AI+RLOY="#;
+
+const FOLDER_X: &'static str = r#"eJxtjr0OwjAMhF/F6m4TX0JopFCJjYWVga2CIQNIDIjnr1P1b6hOsnT+fNblb/8r9Do3t0BwRWMPArlRYNzb1bP5widJftkpq8TIkt4sLczgssbrJflr2H4g/NU/LSgqiSrAo+nyobbo8tzlk+RI6myYdrCGifOWD4i/Le0="#;
+
+const FOLDER: &'static str = r#"eJxNjq0OgDAMhF+lwbfQGxksARIcBovALSAmEAjC87MhGKn6ej+57vRXoL0v5ppQBbUeBKreA2NpM3PkwI048/2UVaxlcQdLiwgYczw5yUz1v4Fwq9liUFQcJQFrMXRlWjE8Mlcdgg=="#;
+
+const FOLDERS: &'static str = r#"eJxVjrEORkAQhF9lo9/9/x3CbXLUGq1CJxRXKBTi+R2JQ7b6Zmcm49dxCzTXWedIq6AYQaD/dWD09jBHDpyL5UlTVilLFltYHCK84verde8Kwm5TDIqK0aljyBr/O1c0Pm0BuV316wtaJOcBC7woZA=="#;
+
+const FOOTPRINTS: &'static str = r#"eJx1kLEOwjAMRH/lxG5jO6mTSoWlMysDW1WGjgyI78ehUDHAdOdc5HvycJvuC66H3SlD/UHGqY5hlTsY9wUq4RLqzJIiLQbl3JMjc0c+9pwK4k2QuDbpuJvboEoWg3tIZa9n9cnip0ChlCGX3XHYt/bjsDGYwGSFmCVEW1v0ppejWGf04aCVg1YOzewJDs0oDSSj30CwguANYrKBCP6AaGwqS/6RxG3SV/AEmOBGyw=="#;
+
+const FORKLIFT: &'static str = r#"eJxVjrsKwzAMRX9FaHcaySiuwc7cJWv34BZcSKGEEpK/j0UgDzRcwT1wT/j1/wyviB0xED+kZ2Co9Uz5JsE23JRpQ/qMaXjDGJER0hKRfMm5pFVoq3dMC8ErfaL22TuQz/YrhtxELjddUzSeLtWGKqq8ShjOdhA4VFYsxzAl"#;
+
+const FORM_INPUT: &'static str = r#"eJx1y8EJgDAQRNFWlilAkz3oJZsOLEJMcHOTsKB2r/EkiKcP85hQ82KkuaxqAs+gUzCA9pJMBexAxx1QfRJD3w4xbLMpJcHkmTxr53yztr5t/LcPXYYKJlU="#;
+
+const FORWARD: &'static str = r#"eJw1ykEKgCAQRuGr/LiXnGHCFuoNOoRQoCAqJEG3T4J4m7f4XG/lKbme6C3XcXlFK8iCDYgx36rglh8F1+NIOLzaBbTdmqNAYGYE0ZKIPz5ReAGrIBjF"#;
+
+const FRAME: &'static str = r#"eJxtjEEKwCAMBL8i+UDJHkoPqb/poVB61t8bYxQRT0M2w8j3/k/IfNNJIcOQFFDoCFCUozpRzPTRVL6GWwN6Lq7nPM7NxKbqv9Qq3bHAVC2xsStR"#;
+
+const FRAMER: &'static str = r#"eJwBPADD/zxwYXRoIGQ9Ik01IDE2VjloMTRWMkg1bDE0IDE0aC03bS03IDAgNyA3di03bS03IDBoNyI+PC9wYXRoPtteD3g="#;
+
+const FROWN: &'static str = r#"eJxNi0EKgCAQRa8yzN5qJINAvUGHCAsKIsJa6O1zNKHF5zF/3tdu9+5YwRukDsGFRJkYM61uy9/qa342WAxONAANt6BGCSl6DuSwzJLVx36uEMngiBAKoiwXo+mIXbY+l2tS3P9npOqu2i9dXywv"#;
+
+const FUEL: &'static str = r#"eJxVjbEKAjEQRH9lSZ+YnSSSQHK1hbbXHyhEELEQ8f7erCd3kS2GGd7M5tv1fqGZiwIUvZu6JiiKg6IZ33jIO6GGvLAtTD/GL5UmspA28jE9K52LOrEnYPQTCGTlNDQO+94TXhylKqX/KruKFWUSdPNWfLW91xiTia5bNyFpNh5HjhTWJx+p/zkw"#;
+
+const FUNCTION_SQUARE: &'static str = r#"eJxVi7EKwzAQQ39F3O6r746SFOz8QdfuxQm9bCUYmvx9Yw+FDpJA0kvbUio+61w9k4yEI5MRtj2TnnH02Hvny/ry2l9TujRuSu9ndcyZ7jfIUBQRymOQ7qceEksMCgnGBmMN1thG/bPC6lcefuMX3FEnAw=="#;
+
+const GALLERY_HORIZONTAL_END: &'static str = r#"eJxFi8sNgCAQBVvZvAYE/B6ADizCCHG5GbJB7V646GmSmYw9N2EKDquhuWgFb7umvP3CRGPRwx9y3IWuFIQdtAHdFQr0OPQgjulgqWYB5VpM+9rhX13KHg8="#;
+
+const GALLERY_HORIZONTAL: &'static str = r#"eJxdjMsJgDAQRFtZpgFJAuJhNx1YhJjg5iZh8dO9iRfByzA8eI/3xZSSYPYUDjch8tBR5JpXo1sQQPUSeFDbEXSWZCpwDWgum1r7r9aFyF/vF3wAShMeGA=="#;
+
+const GALLERY_THUMBNAILS: &'static str = r#"eJx1i0EKgCAURK/ymQvENxcF6g06RKT03YV8qG6ftorAzTAzj+dK2pTOHFU8eAJJyrto7RZ0eYyg+81Sh0FwQxOCO1YVih6LJcPCDbTrA+Ye4K7CP+cBykgsZw=="#;
+
+const GALLERY_VERTICAL_END: &'static str = r#"eJxFi8sNgCAUBFvZbAMCfg9ABxZhhPi4GUKidi9c9LLZzGTsuRVBcFxnGNGK3nYNefuJEZPo4Rc57gVXCkUc9ULk29EQdXviqUwREtMhpX7Tulb4F1VsHfM="#;
+
+const GALLERY_VERTICAL: &'static str = r#"eJxVjEEKgDAMBL8S9gNiC+Ih6Q98hNhiepMSUH9verOXPcwyw9duSlmwRQo6r0g8dZS4lcPortlU4JzaIwgg3wjSUk81P5y8gqVrXUj87w3BD1dWHfw="#;
+
+const GAMEPAD_2: &'static str = r#"eJxtkMFKBDEMhl8l9N7YpEnbgZmBxYsHfYhhFFZYxIMH16c36ZRVRApN2n750z/z5fXtBa68BKIAn7SEYsGPKcCV+vU63zm1zp11ph1MO5ApHAL5D9nLeTzykFVMoxHpf3wafBrQaEXN6278+/ZxhuclPFHFzKAPBUvbBASSr5hxqg0y6rRHTKlgUraEkBJ5rEjK94wlCUwoVICBBEV7UrYM+VCymHeySKgRFTjShaxAYt9PbLxjZDKNm9WeBbPI9vPQQdRWHqkCtR3VdOzaO/1uFPOeTFXFGtm/YrEasbRprMja3Ei1Td2AuTiMWFQ63ZzDGMiXz8qntH4DhBNo7Q=="#;
+
+const GAMEPAD: &'static str = r#"eJxtj0EKwyAQRa8ic4DWb5riQr1MK1UoWQQh5vYZdSAQsvqL9x7MuH9eoqrGEzSpCk9vUjsPDK/pG9yzWcENl6GlnlhRtaivGxWzwGk0mB8a0k1Xv3F7ckiKcRns6a/xU1T1xFeuY1LMv1Tk8P7Glr8lMdMta0E4AN0rPM8="#;
+
+const GANTT_CHART_SQUARE: &'static str = r#"eJxty0EKgCAQRuGr/MwFYorMQL1Bh4iUxl2IUN2+hiBatP0ez5W0VJTDU0vYc6ziiS3hho4gKa9SHzlVgmt0CG6bqyB6mkZYGdRVPm7BrZifwAw20r/lAoCmJP8="#;
+
+const GANTT_CHART: &'static str =
+    r#"eJxtyTEOABAMBdCrNC7AN1BJ9QYOITF0NLh/xNLJ+p7seYxWD4OpGFJQiY9UPAohW/sEQGCrPhdFVRWp"#;
+
+const GAUGE_CIRCLE: &'static str = r#"eJxFjEsKgDAMRK8ScoBoqlWEtDfwECUKCi6kuNDbm1JQmM9ihidnujZYAs7saQBHY+IWTBZmT2MxRmnKMYruWY8V9A7IDkGf2jmgK6c6R/mpHfWGMzRP4D/OC/7hHl0="#;
+
+const GAUGE: &'static str = r#"eJw9ijEKACEQA78S7M9z3YXjYPUHPkKwsBEs/D9qoSSkyIz2PCpKMI08SCCPmKjvfqMeltiygP5MDqtrdj7LHu7aE8xdEk4="#;
+
+const GAVEL: &'static str = r#"eJx1jTEOgCAMRa/y416koFAT9ARegujgYuLg/WNxwQHT3zbtS/5PV74P7HN38gD2FM0I7Y2MeBU5w7FsD/utrH+Hd5SbYcmvzGDbLakvnkuqzgGqQKHBBPJDJkRl0iBOc5iEKnsA1mwwrA=="#;
+
+const GEM: &'static str = r#"eJxtyyEOgDAQRNGrTOo3dLpNQ5OlJ4AL4EgQKxAI7h+KqUL/9+0+Hse5hK1AnenKKMII6ppQ99Bs+kSz4UgoZtQuqchCFZXyA/vvKY7wAq57G4I="#;
+
+const GHOST: &'static str = r#"eJx9TL0KgCAQfpXDXbsfJAXzCWptFxocHBqioafPW6QpjoPvP53lqnAsZotAWB2SyWlSMadhkf/xGLgECIB6tqObuIkVYOf1156g2AablQnITvjt2fCM9RczACSN"#;
+
+const GIFT: &'static str = r#"eJxtjsEKgzAMhl8l5D7XZJZeWi+77LKHkClrQVS2wnRPv6Syi0jpX0q+L/x+noZ1SGMP85TG/A7IBohBkhnqLYix8ec/2fhX/8gQ+/SMOaBF+KQuRzURFnkQ1oBOFQUbX9avJBMZLRyQFGFlYKHyFXZbPbc5QhfwLh3czVW25cqCXiOHwJzslQhYO7oS39JNtJ0c651sNvlyLP8ABA5DOw=="#;
+
+const GIT_BRANCH_PLUS: &'static str = r#"eJyVjsEKgCAQRH9l6C45iouC+Qd9hNDBY4fw0NdnCXXxEsvC7rwZmLjno2BbplVgK82U4nxLKb6AHiFbWGiwrVbN+Xx95BxkBIZ/M3SQHBC6R7VrXIauyoAYgr6oD10qxzbq"#;
+
+const GIT_BRANCH: &'static str = r#"eJxtykEKgCAQBdCrDLOPsigS1Bt0CDEhQSKkxXj7RhPaxCz+8P9TMZweSGhcEGiskTnEzMnthEb1xRjlQnLRgyNeVwSXK07NvOunclP0qy57H7Br3MQK0kqQMPCJjr/CymwewFspow=="#;
+
+const GIT_COMMIT: &'static str = r#"eJw9yzEOwCAIQNGrEC7QQNOhCXoZ4mBiOjjJ7StqmMiHh2jt2gqoJSRG6AlvBB2rslz7nKXVr4DRRoOWMj455+vY0aG+Y8J4Cev9BP4BhjAhDA=="#;
+
+const GIT_COMPARE: &'static str = r#"eJxlyrEKgCAUheFXudw96l7BDLS5pbVdLDBoCImot08RSogz/MP5tFuD2xZwt0FSCO7KDQYF9rrOd68LJrOSf7Tbw8NscCQB0gvLwNDEUSyfbaKJlJCA1KA+WXHFU/fKB8foKnM="#;
+
+const GIT_FORK: &'static str = r#"eJx1i7EKgDAMBX8lZBdNBKnQdnZxdS9VUHCQIkX/3paKZJEsedyd9lvw+wL+MkiMEAy2CP5OS6HVdcFWC62TVvcjpfrlRRbW4c4VZoMjKegjOQaGJh1V6RuU3BVPfU5zIkMG4th+5AE8IzVq"#;
+
+const GIT_MERGE: &'static str = r#"eJxlyjsKgEAMBNCrhFxAV2ExkOQGtvZLFBQsZLHQ27ufRlimmIF5bEe0c4MoOCLYK+im1E9p5a7eyg3zVfk/usK9wyo4exjcQoGAoC9JK8MM9ANd8h93"#;
+
+const GIT_PULL_REQUEST_CLOSED: &'static str = r#"eJxtjTEKgDAQBL9yXB/lIgaFJD+wtZcoKKiIWMTf6yWKKayW3RlY7abdzQPsBgsEdxqk6k4f0uo8YqsfjQWFr+25JNLWHSP0BhuqgCgrWyoZ8/zBRRIUQoH6R7VQIkHztA7gKbye0qAkBC9jvdeaTXbsBUICNxo="#;
+
+const GIT_PULL_REQUEST_DRAFT: &'static str = r#"eJxVjE0KgCAQRq8yzD5iiqRAvUHb9mFCgkRIhN4+/6Bafbx5j+HKOGU1qCCQRgQnsEdQPpPkbdGS16zqGLNSsW90rtcOm8CZRmDLkFQ6/QXR3dCrrDk0+C4/9JQnROoobsQplamRDx2GLxk="#;
+
+const GIT_PULL_REQUEST: &'static str = r#"eJxVzFEKgCAMxvGrjF2gNsEK1Bt0iLCgICIkQm/f1B6KPfwf9uMzfgt+XyBYVAg+WaReGkudaerbmT+Tt65af9E5XSvMFkdSoFc1MTC0ciTlu8s0E2f27VggUllJkkHCFpkQIr+j2bgHyVUqvQ=="#;
+
+const GITHUB: &'static str = r#"eJw9UMuOAkEI/BXindqBhrYnmTXZ7NmPMOPBowfj91tMJ6bDq4CCZnveXg+5/56uluL+1rgFhpQs9dS0IfdGv6tTEollqMFT4Wd1xJhF8ILtsI6WbCY6ScoXQzLRQ2kTrZflmP8uLjllV1SdZdlJIiT5S8TSZOpjLwlZ9yMnhaf00uxaEauiD7IsjEfS6XTsDA50Z+iNYeEj33G6bD91g8v2vcQqNnYNpIkrV1b+8lv2AUS9PiU="#;
+
+const GITLAB: &'static str = r#"eJyNkDEOwjAMRa9idc8ntiMnkUpnhpyALRIDQ5EYuL9wBGWoGKq8LD92nuz52V93up2nhwixQmpQqAaOHUkciuMEcPJboIMtE/GModX5ZYqY963euQaBGBksX/wPaQYm99ne80djAbEc07TvFB05OZ83gmQUbSwkvFZYDYZSvIadrUZdXfQ6LfNpLGV5AxTnODA="#;
+
+const GLASS_WATER: &'static str = r#"eJw9jLEKgDAQQ3/l6N7aO722Qi24OegPuBUcOjg4+P94hVoCIQ+SxCe/Ba5FHciGgGgLJmQJYEWoSaPx884wFpxugYCA3hCuvQNteaoUh3qXYj91gJQZuDWd+E+2Up98HKUeEA=="#;
+
+const GLASSES: &'static str = r#"eJxtzU0KAjEMBeCrPLJvNWnjKLRzAw8xREHBhQwu9PamFKWClEJ+vkeKXVe7nWGvSqyEtVIm2LPSjuay6du5fJTPeU+/emD35XHBqdKRM1gXgWDbXpDQ6m8Haammh4xEBScoJotT4JjAMbtN4a/mzvngPvSAf/VTY+ANwHk3+A=="#;
+
+const GLOBE_2: &'static str = r#"eJxtTk0LwjAM/Suh99YmbalC1/MuXncvVZjgQYYM/fcmHWwTRg4vj/eRpFd5j3Dr1JXQBA8YeoyFgMDKaN5mz4LK6STWnNZABGecH0Jx4BY3o5vtmkaQtK28GTQXYcK3diDddN10uaVpdAbjwTXkNjaFAc/79/S+EBvX+G/oydiwNdbHVJ93mDqFVkH9MBLjtyG7Fj3/AFqYQXc="#;
+
+const GLOBE: &'static str = r#"eJxtjUEKgDAMBL+y9K42UW+1P/ARUgWFIlI8tL7ext5UAhmYXVjjtuD8AhcHRazgUmHI0MqapuTW+G1fkKikiQtjJguzZ2lLy5pjOlfMgxqJwRP1dYvn6XyEDqTxktW/rL4SIi/ZkhV7A9heK/k="#;
+
+const GOAL: &'static str = r#"eJxtyjEKgDAMheGrPLob09RAA7XgAVzdCw4ODg7eH6NDJ3m86f/K1e4D+xzWKIhpkzNjGvyhlvFttXQhTKqITJIWg4ERfW7J/nh22hT6OUYmgxBLlw9pCB3e"#;
+
+const GRAB: &'static str = r#"eJyFj70KgDAMhF/lcG9NYpQWqm/g6l5wcHSQPr+tgz9QkFuS474cCXs8NqxjM7MDs+0XHwUCKjJiJNF7hyS22kyhLdwUHlrBtLgfVmokwVv/W9tX0AGs32AFpFpn+fVOcpaCUhcd3EWyydNm9G1k6xO/z57yqkpv"#;
+
+const GRADUATION_CAP: &'static str = r#"eJw9yrENgDAMRNFVTukjbEeOhGSyQYZAUFBQUCAXTE/cpLj7zbNnfy+cW+oiYPLaIzdT1lFojvtSsyVgs8krWFyPgoJ1jAXkWSf8Ad17FjY="#;
+
+const GRAPE: &'static str = r#"eJx1z8EKwjAMBuBXCbkbl3apLbR7A6/epQoKO8jwoG9vulWmsF56aL78/ImP8/MGl4RHY0BOZtwJ+QDlwSHuy3SI+T7l8Qr5nZDnCUwJLUJ+6YcjV+RiVqsjT8w4bx2orzvbkg1ZWSgzOWljFdpA/hpYCrxhqyiZHXWhYi0lbazCkbi6Zsk0OrBe1NfEjnyz7xr7PS/8qA+Ht2h/"#;
+
+const GRID_2_X_2: &'static str = r#"eJxNy8sJwCAQBNBWhm0gqJcc1A5SRIiS9RZkyaf77OLFyzDMY2Kvh6C/iTxBMxCeVoQTuZXAtZ0so3+GOS52yPHahVESbQHOs7qKbZM4j3BP8gNmJB49"#;
+
+const GRID_3_X_3: &'static str = r#"eJxty0EKgCAQQNGrDHOBMBESHG/QISKlcRcylN0+1JXg9j++y/EU+Ag1Qi6EKwLHdLEQqg2hNHhTEG7Bu6UO3t2HMATCXYPlDjUNoMxcLOhnCsqM8gPBUSyp"#;
+
+const GRIP_HORIZONTAL: &'static str = r#"eJx9jTEKwCAQBL9y7AfCBa4QTj9zpAikskp+H9ETBNFqixl21O5sz0X2RQRQjmCQvWVOJD0aTeqW4+ZWK6ytgqXLs+SN4ZJlW2TZJD22OPsBgONBeg=="#;
+
+const GRIP_VERTICAL: &'static str = r#"eJx9zTsKwCAQBNCrLHOBoGARWL3MkiKQyiq5fUSFVfxUW8ybHZY7ynORvB4nKHoYkHzpWAQ+Shq4Ko0damVEua2/dsq2yrgZK0G3vJ7stLIfif5Beg=="#;
+
+const GRIP: &'static str = r#"eJydjkEKgDAMBL8S8gGx4CGQ9jPBg+CpJ/29xUQMaKD0GHaysyxblX0FOTLOCUHOjAtCbRcWnjQt7CnqoZ7U0C/0prdW9T9dHqBQaW0qtp9gfvLLWmXgpAGnL7sAryBicQ=="#;
+
+const GROUP: &'static str = r#"eJxtzrsKwzAMQNFfEdqVWgrBBOLMXbp2L06ospVg0vTva7kPPGQRBp8rNDxuSWEKeGnBX7voiBtuehIQEhUch5OJcfg79tCqxMzAgUDT5yHbkRQG9ptEBxmTQVurdGQ9CJ+7SGUtCdkJJFtt1zkmWPeAjPAK6BH2Mp/LlLS8dF7umgJ2Fhn/Rta4+tt6ljr97P1lbwYgSW0="#;
+
+const HAMMER: &'static str = r#"eJxlj8EKwjAMhl8leG9s0jZrYQ68eZgPMfSwwwYeZM/vv4giSNM/TWh+vvSP6TnT/XRYpZBoqFwI9xa4JkRQlm7PieLvmdBXctlroRjSiKIdhv64Ww79x/gKA8sEe1WSiPf/n1UjNyER7oKwFhcwmEdLqLNnRX8Dm41iHIUy21S4GLk4WkjcMgYsX9rCTbnq2VgqubxpQVo5b4KhBWvMyrlb4G0k4PjyvQD1SD5Z"#;
+
+const HAND_METAL: &'static str = r#"eJxtj70OwjAMhF/l1D0mdpvGkUIXZtbskRg6gMSA8vy4gPgpleWTLH+ns/O13mac9t2RFSwUCvsqEPilnDhpPzOkMQ3dlHeLccof+wDmkl4sGzvAN9kibe0tKKzY9M9eIjg4pjg+5PsQ0h4mcu5phPUhUoAw2R2JjBP7xnSWqtCnCeq0xFVqeKfeAdW9PSQ="#;
+
+const HAND: &'static str = r#"eJyFjbEKwzAMRH9FZJdqybKrgJsvaNfsph0ydOhQ8v2VS0gyBMIh0B33uPKp3wlet+7BBsxjrgICoQkFZQ57D+67oVwaM5SNVOAw6gkpR2RwktLpqh2xBrbU2KUQ5lw9+2OM/k0oTxTyBJUSkmVM1PceRX1jpNxuXWLwamx9uV+B0zr5A510Qiw="#;
+
+const HARD_DRIVE_DOWNLOAD: &'static str = r#"eJxljUsKgDAQQ68SZq92ipQuWm/QQ4iK40IQKX5u7w8pKNmEPJK4qY6C1lNgDb1YqlxxRZV7wcgGJitRZqcSnrsmYt48acI6tFFOpwjSDb1ET5bwsN0T37WrkFaDAVvJFf8PA6svOwAbbC4G"#;
+
+const HARD_DRIVE_UPLOAD: &'static str = r#"eJxtjU0KgzAUhK8yzL5tXgghi8Qb9BClSp+Lgkjw5/YaQRSRWc18zEzsPllRJ/7Fwz9cERyr+Cqgijt+i4UdwgH65psxtnXWRGsIbdqf5sRATGtCzIniiH5za60UTnseEvRp5O7KXNkCC98uBg=="#;
+
+const HARD_DRIVE: &'static str = r#"eJxVjsEKwjAMhl8l9N7YxDV10BW8efEhBgoThniQ4Xx6m9ZZpIck/f8/+eJ8u19hpcEQG1i51leeWWue2aS4U1eKj/E5wWUwZ4+dB49EwEC8yMi5ceXlbqK/D8uLldnuc8YKHvpj00gwCHSngNy1iCUMPVBe/9bbejXFximVTyqeoKMvuDTS4laZXNE1QO7n2xZt/g/e8TyZ"#;
+
+const HARD_HAT: &'static str = r#"eJxtjaEOgDAMRH/lgm9YN9YgBhqDxS9BTCLIBF9PIWSMhNT0ru+uYYt7wjo0swX3kcEw9+iWvgZxJvsapMbkag3O9mjG0F6dYyjNrGGz+ILy1ZVsrTXqf5Id2GdyUSAPKSTJ/P3ooIcahGRXwBPOnDYz"#;
+
+const HASH: &'static str = r#"eJxtzEEOgCAMBMCvNP2AbkWjSeE3HkyMZ/m9SJVo4Ljd2eq+HStF8bwwnfDsmCIspaP0HLS7TdAsPwRjMflByrXFUwoMz7YdWnR6u98CrtgL2IwreA=="#;
+
+const HAZE: &'static str = r#"eJx1zKsOgDAMheFXaeY3tu6GGNMYLH4JYmYJgvcPrQDVpan6Tv5yt6fDtakRDUKidybwq1oWtlq+xUHmO0pgJzJcplo2iYt6UqVs3lEWdKI4CvoWIIDl0ytYaYUQTzTxpxd0gj8V"#;
+
+const HDMI_PORT: &'static str = r#"eJxNjTEKgDAUQ6/ycf9qoiKF2tnFC7gVHP7QwUE8v+1SS4bweJD4Oz4m19YdpLgIgYwlCsU+tSx4559zw5AoNDBRc7VScXbBD2U8+Hqx9ouA5qr6AP+hHYs="#;
+
+const HEADING_1: &'static str = r#"eJx1zDEOABEQQNGrTPSbzcxuUAw30OolCo1EIc6PioL2v+RzCTVBNML9gJS0sPzOZHkH7eUBkC6SUY0ZfA+1NexHth3A"#;
+
+const HEADING_2: &'static str = r#"eJx1y6EOgDAMBNBfaeYP1lKWibI/wOIJiEoE/x+KIQgQd+Jezo71dNqnNCuxeE3N+ntq9oa6lA9g+RPhEIduGUqKIVIog7sRAolW8HO7AFDBIlo="#;
+
+const HEADING_3: &'static str = r#"eJx1jDESgCAMBL9yY59IIqgF8gNbewYLSgv/P4KNFNhkctns+SveGec27BaieR2CH+sp+Basx9wBor9kYQcx7JLwQoKpRPNOYRcVWpKBUNm6NmpB0voNC55gqRUNKX3iA4+XMDo="#;
+
+const HEADING_4: &'static str = r#"eJx1zaENACEMQNFVGha4a9MAorABFk+CqEQQ5icoEGD/E19a6Qo1mMSApN5E+VaKcoLP9gJIT3GA/2DlixEu26MJc4wk5Q=="#;
+
+const HEADING_5: &'static str = r#"eJx1ja0OgDAQg1/lgqdwd4MbyUBjUCR4AmISQXh+fgRBMNMm/Zo2bPMeaW2zwRFL9FkXijvqwhf4qf4BLElixHrkGl0CGmyBg8BDiaGPVlSSwHIGPy6oRm7gr63r6K5oz/YunpvIL4w="#;
+
+const HEADING_6: &'static str = r#"eJxtjMEKgCAQRH9l2Xula4mB+gddu8cWGHQI6VB/n9IhiS4zMG94dp+OALPDoQVJwaC3TZ68LYEZ9Q+Q9CG8Rt4W4NOh7BH4Sq0RokPKpwcXAhIgBVcEVClQdZfytd0lMCou"#;
+
+const HEADING: &'static str =
+    r#"eJxtySEKACAMAMCvjH1AN0QMcz+w2gXDosH/IzaF1TtZYxvMii0DsRGjSrim8gzHnpyg8s8BT+sVqQ=="#;
+
+const HEADPHONES: &'static str = r#"eJxdjrEKgDAMRH8ldA82qVILtbOLHxFwyOgg+X4jOLRyw90Nj7t6ya1wbuFIQLMmYWCILnJn6zp62pe+IxtmKVA+gFaIlkdCkf7IsIGsKbQ6vTfaA11OHfs="#;
+
+const HEART_CRACK: &'static str = r#"eJxdTksKAlEMu0qYfeu0fR8HngMewAu4k+fChYIL7495A7oYSpoS0jbtffs8cD9NF1tgqZumRdgKQkLdSFnzmcDAvJUVjtHpqwWzBDRLouRU8gbXmsSHKL5bdhw1d7IGaEXSmceG4VlRr9PaDiPT2n7JXuawEBPjAxfmGvz3fQE/mSkh"#;
+
+const HEART_HANDSHAKE: &'static str = r#"eJxtT0uqAkEMvErhvvOS9B/mCR7AC7gbxoULBRfi+a0eBPFDOpWmKt/pOt9OOP5v9tZhaTFJPRAKYojixpAl7+gYrqtZ4TcuzKsFGiIkh0TKyeTVXWoKPsjgH8WOJnlhlAimIomy2Ug4V9TDZjv9jZ2202szR0YXTajSy+xiFSvo06Jou+sizfmGFKWNnqL17ASu1OenRlhPYFHtUOq9kC7le/DFGowHBP+lZVh70x7IP0hr"#;
+
+const HEART_OFF: &'static str = r#"eJxdTUEKwkAM/EroPbGZ3XQrtAUf4CPKKigU8eCh/t6EBREJkyHJZGba7o8r7Tp36OjdaIdTjI2X6RCiZXqurxtd5u6sgxi1BoJuXLhUVjFHNk6cBN5NbHVQoPdSgmjmLMnCNOx+TEcpAyXRqqImQIiTlNF3yKRypBZgfiiZQdlHnP4CQKNY7eMZLk4UFgwZiqu0fHM/aF42Mw=="#;
+
+const HEART_PULSE: &'static str = r#"eJxdTjEOAjEM+0p0e0ObNA2VyklsLHyADZXhBgYG/i/cIt1wipxEluO4fZ7fjV6X5Z4qpdwT5xrQCmlQloRhbFeABuKsVLBqh84LxaDEFjIoAWMTwp6DDDLI4VjozNYxWQlSyhxhNgRvJ38sazuNTGvbkyGHUJJbhWT4w+L/zaeBsm3G4vvlDzz7LPI="#;
+
+const HEART: &'static str = r#"eJxdjjsOAjEMRK8y2t4m8SdhpWUlDsAF6FAoKCgouL+YbIms8VijZ8vb5/F94XlZbnVFjVE1VmFrcHG1SkvNK4WpclRtHH2Q6w1FHJoSjIxJHjLtITZDsb9lw1lz0NVBFKGFxybw7uj3Zd9O86f9B4uwH20="#;
+
+const HELP_CIRCLE: &'static str = r#"eJxNi0EKgCAURK8yuM/+V6IE8wYdQn6BQYuQFnX7FCFiGAZm5nnZsxwb5J4VGwV5WuYSpILv2x78Ga+EdVaL0+TgooUFFTEGPVmwEExXyurK1f+PYgMekyb+thenCB9G"#;
+
+const HELPING_HAND: &'static str = r#"eJxNjrEKw0AMQ39FZD819jmXM6SBbhn6EwcdMjTQof9PnYaGItBgoWdNr/Ze8bh2W4YMGCiadrtlZPQhgfRUgy+Sm0KPU7itSTlsllgqjDImY/UmrBVfO9pKjxZzeUau8cDtn230AhkXZ/3hQ0loAff7CPFuni77ynk6t2oUUVDO6AMQlyqM"#;
+
+const HEXAGON: &'static str = r#"eJxNjjEKgDAMRa/y6R41bbEdasEDuLoXHBwcHMTB05s4SMgQeOT9/HK2a8c2ucUzeFxz8/AYdIiJuxQOShQNlS0Icf4RAvJtREiSinJkoHqSZLTv4+Nq6bVEfQEGuB0S"#;
+
+const HIGHLIGHTER: &'static str = r#"eJxFjDEOgCAQBL+yoT/kDiSSIC/wEyQWFJhYGN8v12A2U81m8l2fhnM3VwIzRcTXt9Q9eVPyorLkeREBCwUbMagCgRtjErvBdVqtKL+AU3VwQJi1D07EGss="#;
+
+const HISTORY: &'static str = r#"eJxtjD0KgDAUg68Surf2x2ctPHsCPUTBoYODg/T8viKIg4SEQPjCZ7kq9kVtAc6XhAQLJ05auon0hO3Sk4kjvMQaMKvMQ4czfy5Co0o/i/OIjQ6h3/EG4sUegA=="#;
+
+const HOME: &'static str = r#"eJxNjFEKgCAQRK+y+C+1GyKC+t01hIIEUyEJ6vRt4UcMDDPwZmwNbYPFiX0CA0Zqdn0iBgKCkYWS06z+XdItvB3epbe1pCvFvEItMbfDCQNEfIIEqLoTfXwn/QOGnh24"#;
+
+const HOP_OFF: &'static str = r#"eJxtkU1qxDAMha8ispdqyf+QySbrOURJCy2U0kUXndv3yRlmNoZYsvGnpxd5/Xn9/aC3y3LVKpmy5F07VbKAUydTUj1YJVoUK5lNSioSOydRbWJWlm19cZFtfUhBhVxurwSxfoqpQu0Ql8A9Z1ZukifVw4iHw1EKnLAK6wS1AFmAcAnSKI6Y5rIDCYcnfZKIcKOjUWRs59VmZAZDTgHyHzjLJmyS2iJ5tF0l1EhNUjd0VW+I9u1Qxji8lzvncmYQCSv7gK4+XLyD5Lq79dpAxAgmS8oRF6F1KBHGJK3hgzHMW2pReKtWsC/anv6+Pr/f6WaXxWyhP0VGuh9v4wjUoe0fpoh3eQ=="#;
+
+const HOP: &'static str = r#"eJxtkb1uBCEMhF/Fut4EA+ZH2lyzdV4gXUSKlCny/srY7N01FJi11t/MAMfv198Pfb/fPqQFJQ16yqBGKaIblIREJqeAH6yE0rHkdj/eDLwfTxwDZBJnIwiMJSAChQniEmAxfkNL9emgEwQJZWupGkeRC1bduqb4oFBBZq/FMrpjNhr73tSZOMXNnijq4sFmkCawtTasPiKj8dDrEjkZ7MasS20jUULrmayms4cyMvDYIFY8kXTSydjZU3G99OWqhS6zdVZr3Ww9gqWpeBLCaJ9cPE4OIzUeQWPnkKQxxpL0z2049dvIlCcH6cWKXl9dKg74epF/cDF/lg=="#;
+
+const HOTEL: &'static str = r#"eJx9kDELwkAMhf9K6J54yeXOE87ODnbt4FZ0uKXgIP39pqByYK9kSMh774MkP6dXgce5GziBXOIkIODWQpsWrhbWpbDUC5RR6wTKrevzYWX2+UueT8ARyGtCEr0zaQzI5NiDp6SfMZB3Cu7Kwdz/kCHBsZhxQzF4U5I9iblNbGppJ2YfkQUjhdkuGUV+njcAW1oJ"#;
+
+const HOURGLASS: &'static str = r#"eJxtzrsKgDAMBdBfubi3mku1Hargrqu74ODg4CB+v6mDipRAIK9D4j4fK5a2GGuQq7iii2XqdfE7yQ/E681pnBXPmSCqFMbWoTFinbhBCOGmG1rgzv2zBw/xNjBMZAZX+/zJSDK+8k2aP6x/Nelyet0L4p82Fg=="#;
+
+const ICE_CREAM_2: &'static str = r#"eJyVjTEOhDAMBL+yoo/PxrGTk3LU1/ABOgQFDRIF4v2EDkq0Wk0z2i3buC+Yf00vLSRNBkYOLfm3wv9xYiipQOHI8GENEXHJFUEP7Y0kQmRUMlxlSI1TEnDTlc+13pXbx0vfquNkD59Dusknob8sJw=="#;
+
+const ICE_CREAM: &'static str = r#"eJx1jDsKgDAQRK8ypDfuxg1JEQN2FnqIgIWNYOH9MfEHFmHZYob3JuzpWLH0anNghmjyYNKdTQwGXcfaC2jiQqgY2qLE8Ipz7t1gYR86pwqUDMw9mF/GX27kk07c3SHz"#;
+
+const IMAGE_MINUS: &'static str = r#"eJxNjsEKgzAQRH9l2Htsdos2QpJzD+21d0kFBVuKlBL/vhtEkUDeDjssz3+674BnoLsw2h/bTiCw+tjodK2P2cjjkKF5uFD0p3Ij+ml898gciBtClkAihEVZK7hAq6UUfRrnNPWYtUNIOVCrWAq0si6j38xeasa1OVfWNeu/O1gjlRMHe2sgvKv8AWhzM8A="#;
+
+const IMAGE_OFF: &'static str = r#"eJxtT8EKwjAM/ZWwe2OTNbJBN/Dmxav3ocIEEQ8i29+btHW9SOAlDe+9vMbH/XmDlYaGG1hYm/a19CWtx7gz0hhf03uG69CcyGMgSDgxMHjQl2Ps2gSmMO4YN3NqUYovZd+8sYv7eqHyf2koq0iKqvsTR516MDgQ9j0k8KlakA+FktFKp5nCBUUsNHphh8w6BXJqUJNv5qxfk7NUD8eOj5X5BWtgS9E="#;
+
+const IMAGE_PLUS: &'static str = r#"eJxNj0ELwjAMhf9K6L2zjbSr0PbsQa/eRx1sMEWGyPrvTVrdRqEv7+UjJP7VvQe4B3FFDRo/bYeAoOhpSdXZ7L3E284D+aEV0R94RvTT+Owh6yCMgIxFFhJEUkq1ZZShH1rCU2VdZYulGDc0jXOaepg5hLQEQUjKLITUZvT/Ix58hJHHRjlb/3VdJbFx6EBdLKBet/4CC/c+nQ=="#;
+
+const IMAGE: &'static str = r#"eJwli2EKwyAMha/yyP92mrLiQD3BLlGsTGGDIULr7WssgXwh7322xFDRHC2EcjrijjZwjl+K+ZOqI20IR95rGqe3D/G8DbmEb0To5RchtIEifq/cobf/rSbsjn6soZ/TMiuz3ntjMJTMxLNhA/VewVpkkfwFdjApgQ=="#;
+
+const IMPORT: &'static str = r#"eJxljLEKgDAQQ3/l6H7Yi1U71M4uXd0LDl0EB+n32w7igWRIeCEJV74LHatJAhqrwMQwdBbD25yeRMh1sfvXydO0uQwC2S5uqYr9QHMUmTVg7IteMIq6fgDgbyNR"#;
+
+const INBOX: &'static str = r#"eJxVTdsKgzAM/ZXQ92ama1OFWtjbXvYRwgYKRQsTYft604KIJBzCueSEvKRfmuYP5GWa12+vjAGS5YoWyAE1BdtCFE3FcDtSMeRhHeHdq5dD68AhUTVtPBR3U0eukS6ENpvmpO+S0Yxt9zg1YvQM9unR2DOiCX0HJO//tV9a4w70CCtk"#;
+
+const INDENT: &'static str = r#"eJxVzMEJwCAQBMBWlmsgnILxoXaThyAqJI/YfVQ06Ou4ZXZNTqEEHy/k5ONzW5LQOMECEqzImWMKZ7orbIkF4a1XMKGI8bfLrbDgEXaklg63d6d9R/87m635xB/wsi6p"#;
+
+const INDIAN_RUPEE: &'static str = r#"eJxtyzEKgDAMBdCrfLpbG4OxQuwNPITokEVw8P5YHaRDlgT++1+v7TYcS1gFbDSEov0bFW0gu3AKiJHjiOyuiI0dmCvsEkUmJHy/o4RUz19+ACWGKAU="#;
+
+const INFINITY: &'static str = r#"eJw1jbEKgDAMRH/lcI+2aagdav/AH+hW6uAiOPj/eBXkSAJ3eUm+23Pi2KbdK7x2UdE5rmJUFGsGg4NnOaSu7CZ+DgEM60WX3gAwFiN+4JMknuMwDEKY1qnkZXwsLxFqGW4="#;
+
+const INFO: &'static str = r#"eJxVyUEKgCAQQNGrDLOvHIloMXqDDhFTYNAiJERvryIIrj78x/J4eW+QZJA0gsRWX6LQ8tLc8nf+Di6DB2mgLUxrxTpH2t2sqFMG6SQaTA=="#;
+
+const INSTAGRAM: &'static str = r#"eJwtjVEKwyAQRK8y7AFs1qSmHyr0AD1EaaQKpZQgVHv6uhr2Yx6zM7t2D4+M6kgTvmnLsdFE2Iujc5PaJYb0jHlsikS9PUnP2889R2yObmzArOb1umDBBJbRysy4YDjdO0I/OSBVb1/pHVDZkVHtUdUHlObw2kkPYulI2v8BDgEsAA=="#;
+
+const ITALIC: &'static str = r#"eJxVzUEKACEIBdCriBeYUWoRWLeZxcAw67p9qRW0+qjvo3zv/0DjjAGhUkZKI8dIN0IjXRe5FBUxaia4iU5YKVue1vvrZpU0v8RNO2FJIKQ="#;
+
+const ITERATION_CCW: &'static str = r#"eJwtjFEKgCAYg68yfLfURP4H9QYdIipQEBX0pduXEnvYBt9m69EDLsd2JSDFKbheNN8Ww2moccIsmI7hFIh5u46ht7WkJ8V8o5aYe3NMGkiNcUb4slKT/Sn/AgR/HOI="#;
+
+const ITERATION_CW: &'static str = r#"eJwtjEEKgCAURK8yuLfUJP5CXbfpEFFBgqigm26fVqt5DG/G5K1eOCxbNaTYBdeDxjTMnECcCnVG5zd7u2jmzNhnzuQU7uDjiZx8rMUyglJoT82D/MRfcQ99UxvK"#;
+
+const JAPANESE_YEN: &'static str = r#"eJxtizEKgDAQBL+ypDe6F+5QOPMCbe0FizQBC/+P2ohFuoGZ8XO/Co45rBRMUTdhHToy6mJI1WAPcUQK2fu3zf4dBmqhtA3/5gZNNhsY"#;
+
+const JOYSTICK: &'static str = r#"eJxtzLEKg0AQBNBfGbY/kp1EQ+Du6jRpLezkFBQsRET0771DUAvZYpl9y9ihmlrUTv5U6KciiGcaQ8Nfds3gzDPHzVbf14PhbFiKt49U6u1RnUOzSDeijFR8TwndGPoGYXWSC8LiRCkYnbzSz65+AyHhLXo="#;
+
+const KANBAN_SQUARE_DASHED: &'static str = r#"eJx1jzEKgDAMRa8S3EWTVmug9gYeouDQ0UF6ftNFKyRkCf+Fx0+88l3g3Idjg1DDkOLUkhTfHEmA18AqgBWwgMsEBHObUTblhsEV1KTeAtxZEXQrIXBFHaA3CX9io67UIlR7sQUWAb131LzOquV+jzyUMHME"#;
+
+const KANBAN_SQUARE: &'static str = r#"eJxti10KgCAQhK+y7AVCizRQb9AhIqX1LWTp5/a5BNGDTzPzfYwraWU4c2TyqCwCpbwRv/3y2COUGhrhlhFcJ4fg9oUJosfZgjmMcCE/rnQVQ0uMVUyfeABtQyT9"#;
+
+const KANBAN: &'static str =
+    r#"eJxty7ENACAIAMFVCAsYjBILZAOHMLGwtDDOrzRUtn95WX1PGBUbQz5EqBIsqThQfMI/KLYklwtKwhXO"#;
+
+const KEY_ROUND: &'static str = r#"eJwljEsKgDAMRK8Ssm9tbfws2t7AC7iTKFRwISJFb2+CDPNZPCaey11gTTi14Mca2IHtLYFXFaomlKDRHt6SES+97UDthHCGDM2YY6M3OfJ+8bEBPwm9MAj8Jhx0XAmlBPyR/AEN5R52"#;
+
+const KEY_SQUARE: &'static str = r#"eJxljT0OwjAMha9idbdJ4rRJpNAT0AuwoTBkCBID6vnxq4AF+Vf+5Pfq8/bqdD9Pmw8SKUhqUliKbTOG2tGNWWayMoQAIwc0WCXZkhoDsAHrx88lGymSQT55vIFep7WeYLzWr/3DRzIl0n+0FdPzThYK5POuzZEsOCF63Fm7ooXhJbLVT+INd94zSQ=="#;
+
+const KEY: &'static str = r#"eJxNjEEKgCAURK8y/L2GikmgnqBLxC8oMAhpUbfPTxAthhmYNxN5q1wW8JUoaE/gO5Hxkmoi8Ry7l8nxmM4Vc6LdGlg16B5NAkjxq2WP9gYHN1qLUJRT7gMfJm4ehQ=="#;
+
+const KEYBOARD: &'static str = r#"eJx9y8EJgDAMBdBVQgbQpEjtoXUDhxAV05uUgrq9rYJ4aS8J/z++DescIZwOFUK4npduh3D4JUrKhPCqrH6T6JA1DrbNu8HuUxRYHI4ajDREnCmXP2KqWFcxUzYDrIo7VUNdwR5YC9MnNwQJTpg="#;
+
+const LAMP_CEILING: &'static str = r#"eJxtijEOgCAQBL+yoRc5kCOXnNQ2fsCOxILCwsL4frGhotgtZkbv8lScq9nJw7/RZJ1/lLULRqrkrwWytZ/kGDRiKYG4BAQ4UFu0zHA9/QDhERtm"#;
+
+const LAMP_DESK: &'static str = r#"eJxtjTsOwkAQQ69ipfeS8Wx+0pKahgvQRVCkAIkC5fxMlCZSotHYzbNdvtNvxutafSyjocMhdOjZs6Me1VguKzGWA0ffNBJ+wt2H1KCNzzC9He0JEltaqGdNS5YGCqLmPIWjjrNwLbrt+v8SQytU"#;
+
+const LAMP_FLOOR: &'static str = r#"eJxty6EOABAUheFXudPNsDHbJSteQLMJgiCY53eVm5RTvvPjantAj6IEMMNNCz7TSl9FQvUwIV+0gXC0/QjFVDNcHpwYWQ=="#;
+
+const LAMP_WALL_DOWN: &'static str = r#"eJxtzaEOgCAYBOBXudGZ8oOAG5IpVoKNzUAgGJzPL6R/c+7ifbcLV7krzk3sSkHpapuGS75p6Q4RwzTqGBiZjrIvBMI8IklS8j/SYK3EDt3l5bMzj+WTF6xiIpw="#;
+
+const LAMP_WALL_UP: &'static str = r#"eJxtjb0KgDAMhF8ldC+a9Heonbv4Am4Fhw4dHCTPb5wCIjfcwX3HlavfA87N7IjgR5wOUsvT2XSYWpa3rUUZD4gcOgHBKkIrqeUfUsAwSEFxYvoMPduoNw/Z/SLa"#;
+
+const LAMP: &'static str = r#"eJxtjLEOgCAQQ3/lwn7INcRggswM+gNuRAcGBwfD93suupAOTfPaxqvclY7ZrIFQw+lJXPaLhs2kOLw0xa8jIEEbO0QHaIzdsVixE4PAqL6ok1OJOhpy+G8f+w0f5w=="#;
+
+const LANDMARK: &'static str = r#"eJyFjkEKgCAQRa8yzAXKSaqFeZuIIFSohd6+GS3BNuHi8533hjHH7laIasEBIXEQIUTiVNwpd2s6oazJrEBqLkPFkLhjccYv+iKSPVZVFO4tnD81tpKu0v8ReTO1cPBH2ryD4Hd3nTwj4NfDBBomwR7A3m3bRBo="#;
+
+const LANGUAGES: &'static str = r#"eJxtjrENgDAQA1ex0r/Im+RJEbIBQyBRfINEwf4CGihI65Ptq8d6OrY57BkFBgutDk/W6ksSNMHEQBn/eCGyKztgAl07eyRIyaJRMjR2mvefFv9cLstPLVM="#;
+
+const LAPTOP_2: &'static str = r#"eJwtzEEOgDAIBMCvkP2Atnrw0PYz2tgmxgMhUX4vNJ4Iy7CJ6y7Eb0YEPf2QlhE2kGasoFb72cQSOxpZQKwuS5r8r6Sr35U0WDabCKNF47/6HNZV+QAdWhw1"#;
+
+const LAPTOP: &'static str = r#"eJxVjbEKgCAYhF/laNf8L7WCcnaotV1oaAkaoudPnYobjvs4+KYr3Qf2uVlpIH7rE0GYEkXF6L8bfMZTPEy0tSCaA6idSwKpL1F6zNi62GnPH1YFLzZbmjC1xRtexQka6A=="#;
+
+const LASSO_SELECT: &'static str = r#"eJxtT8tqAzEM/BWRu6fWw2sbtoF+QD/CbA97yKHQkkO+PtIuISEssmVkjWZG8+/4X+nn8/RdSWQUKpQ9OEmy03n+iPZ5fgHxhK4L+gRT4nirkaB3dD4YUKgR29eERnE3chLivORkMCFPLTX/SO2PMylKFNRGBXfa0u4IqiQHEoW4DXHOYHZocj9btYfdDmbYNjZZE3If0OLnISPmUnJNnL1h4X837RPesAU51gAXZIWwl5caqMnhGrQPHkbpayzZL0lQqu/WyrtYA9s1Pz3eAUYLWOM="#;
+
+const LASSO: &'static str = r#"eJxtTTEOwkAM+4rVPeGSS0qGoxIP4BEnGBiRYOL15FrUqbIS2bITt1f/PPG4TLczVLvDURJCSjYt7TTspe2hyhVi15kDY9YoFFLuhYwNxk6RkuItBZXn5Ii0PPegXTKt/w4nOehwSHSFrr8zSIZNbbDvfvMDzDwp6A=="#;
+
+const LAUGH: &'static str = r#"eJxNy0EKwjAQBdCrfGZfzY8kKCS5gRdwV2KhhSJSXCS3N2MslCx+Zub9kJctrxNyiUIryLXn1sJICud+T+E9fmY8o9x5BS+jh4dpj4OHw2Ea3Ez70KY2UliX14Rio9xOhoLK9hOUHlX3alUdLN0Pq6Lb2b+76y9Jfi6S"#;
+
+const LAYERS: &'static str = r#"eJxtyzEKgDAMheGrhF5AzJIl9jYihZIUdPH29mkUhJIM//A9bV7PzY2aFzv2Jc1MOKEe6EhOWaewWRG12PqtupXgjH410Jg/LzfnH78AQ4cqjA=="#;
+
+const LAYOUT_DASHBOARD: &'static str = r#"eJyFjksOgCAMRK/SzAUMfmMCXEaJsCUk4u0F8QcbVk3TeX3DrVocaWU27QRm0CHQgXazOi0wgfy12zAYJG9iXPIMGh4ohXKW9QX1XQPEWvzdKV+T3RpfFI3vxpc6AUArPT0="#;
+
+const LAYOUT_GRID: &'static str = r#"eJxtjUEOgCAMBL/S9AOGYOIF+IwSy5U0UX6vRYhAOG53Zmui3xnibVEhkA8nscUN4T1ohCscTDknyc4sgjuTpYYu/oDLiFoH62e+dvI7TbSm7hZ0xctOtR5D6z09"#;
+
+const LAYOUT_LIST: &'static str = r#"eJx1jEEKgCAQRa8yzAXKMiJQb9AhIqVxFzJQ3T4VwVq4Gua//58Kbmd4NI4Il7dMGmeEO/8hHoFAzh/EKTeqS3Wj8qjguqrFIohaIevq3JjAalyFBElZl6I/WFpATC0y9B/yAnvFO24="#;
+
+const LAYOUT_PANEL_LEFT: &'static str = r#"eJxdjEEKgCAQRa8y/AtEFNTC8TIljVsZSG9falm4/Pz3ngluUxLnD1HGuIISYwKFeC9QLOP0uwpjgTVD5q0pVkbmTmhoa/ZWqtZ3/5ynWFuvdgHWZC4g"#;
+
+const LAYOUT_PANEL_TOP: &'static str = r#"eJx1jTEKgDAMRa8S/gWkKNSh6WW0mK4loN5ejS3q4JIhee8llDQpScqLKMODNkYP2m2ueVZhuBFUzr1DDN3Fx2BWPXvD3dCgmniaf9b36ytw55p2APbqLiA="#;
+
+const LAYOUT_TEMPLATE: &'static str = r#"eJxtjFsKgCAQRbcy3A2E9AbHzZQ0/spAtvsUMiL8vI9zbPSb0hl2FYZZQBejB8WUE0h8OEQZMyiV3tmu/J39UuszNqAsM8OPaqrNVM/VOr7YDe1KLiI="#;
+
+const LAYOUT: &'static str = r#"eJxdjEEKgDAMBL8S8gFJvCi0/YwWWxAPpWD6e5PgRS/ZDMxuaHnrIBFnhOG3KbDG8Ljr3ktEWhBKrkfp/qcwWS+Fs14ZBkVctc4eQj4jSkxmmvOawn/TiD7mA074JpU="#;
+
+const LEAF: &'static str = r#"eJw9jbEOAjEMQ3/Fur0hbps2lcpJ6GZ+gA0dAyMD/y/CDSdbyhA/e36e3zde1+VOIuuto0NDxBBHE240MRjYUaU6OJD3iIaq0ON4xCOTqvR4a2LQ+ljWefl3r/NcCIa7pgKKWzIpLTj11LYRE6xiGQyXw/ls+AEmyyMJ"#;
+
+const LEAFY_GREEN: &'static str = r#"eJxdUEEOAjEI/ArxvmOhpZRk3cR49hEbPXj04P8j7SbqGkJTOnQYZn6urwfdT4erkMiNITrBm5FAbGK4KWX4FOWq0ErjSBEc740YSiUijajgZtGbNQeqIzcko/qkYK7nPSAJrtR+2rlnjSLpuuuN/y1zjMz2R78xjyFfNV1HaV2T6iWjuBMrilBBSXGvMO6FEDf0bVwqscNKZ09cujbL4Us4c1jmY7dqmXeGERvZB3sD0LZBkw=="#;
+
+const LIBRARY: &'static str = r#"eJxtybEJACEQBMBWFht4Vo7D4N4OvogHAxPBQK5+MdDIdMb6PyrKGxoVCgElZHuWZtv3MUL9OgnJGS8hEKeemPErHVU="#;
+
+const LIFE_BUOY: &'static str = r#"eJx9j8sKgCAQRX9lcK/lA0pQ/yUsKCgIaVF/n45SLcLNvYs5XOYYvwS/ThAs4S0Bf8YWsS9sZ5p8d2YfjhlGSzbFtIQSQmEkLt0/FFesl6AZ75CgVSxnbQ6HEKM/WHEoTycX9ai8Cjcz/D0Q"#;
+
+const LIGATURE: &'static str = r#"eJx1yzEKgDAMheGrBPfG5BklQ+0NXN1Fh44O4vltF0Gow4MHP188tyvTMXeLE2T1XQIYpOzByMqURxICOzsN5aNLsa8oxZdOpMjWCGq14PYmgvyhT3kAImAq+Q=="#;
+
+const LIGHTBULB_OFF: &'static str = r#"eJxtTkEKwzAM+4roPVrjNE4KWX+QR4TtkMtgh/2fOYHt0mLL2AhJLu/26Xjel+qVGd5THsyOO2xzMmegNIViHeV2BheXo9yG8ig//UtgtVqfuaoMMLSNmjDH9BruiCMxMdkRDHFCeBFR7anc9YLwlit9+zNfFTMz5w=="#;
+
+const LIGHTBULB: &'static str = r#"eJxtTTsKgDAMvcrDvbGJtlWoggfwEFKHjg7eH9NSOkkI4eX94nO9Gfc2nOzAcyIxDAqGKYDJGSF9G1obkHoncoeHh63jsSQLdQmaACqgUBOmistq0rDHsfTtsbdq8JL9D8EWInnuzAfmLiZs"#;
+
+const LINE_CHART: &'static str =
+    r#"eJw9irEJACAMwF4p7iJFBYXaDzxCcOgiOIj3WwclWxKabQn0YqoHvzEJJsPkrmV6bWCGbCNEGxQd/3IAMF0Q5A=="#;
+
+const LINK_2_OFF: &'static str = r#"eJxFyzEKgDAMBdCrfHoBTbBEoQpuLh5CUFAQcXCwtze11pLh85MXd07Xirk1YwOSQXoLi1KHIBDTuSKAzv2MLGTlKbMKdWb7dizw1BpiA88xb+21Rqxqg0pWl8zxyJ8Nr28k+gA/BCjz"#;
+
+const LINK_2: &'static str = r#"eJxNyrEKgDAMBNBfObKLplCj0BbcXPyIgkIFEQcH+/c2KCIHgdw9d8QzYfY09WAZZbCwaEoYAkmGgquVBPdBtjrEB3JJuU2qfnRb9wXZeGJDuNhTR8j8vlq3alWFG/x0H7M="#;
+
+const LINK: &'static str = r#"eJxVjbENwCAMBFd50ZvYAcsNYYMMgZQiBUWK7K8ATUC2rnjp79NT3hvX4U5hSCgKBY8zr7F9DTSlZJ5toJJ429EgLqeta3L6ZREiS00jdRsFrCNsA7WLaLF9iJQicg=="#;
+
+const LINKEDIN: &'static str = r#"eJxNjGEKwyAMha8S8l9WpdgNjDfYISSVRdiPIdK1O/2MgzICeUne9xJeqQmshHfr4Zo8eJh62a5+W8TMm1mSAzeuk3FG53MDdzJ/SeM/GMNFP8dQMzd4l7UJ4YwguTykEVqHsBP2fhDeFFcwBi6VnxnqsHgfGT5UOvIz4xdLbi3e"#;
+
+const LIST_CHECKS: &'static str =
+    r#"eJx9ybENABAQAMBVPnqRR1A8GxhCotBIFPYPui+QK49GmQ1qFN0AetCblVYkUicSsf5sRgOuhXugfk5gswAJAiWx"#;
+
+const LIST_END: &'static str = r#"eJxtzbEKgDAMBNBfOboXexGDQ+zs4kcUHLoIDuL32ywiWG4JeQdnZ7kq9iVsVFDWMWQb/JftK9qHBM5dEUJvpiIQpBbGdtU4/auH76qz5/UHXPgoUg=="#;
+
+const LIST_FILTER: &'static str =
+    r#"eJxtybENABAQBdBVLhbgIyjObWAIieJKhf0jmqu07/GeR2l1NxIVRXPC/pGwRSVERfgMAqFptrlXJRXR"#;
+
+const LIST_MINUS: &'static str =
+    r#"eJx1zCEKACAMQNGrDLvIFIZhLls8hGBYNHh/ZEWL1v/g8+xLYRTXEAFjTU44WBO+QkA/wPyUaDP1dGgD8Zsc8Q=="#;
+
+const LIST_MUSIC: &'static str = r#"eJxti7EKgDAMRH8ldFebSEOG2NnF1cGt4ODo4P9jSkAcwnEcd4/Tuz0XnEvaCAHLzqnq1LeqH0EZC6A0sujOgOY8ePPFVY7oToC0zhFh4BjYRX7kBYkpKn0="#;
+
+const LIST_ORDERED: &'static str = r#"eJxtjcsKwkAMRX8lZB+dG8dhFjNdu/EjRIURRARF7N93UkoftIsQcs9Jkp6P151azRyY/sgMV3sdFUwtLG7S3qQm9eqcQacdO1HnpdxLcYBx9WCU35dvoVvms6dQ8PNGLFsQuKIbIBDiyV+dgFS01uEjEOyOooLR7wD4HzuV"#;
+
+const LIST_PLUS: &'static str = r#"eJx1zSEKACAMQNGrDLvIFIbCNFs8hGAwGsTzi2ll1v/C59X3hJFNQwT0NZjC7rXCIgT0A4y6REiHFPDvMq3QBSuRJC4="#;
+
+const LIST_RESTART: &'static str = r#"eJx1jL0OgCAMhF+lYQcpLf4kyOygD0F0YHQwPr+FQRdMc23vvuTCma4Mx6w2h9AvpGLoShTDCwZA9wfGJkAnJHnwYOtMmoCNr6qJlq9o12iIxDvjxbImwwgoa0W53OqW3N6cP/YAIHQwew=="#;
+
+const LIST_START: &'static str = r#"eJxtzLEKgDAMBNBfCd2LzYklQ+zs4upecOgiOPj/mCyCtIQsebnTuz6NzjXsnImxzaHo5LeiP5GxJMpDAFvkkAoCJZ+IiBaX/vWydnEl249fMZwoMw=="#;
+
+const LIST_TODO: &'static str = r#"eJx1ykEKgCAUBNCrDH8fYZa5UG/QISKl7yIIEarbp6taFAPDwBuTwpKRTkuCUFoSLksD4Yg+syVF4BBXznU609a7M/ucGd7SJiFGdCV901eu8PAkJBTrbxDdr+iX3DbWLPw="#;
+
+const LIST_TREE: &'static str = r#"eJx1izEOgCAQBL9yoRfZw1wwOaltfITR4koLw/sJHQVku50Z/e7f6D3cxSCwLcllXduZtUdyTgDSuIkkZXsCwcPvxG0Whx5CkalYAccUKro="#;
+
+const LIST_VIDEO: &'static str = r#"eJxtyzEOQBEQBNCrbPTyg/yNYqk1LqCTKDQShTi/1dAoppk3Qz2PCsWJqDQoHYzw9O3O0xUEfANf7EsaXxh/MJIzJaazWfatHtc="#;
+
+const LIST_X: &'static str = r#"eJx1ybEKgCAUBdBfubhH3TIpeDm39BGBg4vg4P+jTjroeo7EP3m4R30kuL+HsrJWs9LGwMyC12gCb3BbNPToznLoLwOnqSR+"#;
+
+const LIST: &'static str = r#"eJxljkEOgDAIBL/S8ACVkpgesL/xYGI819+LIBLraVM6C8P7dqyp5QUyQjolZwnUaBIFKo83U9lInUVBnpitKPlldVh8j7HR/e8l+6NhwtfBjDo2IDvr7cems8CwIAgpX+L0Bd2KQnM="#;
+
+const LOADER_2: &'static str =
+    r#"eJyzKUgsyVBIsVXyNTJUMDRKtFSwVDBQADJ1zfSMDC11LfRMzZTsbPRByuwA+mYKxg=="#;
+
+const LOADER: &'static str = r#"eJxtj0sOgCAMRK9iOABKNSAJcBsXJsY13F6gBRRZ9femmTHXeR+TB8sEsCnEKmMRlsXJi7x1Zk6QM4jisknSvKMURvDG9YoYdRFUXEl8kbtOlD5rvih6LjlsZAbbUIG/UNK5OKMYwxR7Y4rGj1JkCA1Vy6ho1nK2TgYl8st7F+4T/wGiFGDj"#;
+
+const LOCATE_FIXED: &'static str = r#"eJxtzMEJwCAMBdBVJAsUU0oR1GXEgyA9eEq2rzZVS/H0SfLybU5XVKQdICiuoVuiJNU8wNutIW+F1h2ubJvND7P0Ek57vBQXvbr3moGeH/zgkErIUQWSc3FwggrcG+U8GQ+2Q3+a7AYa9kIb"#;
+
+const LOCATE_OFF: &'static str = r#"eJx9kM0KwjAQhF9lyT1rJ7H5gdaLZx9CqqAg4sFD+/buxpRWUFnYJcPst0y62/V+psn1Bs7QiN7okGdraEJRd91GTbvu0yrT1RXkP+YKmq119atVeVPl/TI/js8LnXpziAyQtn3LyVNin6klNAwdbmjIc4rS4CmWAmdSNcDqxpZTtk4AClfsCo7EEQTPOQyMbDl4dtlC2nvmQI3VA1YP2FiKQxQV7EUrHvEu8BJzXMVcPryGn0O+AMRgXpY="#;
+
+const LOCATE: &'static str = r#"eJxljUEKwCAMBL8i+UAxUEpB/UzwIEgPnpLf1zS2tfS0yIyTUMuRHfsICI4xwgpO+vj+FH9tCotKKZjaIaqrcH+k+9NXFgvyCLJ/w7/uYDwf362Lk0ylUc2O2DQS2xZhU8lwOgHZQzcP"#;
+
+const LOCK: &'static str = r#"eJwli0EKgCAURK8y/AvUr8QW6g3atpeUdBciZbfPTwzMDMMbU+JRUV5LE6E7M+HJoaZeV0KK+Uz1n5ulmVCaoM4McnTm8jUhWNo0mHftFRTGLgb3uBchhXEf8+Mb1Q=="#;
+
+const LOG_IN: &'static str = r#"eJxNjEEKgDAMBL+y5C6aqHip/YGPEBQqiBYUsb93LR4kh9ksk7g4ngFTL4O2qEMzGgwVR0m79FcUTKFoxLvyPfIu7mtal21G3JftPHpRWh34SA3MXVY/ybusJqNmgpusCeXaCpLmmn52H0wsJss="#;
+
+const LOG_OUT: &'static str = r#"eJxNjLEKg0AQRH9l2F6SGZKIcHd1mrTphQQURA+00L93PSxki7cDbybkdunwi/ZpIL6frSDc/Vip0veS4bl7WAq3o5JCnoZt6Mc/8tSPyxyNL7D2EVDwvy7qKaVQ1JXRRMOqaI1hc1BOFrpf3B0DcSZY"#;
+
+const LOLLIPOP: &'static str = r#"eJxFjF0KgCAQhK+y+N7PbBI+qDfoEGJBQUFID3X7VoVimB2WbxgbtxT3hZJTRlG8nQIkn5LedhV7e4Zrpdmpg0GMRrdDdm5k8vMJICAwMfVFuljXrzFyR1FlkNI38QLEyCFR"#;
+
+const LUGGAGE: &'static str = r#"eJxtjr0KwzAQg19F3B56J0zwYOcNumYPbsGFDiWU0r59bQL55yadpA+F1/DOuEW5tqBmHQhCy1nDhr1fNIrOxvUD/NimAWaVLlwqtAsz2sN873Yotye5k6ZpXbVy0mNMzzvSLwpVkL5RrBWMRdbQZJ/G/CH1Bza/PtE="#;
+
+const M_SQUARE: &'static str = r#"eJwlizEKgDAMRa8SsotUi2RoegNXd7HFFBykBK231yB/e/+9UPOmILnsooyOEGpjHBAexhHhLknl581ADL0FMZyrCiTGmcBNCx0evnX+IlPsjC+MkBj2"#;
+
+const MAGNET: &'static str = r#"eJxtjUEKgDAMBL+yeE81TdoqVF/QTxQ8eFDw4P+xLSIIkjCXnWTjma8N69wdHuxISeFNcFQQcjBhQsNQhsF1Ewus3R9VpqKKz9awoqGqAwlJqh+7Jfa1YolvkcMIhf4kbMvFJ7sBFZIlMA=="#;
+
+const MAIL_CHECK: &'static str = r#"eJxtzLEKwzAMBNBfObJLta6unYCbuUO7djftkKXQIeT7YyckZAgCgbjTS/88DvjemxcJu75DJghXRyh8+OMNTsaPg6lphxpwaJs+XSrSp436FSpKq13ETWMuXY9lVcaE6gLcs3ROXi3AVtqL3/MZZ4cmtA=="#;
+
+const MAIL_MINUS: &'static str = r#"eJxljLEKhDAYg18luPe//kFbCz3nG8719nIOXQQH8fltBUWQQCAk+eKS1ozp3YwktPu5RBC2ytDw094zuCn/FioqAbVg7pshvipkiCdqLihvegkenfhUti0Oqxg1FOtgv2XzvI7qoCG7q9kBi08l2w=="#;
+
+const MAIL_OPEN: &'static str = r#"eJxNjbEKAjEQRH9luD7j7prL7UG82kJbC7ughcUJFuL3m4hKWFhmhhlefpTnDdfdcDSlwRkvHLl1OueJDmV6qRSDQeppqGofex/s1BdAD3W0ekhdaIyQ1ZHOw5I3jbnkH/luBpXQgBg5FeUc8XlfAiVBDq30H78BVKQoIA=="#;
+
+const MAIL_PLUS: &'static str = r#"eJxtjMEKwjAQRH9l6D1rdqybBmLPHuzVe9BDLoIH6febCKWFloWF4c289Mnfgte1m0jo+WGZIHw7R8dbv83grHx6qKhENMAydGM6NcmYFtW7qoIbJAZcJOTa7fF/TaOO4g3+Xjv76aQRarMdEYPGspIfyCktRQ=="#;
+
+const MAIL_QUESTION: &'static str = r#"eJxtjs0KwkAMhF8leN8xme72B2rPHuzV+1IPvQgepM9vUlAEJUxImMlHxkd9rnI7HWZSTFGubaVQNCox8Zy/d+FmXFQMhkHC4GpEOUzjMUjT+ObdndelHkMnBV31eJa9BckSoa3oxTO/p7P1YgXsFzAhoyQ4J1klTEI7wqcWeUETCQ8UxzdhoIk/Q3/QVCE3qH28F1Y8Opo="#;
+
+const MAIL_SEARCH: &'static str = r#"eJxljk8LwjAMxb/Ko/fGJlvbDbadPbirB2+lChMUZMjQb++64j9GSELIe7+kuYX7gGOrehGwkN27IBCYFFq0bMvfGTKxRAMmphppIYMnq7pmk0Bd88ZdZ5zXFdUelnyY1SWWkkCshYyD2c2atbXnCsKhQJGky12HPOVwkzl8bfE8xssJ8dEqrhTiM/exVUUS5fX/YyKayab8YF6EkD8y"#;
+
+const MAIL_WARNING: &'static str = r#"eJxtjLEKwzAMBX/lkd2q9LDjBtzMHZq1u2mHLIUOxd9fO5AQSBAIxJ0uffNvxvvWTSRMJTz7TBDaxtHx7vc3WIwvhYnJgAY4GyV0Y7q00pjW3qf2orvKEBEk5qp7LKuVzFG0hz6qc3ydWA1f/Dkhi6ht7A/ZAy6D"#;
+
+const MAIL_X: &'static str = r#"eJxtjLEKwzAMRH/lyC7VurpxDW7mDu3a3bRDlkKGkO+PHAhkCBIC8e5emeo84vfo3iTs+ukrQYQ2QuEzHn9wMX4DTE0zGuCYu6FcmmQou+rvqiR3zQk3TdWzEdtpGhNq6BFenjmpWoJvRDzTmjM5shVquS2S"#;
+
+const MAIL: &'static str = r#"eJwdi0EKgCAURK8y/H2mUlmgnqBLSEq6CEKE6vapDAzM8J7O4SiIIZ2xGBIL4TUkCZ+hifAkX2LdnJD7b/XYBKtvVyK8oUtKqGFlm8LMlBNsm9CL14hBMr6A75VpapPsD+2yHQM="#;
+
+const MAILBOX: &'static str = r#"eJxdjsEKgzAQRH9lyLmm7pJoBPXixUuvHnqTtlBBVKhI8/fdxJaWEpjNwGPflku/3nGt1IkZlPcMRiqPEvm15rcn3BXaNowcBhaZtrAtuQvrgBiQdpJmc2dVl8ewty6XefTjMN2wzMO0PipF9lCA3B5EkXwzQn9uibubQixEopMQc/d/3pZ+RVHiSQSpgud9PqVnMqTmAY2WF1pEOuA="#;
+
+const MAILS: &'static str = r#"eJxFy0sKwzAMBNCrDNpbjeTUdsHOCdpDFCfUWRRKMP3cvnEWCVpoYObFZcoVv0Q9YfkmUsJnHmtJJI5QpvlR6potYS0dDfHUwBBf91owJnqqwhvPAss+ZMNnz9YIq91eQHd18M01cbibIrxFcgdh4Qu0XZF+X/4BM/QnRQ=="#;
+
+const MAP_PIN_OFF: &'static str = r#"eJxtjt0KwjAMhV8l9L6xTX+WwjbYA/gQQwUFES+8mG9v0k4HMgpfe8LJR/vn/LrCeTDHhDGAYmJ0GSpcPRG8OzmQGXiqmKlgidDYSskmM/YH1Y39T+oLelkImEi0WbX5qyUn3plFWLNly9Ahr2gzXUSmHbOIAygmwo6honmLagOENerrv4LcWVnd+3DEIlpKm8ES+qTIW/9+e1xg8YMhA2+SS+8WlxalqqXxAx3wTS8="#;
+
+const MAP_PIN: &'static str = r#"eJwlizEKgDAQBL+yXB+8iyBXJPmBH7ALp6BgIdFCf2+iLCwMuxOOfK2YI42eIWyMwSnEf3U6dRWd+KxQcI1ABvBEKXTNTMG2YvsCeyIJE0qknmB3Jd9O/5xe/vgZuQ=="#;
+
+const MAP: &'static str = r#"eJw9jEEKwCAMBL8S/ECJoihYf1OKICq0h/r7bqz0ktmEycbeyjhbpd5yva9dGXIUyBBbBM1IGOxlRwgS5aRS3NZriiXXgwbjWdEDBEBPDIC9yOIsUxS2nyMUCY2zwf3uC+jCJtc="#;
+
+const MARTINI: &'static str = r#"eJxlyTEKwCAQBMCvLPZH2EvhBS7+IB9IF0hhI1iI7xcbG9sZr1/L+O/wGFSzheTHpOQrqCA7uVfhhVMiTKLYu34A7k8XQw=="#;
+
+const MAXIMIZE_2: &'static str = r#"eJxlzEsOgCAMBNCrNL2AFmRBAtzGBQkBEl3Q28tHjMZNJ2nf1OQUOPi4Q04+nodFUiBB0BganVkmceaH9SMlkPriDlnUjytCabnVJIuCELimbP5lS9/1UyPlrvKoTnsBLFoxPw=="#;
+
+const MAXIMIZE: &'static str = r#"eJxtzKEOgDAMBNBfaeYb6DUsE2Mag8UvQVQiyL6fzQBLlhN34uXilW+jc3V7IN2WDALNLVxXUZfi1ESKr4NQODrIMB5JJfFFP1kbNoLiCWKdZJTf5wORMylt"#;
+
+const MEDAL: &'static str = r#"eJxtjlEKwkAMRK8y7P9GE9vdFNqC//UQZRVWqCBFRG9vasEWlUAgmZfJ1Nf+lnFs3CGSMLiEUAiIxEUvEGytGMQ7LyRdQYXpul+UAMksK5QpkA7WDfzymG6l40CxskeurTfT87b+RGA7F5Rkzchf4MK7GVD1FekfB0XMq306j2k4IT0bx9FhbFzpkB42vd1neR1AwHr3kj0t+V4uoEZh"#;
+
+const MEGAPHONE_OFF: &'static str = r#"eJxtzMEKwkAMBNBfGfa+sZNs1wrb/QOv3gsKCot4EGn/3rSIXrxMmPCS8pieV5zHcDyIZmxhIF/WmIQJ5hFq2a2ulq9Wgr1YOuUW92KESmd/HCkZzDJM5n87+FnsZYi+/ul2u18w6xhUA2b6DFg+ddmq0xXVN+EpKyQ="#;
+
+const MEGAPHONE: &'static str = r#"eJw9yzEOgCAQRNGrTOgXHVcIBXICPQSJhY2JhaHw9K6FlDN5P1/1PrAv7lSQYJLQOK025ib6uJKHT5T8u430EYw+VYVihEUSfBK7u34By7AVog=="#;
+
+const MEH: &'static str = r#"eJxdjUEKwCAMBL8S8oC2ESwVrJ8JHgTpwZP+volBKD0Nyc4mkUvjmoHHjeQQuBub4MAUd8tTrOXJ0J2sT4RBQo/QhZeMbo5iq7VcyYKpwRSBHgjbQT/3k5LXeLb1g9WX/QKwFizD"#;
+
+const MEMORY_STICK: &'static str = r#"eJx1zjEKgDAMBdCrBPdok2pVqM4urg5uBYeODtLz2zqUCg1Zkv/4EHu7x8O1NLsBmgPqZrVdylabhZRMvUyTSFHomGsdIwpLEmHwrKoyOgYGFYeAkT2ZMgAO1FJO0uh20uNBRQ/jtvXljRxw+Pfw6535hxcV3lbG"#;
+
+const MENU_SQUARE: &'static str = r#"eJx1y8EJgDAQBMBWjm1Ao6B55NKBRYgJXn4SDozdy+FHH/52d9hQ86YkueyiDOdBZ0kqT7wYI6g2xgBqVmLo7BDDsapQYiwzeXG9gU0fcMOvTG+5AcraJVI="#;
+
+const MENU: &'static str = r#"eJxljDEOgDAMA78S+QMQC6EOaX/DgISYy+9pMlStOlm2z7bnfi+pmnFAKjO4Q75mlU0ZWmxzqliwXp5YJvR0JsdOU5/Ee+rsD18qIKQ="#;
+
+const MERGE: &'static str = r#"eJxlizEOgCAMRa/SsBdpLcJQOYEegsTBhcTBeH7LoAt523v/61XvE47VtQwLCAoYrujUfdGv7sTADwU/174IBiF5SqZ9TrwJMI+3xsE8Rox/ewFPZhxV"#;
+
+const MESSAGE_CIRCLE: &'static str =
+    r#"eJwBNgDJ/zxwYXRoIGQ9Im0zIDIxIDEuOS01LjdhOC41IDguNSAwIDEgMSAzLjggMy44eiI+PC9wYXRoPmBODLo="#;
+
+const MESSAGE_SQUARE_DASHED: &'static str = r#"eJx1jjsOwjAQRK8ySr8ms3YIlkxuQEuPQrENEgXy+Vk30Gyaad782vvxMTyv0y3jfF/2WZiYqihU1HTa2mk4tvbzkciWI3BxwN3zmKFI1SUqUKL2A0B/AG+QkR4nTBhNFXA1CV68VidSULosQTCD2uU//gWc+UPs"#;
+
+const MESSAGE_SQUARE_PLUS: &'static str = r#"eJxNjLEKgDAMBX/l0b1oYkWE6uzi6i4oKBRxcLB+vQkWKRkuHJf4c742LJ0ZmUD1zGCUMmRlG5pgHdyUabDljVwuwI/pfaGPeh/2Y0WkzlBpEPnjrayF4ltttUqtOuLUCPW2SafV376ztSez"#;
+
+const MESSAGE_SQUARE: &'static str = r#"eJxNjCEOwCAQBL+ywV/a21xTQ9E1tfUkCAQCgeL1gCNjJiPG19gy0uM+KvSKBHFOVKa9dxGD/VsGhVltD2B3wR9rFAbHDxGz"#;
+
+const MESSAGES_SQUARE: &'static str = r#"eJxdjbEOgCAQQ3/lwn7IXU4CCTK7uDq4ER0YHBwM3y8sYkyHNk3zGq50ZzgmtZCATwwMpoqwptmeKCCr7AZJk/atRM6uz6pzGTcVw9BAMXScA5/5tySqRJSM9vuEXJBexAOz9SIC"#;
+
+const MIC_2: &'static str = r#"eJwli00KgCAQha8yzD5zrPwBxxN0CbGgoCCkRd0+tcX73uK9z1/x3mBhPEmB7ZyQIxToqIRV0CCBSgbhbMNMGkhh8H1Vg097TscKmXFCSA8jmdIvo6mffw0f8DsZlw=="#;
+
+const MIC_OFF: &'static str = r#"eJxtj80KwkAMhF8l9L6xSYy7C9uCD+DV+4KCgogHWerbuz9qhZbADCHfQCbcrvczTDR03MGr2cTZytp8DJsCjeERnxc4Dd2BHDoPJMiyt0gMVfo6lA+cTI2VwF9MgfrE0YL9sgy6wpGCR9keNQpIQ43izhlCkRXeg08ys6DlG84ys7+W9KlJvvWkZc839aFCsw=="#;
+
+const MIC: &'static str = r#"eJxNjLEKhDAQRH9l2D5cdnN3QUjyB7YWdgEFBRELCfr3ujaRLWaHeTNhy/uEIVLLAskODlbP3F/x1eMP2/3euXE9pfDRfgp1pQHbItnDPyAb/sIWI5Vd5nXEyZG4IZwSSYRwqFeVR29YsXQBlAcl4Q=="#;
+
+const MICROSCOPE: &'static str = r#"eJxtjbEKwzAQQ39FZD8aycZJwM3cpWuGboYON3Yo+f7YBEIGDzecnsTLv/J3fJ/DO4Gzz8OaHy1a8wUCJGePMFZUJkwYwXqjMbqx01xQifpARVBbgybTljzt8Z5Bn55cSFsoPM3NbXwt9x/cwzU8ABDWOw0="#;
+
+const MICROWAVE: &'static str = r#"eJxtzE0KgCAQhuGrDN8FyujHQLtBh4iUdBciVrdPXWRBy5l3nhFOr57cKdGALokWdFjlTZxrkNF2M16CdaB8MokqgUlkFlc9MmYP40UN+SMvaF+8ISUxM048DCmk1Sv0xMbQ/IQoPuUG7lA0fQ=="#;
+
+const MILESTONE: &'static str = r#"eJxtTKsOgDAM/JVmfkBbRibKNAJ+ALcEMYFAkH4/q2FmOXF3uYc8+S1wre7ACMsWMgHBZPBVKTdfmQryPXsewm7t0yUZbZ+kvRAga+wnrPwHH/jPHto="#;
+
+const MILK_OFF: &'static str = r#"eJxtTssKg0AM/JWwd1OTfYMK/QCvvS+0YEFKD0X075vVZe2hLJlJJslsunf6THDv1RiAp6CG7pKVoat6BF4ItdEjWUkZfYjJgIF2f+g8AyNTnNFZhzGY2qXazRakafQYQGJukDggRb6eTh6oFR++cZtkqaiSTe63bnhp9J87Zd0mh8bDDsf/VjCXXPDw0Gi0zXHazM/XA1bqFSvYWEh4LbztsozmoeELlFtEwg=="#;
+
+const MILK: &'static str = r#"eJxtjsEKwzAIhl9Fek8WxSQKWWEPsGvvgR1y2GGH0eefXdrSQhF+9Fc/LZ/6bfC6D08BajKM5bY4Y9l9BZrJZ9HKwBAs0PmUCcgT6tvymLwKP7Z2gAwYrEkThWpzq2tZS8fa0ez0RA5/sjuQ3QmNgBHYVmSii1ftbqzJsz3Xte9E06Xu0o+btwN+z7Y4xQ=="#;
+
+const MINIMIZE_2: &'static str = r#"eJxlzMEJwCAMBdBVQhaosR7VbXoQRIX2oNv3K0ppCyEh4eXbkmOLIR1UckjX6diQoNTsWrG320Le/rhWD0Y3bz5o1WDCVMWxGKaGfcfo64j/WByH6bb/TIuIZW/B+THt"#;
+
+const MINIMIZE: &'static str = r#"eJxtyqEOgDAMhOFXaeYb6DVZJsY0BotfgqhEkD0/xQBLlhP3iy+f9TI6lrAl0qYVBJp9wl6rhpKnR5T8Oggl404y9pFUkmg/6I82ghIJ0rijDPvoDZPFKW0="#;
+
+const MINUS_CIRCLE: &'static str = r#"eJwlybsJQCEMQNFVQhZ4TyuLmA0cQqKgYCFiodv7qw7cS5KblAjNovoRZGz1dl6ZvveZqu8JgkVnQOlkzjqJF12HEmU="#;
+
+const MINUS_SQUARE: &'static str = r#"eJwdi8ENgDAMA1eJvABq+fSRZAOGQLQi/aEqErA9NB/b8ul4tMPpFaygJ3L8lUF3r26CVEDW+mkeW3mZgvK1u1EVbIVStgDz0g+Nfxat"#;
+
+const MINUS: &'static str = r#"eJyzKUgsyVBIsVXyNVUwNMowNFGys9EHidkBAGN3B1U="#;
+
+const MONITOR_CHECK: &'static str = r#"eJxNjEkKgDAQBL/SzF10oqBCkh/4CFFxPAgSgsvvTRSD9KEPRZXeei8YDa0tuIAKq7KKrM4jsNpNg8exjF4MqYJwhiO49y5DJUGmZRZviB8tClZ/1Y4VuN5/wUQaKJYmgRsa9yYH"#;
+
+const MONITOR_DOT: &'static str = r#"eJxtjLsKgDAQBH9luV70zjck1ja29hKFCBYiIvr3RgVNIdvsMDDKjIuZBphDU0ZYNMUEs2vikioVPrZSc7da9JoaEbBscScQRG4cuFcnPgfSph/Dsb1bV8MrsSvlW/JjCgjb4hUnbgMqHg=="#;
+
+const MONITOR_DOWN: &'static str = r#"eJxljT0KgDAUg68S3i76WkWH1hu4uouKz0EQKf7cXq1oB8kS8pHEzI0TdJYqVmBd51Sa+M5K85KJM3ASaejoUuBL3zosuyVF2MbOyeUSwhNIPw7iLHFKOCz52l0Is/4wX9P/YVVAsRQfOAGRzS2R"#;
+
+const MONITOR_OFF: &'static str = r#"eJxtjDEOgCAMRa/SuKO0oQETZGZxZSc6sJg4GM9vu7BI2g7N++/Huz4Nzm3a0QP67CoBgZVBQ4YKH9bgzPrpTSkuaqTYPRLAhbtn1cvrIBmAsIUBQKnwr/uTS0vJynb2ATplLWw="#;
+
+const MONITOR_PAUSE: &'static str = r#"eJxtjT0OQEAUhK8ymQvw1iYUu26g1Qvi6UQ2fm7PKhDRzjffjJuaoOg8K0khWZ2zdEnMSvcQ+yFz3wZsnobYPTNC+3HQ4CmWWMcu6MlSYr46pxaF96CB5Iv9uSpgRIsbHMcKLIs="#;
+
+const MONITOR_PLAY: &'static str = r#"eJxFjDsKgDAQRK8ybC+6UdEiyQ28gJ2ouBaChODn9iaIsRgY5jFP74MXTIY2LtCgRpmF9GR1HonVbh493GVIEc518hJaQXgHmddFvCGuCLehMt7iwepP27ECN0f1CxNpoVjaBB5N+CZj"#;
+
+const MONITOR_SMARTPHONE: &'static str = r#"eJxtTL0OgjAQfpUvtxfbQ0tJ2s4uru5EiMdmSIP69lwnGMgN9/3Hz1AEY6KHCwhPPzAYtp5hw/frkYPXbuf6WQLleKkTOe5DFq5fTdv0Hm3jbieRThNyMJbpVbD8EjFBpvktJZGzBFWcJ3znsUgiRX8VuPZqI28fJjBk"#;
+
+const MONITOR_SPEAKER: &'static str = r#"eJxNTcsKAyEM/JWQe7cq6m5BPe+lH7G40gg9FJE+/r4JhboEMpNMJhMeWyfYI17d5MCodcEUzrJM4S/pGS40KT2kVnKHT0SL0N4RDQJ3zfCqeyemCoFKvVFn7sUnjsPLBfxqNwMGlNSJ2dOPmdGQHXm5tnwvkCVlRsgcrR1nM8jRT05fUDI2zA=="#;
+
+const MONITOR_STOP: &'static str = r#"eJxNi1kKgCAURbfyuBsoLRpA20GLiJSefyHSsPvSyPo9g/J2DnRqtKDdmcAaDejQ6EFs3cIhgkEVsRtUqm8rcy1LxL0C+Ye/l6i/bZ0Ck9EYhSTRbslE9jMdScFdFhcL7ytu"#;
+
+const MONITOR_UP: &'static str = r#"eJxtjbsKg0AURH9lmD7EuytoYNc/SJs+qHgtBJHFx9+7CiqITDHF4cy4/h8UlWf3gSSwL4sYFu69gcId+CsGYn/ZRYa6DNC6bTR4SkosnpaY2iqop0mIORYx7BW1TbgNZmP6cJXDiOYnWAFZXC1K"#;
+
+const MONITOR_X: &'static str = r#"eJxlzUsKg0AQBNCrFLWPSU9GYmDGG3iIEMV2IYgMfm7vKKKI9KIXj6py3S8oSs9WbJJCTJI+4jF3z1Vyd/h3Z1y4r/4BY1MG9TQvYoqPmD3fhFZNrcFTLNFvEGNr4GwtxEA+g73vFRmMaHbAAjgwLo4="#;
+
+const MONITOR: &'static str = r#"eJxNi0EKgCAURK/ymQvUt6gW6mVKUogWImS376sIrYaZeU9HtyfKBgoUW7wGE+gJR/LSR5B34fTJgGdYPRTB6ivcjjIbbCIo4RiUJXmRzrULW6jOllO1k9efxHXv8Af7biWr"#;
+
+const MOON_STAR: &'static str = r#"eJxtizEKwCAQBL+y2B/xNBEOLv4gH0gnpLBMIb5fFMFGppwZ/VPJ+G7zsINPAQF2IBMLBpOQvCbq0euo6xH4em6EY1yZlmkXJhpl"#;
+
+const MOON: &'static str =
+    r#"eJwBNADL/zxwYXRoIGQ9Ik0xMiAzYTYgNiAwIDAgMCA5IDkgOSA5IDAgMSAxLTktOVoiPjwvcGF0aD481Avf"#;
+
+const MORE_HORIZONTAL: &'static str =
+    r#"eJx1jLEJACAMBFcJWUAULISYZYKFYJVKtzcQBAutrrj7J+kqo4HMijEhyHKqAZmCa6aT3dpH5ZWZyN+zDY6gIPg="#;
+
+const MORE_VERTICAL: &'static str =
+    r#"eJx1jLEJACAMBFcJWUAULISYZYKFYJVKt1cMiIVWz3PHkVSVVkBGRh8QdA2C9P2YnGGmS4uHm/22fPrGJpD1IPg="#;
+
+const MOUNTAIN_SNOW: &'static str = r#"eJw9zLEOgzAQA9Bfsdhxm8sduUgpc4f2I6oysCAxMPH1HANslv3ktv62GdOrWxwZCof1BkOyt3yi2ruxPU4ztkt+lUkD8Ol/4SB9ohUYRSNpRqEPVIGwBGPV2LRC4JTMVO/HAy6pHFg="#;
+
+const MOUNTAIN: &'static str =
+    r#"eJyzKUgsyVBIsVXKtVAwVjBRsFAw1TVVMFUwNPUw8gEKVSnZ2eiD1NgBAOC1CoQ="#;
+
+const MOUSE_POINTER_2: &'static str =
+    r#"eJwBMgDN/zxwYXRoIGQ9Im00IDQgNy4wNyAxNyAyLjUxLTcuMzlMMjEgMTEuMDd6Ij48L3BhdGg+MmsMEA=="#;
+
+const MOUSE_POINTER_CLICK: &'static str = r#"eJxtTjEOwzAI/ArKbhqwASO5eUHziEodOjRSh059fbEtZepyoLvjuPa+f57wuC6Hg4MAMRCalSTIrDcmoBKCf5etXbp3a+cFKa4WhjkKcskT/3gNqVZg5OwRb7FVt12QsoKhq7xSp2rq6k4ZXSJrHTQxw8AjWqkYdNQhTP789wOqoS9m"#;
+
+const MOUSE_POINTER_SQUARE_DASHED: &'static str = r#"eJx1TjkOg0AM/MqIfklmdkmEtOEF4QN0SBTbIFEg3o9pgMLILqw5nZdxLZh+Vd8gjoLwPibYVXX5dbBdPjVsbyLCFc0UbBNokvobUh3/MugzOIENxCswKHitVlro4mJx30wPjoh283DRCLkGpptjB6mwUE4="#;
+
+const MOUSE_POINTER_SQUARE: &'static str = r#"eJxVjDEKgDAUQ68Surf2x1qX2tlBVwe3gkMXwUE8v+2gIgmEhPDCkc6MbVAzBSJLlwjCVmlqjr8OXuK+oSSzVzE0FRLDg9qFKHYQCzG9dqadWCa/vt8bV2sbew=="#;
+
+const MOUSE_POINTER: &'static str = r#"eJw9i0EKgDAMBL+y9N5oDCYUYl/gJwQPXgQPnvr6NpfCsrDsjH/X/+A+0isQGK0GViqGjXbORlIQlWOeA2mp+hJO9WmyYESh8+t7GRUe"#;
+
+const MOUSE: &'static str = r#"eJwVi8kNgCAQRVv5+Q2oBPXC0IFFGCEON0MmLt0L17eEmg/DK5wJzeVUE7qReEoyFU6e+BohamtWxjD0IYZrN0USbpPDcvsuOoo/nhQWsA=="#;
+
+const MOVE_3_D: &'static str = r#"eJxtyTEKgDAQRNGrDOkXGZcMCmtu4CEEizSChXh+TSFYhN/9F+d2VexLWjP8piqVSgztlvjsyOAMWY9GCG6Ot45yAtXM/v4Acckfcw=="#;
+
+const MOVE_DIAGONAL_2: &'static str = r#"eJxlzEEKgDAMBMCvLPmAROlBiP2Nh0JpC3pofm8b60F6SXZhWCk5agzpRMkh3ddBDsxweB95WT7hZbK8gzf0O8Lfm61rd4TKbZugo6rVxo0+yA0mmA=="#;
+
+const MOVE_DIAGONAL: &'static str = r#"eJxlysEJwCAQRNFWlm0gjOJBULvJQRAVkoN2n2UlgeDlDwwv9FZmyfWk3nK9r8iw5Ah+BeAUjteksGt8VmL/WuWAKM80TGTHNLHG6Ctc6QO/uSaY"#;
+
+const MOVE_DOWN_LEFT: &'static str =
+    r#"eJxFyiEKACAMRuGrDC8gP7IwmMsGrXbBYDR4f9Si9X1PZ1uDenQFIEjiiuBM/c2mH4U48xmebcWDD4w="#;
+
+const MOVE_DOWN_RIGHT: &'static str =
+    r#"eJw9yiEOACAIQNGrMC7gGCOwIdmg1e5mMBq8/xyF+t+3u96BXXGQAvEkbcToVqK7pQpIj0PTPtMbD8M="#;
+
+const MOVE_DOWN: &'static str =
+    r#"eJw9yqENACAMBdFVGhYg/YIgSicoFk+CQCLYP1BTd8k7OfNuWi31SlyNQYBx+Z1UsqNKLK4DCHnwMxA+"#;
+
+const MOVE_HORIZONTAL: &'static str = r#"eJxlzDEKwCAMBdCrhFygJIM4RG/TQRAV2qG5fZOAkxD45PP4smbX3sYNa7bxPgUpQwZmILsMlLDKtVGVgyfXjtNhwynZJCN8XJA97bdQjtp82B+89iaG"#;
+
+const MOVE_LEFT: &'static str =
+    r#"eJw9ySEOACAIBdCrMC/g+IEZkGzAQ7gZjAbvP0chP73rHdq9TKHmIIYLsRTTGmKaHjaAlA/Icg+Y"#;
+
+const MOVE_RIGHT: &'static str =
+    r#"eJw9yqENACAMBdFVGhYg/YIgSjWiDEGCQCLYP1BTd8k7OfNuWi0NrlQNIIb95JJUsqNKLI4dCHnvjhAw"#;
+
+const MOVE_UP_LEFT: &'static str =
+    r#"eJxNySEKACAMBdCrjF1AflgYzGWDVrtgMBq8P2KR1fdsj7NoZm5CQJcCsFt66hZOKpSg/y64nA9V"#;
+
+const MOVE_UP_RIGHT: &'static str =
+    r#"eJxFySEKACAMBdCrjF1APrIwmMsGrXbBYDR4f8Si9T1bfU8aiSsiSYY2gN3CZbefSlKEoO8OxaYPjA=="#;
+
+const MOVE_UP: &'static str =
+    r#"eJw9ySEOACAIBdCrMC/g+IEZkBNgtbsZjAbvP0chP73rHdq9jEbiDIKzkBTTGmKaHjaBlA/JSg+m"#;
+
+const MOVE_VERTICAL: &'static str = r#"eJxtykEKwCAMBMCvhHygZA/Sg/E3PQiiQnvQ3zeG9lAoBLK7TOytzJLrQb3lep3KO4kdCCAJljnF7UUp/vDgeuHwte4GlAVMU5TtDXmqzcDybm+9GSaG"#;
+
+const MOVE: &'static str = r#"eJyFzjEKwCAMBdCrBC9QEnAIqLfpIIgK7aC3byIWpB2cPoGX5LtaUk8xn1BLzPfljQUGAiSwgNYEd7wiuJ9lRaTcws4KQR6a5APyjrP2GEV07XN90IbekIFGEpJdRtSkkeIX26ddDM3dxT7KCk0L"#;
+
+const MUSIC_2: &'static str = r#"eJwBRAC7/zxjaXJjbGUgY3g9IjgiIHI9IjQiIGN5PSIxOCI+PC9jaXJjbGU+PHBhdGggZD0iTTEyIDE4VjJsNyA0Ij48L3BhdGg+nsgTIw=="#;
+
+const MUSIC_3: &'static str = r#"eJwBQQC+/zxjaXJjbGUgcj0iNCIgY3g9IjEyIiBjeT0iMTgiPjwvY2lyY2xlPjxwYXRoIGQ9Ik0xNiAxOFYyIj48L3BhdGg+YagSWw=="#;
+
+const MUSIC_4: &'static str = r#"eJxFy0EKgCAQQNGrDLOPmCJRcLxB2/YxBQUGIRF1+9QK1+9/u4/HAhNjb4D00HlqquakFp2tEzn7B5uBmEQtJGsQP4NcjApBbkbSCIEx76+WKrH6OD8xLtkDVismgw=="#;
+
+const MUSIC: &'static str = r#"eJxVyjEKgDAMBdCrhL+LpEWp0PQGru4SBYUOUkT09lqKiPN7fhv3hSZB3xG7oYlsKnOwRfB1puB1TRpn0lPQgpLAgvQSsMun6G89UMLbv3YDvWAfIA=="#;
+
+const NAVIGATION_2_OFF: &'static str = r#"eJxVy0EKgCAUhOGrDO413tPQQL1BhwgKCiRatMjbpxZBm/k33/hjOlfMQYyD0oQ2PZiSlQYWRpIiK3UZEX1XcfTfhYzqNZxyDsTg1DD+OG37gkxBsMD1hktK89NCK4o3FwchoA=="#;
+
+const NAVIGATION_2: &'static str =
+    r#"eJwtyrEJACAMBMBVHheQBEQEdR0RJAlo4/ZapLviqum6QwWmU85ugRgMKmDCJ2UkJ4deo+/+ALgSDuw="#;
+
+const NAVIGATION_OFF: &'static str = r#"eJxFi1EKgCAQRK+y+N/GrpkK6g06RFBQINFHH3b7VoliYWZneBPO+dpgiWpyOGhoooEoO2A5UTS2M1KrFPoKp/BNyKL2AqPVwILnztd3wJF+Ou/HCoWjYlZwk7jYG0uLglYoPSzmIcE="#;
+
+const NAVIGATION: &'static str =
+    r#"eJwtisEJACAMxFY5XEBav9p1RJC2oB+314K/JKS6zdNN4TZ0r5YKiMAMBhUwhT2ImqTmf8sFtm4O3w=="#;
+
+const NETWORK: &'static str = r#"eJx1jc0Kg0AMhF8l5C7tRCot7PoGvfYuVRpvRRZ/3t7NCv6AkkOGmfkS1zXfQJNnFExDWwf1HJU27U9DkuOSdba5dDcDSpewaMmhux2YrqnFM/iVenL+eIX+VVCqPb8fhKLP8goEuseJO4NC9gahzw01aIdCCPJ5rskMWA9DAw=="#;
+
+const NEWSPAPER: &'static str = r#"eJxtja0OhTAMhV+lwZe7noylJLtoDBaBIyBqSBBkzw9DwASp6Xd+cuI+H0brvxo8ASZhBoHcfWCM/mW+uNeSCakoSBam7XpLiZG4XRxLLXWbEwxD1cVfHu7iMy9K4o31y2pI1Lj5shwF05SLY5iewAllezQR"#;
+
+const NFC: &'static str = r#"eJxtjUsKgDAMRK8SPMDYpDVVqL2Bhyi4cOnC+2M/tKsS8sjAPBLe9D10n8ultMNK8nCWKkwezuthdYlhLc0YRv+AU1IIJ2Z4pcYu5bTtE4sFB5NDtrZyNTYLpuapprCeJIkBKzX2V2KG8ANXli9x"#;
+
+const NUT_OFF: &'static str = r#"eJxtUUFOAzEM/Eq095jYseNYavsCuHKvChJIBXFAiP6e8S6qeqiijR17djyZ7L6O32/lZb88sRR9luWwe8jSYXdtWOH2o0en1rRse1uXkbiXQT79RMpC3JRmE5KQwjgJWcgjiEXONIRrbifqlTqNqKRzbriawJzAZd02fiUWq0LR444sjtTVqWu/14UCOVVGG4PMO9Johr215MSHsg4UJYuaSrr1bJW1whNyVZHqyPPEH2tDJjkjGUEBUC9css1XGjcHTevg6YU4tJL7oJlcZon2AED4g8FiCiMjYOGcDk/MARAMn5FQs5wOi3NIhxk8kI3Z0zlgEdGX8BzfV6zNdTzUwum8qGLNmjLwdOuFgB2JYoO+m0c/v3++lgvvF1nK738QBMTLFgFN0OEPsoF5kw=="#;
+
+const NUT: &'static str = r#"eJxtUD9PRDEI/yrkdrBQoCV5XmJcdXVwuzwHBwcHc59f6EvedGlCaeH3B7bf2983fD1f3llAP+Ry3Z7q67qdBQNud70Nak3hiG0dIxkDnMYcOykLcVOaTUhCgPMlZCFvSSzyQy6MFXbqSJ08kHTOow+r8aW4OxzxUOAA1jvqA1dl93WCgpKB5z13JNFOMZCigBQmKNAz6yndZpmKkWIS0JGBTCmEYhW6OaTRzDRh5DoWgyJTiwk5SnKlTaMIK9fG1SujSgvXj/kymy4FsxPmEqlcjOxLQvoJk5abMK1N+EzrnoxYhdbTG/v670tx1DDJLDlj1T3jsImSOQrmXlMNNc9E/TyX9g9MgGML"#;
+
+const OCTAGON: &'static str = r#"eJxFzE0KABAUBOCrvByAvIQFriMlT7Fxe/KT1dQ307hKeUQqUCmV3jwz3GpAkJpLtRIRjjy6xee/3XKYBSfuc5i5PBcj"#;
+
+const OPTION: &'static str =
+    r#"eJw9ySEOACAIAMCvMD7gGA4NyA98hJuBYDD4/6mFfLrHcZgNOwO7LAGqLmiaPpgGU35eAi7D/Q/j"#;
+
+const ORBIT: &'static str = r#"eJxtjEEKg0AMRa8Ssjf1jzOlgRlv0EPItNBCF0Vc6O11jItBJNmE915i/o7596Y8J4ZjGhN3THnZrz7eDPfx0DbsDAe2Ri+sAsLxRdmiyvoP04deiZ9oxZOD6ICWtrVRUY8GQTzuJSt6HXUSyAnqplF5eNCpWQHy3zj/"#;
+
+const OUTDENT: &'static str = r#"eJxVzUEKgCAQBdCrfOYCMQbmQr1NC0FUqIXevjStXA1/ePNHp+iLd2FHii6ch6ENCitYYANLsnoZwurmMhsSTCjCEAtCrrNmbvk++OG6lI+VH+0VMx29U5/qf9SLL/NyLq0="#;
+
+const PACKAGE_2: &'static str = r#"eJxljLsKhTAQRH9lsM9ed5NcXYiCnYW2FnaCRRrBQvx+Y+EDZFmYYeZMWKctYq6y3kIjlzvnk0CQp2OTVOvf3sigY1aH34nV4YKXBEPIeeNIm7uPgsTBRiUvzwqYyvTcCUO/Wz0L7P6/gwMIIyZR"#;
+
+const PACKAGE_CHECK: &'static str = r#"eJxtjc0KwkAMhF9l2PuuTbo1FrYFH8Cr94KChf6BRdq3N9uq7EESGJh8MwlTMz9wq0xPR+iyjrfe1OEQL3X43i9MoOx6aiKRxbFkyUneWbE+cVXVgj//LOQ4vZIgtCkGFUrMmGNtpD/Pe3EFvGNBicJRkRBjt3btcMc0tsP8rEzuuISAOC5nTgiy4R+wDhu+UmWYDRZVUl1512VXDWzwG7ulRUc="#;
+
+const PACKAGE_MINUS: &'static str = r#"eJxljdEKgzAMRX/l0vd2JlYzoQr7gL3uXdhAwakwGfPvl+qQwmjhwsm5SZjbpcO9NlcqQWVXmiacImvCMWECZbdzy2Bk8Vmy5CQfrFifUE1F8JcDIcf5nRShm2JRpQTGHutG8v/Hn+IKeMeCCoWjIjGmYR368YF56sflVZvccQUBcfycOSHIpv/EJmz6SrVhNvhoUkzec91TC5v8BbsKRGw="#;
+
+const PACKAGE_OPEN: &'static str = r#"eJxtkMtqw0AMRX9FzH7UkeR5GJxA9+m2i+4MLbTgli5CSP4+V3Ye4IQBDTNXVzrS8D/uv+lzE940cS/UuHUIuZCy2ijcG80h+YnCTSjtjIU6FhuVRWkOi84pk3HpJ4FdqcA5ImFRvVAHtwpBzvLE3Ue460fYDi8Oth2ueL8GcaGD13IsXGSFh7Iz3oQa2b9XDYSA7XS7xhW+jmu+0Um80NlTOHgf4aafvy866iaIBjr5bYGOcnnjVvVkT7tPgkWTGOeDsVV0Sb5qhCuEzGPYFAtYU1vPiIzaMGMs0eXXVQHCfgq3+u4tbqRnSRZmZw=="#;
+
+const PACKAGE_PLUS: &'static str = r#"eJxtjdEKgyAUhl/lx3td52i5QIM9wG53H2xQ0CpYRL39VGITNhR+/M73H93cLh3uXlypAlVdJRp3iqxx30kN0uu/CROouJ1bBqOIR5IkZfUgrTQZDRkQzOWDoHFesyLCplgMUgZjj8NGMr+fP60qYRRb1CgVlZkxDfvQjw/MUz8uLy+04hoWxPFyoSzBJv0QG5f0jb0gFtjJC455vDdKGQpJfgNAuEvV"#;
+
+const PACKAGE_SEARCH: &'static str = r#"eJxNjlEKgzAQRK8y5N/UXQ1RUKEH6G//xQoVUhUrRW/fjVYbErLL5M3uFGM9P/Eo1Y0JFN+zmsGI/YkoIm0TF9koDVSpIiG9nhISZJ/ACJnkjQIFovexTKRUVcXFr62KY/nLaoNUs0UOo8kExOBW1/UtxqHr53epEs05LIj95Vhbgt3wH1gVG75QqYgVFt7relTRmb1hh5tualyLZpVvo41Cs0iX+W4SUm9Rdugf9yZ7JStZ/7Ikyc/AX9WSUkM="#;
+
+const PACKAGE_X: &'static str = r#"eJxNjl0KwjAQhK8y5D2xu02IhaTgAXz1vaBgoX9gkfb2bmqtIYFlh29mJ0zN/MQ9qisTqLidGwajSE+TJuPLTnttM1WmSLCXQ0KJ8zszQpKSUaBMTD6WRLKqDqd0tg6/4703DtawRwVnyGXE2K1dOzwwje0wv6IqDVfwIE6fC+MJfsN3sA4bvnBUxAorRcVp7vtC2xTDFz4akGSWcHC9dtLW6X+JD4wYRmw="#;
+
+const PACKAGE: &'static str = r#"eJxtTjsKwzAMvcoju9RKtisX3EAP0LVDt0CHDg10KDl/5ECCIUEgwfvpld/w/+B960bjhMhquCKxpK4vp8r1ZVU8VJAHheJch4SELXzJKDaoX4cQ7xuEgDw1RggWo4sasPo8qbH5O7m89j3GwAGGzIZUNx11Fc/Rp+hGzffYNWU="#;
+
+const PAINT_BUCKET: &'static str = r#"eJxtTjEOwkAM+4rV/UKS3sEhHX0BfICtKkMHkBj4v3BQRYdWkTPYjp32Hj8zHpfuZWeYpRojRxCjw6HLuNRnEQcxSZVKKRah19/lvRvaIcKG9o8sdBWUrXJzWD/brsJWXaoNljJ00mR8yeSUXDKcnPQIirYgkNf2Lx1cMMo="#;
+
+const PAINTBRUSH_2: &'static str = r#"eJxtjTEKgDAUQ6/ycbc2aRUK1dnF1cFNdOjoIP/8VpFOJWR6IS9e+53kHJsFXhBMWDEkt1Mo9gtbasu5Vx5WYGCCvJDJqTPhHyLXi92aKXbv4RTL7SDgygQqbAVnK9XXQFYrC3gAjIcrKQ=="#;
+
+const PAINTBRUSH: &'static str = r#"eJxtjjEOwzAIRa/ylR0asB1syc0J0gt0s9Khg4cOvb+KoypThPj6Eo8P9dO+b7zu00MyB4PyEiAR1kk4lUOaQjGPIuXsdss+Lyi4QP7QJgaZe/RMGtKUxZkhM8ShQOE5rfU27q/1/KIg76QIFBE4kSH27EG7kmCh5G0XWxI5QczlMOlEfiwvMfM="#;
+
+const PALETTE: &'static str = r#"eJx1kMFOwzAMhl/Fyr0mdmI3kdpeduYhpoA0JA5ocBg8PXbSCSZtUpt8rb/8tbu0t3N7f4XzGlACtO81aIfLGigZbcvTULZlV92h6NL1kLvzQ3e+OuXvzB3zsn/5XyfEt+rH8esEL2t4JgY+mA22w9iJP7MBxXE1rKxghJrLhHPWHW0tBeKEOc0TktVKkvFESGzI1e5S/Z1VVXhQrx49pCdZtqU7ag/VciKsVVvCKGQ1QRGZbIKYdvY1H9g0Fes62hT227JSbx/4x2f1GbdfHGFe7g=="#;
+
+const PALMTREE: &'static str = r#"eJxtUDEOwjAM/IrFblM7dtNKpRIPYOIFKAwZOjAw8XrOXWCorFwcy3c5e3k93p2el9NNC01tYJM6Anzk4BCcu1GIORlN3TZlJUT307qck7su/wpV1K8hU3IAAwLdowSNrcjgeEOULAUzic5lY+VdFvmBKoRmmqVqgy1NrgayAr5XlhL41MvmkGRACIoV7UDNZkuaNVaZIwGDiVVkE4MIofgczQI/MNh2s8GilRy3Embp3mzfTRYsvf+28QWkH0sY"#;
+
+const PANEL_BOTTOM_CLOSE: &'static str = r#"eJwljNEKgCAMRX9l7D1iiuCD+i+RkkJFiJD+fXMx2Ni5Z3M17Q26R40wpFdeFEJO5cjNI1lGQ9BbYstCglvnXXBnuRMMYmgQumKNeNL/Tglmd1rBPVvLED1eZMAuGvTCNeMZhA/7iCRi"#;
+
+const PANEL_BOTTOM_INACTIVE: &'static str = r#"eJx1zMEJgDAMBdBVQhaQtAoW2m7gEGKL6U1KQN1e05OCXj4hj/99zYtAPQIahDstwtlyL0k4II0InMvK0u7oOy1Ev83CkAJO1AMNTCr6e4pTMR9i/8C9ty6tCix4"#;
+
+const PANEL_BOTTOM_OPEN: &'static str = r#"eJwli90KgCAMhV9l7D5qSlCgvkukpFARIqRv32YMdjg/n8lhL/AmX6JFWhCqRY3Q+s9sFEvrEkM6YukrZ0bhnDnTHaARhzND6tdKna5sFclWVs48W4ngLV4r0AR60MAntRTuAwVKJEQ="#;
+
+const PANEL_BOTTOM: &'static str = r#"eJwti0EKgDAMBL8S8gFJRfDQ9jNabEA8lIDp701sT8vOzsZWDoFa+KqSkHaE1hMGhJdPqYNowtW4/rx7yXHxX443PwU02EI2kfmbZRipNF238gcqUhxC"#;
+
+const PANEL_LEFT_CLOSE: &'static str = r#"eJxFi0EKgCAQRa8yzD7CpChwvEGHiJTGRRAylN4+LajF/4v3/jfRrwJXcMKEakSImbBDYB82lhclQo2Qn46pamva+rPmWITBEc4T6LNsi6joF7saQPWNbjSUfP4G334gyg=="#;
+
+const PANEL_LEFT_INACTIVE: &'static str = r#"eJx1jEEKgDAMBL8S8gFp68FC0x/4CLHF9CYlVP29Bi8KelmWGXZDzbMA57KwEJoBYStJ+K51J7QIVzqEQzOGTgcxrJMwJMLRg+mbUaHoLXyzn8L9cP84OgE4gSv8"#;
+
+const PANEL_LEFT_OPEN: &'static str = r#"eJxFyzEKgDAMheGrPLKL1DootL2BhxBbbAdBSlB7e1MFHZLh/xKTw8LIl6WOEENaI1tSA0GKJpRnn8lzfHMu9dKZtv45s88c4S1NI/QhLlDTD5vqIQbdyHx8A7JYIIE="#;
+
+const PANEL_LEFT: &'static str = r#"eJwdi0EKwCAMBL8S8oESe2lB/UwrVSg9iFDzezc5DezOxF6uQZp4Z6qlPXUkloOpYwrAdEz//3aP6neOm3U5vu0rpAGSwAJPQBwqFsE0Jy/h3Bvo"#;
+
+const PANEL_RIGHT_CLOSE: &'static str = r#"eJwti9EKgCAMRX/lsvcIlaBA/ZcoSaEiQkj/vq18GGfbPdfeYckojgzhZmhG/fCkNUdHaiTEkLaY/72K6m0vPW/3dAYUzdHAEVMrQlHtVs0Vy9trzhGro2PEBAPT8Ugqf/8C31kkGw=="#;
+
+const PANEL_RIGHT_INACTIVE: &'static str = r#"eJx1zMEJgDAMBdBVQhaQtAoW2m7gEGKL6U1KqLq9Vi8iegt5/3+b4ySwOdQIawrCDqlH4JhmlvveL8xnRqG3TS14u4zCEBwO1AG1harU30tMUd+i/8A8tg7F9Syw"#;
+
+const PANEL_RIGHT_OPEN: &'static str = r#"eJwli9EKgCAMRX9l7D1qitCD+i+RkkJFiJD+fXM9jMvhnNkS9wpvDjU5pBWhOdQIhUch9B+6QIr5SFUqb+fx5+2Z7whdsSeuSfLGSIaXZLkdlbfPVhMEhxctQGbSkwa+4YfxHys6JIs="#;
+
+const PANEL_RIGHT: &'static str = r#"eJwlzEEKgDAMBMCvhHxAUhE8tP2MFlsQDyVg8nuTeJqw7CbPdjBowRVhSsFkaCCRvePkXpB2hN7G1Tnumhff1XyPp4GQhZst0q+aiUzyF9b1Vv0ACaQcQg=="#;
+
+const PANEL_TOP_CLOSE: &'static str = r#"eJwti0EKhTAMRK8yZP/5pAVRaHsX0WILKlIK2tubqGQRZt4bV+JUUS5PhnDmuSZP3BOksIQU85Lq25T2OE1BcH/dBbfmPaIZT4NM5BkWg9/In6lOcMdYE2ZP2wDuYH8WcooVhBvPsSPw"#;
+
+const PANEL_TOP_INACTIVE: &'static str = r#"eJx1jEEKgDAMBL8S8gFp68FC0x/4CLHF9CYlYP29Bi8K9rY7w26oeRXgXDYWQjMhHCUJP/EkdAi1EVqEpiWGQQcx7IswJMLZjODZqFD0Fv4W9ke4Dvefowss2ivE"#;
+
+const PANEL_TOP_OPEN: &'static str = r#"eJwljNEKgCAMRX9l7D1iWlCg/kukpFARIqR/32bsYWzn3Gty2Au8yZdokRaEZlEjZF4KofYjhnTE8uNcBTgzSs6ZM90BGllcWaZuV8UGcZGSL5viOPNsJYK3eNEMNA0a9MAjXIj7AO7FJDU="#;
+
+const PANEL_TOP: &'static str = r#"eJwly0EKgDAMBMCvhP2ApF4Umn5Giy2Ih1Kw+b1JPW2yzMaWj05NBQFUcr1KF/AGeuvZy38OwQpqYxr1J8XFdyne9cmkQbAbswhsydMre2vSTfoA8ZEb6A=="#;
+
+const PAPERCLIP: &'static str = r#"eJw1jbEKgDAQQ38luPf06rVeoRb8lIKDQwUH/x+9ogTekJAkX/U+sK/D6ZlEwExTcIk4wVAjIqZX7JQkdTSlsDjDJhDLTAollWZ+goXVw39VTzp3tH9Eh5JHuy4PCMYboQ=="#;
+
+const PARENTHESES: &'static str =
+    r#"eJw9ykEKQBEQBuCr/NlPL28mUcMNHEJZWCruH0oW3+7TXmZDjSZ7/HaQEG8Bl0n6nZH0PevAQ8AQBLpeWxmZE54="#;
+
+const PARKING_CIRCLE_OFF: &'static str = r#"eJxtjEsKgDAQQ68Sulc7HT8I1bUbD1GqoKAgRYre3lYX3QgzhOSFaLs6u82wVydICbggUsDer+118fFeH+ZcMHVir1CBynCRxjSxkRjEhsGQoPAyq4fWq59mC2p8pnJOMw9LGSUj"#;
+
+const PARKING_CIRCLE: &'static str = r#"eJwlijEKgDAQBL+y3AdMjBgCydU2tvbhFCJYSLDQ33tRlmVZZqLsVY4N8iSyPaHqGILc3+XY/Zzjma+CNdEcYP3iy5AdHIzGascpNLlJ/AK9ChXz"#;
+
+const PARKING_METER: &'static str = r#"eJx1jrEOwjAQQ3/F6n5HLpdeEil0YeYjKhgyIoH4fi4dUIdWlrz42XJ7rZ+O53W6V9RVoQgQlyFMS7uMdGl/RiIkfvUo8dLc41EyhjPyNhxIlA2R9WacIMmtwJFhvbyFjdIGGGXOD1biwomEZ3evnZyqu1M/5nA0HQ=="#;
+
+const PARKING_SQUARE_OFF: &'static str = r#"eJxtjrsKwzAMRX/lkt2qJeVRgxvo1qVrd0MHL4EMwd8fOUMSSBACIY6ObpzTkvF/NV+lHtZvgcBbMTpo5jYdC5vKeeGoC2BquRnjo4rGeOjwpOHHYad9Pc/sSa/0VCExwt+YWMGaFLplMJHrP6HIDWlhhuLk9GEFj5w16w=="#;
+
+const PARKING_SQUARE: &'static str = r#"eJwdi0EKgCAURK8y/AuUGZmgrtu0bS8pfXchQnX7VIZh4PHG5HgWfJYkgWO6uFgSK+HtJNeZCE8KhTt3ZmgHZ25fGMHSriHUoXj2EhJjjahdNt3UJrkfQn0aOw=="#;
+
+const PARTY_POPPER: &'static str = r#"eJx1kb1uwzAMhF+FyK6rSOrPgJulS4d27dAtcAcPLdChyPP3qACZHNiSaR8/Hk2tv5e/Xb6eT+8VQ1ThYmL2rRk9OfpyOq9PkXNe75lFfEfWA8VMxgNJq9hjyvKx9hNaMlhBrxfDIrFyXEmxNHGoXfMGxWgJtYuiOaVSZ7Qn+NgSxQk0NO69USvlTYtoPvZUJ2OEfcIMCsHBRsKWg4IqbRMfnBM6CVhoxWf0qv2gsCqHy5ostLHiLBzkCJJilL7mlwXVpPA/F6kRLtJg/tGPpkrIN3Jhy80wnKh2GlV2TivnMWb2yFXTbN9vW+SmyOXXKvEScCTzFh7X593wH2lof2M="#;
+
+const PAUSE_CIRCLE: &'static str = r#"eJw9zDEKwDAIheGriBdoE9qhYHIZyRAIHTLp7Ru17fQj70PiPnk0mAXTjsC6mlfFW2mLvdLodwPNBS8EyaElRdV6mjb1WkfHPwa223989gGcMiFD"#;
+
+const PAUSE_OCTAGON: &'static str = r#"eJx1jCsOgDAQRK+y6QEKndAPyVKNKLaeBFGJIAhOD3QJKOR7LzO8zluhZVCTacnY3KvIze0if6X7K177K6IEbT0SQFXsgsZpBEfAWG0CicmCz/Z4b0/5JSL5"#;
+
+const PAUSE: &'static str = r#"eJxdzEsKACEMA9CrlFxgEAZXrZeZEetWCurt/YAbd4G8hEv8jLrgBdX8m+6kMSc1gfOgJvAI/CwYePOrdnNxPRw/ADIvG1Q="#;
+
+const PAW_PRINT: &'static str = r#"eJxtjUEKQjEMRK8yZG9talIrtAUP4MKtu1IFBRfyEdHb29qN4icMEzIvTKyXqV5PmBI5Qn0mYm7+SiSU43KkOf5TYVBhhuq5syNnT+PrC7uV+xnHRLsN2BaFwrbh5vpYGS1N6PpcF94EARsruvdGHXhtJECMeHDPtj84tG1sD72v9+Q3qA83+g=="#;
+
+const PC_CASE: &'static str = r#"eJxti0EKgCAQRa8yzAHKCRUC9QYdIlIadyED1e1zdi7a/P95jx9aOQTumoUjkkXgUk+WiItBaE9vhJ4O4dWdwqyHFK5dGHLEjRyQ5cmQOqWDW8Gz/+VkBvEBvRUlTQ=="#;
+
+const PEN_LINE: &'static str = r#"eJxFizsKgDAQRK8ypE/M7iZKYM0J9AJ2AYsUFhbeH7ONMjAwn6d3ezrO1e3E4NiLqzpZV/Vf5pAhITcOdjKLQwSBbAuoXD6NRD4dH/0C6QYVeg=="#;
+
+const PEN_SQUARE: &'static str = r#"eJxVTKsOgDAM/JVmvoN2XUCMaQT8AG4JYgKBIPt+WsMjTXqP3F06y1Vhn9xKBDJLYWDo7VBZo4+hyPVvIDccXE6dreT0bo0+AvtY2JPG7VmeIEBYVFA8UFQSyvbUb5EQH1Y="#;
+
+const PEN_TOOL: &'static str = r#"eJxty8EKAjEMBNBfGXJPJY2xFdp+gT8hVVCoIIsH9euNu4e97GVgmDfleX7dcKn0kAg5InGCQj0TK+uXWtn9SSsrzBBlCcYp2CkiDg0G2XsRheRhbFs/l/BHPiy5in6f+riivyuJEKZKkdA/c3O0zO0HQxMr0w=="#;
+
+const PEN: &'static str = r#"eJwBQgC9/zxwYXRoIGQ9Ik0xNyAzYTIuODUgMi44MyAwIDEgMSA0IDRMNy41IDIwLjUgMiAyMmwxLjUtNS41WiI+PC9wYXRoPvZCDv4="#;
+
+const PENCIL_LINE: &'static str = r#"eJxlizEKgDAUQ68Surf2t/1K4dsT6AXcCg4dFBy8P/YvOkggkORFrno37LNZKSD4lk2RQbsi3zI6RnRcg1NIzXcRIuIygfJhU09k0/Z/n8RgJd/pAZUVHMo="#;
+
+const PENCIL_RULER: &'static str = r#"eJx1jz0OwjAMRq/yiT2mdpwfpNIThAuwVWVgoBID9xc2EQxQ5MSR8uRne7zPjysux93KCQkK3U3j3j+n8Y1OHFFQqUCozELKeKXBI0RSDM0IEsVvamG8FXD89a4VGRJkgwhEzJcCU2rCxAWZquurIU+9uQZtkRI4UzpveLga+tPDnMxQin4XOmg/Pn3uc9+CkFVTXkJnwZm/fWkr5/IxPwFZsEzm"#;
+
+const PENCIL: &'static str = r#"eJw9jDEOgDAMA79idSc0baMyhL4APsBWiYEBJAb+L5IBZOkGW2e9+3Ngn8PKFbknmgSGjAi2FJSlklXRgZROJhmEZAtNR3ebfg8XC8SNf3oB80QWUA=="#;
+
+const PERCENT_CIRCLE: &'static str = r#"eJxty0EKgDAMRNGrhO7VRmghkPYGHkKiUEFBigu9vakuROjqwzyGZcmyzpCDQWtATm2vvZ5G7l6PvI9HgimYDR1Q48EXLONHAwGl1mJF9ITuZzcQICGs"#;
+
+const PERCENT_DIAMOND: &'static str = r#"eJxtjzsKgDAMhq8S3BubtkGF6gn0Am6CQwcFB++PaRVBW0JCwv/l5Y/lDLD21WSwAdJoF4OOIAX9mJVia5A7iCEDbEoToIqAVhEZycoKWUN/QN0T5mrwdbxn8O9VHRoQD6gpV3dyyCKzYuBCs8jyk8P2034BAHk3rA=="#;
+
+const PERCENT_SQUARE: &'static str = r#"eJxty00KgCAQQOGrDLPvx0JJUG/QISKlcRGEDFS3T2sRQdv38UwKM8MePZNFMSAcFnsECnEhfsp5l5ShQ2eaMjizTUzgLa5Cgq4UqEIlvjRq0FS34kfyJOTHLkV8JfQ="#;
+
+const PERCENT: &'static str = r#"eJxtyjEKgDAMheGrhBxASUFFSHqZ0KFQHDolt7emiIvb/3gft3oVcBLcEDwJ0olgKaZRzMzrgzJr7doKdMG0jFtNcI/wGQNO8kvpeG3Uh2/kbSL2"#;
+
+const PERSON_STANDING: &'static str = r#"eJxlykEKgCAQRuGr/Mw+0rGGAvUGHSIsKCgIiajbpwQRtHqL79kwx7CMiI40IZwpnHo5qsnb8lFvt36fMDhaW7CCKQQGkocMHxY0EDCk4L92mqHVUb1yA3ZlIh0="#;
+
+const PHONE_CALL: &'static str = r#"eJx1UMsKwkAM/JXQe8dNut0H1ELv+hELHnrw4EE8+PUm7bYUVAIDSWYyYYZHec50OzdXEeKALK+uCAk5LW4FnLThjJgrrouE0LUdXLRpv8K6CW34wTeqieK0HycPZpL54GdWiAqC5Cu6pRBJOyNsr8H3OmK+JLhMGZkLq3OogkDhzpDYGhwdVLJovz3MAMcHt0jezTicLKhx2ONiD6cPFLWu7EQR2f+lhqmnmhFpqOx25getik6Q"#;
+
+const PHONE_FORWARDED: &'static str = r#"eJxtUNEKgzAM/JXQd7MmutSCCnvfPkLYQEFUmAzd1y+tOoSNwKVN7nIhxTh0S9f2DxiHtp+epaEcGJhBQF9kTVWcdk5VROZMysoMzFwaZgOLZtFEISl9pY711MC9NDedRYKeX2mtg8FqUMIYfcij8xuujRwlTVK0LlTPK6wdSeQPP1CDyF2+wyFDIuDm4Bes0Ckw5tmGNgY60F8g7KthdtYS0TVH68Gjp5rUWTaBgHSE7JIARweVRO2vRzDA44L7Sd7xunqo6gOnM1MS"#;
+
+const PHONE_INCOMING: &'static str = r#"eJxtUFsKg0AMvErYf1MT7T5Ahf63hxBaaEFUqBTt6ZvsahFassySZJIJU41Dt3SP/gbj8OinZ23IAoOAB2bwpqkOG6WpInGm2jAbmFnJBhbN5ZM00hN1bKc7XGtzYd2GgV9Fy7I5l6CMkbzKBHRhxdTwaIuswNxp9ZggdWxm//CVqkPu9F0OJRIB33d6KoVOgNGXK+Yx0IFkSthOw/IoJaKzxzxAwECtuCEvDViwHSG7TGGvICNx9ldDBXB/4GbJO7orRjUfYXVS5w=="#;
+
+const PHONE_MISSED: &'static str = r#"eJxtUNEKwjAM/JXQ98Um29IWtoHv+hEDhQlDfBBxfr3J1o2BErhyyV0vpBlv9ytM3LroYKLWsYO3MhJ9jbLrmoOJumaWWtOG2WJa1WTrJn30zwEurTszAwkmfpU9A4PXooKRohJKGFLGZRBRyqJEH6xbL7BMpJA/epOaKRy3z6FCIuBhl2dRGBQYY5XRz4UBlJlgXQ2rWltEp4g+QcJEPWmyZIOAjIQcCoN9glpm72+GBeB+wfUkHzuXHar7AjGQUA4="#;
+
+const PHONE_OFF: &'static str = r#"eJxlUO0KwjAMfJWw/4tNWvsBc+B/fYiCwoQp/hDZ3t6kHVQYLddekwt3Hd75M8Ht1F3JoI9AFi1l8iDblGXRETD6mZBDr5AZuJT0nahHdwRijG7DqpMrYYDWK0zI1zZ5L/IohBKGtGEtRPS2t2iCvjresNbEoRWlD8+Cyl3ej1B1mXNuFpzYBZ7sf4Lqa+9fvUuEFqDk1MCXiCZBwkTdOBz0A8dhfrzusPCp4w4WkkPOlQpduVBp1abxByuCSc4="#;
+
+const PHONE_OUTGOING: &'static str = r#"eJxtUFsKg0AMvErYf1MTdR+gQv/bQwgtKIgKlVJ7+iauFqEly4RNJpkw5TT2S98Nd5jGbpgflWEGDwIMZIFNXZ52Sl2uxIWFZOClSTNVhqyBRbJXeqROzdzCrTJX1kUY+Jk1ujSVoISRvCoEdGHD2PBosyTD1Gm1iBA7NrF/+ErVIXf+LocciYDbg55KoRNg9PmG6RroQH5K2E/DvJAS0cVjGiBgoEaMkBcHLNiekF2icFSQkXX2V0MF8Hjgbsl7dVeMqj9VCFLe"#;
+
+const PHONE: &'static str = r#"eJxtkMsKwkAMRX8ldD/XSdpmZqAW3OtHFFx04cKFuPDrTfqQAUvgQh43J2R4Tq+Z7ufmJkKsKPJuJyGhaMFBwNkSLkhl07WRoW1oEZNX+1XWjgY9mPdRN6XLbzl1YCaZK56jkEwEuds0LoFElvnAfhq63krM14xYqKDwxEbWzaCkD4ak4FITzLJ4/xkOQH3g/pJPMw4nf9T4BdqtOmY="#;
+
+const PI_SQUARE: &'static str = r#"eJxtizsKgDAQRK8ybC9mV3AtEm9gay8qrp1I8HN7DYJYyHTvvfHr2EecgQqCjfNkMRBXhPUIJIR9HqI95EhN7fN0qP3SRcMQqFGosUsioY9gB93+TQnWTiBw9ziTTFp9uwvMEyfm"#;
+
+const PI: &'static str = r#"eJxNykEKgCAQheGrDLOfchzBAvUGbduHBQYRLVrk7VMX0eLx+OFzx35ukLVHrRAe9jgi5HKmlK4VXF9NcNdyJ1g9TgZsVMSdBe6EBMoSS4WV/CAPoFVsUpFQ0ySz+egL4vIfgg=="#;
+
+const PICTURE_IN_PICTURE_2: &'static str = r#"eJxNjM0Kg0AQg18lzF27k0qLsLvnXnrtXVQ63kQWf95e5yaBQBK+xLkrhiHJl4r29+oIIrgqVvw09wyuGvoArbVu4QOtkRwf/pHjMvYFRxJ9Cmyc/laSvAXbNBS72iBY9iQUXK50zol8Au5aIGk="#;
+
+const PICTURE_IN_PICTURE: &'static str = r#"eJwVjEsKAyEQRK/S9L47to7zAXWdTQ4RnCE9CyEMYpLbR3mLoihehfezKuwRHytM7Ju/u0JCM3SKODCNXDYkLDPxOpEdKC2FNtiazQaEjefNgx2owxRu4zOF68gV9DhfWiMuCL+I4tgjfM69ai8G4dvDIlx9s8McTvoDoPwlcQ=="#;
+
+const PIE_CHART: &'static str = r#"eJxFy7EJgEAUA9BVwg1wXiLCF74HDuAQgoWlhVg4vV+Lk4RUL36s545tSouYRXDINs4siMZEDMrWp+rdS6v/B4Fq9OOCLpa74QcRMBYw"#;
+
+const PIGGY_BANK: &'static str = r#"eJxtTjEKAzEM+4q53W7sxO0F0vtB19tLOnjsUDL09VUo3HQYhJGEpPZ+foJe9+WhlbyzilNik5VUCmcyzuKTZVWWDCQYIK5AyFTEd0tRBlvkYfMpHVaH58aKAAsDF2w98RT+aaDT7t9la5c5YWvHEKM6tM8OlYoGXOiJT6+kGulQflP1MIs="#;
+
+const PILCROW_SQUARE: &'static str = r#"eJxti80KgCAQhF9l2XvlGvYD2rlLDxEp6S1E+nn7XDoJMcwwMPPp6LYEV7DJG6QBwbuw+/T1eBuUCDlbhIdz0g0Dkz7W5MEaXEgCyXms1SprBWyRRSAqNVPPAF9LoD9J/C1dubzyKyne"#;
+
+const PILCROW: &'static str = r#"eJx1ijEKACEMBL8SfIB3wXhHIFrb+AjBwtJCfL8IopUs28yM1NQKZKciGqCOn/LyTOblmP9qGCiwtom0hfl3jQOa3Q9sSBoy"#;
+
+const PILL: &'static str = r#"eJxljDEKgEAMBL+yXJ8zEY8oxHuI3YGFhYKF/8fE4hqLnWIHxu72HNjXdAnngjEgTMJtykvBB4aASUlP//FXUOiWqg3RqtaLs7dirrt9AZOcGgo="#;
+
+const PIN_OFF: &'static str = r#"eJxNjEELwjAMhf9K6H2xr7brAt3AmxevuxcUKgzxIOL+vRnddOTwheR7L033x41m9MYZ+qxwCuVcOaTDIg2pqttTXcQqY81iJz/zq9C1NxcheYNjmx05sjpowADpTSZdY8dy2n6WAiGw8yNiqXVL0a4OgYSPfmwL8j9lG3+O3Mkv8AVA4zO6"#;
+
+const PIN: &'static str = r#"eJxNjrEKwzAMRH9FeI/rE0qcgGPo1qVrh26BFlwIpUMJyd9XCpQYgY6TdA+l+fV+0obRITpaWZUdbaqsumL3OZ3sLKfP9C30GN21JcQCWRr42E1MTMFKLWCzYbbeN344/5cgaCro/a0rODKakktfe5KCRWowdjAd4IobSLGtZ7nbn/Zh/gE0bS6N"#;
+
+const PIPETTE: &'static str = r#"eJx1jTEKgDAMRa/ycU81iYqF6gn0Am6Cg0MLDuL5TQcdChLe9PL44dyuA/tYJYEImPjQ6MlXU6izmsL7sCiEb/qxiTv0UNeSsYljZBqwnUJnHuCja0tH5qIlQ6bMbCsX67f2AMSFKQ4="#;
+
+const PIZZA: &'static str = r#"eJx1jbEKwCAMRH8luGs90bhYoR/QjxA6uBQ69P9pgtAuloQj3ONy5Wp3p2M1OxIB3XmYWhZ1a/kYCOmPMYHn7AyCKHhiyzb4TS7ZMYom35LL0pUd0ER9pKGaEB8uWpU3+ACqBy9e"#;
+
+const PLANE_LANDING: &'static str = r#"eJxNUEsKAjEMvUpwn2eTJraF0RPoBdwN42IWXQh6f0wHGaU05H3IC5me83ulx/lwU1JdNR0u03Fwl2lXMkohSaMqta5scBII3Jf40IqGamhBmr+QN7V88bVShffMp4DJ4XmOKErxZDDD5dpRlBy2a+lPMxgpdIFFVZSYNyKSoJ06trk5xFiiMtLArbKMTiE9OqkQXxhWgmQ0D5sGnwtD7WrQSAqb/1bjCGbket8P8gF1sD+l"#;
+
+const PLANE_TAKEOFF: &'static str = r#"eJxNUEkOwjAM/IrVu4fY2aXSF5QPcIvg0EMOHPi/cFhKFSmWZ9HYnh/tudH9PF2UVDd10zKfBrbMO5PgE0lGoGCls7JVCCPGZi5y9sSQQq7DdLKj7oOuhUQpUuqojHB0KVyF9gCn5A8+hbxhqWyS1BRhiO37pWXPFraqUG6CMVH4cijZulo7wxfkdGOoR0iMhBJY4AbvypoRy1hM/wMZq5ZdrvsdXoLvPKc="#;
+
+const PLANE: &'static str = r#"eJwdj7EOwjAMRH/l1N0G22naSqULC0P5CBQGhgwMiIGv51xFSeR79p28vh+fF56X4W6TzrBFHVZh1kNH4b26ocJNRxR+iCYmiXCWQpFgt8CMwvGq3hIqWxY+psRdlD7U/SAwaHAs9gXmXRxxK11SDzgPodhXokcyRowajRYMOPJCo6eTNy1pXUUn1qb+G7b1lAttf7mWLN0="#;
+
+const PLAY_CIRCLE: &'static str = r#"eJwti0EKgDAMBL+y9APaHsRDzGeCSKE0pXqwvzehnnbY2SXJXcoJeY8QU4CMmd1iDUzL9ExNy7i0ommuz+0WO+KGmGDoYIUf/iF/lUMZUA=="#;
+
+const PLAY_SQUARE: &'static str = r#"eJwli0sKgDAMRK8yZC/iB6nQ5iDuxBbThSAloN7eRhczzPB4vqRNceWoEqhzBEl5F/33HWggPF+Xenpi35rA/lxVEAMdMxwmjE3NYtgAvy0zF74="#;
+
+const PLAY: &'static str = r#"eJyzKcjPqUzPz1MoyM/MKym2VTJVMFYwtFQwNFIwVTAyBBLGSnY2+lBVdgBVDA2H"#;
+
+const PLUG_2: &'static str = r#"eJx1zDEOgCAQRNGrTOiNDMqqCXIDWws7EgtKC7PnFxsqaP+bTHjSm3Hv5tjgVEwM419iqJ2+Bw5c1DfEY82cGyAgz2JOpyQQWBAcypFVe9X9B0vKKRA="#;
+
+const PLUG_ZAP_2: &'static str = r#"eJx1jjEKgDAMRa/ycU81iVKF6gn0Am6iQxfBQXp+00FwqEsC/30eP1zbHXGM1ckKIYG4LurMAl9Noc50Cm9n4QbcJtISav8Rg4ed2Hk0pPbVriaS2CfZTel8DmEhdC0JbJZ83Q8lsy+W"#;
+
+const PLUG_ZAP: &'static str = r#"eJxtjDsKgDAQRK8y2BuzuzFaRE+gF7ATLCwiWHh/zAa0SRj2A/N44d6fE8fUrN4I2BrZ2Tjo2BzRbyEGjbH1KaxcgWVwa+bQqXAOn/ZiMENaKat1MD1IdFkQVQCyWvqMgVzFTmNyO7jTRz0/8QIM0jQN"#;
+
+const PLUG: &'static str = r#"eJx1izEKgDAQBL+ypD80xx2ccOYHtinsAhYpLSTvNzbBQtlmmWH8LFfFsYYtMpgbaUg+PTD5UAss8weP+icM1rQIBHNfpP4qyRuQZNtHegPetSOj"#;
+
+const PLUS_CIRCLE: &'static str = r#"eJxNyUEKgDAMRNGrDLmAJqss0t7AQ0gUKriQIqK319pFuxrmP/Mt+77Cn0AshPzNSPD7v9GG6tGO+UxYAk0KlqSFSuqABXo1eAGJABmd"#;
+
+const PLUS_SQUARE: &'static str = r#"eJxNy7ENgDAMRNFVrFsAJTQu4mzAEIhEOB2KLAjbI4sC2v/uUq+b0S2YQVrbriYIDOpDEEFXK6ZvGb7JafJDTsdqSkWwMIWo7ODpByESnx88Mn0d5Q=="#;
+
+const PLUS: &'static str =
+    r#"eJxNybENACAIBMBVCAsYiHQvGziEiQWlhXF+Y2No77DGDpqNu5FoSGVHeeb4I0p20lyGNA63"#;
+
+const POCKET_KNIFE: &'static str = r#"eJx1jr0OwjAMhF/l1D0h5wSTIfQNmJA6sFUwdGBAAvH8OFFpl1bRXWR//iuv8TPhce4uEfLlPYCQJrlGKCJO7zl29pvkz7u+HGp3X5YZzNDJB24gBfMOkuBzRDYbExJCfe7oVZs9HW2hzIimmm122z6BNDaIrNOQXBp0qf4B/eU6Pg=="#;
+
+const POCKET: &'static str = r#"eJxNjEEKgCAQRa8yuI8aK2lhQgdo214oUBAVkqBO32gtZBbz+bz3ZdTJwD6zdYDeoNAcOHR0SJ9fQiPF7muakpeqIQZxG2up4Q9Tss2zSsbgbmf9ATFYn86ZTVlFsgZAQbmgP6RexLYiBQ=="#;
+
+const PODCAST: &'static str = r#"eJxtjUEKwkAMRa/ymX3i/HZiW2h7Ay/gbhgFBRdSXOjtzYybLiTwfyCPl7nct/K4onyWQAZsXgHl7dWFdT78zuv8zK8bLks4keCQPRB9iA6xRKiJ9gm9qCGpZTVfGiAOFlEehRUySS3UzlVftTv5CKZssGYmRsQ/EAdw9B8TpsZFYdyBX+/TMew="#;
+
+const POINTER: &'static str = r#"eJyFj88KwjAMxl8l7J6YpOlsYe4J9Lp70cMOHjxIn99UpChMRgjkz+/jS6ZHea5wOw0XVRArCRKwh6BXwzwd2n6eOiUJRCpKUdA3yKiolb978H5LaiC85B2lbCkZMsXF9qT87+APKB4GXMPvmyvqFZV8gkYRKY0YKWcfBbtjoLFl9xJwNDRez0eQ2D1fm+1L9Q=="#;
+
+const POPCORN: &'static str = r#"eJyNTjsOwjAMvYrV3Y88N20dKXRmgAuwVWVgAImB+wtHSGWAAXnx+9r1sTyvctl3J7r4YmKS3qNZNhR7+g/F5G6uu1Y71095WEyK+Ld2Z24alb+ClsRXDFGLggwX3tQwCm1VEINialFEwWEKaoyHCCpyI5XHPqTSvKGhVwpced4uvQDH6jhT"#;
+
+const POPSICLE: &'static str = r#"eJw9jTEOgzAQBL+yor8Nd7LDWXL4QT6QDpGCAiQK/i/OSFDMNFNM3adjwf/TfdX5hiammS70kKEXo6/i1MaUWDIu9dCIAxXBGg3BzMIBRr1chPrrxvpqh7Hen80MZpKZG08/AR+vHzg="#;
+
+const POUND_STERLING: &'static str = r#"eJxtjCEOgDAQBL+yqS/c9oBWHP0BjyAgTiII7ycIUlM1YiZj1347zjVsLMiHxHlQ1Vh+QkK18YuqtVSQH04dsyDRmbqG6my3F42TIJY="#;
+
+const POWER_OFF: &'static str = r#"eJxtjUsKgDAMRK8SeoDYxJq2UAsewEMUXLgRXIjnN6XQjSWfxcwbJt3lOeFYzU4BZwFBcVuECFaHgC16D7SYnKZK5tR5Qao4SWk41WOU0P4gQQz8ur9xqa5Nut37AL33JXI="#;
+
+const POWER: &'static str = r#"eJwtykEKgCAQRuGr/Mw+c8awBPUGHUIoKIho0UJvX0OtHg++eJV7w5Jo5sk4D2/8UAICLBjcsZjRwVKOvcIcj/1cUSURC6Hy1/Z/e1/UqsoP8V8WFQ=="#;
+
+const PRESENTATION: &'static str = r#"eJxli7EKgDAMRH/l6B5sEoJL7Ozi6l5w6CI4iN9vXFQot9zd4/lRz4ZtSotAm+RUfHiu4h9g6MVcBYIcYYo223+TrNqb+4hwjQyRF9+Q0Ryn"#;
+
+const PRINTER: &'static str = r#"eJxNjtEKgzAMRX/lkveyNWhRaPu8l32ETFkKomUrbv794sZQAiGcnFzi8zyuY5oG5DlN5RnIoYUDwza/1lL0p78Vfe6KoA90dbq8VB2rddayhg0vpt4BFIh1RwBe6uMFWAx/8zU1+sdwK1gD2YrwSn0RHZkgQ7pLCdQQ3vrf5m9m/AAFujAw"#;
+
+const PROJECTOR: &'static str = r#"eJxtTkEKwjAQ/Mqw99Tupk0tJD334tV7iUIEBSlS9PeuCqalZQ+zM8MM4+/DI+EU6FCjgUVNnd99tM7/nRbuaNf6ja1GxEi24mWM1zPGQJYQn4FahVcg/sZ/7qyYudhbsPRSDgJBqceKMlWZG/36BTcymWoeMJKk4GZjOjuwS3nhG38KPMA="#;
+
+const PUZZLE: &'static str = r#"eJxtk8FOJDEMRH8l4h5v4iS2I7FIe9/9gb2NhgMHDkjw/6LKAaERaLprunviLj9X5v7l8vZUHn/f/etb5tjFJda1Sptbhqq0tcVmiMaW8HjusixK6lWm8/BmeNDi88rbfK2iY+Fax6hfj59rF+u9pF5kB47S8OlVYrioG6ynwx5nNMVNVNlG0XVRWa2XoygqrQ7RPksq2pkm3QwAS+Z2lrAWRr55flrBhnanm2wGb55tlqNnFRteOD2f6od+/TaTi+/AKI5eMAXNWUC5sgHCQaKbWHsAC2UxATArl2V74CFTEnUSDT8KIsP6HhIb30uBZJ6FP1khovS76enPt+5RtDH2rlfUWMfUh1UmNQl02P5O3JcQRw8Ka0XLgcmNNWR3EI02ZPUFIKcleuOmaD6o/QapMZ61ayrnEIi1b0Ok3BxrsdPGoaIcyS+8fZg0wzJDUrCqNOXW01VTf6LSA3YlE58kEdjO1suwbjavcsawh8OIhNDNkLj5JkKqTCknXL/HVDKgo2SyiZgqc2JMLPAs/X/3cP+Lf7GHd/XQrjQ="#;
+
+const QR_CODE: &'static str = r#"eJx1j8EKwyAMhl8leHdrEmYv2vMue4iylqW3UcStbz8jbKVMESSa7/+Mfp3vEV7LFCWYiwGZl4fEUr6DYQNb2dd8QDP4s+KDLyG9ckegKvpLcZ37Orbi/aWeYxSYgrkRAjqxPBIQdLpsrhIrqtARJUynDis9JOjTLkGVXPsKyIAkTQe3W+haTztVYn1gpPbA+TN2b30AxGZ3oQ=="#;
+
+const QUOTE: &'static str = r#"eJyNjrEOwjAMRH/F6u7gcxpSpNKZhbU7CkNHJFAHvp5LkMqCEIocW3f26Y23y2OR67E7R3GUKCZZwRrmVEwRPGnIaa8eDFld/dSXJoupCy3+CIfsM1BMqkNRvD0w7l1Ym8toRojfOQSzgQ3BIma3sq0Knt007irZNG58SL8A8wdw0f8JF07UvGo86JlCq1/jd5oX7HxAYQ=="#;
+
+const RABBIT: &'static str = r#"eJxtj7EKwzAMRH/lyC7VkhXbgTRfkK7dTTp47FDy/ZVDyBSMD5t7HHfzt/4aPs/hpQGFR3tbVSgCBIEMYY/DMj86tcwXKwUqjUo1ONJhMoezn+OHTLmxrhMnJLYqPEUc0k2BciG/q4xc0MktcveSO9k17XK26NH+aiQbiXuBelB0veuVOXm88hirA+cI8RLGtzM8K51kOGqpYbzfK9o4yOX9AakVRzA="#;
+
+const RADAR: &'static str = r#"eJx1jl0KwjAQhK+y5N0xu0k2DbSFHsBDSBUqKEjxQW9vYrWCRPbvYXY+pr3ubxMdOrPjBBvJI7mBLeVeSpESOThv+nZbnvt2tXjSCZYrikASJaisLM4jDMfUwIWKhRXiKSLqoKRvRwNxlBWNNYcQN38CcCy5maEfXAFyQIy/vPE0j+cjzZ0RQ+OjM1zu/XXz0yJ/0Rd28BllERKFzN+UteKez9tSxQ=="#;
+
+const RADIATION: &'static str = r#"eJx1kLFuwzAMRH+FyM6rSYm2DLhZOvcjCnfw2KFTvr53DpouDQTZoEg+3nH7+vg+7PP18h5pkcd0uW4vertuj8yCso7cHc1RjtWxeCjobw2rFfOJZgNhhAQLA4VuoXPUPrni4Ylh6Q2dcfCurqj4Xt7Rb//MThJyx2yThQvpIRnJ3iCxzs7wBcoqIzJS8iRwPuskT1Nm2mgWSCwUqsPpR92eeI4VQ6blmTJoivMJEIgQ+r7/B+9kqiLYMU5/v6tik+fDo/SpiJvgt5s2IzR3Y+1eKY1/in4ABr5YTg=="#;
+
+const RADIO_RECEIVER: &'static str = r#"eJxdjF0KgCAQhK+y7AVSoTBQb9AhIqX1LWTp5/a1BRK+zMB8M+O2mQmix6kHPewGg+skCq4CPTakpIXh9GgQymeU8krs0SJcrx45Mj1IyUr6/z8L2pCqfzelvCU9"#;
+
+const RADIO_TOWER: &'static str = r#"eJxtjsEKwjAQRH9lyL2rE5ImgaYXz35EiUIFBSke9O/dRLCCZckGdnZm33CfHjNO2RydJLAXHghasSC8RLSpJDMOu7o5Dt/90NQwqcWhtX2tTsdB/Gool6Vcz1iysQblmQ3r/8qmhX7Un1hFsJobi4WW2F4xyBbqwgYGk7ASTklSj9YqB+tzwg1HEg/G2f9LtwirxzsSDly9bxI+SG4="#;
+
+const RADIO: &'static str = r#"eJxVj7EOwjAMRH/l5L0Gu7SkUtKlMx+BDBJIDKhigL/HCSJtBzuKffd0js/z64ZLotOBB8jAMgmkY4UgcECeetEYd1k5xqo/+lZ6VmuU21o9C/ZN4G5x2H22xxX2SSRKmBN5t3f5uei3XoEzFE435+FfhYsNdzF46hxy0rZk9scvkHKNt+r4ApCjORM="#;
+
+const RAIL_SYMBOL: &'static str =
+    r#"eJxtirEJACAMwF4p7kUrVhCqH3iE4OAiOPg/0kUcnAJJZLU9oGdTGYgHBVPEqivylPQNkwJ4h4wMEaPyPgcuEReZ"#;
+
+const RAINBOW: &'static str = r#"eJxtzLEKgDAQA9BfCd1FL8h1OfsHfsSBg6OD/4+9IqVDScj0iD3+3riOdJKQ7LKhtmVhnVRsDVKsQw2n0KYEwqmKo+wEf7YP6gOKCxw+"#;
+
+const RAT: &'static str = r#"eJxtT7sOwjAM/BWL3Sa22ySVSucufEQVhg4MSCC+n3MGulRRHvZd7nzza/vs9Lhd7lpobIlVCrZzX2926gV5SyRVohylkq2qjV0mSlzIRXGWbwLJxMCpNMS6LPM1DJb5sMkA8bFBVlwyy0jKUkKYJQOCWhDQyKh7OxqOsQKennGb1CYGrkkJR8ajcv9lkQG3UqLIAwtn0KC+amkdTUewsxk9JOsGNDTARioeT5lktg6bkXUmPHnY1U6D07RL0j/0Az8IU9o="#;
+
+const RATIO: &'static str = r#"eJw9jMsNgDAMQ1eJvACfQ09Jl4GK9FpFomxPKFEvli37mVs5jO56mgq2HfQIXLsggVofQUu91NyuyLx8QOaB/XWs4sNHE4i/NLEXwN8e7w=="#;
+
+const RECEIPT: &'static str = r#"eJx1jKEOwCAMRH+lmW8GTQMIhp6ZRcyRTCAQE8u+f4dBsTTNy7W5F+/yVLq25VCSV0wTtiSEnTNLY4AR/3guKa5dm+KQW0ehsisCh4HNYLTqyP2ie5g1YfXZj88Hf6koeQ=="#;
+
+const RECTANGLE_HORIZONTAL: &'static str =
+    r#"eJwBNwDI/zxyZWN0IHJ4PSIyIiB5PSI2IiB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIHg9IjIiPjwvcmVjdD64Zw94"#;
+
+const RECTANGLE_VERTICAL: &'static str =
+    r#"eJwBNwDI/zxyZWN0IHk9IjIiIGhlaWdodD0iMjAiIHJ4PSIyIiB4PSI2IiB3aWR0aD0iMTIiPjwvcmVjdD62Xg94"#;
+
+const RECYCLE: &'static str = r#"eJxtkEFqQzEMRK8isrdqWZItQRrorov2EIEuskihi96fjp3woclHIBsJvRnp+HP+vdDX6+FzkOS7cYifhUNppYqQIuyjcISgOMLv+dbjWq3Mgn0MluyU7IfT8WVyT8eNLpjNS3Cr+oAHhN07+LnAds+3Xp3s4Vc8rfXSWNoz/Vsw1IvSih116CYklR0GN5ukDFcVxdhhJqsZOQ4y166psBDZ3h6OQyKcuMZc67/5OebWcbe4Kqcp4W+6Z19ZR8BSVyWDVl+KsfIoq7KN/QFn4mBy"#;
+
+const REDO_2: &'static str = r#"eJxdjLEKgDAQQ3/l6O55V5uhcBbcuvgRgoOL4CB+v21BhxKy5CWxa7sP2md3KkgDYWhyycZKkn189UIxR8YCBlVLUygrxiNdXIrkJev0P71daBiS"#;
+
+const REDO_DOT: &'static str = r#"eJxNi1sKgCAQRbdymf8eKiiCuoMWIRYY+BESUbtvJIoYmPs4XJfWmsqCdHkShlBZCOlkkRTc8ODgtrhnzJ4mKWAOnTvdaGt/TEGYaGEx8gnYrvk3acheFcXffNMbff0gPw=="#;
+
+const REDO: &'static str = r#"eJw9izsKwCAQRK8y2JtkXdhlYeMNcgghhUWKFCHnVwtlYJgPz9/yVdxnuBJBf6lRQvZ9rNnXxyAtBsPRRbA48myCtPHD3XWhDdu4FTA="#;
+
+const REFRESH_CCW_DOT: &'static str = r#"eJxtjMEKgzAQRH9l2HvSZhfXCjHQe/sRkhYieBAR0b83KuhF9rDMzOP5vhkTfjV9BTxpUgr+sXXBnws7OH5XqPDcT1FY+Qhe9yzzZDSZO5NkUXOJXAG1ZSeGbXnRsR1i90dcanJMGPIjxHlPGTrmsAKQIDBq"#;
+
+const REFRESH_CCW: &'static str = r#"eJxtjlEKgCAQRK8y+K+lpiaYJ6hDCH342Ud4/tyEipCFYZhl30440pmxL2xTElIlD4+RhntevXCmScuscBNUlVVjZjEMdB3Dw9DQxWTT3XzhIPeDg+D8hlMV24FIW/NsyvvgArClLag="#;
+
+const REFRESH_CW_OFF: &'static str = r#"eJxtTzEOwjAM/IrVPaa2EyeVSiXUhQEegcrQBYkB8X4uGboQJTrZuvPZN78fn52e5+GuQuUmhXOkBLhMnBM1GNsTJVtFyEhGHo2MxcFLrWIelvlUrZb5MCwkfrVv6lDw0NUwnYQiZVbHTo8N/uUvyJ20qir0LlPZlOOEJuL2IORsHrRrV5OKbpgLNYLwlAMSwLvkvhoh9tDLodiMT3pwP/YfT40="#;
+
+const REFRESH_CW: &'static str = r#"eJxtjs0KgCAQhF9l8b6Wmn9gnjvUQwgdPHaInr81QUJkYVhm2Pk2XOnOcK7sUCBk8uBhphHgkXZudZXqGW4XkCS7FOBYDFO5jqF1kK0enVGPsz+g1PcALAD8APSNGZQ4sjdCtOgFyMktuA=="#;
+
+const REFRIGERATOR: &'static str = r#"eJxtjLEKgCAYhF/lcJf85dTFnFtaG9qEBseG8PkzgjCQW+7ugy+e+So4ZrU6+EwQpkVAzfLbYBVmC/seurUl9Fvbze8qxekxpth5xRThgIhDqP4DN7Z8Ie8="#;
+
+const REGEX: &'static str = r#"eJx1jLsKhTAQRH9lsN/c7FySKERrGz9CsLARLCSFX6+CT1C2WM7MYeLYTj26Mms04J/UZlX8bVkVj2ZQGh/gjENuvIf7VNTujrw4TQENLUHY7YTC2t0ZTLx4/ewfLEzC+RxeAEsvLSk="#;
+
+const REMOVE_FORMATTING: &'static str = r#"eJxtyTEKgDAQRNGrDOnFbLKJFmtuYGsvWGwjWIjnd20kkDBT/SfXfiuOxa2MaWOl/ERXZPxykR8TgtfcAYpgzKatnZRgt3UseLOhthd8SCX1"#;
+
+const REPEAT_1: &'static str = r#"eJxtjDEKwCAQBL+y2B9xVUhjrNPkEUIKGyFF8P05AyEWsmw1w8Qr3wXnZipXOAQE0ZsUlw5S/PDhQTZhVgqrYzcLJ2rVkJO3I7OSI+jbUOrm7icm1bSF7a88Zf4tOA=="#;
+
+const REPEAT_2: &'static str = r#"eJxtjDEKgDAUQ68S3Iv9KVaF2tnF1b3g0KXgIJ7f30EdlDcEkvDCno6MbWoKMcIZB6WJoa19DPe6iIMMc58IwipiaLj677OQkK56jPJnEvjsX5EmT7HP8wKymSTx"#;
+
+const REPEAT: &'static str = r#"eJxtjDEKgDAQBL+ypD90k4BNTG3jIwIWaQIWkvd7JygWYdlqhklnuSqO1TUu8IiIonc5TQZyevEeQHZhUYpZRzMrB2rTkJenI6OSJxj6r2TmFj7zBt9bJUM="#;
+
+const REPLACE_ALL: &'static str = r#"eJyVkN0KwjAMhV/l0PvMJatug3Vv4K330g27C0FG8eftTXuhIgWRQhrIl3OSDJdjDJic2bOF9TVxxVVPAiEx47BJ5XF4QVJDvCLQH1WvoUgJOl9DOUoMlSnegWtPWY2EkmvJ89ygRZMeNQWVJHLY5sFbdVQogYHf6Dr7iNsyxeBMZxDm5RRiTh/OsDVY786IQY7alfjPMS3Yfu18tb/X01P90fcExIFhrw=="#;
+
+const REPLACE: &'static str = r#"eJxtzkEKwjAQBdCrfGY/NZlW20LTG7h1L2kxXQhSAurtncnCbkIgE8jL/5le95ywBLr6Dl107BvfjCwQFpqnk13P0x+Jg0Ql0Ilm1K2qBEN0UMdmuK78Bd5FLmksbK21zmeLHq0tbispFnI7l4/32qjIYPIH3deY8Q3kO0Jat0fKgQbCe1tyKqdPICHsZegr8/MPjwpHuA=="#;
+
+const REPLY_ALL: &'static str = r#"eJxlyrEKgCAURuFX+XGXUoTboM4tPYRQkCAqJEFv35VoKc54PltLulLMG2qJuR1OEBRBQ2kQSHg7vMLbn2XEmDru/qND27E6sWi+0yl1MDAYe9JIMz+ckb8Bghsl/w=="#;
+
+const REPLY: &'static str = r#"eJw1ykEKgCAQBdCrfNxLKgMmqOs2HUIoSBAdSIJunwXxts9zK3fJdQe3XPsZhIO2IGgDByuin/4RPad+YAtiNQp6vqRJNKZ6SZK00NdHig9v0Rgo"#;
+
+const REWIND: &'static str = r#"eJxdy0sKwCAMBNCrDF6gTIqLQup1SqEYoW68vR9ciJBFZpinyb7yWESyN+b/diR4QcB2hMfILugxh0F3IdIFz07a7zGKlVTOiRxj"#;
+
+const ROCKET: &'static str = r#"eJxtUDsOwjAMvYrF7kfsxE0qFSQ2Fg5RlYEFCamIgdNjt8BUJbb8e362h8f4vNH1sLsUGEkHm1jCgnasZCFzRi3sQfcmVGG0gsoKyYzUu9HL6F6jRaV4SzCy791x2AfJcfhR3UVJjDPnUZX8B0JIOaO3kyhao1V/E140JW9elVEbVRh3JM6pyEarXkq5kG4QXnrvdy4zzFmRslOVSdCpr5oaBdhlA7cM+ooDJF/VjIpfIDAcaN/SQv7AD1TxScQ="#;
+
+const ROCKING_CHAIR: &'static str = r#"eJxNjmsKgDAIgK8iHqDS6AXbbtAhgoKCqEH9aLfP2RNFBb9PNH6dwzwtA/h1WvbNYp4UwFBKJY6l1o7OpA/qjAqBLXKGEMiiInDI1Oggq+KS/sIHyp7qRyHp97FX8N0+Qm+x5aSKT3SUg2SmEVVQOGLuBP7YMb0="#;
+
+const ROLLER_COASTER: &'static str = r#"eJxtz7sOhTAIBuBX+ePenl6Qo0n1DVzdjQ6OJhqfXzBGF9KhhA8ClG06VixdNTBiO9ZVX36a6ssLMaiwbywjsdP9bWxQn2SDdrFBKemw1pIbJgIhyIsgR3OSSFbwOYNBu6L8T1FEcNmx5++qC7M8Pi8="#;
+
+const ROTATE_3_D: &'static str = r#"eJxlTzEOwzAI/ArqDjXGGCylWTrnEVU6dKlUKf2/ComqDl04g++4Y3rd3g+4X04Ld2q9g5FeWak3gUZVDFhoaIUKnGXEbAQaBN0skOtW9yEX0CgrSatQgLoZUunxgVRP83ROq3n6Gj7DhUfL/VYMhJyjIe+Y5ej/VQvHPiW1NWmlkbtiBLXUNkE7IBhVoCAX3MPlQ7eWkTFDoq4hFY+cTm4SKmOP6xx+ph8MLT08"#;
+
+const ROTATE_CCW: &'static str = r#"eJxNjEsKgDAQQ68Sum/tx7EOjD2BHqLgoksX4vmdIkgJeQRCIle9G87NHAkhVgbDI6jZanaZPvguu7g8Iyr2hNUUmfq4yHCRHmr0Ny/fYhZa"#;
+
+const ROTATE_CW: &'static str = r#"eJxNTDsOgCAMvUrD3iqFqk0qJ9BDEB0YHYznty6G5eX97ap3g3MNO0eIXBUURnCKinowCbvMpMm9ieYM7LB5dwnFhm9crL9IjzSUP3sBG9YW+w=="#;
+
+const ROUTER: &'static str = r#"eJxtzD0OwjAMBeCrPHnH2K2bZkg6s3CIiFakG6oifm4PER06RF4sf88vbMut4B2pI7zWueTfJoRPJDXC9oe8rPdcInmawrk+TOGRSsYc6epYFOovrlq9HkxlR5WWDlB5WktG9oaRdUwGg9Q5DewcWj2dVDHuLXn4Pa3KvR7iX5QaPFE="#;
+
+const ROWS: &'static str = r#"eJwli0EKgDAMBL8S8gFJvXho+xkttiAeSsDk9ybpaWF2Js92MkwpmBB6G3fngnQgTA1kx47wjYv74uqg5s27mp/xNhAKSZIVZIYtWaoUa65b9QcgIhw8"#;
+
+const RSS: &'static str = r#"eJxNikEKgDAMBL+y5AMaqEKg7Q98RIiCggcpHvT3pvag7MIuzMRDzxVzoimAWQWC3sO+Qjl2Fef4k4LyCG+z3v95thXbF9iVaCDYnYiFUHyq02h+AIcgHaQ="#;
+
+const RULER: &'static str = r#"eJx1jk0KgEAIRq8i7cfS+SuYOkFdoF3QokVBi+5PGrUoGkQRH0++tE/HAnNbDExogTzaidGBdiVF0hbdahiDHMMbGqtbzxihxqiM4Bq3qnwVy9zmi17uWHSp1AxdepJs5NADsQw2/MdJUJPFtZCQl6M+9x9+AsHHPTA="#;
+
+const RUSSIAN_RUBLE: &'static str =
+    r#"eJxNyrEKABAQgOFXueziCp06ZouHUIYbDfL8koH+8f94tCnQk6oBEIWaAwf2pqnEhaQym6My/9bLGxttFxJB"#;
+
+const SAILBOAT: &'static str = r#"eJxti7EKgDAQQ38ldBeb85AOZ2cXf8Ct4HCjg/j9tg6KIFlCXp7t5XBsU1hEwDRLUSjindqcn6HTNWTrm5PtNQkqGCEYanOmv1fjJ8eHXAAuHlc="#;
+
+const SALAD: &'static str = r#"eJxtj7EKwzAMRH/l6G7VkpyqgjTQrUt/oFtohyyFDv1/KscQGhKMD3xPPk79Z/xOeF0Od4PwxPkw9MfqDf1CWAKNDkeejye/6f8b/tj7xqRnsIxCBfXWWU5UUiEzrFwoSZI9u1iik25stSbrbKbKqttxkzZPWRFsW/LNAQRRaW+BTA4j6a5K7pilbVzA+ZlBFrUjuDB1UWOJ+AFQYUoE"#;
+
+const SANDWICH: &'static str = r#"eJxtjr0KwzAMhF9FZLdqyT9KwM2coX2BboYOHlroUPz8lUuIPQQNEsfdp0uf/C3wvE53B0TVZQIC+x+9CsVRMFSNm9Z0aaE1HVFioGXzh1WNzcpdaNIIa5sqjwn9ZhzOJ/x3qwaCIiai9ZmBdwijj2BvrGHa3OO0Gi6i7TQMukNRIbz0kQTwGDrLMMqMLB3yA6WWQD4="#;
+
+const SATELLITE_DISH: &'static str = r#"eJxtjTEKgDAQBL+ypI9mjV4QYsAH5AN2AQsbwcL/o4kEC+WObXaY9Uc6N6yTij1okmssUcKUY/5FBd9mLvhK7yM4wGr7rSIdaJNAHocWLT9Ux5uai79uEa/uAj2lJUE="#;
+
+const SATELLITE: &'static str = r#"eJxtzEEKgCAQheGrPNxLjdqoYN7AC7QTWrQoaNH9yQlqkwyz+j9eOuu1YZ1VIQuPCIsJfndwKqdBYk4vOciDCK3p53XPBJARAtYsZOntMAKstv9UIgxVBmOUaxP8oRubdSuF"#;
+
+const SAVE_ALL: &'static str = r#"eJxtjS0LgEAQRP/KYF+9HRbdcJotVoNNMFwwGOR+v1r8AJk2D96L27wnLG0x1LCZIMI5BYVJw2qwrKHkQ4TQ0nt/P8Kp6GJ1qbp4CzWA2VL9hxzqWZoknpt/Tvb2bYyP6QC/jS1m"#;
+
+const SAVE: &'static str = r#"eJxtzEELQEAUBOC/Mu1dzNOGWs4uru6Koja2SPHrLTms0qupqe+Ncd02oi9VwwLCWncCQeKPkUTSBh2+j6TV0DsZOsipKhPfU5Vxiz3sNA9wyzRva6mY+WH4ZIo3hI9/5c9PhpvloEb+oRcebS6u"#;
+
+const SCALE_3_D: &'static str = r#"eJxNzEsKgDAMBNCrhOxFUkil0PYGHkKiUEFBiojeXm39dBXImxkrY5RpANkdkkGQI9/oUKG3dWZv39jF/GjqcBlaujVA77BlaDZSgdLE/f1tZiADutIfna2bJS8="#;
+
+const SCALE: &'static str = r#"eJyljbEKg0AQRH9lsN+Ns8t5F7j4B/mBdMEU1wQExe93bazshGGaYd6r83dt+L26PwdEXAocZRItWYck1KeB4uAipnRRT+LCTzfWx/Ed60mwm4B3hrGxv1ho8I3lYnHkZpOhR7iQxRA6pOigNTsfO3vQOMw="#;
+
+const SCALING: &'static str = r#"eJxtjDEOgCAQBL+yoSfmODFcclLT+AgTiystzL1fbaCh3dkZvc/HcO3hSASGgHKouvxr1c4ogRs7FaPiUWaPDWzZp/L6RZt4HPAFjH8g1Q=="#;
+
+const SCAN_FACE: &'static str = r#"eJxtz7EKg0AQBNBfGezXuKPHRbhYp0mbXrDYUlDu+z0t5JBlGViY10xa592wfJpfj/gPM0F05RQUGpspvU4xpdtpRG+sIZg9SIXGXEkpn4lHI6jfUEthduUbOmzahiKHM3LFgSNGazv1BoRHdQBC+EI5"#;
+
+const SCAN_LINE: &'static str = r#"eJxtyjEKgDAUA9CrhO5Ff0T+Uju7uLoLChVEHKTo7W0RpINkSALPHdMZMHdmaKBjOxFEnSKgZaDxrsrCu8+JogksIRj/IAWisZA2rWD/qILSt6W0jKXc1n3BLZ0RGtx8+0pfU+Wr2WblH6zMNG8="#;
+
+const SCAN: &'static str = r#"eJxtyiEOgDAQRNGrTOob2GmaNaUag8U3QaxEkJ6fYsiK5psvXrnbY7i2cCTomRtBrCMBI42hluUTtfxOFMnoIdhnkALR7mQcZ3FGFZQ9exnZnXwBlDYpaw=="#;
+
+const SCATTER_CHART: &'static str = r#"eJyFzV0KgCAMB/CryA5QDLN8UG/QIWIFBj2ERNTt8yORiOhJt/3+m6LZ0TIxOjV0lQDmNISHjlQbVSdhVJZ+gjIanxEl86Z5l3eIeWv8fdv7bgq1fxSLbZ52HTbLRg09Z3xHaVGGaeiaC0AbQ20="#;
+
+const SCHOOL_2: &'static str = r#"eJx1jrEOwjAMRH/Fym6wTRo6pJ1ZWBnYqoAUpA6oQhb8PQ5IkKGRB9v3dKeL6bak+QrpOTgWB4stB+lli9wYt188xvv0yHAZ3FEEhE59Rj9jQI8B/EGUZTId6DN2ZQ61gHIuYSWkigrAe90Qr6NdA3HfthXW9HkQUez+vdB6KdU/iHY/6xvzp0kX"#;
+
+const SCHOOL: &'static str = r#"eJxtjsEKwkAMRH9lyH1xE2KNsLtnL35EWQWFClJk0b83VtCiJZdM3syQdO1vJxwyXRQdLCgMSiWtXveSPpQNHKGQZr1AEH04+LbTuQ7Sgg0a5L9iz552/PXHyR/n2vt1KWpYN94skO4H1PNYhyPqI9OWMGYSQr1n4umjNy1PN58++Q=="#;
+
+const SCISSORS_LINE_DASHED: &'static str = r#"eJyFjkEKgCAQRa8yzD5rBhMD9QYdIiwoKIhoUbdPiyhCaPP/4n0e38zN2kNrsS6FZKhiaCBGZ/KInPHD4scOFouM4DeLMtRuUcfJBZ25LRNJUJkWpYYY/xZSKU1NhQgv5BlAL8+zUOFln3ECMX/QAdMCPhs="#;
+
+const SCISSORS_SQUARE_DASHED_BOTTOM: &'static str = r#"eJxtTdEKAiEQ/JXBd6/bxcRA77mXXns/LDAoiCOi/r5V6RISl3F3Z2fG3+dHwimogwHzzGCM8kiz5qP5zZA5kW0X4Ge70NKpyW+y4eRXWxrFd+96jBUm6UYUL0u8nhHfQTmF+CrfElQ5qWSj3w2GDCoSS/UyzOBQIddfVDH/JuVcsr2sm6itdsPWWRRcjT6LelHB"#;
+
+const SCISSORS_SQUARE: &'static str = r#"eJx1jWEKhCAQha8y+H/dNVxxwbzBHiJMUigIEarbN6NQ/SgY3huY780zybsMW8saBmktVjX4OISM64fBEvscymrNmwLWuJjc6CEV1mFEo21kiNSjNXOXA/Qt+/+4FBKqigaHKLpeGCG5hio0J/FUJdRd14Rp9dL8qxUUPR7tvHc/pQ=="#;
+
+const SCISSORS: &'static str = r#"eJx9jUsKgDAMRK8ScoBqa5Us2t7AQ0gUFFxIcaG316b+VkKYLOYxz/EUeR6Ad48NAm/yoscKgytyGdzSrSP0HltS2oCEXGJS9yFMCfYiakX0ErcoG5JP049JW0UgcS6a8tk5AKqzLzo="#;
+
+const SCREEN_SHARE_OFF: &'static str = r#"eJxtjDEOgCAQBL+ysSdydyAUSG3jI0gsaEwsDO8XGiWRbLGbnWTCle6MY512EshmEoOhW1RdhfR31OZMS38oLkqmGOZmieF1eTBlPwDEIFfMn5zMEGVhB4gcBD16ALRLLkM="#;
+
+const SCREEN_SHARE: &'static str = r#"eJxtjDEOgCAUQ6/SuBP5HxAGZHbxECQOLCYO5p9fWMRE0qFNX9p45bvgWKedDMxmM4Ohm1RNQroX1bnQ8i0UizJTinN7SfH9CmAqYQCIQV7sn5zkEeCUG408THHS0QO6wy7K"#;
+
+const SCROLL_TEXT: &'static str = r#"eJxtjLEOgCAMRH+lYW9sK0RMkJnF1Z3EoaOD4fsFE4kDuenuXl648q1wbmb3IKwsWUCA3ghKQUlM5VsZGC3Q4Xqn1sus1sQwNVcM3cgr8NLZGqzGNCQdeEU3flj+1wOvSiwV"#;
+
+const SCROLL: &'static str = r#"eJxFjDEKgDAQBL9ypD+8WyMqxNRpbO0DFiktJO83ETzZapZhwpXvQufm9oWgRZFBIHkHRmUklfq9Ssqe5JiMpXMdi3cxDL0VgxV1JZ3NbeNWTL/5AA4dHTw="#;
+
+const SEARCH_CHECK: &'static str = r#"eJw9jEEKgDAMBL8Scq+S2kMPSf4iUVBQkOJBf29qoSx7WGYZvuZ7g0XwzEAE0ZNCQuWxAmXbix0r2CNIhFAEM4K9//JTw8rdEt1BIQ1Tbdd8iLkbaw=="#;
+
+const SEARCH_CODE: &'static str = r#"eJxNjFEKgDAMQ68S+j+l1Q8H2+4iVVBQkOGH3l63wZS0BPJC3DGeCyZPu4U1giwKrk15cJVyh/fEZH1c16jbDL08MRP0Lh49DalU8G9GGMKmb7r0deYBSCcjhQ=="#;
+
+const SEARCH_SLASH: &'static str = r#"eJw9jEEKgDAMBL8Scm8lrYEe0vxFoqCgIMWD/l5CoYdlDzOM3Muzw1rxohwZSuTAwKgyOVCxo9m5gb0ViRDs698qFpc6VhmVRJAozDH7RuYHlqkbkQ=="#;
+
+const SEARCH_X: &'static str = r#"eJxVzMEKgCAQBNBfGfausdqCB/VfYgsKCkI61N+HCFKHYQ5vmHhO14o50cHeCoIVIxDKcaiQY+fQFD/Vrei+QO9EzAR9WpdEoY4af04cw7EZra/pNy88PCOA"#;
+
+const SEARCH: &'static str = r#"eJwlijEKgDAMAL8SsqukOjgk+YtEQUFBSof2923a4bjhju2J9l4QBXcEy4JEzaVbeRlZ+T/SDafgFwgCTdu8On540QrMxBNp"#;
+
+const SEND_HORIZONTAL: &'static str =
+    r#"eJw9irEJACAMwF4p7iJVEAq1H/iAm+DQRXDwf7SDEjIlvPpWGMXNBAb5KyB5ak44WBV+T82AUTH/cgD7URB8"#;
+
+const SEND_TO_BACK: &'static str = r#"eJxNjMENgCAMRVdpuoCWkOgB3MAhjBDLzRCCur0UDpAe2vS//0z0ZwL24eJkcUV4LZJG+Np6gktc/7EECjczSWEztdbTQdBAEahqG0r3kRicxX0B0pkOBQrmOuViElCQASQNC3eQBMwd/AHPWTMs"#;
+
+const SEND: &'static str = r#"eJw9yrEJACEQBdFWPubL3e4Jh7DagQ2YCQYmgoH9owbKhPO051FRvGkiEPohL1lyK5tM0GfvoAfFjcAM/u6cOUoQ/w=="#;
+
+const SEPARATOR_HORIZONTAL: &'static str = r#"eJxty0EKgCAUBNCrDP8C9X8hLtTbtBBEhVro7fMXLQJhYBh441LMB5p4EiZ09sQyWt5uY28U3KIquFpSf3wtMV+nJwsLFuxgA6vuExM7iEYgq77Mj9/3zyaG"#;
+
+const SEPARATOR_VERTICAL: &'static str = r#"eJxtyjEKgDAMheGrhFxAE6V0SHsbh0JpCzq0tzdRHIRO/+PxSU7lgM4BiRE6vR3aTaM3E0ZZTEVpNY/Ht5rKdQb04GEHYg05c5+YWHJqgFfjOvyP3/fZJoY="#;
+
+const SERVER_COG: &'static str = r#"eJx1kMEKwjAQRH9lyX3XbJLWFFrPXrx6L1GIoCBFiv69u9RDKik5hGRm3mTTp9uU7ldIn8GwM5Deyz4NxptDv1vkQ/8cXxkugzkFaoDtMYwOHFhZjA7duTiDnDO35QW4eRUAl5Ea5Sv3nx4KusV12CqspFutm3GVwC18C20my1WFY116cEN7YE8BqUPyFUdHTv5E1Q2DiFIgHPLiqRn8z4BSw3VChE7jdT2ShwUijlo+6BAK2TLIgBC1wBcv/AKAfocs"#;
+
+const SERVER_CRASH: &'static str = r#"eJx1jbsKgDAMRX8luEeTWIJDdXZxdS84dFBwkH6/7SIpVDKEPM65/g5PhGPuNgWm1QUBAcrFKCi7mSHPkdUuQFIFgESUbvFDkS7eqp1RE9YkFZNVU8lKWBH469bYE7dTp/bp4hEUXSb1LO37eAFErUAW"#;
+
+const SERVER_OFF: &'static str = r#"eJxtT70KAjEMfpVwe2oTm16HeouLiw9x4JBBwUE6+PQmHlwVSijNz/eT1Of6UridpusMrHRcGRiiBdnPLfUaLVOUaakH5yx1Z5JNI3AQf2cn8FaBtC4Yvav5PRBgBpobUscio5nRAJuA0i/ub8nNg3KQO2EQDyxYLmnkmoGKhjgweXwvMLG4zz5i60de"#;
+
+const SERVER: &'static str = r#"eJxljFsKgCAQRbcyzAIqJcIPdTMlKUQfImS7b3QEi77uPM65Oro1QcwGJUK8a3gXdp8MKoQrbMnTcUJgpBJWj0WzmmW2WsfPeLURKOZuH+F0kKXBZZgEfQVNFLJGrhuxhWpsIYRipGR3v/QDeJA4sg=="#;
+
+const SETTINGS_2: &'static str = r#"eJxFizsKgDAQBa+ybC8aPwRhN7WNh5BViGAhwUJv7yZKUg28mUfncnlYGee2AeurER3VcXOUjenB2GkoRvYgxwaBsUOQh9FY5Z2o0adzFoPfK9KpRC8fhyRa"#;
+
+const SETTINGS: &'static str = r#"eJxlksEKwjAMhl8l9J64pB0qbHsDr95lCgo7iIioT2/aOtdGdmiXpP+X/G13PdzPcOzdjoVEQM5IIRx0A038UHcP4s0vwsjAtPaT1nmStkjoqlFukZpNqaDV+YAI+SIDGoWYnfQQ8aIECaHcli03JAI12wKwyFjAjLZNcVwnO0DG+r00pYRaUjkCgvLAypLYXMIEj7ViwsR+bVf47RfJm1GSX/8+KiJCgqJbSw7fAbe1t7NSotgbwZlSQ/Id2jky2++rh4HydkO3ig9o6MbLbZxOML56x+Lg1jvvYHymPy3K6eEDOjV/Ow=="#;
+
+const SHAPES: &'static str = r#"eJxVjUEKwyAQRa8yzD5TJyYxgnqC9ALdBSNV6KKI0Ob21bSLhtl83rzPN8+1RNgsXmeSwGIlRQpEPe5o6qeOSSi9MNMA8u8JTKznjsQgF55qdSZ96o6qb84Nnbm0DWdy8AV2izwgvNJWokWFkN+VIMSQ7rEcpALZWs13xqfsHwFyhTQi+KarI+2/VNWv5D4CKjI9"#;
+
+const SHARE_2: &'static str = r#"eJx1jE0KgCAQRq8yzAGssewHtMtIC0FauNLb56iREO2G+d572rpg/Qk2GqQNwSaDCiEYnPDQQ10P3VFLWwtK8od6WrR/Y95dJySZx1XMeY9kcBOKL34qMUuElJ80CUVsstF7Y/EYWZgoXitQLbzaDZhDO3c="#;
+
+const SHARE: &'static str = r#"eJxNjEEKgCAQRa8yuI9yKHFh3qBDCAUKokIievtGaxGzeMPn/a+SyRbOnR0rcCzSICAs4+izHP/BhGWSTKu5l7RK0TfvwgUpupDvnXEBglaoIEEM7zO0Gl5FcpBB5S8bsaPHW/eH+wDuTSZQ"#;
+
+const SHEET: &'static str = r#"eJxtzFEKgCAQBNCryF4g1ggKtMuUpBB9iJDePnddoaCvkfXNmOi2pLKFEdQd9uQt4AzKu3D41N6FP2M1ukahWM1AvdWc4XKqaAtLdciRkX2uR40kyYiUI1OcgJuUrfO1fU7GpZn5+ivfhEfbeLcPe008nQ=="#;
+
+const SHELL: &'static str = r#"eJwtTkkOgCAM/ErDHXRKo5ggP/ARJB48evD/sS2kzXSbybS+/XvoPsMFIaAzMa0EQhStQoY2F8VNw6cIIxVfOtn28Bxa9gbpyBPHgZNw3BObybShnFStBwmtLvZM+wELIxuz"#;
+
+const SHIELD_ALERT: &'static str = r#"eJxtyyEOgDAMRuGr/JkvtNsYFWU3wOIJiAkECWTnJyAIAvPMy2f7fBasgxvFw/tDKUJJeOo2UgqkCLVfGAkK4ScuW3urbF+rNf4PSaVhed8FUzEdSQ=="#;
+
+const SHIELD_BAN: &'static str = r#"eJw9yzEKgDAMRuGr/HQPNmmqGWJv4OouOjgoCIrnFwW7vOXx+TFdK5Y+DCwQOY0URhzHvJFRIkO6uzmihYHjl1C8eVXx3+6KDFaw1PcAweEV5Q=="#;
+
+const SHIELD_CHECK: &'static str = r#"eJw9yzEKgDAQRNGrDOkXk82qK6y5ga29aGGhICieXyMYBqb5PDuma8XSuyEwmE8lgVLwY72RUiRFvNvZo4Ei+O9csiqrZL/dO2T9TkhKfgABKBZp"#;
+
+const SHIELD_ELLIPSIS: &'static str = r#"eJx1jCEOgDAQBL+yqT+4a6GcKP0BFk9AVCBIILyfgkAQalbsZCZs05Gw9GYQC2t3pQZKwmO7kpIjhTu7meGhEH7GxFDfVgyvm29JFcsPytky8192ATAQJT8="#;
+
+const SHIELD_HALF: &'static str = r#"eJxVy6sOgDAMRuFX+TPf0HZcKsreADtPQCAQJBCenzCxZOaYk8+v9Tmwz2ERhept1MNIOA8nGUUyxHfaGCMMwiUhefer5K3NWs8HmPIVow=="#;
+
+const SHIELD_MINUS: &'static str = r#"eJw9iysOgDAQBa/yUr+hu+XzxNIbYPEERAWCBML5+YiaETMZP5arYBvDpAazk9KConHudqEkIdI9rBE9CI0/Qvbmu7LX99VaWMMDhacVjg=="#;
+
+const SHIELD_OFF: &'static str = r#"eJxlTbsOgzAQ+xWL/a6XuyQEKeUPWLtH7dChlRgQ308IggX5sVi281yWLz7PbnID93C+RB6wSxrYSF/hR4mMjBWOtRvzY2+N+ez+FRVSec8mX2ebENb+LYhIcNKsqLCh2fEWOCp5tnTtbO3nJUE="#;
+
+const SHIELD_PLUS: &'static str = r#"eJxtjDEOgCAQBL+yob/IgcgVJz+wpTdaUFiYaHy/aEFFs8VOZvRc74J9Ngs7OHcJjRBim8NBQp4E/ombxQQB239M0uGzkja33lykA2qUQ46NvBjBHNM="#;
+
+const SHIELD_QUESTION: &'static str = r#"eJxtjb0KgDAQg18luF+9u/pzQvUNXN1Fhw4OguLz2zp0kpAMCR8J53pH7GM1i0L1MmpgJLy0Bxl5Mvin3xgdDMJfVFOoMzWFwg5OMKweHpwkaJ0pJGFKqcz+gdKh9NGxlO0FX0MiNw=="#;
+
+const SHIELD_X: &'static str = r#"eJxtyzEKgDAQBdGrfNKvZpOsbiDmBrb2ooWFgqB4fokgWNhM85i0j+eCuTM9Ozh3KAUosR1kJSVPCn+1k0UDBdsnJqe6XDm978ahEkQSyA/GYvjaDbTxHbo="#;
+
+const SHIELD: &'static str = r#"eJwBPADD/zxwYXRoIGQ9Ik0xMiAyMnM4LTQgOC0xMFY1bC04LTMtOCAzdjdjMCA2IDggMTAgOCAxMCI+PC9wYXRoPsBaDmU="#;
+
+const SHIP_WHEEL: &'static str = r#"eJx9kMsKwjAQRX9lyD7RuXWIgaRrN926lyhUUJAion9vkhaUvjYDM2fuPK6P1y7eLhTfQTEUdUHtFcVPyWq/6XHtH6dnS+egGgbhZY1kmIs/dGdHosWgohymDQ1AjFYvqtkVuV6Qp9W8M3IE5uA2L+bKWEuSJs20OJMADivqEoX+zhvZMxiTbUL/xWDQF/jnV9A="#;
+
+const SHIP: &'static str = r#"eJyVT7sKwzAM/JUju1VLVuII3EC3Ll27h3To0KFD8ffXdiBQ8FKEDj3vpPReP088zsNNILzRRCOYBAypUUNf0QmqM4WSM1mp7xP/rwxLOlXZJR3ibBRmiL8w04QGvpkwWF/OnDqDbpXXyBQjBS3xzIgUpy4jONzjWt7aqZw4uf7kkNzdLCf7rP2O5HA0vqsaRnA="#;
+
+const SHIRT: &'static str = r#"eJxVjrEOwjAMRH/l1N3GdtyQSKUzA6zsEQwZGBgQA19PEoaq8ubTe3fLq7wrHqfpasIhIbBHaIQVh0PaKSXIJXC0ERaDjb+QcnAYW3jyPMhjUeg/BOfMyc/xo3JvElbO6KjVtClgZDeVaqzznqUGdy0N7b6Teud3WpdDH7/+AGDDKHk="#;
+
+const SHOPPING_BAG: &'static str = r#"eJxtjDsKgDAQRK8ypF/MJsuSIuYGthZ2AYsUFhbi+V1TBASZZpjPy2e9GvbZLYqACL1ZajDru8y1b0Bh1YMiyeZKnt53yYNh/8bpp2AF+yqQDmFK8GP1ACINICo="#;
+
+const SHOPPING_BASKET: &'static str = r#"eJxtjrEOwzAIRH8FZecaqF0Hyc0f9COidvDQSh3y/wr2EGVATNzjjqv/bW/0eU6/TCKUuExrvXVxrScSc8Yhe6mjpnPgumNECh5UkDYlpXmMdq0ZljfMV8HCKKTs6ldQ2K+DOBthZEGH1D9l5CY5at9r8NV5AFOAPuI="#;
+
+const SHOPPING_CART: &'static str = r#"eJxNjcsKwkAMRX8lZN/YXDsvmJm1Gz+ijMIIs5DiQv/ejpVSAgnknOTG8lhKu9OSWJnKO7FfxycxlHM8bTTHv9W5hl3Yrg7ac35VuiW+QkZDvVU0iLWkkAkzCDT+CqRifA3i/GGrEsywAtdUrBmcTOeLEUXP6L/zF/5DK5s="#;
+
+const SHOVEL: &'static str = r#"eJxljDsKgDAQRK+y2GfdbFw/EHMCPUTAwkJBUCw8vdkUKZSBx8B8/BGvFZaxmhmYbyObGIEk5VMFX2sh+FIbUMA2ihb6f77bDjjvUVCiQ3GQQUk2ndJJ2dM3AzIy6bqcvtw6JLk="#;
+
+const SHOWER_HEAD: &'static str = r#"eJx1zjEKgDAMBdCrfNyt/W3aIlRv4CEEBxfBQTy/reAgNHySIS+E5HO9dmxTdwgEzoRa3ZyHOp/zpwt9oWjCKmYMeJut6RNSaz2ghs1TAqbbWLbMglEzD3rNImg1I5xqCRTFXPmFP3sAkGFQiA=="#;
+
+const SHRINK: &'static str = r#"eJxtzT0LgCAQgOG/crRrmh94YM4tre5Bg4NCQ/T7u4NyEvSG4+G9eB13gXOdmnZAz4Nvwgv/WBmaEjQL/SnFmWGKP98RNMqQtWsK1GblwhtXBQUGmspEMjLmIC+w0p1hudOvi2DAdPkCPSQt8A=="#;
+
+const SHRUB: &'static str = r#"eJxljbEKgDAMRH/lcG9totYOVejm4g+4FRw6KDhIv98UUQcJSTjeceePeCasQzUTgzmrflOsuBp9XcjoP97DZe2ChYWRIVCjHdhkM5GcYHWHsjcUdzKxw6NJ3vKP3akFtUq6X3YBbJUjoQ=="#;
+
+const SHUFFLE: &'static str = r#"eJxtjrEOwzAIRH8FZedasE1syc3cpR9RpUOGVOrQ/1ewo0zJgAQc3L36e/8X+jyGl5LkRRBnQaA7KRLDKCCwYFwNwhk2Y/RRSNvyEJ+qw1RvzWmqh99XMilFiux1lj3OPK14WuppBcX9zDu9uu50nPyBOx8rjB1mR8grN9x8jSHxxLEBS9c7Pw=="#;
+
+const SIGMA_SQUARE: &'static str = r#"eJwlizsOgCAQBa+y2R4MfiEBahtbeyPEJbEwhPi5vaDFe8VkRke/JiAfNkoGhUR4DDYI9/dXcIl+HDOp0eqqBFYfSyJwBifRg+RqHka5t9CxPJInE1wVt1j2BW0yGws="#;
+
+const SIGMA: &'static str = r#"eJyzKUgsyVBIsVXyNbRQMA8z8TDLMVOw0AXiDEOjMl1jJTsbfZASOwDmBwru"#;
+
+const SIGNAL_HIGH: &'static str = r#"eJxtyzkOABAQQNGriN42kVAMN9DqJQqlQpzfUtBM+18+9jIaq4EnYKCb1IZHVCdGfOQ2TWEJMXDJU3Su/GUBNKMdsA=="#;
+
+const SIGNAL_LOW: &'static str =
+    r#"eJw9yTEOABAMAMCvNN1RjcRS/YFHSAwdDeL9WLreyRrbYDbsDEwWKaNK+qjiVV+dUHwuj+oO2g=="#;
+
+const SIGNAL_MEDIUM: &'static str =
+    r#"eJxtyakNACAMAMBVCJ6vIQFRugFDkCAqEYT5eUQV9g5Hm6x60RUUeLY+aEJ3kVAqnVomfibAqyy1AYslFmk="#;
+
+const SIGNAL_ZERO: &'static str = r#"eJyzKUgsyVBIsVXyNVIwMsjQMzBUsrPRBwnaAQBpcAd7"#;
+
+const SIGNAL: &'static str = r#"eJxtyysOwCAQRdGtTPBtmRfSVkzZQS2eBIFEENbPR6DG3pMrJdZM6TM/CDaflo2Xa0Yvm55B7XCKMBa9Gs0raAKQa3xv6ZzTJRQ="#;
+
+const SIREN: &'static str = r#"eJx1jbEKwzAMRH/lyG7XOiI7ATdzlv5AN0MHL4UORd9fu5TQgos4gXT3uPwoz4rbebokCItCEdoI1KmF7xtqcU/m4nXa8qljWz5gBUMh+AnTscrPAzTuao4jmtK6qwwcWbxibpIFOiL/gr1xYNxnv3LFe/sUUtcYF1o8nBebI0wl"#;
+
+const SKIP_BACK: &'static str = r#"eJwti0EKwCAMBL+y5ANtpD0Imt+UIkgitAf9fU3xtDswk5rVcZuiWdH3ycQRYUcEB8x74GeStC1RUi16oYdMJ2GsYQ8JnR2n7I58tDIYzA=="#;
+
+const SKIP_FORWARD: &'static str = r#"eJwtykEKwCAMRNGrDLlAGzGLgnqbUgQxQrswt6+im/kwvNC02KMVTXP93kgCDxawg8CdYzylcGyVQsn1RudIfBHMrfZdG79MPlX6AaLAGJY="#;
+
+const SKULL: &'static str = r#"eJxljV0KwjAQhK+y7PvGzEpqhKTgAXqIEoUIClKkqKc3qT8RZB7255udDek4pdOB0j0ylGkqhSndIm+5D6sX7cPb1Sgcf25+bJfxmmkfefCkdtbsZ1l43Td6hhpH2IhxAqltxuPfNqArKaOSkl0E4zpZG3Xki8pMVgCDwnfNVV9/w56j4Di/"#;
+
+const SLACK: &'static str = r#"eJyFkEEPgjAMhf9K07tIhSWYbCTeuHjlToQ4boYsOv697QxoNgmHHrbX9ut7ehpuDrxBKhBmgyeE19g7a5Dfdhjv1hmsECZpyRTW+igTtX50zkJv8EpnqDLVUm5Zv3CBVA4kFTQZkvZaL7BqhyKXUPkHxsuVwMqmSGAfLYIty4uVGGNY8Rs02cceGiqf3N5F3jJ1oIT3hfyQ5/DhQ7rbQXJSoBrK29RakFbSGzPZcC0="#;
+
+const SLASH: &'static str = r#"eJyzKUgsyVBIsVXyNTJSAEMjJTsbfZCoHQBr6Adc"#;
+
+const SLICE: &'static str = r#"eJw9jDEKgDAQBL+y2CfmsnJGiHmBfsAuYJFCwUJ8v0bQZouZZeKRz4J1bPYA6YxCy3AZNim21aT4+VmCZQ9aJep1Izh5qUwflr0Vj3ccBM7QcPkrNzZ1GKw="#;
+
+const SLIDERS_HORIZONTAL: &'static str = r#"eJxtkEEOgCAMBL9C+gFtNYYD+hsPJsYz/l5aVgnCaVOYbrcN53HtLvJKwuSirMQzuTvVKqKyhUGhLRia34ycyBp5fBtq0swk/5mixrAWhp8vKFo7vsvnY7AgQ9JfXMYnoIgweV672lKOYCiOIR1b3VtZX8eee6inL7YlwRlS/cIP3u1ibA=="#;
+
+const SLIDERS: &'static str = r#"eJx9kEEKwCAMBL8i+UBNFPGg/qaHQulZf18lUWyxPS3GyToYzuPaVaYIFlTBCISgMvKxTtFCCluDUpjRjtRAzah5k+2OpKZmlpRXnjAXDGbs1vQLFB0zpHmn5bK3Q2WSMWNnwQpqmXEfv9CGXnRt12Rr/aOLXuqdKNCAb99wYmw="#;
+
+const SMARTPHONE_CHARGING: &'static str = r#"eJwli00KgCAQRq8yzL5SMWvheIMOESmN0CJkILt9iavvh/d8SYfAk6MwobYIlXBGeAkNQqk9+uKUT5a/Kgx+al7w9y4MkXDTZnRugRW0Am3YXkM/bGMbFT4QyRwi"#;
+
+const SMARTPHONE_NFC: &'static str = r#"eJxti2EKwjAMha8ScoC4tF26QbsbeIjiht0/GQX19qYtoj9GyEte8r5wbLcCr4gG4dDBCM99LTmiR8jbfs9Fj/p8RxRcwqXml/BIJcMa8coWJrImeXIWmgxarO3JNqBG/wEhJyBkODGTF+j6pdSN0xk208zgSKmxbl07RUPzP+wDtFEzzQ=="#;
+
+const SMARTPHONE: &'static str = r#"eJwdy1EKgCAQBNCrLHOAcqWgD9cbdIhIaf0LWahun/ozD2aYUPNppLlcagLvQE9JpgJeQK9gBdWGb3yDkTHM/RfDfZhSEuzsiTedHPett/EHi6sY6Q=="#;
+
+const SMILE_PLUS: &'static str = r#"eJxtzt0KwjAMBeBXOeS+syesw0K3N/AhBgoTRARluLe3qay72CA/kHyBpNf4mXDt5aIKcuZIjxy5gC46ehnSydCQKj2D7ZtNgKK1dCU3+Lg/b1i0lyj4Wms8BQv/g9KyNbW3DAWbYliPqq4vsEOYuoPfGKHztvgBfcc5VQ=="#;
+
+const SMILE: &'static str = r#"eJw1i0sKgDAMRK8SsveTYkGh7Q08hFRBoYhUF+3tTapdDC9k3hh/RB82iBapR/CJqZi50Jnu6525lmeH1eI8Ag03tRoUDJKmRFRRnAnHuUEmixNCVgVJ0PbEV/mzK1Z1f4kr0linsiEto2q/BEsrqg=="#;
+
+const SNAIL: &'static str = r#"eJxtjd0KwjAMhV/lkPvVJp21g65v4K33pQoTvJAhom9vsoE/ICEJyZeTk6/1NuE40l7AoUZEeLClaOk1lrFL2gW288veU8kb05bcznO7nNAeI7EnzCMlQnvqFOxoxSV/GQlPLK139jx1wUWt6bCrq4HZKbnHj8VbywkBPDjG1skfLqJcvBt++AsqpTdL"#;
+
+const SNOWFLAKE: &'static str = r#"eJxtjEEKgCAQRa/ycS81IuJCvUtQUFDRooXdvhmxcOFieIv3/oR9OxdkisooZMNgPkwSUmEKg1Qp/C3VyNTRFzftNd0r5qgOM4KcttqCT7yYxlt4FIeeJYc67Y49+H0JmvULZ1c2RQ=="#;
+
+const SOFA: &'static str = r#"eJx1TbsOQEAQ/JWJfuN2HCE5ao1WoZMolArZ70fDXXKyxWbe4VjPHVtfTHTo5mYlCPecUDgmGLSqGEL5RIbwBaFq9We8P3dtYkJoEjnEw9ldbsKUXDL1Htoac7vuT1HCW/cKFwOLOFc="#;
+
+const SOUP: &'static str = r#"eJylzj0OwjAMBeCrWN3ziO38WSqdWbgAWwVDRwbuL5KKoiLChDLZL++Tx/v8WOh2HM4sJDwbGfn1mbOT7meyyzCNh1aYxnct19bCvpOwIVJThVIvTpBIeoVkMAqiItf/0OTgE4o6mNZZHJPAS91G5AINbRmQW5ikJ/O3HDY57mVY2ey02vqy5Zf979HhE34C3W9WWg=="#;
+
+const SPACE: &'static str =
+    r#"eJwVizEOABEUBa/yov/WsxENao1DCIVSIc6PZmaaCbOugR5VsRb0m81AO9EOFIL5b6+N8OqCW6hS+N6VDrfeDkU="#;
+
+const SPADE: &'static str = r#"eJxVTssKwkAM/JWh98TdZJetsBb8AH/AW1kPHjx4EL/fiZRCCZP3JNPf6+eJx2W6VZyHZK0gxOFq9FXrlYiI9LfGzNLIOrNwYVW4b9iYMG2w6MHWI5OZECOJqccnKeLReUkLQ7tPSz+FoKXvsjJPz9+yT36hoiZB"#;
+
+const SPARKLE: &'static str = r#"eJxVjjEKgDAMRa8S3FNNirSF2hP0BG4FB4cKDt4fEzNICQSS93lJvttzwrFNFzF4JJdgdbExMCxSJBuOAbTH6oG4C5Yx/RGDXw9VLExdOA4ao2gaJvVoAAeRYbu4TyXP+lt5AdHHIfo="#;
+
+const SPARKLES: &'static str = r#"eJxtjksKwzAMRK8yZO+0I9W4BjcnSC/QXaCLLFLoIuT88YcQE4xAAunpMeE/rTO+r+5HgRr2Pk7bP6mTQHCPxbgVZ5H7qKAsGUCGTww1Fi3CJRPmoitEkY7C5CuIuQhNDaZ4n24ItxR4CEfst4Vuj8aeHnTNi8LOzQ8H+uqyAzJIQrg="#;
+
+const SPEAKER: &'static str = r#"eJwljFEOgCAMQ6+y7ADqjPELuMwkQkL8ICTC7e3wZ13a17oatVGK+U7N874xvflqybOcTHXAgvQpuAfTtIJbrRec5qolksIVhApGrGEooD8OruQnUt8tXDbBCF7sD5nSZbbAGxc+3ocnpw=="#;
+
+const SPELL_CHECK_2: &'static str = r#"eJydjjEKgDAQBL+ypE90TwkpYn7gI0SLNIKg/8eLkFSpbI5lZoqL1/ZkHIs5PejhLQW6xKQ4FJViDdagOIeOmCHc6YgRei0hbrK8C/k2OhaN1Aa/mvbOC4BbK4A="#;
+
+const SPELL_CHECK: &'static str = r#"eJxlizEKACEQA78S7OXORRaL1R/4CMHCRrDw/7gW2kiakMnIKLOhRtMZjsHWEbSRSfJtlOQcctC5hRd09egHabz1ly8+OBfH"#;
+
+const SPLINE: &'static str = r#"eJxNzNEJgDAMBNBVwi2gKRQRmoIDOIREQcEPKX7Y7U2rgiQQwj0u6JZ0XygJHEgvAfd2s8AjhuZJY3hVyT0+nCv+qWM6V5oFoyfuBnZk29qwvVT7iog3eAEfSg=="#;
+
+const SPLIT_SQUARE_HORIZONTAL: &'static str = r#"eJxNi70KwzAMhF/l0G4qKU1/wPbcpWv34hZcKKVDCMnb55whZDikO74v/p9DxSvJ/QK73voSDBo8GOOPc1F2/mCrneR4aHyOm2Un9LUrlOAwxkfTonSsOfAadtr383tjsiTmgtmTuPKyHwWTrzPZRuUFLtclRQ=="#;
+
+const SPLIT_SQUARE_VERTICAL: &'static str = r#"eJxNjL0KAjEQhF9lSL+4M+f5A7nUNrb2EoUTRCwkeG/vBkEsltmB75v8PL9mXKZ0HLE7jdWNoAkyzfRKOATGqQ2p5FXHS/5J3IObNlQPiV2CDtsar5ssdkzN/rz77XHFoilRCQu/+Y4uj4y+7mynygc3niVh"#;
+
+const SPLIT: &'static str = r#"eJxtyzsOgCAQhOGrTOhBd5eXCVJb6CFILGhMLAznNzQ0munmy5/u8lScqzrIQ6prTuU09TOnQRGyya8Qg7npaKRYWMx9mgwF1mxi4F0g3+wihwVe+0EvvWIjqg=="#;
+
+const SPRAY_CAN: &'static str = r#"eJx1jksKwzAQQ68iZm/Xcn41xLlBt92XJNSBBkox/dy+9qYlBG/EoKcR6u+XGDB5OVWogjaUoT9kb+h/pENTICS6AqqKpIMr/pBb9JjHiLcXNoKPl6RhXq4heqkFr2WKIV8pnoP/ppUODhb2STMa6FbpGlQEg2pHpVsYxeQl4Zm8WWX3c1amPTWOReY27AviBFky"#;
+
+const SPROUT: &'static str = r#"eJxtjjEOwzAMA78iZBdr2bIdA2l+0EcE6ZCxQ6e+vlSHZgkMwYRIHLW8tvchz/v06JLTYWlal1vs1uXvWKK1V1TNqJi1waXoZXSgyoDvBsMsMRmZU6Sgaxa4FjJcnRwQgqxo5IYcWriPOL0qzpokNSo/V1c5TNrWpTPFR4BJNA+lKCSikRFgF1PjNb8i/p01oTtMw3MMyWfHF64iPXg="#;
+
+const SQUARE_ASTERISK: &'static str = r#"eJx1yzsOgCAQBNCrTLb3g2KgAG7gIYwQoTAxhPi5vaIFlc3uZF5GRTcneBcWnzQxSTiCTf6Ll6aecL43Pq8jo5o8MGqbkofVNLIOcpcZclVglfUAxiEq/octBArenngmOA=="#;
+
+const SQUARE_CODE: &'static str = r#"eJxNy0EKgCAQheGrDLOX1Fq0cLxLpDQugpCB7PY1BhH/2328UPMqcJYkTOhmhItwRKiN0CNwLhvLC00hhkEPMRyLMCTC3Vlw1njoqav8fYJn3vQ+vwG5QB/x"#;
+
+const SQUARE_DASHED_BOTTOM_CODE: &'static str = r#"eJxtjjEOwCAIRa9C3E2F6NDEegPX7iYdWJp0aHr+goskms/Cf3wgP+1luA53YwAMnqDLlbwpKXnwCFLku2ZeExA2DQcR6tCZRq9BxmgNoM8afnm27rKWcQH0GUt+dzwxuQ=="#;
+
+const SQUARE_DASHED_BOTTOM: &'static str = r#"eJxtjLEKgDAQQ38ldD/0QjsIZ//A1b3gcKOD+P2ei1aQLEkePNvb4djmtBRQG0GMERUK1/JuxHbN/QGe/SHRUrXhFlZ7tFNoXX+A5i+5AIJlIUs="#;
+
+const SQUARE_DOT: &'static str = r#"eJwli0EOgDAIBL9C+ICpXjy0fAaJkHgiJNbfS9vTZmd3qgsHeG+4I6jYrdGwnAhJDoTXrtAFvgGobkOgyub8CHDSkqZnIHCfLU9rph/7hxqN"#;
+
+const SQUARE_EQUAL: &'static str = r#"eJxVy8EJgDAMQNFVQhawUUEPSTdwCLHF9CYloG6v6Umv//G55s3gEhwQzpJMBWlGuFuob+8RNJddrUHkzofIx2oKSXCZgIJScPH2l/ErD1+XHic="#;
+
+const SQUARE_SLASH: &'static str = r#"eJwdi0EKgDAMBL8S9gPSiqDQ9jNabEA8lIDp701z3J2Z1OsppBkrqFW+m2SEHTT86QYi6ONLmv8lLTMo6eG3koaMA6TR2GZN9DmCT1OnVH5CnRpg"#;
+
+const SQUARE_STACK: &'static str = r#"eJyNjM0KAjEMhF9lyL21CUVcaPsGXr1LdzF7k6X48/YmCh48eZkwk5mvXM9DMVc6ZnDqgSMjBQlxMpFT7skjdzCvub8LEMTJRKiVnRNa+XI4gfe/oFv4n7QtfeBRiTPh+Tn3dR5a6UDY7CEEXdaLDk9s5oP2AmIvMKk="#;
+
+const SQUARE: &'static str =
+    r#"eJwli0EKABAQRa8y/QsIGwtcBhlbTeH2TDavV68XZytCcyc4ELfRWRJsAK1Rhb++6EFHmaPRIV/D5Q+D"#;
+
+const SQUIRREL: &'static str = r#"eJxtTjEOwjAM/Mqpu4PtJG2RQhdmVvYIhowMiPdzKRUwVKeL7dg+X3nUZ8P9NFxsxlgTErRDejYRn4rZTSUjrTQNuabAlFQYB46MzsrXnw7G8wRTRJj1hwpsz6SzSTTTYSmH7mApPx8jXHnMArdDlAiyWXX4puziL/F/r5KuaU8q85R7pcQ2yduS9yZnWGxB7dt7A0AdPds="#;
+
+const STAMP: &'static str = r#"eJxtTkEKwkAM/EroPbGzaXYVakE8e+3BW6mHHgXF9zu1WETKsruTTDIz7X14TnI7VpeQlCY0Vdfu5l7XrgwOlorArfgpGed4689BIYRPCvwxjSAsepQBgu+0gAa/DcVLYTHWajmrpczKlT78S7luZaGw93uLMxFDxfLE4OKLqrr6yP2cZ0wPMg9IoqvPiXxVfQPcMDdG"#;
+
+const STAR_HALF: &'static str =
+    r#"eJwBNwDI/zxwYXRoIGQ9Ik0xMiAxNy44IDUuOCAyMSA3IDE0LjEgMiA5LjNsNy0xTDEyIDIiPjwvcGF0aD5iWAyo"#;
+
+const STAR_OFF: &'static str = r#"eJxFjVEKwzAMQ69i8h8NO0mdQJoTdIcYbLBBGPvYR3v7uWtpfywkpOf6uX2fdB/dNSNE+h+hAtGeKCLrlJCFhImFWKFKnMHZku6Rig+IwbV6WTmtHjQrRRsIdCDZgX5AYc+TkaR7RrRXlpzr/no/aObRiaNZTEyXzS6btepaaj//lCqn"#;
+
+const STAR: &'static str = r#"eJw1jUEKgDAQA78SfEB0F2u3UPsdEaQt6MXfW7FCTmEyibUc91Yyatnzda6DKBTiOAUYdYEqAtVDWmbKDDGKQYVT41o8vYejae9+ru+MQT7Tax5SHPtjegDvlRuE"#;
+
+const STEP_BACK: &'static str = r#"eJwtij0KwCAMRq8SMgvVkKGD5jalCJII7aC3byxO3897uVW9YKSC6USYVJA9fFJEGPTfko9lSe7W5m0K3aq+jzMOFIFDIvDKS9yKfBYeGDQ="#;
+
+const STEP_FORWARD: &'static str = r#"eJwtijEKwCAMAL8SMgvVIJ1iflOKIInQDvr7pq3T3cFxq3rASAV3hEEfpld2eFFE4e19hLu1eZpCt6r3VTDFkIFiSASu/7keeQAGhRf0"#;
+
+const STETHOSCOPE: &'static str = r#"eJx9TcsKAjEM/JWQe2OTPthDW/Dmxav3UoUVPMgiRf/elBUfFwlhZshkJl3rbYZjxr2nCYTclhw5sMC6AWTnq4Ao1zHKeqgR4qoVY7ff2sTDj9/IbLiSkLwSRziWtBmtJb27J+DQ+X9yN/7z2c5Lu5yg3TOKRVgUENojI9thWs/lCdImMtk="#;
+
+const STICKER: &'static str = r#"eJxtjDELgzAQRv/Kh7vXfBcTLKTOHdq1QzfRIaOg+PtNdFAhHAcH790LU79EjK/qSycO9u16hcLkqdO1shkMKJQnMtDI5jSgtf5acZ/j+V914ZGDXbhkYVcffQmlsJ+lBVOPA8XuReYt6Mmz0ZQ6/k42COY04A=="#;
+
+const STICKY_NOTE: &'static str = r#"eJxNjLEOgCAQQ3+lcQe5gyOaILODrg5uRAdGB8P3KzFR06XJa1840pmxD81MogV2lMRgmBp1t0JuMyBNukcFnMl9C7DipdMyPee1iaGtwhh+Wtjis3/RBdRlG0I="#;
+
+const STOP_CIRCLE: &'static str = r#"eJwlyksKwDAIRdGtiBvoZ1AoJG7GShU6EqHp7muS0ePyTmFzfgT4q7jtCJ6zInAbSWWZPxUXDlCxW6PigZD+RHjtCh3deqfvjn41YBim"#;
+
+const STORE: &'static str = r#"eJydkb0KwzAMhF9FZJdqXZzYhTSQvV27Bzp4KXQofv7K6Y9TyBSMbTjpk3RoeMzPRLdTcwcF8uKVyzOBQM6OUpDYElKU1s9VVfGQ7niGYc04HEqZcfgWu3hS5PjLd/YjKdYCI3PcQLUjWKg2c2y5ibEWCNlvsDZMgtsKWCS3df6lgpshgcp9a2qGWPpWwkdyLNGA6S+NtKfiZBeK3WjcTS67cGvvjGtd2gsI8GyR"#;
+
+const STRETCH_HORIZONTAL: &'static str = r#"eJxNjEsKgDAQQ68ScgE/FFczvYwWp9syoN7eWkW6CSG8FylpdVzKQFjKu7lyIcqpnIkjb261jUQbogwPH6VZHd+Bn/pmPZ7Cr93CsR7C"#;
+
+const STRETCH_VERTICAL: &'static str = r#"eJxdzEsKwCAMBNCrhLlAP5SuEi/TSuNWArW3rwqKuAoZ5g1HfxmpD4+aYF9BSXCAvvyAYqrnDbep4ITjpfQdV9XjYrYZDZuN/azaHsI="#;
+
+const STRIKETHROUGH: &'static str = r#"eJxFyjsKgDAQBNCrDNv72c0iCknqNB4ioKAgYmERb2+SJgzDMPDsE98Dm6OVJ2hYooHBWNJJPxsoeTsU422TCpao0Ao5dw5Tc9d570jiSEZCYkdK+PJlyct1sy3K/6WlHuE="#;
+
+const SUBSCRIPT: &'static str = r#"eJxtjjEOhEAIRa9C7GEHBnZmkllvsJUnMFrYmFh4/wgWVoZAfv7jE/oxnxusv2FXMKhQh7F/whv7Q1jA8BX9JQG3DXVJyGSkigIuUMimYEY5Q4jYIC1I7N2y6+oJabMQM9wjRXnyK0518SEkilT0tpofTuX54QJsriqC"#;
+
+const SUBTITLES: &'static str = r#"eJxtjDELgCAYRP/K0S55n4oE5tzS2tAmNDg0NES/P13EQW453oMXnvRmXOu0e9BkO8UwVxRDE3TVyMB4LENOU8QoJQRdEgh0GVV5m7+VhT06DFGSaXsA+ajPVvwByMYvBA=="#;
+
+const SUN_DIM: &'static str = r#"eJyNjUEKgCAQRa8yzAFMR9ONeoMOERYYtAhpUbcvcxOE0urDvPcYG5YU1hnC4VAQQjjLJocKve0K9nYb9wiTw0EQqMi4yDAfX4g4CKqwOyNeYaqRGaZ7A5pJJdtKmYrz9H+U76ML4TVNzg=="#;
+
+const SUN_MEDIUM: &'static str = r#"eJx9jEEKwjAQRa8yZO+YmUknLpLewENIFCooSBGxt2/TdFOadjF8mPd4IT379HpAH40zkP7REE87zNuGc8Ft+Ny+HdyjuRKD/Cij/FoDtlUiQNzVANsd8qYLijpoUEVP6K3PV/EUxU15j9r4I28OldyBVTpLbuONN3ZP1g=="#;
+
+const SUN_MOON: &'static str = r#"eJx9TkEOgCAM+8rincnmopAgP+ARJB64kHgwvt+AHkwE07SXtuvcHo8E2zoEYjCR0UxQRVfIAw0EpETJ4N1YKt69i3xyx9AtJwtaKCSUwkaCFlzgll4mMBCn1jDrjpNnnOpV9bNskcpzn8gFd6xNEA=="#;
+
+const SUN_SNOW: &'static str = r#"eJx1j7EOwjAMRH/l1N0hF5ukSKF/wMpeiaELEgPi+3GWdnEHe3n3rHP/rN8Nr/v0YMZtVSgy6JNRp6VfBl76Hipg2RgAGgqfGpEMOwOFPwmuvTVVA+ekNTVJLUhYUkP1JSeJ0ci7zoHLBhP/NEIuNcSsELyKDlMO/gcsEFYT"#;
+
+const SUN: &'static str = r#"eJx9jtEKQEAQRX9l2ndjZ2wrtesPfISWoihJ4u8xPGl5ubfm3KbjQj+HoYXZK6MgbF4Rn71Lly69cemmeumg8aoiBl4FXacX0DEyGiwykCA0JBFZUY7WwpPfu4qBuIsJsP4go8XM3J+TX4MCdS6ikdkB4dBOsg=="#;
+
+const SUNRISE: &'static str = r#"eJx9jrEOgCAMRH+lcQfbShQSZHbhI0gcWEgcjN8vYHQRzSU39F2vtVvYI6xz54mBD90525eRszdISpoBCKtLRdXeMc9AOnIL4AdJZCROV7X4rc6v8dJq0DCCEgqyGns05suhUCwSGvBJnYlYQYE="#;
+
+const SUNSET: &'static str = r#"eJx9jLEKgDAQQ3/lcG+9O4tWqM4uXd0LDl0KDv4/Xiu6WCWQIS+J28MRYZsaTwyEKzeza3M2u5sko8dOWHFtqNi75mVvI9cAfpBEo8bhula/1wzMS/Whh14ZMEpUGQomG4QDZikL+LRO2T9B0w=="#;
+
+const SUPERSCRIPT: &'static str = r#"eJxtjj0KwzAMha9isutVlmVbAjc36NQThHTIUujQ+1OZQqYgENL7nn7GZ/se6XVf3pqyJyNb1nGb4jpOlCUYXbKHcMpykO5MGRWqQuFGJUF9BjSUoimKDmYJF7QLIXeCl2hMY058E2Su6Z95Rixo06Wl7ZEFUpzQi4WsBHOPM9zOl35fri4U"#;
+
+const SWISS_FRANC: &'static str =
+    r#"eJxtyzsOABAQANGrbBwAS/yS5QZavUSxpcL9g0alnZeh2RfDyKKiBoPNchSF1K2FnnlAz+kDZ0rScXi0AZPsFpU="#;
+
+const SWITCH_CAMERA: &'static str = r#"eJxljs0KwkAMhF9lyD3YzFp/YLdnL169l1VYwYIUEX17Yz1spYQchpkvk3jvHwXnJEcz2P6w7gmi8TGl8rStGq5LK11cfZkuVjKgLX9B8GnN/BJYdIbm65hvF+R3EqNgTBIE+TUpD/3s2jDYDqQGDfBdfjBsvGnyUN0PoEk2cQ=="#;
+
+const SWORD: &'static str = r#"eJxdjFEKgCAQRK+y7AGqtTIC6zZ9CKJCfejtW1eF6GN3YGbemBhcdtZfEIP1z30gLcMKtPGbQfPVL0aJ8DRjZ04jZCKmZoSkWHeETE2V+Ax8y2yqqYaipayxjuhfObfF1BYFpgqx9vIL8XUyXQ=="#;
+
+const SWORDS: &'static str = r#"eJx9UNEKwyAM/BXxA7ZFbazg+jd7KJS2sD20f7+Yc0OG7MGEJHfJnXnflnOZ14fZt3l9Pe+WwmUwFCV4w/IQtVFGdsrXD2fKyjycsJI1Z8leMqE+SGshtODSZKskd6tgBlnqDjhVMAGsGRe/4L4JLpJHEe8IgWEjdV3ozhG3UtUVYGL4kaWziFkEI/xx4OuMmq9x7dY3wfNjzA=="#;
+
+const SYRINGE: &'static str = r#"eJx1jjsOg0AMRK8yoreD8X6wtOEEySGipEgBEgX3F14KKADZcjFPnpkyf5Y/fs9mkh4dAkIzlEcVh3KgjAwlPaO3GAw9Z4ixfkkg1HH0qxzQjsTJ1/VtKmkreUlEvAgyiNx0cE8jhV7V8w8kpB2tcwA2Eg=="#;
+
+const TABLE_2: &'static str = r#"eJxNjbEKgDAMRH8ldA82UUsLtbOLq3vBoUvBQfr9JhWk3HK8O+7inZ8C12aOAPO+ZgYGq0JxbakOXSH7Y4KOtdzIV0FjaoGRzyAp07BF2PHX9ibFSU/TC8dLG+Y="#;
+
+const TABLE_PROPERTIES: &'static str = r#"eJxNjEsKgDAMRK8ScgGJpaCQdu3GQ4gtpjspwc/tbRG0qxnm83hfVCA4nMmCOWhAz13NPOe4KlwODUIu0iOcKag4LCOQmDbR1991U2714PkD9gTjZH5eW5Btmge4cyUj"#;
+
+const TABLE: &'static str = r#"eJxNjFEKgCAQRK+y7AVCJSjY9QYdIlJa/0KWstunBOLPMMxjHl27CgTGzVhwt1nQ09Q2TzkeChLTKcpYATwpqPw1F0aL8DI6hNKy3trBUxc6WGX0DcDMI/kA0YIlbA=="#;
+
+const TABLET_SMARTPHONE: &'static str = r#"eJxNjEEOgzAQA79i+R6a3aZVDgk/6CNQQV1uFYpa+D3JBZAv1lietEzvgv88FssUT6yZd8Km+WOlkkBsmZFY6qDs060d+vQdimHMfD0QBoXC1wjUqYleAfQnzxO42sxpF5qqSS6qCInWeTmmHZb5J7Q="#;
+
+const TABLET: &'static str = r#"eJwljF0KgCAQhK+yzAFKl4ge1MuUpBA9iNB6+1Z9mh++GVfiWUk8NlDzYFCRKTN9+arJw+6gFPOdqrYGwa19F9yT30jCCvBirF5YtQdIuuq88cjKdzL8cgAc/g=="#;
+
+const TABLETS: &'static str = r#"eJxNikEKgCAQRa8yzD5zSrOFeoMOERYYFIS0yNuHU1Sb/+G9Z8OSwjpDyA4NQjj5kkON3ta39PaJGHNDpc38v2wfjwiTw4EaIBNJFlngp7ZWqA5ICq3ACNlXZd7sAkPpJws="#;
+
+const TAG: &'static str = r#"eJw9jbEKgDAMRH8ldE9MY7Ut1M4O+gNuokOHDg7i92sQCsfdcI+7dO13gXMyqxWQWR7LNZJEUDsouk8g5IJmT06A60hDQDXt8WdQGWBUZNGpzeTU6XhO7cKDL8S2NS8qIx3l"#;
+
+const TAGS: &'static str = r#"eJxljTsOwkAMRK8ySr9mvZ8klpbUFKGloIugoAgSBeL8eIREisi/YsZv2mt5P3A/dmdDPaXPsPaSDFw3seKNJGXkzVIS4pqljoGLevh5Aj2IgZbZQdduageSp/bn9zCJerG99NSK6pGZsziKkYhe6uPMWQfo9vgFD8kqfg=="#;
+
+const TALLY_1: &'static str = r#"eJyzKUgsyVBIsVXyNVEwKTM0U7Kz0QcJ2QEAXiEHNQ=="#;
+
+const TALLY_2: &'static str =
+    r#"eJxVybEJACAMBMBVQhYQIQjCmw0cQrCwtBDnD2kCae9w1zu0B08h+bWxojgpInoOA3CwDm4="#;
+
+const TALLY_3: &'static str =
+    r#"eJx1y7EJACAMBdFVQhaQQBCEbzZwCMHC0kKcX2wsAmnvcVh9TxqVm5IeyWxILxk+lAjELRdMKxXT"#;
+
+const TALLY_4: &'static str =
+    r#"eJx1y7EJACAMBdFVQhaQQBCEbzZwCMHC0kKcX2wsAmnveFh9TxqVm5IeyWxILxn+KNGQkIgzF+gzHT0="#;
+
+const TALLY_5: &'static str =
+    r#"eJx1y7EJACAMBdFVPi4gCSIKMRs4hGBhaSHOLzbp0t7jZI+zMFvoCelSDirxJxWD6gG5C7kPMzIYVMweh1QkoQ=="#;
+
+const TARGET: &'static str = r#"eJxtyz0OABAMhuGriAv4GUzlMo1BYurE7RVNiJjepH0+wEJYs6KondUKG9dz+2oCs/8JxD1g7sKH8flCMjpsAMGuIVU="#;
+
+const TENT: &'static str = r#"eJx1y0EKgCAURdGtPJxLPu1Hws8duIiggZOgQfunHASBOr2Hq9d+FxybyYzwDnSYTdKp5qQfnlItWi6t5fBa4dq56EGxATIy/O0BP0Alhg=="#;
+
+const TERMINAL_SQUARE: &'static str = r#"eJxFy0EKgCAQBdCrDLOPGA1qod6gQ0RK4yIIGShvnxohA/PhP765NmHwFs8ZiEAN7dCZsYIzP68FSfPUJYVdgEM8WCzSgpAtaoSn/VRCIdzRC3+acm3Kuu7cC6BSIKk="#;
+
+const TERMINAL: &'static str = r#"eJw1y0EKwCAMRNGrDLlATbCUQuJtuhBEhXaht68NdPUZeKO9lVlyvdBbrs9tFMEHOIAZETsl3X6S1OFgIxbCECMJhPntc1W86+D4BbC6GNo="#;
+
+const TEST_TUBE_2: &'static str = r#"eJxlzDsKgDAQhOGrDPZZMxtZI0RrCz1EwMJGsBDP7wO0UAam+eBPa95mTG0xKlHDJCqUwphVYsB9/hxdkKZx4rn7L8G7amCNUHSpvHpdeqoLDQqD/WmkgtZXrxyfJSFF"#;
+
+const TEST_TUBE: &'static str = r#"eJxtzaEOgDAMBNBfaeZb1mZliLE/wOLJEJUIwvdDCZnC3svdlWM7DfY5LJxIQS7OpC0CU0ImBiFFcSC12J4oQfTAET9cJdQy+FAtfW7ykuUfeY94NNSON2E+ITM="#;
+
+const TEST_TUBES: &'static str = r#"eJx1js0KgCAQhF9l8a65mz8IJnTr0rW70MFjh/D5SxChMpY5zAz7Mf6IZ4J9YqsDymiFnkloKJL3IZjiKMtXrACd0Bux4IeCCL6BSFZSfLzw6rL85kVd1giUbCdH9VM4QLOo/io0ietWXcWDPgo="#;
+
+const TEXT_CURSOR_INPUT: &'static str = r#"eJx1jbEKhTAMRX/l4h5ek9hXhers4kcUHDI6SL/fCkUqKJnuzTlJ3NNh2KZu9eiNk0LhyjC0Tk2kxt0cfxc/x9tihTijRqSCoknQxb+IHvxf+iSQCgpJpqZAKb5eDhZaEJIflyBG4cUcETK7e3ECuCc7lg=="#;
+
+const TEXT_CURSOR: &'static str = r#"eJx1jCEOgDAMRa/yM9+wLg2Yshtg8UsQlQiy89MhKIZ89ZL3vp7tMhxr2nhBKUbcBILsYxKSfQ6Gs3GqOo2o6ps+ZYR5iJ1+zI/oj5Ae3g1sVSJx"#;
+
+const TEXT_QUOTE: &'static str =
+    r#"eJx1yzEOABAMQNGrNC4gJcFQnbs4hMRgNIjzY+nE+l8+jTo7tGwKRgjiDZO9iUnBIaCT9JH0FH+WFRQ2v+Acqg=="#;
+
+const TEXT_SELECT: &'static str = r#"eJx1z1sKwjAUBNCtDPkvOjdNayDpDlxEQaGCiB8idfcmtvYBN+QjjzmTkPDsXwMu0ZwdbC8QHPOo0sp04ZDTLiyGfoMIHQlBv6rCVQ7CLao0lJ4bqJ4L1YB1oZGCQsXCv6l/Qw8sWJca++R+e1wxSjR0Bh9Gc0qT/KYx7doss5lljij/bCq2U5Gi2WZv7WybxX4BZVt+Qg=="#;
+
+const TEXT: &'static str =
+    r#"eJx1yTsOABAQBcCrbByAPOJTLLXGISQKpcL9g0Y02hkedXZqURR4chLZiMTqYOJbGgT9OVi5Nzy3ALf9Fo8="#;
+
+const THERMOMETER_SNOWFLAKE: &'static str = r#"eJxtjbEOgCAMRH/l4q7SUokkyB+4OriROLCYOBi/3+LAIkPb3F1fG650ZxxLtzKIM5kuhrF4MdTEQx5y/+C08LCwvVYDI4bTBa+9BTvQ/LE0TKUaF9iUz2aYJAkEBgTqdW6SGKy6OKr3yr52xjTn"#;
+
+const THERMOMETER_SUN: &'static str = r#"eJxtTrEKQjEM/JXj7Y1Neq0+qG92eauDW8HBRXCQ9/2mIiJYQi6Q3OWuPtrzhutxWtUwN4KIvYJhL3la6q4TlvpLS5v9H+5FCvQgDCqE90BrEdw0SubHSKHB55nNYG9j7fvLQOs/02nguxZJ9KwOlDkhO3xZL3hzN9M="#;
+
+const THERMOMETER: &'static str = r#"eJwBPADD/zxwYXRoIGQ9Ik0xNCA0djEwLjU0YTQgNCAwIDEgMS00IDBWNGEyIDIgMCAwIDEgNCAwWiI+PC9wYXRoPrArDeE="#;
+
+const THUMBS_DOWN: &'static str = r#"eJxNTrsOwjAM/BWre0zu3DapFCqxdYCVgS0SQwYGBsT3Y0AKyJJt3cPncq+PJtf9cEISjGcOa9m9sbV0ZhFkBQXRFduoSJVCiV4I0IWBOs03qlnIh07JrJNwY/ypffKZ/9y+NXenuWPRLyZPVODomWSL1RQmn/Z1WTDN+dJffQEUJiqI"#;
+
+const THUMBS_UP: &'static str = r#"eJxNjrEKwzAMRH9FZLfqk+JYATfQrUP7A90MHTx06FDy/VVacIJA6N6dhMq7fho9z8M9E+IKGZZy2thSuoNEic0Io0eaj1qFhKIXCDy74DS9grAq2eXgZU4kch33fJAga7DDAQdNOE8dOeQ8BzBwg8MWqzKUfu2/swmzR//1C10SKtg="#;
+
+const TICKET: &'static str = r#"eJx1jbEKgDAMRH8luBebq7YItbOLq4NbwaGjg/T7jQ6aQQkhXN4dF/d8FNrGZgYN2ZEjK8OyviKDcGsrF4W9fhhUA50wfgmvwYhh6rQmrE2K7VWY4lPLjvqKb8Dhl7AiJ97sLxs="#;
+
+const TIMER_OFF: &'static str = r#"eJxtjjEKgDAMRa/ycTc2sdgKtTfwEAWHLoKDeH5Th3awhE/ICy8kXOnOOLZhZwPJdohhKiiGurC0gDl5eJivmBx8SSVlUtqRHVloqs1gQ7O2BmgtTP7yKdDSt0znMAtYnrFpLxSyMK8="#;
+
+const TIMER_RESET: &'static str = r#"eJxtizEOgCAQBL+ysQc5OAQTpLbQR5BYUFoY3u8ZE23IVruzk85yVRzLsJOBrTzkND5TTj+wIG6qhxjkSkSEkRCiCngbgZTXTsRNPkFPHXkWsHLzH7oBER0j3w=="#;
+
+const TIMER: &'static str = r#"eJw9jEEKgDAMBL8S8gFNUfCQ5jOhh0Lx0FPze2OjPS3Lziy3ehewlDEhGM0Y3ujw9Eo7Cm8vJLxQom/84TNclxastWsr0DNeCGrxqGNKDsUsDxFdIQw="#;
+
+const TOGGLE_LEFT: &'static str = r#"eJwti7ENgDAMBFexvACQAlEkWcZE2BKVZQmyPTZJ88XfXdZGBtzkYiu4JQR9C+4I/d9HTuOCafV/PE4T1rxEVzOJ0t2A+mwDArlzhDNo/QCZbhwe"#;
+
+const TOGGLE_RIGHT: &'static str = r#"eJwljEsOwCAIRK9CuEBrF67Uy1BTSLoiJNXbF2U3vzdFOxlwl4etYroQZsWMMCq61rGNRvbJbez5ia0ci2uFROntoHtNMx7IqZTXKOr2A6egHE0="#;
+
+const TORNADO: &'static str = r#"eJxtyzEKgDAQRNGrDOlFZ5UlgTX1Nh5CsEhp4f2RNCHFtv/x7b2/hudMlxCH76na2lO1AczIrhEUULxEoqC2JZwI2abpBy/qJAk="#;
+
+const TOUCHPAD_OFF: &'static str = r#"eJx1jqEOgDAMRH+lmW9YL8vUmMZg8UsQMyQIsu+nQzBESUWbXu9d01muSvvs1kChgEC+F+vUBGOhHVWiy2nqjpxeH0hCFVjKI7ElieJ8Y4N39Ehonv8hxi1+/2QsMk5veig1VQ=="#;
+
+const TOUCHPAD: &'static str = r#"eJxNy00KgCAUBOCrPGYfpYgrnzfoEJHScxfy6Of2JUK0GZj5mFDzqiS5bKIM40H1YlhQz5vhQGdJKm+fEMPYDjHsiwolxmzJOOnStp8YS3Y6Bv/RA4TQHlc="#;
+
+const TOWER_CONTROL: &'static str = r#"eJxtzLEKAjEQhOFXGa7PmtmYTQLxaptrLewOLFIoWMg9v9FCOQhb7Xzw1+f6aridpoVZFFTRBPWw8/FOybD+rwThvyclSgqNXuJuNdfn6zTXw6c31181g2ErA6BBdXMDehRYT6eBMMLckBYq7KIjCNDm/vIGRyE+qw=="#;
+
+const TOY_BRICK: &'static str = r#"eJx1yzsKgEAMBNCrhPTRjT8Udq1tbO1FxdiJLH5ub9ZKEBmYhIFnt2nwcCyjF4dcIlwOtWVaZvG6JAjbqRdBO8XaxgHUdu29wOiwZQNllw+GooKijDikKXoGBhNC+u0PDOQNqy8USn/lDfiCKuY="#;
+
+const TRACTOR: &'static str = r#"eJxtjtEKAiEQRX9l8N3JKcd1QfcPeu09LDAwiCWi/r6xjd2FFcQLnjN3DI/zM8MlquMBbO4LQaeGsKuvQ5iZBaKTbQAPZJqAPHDS6MBoArRy0YvRbc07GSmvB/tUfUlklGKkoiU5a1rG0m1M5QpjVMgK0juqTuITFXGVJjxrfy42t6zltw7IZ82bPb8ZPy2qKU37VcMXN+FWIA=="#;
+
+const TRAFFIC_CONE: &'static str = r#"eJxtUEuOwjAMvYrF3m/iOCat1OEGc4HZVWXBAiSkcn/xHCQ2oEQvifU+dpb7+rjI+ffwN8PliLo2RMiAMlagSTmclp9knpY3v2MWK+gbZkxSyTI6NFieu6Mq0seUzy9yc+odsRpmlwEjTx2Twq7KYtl4SyNDSziSYOgMq+IS4nuku4T6VpRFQhKZ/P8ZeetsyKjVNjw63QOumNAJdLYdTH9dr51x/IYcL8g2IlvMso4yNWxRaZUj2q7DKneqM0MrpncbT9lfT0Q="#;
+
+const TRAIN_FRONT_TUNNEL: &'static str = r#"eJx9TzsKwzAMvcoju1xLVkwMbm7QNUM3QYcshQ7F56/6oQRigoQQeh+e6sOeK27n4SIQWViMI7x9eIkvjeMw19ObN9c/m0fkMDUOagkSpq+AMuLi957ACeMaIvcwPcBcV0yh+IQiJW2ULCP/MrJ4xrRlQK97o3txHxKkDuTPcMEWewHVkkWw"#;
+
+const TRAIN_FRONT: &'static str = r#"eJxtjrEKhEAMRH9lsI+3WTfeCnv+ga3FdYtXXCNYiN/vrCBYLAkJZF4ySVve//h9mimia3V+54AAd0WEmzlrxvQq1Jhudh2gJio1SQ0la9rEtWER3/KwGLtntUNCjsWLodAe7giLA6lCgATsWzGKPCYeXe2Hnhqe2glE3Dol"#;
+
+const TRAIN_TRACK: &'static str = r#"eJx1zrEJwDAMBMBVHi8QJGysQvEGHiKQIk0gRfbHUmFXFnz1x8Prd/0P7jN1BlUPp6aHt02nvWYZAtlQAVFAAgnEJiWiDN5Tt2/sqcsGLq4zUA=="#;
+
+const TRAM_FRONT: &'static str = r#"eJxtzU0Kg0AMBeCrPLIf2kQrU5jxBh6iVGlcFEQGf25vxI3i7B758nhh7L4J2vU/TZG4Isx9m/SI4xJJCGukgmC5pDo89kIdhk9StJGaEsxqzyb77SQsKCZ/h78Hv51hhthDxInLWGO1lz5zQ9VVNuewO34="#;
+
+const TRASH_2: &'static str = r#"eJxtjLsKAjEQRX/lMn0wcw3ZFbJb29huL1GIIGIhi/v3ToKPwi2GO49zJt2Pj4LTIIctYtFexrSpqzF9D7pDnDVkD3UKOoL7LlvrHZ1acYorWo84mWScVsWxhGwOCHsCzvw518vtjEUHURUstOwEzzp7S7Y0uGJvuB2D/Ets+w/8AnxqN3Y="#;
+
+const TRASH: &'static str = r#"eJxtzKEOgDAMBNBfueAb6EHGSMY0BjtPhphEkH0/nZlCNGnaexee6y249+Gc4Yr6IYaxnWLoD93gqi55goqCQvBYs62TUNSGyf0wD5cMWU4bEZYlmwFhJWBlNx/bXyEY"#;
+
+const TREE_DECIDUOUS: &'static str = r#"eJxVT0EKAjEM/Mqw90SzaW0X6oIP8APeynrYowfx/U5EKlJKkplMJmmP/txxP0/XClv22hMSjp/nWmXWioGI6UmS5s2YGYxs0SRJtBCYWfKLs8m0dId/ZS6Rjwq+sYGqUCyaQwEqOIbBRTMCp23/swatL7/1Yt/btLZDXLC2cYfNJF4+mDcVry7n"#;
+
+const TREE_PINE: &'static str = r#"eJx1jj0KhUAMhK8y2G/ey2YlCqtgZ6EXsBMsLBQsxPMbBQUFSTdf5icu/TpiKJKZFRwgEJKewfjbsSNTSetA+hCdic1hGN3r/SQ5cgO+ugEyKEnDHjIFhKcnOys4nT7KWbukjL9jaRmvva1leb85udEO0W4r7w=="#;
+
+const TREES: &'static str = r#"eJxtzr0KwzAMBOBXObJH1cWJf8ANdOvQrh26GTp46NCh+PnrNGAymFuEPjgpftI343Ue7lRQi0wXAwOtIbwE0Ba9LkWzpgYjx0X8g4cVLPQ5rPG09a2xtbqtwHaABgzF9GSqkr2YxNqr/4gbKe5GD865KxYhy3QEv0N98V2nGZSlXfsBkWg53A=="#;
+
+const TRELLO: &'static str = r#"eJxdjFEKgCAQRK8ie4EwCwtcL1PS+isL6e3LTQv6Gph5b1wKGysK8SBG0AuojGBAnXFneopUEMY7skSps3dD9bwTu7FGXAvv2yq0/dF9nQXXU4O+l45fhN8sOQ=="#;
+
+const TRENDING_DOWN: &'static str = r#"eJxlizsKwCAQRK8yeICE3ZCYYuNtUgiiQtJ4e/FXiMUMPHhPYnDJWf8iBuv/71HMIA06thN3XwWGVkb24RtZSrpK2fryNPkZYRMeTQ=="#;
+
+const TRENDING_UP: &'static str = r#"eJxlyzEKgDAQRNGrDDmAOhtiLNbcxiIQkoA23t5VsBCbzxTztLdyllw39Jbrsa9OBBH0QwCDZbnHZBEwuqTjC5L+KGejj7fQf94XPbYeGA=="#;
+
+const TRIANGLE_RIGHT: &'static str = r#"eJwdjDEKgDAUQ68S3H/s/y1WoXZ20Au4lTo4Onh/bCWQPAi89JT3xrUOhxl0LgaDa1FptPkqSoVr7YWTMHTazTEg0Fcuwgj9nz6M55DT2J35A37lE6Y="#;
+
+const TRIANGLE: &'static str = r#"eJxFjDsKgDAQRK8ypN+Y/aBbxIDXsAtYpFCw8P7INsp0w3uv3v0ZONZ0CedFwU5ObF0gKDHSbI5ykoNt+24YhAfPP4jwSffU6hTR9gKUFxOz"#;
+
+const TROPHY: &'static str = r#"eJx1zzEPgjAQhuG/8oWds9+lvWsTZHFhcWVwIzowOhh/v6DCQCBNc8ub53LNc3iNeJyrq6F0UdKgkjD/MD0i1Kmzqm1Oc9c2a82MMnKTh2/OvNNHqI7claY1Ucx6+j1AUqolupRcS3FQlBeXnMAsnuDQIBrnqXtW3Fg/apVowoXiYvEIy9DO3j4Y7H8eFaHX2xp/AGz+Szs="#;
+
+const TRUCK: &'static str = r#"eJxljsEKwjAQRH9l2Htitq5NC0nPXrx6l1WI0IMUKfr3Zi1qwcvA7Mw8Nt1O94JzpsMO3O236nyL4Nh5qcLHqKFezKDawkEtB8NLFZ6ZaUgbgwzpi2JBX2QUyCwa4FtnbUMU1/z6ep10vEAfmSJhytQQ9JmJO+ss6Zr6/rD/3y+TD6DSOK4AL9jdOrE="#;
+
+const TURTLE: &'static str = r#"eJyNj7EOwjAMRH/l1D3B55iSSqFzF36ALRJDBpAYUL+fENSqQ4fKi6179p3TO38KHtfuRQUFCptDJghpVbui29lxdiFHxCaKYw85sPFUZ8Xu3ZhOP8cxLb4381Fx8UO9SNnRefaMDWgJ94jeD6FKk0rW+sE/hcAmXekv8GQ2BA=="#;
+
+const TV_2: &'static str = r#"eJwdi8ENgCAQBFvZbAMCmvjh6MAijBCPnyGXqN0LfuYxk4nXboos3FYEr94xxWm4FFs5DHfNpsLgCC31VBP6hXiFM9GeXoiffRtD+gC9PxbJ"#;
+
+const TV: &'static str = r#"eJw1i1EKgCAQRK8y7AUqIfxRL1OSC6JiC+Xt0yLm48Hwnql+EzRLmnDxLsGSmgl3ByF4PoJYWlZC/a7aBpyZRudMybFFTh4lc5KzqxoKi4Lue73fcA9ZPx6w"#;
+
+const TWITCH: &'static str = r#"eJwBOwDE/zxwYXRoIGQ9Ik0yMSAySDN2MTZoNXY0bDQtNGg1bDQtNFYyem0tMTAgOVY3bTUgNFY3Ij48L3BhdGg+5+oQKQ=="#;
+
+const TWITTER: &'static str = r#"eJwdjsEKwkAMRH9l6D1jk83uulB78exHSD14FPTk13daQgJ5eQxZPs/fG6/b9IhAfo0dQbdAYW7OBp9tMOGdxfwKP1hQDpJpWprFvcArVRgCBXWTIauhqlPugNxhKZzWBLsVKk2nGQoWP+d/WpfL8dK6A3M+Hxk="#;
+
+const TYPE: &'static str = r#"eJxli9EJwCAQQ1c5skD1sEhB3aYfgqjQfuj2PS2FggQSQl5cLamnmE+qJeb78jBkyYhYvWYR3PZRwU22aY8D1CVYgRp76F06zy78nx0jY35GjpNZ2AcbjSQZ"#;
+
+const UMBRELLA: &'static str = r#"eJxtyjEKgDAQRNGrDOnV3UHEYs0NvIDdgoWlheT8ZiGkCgO/mWevfw/uI50klK4yy4ZWCGRizZWyLSGzda/hy+4Ew9WtkLFj0X78GnkcUw=="#;
+
+const UNDERLINE: &'static str = r#"eJwtykEKgDAMRNGrDLmAbQlZJbmBW/cFBQURFyL19ralzGL48PTOz47VaBbwK1kgCH0xISxMrlMjrudxbSjJKAXCN75EI64Ze1bblP+X9xU5"#;
+
+const UNDO_2: &'static str = r#"eJxVjDEKwCAUQ68S3LX/gxmEX+cuPYTQwaFDh9LzV0EECRleHsSe8lZcuzsTNCIi3fR02bYusk3dTFUJLAxEr7QoBn2y7n7QoTq/fpJgGUc="#;
+
+const UNDO_DOT: &'static str = r#"eJxNi1sKgCAURLcy3P8eKiiCuoJahFhg0EdIRO0+L1HEfMzjMC4tJa0z0uVJGEKpRkhnNUnBdQ8Obot7xuRpVDCHzpoZbz8iBYSJFhY9q7EN57dpyFYNCkJ91xtGHR/X"#;
+
+const UNDO: &'static str = r#"eJw9izEKwCAQBL+y2JvkPDg5uPiC5BFCCssU4vvlCmWb3R3G/tobvju8jDykSSh2+ldsk0SgXBWKyxM1el9LkA5+GMRbnbn2FMg="#;
+
+const UNFOLD_HORIZONTAL: &'static str = r#"eJx1yTEOgCAQBdGr/NAT3UUIJEht4yFMLGhMLIznVyiodjPdvHwfT8W5mp0CiGswJU/tlTwk/rCxAMTgV4GoAS2a8CzJRQnk4WxPcI9kHXpDP5hnO50="#;
+
+const UNFOLD_VERTICAL: &'static str = r#"eJx1yzEKgDAQRNGrLOkX3YkJEWJqG1t7wSKNYCGe38RGiw3TzePHc7sy7ZNZBATc7E2KXT1T/FNYocBAglkD6asETXyRzFoEtOgQRzKyJctlujt+kT5+AG84PEE="#;
+
+const UNGROUP: &'static str = r#"eJxNzEEKgDAMRNGrhLmAFKq4SHoZLabbElBvbyqldDv8N1zzYVQfQQBpLpeaYAP5sIJeQQTd5TQV7Ei8tDzxj5px1O2I5hf3IQ72AZTWHp8="#;
+
+const UNLINK_2: &'static str = r#"eJxFizEKACEMBL+y2MtFIZfGE66z8RGCRRrBwv+jqWTZambSbEvRP1cDQzQ2BoPOgp3Ux+FfUJH/AjHR5fRYmzcFyA8+"#;
+
+const UNLINK: &'static str = r#"eJxtzVEKwyAMBuCrBN/NTKjaQu1dCht00I097EFvP2Ok0G0IkcTP/PNrfW9wTeZBI44DECN7IIxsa6HNouPVo3MDaHVyLBLbiC62YehVnwJOHtwu31kWkVnmi6Qs85HlkSJQffQtpbHfFKgp8D8Feop8tOeQ/f68QeZkRgOFkuF61c4byCTDCoV0WBTmDkm75s9QBAXdxaym9TKfvnFHpaOsSHE48Aei81d1"#;
+
+const UNLOCK: &'static str = r#"eJwli8sKgCAURH9luPsetxAT1D9o215S0l2IkP19SsxmHmd0DmfBa4iZ8CRfYrMbIYZ0xfLXuc0LoRpaW6g9WD31o9W3KxHe0C7BfEgnIDA3MdSoBu5gR+wH3EkbeA=="#;
+
+const UNPLUG: &'static str = r#"eJxtjsEKwkAMRH9l6H3XTdJGhbVfoD/greDBQwUP/j8mOSilYdglZB6Z6e/l88TjMrzojAlSZJj7wZdz/1kM5ty6aRVwq7JwHeGvhcSnKzHotBY1sXM7LMB7cvZYJ5D410CUANTc1MBAY1LawjVksSWJLha9muHddGuWqP/v9QWv+US4"#;
+
+const UPLOAD_CLOUD: &'static str = r#"eJxljDsKgDAQRK8ypHfNLpsfxIAH8BABizSChXh+jUUaeQwMPHj5rFfDvphNwUoxpTUgwII7jgIjNqaQqpJDn/2kvC+SqJiS594oeZRYwHKnvznYg/2kHejwD/RqH/g="#;
+
+const UPLOAD: &'static str = r#"eJxNy7EKgDAMBNBfObIXTbTo0HZ28SMEBQXRgiL2721LB8lyF94ZP90rZkujMFg/7SQQ1PFYxTTof1fyqJacqdLIGX/uYd+OBf7cjvuyxB16sKBBDNkV4Ux2r0QjhMCWGsLLpaa3Tj7bD+ubJk4="#;
+
+const USB: &'static str = r#"eJxtjUEKwjAQRa/ymX1iZpI0LSS9QS/gTqKgUEGKC72906pUsIsZGN7783O9THU8oT4KsSPUZ6FEmPSiPu/etM9fS6m4D14y4de6He5nHAsNwSZwZ70uxNmYycqvwvBGKQSy/+dDZ6VBsk2LCJZRNp+wAwcVBN5Go7PltJoHG9auZa9tL0QZQcM="#;
+
+const USER_2: &'static str = r#"eJwlyjEKgDAMRuGr/GQXk4LSIckNPESJgoKDFAe9vZZOb3ifxlHj3FCNJkI8RpL+vkaZXMd+Xa9y71iNlsRIUjIyGAIeZAY32IB/PxwUXg=="#;
+
+const USER_CHECK_2: &'static str = r#"eJwtzEEKgCAQheGrPGYfNRaS4HiDDhEWJEhJucjbhxVv+T5+m+a8YRGaeACbWUOjq2tYoSNn2wqc9eH0cYUvQoZwCg0EfwuNlXyns+mIJYZ9RTrCni8h1mAGj+AeSsG8vR+5BwQVIkA="#;
+
+const USER_CHECK: &'static str = r#"eJxNjcEKwjAQRH9l2HvQXZdqIZuzFz+ixIKB0IZaiv17je2hzGmYNzO+dPMLT6MHNxBenHQKxbnKqdN7c/TQRSj4Uy0FH9MUc4/4MWoJcTW6EiYjrcgWBl/GvOY09ChjGua30e+HGXwDXyCC9r+3Q+ELWK8moQ=="#;
+
+const USER_CIRCLE_2: &'static str = r#"eJxdyjEKgDAQRNGrDNuLSZBgkc0NPERYBQULWSz09m4UBGWKX8xLW9lnjEyD7xFciYhwdY0PcJRTW0FOsqisE5SpI8jB5IP1tN7ouV/2AVb9uQsvuB+9"#;
+
+const USER_CIRCLE: &'static str = r#"eJxVjEEKgCAQRa8yuK/0B0ag3qBte7HAoEVIRN2+sVoYs3gM896YsKSwzpSsUFJQOJlgXg+dad67M5/3Ezjgri21ze+RJiuGjiBrrTGq3oNAkkcRKkRd7oRDZS3/yK27ATv8JWs="#;
+
+const USER_COG_2: &'static str = r#"eJx9z8EKwjAMBuBXCb3vd2nWboV14AP4EFIFBQUZHvTtbezAHTrpIYd8/ZOM6Tqn25nmaMRQekXDQ67vXJ2Zxl1pT+PCFCz9YPRTt0aP4/NCp2gO3MIRC9zek6f2+yxxUKzoR++W0RN7dA1CA6kIdrAaFraFhyce0EOyqYEAJrawf0BJaPIiXB8xaIJsgg5CZZFMaoe2eqhozBp8APMuZLc="#;
+
+const USER_COG: &'static str = r#"eJx9z8EKwjAMBuBXCbk3Lk3XbdDu7MWHGFVQUJAhom9vYwV36EYPLc3Xv0lIlzldT5DeEblFSK+89whzRMEx7Ep5DD+Wr11BA37fdEt0nx5nOEY8cAPc7v3kwEGjy+TT06pV85c3y9QBe3KGBkNSEdySBRYtrwlPHrinjiSbGhiIgS3ZDVASTG6E61/0miCrwJFAaSST2qCNDioaswQfNeplDQ=="#;
+
+const USER_MINUS_2: &'static str = r#"eJwlisEJgDAQBFtZ9i96QYJCLh1YhERBQUTER9K9OcI+hmEnPOt3YFMuMkLm1cNjsHXiMDCG3oIY0vmma0cqypl4lSORsnKypJ0xXOe9o4hShCiuMVd3rtLcW25Z/AF+7x9i"#;
+
+const USER_MINUS: &'static str = r#"eJxNTMsKwjAQ/JVh7kF3WSJCNmcvfkSJBQtFpEhp/t6m7aHMYZhn+na/N17Op0SozEE7g+HaECzYI541bFbmdGmjnMowlbFHqc4bMTmNKIvz3ip7mNM4fHpUcYoQi64ciaqHXn3dHlst/wHJsyPD"#;
+
+const USER_PLUS_2: &'static str = r#"eJw9y1EKhDAMBNCrDPO/rCmlrND0BnsI6QoriIj40d5eY0XyEZJ5E9dh/+On/IqH9ENAQGfzEoeOKb4NpJinLc8jclF+iFyVPbEpvZEWpjhPy4jqlOKJYvtEVa5Kkes8tanb2tO5ZkTYunJ3w4MP5ioqcg=="#;
+
+const USER_PLUS: &'static str = r#"eJxNi8EKwjAQRH9l2HvQXZZoIZuzFz+ixIKFIlKkpH9vl5RS5jAM81769r83XkZPjhBegvQKxdUTNOgjnjd0Ecrp4lJOZZzLNKCsRjfCbKSEUo06R9qZ0zR+BlQx4o6wem9U5X1vfXfaqTMb28e8O9wckQP+A/CELtM="#;
+
+const USER_SQUARE_2: &'static str = r#"eJwly0EKgDAMBMCvLLmLpop4aPsDHyGx2IIHKQX196aVwJKQWXttJWJ3tPICw9uMGUOdjg0G8ravwFtJWc4AeRyxIWRHE0Fevbii/+1tDlKQFanRHAlvyxjSEYvqhXCnvcS2arEW/AcqaCQH"#;
+
+const USER_SQUARE: &'static str = r#"eJxNjEEKwzAMBL+y6B4aqdD2YPsHfURQTGXooRiTJr+PlVyCLlp2ZkPN2rBFuhP+ZW4WiV8Ey+Vj7fzrGkkIqzMp3FxIQUvVb0Y9RO0dd0T7Do8OnXUKv6kZ5kjvJ4SXQSaBYOzHkEHscc2QRdx1J+2WMygy"#;
+
+const USER_X_2: &'static str = r#"eJxVy0EKgzAQheGrPN6+1JmKrZDJDXoISYUKUop0kdy+TtSFzG7e94fv8HvjZXxKC+mHDh0av4soGsZwdRBDmpY0j0jZ+CBSMfbEYmydbGMM8/QZkdWoSmQxyp0oUpOyvuXm2tVuz1tNaqo1PewfvAoqQg=="#;
+
+const USER_X: &'static str = r#"eJxNzMEKwjAMBuBXCf+9aGOYCk3PXnyIUQcOhsiQ0b29iXYwcghJvj/p3X+e9FDcY0ccl8C9kNDRK0iQW7efSRZGTgcP5VTGuUwDlaq4gsqqOINmhTj5H3OaxtdAlRXMoBoV0dBq/WLN1vHk2lWz7ebUI838Xlh0s1/C8y6j"#;
+
+const USER: &'static str = r#"eJxNizEKgDAQBL+yXB80x4EEcqltfEQ4BQULCRL09xJswlbLzMQr3ztWpcUHsK+Os0AwtjlxMof+QypTikOLUrSj2LnBHiXPBHuVJkJRkub8NH2NBRjF"#;
+
+const USERS_2: &'static str = r#"eJxVjEEKgCAQRa/ymb2kIqLgeIMOIVNQ0CKkRd2+LBDirT7/8dJejgUT02gcTCweHrqhjIWmnIYm5CRrlW2GnEyBUJkcQS6m2JTvzKm3rP23vPJwDxrm3aGHb0WGH+I="#;
+
+const USERS: &'static str = r#"eJxljjEKgDAMRa8SsrfaNFqFtrOLh5AqKDiIiOjttQhVkJAh5P3Ht0u3jdA7bFUJpHZBHQNDHkew4Kb83sA7obdZDHkbpjXMA4TDYY2wOmSEcDo0EXme3iY/0c+vhZaVeYXfLloqnVB1r5GmSOgFeFMtjA=="#;
+
+const UTENSILS_CROSSED: &'static str = r#"eJxtTjEKwzAM/MqR3aotJVYKbl6QfqCbaYcOMXTo/6kUUggkSKfhdHdS+dTvG69b11IGByaBoQoEcaueeEk0wrDjjUWcmTF2U7l4ylT+Wfc0wFoszFBdusq3yovaxvAkJQXDhx2I8+p7NBcp9BjcmBLYn8nUh0xyIklXDGHv/gFfZjQ5"#;
+
+const UTENSILS: &'static str = r#"eJxtjbEKgDAQQ3/lcG+9u1qLUPsHrh3cig5dBAe577dV6CCSIYHwEn+mK8M+d4sBFrchkCY9AVflIVXHR6w4chd8X4ngG+cKx/hTMAHZyILJgn1HVEkyfk7MepRKXJu4AbKYJM8="#;
+
+const UTILITY_POLE: &'static str = r#"eJx1yTEKgDAQRNGrDOmD7oSwCGtu4CEEizSCheT8mibVht/9Z8/5Vlx7OIRg4xqKLf0VG0Lk6kJCanS+Tr7MgOLDLRtyVGj8G/wBPT8zCw=="#;
+
+const VARIABLE: &'static str = r#"eJxVy0EKgCAUhOGrDG8v8dQiQbtBhwgKCiKCWujtU7Oixb8Y+MbuwzljdNS3kHwILVTMoESdrZLo7Ou4gTo0FDSMKH1sXbYJgR0ZQpCOuCZ4mafnPCNNqFB/U1/o//nQC2clKVg="#;
+
+const VEGAN: &'static str = r#"eJxtTTkOgDAM+4rFntCkJYBU+AGPqMrAyMD/RQCpE7JsefCRz3Id2JduU2hRY8MrwSGQAA2VZzKeFMIDzTwgkaRuzf1TXXMbEMNUk/eM1GnknnzOaX/xkZMgshV/ke8vICK27A3wxCPm"#;
+
+const VENETIAN_MASK: &'static str = r#"eJxtjaEOgDAMRH+lwR+sXQaIgcZgEbgFxCSC/w/tEsgEuXS7Jveu8Up3pnNqViGWFCiQKzI3qsyzeqk3CFVJhG3ICOkNONRx3SCL7M0cOzs2x+9kT8wHt1bkST9Pos0O3ga/CI/GoEAwSB9RWYNODT2Cby7u"#;
+
+const VIBRATE_OFF: &'static str = r#"eJxti7EOwjAQQ3/Fyn4ldyRRhjR/wMqOAlKQADGgiv49d1SoDJUHy/ZzeZ5eHefR3QUZAiGB/NzVsrO9lpVS7B/BJnbIyBP75jHEOIQINvXUNMKD6dsRT7R15gT2wz4cU/OkD6OJTZ2C9uvldn1cMPPoxOEtauZLnJeoqEH1A3aNOD0="#;
+
+const VIBRATE: &'static str = r#"eJxVyzEKgDAUA9CrhOwifhQc2t5FbLEdBCkfrLe3HUSdQsiLORaN8Ja7YIZAOoE8SWf6tjvzqsq+BD+Ww6o4k9doORMxpC2q5TASl+VE5FIbUdpcX827G3q9Icw="#;
+
+const VIDEO_OFF: &'static str = r#"eJxNjLEKwzAQQ39FeHfqU83hwfGcoV07dAu0kIIpHUpI/j4XMjhokAR6yr/xP+HVu7uEThU6SBwJIpjEnDO7a6wCuZFIc3IlX3ao5IYqRBvlLQ3x3D0f6fzqObGKxfBsd/XzfWOR3tFhoZn5etT1qDbdR2UDCnEqnw=="#;
+
+const VIDEO: &'static str = r#"eJwli7EKgDAMRH8lZBexlNKh6Wc4uIktpoMgJaD9exMcDu7e8dK9C0MhvJyDOAXwoFnjhjnN9uXU6yHwtCJMuHiEl9AhcG0nixLt/UeDMOgYNtQ2L3/6cxot"#;
+
+const VIDEOTAPE: &'static str = r#"eJx9jUEKgDAMBL8S8gFtEemh7Q98hMRiCh6kFNTfu8WLePASQnZn4kuSSlfggamcgS3TM4+8VMXWM2nKq9bAZuTouwZEv89VaQk8WXKKEoJ2il5ykS2RQGngFNgc1M2JzpO+cEfGqvvF8fbL33Y9M7o="#;
+
+const VIEW: &'static str = r#"eJxtjLEOwkAMQ3/F6p5yMRduKZ27sLKfysCIVHQDX09SJApSFVmKk2cPj/q843buLgblwt6yiaGIzbnPlpFQYKFF4nmCiZtZ4mtI4mTo1Y3DIbrG4duohB6rQr0klMQPn20d7oXoRGmsBFdIPcTJfr2wCfej5bqRKcjpz4NtC74BR305uQ=="#;
+
+const VOICEMAIL: &'static str = r#"eJxNyzEKwDAIheGriBcohlI6qJeRDIHQIZO5fSuxkOkN//fY2rBewaYgFYQheCKYC16ofKyqnCpr2lB076y3p4JTnGGWr8bSWi+/DqUvHmAhAA=="#;
+
+const VOLUME_1: &'static str = r#"eJwtTFEKgCAUu8rDA5gvfJqg3qBDCEEFoUL+dPueImODjW2+luc7S4Za7tzeIBCBwICDdRC7YeEYXVcS0S9zFH1N7YIjiB1JkoZNapOIDxQDmVYqOwbciz/+Exru"#;
+
+const VOLUME_2: &'static str = r#"eJxNjFEKhDAMRK8SeoBsZzfRLVRv4CEKggpiC/rj7Y0iImEGMryZWPK8D3mhkqdlWxsHkFJFgb6XcD5mFiOcrq6Nn7vUxpK2kfrGdVBWoT9LldQGvB1MNfv6Khj3poPlJBx+CQb6h4cw5CkcR2kmRg=="#;
+
+const VOLUME_X: &'static str = r#"eJxVi0EKwCAMBL8S8oGSgIKg/qYUQVRoD/X3zRZ76CEbNpmJo9d59Eajl3adiUXIkadA+o6gWNhZAtJxjtuScqyl7TTVNMd0S2JV2+ieaVoPwEEtFgx+YMB+7p99AHkNJiw="#;
+
+const VOLUME: &'static str =
+    r#"eJwti1EKABAQRK8yuYBWUQrXkZJV/Li9XfmYV/Pqpcn9VB6Y3MZe2RDBIyDCvZEegWiKSm9Ksj8qFxX0EBo="#;
+
+const VOTE: &'static str = r#"eJxtiyEPgCAQRv/KzX7Id4MxNiRTrAYb00BxMzh/v1zQ5F5876WzXo32aTgiQUhx7IacRhU5vXr2FDbLMDCRe8XSYKvmtgMdb0jxS1h/ZhFCLPKZB93vHd4="#;
+
+const WALLET_2: &'static str = r#"eJxNTKsOgDAM/JVmfrBrttSUaQwWvwRRiSB8P8Vsy4l75U7v9hhdWzgghGxLQqi6/mnV3gmJgRsTU3LAmV+kEURXe5l95LPMg8iG3K8/zgUbpA=="#;
+
+const WALLET_CARDS: &'static str = r#"eJxVTc0KwjAMfpWP3heXdNMN2p29+BCjG3bgQUZBfXuTHsQRyJfvj4R9TQXv6LzDriAOn0pe21JydDw45HW751LvKZysMIXnXDKW6G4e4ywQtDoMaSRz9y9ArGTxQ4k5+0SDZehMHkJM44NtJ1VMRUdcsacLWvMaNalvqFfZK7GWwlX49+MLamExsA=="#;
+
+const WALLET: &'static str = r#"eJxtzKEOgDAMhOFXafALbbkBYkxjsAjcEkQlgvT5GWZBkBNnvvzpKrfRuXSbConu0xqLkhLXCXGACRxdTv0Lc2p8oOiCZrm+mowe4g+WubY/lgkGDziafQAcGSIR"#;
+
+const WALLPAPER: &'static str = r#"eJxtjc0KwjAQhF9l2HtiduhPCknPHvTqvUQhgoIUKfr2pghtD2VZhpnv8IV0H9PjhvSJ4gVjFArSN0onfTj8YR9ewzvjGuXZQVs0Vk35gSBcOQWtV+v0RELrS70QZ2h4rLYdnNStQ0lmbbaD4ayelav47EHNfgdoUbZTtZAfsKAytQ=="#;
+
+const WAND_2: &'static str = r#"eJxtj7EKwzAMRH/lyB7Xkh3bATdzhvYHugU6ZGihQ8n3V3JJCIkRHEZPvpPyZ/rOeF6bN5MJHk6kJcOpyCRCKGK1pBkZ9sbGBVCS2eOElM689DdWC33soBqUsE5sDvwf8WiGfNHNhrztRx4RDu6M7h3C4it96kG+Tix44QqISGMtQo8Mc1v1Irix38APsIlS9A=="#;
+
+const WAND: &'static str = r#"eJx1zTEOgCAMheGrNOwgLYI0QW7g6m7iwGLiYDy/4kRiWTq8P1+azu0qsM9qQQ/jSiqnoU45tQHDraUUgYu0k+0EnEwExHoY0MnfuNgeDYaq9P9+OCAE1ixRetlHsaEPPOZELw=="#;
+
+const WAREHOUSE: &'static str = r#"eJxtjjELwjAQhf/KI3tick1DhiTg5uLawa3YYgodRALqvzeHUlsot7x37zvehXtfMoYozkTwqmk70j2BoOsYWdXJrr2kjqnjskKjyMGpdvayyj8Lo6yHnj0TK/7XcxEpHLg8heUFB+Ozof3EbpLHeC3I43TLJYoa4DkNJX/lKwon8K5G8wGj6QObrTfT"#;
+
+const WATCH: &'static str = r#"eJxNjtEOgyAMRX+l4Z1O6lZ4UP/FMBNImBrnw/z7FYkboaHJ7b2n7XzcfJrAf3plSIE/St96xWrobmU8dOuSjhTnCdYlzvs7m8A0kH+pViq7L5f4xz3As1cvwyhji8wandF3bB4jAUGTnyZtkE3QhOxqGbKcNFoHOXGyhVhxLToHAm8ZxfPPQskGQku1ei5K1wk/4BdvIT54"#;
+
+const WAVES: &'static str = r#"eJy1jT0KgDAMRq/y0d1ooq0KtYuzh5A6ODp4f0w6CV2VEMjL34vXfp84FrcJQqZAHkwChli1jrDwmJV8FgrodDJAtCdlx9g3yppMvTKTbZd7l2JrghRfGpbKU336yDT9aXoAe60/UA=="#;
+
+const WEBCAM: &'static str = r#"eJxNy0EKgDAMRNGrhNmLNgq6aHsDDyFRqOBCioje3ojUdhXI+2NljbItJJeDYZDcehtQdBjgbf2xtynL3CKNimyfjkCzw9gTc9BS7f0VYljprLqfHpZbJPo="#;
+
+const WEBHOOK: &'static str = r#"eJxtz0sKwlAMBdCthM5zfXn/QC2IYxdR6qATwYH7x9uKOimBQD4ckvE5v1a5n4ebdbEK76sWuC9qMAnMzjJrROYcfsmSJTBMolhbEEzRELmYUZrGYRpPmzmNX/lRuSgJlii3vqAkhTcYUeuKopzNH9cYFd01I9QDyqLUnRJS6WoFlXpE228X9rc30vy/Mkj/OW9lxjQU"#;
+
+const WHEAT_OFF: &'static str = r#"eJx1kstuwyAQRX9l5D1TZnjYSEm+wNl2kZ3lVnIlt+qiqpq/7x1bcR/BQswguFyGA4f34WOip2PzqqRK4p345nR4sOnTYVuUTJ0TlpYs3AvOgSPWlFOgRCKz2MjCEDiRdY8m6JFL7KEps7N1VxM5E10qdXQoA/r/W/zNt5CkebMdOSXIE3dWvCYulkutfvFchBJrHlmwSTOHiL2wyY7b0EugsHsr1g7nZ60Yqyed9FOHSHFVO4wmp4/5Z4qiq133LLJgbZcYNmaVEhZi5Fewe1xXzaX+vpJrZDfjv2ShiYWWsFobVge+tUt03EaUz76M4OrAF1wd+IIrzsy9in2Zne9gnyErXuSX9/zy9kxXPTaqDX3dsiA3dF0SpCY6fQPD6qX0"#;
+
+const WHEAT: &'static str = r#"eJydkDEOgzAMRa/yxZ4UOw4QiXKCdu3QDakDA0OHqudvnFR0SQGhyJZlf/k5v3+OrwmPc3VlMIMadNXQn7Q79MvMWWlBbL2DB9FMWmkanfXQqOOjGGKDXKImzEbnpiQyKroXMK1iOt0d0G5BAsgfgRApRdJyB7eFiZr44QMcrsETv3kUSBabWE2Gb82vBTErR1IyRC/42lm4M/FRZ8//XZk1RZDPiIxbLF0BJd8PgIIiUmJaLF3hZOP3gj5MWZvt"#;
+
+const WHOLE_WORD: &'static str = r#"eJxtjMEKwjAQRH9l2HtqJrVGIcnZix8hq6DgQYoE+/dNKG0p9LI7zONN0Hevnyd0iEIn6KO0Av1H8ZLCYaIpfO+/Fx5RbrS45FNFtUph1otAL9uZXf8In8+rvwDnQJ+pFk1nmg40BK+t1mwNyyuH2XBxR1wlMqQ="#;
+
+const WIFI_OFF: &'static str = r#"eJxtkEEKwjAQRa8ydO83M8lMI7S9gYcIKiiIuHBRb+/EtlKhZPEJvM8fXne/PS40ct9IQ+8pRvGo3ymHbl+hoXuW15XOfXPMUGKDFiWl4I+ppVDBiqxAoYwshR1fwARudwLTDZwDzEhPCYF3iOZtTjgQM2KiiNa2SoasFREt7AthHhKIEMPyRsf5+AcrJPlV64FJjCtg8XOaryNeJIXZTvjZ+QDf9E5Y"#;
+
+const WIFI: &'static str = r#"eJxtykEKwjAUBNCrDP8A8c/XaBZJbuAhAgoKIi5ctLfvT2lLF2VmM8PLv/Z/4VHkHsFzo8LbQ/AClZpPXdS8uRRcXkNsEXGRt0NoSCFZo/MVmu7l5/19YmARmmC0IqaCwfoOSr84X+67rBPV4Ski"#;
+
+const WIND: &'static str = r#"eJxtyz0KgDAMhuGrfPQA0cTaH6gFNxcPUXBwdPD+mAwWBwnvlOcrV7tPHIvbOVKE1oRmWCPYjhI8TZu4WgbDtfRJpqC/sArk1Yz0S1nUcibfsebB4aMfD3kgyQ=="#;
+
+const WINE_OFF: &'static str = r#"eJxtT8sKwkAM/JWh98ZNso8s1IJ49iOKCiuoeBCpf++2PvBQQiaZZBKS7jbcCw7rZmcQKdb03Woq9d2vkcCu6CXBlZZJvS5oWMDhkZamSV3CjBsWUsUb3WzT7iEgfClpZvgJd0ZR602UjbdGKdQ0RoORJam5emRIiXumAA9BrG51B3mXWnKBzOWW2Acwcf577Hy6HjHKuhFp8OQaa/jQcaZVOon6F9E9QqE="#;
+
+const WINE: &'static str = r#"eJx1jLEOgCAQQ3+lYT/kiCeYILOLP+BGcGB0MH6/6EAcNJdL076mYU9HwTapxcPa4lUM3R3F0IADm8Lmg7AFy+n+SBIIzHNCkg1Z0kJ9FT+PmVgLqsFQ37+7kLVNXnRpKBY="#;
+
+const WORKFLOW: &'static str = r#"eJx1jlsKgCAQRbcyzAbKB9SHuoMWISmNfyFSufscpc8YGC7cw+GaHPcC+bEoESimg4rFFeFOoVBPrVIIlb8zE+POnL4QBIvbAkJc2kuQMPdriTSDjDjT7c0g1I+9jm4M+PwvIpko6g=="#;
+
+const WRAP_TEXT: &'static str = r#"eJw1jkEKhDAQBL/SzH3ZdOIGD0l+sI8QFCKICnrQ35uJygzUHIrpDtM4DzgYxQkOG8VScBb6AipS+KqTwtrtGX2UvwNt5q9zcDBgGQOfP42qKhV1mc76eF3Ged+i0EO3AVs9rKnuY6VQXY1je6crtQ2NPOXeGhcYhi6A"#;
+
+const WRENCH: &'static str = r#"eJxNjrEKgDAMRH/lcE80tqQItX/gRxQcHDo4OPn1Nq2gBF7gchcunvk6sK/DJp4DlF0WCKZ3hH0R1rr1p1cVU3EcAhmyQrtOgRcPQyHlRWDIM8uMhm5y5IodmuULtxz1cH2rMNxDiqN1TA/GsCOZ"#;
+
+const X_CIRCLE: &'static str = r#"eJxNyTsKgDAQhOGrDNuLRjCwsMldZBUUFCRYJLfPq0k1zP+J3kGfE5ocmZUQyiwEje16mbt7+fb/wuHoNRt4srAVaxyIwRglA8gkGc8="#;
+
+const X_OCTAGON: &'static str = r#"eJxNzEEKgCAQheGrPNxXKDUlqHcJggpKhdx0+0QNXQ18//CUd9e7OwvvThsezeZ+IQhw6vkYrxDI8lMJletvkszMqKEsG+XXcGDT7OYTZEegVCM2SUKiLR8PxSW3"#;
+
+const X_SQUARE: &'static str = r#"eJxNi0EKgCAURK8y/H2ERZKg3iVS0kUQ8iG7ff7auHrDvBlb4s54HM2EOwdOjtRKSDEfif9cP1naZmqoAm9H+Xl7bZwQHJ1qgRk0tCgpO2Vg0JsXTCQf1Q=="#;
+
+const X: &'static str =
+    r#"eJw9ybEJACAMRNFVQhaQWEiKMxs4hGBhI1i4P0ZBuav+w6yrU8tcRCn5RNkQTjU8Gxei/9sGq2sO7w=="#;
+
+const YOUTUBE: &'static str = r#"eJxtjkEKgDAMBL8SvDc2tVGEKvgAH1Hw4EXw4MnXG2uqghKykOwybFjjNsPUFaNDBmqi80gOLrUyBNaQBXnpSeiNLPgWuVZVp0YJDU/UkTB/kfBGJlxGsqo6H2RqWfShPIv3IddfBEgMbCoju9+BAwNZLQw="#;
+
+const ZAP_OFF: &'static str = r#"eJyFy8EKgzAQBNBfGfIB2+6axAjRv+lBEBXag/n7jkEP4sHLzrDMy+sylWmcP1iXcf59e6cmXhGlDdAGBn1LaOGlMzfk1zkf8h2mfUjeKUzpoEFiZHmACQkN1NPWS85CGK+wok17Zw7FGMztyFLfnNfpH0wFOoI="#;
+
+const ZAP: &'static str =
+    r#"eJwti7EJACEQBFtZbOB/1w992xFBPEETu1fEZIJhJjQrM1lFs1xH/x09BA9+oA4JCSL4HrO5CxfDc8+4AF5nEOw="#;
+
+const ZOOM_IN: &'static str = r#"eJxtjDEKwCAMRa8ScoCWiBUH9TLBQZAOTnr7Rkxxcfoh/70fuDSuGXhEJELgvrJF9JjCveoUankzDIpopOxGIHe5B2Hss69WpAmrMp/0K5JzwqtmD6xX1CqjCu3dD0KhLXU="#;
+
+const ZOOM_OUT: &'static str = r#"eJw9jUsOwCAIRK9COEAbTGu6UC9DXJiYLlzh7UvxsyIw7zGBS+OagXtEIoQW8UFgsS2Fc8Qp1PJmEKdnf/gbQSiiU76vuSOVfngpZA/NvCY2tVFg7Adb0CJ1"#;
 
 impl LucideIcon {
-        pub fn svg(&self) -> &'static str {
-           match self {
-    
- &Self::Accessibility => ACCESSIBILITY,
- &Self::ActivitySquare => ACTIVITY_SQUARE,
- &Self::Activity => ACTIVITY,
- &Self::AirVent => AIR_VENT,
- &Self::Airplay => AIRPLAY,
- &Self::AlarmCheck => ALARM_CHECK,
- &Self::AlarmClockOff => ALARM_CLOCK_OFF,
- &Self::AlarmClock => ALARM_CLOCK,
- &Self::AlarmMinus => ALARM_MINUS,
- &Self::AlarmPlus => ALARM_PLUS,
- &Self::Album => ALBUM,
- &Self::AlertCircle => ALERT_CIRCLE,
- &Self::AlertOctagon => ALERT_OCTAGON,
- &Self::AlertTriangle => ALERT_TRIANGLE,
- &Self::AlignCenterHorizontal => ALIGN_CENTER_HORIZONTAL,
- &Self::AlignCenterVertical => ALIGN_CENTER_VERTICAL,
- &Self::AlignCenter => ALIGN_CENTER,
- &Self::AlignEndHorizontal => ALIGN_END_HORIZONTAL,
- &Self::AlignEndVertical => ALIGN_END_VERTICAL,
- &Self::AlignHorizontalDistributeCenter => ALIGN_HORIZONTAL_DISTRIBUTE_CENTER,
- &Self::AlignHorizontalDistributeEnd => ALIGN_HORIZONTAL_DISTRIBUTE_END,
- &Self::AlignHorizontalDistributeStart => ALIGN_HORIZONTAL_DISTRIBUTE_START,
- &Self::AlignHorizontalJustifyCenter => ALIGN_HORIZONTAL_JUSTIFY_CENTER,
- &Self::AlignHorizontalJustifyEnd => ALIGN_HORIZONTAL_JUSTIFY_END,
- &Self::AlignHorizontalJustifyStart => ALIGN_HORIZONTAL_JUSTIFY_START,
- &Self::AlignHorizontalSpaceAround => ALIGN_HORIZONTAL_SPACE_AROUND,
- &Self::AlignHorizontalSpaceBetween => ALIGN_HORIZONTAL_SPACE_BETWEEN,
- &Self::AlignJustify => ALIGN_JUSTIFY,
- &Self::AlignLeft => ALIGN_LEFT,
- &Self::AlignRight => ALIGN_RIGHT,
- &Self::AlignStartHorizontal => ALIGN_START_HORIZONTAL,
- &Self::AlignStartVertical => ALIGN_START_VERTICAL,
- &Self::AlignVerticalDistributeCenter => ALIGN_VERTICAL_DISTRIBUTE_CENTER,
- &Self::AlignVerticalDistributeEnd => ALIGN_VERTICAL_DISTRIBUTE_END,
- &Self::AlignVerticalDistributeStart => ALIGN_VERTICAL_DISTRIBUTE_START,
- &Self::AlignVerticalJustifyCenter => ALIGN_VERTICAL_JUSTIFY_CENTER,
- &Self::AlignVerticalJustifyEnd => ALIGN_VERTICAL_JUSTIFY_END,
- &Self::AlignVerticalJustifyStart => ALIGN_VERTICAL_JUSTIFY_START,
- &Self::AlignVerticalSpaceAround => ALIGN_VERTICAL_SPACE_AROUND,
- &Self::AlignVerticalSpaceBetween => ALIGN_VERTICAL_SPACE_BETWEEN,
- &Self::Ampersand => AMPERSAND,
- &Self::Ampersands => AMPERSANDS,
- &Self::Anchor => ANCHOR,
- &Self::Angry => ANGRY,
- &Self::Annoyed => ANNOYED,
- &Self::Antenna => ANTENNA,
- &Self::Aperture => APERTURE,
- &Self::AppWindow => APP_WINDOW,
- &Self::Apple => APPLE,
- &Self::ArchiveRestore => ARCHIVE_RESTORE,
- &Self::ArchiveX => ARCHIVE_X,
- &Self::Archive => ARCHIVE,
- &Self::AreaChart => AREA_CHART,
- &Self::Armchair => ARMCHAIR,
- &Self::ArrowBigDownDash => ARROW_BIG_DOWN_DASH,
- &Self::ArrowBigDown => ARROW_BIG_DOWN,
- &Self::ArrowBigLeftDash => ARROW_BIG_LEFT_DASH,
- &Self::ArrowBigLeft => ARROW_BIG_LEFT,
- &Self::ArrowBigRightDash => ARROW_BIG_RIGHT_DASH,
- &Self::ArrowBigRight => ARROW_BIG_RIGHT,
- &Self::ArrowBigUpDash => ARROW_BIG_UP_DASH,
- &Self::ArrowBigUp => ARROW_BIG_UP,
- &Self::ArrowDown01 => ARROW_DOWN_01,
- &Self::ArrowDown10 => ARROW_DOWN_10,
- &Self::ArrowDownAZ => ARROW_DOWN_AZ,
- &Self::ArrowDownCircle => ARROW_DOWN_CIRCLE,
- &Self::ArrowDownFromLine => ARROW_DOWN_FROM_LINE,
- &Self::ArrowDownLeftFromCircle => ARROW_DOWN_LEFT_FROM_CIRCLE,
- &Self::ArrowDownLeftSquare => ARROW_DOWN_LEFT_SQUARE,
- &Self::ArrowDownLeft => ARROW_DOWN_LEFT,
- &Self::ArrowDownNarrowWide => ARROW_DOWN_NARROW_WIDE,
- &Self::ArrowDownRightFromCircle => ARROW_DOWN_RIGHT_FROM_CIRCLE,
- &Self::ArrowDownRightSquare => ARROW_DOWN_RIGHT_SQUARE,
- &Self::ArrowDownRight => ARROW_DOWN_RIGHT,
- &Self::ArrowDownSquare => ARROW_DOWN_SQUARE,
- &Self::ArrowDownToDot => ARROW_DOWN_TO_DOT,
- &Self::ArrowDownToLine => ARROW_DOWN_TO_LINE,
- &Self::ArrowDownUp => ARROW_DOWN_UP,
- &Self::ArrowDownWideNarrow => ARROW_DOWN_WIDE_NARROW,
- &Self::ArrowDownZA => ARROW_DOWN_ZA,
- &Self::ArrowDown => ARROW_DOWN,
- &Self::ArrowLeftCircle => ARROW_LEFT_CIRCLE,
- &Self::ArrowLeftFromLine => ARROW_LEFT_FROM_LINE,
- &Self::ArrowLeftRight => ARROW_LEFT_RIGHT,
- &Self::ArrowLeftSquare => ARROW_LEFT_SQUARE,
- &Self::ArrowLeftToLine => ARROW_LEFT_TO_LINE,
- &Self::ArrowLeft => ARROW_LEFT,
- &Self::ArrowRightCircle => ARROW_RIGHT_CIRCLE,
- &Self::ArrowRightFromLine => ARROW_RIGHT_FROM_LINE,
- &Self::ArrowRightLeft => ARROW_RIGHT_LEFT,
- &Self::ArrowRightSquare => ARROW_RIGHT_SQUARE,
- &Self::ArrowRightToLine => ARROW_RIGHT_TO_LINE,
- &Self::ArrowRight => ARROW_RIGHT,
- &Self::ArrowUp01 => ARROW_UP_01,
- &Self::ArrowUp10 => ARROW_UP_10,
- &Self::ArrowUpAZ => ARROW_UP_AZ,
- &Self::ArrowUpCircle => ARROW_UP_CIRCLE,
- &Self::ArrowUpDown => ARROW_UP_DOWN,
- &Self::ArrowUpFromDot => ARROW_UP_FROM_DOT,
- &Self::ArrowUpFromLine => ARROW_UP_FROM_LINE,
- &Self::ArrowUpLeftFromCircle => ARROW_UP_LEFT_FROM_CIRCLE,
- &Self::ArrowUpLeftSquare => ARROW_UP_LEFT_SQUARE,
- &Self::ArrowUpLeft => ARROW_UP_LEFT,
- &Self::ArrowUpNarrowWide => ARROW_UP_NARROW_WIDE,
- &Self::ArrowUpRightFromCircle => ARROW_UP_RIGHT_FROM_CIRCLE,
- &Self::ArrowUpRightSquare => ARROW_UP_RIGHT_SQUARE,
- &Self::ArrowUpRight => ARROW_UP_RIGHT,
- &Self::ArrowUpSquare => ARROW_UP_SQUARE,
- &Self::ArrowUpToLine => ARROW_UP_TO_LINE,
- &Self::ArrowUpWideNarrow => ARROW_UP_WIDE_NARROW,
- &Self::ArrowUpZA => ARROW_UP_ZA,
- &Self::ArrowUp => ARROW_UP,
- &Self::ArrowsUpFromLine => ARROWS_UP_FROM_LINE,
- &Self::Asterisk => ASTERISK,
- &Self::AtSign => AT_SIGN,
- &Self::Atom => ATOM,
- &Self::Award => AWARD,
- &Self::Axe => AXE,
- &Self::Axis3D => AXIS_3_D,
- &Self::Baby => BABY,
- &Self::Backpack => BACKPACK,
- &Self::BadgeAlert => BADGE_ALERT,
- &Self::BadgeCent => BADGE_CENT,
- &Self::BadgeCheck => BADGE_CHECK,
- &Self::BadgeDollarSign => BADGE_DOLLAR_SIGN,
- &Self::BadgeEuro => BADGE_EURO,
- &Self::BadgeHelp => BADGE_HELP,
- &Self::BadgeIndianRupee => BADGE_INDIAN_RUPEE,
- &Self::BadgeInfo => BADGE_INFO,
- &Self::BadgeJapaneseYen => BADGE_JAPANESE_YEN,
- &Self::BadgeMinus => BADGE_MINUS,
- &Self::BadgePercent => BADGE_PERCENT,
- &Self::BadgePlus => BADGE_PLUS,
- &Self::BadgePoundSterling => BADGE_POUND_STERLING,
- &Self::BadgeRussianRuble => BADGE_RUSSIAN_RUBLE,
- &Self::BadgeSwissFranc => BADGE_SWISS_FRANC,
- &Self::BadgeX => BADGE_X,
- &Self::Badge => BADGE,
- &Self::BaggageClaim => BAGGAGE_CLAIM,
- &Self::Ban => BAN,
- &Self::Banana => BANANA,
- &Self::Banknote => BANKNOTE,
- &Self::BarChart2 => BAR_CHART_2,
- &Self::BarChart3 => BAR_CHART_3,
- &Self::BarChart4 => BAR_CHART_4,
- &Self::BarChartBig => BAR_CHART_BIG,
- &Self::BarChartHorizontalBig => BAR_CHART_HORIZONTAL_BIG,
- &Self::BarChartHorizontal => BAR_CHART_HORIZONTAL,
- &Self::BarChart => BAR_CHART,
- &Self::Baseline => BASELINE,
- &Self::Bath => BATH,
- &Self::BatteryCharging => BATTERY_CHARGING,
- &Self::BatteryFull => BATTERY_FULL,
- &Self::BatteryLow => BATTERY_LOW,
- &Self::BatteryMedium => BATTERY_MEDIUM,
- &Self::BatteryWarning => BATTERY_WARNING,
- &Self::Battery => BATTERY,
- &Self::Beaker => BEAKER,
- &Self::BeanOff => BEAN_OFF,
- &Self::Bean => BEAN,
- &Self::BedDouble => BED_DOUBLE,
- &Self::BedSingle => BED_SINGLE,
- &Self::Bed => BED,
- &Self::Beef => BEEF,
- &Self::Beer => BEER,
- &Self::BellDot => BELL_DOT,
- &Self::BellMinus => BELL_MINUS,
- &Self::BellOff => BELL_OFF,
- &Self::BellPlus => BELL_PLUS,
- &Self::BellRing => BELL_RING,
- &Self::Bell => BELL,
- &Self::Bike => BIKE,
- &Self::Binary => BINARY,
- &Self::Biohazard => BIOHAZARD,
- &Self::Bird => BIRD,
- &Self::Bitcoin => BITCOIN,
- &Self::Blinds => BLINDS,
- &Self::Blocks => BLOCKS,
- &Self::BluetoothConnected => BLUETOOTH_CONNECTED,
- &Self::BluetoothOff => BLUETOOTH_OFF,
- &Self::BluetoothSearching => BLUETOOTH_SEARCHING,
- &Self::Bluetooth => BLUETOOTH,
- &Self::Bold => BOLD,
- &Self::Bomb => BOMB,
- &Self::Bone => BONE,
- &Self::BookCopy => BOOK_COPY,
- &Self::BookDown => BOOK_DOWN,
- &Self::BookKey => BOOK_KEY,
- &Self::BookLock => BOOK_LOCK,
- &Self::BookMarked => BOOK_MARKED,
- &Self::BookMinus => BOOK_MINUS,
- &Self::BookOpenCheck => BOOK_OPEN_CHECK,
- &Self::BookOpen => BOOK_OPEN,
- &Self::BookPlus => BOOK_PLUS,
- &Self::BookTemplate => BOOK_TEMPLATE,
- &Self::BookUp2 => BOOK_UP_2,
- &Self::BookUp => BOOK_UP,
- &Self::BookX => BOOK_X,
- &Self::Book => BOOK,
- &Self::BookmarkMinus => BOOKMARK_MINUS,
- &Self::BookmarkPlus => BOOKMARK_PLUS,
- &Self::Bookmark => BOOKMARK,
- &Self::BoomBox => BOOM_BOX,
- &Self::Bot => BOT,
- &Self::BoxSelect => BOX_SELECT,
- &Self::Box => BOX,
- &Self::Boxes => BOXES,
- &Self::Braces => BRACES,
- &Self::Brackets => BRACKETS,
- &Self::BrainCircuit => BRAIN_CIRCUIT,
- &Self::BrainCog => BRAIN_COG,
- &Self::Brain => BRAIN,
- &Self::Briefcase => BRIEFCASE,
- &Self::BringToFront => BRING_TO_FRONT,
- &Self::Brush => BRUSH,
- &Self::BugOff => BUG_OFF,
- &Self::BugPlay => BUG_PLAY,
- &Self::Bug => BUG,
- &Self::Building2 => BUILDING_2,
- &Self::Building => BUILDING,
- &Self::BusFront => BUS_FRONT,
- &Self::Bus => BUS,
- &Self::CableCar => CABLE_CAR,
- &Self::Cable => CABLE,
- &Self::CakeSlice => CAKE_SLICE,
- &Self::Cake => CAKE,
- &Self::Calculator => CALCULATOR,
- &Self::CalendarCheck2 => CALENDAR_CHECK_2,
- &Self::CalendarCheck => CALENDAR_CHECK,
- &Self::CalendarClock => CALENDAR_CLOCK,
- &Self::CalendarDays => CALENDAR_DAYS,
- &Self::CalendarHeart => CALENDAR_HEART,
- &Self::CalendarMinus => CALENDAR_MINUS,
- &Self::CalendarOff => CALENDAR_OFF,
- &Self::CalendarPlus => CALENDAR_PLUS,
- &Self::CalendarRange => CALENDAR_RANGE,
- &Self::CalendarSearch => CALENDAR_SEARCH,
- &Self::CalendarX2 => CALENDAR_X_2,
- &Self::CalendarX => CALENDAR_X,
- &Self::Calendar => CALENDAR,
- &Self::CameraOff => CAMERA_OFF,
- &Self::Camera => CAMERA,
- &Self::CandlestickChart => CANDLESTICK_CHART,
- &Self::CandyCane => CANDY_CANE,
- &Self::CandyOff => CANDY_OFF,
- &Self::Candy => CANDY,
- &Self::CarFront => CAR_FRONT,
- &Self::CarTaxiFront => CAR_TAXI_FRONT,
- &Self::Car => CAR,
- &Self::Carrot => CARROT,
- &Self::CaseLower => CASE_LOWER,
- &Self::CaseSensitive => CASE_SENSITIVE,
- &Self::CaseUpper => CASE_UPPER,
- &Self::CassetteTape => CASSETTE_TAPE,
- &Self::Cast => CAST,
- &Self::Castle => CASTLE,
- &Self::Cat => CAT,
- &Self::CheckCheck => CHECK_CHECK,
- &Self::CheckCircle2 => CHECK_CIRCLE_2,
- &Self::CheckCircle => CHECK_CIRCLE,
- &Self::CheckSquare => CHECK_SQUARE,
- &Self::Check => CHECK,
- &Self::ChefHat => CHEF_HAT,
- &Self::Cherry => CHERRY,
- &Self::ChevronDownCircle => CHEVRON_DOWN_CIRCLE,
- &Self::ChevronDownSquare => CHEVRON_DOWN_SQUARE,
- &Self::ChevronDown => CHEVRON_DOWN,
- &Self::ChevronFirst => CHEVRON_FIRST,
- &Self::ChevronLast => CHEVRON_LAST,
- &Self::ChevronLeftCircle => CHEVRON_LEFT_CIRCLE,
- &Self::ChevronLeftSquare => CHEVRON_LEFT_SQUARE,
- &Self::ChevronLeft => CHEVRON_LEFT,
- &Self::ChevronRightCircle => CHEVRON_RIGHT_CIRCLE,
- &Self::ChevronRightSquare => CHEVRON_RIGHT_SQUARE,
- &Self::ChevronRight => CHEVRON_RIGHT,
- &Self::ChevronUpCircle => CHEVRON_UP_CIRCLE,
- &Self::ChevronUpSquare => CHEVRON_UP_SQUARE,
- &Self::ChevronUp => CHEVRON_UP,
- &Self::ChevronsDownUp => CHEVRONS_DOWN_UP,
- &Self::ChevronsDown => CHEVRONS_DOWN,
- &Self::ChevronsLeftRight => CHEVRONS_LEFT_RIGHT,
- &Self::ChevronsLeft => CHEVRONS_LEFT,
- &Self::ChevronsRightLeft => CHEVRONS_RIGHT_LEFT,
- &Self::ChevronsRight => CHEVRONS_RIGHT,
- &Self::ChevronsUpDown => CHEVRONS_UP_DOWN,
- &Self::ChevronsUp => CHEVRONS_UP,
- &Self::Chrome => CHROME,
- &Self::Church => CHURCH,
- &Self::CigaretteOff => CIGARETTE_OFF,
- &Self::Cigarette => CIGARETTE,
- &Self::CircleDashed => CIRCLE_DASHED,
- &Self::CircleDollarSign => CIRCLE_DOLLAR_SIGN,
- &Self::CircleDotDashed => CIRCLE_DOT_DASHED,
- &Self::CircleDot => CIRCLE_DOT,
- &Self::CircleEllipsis => CIRCLE_ELLIPSIS,
- &Self::CircleEqual => CIRCLE_EQUAL,
- &Self::CircleOff => CIRCLE_OFF,
- &Self::CircleSlash2 => CIRCLE_SLASH_2,
- &Self::CircleSlash => CIRCLE_SLASH,
- &Self::Circle => CIRCLE,
- &Self::CircuitBoard => CIRCUIT_BOARD,
- &Self::Citrus => CITRUS,
- &Self::Clapperboard => CLAPPERBOARD,
- &Self::ClipboardCheck => CLIPBOARD_CHECK,
- &Self::ClipboardCopy => CLIPBOARD_COPY,
- &Self::ClipboardEdit => CLIPBOARD_EDIT,
- &Self::ClipboardList => CLIPBOARD_LIST,
- &Self::ClipboardPaste => CLIPBOARD_PASTE,
- &Self::ClipboardSignature => CLIPBOARD_SIGNATURE,
- &Self::ClipboardType => CLIPBOARD_TYPE,
- &Self::ClipboardX => CLIPBOARD_X,
- &Self::Clipboard => CLIPBOARD,
- &Self::Clock1 => CLOCK_1,
- &Self::Clock10 => CLOCK_10,
- &Self::Clock11 => CLOCK_11,
- &Self::Clock12 => CLOCK_12,
- &Self::Clock2 => CLOCK_2,
- &Self::Clock3 => CLOCK_3,
- &Self::Clock4 => CLOCK_4,
- &Self::Clock5 => CLOCK_5,
- &Self::Clock6 => CLOCK_6,
- &Self::Clock7 => CLOCK_7,
- &Self::Clock8 => CLOCK_8,
- &Self::Clock9 => CLOCK_9,
- &Self::Clock => CLOCK,
- &Self::CloudCog => CLOUD_COG,
- &Self::CloudDrizzle => CLOUD_DRIZZLE,
- &Self::CloudFog => CLOUD_FOG,
- &Self::CloudHail => CLOUD_HAIL,
- &Self::CloudLightning => CLOUD_LIGHTNING,
- &Self::CloudMoonRain => CLOUD_MOON_RAIN,
- &Self::CloudMoon => CLOUD_MOON,
- &Self::CloudOff => CLOUD_OFF,
- &Self::CloudRainWind => CLOUD_RAIN_WIND,
- &Self::CloudRain => CLOUD_RAIN,
- &Self::CloudSnow => CLOUD_SNOW,
- &Self::CloudSunRain => CLOUD_SUN_RAIN,
- &Self::CloudSun => CLOUD_SUN,
- &Self::Cloud => CLOUD,
- &Self::Cloudy => CLOUDY,
- &Self::Clover => CLOVER,
- &Self::Club => CLUB,
- &Self::Code2 => CODE_2,
- &Self::Code => CODE,
- &Self::Codepen => CODEPEN,
- &Self::Codesandbox => CODESANDBOX,
- &Self::Coffee => COFFEE,
- &Self::Cog => COG,
- &Self::Coins => COINS,
- &Self::Columns => COLUMNS,
- &Self::Combine => COMBINE,
- &Self::Command => COMMAND,
- &Self::Compass => COMPASS,
- &Self::Component => COMPONENT,
- &Self::Computer => COMPUTER,
- &Self::ConciergeBell => CONCIERGE_BELL,
- &Self::Construction => CONSTRUCTION,
- &Self::Contact2 => CONTACT_2,
- &Self::Contact => CONTACT,
- &Self::Container => CONTAINER,
- &Self::Contrast => CONTRAST,
- &Self::Cookie => COOKIE,
- &Self::CopyCheck => COPY_CHECK,
- &Self::CopyMinus => COPY_MINUS,
- &Self::CopyPlus => COPY_PLUS,
- &Self::CopySlash => COPY_SLASH,
- &Self::CopyX => COPY_X,
- &Self::Copy => COPY,
- &Self::Copyleft => COPYLEFT,
- &Self::Copyright => COPYRIGHT,
- &Self::CornerDownLeft => CORNER_DOWN_LEFT,
- &Self::CornerDownRight => CORNER_DOWN_RIGHT,
- &Self::CornerLeftDown => CORNER_LEFT_DOWN,
- &Self::CornerLeftUp => CORNER_LEFT_UP,
- &Self::CornerRightDown => CORNER_RIGHT_DOWN,
- &Self::CornerRightUp => CORNER_RIGHT_UP,
- &Self::CornerUpLeft => CORNER_UP_LEFT,
- &Self::CornerUpRight => CORNER_UP_RIGHT,
- &Self::Cpu => CPU,
- &Self::CreativeCommons => CREATIVE_COMMONS,
- &Self::CreditCard => CREDIT_CARD,
- &Self::Croissant => CROISSANT,
- &Self::Crop => CROP,
- &Self::Cross => CROSS,
- &Self::Crosshair => CROSSHAIR,
- &Self::Crown => CROWN,
- &Self::CupSoda => CUP_SODA,
- &Self::Currency => CURRENCY,
- &Self::DatabaseBackup => DATABASE_BACKUP,
- &Self::DatabaseZap => DATABASE_ZAP,
- &Self::Database => DATABASE,
- &Self::Delete => DELETE,
- &Self::Dessert => DESSERT,
- &Self::Diamond => DIAMOND,
- &Self::Dice1 => DICE_1,
- &Self::Dice2 => DICE_2,
- &Self::Dice3 => DICE_3,
- &Self::Dice4 => DICE_4,
- &Self::Dice5 => DICE_5,
- &Self::Dice6 => DICE_6,
- &Self::Dices => DICES,
- &Self::Diff => DIFF,
- &Self::Disc2 => DISC_2,
- &Self::Disc3 => DISC_3,
- &Self::Disc => DISC,
- &Self::DivideCircle => DIVIDE_CIRCLE,
- &Self::DivideSquare => DIVIDE_SQUARE,
- &Self::Divide => DIVIDE,
- &Self::DnaOff => DNA_OFF,
- &Self::Dna => DNA,
- &Self::Dog => DOG,
- &Self::DollarSign => DOLLAR_SIGN,
- &Self::Donut => DONUT,
- &Self::DoorClosed => DOOR_CLOSED,
- &Self::DoorOpen => DOOR_OPEN,
- &Self::Dot => DOT,
- &Self::DownloadCloud => DOWNLOAD_CLOUD,
- &Self::Download => DOWNLOAD,
- &Self::Dribbble => DRIBBBLE,
- &Self::Droplet => DROPLET,
- &Self::Droplets => DROPLETS,
- &Self::Drumstick => DRUMSTICK,
- &Self::Dumbbell => DUMBBELL,
- &Self::EarOff => EAR_OFF,
- &Self::Ear => EAR,
- &Self::EggFried => EGG_FRIED,
- &Self::EggOff => EGG_OFF,
- &Self::Egg => EGG,
- &Self::EqualNot => EQUAL_NOT,
- &Self::Equal => EQUAL,
- &Self::Eraser => ERASER,
- &Self::Euro => EURO,
- &Self::Expand => EXPAND,
- &Self::ExternalLink => EXTERNAL_LINK,
- &Self::EyeOff => EYE_OFF,
- &Self::Eye => EYE,
- &Self::Facebook => FACEBOOK,
- &Self::Factory => FACTORY,
- &Self::Fan => FAN,
- &Self::FastForward => FAST_FORWARD,
- &Self::Feather => FEATHER,
- &Self::FerrisWheel => FERRIS_WHEEL,
- &Self::Figma => FIGMA,
- &Self::FileArchive => FILE_ARCHIVE,
- &Self::FileAudio2 => FILE_AUDIO_2,
- &Self::FileAudio => FILE_AUDIO,
- &Self::FileAxis3D => FILE_AXIS_3_D,
- &Self::FileBadge2 => FILE_BADGE_2,
- &Self::FileBadge => FILE_BADGE,
- &Self::FileBarChart2 => FILE_BAR_CHART_2,
- &Self::FileBarChart => FILE_BAR_CHART,
- &Self::FileBox => FILE_BOX,
- &Self::FileCheck2 => FILE_CHECK_2,
- &Self::FileCheck => FILE_CHECK,
- &Self::FileClock => FILE_CLOCK,
- &Self::FileCode2 => FILE_CODE_2,
- &Self::FileCode => FILE_CODE,
- &Self::FileCog => FILE_COG,
- &Self::FileDiff => FILE_DIFF,
- &Self::FileDigit => FILE_DIGIT,
- &Self::FileDown => FILE_DOWN,
- &Self::FileEdit => FILE_EDIT,
- &Self::FileHeart => FILE_HEART,
- &Self::FileImage => FILE_IMAGE,
- &Self::FileInput => FILE_INPUT,
- &Self::FileJson2 => FILE_JSON_2,
- &Self::FileJson => FILE_JSON,
- &Self::FileKey2 => FILE_KEY_2,
- &Self::FileKey => FILE_KEY,
- &Self::FileLineChart => FILE_LINE_CHART,
- &Self::FileLock2 => FILE_LOCK_2,
- &Self::FileLock => FILE_LOCK,
- &Self::FileMinus2 => FILE_MINUS_2,
- &Self::FileMinus => FILE_MINUS,
- &Self::FileOutput => FILE_OUTPUT,
- &Self::FilePieChart => FILE_PIE_CHART,
- &Self::FilePlus2 => FILE_PLUS_2,
- &Self::FilePlus => FILE_PLUS,
- &Self::FileQuestion => FILE_QUESTION,
- &Self::FileScan => FILE_SCAN,
- &Self::FileSearch2 => FILE_SEARCH_2,
- &Self::FileSearch => FILE_SEARCH,
- &Self::FileSignature => FILE_SIGNATURE,
- &Self::FileSpreadsheet => FILE_SPREADSHEET,
- &Self::FileStack => FILE_STACK,
- &Self::FileSymlink => FILE_SYMLINK,
- &Self::FileTerminal => FILE_TERMINAL,
- &Self::FileText => FILE_TEXT,
- &Self::FileType2 => FILE_TYPE_2,
- &Self::FileType => FILE_TYPE,
- &Self::FileUp => FILE_UP,
- &Self::FileVideo2 => FILE_VIDEO_2,
- &Self::FileVideo => FILE_VIDEO,
- &Self::FileVolume2 => FILE_VOLUME_2,
- &Self::FileVolume => FILE_VOLUME,
- &Self::FileWarning => FILE_WARNING,
- &Self::FileX2 => FILE_X_2,
- &Self::FileX => FILE_X,
- &Self::File => FILE,
- &Self::Files => FILES,
- &Self::Film => FILM,
- &Self::FilterX => FILTER_X,
- &Self::Filter => FILTER,
- &Self::Fingerprint => FINGERPRINT,
- &Self::FishOff => FISH_OFF,
- &Self::FishSymbol => FISH_SYMBOL,
- &Self::Fish => FISH,
- &Self::FlagOff => FLAG_OFF,
- &Self::FlagTriangleLeft => FLAG_TRIANGLE_LEFT,
- &Self::FlagTriangleRight => FLAG_TRIANGLE_RIGHT,
- &Self::Flag => FLAG,
- &Self::Flame => FLAME,
- &Self::FlashlightOff => FLASHLIGHT_OFF,
- &Self::Flashlight => FLASHLIGHT,
- &Self::FlaskConicalOff => FLASK_CONICAL_OFF,
- &Self::FlaskConical => FLASK_CONICAL,
- &Self::FlaskRound => FLASK_ROUND,
- &Self::FlipHorizontal2 => FLIP_HORIZONTAL_2,
- &Self::FlipHorizontal => FLIP_HORIZONTAL,
- &Self::FlipVertical2 => FLIP_VERTICAL_2,
- &Self::FlipVertical => FLIP_VERTICAL,
- &Self::Flower2 => FLOWER_2,
- &Self::Flower => FLOWER,
- &Self::Focus => FOCUS,
- &Self::FoldHorizontal => FOLD_HORIZONTAL,
- &Self::FoldVertical => FOLD_VERTICAL,
- &Self::FolderArchive => FOLDER_ARCHIVE,
- &Self::FolderCheck => FOLDER_CHECK,
- &Self::FolderClock => FOLDER_CLOCK,
- &Self::FolderClosed => FOLDER_CLOSED,
- &Self::FolderCog => FOLDER_COG,
- &Self::FolderDot => FOLDER_DOT,
- &Self::FolderDown => FOLDER_DOWN,
- &Self::FolderEdit => FOLDER_EDIT,
- &Self::FolderGit2 => FOLDER_GIT_2,
- &Self::FolderGit => FOLDER_GIT,
- &Self::FolderHeart => FOLDER_HEART,
- &Self::FolderInput => FOLDER_INPUT,
- &Self::FolderKanban => FOLDER_KANBAN,
- &Self::FolderKey => FOLDER_KEY,
- &Self::FolderLock => FOLDER_LOCK,
- &Self::FolderMinus => FOLDER_MINUS,
- &Self::FolderOpenDot => FOLDER_OPEN_DOT,
- &Self::FolderOpen => FOLDER_OPEN,
- &Self::FolderOutput => FOLDER_OUTPUT,
- &Self::FolderPlus => FOLDER_PLUS,
- &Self::FolderRoot => FOLDER_ROOT,
- &Self::FolderSearch2 => FOLDER_SEARCH_2,
- &Self::FolderSearch => FOLDER_SEARCH,
- &Self::FolderSymlink => FOLDER_SYMLINK,
- &Self::FolderSync => FOLDER_SYNC,
- &Self::FolderTree => FOLDER_TREE,
- &Self::FolderUp => FOLDER_UP,
- &Self::FolderX => FOLDER_X,
- &Self::Folder => FOLDER,
- &Self::Folders => FOLDERS,
- &Self::Footprints => FOOTPRINTS,
- &Self::Forklift => FORKLIFT,
- &Self::FormInput => FORM_INPUT,
- &Self::Forward => FORWARD,
- &Self::Frame => FRAME,
- &Self::Framer => FRAMER,
- &Self::Frown => FROWN,
- &Self::Fuel => FUEL,
- &Self::FunctionSquare => FUNCTION_SQUARE,
- &Self::GalleryHorizontalEnd => GALLERY_HORIZONTAL_END,
- &Self::GalleryHorizontal => GALLERY_HORIZONTAL,
- &Self::GalleryThumbnails => GALLERY_THUMBNAILS,
- &Self::GalleryVerticalEnd => GALLERY_VERTICAL_END,
- &Self::GalleryVertical => GALLERY_VERTICAL,
- &Self::Gamepad2 => GAMEPAD_2,
- &Self::Gamepad => GAMEPAD,
- &Self::GanttChartSquare => GANTT_CHART_SQUARE,
- &Self::GanttChart => GANTT_CHART,
- &Self::GaugeCircle => GAUGE_CIRCLE,
- &Self::Gauge => GAUGE,
- &Self::Gavel => GAVEL,
- &Self::Gem => GEM,
- &Self::Ghost => GHOST,
- &Self::Gift => GIFT,
- &Self::GitBranchPlus => GIT_BRANCH_PLUS,
- &Self::GitBranch => GIT_BRANCH,
- &Self::GitCommit => GIT_COMMIT,
- &Self::GitCompare => GIT_COMPARE,
- &Self::GitFork => GIT_FORK,
- &Self::GitMerge => GIT_MERGE,
- &Self::GitPullRequestClosed => GIT_PULL_REQUEST_CLOSED,
- &Self::GitPullRequestDraft => GIT_PULL_REQUEST_DRAFT,
- &Self::GitPullRequest => GIT_PULL_REQUEST,
- &Self::Github => GITHUB,
- &Self::Gitlab => GITLAB,
- &Self::GlassWater => GLASS_WATER,
- &Self::Glasses => GLASSES,
- &Self::Globe2 => GLOBE_2,
- &Self::Globe => GLOBE,
- &Self::Goal => GOAL,
- &Self::Grab => GRAB,
- &Self::GraduationCap => GRADUATION_CAP,
- &Self::Grape => GRAPE,
- &Self::Grid2X2 => GRID_2_X_2,
- &Self::Grid3X3 => GRID_3_X_3,
- &Self::GripHorizontal => GRIP_HORIZONTAL,
- &Self::GripVertical => GRIP_VERTICAL,
- &Self::Grip => GRIP,
- &Self::Group => GROUP,
- &Self::Hammer => HAMMER,
- &Self::HandMetal => HAND_METAL,
- &Self::Hand => HAND,
- &Self::HardDriveDownload => HARD_DRIVE_DOWNLOAD,
- &Self::HardDriveUpload => HARD_DRIVE_UPLOAD,
- &Self::HardDrive => HARD_DRIVE,
- &Self::HardHat => HARD_HAT,
- &Self::Hash => HASH,
- &Self::Haze => HAZE,
- &Self::HdmiPort => HDMI_PORT,
- &Self::Heading1 => HEADING_1,
- &Self::Heading2 => HEADING_2,
- &Self::Heading3 => HEADING_3,
- &Self::Heading4 => HEADING_4,
- &Self::Heading5 => HEADING_5,
- &Self::Heading6 => HEADING_6,
- &Self::Heading => HEADING,
- &Self::Headphones => HEADPHONES,
- &Self::HeartCrack => HEART_CRACK,
- &Self::HeartHandshake => HEART_HANDSHAKE,
- &Self::HeartOff => HEART_OFF,
- &Self::HeartPulse => HEART_PULSE,
- &Self::Heart => HEART,
- &Self::HelpCircle => HELP_CIRCLE,
- &Self::HelpingHand => HELPING_HAND,
- &Self::Hexagon => HEXAGON,
- &Self::Highlighter => HIGHLIGHTER,
- &Self::History => HISTORY,
- &Self::Home => HOME,
- &Self::HopOff => HOP_OFF,
- &Self::Hop => HOP,
- &Self::Hotel => HOTEL,
- &Self::Hourglass => HOURGLASS,
- &Self::IceCream2 => ICE_CREAM_2,
- &Self::IceCream => ICE_CREAM,
- &Self::ImageMinus => IMAGE_MINUS,
- &Self::ImageOff => IMAGE_OFF,
- &Self::ImagePlus => IMAGE_PLUS,
- &Self::Image => IMAGE,
- &Self::Import => IMPORT,
- &Self::Inbox => INBOX,
- &Self::Indent => INDENT,
- &Self::IndianRupee => INDIAN_RUPEE,
- &Self::Infinity => INFINITY,
- &Self::Info => INFO,
- &Self::Instagram => INSTAGRAM,
- &Self::Italic => ITALIC,
- &Self::IterationCcw => ITERATION_CCW,
- &Self::IterationCw => ITERATION_CW,
- &Self::JapaneseYen => JAPANESE_YEN,
- &Self::Joystick => JOYSTICK,
- &Self::KanbanSquareDashed => KANBAN_SQUARE_DASHED,
- &Self::KanbanSquare => KANBAN_SQUARE,
- &Self::Kanban => KANBAN,
- &Self::KeyRound => KEY_ROUND,
- &Self::KeySquare => KEY_SQUARE,
- &Self::Key => KEY,
- &Self::Keyboard => KEYBOARD,
- &Self::LampCeiling => LAMP_CEILING,
- &Self::LampDesk => LAMP_DESK,
- &Self::LampFloor => LAMP_FLOOR,
- &Self::LampWallDown => LAMP_WALL_DOWN,
- &Self::LampWallUp => LAMP_WALL_UP,
- &Self::Lamp => LAMP,
- &Self::Landmark => LANDMARK,
- &Self::Languages => LANGUAGES,
- &Self::Laptop2 => LAPTOP_2,
- &Self::Laptop => LAPTOP,
- &Self::LassoSelect => LASSO_SELECT,
- &Self::Lasso => LASSO,
- &Self::Laugh => LAUGH,
- &Self::Layers => LAYERS,
- &Self::LayoutDashboard => LAYOUT_DASHBOARD,
- &Self::LayoutGrid => LAYOUT_GRID,
- &Self::LayoutList => LAYOUT_LIST,
- &Self::LayoutPanelLeft => LAYOUT_PANEL_LEFT,
- &Self::LayoutPanelTop => LAYOUT_PANEL_TOP,
- &Self::LayoutTemplate => LAYOUT_TEMPLATE,
- &Self::Layout => LAYOUT,
- &Self::Leaf => LEAF,
- &Self::LeafyGreen => LEAFY_GREEN,
- &Self::Library => LIBRARY,
- &Self::LifeBuoy => LIFE_BUOY,
- &Self::Ligature => LIGATURE,
- &Self::LightbulbOff => LIGHTBULB_OFF,
- &Self::Lightbulb => LIGHTBULB,
- &Self::LineChart => LINE_CHART,
- &Self::Link2Off => LINK_2_OFF,
- &Self::Link2 => LINK_2,
- &Self::Link => LINK,
- &Self::Linkedin => LINKEDIN,
- &Self::ListChecks => LIST_CHECKS,
- &Self::ListEnd => LIST_END,
- &Self::ListFilter => LIST_FILTER,
- &Self::ListMinus => LIST_MINUS,
- &Self::ListMusic => LIST_MUSIC,
- &Self::ListOrdered => LIST_ORDERED,
- &Self::ListPlus => LIST_PLUS,
- &Self::ListRestart => LIST_RESTART,
- &Self::ListStart => LIST_START,
- &Self::ListTodo => LIST_TODO,
- &Self::ListTree => LIST_TREE,
- &Self::ListVideo => LIST_VIDEO,
- &Self::ListX => LIST_X,
- &Self::List => LIST,
- &Self::Loader2 => LOADER_2,
- &Self::Loader => LOADER,
- &Self::LocateFixed => LOCATE_FIXED,
- &Self::LocateOff => LOCATE_OFF,
- &Self::Locate => LOCATE,
- &Self::Lock => LOCK,
- &Self::LogIn => LOG_IN,
- &Self::LogOut => LOG_OUT,
- &Self::Lollipop => LOLLIPOP,
- &Self::Luggage => LUGGAGE,
- &Self::MSquare => M_SQUARE,
- &Self::Magnet => MAGNET,
- &Self::MailCheck => MAIL_CHECK,
- &Self::MailMinus => MAIL_MINUS,
- &Self::MailOpen => MAIL_OPEN,
- &Self::MailPlus => MAIL_PLUS,
- &Self::MailQuestion => MAIL_QUESTION,
- &Self::MailSearch => MAIL_SEARCH,
- &Self::MailWarning => MAIL_WARNING,
- &Self::MailX => MAIL_X,
- &Self::Mail => MAIL,
- &Self::Mailbox => MAILBOX,
- &Self::Mails => MAILS,
- &Self::MapPinOff => MAP_PIN_OFF,
- &Self::MapPin => MAP_PIN,
- &Self::Map => MAP,
- &Self::Martini => MARTINI,
- &Self::Maximize2 => MAXIMIZE_2,
- &Self::Maximize => MAXIMIZE,
- &Self::Medal => MEDAL,
- &Self::MegaphoneOff => MEGAPHONE_OFF,
- &Self::Megaphone => MEGAPHONE,
- &Self::Meh => MEH,
- &Self::MemoryStick => MEMORY_STICK,
- &Self::MenuSquare => MENU_SQUARE,
- &Self::Menu => MENU,
- &Self::Merge => MERGE,
- &Self::MessageCircle => MESSAGE_CIRCLE,
- &Self::MessageSquareDashed => MESSAGE_SQUARE_DASHED,
- &Self::MessageSquarePlus => MESSAGE_SQUARE_PLUS,
- &Self::MessageSquare => MESSAGE_SQUARE,
- &Self::MessagesSquare => MESSAGES_SQUARE,
- &Self::Mic2 => MIC_2,
- &Self::MicOff => MIC_OFF,
- &Self::Mic => MIC,
- &Self::Microscope => MICROSCOPE,
- &Self::Microwave => MICROWAVE,
- &Self::Milestone => MILESTONE,
- &Self::MilkOff => MILK_OFF,
- &Self::Milk => MILK,
- &Self::Minimize2 => MINIMIZE_2,
- &Self::Minimize => MINIMIZE,
- &Self::MinusCircle => MINUS_CIRCLE,
- &Self::MinusSquare => MINUS_SQUARE,
- &Self::Minus => MINUS,
- &Self::MonitorCheck => MONITOR_CHECK,
- &Self::MonitorDot => MONITOR_DOT,
- &Self::MonitorDown => MONITOR_DOWN,
- &Self::MonitorOff => MONITOR_OFF,
- &Self::MonitorPause => MONITOR_PAUSE,
- &Self::MonitorPlay => MONITOR_PLAY,
- &Self::MonitorSmartphone => MONITOR_SMARTPHONE,
- &Self::MonitorSpeaker => MONITOR_SPEAKER,
- &Self::MonitorStop => MONITOR_STOP,
- &Self::MonitorUp => MONITOR_UP,
- &Self::MonitorX => MONITOR_X,
- &Self::Monitor => MONITOR,
- &Self::MoonStar => MOON_STAR,
- &Self::Moon => MOON,
- &Self::MoreHorizontal => MORE_HORIZONTAL,
- &Self::MoreVertical => MORE_VERTICAL,
- &Self::MountainSnow => MOUNTAIN_SNOW,
- &Self::Mountain => MOUNTAIN,
- &Self::MousePointer2 => MOUSE_POINTER_2,
- &Self::MousePointerClick => MOUSE_POINTER_CLICK,
- &Self::MousePointerSquareDashed => MOUSE_POINTER_SQUARE_DASHED,
- &Self::MousePointerSquare => MOUSE_POINTER_SQUARE,
- &Self::MousePointer => MOUSE_POINTER,
- &Self::Mouse => MOUSE,
- &Self::Move3D => MOVE_3_D,
- &Self::MoveDiagonal2 => MOVE_DIAGONAL_2,
- &Self::MoveDiagonal => MOVE_DIAGONAL,
- &Self::MoveDownLeft => MOVE_DOWN_LEFT,
- &Self::MoveDownRight => MOVE_DOWN_RIGHT,
- &Self::MoveDown => MOVE_DOWN,
- &Self::MoveHorizontal => MOVE_HORIZONTAL,
- &Self::MoveLeft => MOVE_LEFT,
- &Self::MoveRight => MOVE_RIGHT,
- &Self::MoveUpLeft => MOVE_UP_LEFT,
- &Self::MoveUpRight => MOVE_UP_RIGHT,
- &Self::MoveUp => MOVE_UP,
- &Self::MoveVertical => MOVE_VERTICAL,
- &Self::Move => MOVE,
- &Self::Music2 => MUSIC_2,
- &Self::Music3 => MUSIC_3,
- &Self::Music4 => MUSIC_4,
- &Self::Music => MUSIC,
- &Self::Navigation2Off => NAVIGATION_2_OFF,
- &Self::Navigation2 => NAVIGATION_2,
- &Self::NavigationOff => NAVIGATION_OFF,
- &Self::Navigation => NAVIGATION,
- &Self::Network => NETWORK,
- &Self::Newspaper => NEWSPAPER,
- &Self::Nfc => NFC,
- &Self::NutOff => NUT_OFF,
- &Self::Nut => NUT,
- &Self::Octagon => OCTAGON,
- &Self::Option => OPTION,
- &Self::Orbit => ORBIT,
- &Self::Outdent => OUTDENT,
- &Self::Package2 => PACKAGE_2,
- &Self::PackageCheck => PACKAGE_CHECK,
- &Self::PackageMinus => PACKAGE_MINUS,
- &Self::PackageOpen => PACKAGE_OPEN,
- &Self::PackagePlus => PACKAGE_PLUS,
- &Self::PackageSearch => PACKAGE_SEARCH,
- &Self::PackageX => PACKAGE_X,
- &Self::Package => PACKAGE,
- &Self::PaintBucket => PAINT_BUCKET,
- &Self::Paintbrush2 => PAINTBRUSH_2,
- &Self::Paintbrush => PAINTBRUSH,
- &Self::Palette => PALETTE,
- &Self::Palmtree => PALMTREE,
- &Self::PanelBottomClose => PANEL_BOTTOM_CLOSE,
- &Self::PanelBottomInactive => PANEL_BOTTOM_INACTIVE,
- &Self::PanelBottomOpen => PANEL_BOTTOM_OPEN,
- &Self::PanelBottom => PANEL_BOTTOM,
- &Self::PanelLeftClose => PANEL_LEFT_CLOSE,
- &Self::PanelLeftInactive => PANEL_LEFT_INACTIVE,
- &Self::PanelLeftOpen => PANEL_LEFT_OPEN,
- &Self::PanelLeft => PANEL_LEFT,
- &Self::PanelRightClose => PANEL_RIGHT_CLOSE,
- &Self::PanelRightInactive => PANEL_RIGHT_INACTIVE,
- &Self::PanelRightOpen => PANEL_RIGHT_OPEN,
- &Self::PanelRight => PANEL_RIGHT,
- &Self::PanelTopClose => PANEL_TOP_CLOSE,
- &Self::PanelTopInactive => PANEL_TOP_INACTIVE,
- &Self::PanelTopOpen => PANEL_TOP_OPEN,
- &Self::PanelTop => PANEL_TOP,
- &Self::Paperclip => PAPERCLIP,
- &Self::Parentheses => PARENTHESES,
- &Self::ParkingCircleOff => PARKING_CIRCLE_OFF,
- &Self::ParkingCircle => PARKING_CIRCLE,
- &Self::ParkingMeter => PARKING_METER,
- &Self::ParkingSquareOff => PARKING_SQUARE_OFF,
- &Self::ParkingSquare => PARKING_SQUARE,
- &Self::PartyPopper => PARTY_POPPER,
- &Self::PauseCircle => PAUSE_CIRCLE,
- &Self::PauseOctagon => PAUSE_OCTAGON,
- &Self::Pause => PAUSE,
- &Self::PawPrint => PAW_PRINT,
- &Self::PcCase => PC_CASE,
- &Self::PenLine => PEN_LINE,
- &Self::PenSquare => PEN_SQUARE,
- &Self::PenTool => PEN_TOOL,
- &Self::Pen => PEN,
- &Self::PencilLine => PENCIL_LINE,
- &Self::PencilRuler => PENCIL_RULER,
- &Self::Pencil => PENCIL,
- &Self::PercentCircle => PERCENT_CIRCLE,
- &Self::PercentDiamond => PERCENT_DIAMOND,
- &Self::PercentSquare => PERCENT_SQUARE,
- &Self::Percent => PERCENT,
- &Self::PersonStanding => PERSON_STANDING,
- &Self::PhoneCall => PHONE_CALL,
- &Self::PhoneForwarded => PHONE_FORWARDED,
- &Self::PhoneIncoming => PHONE_INCOMING,
- &Self::PhoneMissed => PHONE_MISSED,
- &Self::PhoneOff => PHONE_OFF,
- &Self::PhoneOutgoing => PHONE_OUTGOING,
- &Self::Phone => PHONE,
- &Self::PiSquare => PI_SQUARE,
- &Self::Pi => PI,
- &Self::PictureInPicture2 => PICTURE_IN_PICTURE_2,
- &Self::PictureInPicture => PICTURE_IN_PICTURE,
- &Self::PieChart => PIE_CHART,
- &Self::PiggyBank => PIGGY_BANK,
- &Self::PilcrowSquare => PILCROW_SQUARE,
- &Self::Pilcrow => PILCROW,
- &Self::Pill => PILL,
- &Self::PinOff => PIN_OFF,
- &Self::Pin => PIN,
- &Self::Pipette => PIPETTE,
- &Self::Pizza => PIZZA,
- &Self::PlaneLanding => PLANE_LANDING,
- &Self::PlaneTakeoff => PLANE_TAKEOFF,
- &Self::Plane => PLANE,
- &Self::PlayCircle => PLAY_CIRCLE,
- &Self::PlaySquare => PLAY_SQUARE,
- &Self::Play => PLAY,
- &Self::Plug2 => PLUG_2,
- &Self::PlugZap2 => PLUG_ZAP_2,
- &Self::PlugZap => PLUG_ZAP,
- &Self::Plug => PLUG,
- &Self::PlusCircle => PLUS_CIRCLE,
- &Self::PlusSquare => PLUS_SQUARE,
- &Self::Plus => PLUS,
- &Self::PocketKnife => POCKET_KNIFE,
- &Self::Pocket => POCKET,
- &Self::Podcast => PODCAST,
- &Self::Pointer => POINTER,
- &Self::Popcorn => POPCORN,
- &Self::Popsicle => POPSICLE,
- &Self::PoundSterling => POUND_STERLING,
- &Self::PowerOff => POWER_OFF,
- &Self::Power => POWER,
- &Self::Presentation => PRESENTATION,
- &Self::Printer => PRINTER,
- &Self::Projector => PROJECTOR,
- &Self::Puzzle => PUZZLE,
- &Self::QrCode => QR_CODE,
- &Self::Quote => QUOTE,
- &Self::Rabbit => RABBIT,
- &Self::Radar => RADAR,
- &Self::Radiation => RADIATION,
- &Self::RadioReceiver => RADIO_RECEIVER,
- &Self::RadioTower => RADIO_TOWER,
- &Self::Radio => RADIO,
- &Self::RailSymbol => RAIL_SYMBOL,
- &Self::Rainbow => RAINBOW,
- &Self::Rat => RAT,
- &Self::Ratio => RATIO,
- &Self::Receipt => RECEIPT,
- &Self::RectangleHorizontal => RECTANGLE_HORIZONTAL,
- &Self::RectangleVertical => RECTANGLE_VERTICAL,
- &Self::Recycle => RECYCLE,
- &Self::Redo2 => REDO_2,
- &Self::RedoDot => REDO_DOT,
- &Self::Redo => REDO,
- &Self::RefreshCcwDot => REFRESH_CCW_DOT,
- &Self::RefreshCcw => REFRESH_CCW,
- &Self::RefreshCwOff => REFRESH_CW_OFF,
- &Self::RefreshCw => REFRESH_CW,
- &Self::Refrigerator => REFRIGERATOR,
- &Self::Regex => REGEX,
- &Self::RemoveFormatting => REMOVE_FORMATTING,
- &Self::Repeat1 => REPEAT_1,
- &Self::Repeat2 => REPEAT_2,
- &Self::Repeat => REPEAT,
- &Self::ReplaceAll => REPLACE_ALL,
- &Self::Replace => REPLACE,
- &Self::ReplyAll => REPLY_ALL,
- &Self::Reply => REPLY,
- &Self::Rewind => REWIND,
- &Self::Rocket => ROCKET,
- &Self::RockingChair => ROCKING_CHAIR,
- &Self::RollerCoaster => ROLLER_COASTER,
- &Self::Rotate3D => ROTATE_3_D,
- &Self::RotateCcw => ROTATE_CCW,
- &Self::RotateCw => ROTATE_CW,
- &Self::Router => ROUTER,
- &Self::Rows => ROWS,
- &Self::Rss => RSS,
- &Self::Ruler => RULER,
- &Self::RussianRuble => RUSSIAN_RUBLE,
- &Self::Sailboat => SAILBOAT,
- &Self::Salad => SALAD,
- &Self::Sandwich => SANDWICH,
- &Self::SatelliteDish => SATELLITE_DISH,
- &Self::Satellite => SATELLITE,
- &Self::SaveAll => SAVE_ALL,
- &Self::Save => SAVE,
- &Self::Scale3D => SCALE_3_D,
- &Self::Scale => SCALE,
- &Self::Scaling => SCALING,
- &Self::ScanFace => SCAN_FACE,
- &Self::ScanLine => SCAN_LINE,
- &Self::Scan => SCAN,
- &Self::ScatterChart => SCATTER_CHART,
- &Self::School2 => SCHOOL_2,
- &Self::School => SCHOOL,
- &Self::ScissorsLineDashed => SCISSORS_LINE_DASHED,
- &Self::ScissorsSquareDashedBottom => SCISSORS_SQUARE_DASHED_BOTTOM,
- &Self::ScissorsSquare => SCISSORS_SQUARE,
- &Self::Scissors => SCISSORS,
- &Self::ScreenShareOff => SCREEN_SHARE_OFF,
- &Self::ScreenShare => SCREEN_SHARE,
- &Self::ScrollText => SCROLL_TEXT,
- &Self::Scroll => SCROLL,
- &Self::SearchCheck => SEARCH_CHECK,
- &Self::SearchCode => SEARCH_CODE,
- &Self::SearchSlash => SEARCH_SLASH,
- &Self::SearchX => SEARCH_X,
- &Self::Search => SEARCH,
- &Self::SendHorizontal => SEND_HORIZONTAL,
- &Self::SendToBack => SEND_TO_BACK,
- &Self::Send => SEND,
- &Self::SeparatorHorizontal => SEPARATOR_HORIZONTAL,
- &Self::SeparatorVertical => SEPARATOR_VERTICAL,
- &Self::ServerCog => SERVER_COG,
- &Self::ServerCrash => SERVER_CRASH,
- &Self::ServerOff => SERVER_OFF,
- &Self::Server => SERVER,
- &Self::Settings2 => SETTINGS_2,
- &Self::Settings => SETTINGS,
- &Self::Shapes => SHAPES,
- &Self::Share2 => SHARE_2,
- &Self::Share => SHARE,
- &Self::Sheet => SHEET,
- &Self::Shell => SHELL,
- &Self::ShieldAlert => SHIELD_ALERT,
- &Self::ShieldBan => SHIELD_BAN,
- &Self::ShieldCheck => SHIELD_CHECK,
- &Self::ShieldEllipsis => SHIELD_ELLIPSIS,
- &Self::ShieldHalf => SHIELD_HALF,
- &Self::ShieldMinus => SHIELD_MINUS,
- &Self::ShieldOff => SHIELD_OFF,
- &Self::ShieldPlus => SHIELD_PLUS,
- &Self::ShieldQuestion => SHIELD_QUESTION,
- &Self::ShieldX => SHIELD_X,
- &Self::Shield => SHIELD,
- &Self::ShipWheel => SHIP_WHEEL,
- &Self::Ship => SHIP,
- &Self::Shirt => SHIRT,
- &Self::ShoppingBag => SHOPPING_BAG,
- &Self::ShoppingBasket => SHOPPING_BASKET,
- &Self::ShoppingCart => SHOPPING_CART,
- &Self::Shovel => SHOVEL,
- &Self::ShowerHead => SHOWER_HEAD,
- &Self::Shrink => SHRINK,
- &Self::Shrub => SHRUB,
- &Self::Shuffle => SHUFFLE,
- &Self::SigmaSquare => SIGMA_SQUARE,
- &Self::Sigma => SIGMA,
- &Self::SignalHigh => SIGNAL_HIGH,
- &Self::SignalLow => SIGNAL_LOW,
- &Self::SignalMedium => SIGNAL_MEDIUM,
- &Self::SignalZero => SIGNAL_ZERO,
- &Self::Signal => SIGNAL,
- &Self::Siren => SIREN,
- &Self::SkipBack => SKIP_BACK,
- &Self::SkipForward => SKIP_FORWARD,
- &Self::Skull => SKULL,
- &Self::Slack => SLACK,
- &Self::Slash => SLASH,
- &Self::Slice => SLICE,
- &Self::SlidersHorizontal => SLIDERS_HORIZONTAL,
- &Self::Sliders => SLIDERS,
- &Self::SmartphoneCharging => SMARTPHONE_CHARGING,
- &Self::SmartphoneNfc => SMARTPHONE_NFC,
- &Self::Smartphone => SMARTPHONE,
- &Self::SmilePlus => SMILE_PLUS,
- &Self::Smile => SMILE,
- &Self::Snail => SNAIL,
- &Self::Snowflake => SNOWFLAKE,
- &Self::Sofa => SOFA,
- &Self::Soup => SOUP,
- &Self::Space => SPACE,
- &Self::Spade => SPADE,
- &Self::Sparkle => SPARKLE,
- &Self::Sparkles => SPARKLES,
- &Self::Speaker => SPEAKER,
- &Self::SpellCheck2 => SPELL_CHECK_2,
- &Self::SpellCheck => SPELL_CHECK,
- &Self::Spline => SPLINE,
- &Self::SplitSquareHorizontal => SPLIT_SQUARE_HORIZONTAL,
- &Self::SplitSquareVertical => SPLIT_SQUARE_VERTICAL,
- &Self::Split => SPLIT,
- &Self::SprayCan => SPRAY_CAN,
- &Self::Sprout => SPROUT,
- &Self::SquareAsterisk => SQUARE_ASTERISK,
- &Self::SquareCode => SQUARE_CODE,
- &Self::SquareDashedBottomCode => SQUARE_DASHED_BOTTOM_CODE,
- &Self::SquareDashedBottom => SQUARE_DASHED_BOTTOM,
- &Self::SquareDot => SQUARE_DOT,
- &Self::SquareEqual => SQUARE_EQUAL,
- &Self::SquareSlash => SQUARE_SLASH,
- &Self::SquareStack => SQUARE_STACK,
- &Self::Square => SQUARE,
- &Self::Squirrel => SQUIRREL,
- &Self::Stamp => STAMP,
- &Self::StarHalf => STAR_HALF,
- &Self::StarOff => STAR_OFF,
- &Self::Star => STAR,
- &Self::StepBack => STEP_BACK,
- &Self::StepForward => STEP_FORWARD,
- &Self::Stethoscope => STETHOSCOPE,
- &Self::Sticker => STICKER,
- &Self::StickyNote => STICKY_NOTE,
- &Self::StopCircle => STOP_CIRCLE,
- &Self::Store => STORE,
- &Self::StretchHorizontal => STRETCH_HORIZONTAL,
- &Self::StretchVertical => STRETCH_VERTICAL,
- &Self::Strikethrough => STRIKETHROUGH,
- &Self::Subscript => SUBSCRIPT,
- &Self::Subtitles => SUBTITLES,
- &Self::SunDim => SUN_DIM,
- &Self::SunMedium => SUN_MEDIUM,
- &Self::SunMoon => SUN_MOON,
- &Self::SunSnow => SUN_SNOW,
- &Self::Sun => SUN,
- &Self::Sunrise => SUNRISE,
- &Self::Sunset => SUNSET,
- &Self::Superscript => SUPERSCRIPT,
- &Self::SwissFranc => SWISS_FRANC,
- &Self::SwitchCamera => SWITCH_CAMERA,
- &Self::Sword => SWORD,
- &Self::Swords => SWORDS,
- &Self::Syringe => SYRINGE,
- &Self::Table2 => TABLE_2,
- &Self::TableProperties => TABLE_PROPERTIES,
- &Self::Table => TABLE,
- &Self::TabletSmartphone => TABLET_SMARTPHONE,
- &Self::Tablet => TABLET,
- &Self::Tablets => TABLETS,
- &Self::Tag => TAG,
- &Self::Tags => TAGS,
- &Self::Tally1 => TALLY_1,
- &Self::Tally2 => TALLY_2,
- &Self::Tally3 => TALLY_3,
- &Self::Tally4 => TALLY_4,
- &Self::Tally5 => TALLY_5,
- &Self::Target => TARGET,
- &Self::Tent => TENT,
- &Self::TerminalSquare => TERMINAL_SQUARE,
- &Self::Terminal => TERMINAL,
- &Self::TestTube2 => TEST_TUBE_2,
- &Self::TestTube => TEST_TUBE,
- &Self::TestTubes => TEST_TUBES,
- &Self::TextCursorInput => TEXT_CURSOR_INPUT,
- &Self::TextCursor => TEXT_CURSOR,
- &Self::TextQuote => TEXT_QUOTE,
- &Self::TextSelect => TEXT_SELECT,
- &Self::Text => TEXT,
- &Self::ThermometerSnowflake => THERMOMETER_SNOWFLAKE,
- &Self::ThermometerSun => THERMOMETER_SUN,
- &Self::Thermometer => THERMOMETER,
- &Self::ThumbsDown => THUMBS_DOWN,
- &Self::ThumbsUp => THUMBS_UP,
- &Self::Ticket => TICKET,
- &Self::TimerOff => TIMER_OFF,
- &Self::TimerReset => TIMER_RESET,
- &Self::Timer => TIMER,
- &Self::ToggleLeft => TOGGLE_LEFT,
- &Self::ToggleRight => TOGGLE_RIGHT,
- &Self::Tornado => TORNADO,
- &Self::TouchpadOff => TOUCHPAD_OFF,
- &Self::Touchpad => TOUCHPAD,
- &Self::TowerControl => TOWER_CONTROL,
- &Self::ToyBrick => TOY_BRICK,
- &Self::Tractor => TRACTOR,
- &Self::TrafficCone => TRAFFIC_CONE,
- &Self::TrainFrontTunnel => TRAIN_FRONT_TUNNEL,
- &Self::TrainFront => TRAIN_FRONT,
- &Self::TrainTrack => TRAIN_TRACK,
- &Self::TramFront => TRAM_FRONT,
- &Self::Trash2 => TRASH_2,
- &Self::Trash => TRASH,
- &Self::TreeDeciduous => TREE_DECIDUOUS,
- &Self::TreePine => TREE_PINE,
- &Self::Trees => TREES,
- &Self::Trello => TRELLO,
- &Self::TrendingDown => TRENDING_DOWN,
- &Self::TrendingUp => TRENDING_UP,
- &Self::TriangleRight => TRIANGLE_RIGHT,
- &Self::Triangle => TRIANGLE,
- &Self::Trophy => TROPHY,
- &Self::Truck => TRUCK,
- &Self::Turtle => TURTLE,
- &Self::Tv2 => TV_2,
- &Self::Tv => TV,
- &Self::Twitch => TWITCH,
- &Self::Twitter => TWITTER,
- &Self::Type => TYPE,
- &Self::Umbrella => UMBRELLA,
- &Self::Underline => UNDERLINE,
- &Self::Undo2 => UNDO_2,
- &Self::UndoDot => UNDO_DOT,
- &Self::Undo => UNDO,
- &Self::UnfoldHorizontal => UNFOLD_HORIZONTAL,
- &Self::UnfoldVertical => UNFOLD_VERTICAL,
- &Self::Ungroup => UNGROUP,
- &Self::Unlink2 => UNLINK_2,
- &Self::Unlink => UNLINK,
- &Self::Unlock => UNLOCK,
- &Self::Unplug => UNPLUG,
- &Self::UploadCloud => UPLOAD_CLOUD,
- &Self::Upload => UPLOAD,
- &Self::Usb => USB,
- &Self::User2 => USER_2,
- &Self::UserCheck2 => USER_CHECK_2,
- &Self::UserCheck => USER_CHECK,
- &Self::UserCircle2 => USER_CIRCLE_2,
- &Self::UserCircle => USER_CIRCLE,
- &Self::UserCog2 => USER_COG_2,
- &Self::UserCog => USER_COG,
- &Self::UserMinus2 => USER_MINUS_2,
- &Self::UserMinus => USER_MINUS,
- &Self::UserPlus2 => USER_PLUS_2,
- &Self::UserPlus => USER_PLUS,
- &Self::UserSquare2 => USER_SQUARE_2,
- &Self::UserSquare => USER_SQUARE,
- &Self::UserX2 => USER_X_2,
- &Self::UserX => USER_X,
- &Self::User => USER,
- &Self::Users2 => USERS_2,
- &Self::Users => USERS,
- &Self::UtensilsCrossed => UTENSILS_CROSSED,
- &Self::Utensils => UTENSILS,
- &Self::UtilityPole => UTILITY_POLE,
- &Self::Variable => VARIABLE,
- &Self::Vegan => VEGAN,
- &Self::VenetianMask => VENETIAN_MASK,
- &Self::VibrateOff => VIBRATE_OFF,
- &Self::Vibrate => VIBRATE,
- &Self::VideoOff => VIDEO_OFF,
- &Self::Video => VIDEO,
- &Self::Videotape => VIDEOTAPE,
- &Self::View => VIEW,
- &Self::Voicemail => VOICEMAIL,
- &Self::Volume1 => VOLUME_1,
- &Self::Volume2 => VOLUME_2,
- &Self::VolumeX => VOLUME_X,
- &Self::Volume => VOLUME,
- &Self::Vote => VOTE,
- &Self::Wallet2 => WALLET_2,
- &Self::WalletCards => WALLET_CARDS,
- &Self::Wallet => WALLET,
- &Self::Wallpaper => WALLPAPER,
- &Self::Wand2 => WAND_2,
- &Self::Wand => WAND,
- &Self::Warehouse => WAREHOUSE,
- &Self::Watch => WATCH,
- &Self::Waves => WAVES,
- &Self::Webcam => WEBCAM,
- &Self::Webhook => WEBHOOK,
- &Self::WheatOff => WHEAT_OFF,
- &Self::Wheat => WHEAT,
- &Self::WholeWord => WHOLE_WORD,
- &Self::WifiOff => WIFI_OFF,
- &Self::Wifi => WIFI,
- &Self::Wind => WIND,
- &Self::WineOff => WINE_OFF,
- &Self::Wine => WINE,
- &Self::Workflow => WORKFLOW,
- &Self::WrapText => WRAP_TEXT,
- &Self::Wrench => WRENCH,
- &Self::XCircle => X_CIRCLE,
- &Self::XOctagon => X_OCTAGON,
- &Self::XSquare => X_SQUARE,
- &Self::X => X,
- &Self::Youtube => YOUTUBE,
- &Self::ZapOff => ZAP_OFF,
- &Self::Zap => ZAP,
- &Self::ZoomIn => ZOOM_IN,
- &Self::ZoomOut => ZOOM_OUT,
-}
-}
+
+    fn decompress(&self, input: &str) -> String {
+        use base64::decode;
+        use flate2::read::ZlibDecoder;
+        use std::io::prelude::*;
+
+        let input = base64::decode(input).unwrap();
+        let mut decoder = ZlibDecoder::new(input.as_slice());
+        let mut decompressed = String::new();
+        decoder
+            .read_to_string(&mut decompressed)
+            .expect("decompress");
+        decompressed
+    }
+
+    pub fn svg(&self) -> String {
+        match self {
+            &Self::Accessibility => self.decompress(ACCESSIBILITY),
+            &Self::ActivitySquare => self.decompress(ACTIVITY_SQUARE),
+            &Self::Activity => self.decompress(ACTIVITY),
+            &Self::AirVent => self.decompress(AIR_VENT),
+            &Self::Airplay => self.decompress(AIRPLAY),
+            &Self::AlarmCheck => self.decompress(ALARM_CHECK),
+            &Self::AlarmClockOff => self.decompress(ALARM_CLOCK_OFF),
+            &Self::AlarmClock => self.decompress(ALARM_CLOCK),
+            &Self::AlarmMinus => self.decompress(ALARM_MINUS),
+            &Self::AlarmPlus => self.decompress(ALARM_PLUS),
+            &Self::Album => self.decompress(ALBUM),
+            &Self::AlertCircle => self.decompress(ALERT_CIRCLE),
+            &Self::AlertOctagon => self.decompress(ALERT_OCTAGON),
+            &Self::AlertTriangle => self.decompress(ALERT_TRIANGLE),
+            &Self::AlignCenterHorizontal => self.decompress(ALIGN_CENTER_HORIZONTAL),
+            &Self::AlignCenterVertical => self.decompress(ALIGN_CENTER_VERTICAL),
+            &Self::AlignCenter => self.decompress(ALIGN_CENTER),
+            &Self::AlignEndHorizontal => self.decompress(ALIGN_END_HORIZONTAL),
+            &Self::AlignEndVertical => self.decompress(ALIGN_END_VERTICAL),
+            &Self::AlignHorizontalDistributeCenter => {
+                self.decompress(ALIGN_HORIZONTAL_DISTRIBUTE_CENTER)
+            }
+            &Self::AlignHorizontalDistributeEnd => self.decompress(ALIGN_HORIZONTAL_DISTRIBUTE_END),
+            &Self::AlignHorizontalDistributeStart => {
+                self.decompress(ALIGN_HORIZONTAL_DISTRIBUTE_START)
+            }
+            &Self::AlignHorizontalJustifyCenter => self.decompress(ALIGN_HORIZONTAL_JUSTIFY_CENTER),
+            &Self::AlignHorizontalJustifyEnd => self.decompress(ALIGN_HORIZONTAL_JUSTIFY_END),
+            &Self::AlignHorizontalJustifyStart => self.decompress(ALIGN_HORIZONTAL_JUSTIFY_START),
+            &Self::AlignHorizontalSpaceAround => self.decompress(ALIGN_HORIZONTAL_SPACE_AROUND),
+            &Self::AlignHorizontalSpaceBetween => self.decompress(ALIGN_HORIZONTAL_SPACE_BETWEEN),
+            &Self::AlignJustify => self.decompress(ALIGN_JUSTIFY),
+            &Self::AlignLeft => self.decompress(ALIGN_LEFT),
+            &Self::AlignRight => self.decompress(ALIGN_RIGHT),
+            &Self::AlignStartHorizontal => self.decompress(ALIGN_START_HORIZONTAL),
+            &Self::AlignStartVertical => self.decompress(ALIGN_START_VERTICAL),
+            &Self::AlignVerticalDistributeCenter => {
+                self.decompress(ALIGN_VERTICAL_DISTRIBUTE_CENTER)
+            }
+            &Self::AlignVerticalDistributeEnd => self.decompress(ALIGN_VERTICAL_DISTRIBUTE_END),
+            &Self::AlignVerticalDistributeStart => self.decompress(ALIGN_VERTICAL_DISTRIBUTE_START),
+            &Self::AlignVerticalJustifyCenter => self.decompress(ALIGN_VERTICAL_JUSTIFY_CENTER),
+            &Self::AlignVerticalJustifyEnd => self.decompress(ALIGN_VERTICAL_JUSTIFY_END),
+            &Self::AlignVerticalJustifyStart => self.decompress(ALIGN_VERTICAL_JUSTIFY_START),
+            &Self::AlignVerticalSpaceAround => self.decompress(ALIGN_VERTICAL_SPACE_AROUND),
+            &Self::AlignVerticalSpaceBetween => self.decompress(ALIGN_VERTICAL_SPACE_BETWEEN),
+            &Self::Ampersand => self.decompress(AMPERSAND),
+            &Self::Ampersands => self.decompress(AMPERSANDS),
+            &Self::Anchor => self.decompress(ANCHOR),
+            &Self::Angry => self.decompress(ANGRY),
+            &Self::Annoyed => self.decompress(ANNOYED),
+            &Self::Antenna => self.decompress(ANTENNA),
+            &Self::Aperture => self.decompress(APERTURE),
+            &Self::AppWindow => self.decompress(APP_WINDOW),
+            &Self::Apple => self.decompress(APPLE),
+            &Self::ArchiveRestore => self.decompress(ARCHIVE_RESTORE),
+            &Self::ArchiveX => self.decompress(ARCHIVE_X),
+            &Self::Archive => self.decompress(ARCHIVE),
+            &Self::AreaChart => self.decompress(AREA_CHART),
+            &Self::Armchair => self.decompress(ARMCHAIR),
+            &Self::ArrowBigDownDash => self.decompress(ARROW_BIG_DOWN_DASH),
+            &Self::ArrowBigDown => self.decompress(ARROW_BIG_DOWN),
+            &Self::ArrowBigLeftDash => self.decompress(ARROW_BIG_LEFT_DASH),
+            &Self::ArrowBigLeft => self.decompress(ARROW_BIG_LEFT),
+            &Self::ArrowBigRightDash => self.decompress(ARROW_BIG_RIGHT_DASH),
+            &Self::ArrowBigRight => self.decompress(ARROW_BIG_RIGHT),
+            &Self::ArrowBigUpDash => self.decompress(ARROW_BIG_UP_DASH),
+            &Self::ArrowBigUp => self.decompress(ARROW_BIG_UP),
+            &Self::ArrowDown01 => self.decompress(ARROW_DOWN_01),
+            &Self::ArrowDown10 => self.decompress(ARROW_DOWN_10),
+            &Self::ArrowDownAZ => self.decompress(ARROW_DOWN_AZ),
+            &Self::ArrowDownCircle => self.decompress(ARROW_DOWN_CIRCLE),
+            &Self::ArrowDownFromLine => self.decompress(ARROW_DOWN_FROM_LINE),
+            &Self::ArrowDownLeftFromCircle => self.decompress(ARROW_DOWN_LEFT_FROM_CIRCLE),
+            &Self::ArrowDownLeftSquare => self.decompress(ARROW_DOWN_LEFT_SQUARE),
+            &Self::ArrowDownLeft => self.decompress(ARROW_DOWN_LEFT),
+            &Self::ArrowDownNarrowWide => self.decompress(ARROW_DOWN_NARROW_WIDE),
+            &Self::ArrowDownRightFromCircle => self.decompress(ARROW_DOWN_RIGHT_FROM_CIRCLE),
+            &Self::ArrowDownRightSquare => self.decompress(ARROW_DOWN_RIGHT_SQUARE),
+            &Self::ArrowDownRight => self.decompress(ARROW_DOWN_RIGHT),
+            &Self::ArrowDownSquare => self.decompress(ARROW_DOWN_SQUARE),
+            &Self::ArrowDownToDot => self.decompress(ARROW_DOWN_TO_DOT),
+            &Self::ArrowDownToLine => self.decompress(ARROW_DOWN_TO_LINE),
+            &Self::ArrowDownUp => self.decompress(ARROW_DOWN_UP),
+            &Self::ArrowDownWideNarrow => self.decompress(ARROW_DOWN_WIDE_NARROW),
+            &Self::ArrowDownZA => self.decompress(ARROW_DOWN_ZA),
+            &Self::ArrowDown => self.decompress(ARROW_DOWN),
+            &Self::ArrowLeftCircle => self.decompress(ARROW_LEFT_CIRCLE),
+            &Self::ArrowLeftFromLine => self.decompress(ARROW_LEFT_FROM_LINE),
+            &Self::ArrowLeftRight => self.decompress(ARROW_LEFT_RIGHT),
+            &Self::ArrowLeftSquare => self.decompress(ARROW_LEFT_SQUARE),
+            &Self::ArrowLeftToLine => self.decompress(ARROW_LEFT_TO_LINE),
+            &Self::ArrowLeft => self.decompress(ARROW_LEFT),
+            &Self::ArrowRightCircle => self.decompress(ARROW_RIGHT_CIRCLE),
+            &Self::ArrowRightFromLine => self.decompress(ARROW_RIGHT_FROM_LINE),
+            &Self::ArrowRightLeft => self.decompress(ARROW_RIGHT_LEFT),
+            &Self::ArrowRightSquare => self.decompress(ARROW_RIGHT_SQUARE),
+            &Self::ArrowRightToLine => self.decompress(ARROW_RIGHT_TO_LINE),
+            &Self::ArrowRight => self.decompress(ARROW_RIGHT),
+            &Self::ArrowUp01 => self.decompress(ARROW_UP_01),
+            &Self::ArrowUp10 => self.decompress(ARROW_UP_10),
+            &Self::ArrowUpAZ => self.decompress(ARROW_UP_AZ),
+            &Self::ArrowUpCircle => self.decompress(ARROW_UP_CIRCLE),
+            &Self::ArrowUpDown => self.decompress(ARROW_UP_DOWN),
+            &Self::ArrowUpFromDot => self.decompress(ARROW_UP_FROM_DOT),
+            &Self::ArrowUpFromLine => self.decompress(ARROW_UP_FROM_LINE),
+            &Self::ArrowUpLeftFromCircle => self.decompress(ARROW_UP_LEFT_FROM_CIRCLE),
+            &Self::ArrowUpLeftSquare => self.decompress(ARROW_UP_LEFT_SQUARE),
+            &Self::ArrowUpLeft => self.decompress(ARROW_UP_LEFT),
+            &Self::ArrowUpNarrowWide => self.decompress(ARROW_UP_NARROW_WIDE),
+            &Self::ArrowUpRightFromCircle => self.decompress(ARROW_UP_RIGHT_FROM_CIRCLE),
+            &Self::ArrowUpRightSquare => self.decompress(ARROW_UP_RIGHT_SQUARE),
+            &Self::ArrowUpRight => self.decompress(ARROW_UP_RIGHT),
+            &Self::ArrowUpSquare => self.decompress(ARROW_UP_SQUARE),
+            &Self::ArrowUpToLine => self.decompress(ARROW_UP_TO_LINE),
+            &Self::ArrowUpWideNarrow => self.decompress(ARROW_UP_WIDE_NARROW),
+            &Self::ArrowUpZA => self.decompress(ARROW_UP_ZA),
+            &Self::ArrowUp => self.decompress(ARROW_UP),
+            &Self::ArrowsUpFromLine => self.decompress(ARROWS_UP_FROM_LINE),
+            &Self::Asterisk => self.decompress(ASTERISK),
+            &Self::AtSign => self.decompress(AT_SIGN),
+            &Self::Atom => self.decompress(ATOM),
+            &Self::Award => self.decompress(AWARD),
+            &Self::Axe => self.decompress(AXE),
+            &Self::Axis3D => self.decompress(AXIS_3_D),
+            &Self::Baby => self.decompress(BABY),
+            &Self::Backpack => self.decompress(BACKPACK),
+            &Self::BadgeAlert => self.decompress(BADGE_ALERT),
+            &Self::BadgeCent => self.decompress(BADGE_CENT),
+            &Self::BadgeCheck => self.decompress(BADGE_CHECK),
+            &Self::BadgeDollarSign => self.decompress(BADGE_DOLLAR_SIGN),
+            &Self::BadgeEuro => self.decompress(BADGE_EURO),
+            &Self::BadgeHelp => self.decompress(BADGE_HELP),
+            &Self::BadgeIndianRupee => self.decompress(BADGE_INDIAN_RUPEE),
+            &Self::BadgeInfo => self.decompress(BADGE_INFO),
+            &Self::BadgeJapaneseYen => self.decompress(BADGE_JAPANESE_YEN),
+            &Self::BadgeMinus => self.decompress(BADGE_MINUS),
+            &Self::BadgePercent => self.decompress(BADGE_PERCENT),
+            &Self::BadgePlus => self.decompress(BADGE_PLUS),
+            &Self::BadgePoundSterling => self.decompress(BADGE_POUND_STERLING),
+            &Self::BadgeRussianRuble => self.decompress(BADGE_RUSSIAN_RUBLE),
+            &Self::BadgeSwissFranc => self.decompress(BADGE_SWISS_FRANC),
+            &Self::BadgeX => self.decompress(BADGE_X),
+            &Self::Badge => self.decompress(BADGE),
+            &Self::BaggageClaim => self.decompress(BAGGAGE_CLAIM),
+            &Self::Ban => self.decompress(BAN),
+            &Self::Banana => self.decompress(BANANA),
+            &Self::Banknote => self.decompress(BANKNOTE),
+            &Self::BarChart2 => self.decompress(BAR_CHART_2),
+            &Self::BarChart3 => self.decompress(BAR_CHART_3),
+            &Self::BarChart4 => self.decompress(BAR_CHART_4),
+            &Self::BarChartBig => self.decompress(BAR_CHART_BIG),
+            &Self::BarChartHorizontalBig => self.decompress(BAR_CHART_HORIZONTAL_BIG),
+            &Self::BarChartHorizontal => self.decompress(BAR_CHART_HORIZONTAL),
+            &Self::BarChart => self.decompress(BAR_CHART),
+            &Self::Baseline => self.decompress(BASELINE),
+            &Self::Bath => self.decompress(BATH),
+            &Self::BatteryCharging => self.decompress(BATTERY_CHARGING),
+            &Self::BatteryFull => self.decompress(BATTERY_FULL),
+            &Self::BatteryLow => self.decompress(BATTERY_LOW),
+            &Self::BatteryMedium => self.decompress(BATTERY_MEDIUM),
+            &Self::BatteryWarning => self.decompress(BATTERY_WARNING),
+            &Self::Battery => self.decompress(BATTERY),
+            &Self::Beaker => self.decompress(BEAKER),
+            &Self::BeanOff => self.decompress(BEAN_OFF),
+            &Self::Bean => self.decompress(BEAN),
+            &Self::BedDouble => self.decompress(BED_DOUBLE),
+            &Self::BedSingle => self.decompress(BED_SINGLE),
+            &Self::Bed => self.decompress(BED),
+            &Self::Beef => self.decompress(BEEF),
+            &Self::Beer => self.decompress(BEER),
+            &Self::BellDot => self.decompress(BELL_DOT),
+            &Self::BellMinus => self.decompress(BELL_MINUS),
+            &Self::BellOff => self.decompress(BELL_OFF),
+            &Self::BellPlus => self.decompress(BELL_PLUS),
+            &Self::BellRing => self.decompress(BELL_RING),
+            &Self::Bell => self.decompress(BELL),
+            &Self::Bike => self.decompress(BIKE),
+            &Self::Binary => self.decompress(BINARY),
+            &Self::Biohazard => self.decompress(BIOHAZARD),
+            &Self::Bird => self.decompress(BIRD),
+            &Self::Bitcoin => self.decompress(BITCOIN),
+            &Self::Blinds => self.decompress(BLINDS),
+            &Self::Blocks => self.decompress(BLOCKS),
+            &Self::BluetoothConnected => self.decompress(BLUETOOTH_CONNECTED),
+            &Self::BluetoothOff => self.decompress(BLUETOOTH_OFF),
+            &Self::BluetoothSearching => self.decompress(BLUETOOTH_SEARCHING),
+            &Self::Bluetooth => self.decompress(BLUETOOTH),
+            &Self::Bold => self.decompress(BOLD),
+            &Self::Bomb => self.decompress(BOMB),
+            &Self::Bone => self.decompress(BONE),
+            &Self::BookCopy => self.decompress(BOOK_COPY),
+            &Self::BookDown => self.decompress(BOOK_DOWN),
+            &Self::BookKey => self.decompress(BOOK_KEY),
+            &Self::BookLock => self.decompress(BOOK_LOCK),
+            &Self::BookMarked => self.decompress(BOOK_MARKED),
+            &Self::BookMinus => self.decompress(BOOK_MINUS),
+            &Self::BookOpenCheck => self.decompress(BOOK_OPEN_CHECK),
+            &Self::BookOpen => self.decompress(BOOK_OPEN),
+            &Self::BookPlus => self.decompress(BOOK_PLUS),
+            &Self::BookTemplate => self.decompress(BOOK_TEMPLATE),
+            &Self::BookUp2 => self.decompress(BOOK_UP_2),
+            &Self::BookUp => self.decompress(BOOK_UP),
+            &Self::BookX => self.decompress(BOOK_X),
+            &Self::Book => self.decompress(BOOK),
+            &Self::BookmarkMinus => self.decompress(BOOKMARK_MINUS),
+            &Self::BookmarkPlus => self.decompress(BOOKMARK_PLUS),
+            &Self::Bookmark => self.decompress(BOOKMARK),
+            &Self::BoomBox => self.decompress(BOOM_BOX),
+            &Self::Bot => self.decompress(BOT),
+            &Self::BoxSelect => self.decompress(BOX_SELECT),
+            &Self::Box => self.decompress(BOX),
+            &Self::Boxes => self.decompress(BOXES),
+            &Self::Braces => self.decompress(BRACES),
+            &Self::Brackets => self.decompress(BRACKETS),
+            &Self::BrainCircuit => self.decompress(BRAIN_CIRCUIT),
+            &Self::BrainCog => self.decompress(BRAIN_COG),
+            &Self::Brain => self.decompress(BRAIN),
+            &Self::Briefcase => self.decompress(BRIEFCASE),
+            &Self::BringToFront => self.decompress(BRING_TO_FRONT),
+            &Self::Brush => self.decompress(BRUSH),
+            &Self::BugOff => self.decompress(BUG_OFF),
+            &Self::BugPlay => self.decompress(BUG_PLAY),
+            &Self::Bug => self.decompress(BUG),
+            &Self::Building2 => self.decompress(BUILDING_2),
+            &Self::Building => self.decompress(BUILDING),
+            &Self::BusFront => self.decompress(BUS_FRONT),
+            &Self::Bus => self.decompress(BUS),
+            &Self::CableCar => self.decompress(CABLE_CAR),
+            &Self::Cable => self.decompress(CABLE),
+            &Self::CakeSlice => self.decompress(CAKE_SLICE),
+            &Self::Cake => self.decompress(CAKE),
+            &Self::Calculator => self.decompress(CALCULATOR),
+            &Self::CalendarCheck2 => self.decompress(CALENDAR_CHECK_2),
+            &Self::CalendarCheck => self.decompress(CALENDAR_CHECK),
+            &Self::CalendarClock => self.decompress(CALENDAR_CLOCK),
+            &Self::CalendarDays => self.decompress(CALENDAR_DAYS),
+            &Self::CalendarHeart => self.decompress(CALENDAR_HEART),
+            &Self::CalendarMinus => self.decompress(CALENDAR_MINUS),
+            &Self::CalendarOff => self.decompress(CALENDAR_OFF),
+            &Self::CalendarPlus => self.decompress(CALENDAR_PLUS),
+            &Self::CalendarRange => self.decompress(CALENDAR_RANGE),
+            &Self::CalendarSearch => self.decompress(CALENDAR_SEARCH),
+            &Self::CalendarX2 => self.decompress(CALENDAR_X_2),
+            &Self::CalendarX => self.decompress(CALENDAR_X),
+            &Self::Calendar => self.decompress(CALENDAR),
+            &Self::CameraOff => self.decompress(CAMERA_OFF),
+            &Self::Camera => self.decompress(CAMERA),
+            &Self::CandlestickChart => self.decompress(CANDLESTICK_CHART),
+            &Self::CandyCane => self.decompress(CANDY_CANE),
+            &Self::CandyOff => self.decompress(CANDY_OFF),
+            &Self::Candy => self.decompress(CANDY),
+            &Self::CarFront => self.decompress(CAR_FRONT),
+            &Self::CarTaxiFront => self.decompress(CAR_TAXI_FRONT),
+            &Self::Car => self.decompress(CAR),
+            &Self::Carrot => self.decompress(CARROT),
+            &Self::CaseLower => self.decompress(CASE_LOWER),
+            &Self::CaseSensitive => self.decompress(CASE_SENSITIVE),
+            &Self::CaseUpper => self.decompress(CASE_UPPER),
+            &Self::CassetteTape => self.decompress(CASSETTE_TAPE),
+            &Self::Cast => self.decompress(CAST),
+            &Self::Castle => self.decompress(CASTLE),
+            &Self::Cat => self.decompress(CAT),
+            &Self::CheckCheck => self.decompress(CHECK_CHECK),
+            &Self::CheckCircle2 => self.decompress(CHECK_CIRCLE_2),
+            &Self::CheckCircle => self.decompress(CHECK_CIRCLE),
+            &Self::CheckSquare => self.decompress(CHECK_SQUARE),
+            &Self::Check => self.decompress(CHECK),
+            &Self::ChefHat => self.decompress(CHEF_HAT),
+            &Self::Cherry => self.decompress(CHERRY),
+            &Self::ChevronDownCircle => self.decompress(CHEVRON_DOWN_CIRCLE),
+            &Self::ChevronDownSquare => self.decompress(CHEVRON_DOWN_SQUARE),
+            &Self::ChevronDown => self.decompress(CHEVRON_DOWN),
+            &Self::ChevronFirst => self.decompress(CHEVRON_FIRST),
+            &Self::ChevronLast => self.decompress(CHEVRON_LAST),
+            &Self::ChevronLeftCircle => self.decompress(CHEVRON_LEFT_CIRCLE),
+            &Self::ChevronLeftSquare => self.decompress(CHEVRON_LEFT_SQUARE),
+            &Self::ChevronLeft => self.decompress(CHEVRON_LEFT),
+            &Self::ChevronRightCircle => self.decompress(CHEVRON_RIGHT_CIRCLE),
+            &Self::ChevronRightSquare => self.decompress(CHEVRON_RIGHT_SQUARE),
+            &Self::ChevronRight => self.decompress(CHEVRON_RIGHT),
+            &Self::ChevronUpCircle => self.decompress(CHEVRON_UP_CIRCLE),
+            &Self::ChevronUpSquare => self.decompress(CHEVRON_UP_SQUARE),
+            &Self::ChevronUp => self.decompress(CHEVRON_UP),
+            &Self::ChevronsDownUp => self.decompress(CHEVRONS_DOWN_UP),
+            &Self::ChevronsDown => self.decompress(CHEVRONS_DOWN),
+            &Self::ChevronsLeftRight => self.decompress(CHEVRONS_LEFT_RIGHT),
+            &Self::ChevronsLeft => self.decompress(CHEVRONS_LEFT),
+            &Self::ChevronsRightLeft => self.decompress(CHEVRONS_RIGHT_LEFT),
+            &Self::ChevronsRight => self.decompress(CHEVRONS_RIGHT),
+            &Self::ChevronsUpDown => self.decompress(CHEVRONS_UP_DOWN),
+            &Self::ChevronsUp => self.decompress(CHEVRONS_UP),
+            &Self::Chrome => self.decompress(CHROME),
+            &Self::Church => self.decompress(CHURCH),
+            &Self::CigaretteOff => self.decompress(CIGARETTE_OFF),
+            &Self::Cigarette => self.decompress(CIGARETTE),
+            &Self::CircleDashed => self.decompress(CIRCLE_DASHED),
+            &Self::CircleDollarSign => self.decompress(CIRCLE_DOLLAR_SIGN),
+            &Self::CircleDotDashed => self.decompress(CIRCLE_DOT_DASHED),
+            &Self::CircleDot => self.decompress(CIRCLE_DOT),
+            &Self::CircleEllipsis => self.decompress(CIRCLE_ELLIPSIS),
+            &Self::CircleEqual => self.decompress(CIRCLE_EQUAL),
+            &Self::CircleOff => self.decompress(CIRCLE_OFF),
+            &Self::CircleSlash2 => self.decompress(CIRCLE_SLASH_2),
+            &Self::CircleSlash => self.decompress(CIRCLE_SLASH),
+            &Self::Circle => self.decompress(CIRCLE),
+            &Self::CircuitBoard => self.decompress(CIRCUIT_BOARD),
+            &Self::Citrus => self.decompress(CITRUS),
+            &Self::Clapperboard => self.decompress(CLAPPERBOARD),
+            &Self::ClipboardCheck => self.decompress(CLIPBOARD_CHECK),
+            &Self::ClipboardCopy => self.decompress(CLIPBOARD_COPY),
+            &Self::ClipboardEdit => self.decompress(CLIPBOARD_EDIT),
+            &Self::ClipboardList => self.decompress(CLIPBOARD_LIST),
+            &Self::ClipboardPaste => self.decompress(CLIPBOARD_PASTE),
+            &Self::ClipboardSignature => self.decompress(CLIPBOARD_SIGNATURE),
+            &Self::ClipboardType => self.decompress(CLIPBOARD_TYPE),
+            &Self::ClipboardX => self.decompress(CLIPBOARD_X),
+            &Self::Clipboard => self.decompress(CLIPBOARD),
+            &Self::Clock1 => self.decompress(CLOCK_1),
+            &Self::Clock10 => self.decompress(CLOCK_10),
+            &Self::Clock11 => self.decompress(CLOCK_11),
+            &Self::Clock12 => self.decompress(CLOCK_12),
+            &Self::Clock2 => self.decompress(CLOCK_2),
+            &Self::Clock3 => self.decompress(CLOCK_3),
+            &Self::Clock4 => self.decompress(CLOCK_4),
+            &Self::Clock5 => self.decompress(CLOCK_5),
+            &Self::Clock6 => self.decompress(CLOCK_6),
+            &Self::Clock7 => self.decompress(CLOCK_7),
+            &Self::Clock8 => self.decompress(CLOCK_8),
+            &Self::Clock9 => self.decompress(CLOCK_9),
+            &Self::Clock => self.decompress(CLOCK),
+            &Self::CloudCog => self.decompress(CLOUD_COG),
+            &Self::CloudDrizzle => self.decompress(CLOUD_DRIZZLE),
+            &Self::CloudFog => self.decompress(CLOUD_FOG),
+            &Self::CloudHail => self.decompress(CLOUD_HAIL),
+            &Self::CloudLightning => self.decompress(CLOUD_LIGHTNING),
+            &Self::CloudMoonRain => self.decompress(CLOUD_MOON_RAIN),
+            &Self::CloudMoon => self.decompress(CLOUD_MOON),
+            &Self::CloudOff => self.decompress(CLOUD_OFF),
+            &Self::CloudRainWind => self.decompress(CLOUD_RAIN_WIND),
+            &Self::CloudRain => self.decompress(CLOUD_RAIN),
+            &Self::CloudSnow => self.decompress(CLOUD_SNOW),
+            &Self::CloudSunRain => self.decompress(CLOUD_SUN_RAIN),
+            &Self::CloudSun => self.decompress(CLOUD_SUN),
+            &Self::Cloud => self.decompress(CLOUD),
+            &Self::Cloudy => self.decompress(CLOUDY),
+            &Self::Clover => self.decompress(CLOVER),
+            &Self::Club => self.decompress(CLUB),
+            &Self::Code2 => self.decompress(CODE_2),
+            &Self::Code => self.decompress(CODE),
+            &Self::Codepen => self.decompress(CODEPEN),
+            &Self::Codesandbox => self.decompress(CODESANDBOX),
+            &Self::Coffee => self.decompress(COFFEE),
+            &Self::Cog => self.decompress(COG),
+            &Self::Coins => self.decompress(COINS),
+            &Self::Columns => self.decompress(COLUMNS),
+            &Self::Combine => self.decompress(COMBINE),
+            &Self::Command => self.decompress(COMMAND),
+            &Self::Compass => self.decompress(COMPASS),
+            &Self::Component => self.decompress(COMPONENT),
+            &Self::Computer => self.decompress(COMPUTER),
+            &Self::ConciergeBell => self.decompress(CONCIERGE_BELL),
+            &Self::Construction => self.decompress(CONSTRUCTION),
+            &Self::Contact2 => self.decompress(CONTACT_2),
+            &Self::Contact => self.decompress(CONTACT),
+            &Self::Container => self.decompress(CONTAINER),
+            &Self::Contrast => self.decompress(CONTRAST),
+            &Self::Cookie => self.decompress(COOKIE),
+            &Self::CopyCheck => self.decompress(COPY_CHECK),
+            &Self::CopyMinus => self.decompress(COPY_MINUS),
+            &Self::CopyPlus => self.decompress(COPY_PLUS),
+            &Self::CopySlash => self.decompress(COPY_SLASH),
+            &Self::CopyX => self.decompress(COPY_X),
+            &Self::Copy => self.decompress(COPY),
+            &Self::Copyleft => self.decompress(COPYLEFT),
+            &Self::Copyright => self.decompress(COPYRIGHT),
+            &Self::CornerDownLeft => self.decompress(CORNER_DOWN_LEFT),
+            &Self::CornerDownRight => self.decompress(CORNER_DOWN_RIGHT),
+            &Self::CornerLeftDown => self.decompress(CORNER_LEFT_DOWN),
+            &Self::CornerLeftUp => self.decompress(CORNER_LEFT_UP),
+            &Self::CornerRightDown => self.decompress(CORNER_RIGHT_DOWN),
+            &Self::CornerRightUp => self.decompress(CORNER_RIGHT_UP),
+            &Self::CornerUpLeft => self.decompress(CORNER_UP_LEFT),
+            &Self::CornerUpRight => self.decompress(CORNER_UP_RIGHT),
+            &Self::Cpu => self.decompress(CPU),
+            &Self::CreativeCommons => self.decompress(CREATIVE_COMMONS),
+            &Self::CreditCard => self.decompress(CREDIT_CARD),
+            &Self::Croissant => self.decompress(CROISSANT),
+            &Self::Crop => self.decompress(CROP),
+            &Self::Cross => self.decompress(CROSS),
+            &Self::Crosshair => self.decompress(CROSSHAIR),
+            &Self::Crown => self.decompress(CROWN),
+            &Self::CupSoda => self.decompress(CUP_SODA),
+            &Self::Currency => self.decompress(CURRENCY),
+            &Self::DatabaseBackup => self.decompress(DATABASE_BACKUP),
+            &Self::DatabaseZap => self.decompress(DATABASE_ZAP),
+            &Self::Database => self.decompress(DATABASE),
+            &Self::Delete => self.decompress(DELETE),
+            &Self::Dessert => self.decompress(DESSERT),
+            &Self::Diamond => self.decompress(DIAMOND),
+            &Self::Dice1 => self.decompress(DICE_1),
+            &Self::Dice2 => self.decompress(DICE_2),
+            &Self::Dice3 => self.decompress(DICE_3),
+            &Self::Dice4 => self.decompress(DICE_4),
+            &Self::Dice5 => self.decompress(DICE_5),
+            &Self::Dice6 => self.decompress(DICE_6),
+            &Self::Dices => self.decompress(DICES),
+            &Self::Diff => self.decompress(DIFF),
+            &Self::Disc2 => self.decompress(DISC_2),
+            &Self::Disc3 => self.decompress(DISC_3),
+            &Self::Disc => self.decompress(DISC),
+            &Self::DivideCircle => self.decompress(DIVIDE_CIRCLE),
+            &Self::DivideSquare => self.decompress(DIVIDE_SQUARE),
+            &Self::Divide => self.decompress(DIVIDE),
+            &Self::DnaOff => self.decompress(DNA_OFF),
+            &Self::Dna => self.decompress(DNA),
+            &Self::Dog => self.decompress(DOG),
+            &Self::DollarSign => self.decompress(DOLLAR_SIGN),
+            &Self::Donut => self.decompress(DONUT),
+            &Self::DoorClosed => self.decompress(DOOR_CLOSED),
+            &Self::DoorOpen => self.decompress(DOOR_OPEN),
+            &Self::Dot => self.decompress(DOT),
+            &Self::DownloadCloud => self.decompress(DOWNLOAD_CLOUD),
+            &Self::Download => self.decompress(DOWNLOAD),
+            &Self::Dribbble => self.decompress(DRIBBBLE),
+            &Self::Droplet => self.decompress(DROPLET),
+            &Self::Droplets => self.decompress(DROPLETS),
+            &Self::Drumstick => self.decompress(DRUMSTICK),
+            &Self::Dumbbell => self.decompress(DUMBBELL),
+            &Self::EarOff => self.decompress(EAR_OFF),
+            &Self::Ear => self.decompress(EAR),
+            &Self::EggFried => self.decompress(EGG_FRIED),
+            &Self::EggOff => self.decompress(EGG_OFF),
+            &Self::Egg => self.decompress(EGG),
+            &Self::EqualNot => self.decompress(EQUAL_NOT),
+            &Self::Equal => self.decompress(EQUAL),
+            &Self::Eraser => self.decompress(ERASER),
+            &Self::Euro => self.decompress(EURO),
+            &Self::Expand => self.decompress(EXPAND),
+            &Self::ExternalLink => self.decompress(EXTERNAL_LINK),
+            &Self::EyeOff => self.decompress(EYE_OFF),
+            &Self::Eye => self.decompress(EYE),
+            &Self::Facebook => self.decompress(FACEBOOK),
+            &Self::Factory => self.decompress(FACTORY),
+            &Self::Fan => self.decompress(FAN),
+            &Self::FastForward => self.decompress(FAST_FORWARD),
+            &Self::Feather => self.decompress(FEATHER),
+            &Self::FerrisWheel => self.decompress(FERRIS_WHEEL),
+            &Self::Figma => self.decompress(FIGMA),
+            &Self::FileArchive => self.decompress(FILE_ARCHIVE),
+            &Self::FileAudio2 => self.decompress(FILE_AUDIO_2),
+            &Self::FileAudio => self.decompress(FILE_AUDIO),
+            &Self::FileAxis3D => self.decompress(FILE_AXIS_3_D),
+            &Self::FileBadge2 => self.decompress(FILE_BADGE_2),
+            &Self::FileBadge => self.decompress(FILE_BADGE),
+            &Self::FileBarChart2 => self.decompress(FILE_BAR_CHART_2),
+            &Self::FileBarChart => self.decompress(FILE_BAR_CHART),
+            &Self::FileBox => self.decompress(FILE_BOX),
+            &Self::FileCheck2 => self.decompress(FILE_CHECK_2),
+            &Self::FileCheck => self.decompress(FILE_CHECK),
+            &Self::FileClock => self.decompress(FILE_CLOCK),
+            &Self::FileCode2 => self.decompress(FILE_CODE_2),
+            &Self::FileCode => self.decompress(FILE_CODE),
+            &Self::FileCog => self.decompress(FILE_COG),
+            &Self::FileDiff => self.decompress(FILE_DIFF),
+            &Self::FileDigit => self.decompress(FILE_DIGIT),
+            &Self::FileDown => self.decompress(FILE_DOWN),
+            &Self::FileEdit => self.decompress(FILE_EDIT),
+            &Self::FileHeart => self.decompress(FILE_HEART),
+            &Self::FileImage => self.decompress(FILE_IMAGE),
+            &Self::FileInput => self.decompress(FILE_INPUT),
+            &Self::FileJson2 => self.decompress(FILE_JSON_2),
+            &Self::FileJson => self.decompress(FILE_JSON),
+            &Self::FileKey2 => self.decompress(FILE_KEY_2),
+            &Self::FileKey => self.decompress(FILE_KEY),
+            &Self::FileLineChart => self.decompress(FILE_LINE_CHART),
+            &Self::FileLock2 => self.decompress(FILE_LOCK_2),
+            &Self::FileLock => self.decompress(FILE_LOCK),
+            &Self::FileMinus2 => self.decompress(FILE_MINUS_2),
+            &Self::FileMinus => self.decompress(FILE_MINUS),
+            &Self::FileOutput => self.decompress(FILE_OUTPUT),
+            &Self::FilePieChart => self.decompress(FILE_PIE_CHART),
+            &Self::FilePlus2 => self.decompress(FILE_PLUS_2),
+            &Self::FilePlus => self.decompress(FILE_PLUS),
+            &Self::FileQuestion => self.decompress(FILE_QUESTION),
+            &Self::FileScan => self.decompress(FILE_SCAN),
+            &Self::FileSearch2 => self.decompress(FILE_SEARCH_2),
+            &Self::FileSearch => self.decompress(FILE_SEARCH),
+            &Self::FileSignature => self.decompress(FILE_SIGNATURE),
+            &Self::FileSpreadsheet => self.decompress(FILE_SPREADSHEET),
+            &Self::FileStack => self.decompress(FILE_STACK),
+            &Self::FileSymlink => self.decompress(FILE_SYMLINK),
+            &Self::FileTerminal => self.decompress(FILE_TERMINAL),
+            &Self::FileText => self.decompress(FILE_TEXT),
+            &Self::FileType2 => self.decompress(FILE_TYPE_2),
+            &Self::FileType => self.decompress(FILE_TYPE),
+            &Self::FileUp => self.decompress(FILE_UP),
+            &Self::FileVideo2 => self.decompress(FILE_VIDEO_2),
+            &Self::FileVideo => self.decompress(FILE_VIDEO),
+            &Self::FileVolume2 => self.decompress(FILE_VOLUME_2),
+            &Self::FileVolume => self.decompress(FILE_VOLUME),
+            &Self::FileWarning => self.decompress(FILE_WARNING),
+            &Self::FileX2 => self.decompress(FILE_X_2),
+            &Self::FileX => self.decompress(FILE_X),
+            &Self::File => self.decompress(FILE),
+            &Self::Files => self.decompress(FILES),
+            &Self::Film => self.decompress(FILM),
+            &Self::FilterX => self.decompress(FILTER_X),
+            &Self::Filter => self.decompress(FILTER),
+            &Self::Fingerprint => self.decompress(FINGERPRINT),
+            &Self::FishOff => self.decompress(FISH_OFF),
+            &Self::FishSymbol => self.decompress(FISH_SYMBOL),
+            &Self::Fish => self.decompress(FISH),
+            &Self::FlagOff => self.decompress(FLAG_OFF),
+            &Self::FlagTriangleLeft => self.decompress(FLAG_TRIANGLE_LEFT),
+            &Self::FlagTriangleRight => self.decompress(FLAG_TRIANGLE_RIGHT),
+            &Self::Flag => self.decompress(FLAG),
+            &Self::Flame => self.decompress(FLAME),
+            &Self::FlashlightOff => self.decompress(FLASHLIGHT_OFF),
+            &Self::Flashlight => self.decompress(FLASHLIGHT),
+            &Self::FlaskConicalOff => self.decompress(FLASK_CONICAL_OFF),
+            &Self::FlaskConical => self.decompress(FLASK_CONICAL),
+            &Self::FlaskRound => self.decompress(FLASK_ROUND),
+            &Self::FlipHorizontal2 => self.decompress(FLIP_HORIZONTAL_2),
+            &Self::FlipHorizontal => self.decompress(FLIP_HORIZONTAL),
+            &Self::FlipVertical2 => self.decompress(FLIP_VERTICAL_2),
+            &Self::FlipVertical => self.decompress(FLIP_VERTICAL),
+            &Self::Flower2 => self.decompress(FLOWER_2),
+            &Self::Flower => self.decompress(FLOWER),
+            &Self::Focus => self.decompress(FOCUS),
+            &Self::FoldHorizontal => self.decompress(FOLD_HORIZONTAL),
+            &Self::FoldVertical => self.decompress(FOLD_VERTICAL),
+            &Self::FolderArchive => self.decompress(FOLDER_ARCHIVE),
+            &Self::FolderCheck => self.decompress(FOLDER_CHECK),
+            &Self::FolderClock => self.decompress(FOLDER_CLOCK),
+            &Self::FolderClosed => self.decompress(FOLDER_CLOSED),
+            &Self::FolderCog => self.decompress(FOLDER_COG),
+            &Self::FolderDot => self.decompress(FOLDER_DOT),
+            &Self::FolderDown => self.decompress(FOLDER_DOWN),
+            &Self::FolderEdit => self.decompress(FOLDER_EDIT),
+            &Self::FolderGit2 => self.decompress(FOLDER_GIT_2),
+            &Self::FolderGit => self.decompress(FOLDER_GIT),
+            &Self::FolderHeart => self.decompress(FOLDER_HEART),
+            &Self::FolderInput => self.decompress(FOLDER_INPUT),
+            &Self::FolderKanban => self.decompress(FOLDER_KANBAN),
+            &Self::FolderKey => self.decompress(FOLDER_KEY),
+            &Self::FolderLock => self.decompress(FOLDER_LOCK),
+            &Self::FolderMinus => self.decompress(FOLDER_MINUS),
+            &Self::FolderOpenDot => self.decompress(FOLDER_OPEN_DOT),
+            &Self::FolderOpen => self.decompress(FOLDER_OPEN),
+            &Self::FolderOutput => self.decompress(FOLDER_OUTPUT),
+            &Self::FolderPlus => self.decompress(FOLDER_PLUS),
+            &Self::FolderRoot => self.decompress(FOLDER_ROOT),
+            &Self::FolderSearch2 => self.decompress(FOLDER_SEARCH_2),
+            &Self::FolderSearch => self.decompress(FOLDER_SEARCH),
+            &Self::FolderSymlink => self.decompress(FOLDER_SYMLINK),
+            &Self::FolderSync => self.decompress(FOLDER_SYNC),
+            &Self::FolderTree => self.decompress(FOLDER_TREE),
+            &Self::FolderUp => self.decompress(FOLDER_UP),
+            &Self::FolderX => self.decompress(FOLDER_X),
+            &Self::Folder => self.decompress(FOLDER),
+            &Self::Folders => self.decompress(FOLDERS),
+            &Self::Footprints => self.decompress(FOOTPRINTS),
+            &Self::Forklift => self.decompress(FORKLIFT),
+            &Self::FormInput => self.decompress(FORM_INPUT),
+            &Self::Forward => self.decompress(FORWARD),
+            &Self::Frame => self.decompress(FRAME),
+            &Self::Framer => self.decompress(FRAMER),
+            &Self::Frown => self.decompress(FROWN),
+            &Self::Fuel => self.decompress(FUEL),
+            &Self::FunctionSquare => self.decompress(FUNCTION_SQUARE),
+            &Self::GalleryHorizontalEnd => self.decompress(GALLERY_HORIZONTAL_END),
+            &Self::GalleryHorizontal => self.decompress(GALLERY_HORIZONTAL),
+            &Self::GalleryThumbnails => self.decompress(GALLERY_THUMBNAILS),
+            &Self::GalleryVerticalEnd => self.decompress(GALLERY_VERTICAL_END),
+            &Self::GalleryVertical => self.decompress(GALLERY_VERTICAL),
+            &Self::Gamepad2 => self.decompress(GAMEPAD_2),
+            &Self::Gamepad => self.decompress(GAMEPAD),
+            &Self::GanttChartSquare => self.decompress(GANTT_CHART_SQUARE),
+            &Self::GanttChart => self.decompress(GANTT_CHART),
+            &Self::GaugeCircle => self.decompress(GAUGE_CIRCLE),
+            &Self::Gauge => self.decompress(GAUGE),
+            &Self::Gavel => self.decompress(GAVEL),
+            &Self::Gem => self.decompress(GEM),
+            &Self::Ghost => self.decompress(GHOST),
+            &Self::Gift => self.decompress(GIFT),
+            &Self::GitBranchPlus => self.decompress(GIT_BRANCH_PLUS),
+            &Self::GitBranch => self.decompress(GIT_BRANCH),
+            &Self::GitCommit => self.decompress(GIT_COMMIT),
+            &Self::GitCompare => self.decompress(GIT_COMPARE),
+            &Self::GitFork => self.decompress(GIT_FORK),
+            &Self::GitMerge => self.decompress(GIT_MERGE),
+            &Self::GitPullRequestClosed => self.decompress(GIT_PULL_REQUEST_CLOSED),
+            &Self::GitPullRequestDraft => self.decompress(GIT_PULL_REQUEST_DRAFT),
+            &Self::GitPullRequest => self.decompress(GIT_PULL_REQUEST),
+            &Self::Github => self.decompress(GITHUB),
+            &Self::Gitlab => self.decompress(GITLAB),
+            &Self::GlassWater => self.decompress(GLASS_WATER),
+            &Self::Glasses => self.decompress(GLASSES),
+            &Self::Globe2 => self.decompress(GLOBE_2),
+            &Self::Globe => self.decompress(GLOBE),
+            &Self::Goal => self.decompress(GOAL),
+            &Self::Grab => self.decompress(GRAB),
+            &Self::GraduationCap => self.decompress(GRADUATION_CAP),
+            &Self::Grape => self.decompress(GRAPE),
+            &Self::Grid2X2 => self.decompress(GRID_2_X_2),
+            &Self::Grid3X3 => self.decompress(GRID_3_X_3),
+            &Self::GripHorizontal => self.decompress(GRIP_HORIZONTAL),
+            &Self::GripVertical => self.decompress(GRIP_VERTICAL),
+            &Self::Grip => self.decompress(GRIP),
+            &Self::Group => self.decompress(GROUP),
+            &Self::Hammer => self.decompress(HAMMER),
+            &Self::HandMetal => self.decompress(HAND_METAL),
+            &Self::Hand => self.decompress(HAND),
+            &Self::HardDriveDownload => self.decompress(HARD_DRIVE_DOWNLOAD),
+            &Self::HardDriveUpload => self.decompress(HARD_DRIVE_UPLOAD),
+            &Self::HardDrive => self.decompress(HARD_DRIVE),
+            &Self::HardHat => self.decompress(HARD_HAT),
+            &Self::Hash => self.decompress(HASH),
+            &Self::Haze => self.decompress(HAZE),
+            &Self::HdmiPort => self.decompress(HDMI_PORT),
+            &Self::Heading1 => self.decompress(HEADING_1),
+            &Self::Heading2 => self.decompress(HEADING_2),
+            &Self::Heading3 => self.decompress(HEADING_3),
+            &Self::Heading4 => self.decompress(HEADING_4),
+            &Self::Heading5 => self.decompress(HEADING_5),
+            &Self::Heading6 => self.decompress(HEADING_6),
+            &Self::Heading => self.decompress(HEADING),
+            &Self::Headphones => self.decompress(HEADPHONES),
+            &Self::HeartCrack => self.decompress(HEART_CRACK),
+            &Self::HeartHandshake => self.decompress(HEART_HANDSHAKE),
+            &Self::HeartOff => self.decompress(HEART_OFF),
+            &Self::HeartPulse => self.decompress(HEART_PULSE),
+            &Self::Heart => self.decompress(HEART),
+            &Self::HelpCircle => self.decompress(HELP_CIRCLE),
+            &Self::HelpingHand => self.decompress(HELPING_HAND),
+            &Self::Hexagon => self.decompress(HEXAGON),
+            &Self::Highlighter => self.decompress(HIGHLIGHTER),
+            &Self::History => self.decompress(HISTORY),
+            &Self::Home => self.decompress(HOME),
+            &Self::HopOff => self.decompress(HOP_OFF),
+            &Self::Hop => self.decompress(HOP),
+            &Self::Hotel => self.decompress(HOTEL),
+            &Self::Hourglass => self.decompress(HOURGLASS),
+            &Self::IceCream2 => self.decompress(ICE_CREAM_2),
+            &Self::IceCream => self.decompress(ICE_CREAM),
+            &Self::ImageMinus => self.decompress(IMAGE_MINUS),
+            &Self::ImageOff => self.decompress(IMAGE_OFF),
+            &Self::ImagePlus => self.decompress(IMAGE_PLUS),
+            &Self::Image => self.decompress(IMAGE),
+            &Self::Import => self.decompress(IMPORT),
+            &Self::Inbox => self.decompress(INBOX),
+            &Self::Indent => self.decompress(INDENT),
+            &Self::IndianRupee => self.decompress(INDIAN_RUPEE),
+            &Self::Infinity => self.decompress(INFINITY),
+            &Self::Info => self.decompress(INFO),
+            &Self::Instagram => self.decompress(INSTAGRAM),
+            &Self::Italic => self.decompress(ITALIC),
+            &Self::IterationCcw => self.decompress(ITERATION_CCW),
+            &Self::IterationCw => self.decompress(ITERATION_CW),
+            &Self::JapaneseYen => self.decompress(JAPANESE_YEN),
+            &Self::Joystick => self.decompress(JOYSTICK),
+            &Self::KanbanSquareDashed => self.decompress(KANBAN_SQUARE_DASHED),
+            &Self::KanbanSquare => self.decompress(KANBAN_SQUARE),
+            &Self::Kanban => self.decompress(KANBAN),
+            &Self::KeyRound => self.decompress(KEY_ROUND),
+            &Self::KeySquare => self.decompress(KEY_SQUARE),
+            &Self::Key => self.decompress(KEY),
+            &Self::Keyboard => self.decompress(KEYBOARD),
+            &Self::LampCeiling => self.decompress(LAMP_CEILING),
+            &Self::LampDesk => self.decompress(LAMP_DESK),
+            &Self::LampFloor => self.decompress(LAMP_FLOOR),
+            &Self::LampWallDown => self.decompress(LAMP_WALL_DOWN),
+            &Self::LampWallUp => self.decompress(LAMP_WALL_UP),
+            &Self::Lamp => self.decompress(LAMP),
+            &Self::Landmark => self.decompress(LANDMARK),
+            &Self::Languages => self.decompress(LANGUAGES),
+            &Self::Laptop2 => self.decompress(LAPTOP_2),
+            &Self::Laptop => self.decompress(LAPTOP),
+            &Self::LassoSelect => self.decompress(LASSO_SELECT),
+            &Self::Lasso => self.decompress(LASSO),
+            &Self::Laugh => self.decompress(LAUGH),
+            &Self::Layers => self.decompress(LAYERS),
+            &Self::LayoutDashboard => self.decompress(LAYOUT_DASHBOARD),
+            &Self::LayoutGrid => self.decompress(LAYOUT_GRID),
+            &Self::LayoutList => self.decompress(LAYOUT_LIST),
+            &Self::LayoutPanelLeft => self.decompress(LAYOUT_PANEL_LEFT),
+            &Self::LayoutPanelTop => self.decompress(LAYOUT_PANEL_TOP),
+            &Self::LayoutTemplate => self.decompress(LAYOUT_TEMPLATE),
+            &Self::Layout => self.decompress(LAYOUT),
+            &Self::Leaf => self.decompress(LEAF),
+            &Self::LeafyGreen => self.decompress(LEAFY_GREEN),
+            &Self::Library => self.decompress(LIBRARY),
+            &Self::LifeBuoy => self.decompress(LIFE_BUOY),
+            &Self::Ligature => self.decompress(LIGATURE),
+            &Self::LightbulbOff => self.decompress(LIGHTBULB_OFF),
+            &Self::Lightbulb => self.decompress(LIGHTBULB),
+            &Self::LineChart => self.decompress(LINE_CHART),
+            &Self::Link2Off => self.decompress(LINK_2_OFF),
+            &Self::Link2 => self.decompress(LINK_2),
+            &Self::Link => self.decompress(LINK),
+            &Self::Linkedin => self.decompress(LINKEDIN),
+            &Self::ListChecks => self.decompress(LIST_CHECKS),
+            &Self::ListEnd => self.decompress(LIST_END),
+            &Self::ListFilter => self.decompress(LIST_FILTER),
+            &Self::ListMinus => self.decompress(LIST_MINUS),
+            &Self::ListMusic => self.decompress(LIST_MUSIC),
+            &Self::ListOrdered => self.decompress(LIST_ORDERED),
+            &Self::ListPlus => self.decompress(LIST_PLUS),
+            &Self::ListRestart => self.decompress(LIST_RESTART),
+            &Self::ListStart => self.decompress(LIST_START),
+            &Self::ListTodo => self.decompress(LIST_TODO),
+            &Self::ListTree => self.decompress(LIST_TREE),
+            &Self::ListVideo => self.decompress(LIST_VIDEO),
+            &Self::ListX => self.decompress(LIST_X),
+            &Self::List => self.decompress(LIST),
+            &Self::Loader2 => self.decompress(LOADER_2),
+            &Self::Loader => self.decompress(LOADER),
+            &Self::LocateFixed => self.decompress(LOCATE_FIXED),
+            &Self::LocateOff => self.decompress(LOCATE_OFF),
+            &Self::Locate => self.decompress(LOCATE),
+            &Self::Lock => self.decompress(LOCK),
+            &Self::LogIn => self.decompress(LOG_IN),
+            &Self::LogOut => self.decompress(LOG_OUT),
+            &Self::Lollipop => self.decompress(LOLLIPOP),
+            &Self::Luggage => self.decompress(LUGGAGE),
+            &Self::MSquare => self.decompress(M_SQUARE),
+            &Self::Magnet => self.decompress(MAGNET),
+            &Self::MailCheck => self.decompress(MAIL_CHECK),
+            &Self::MailMinus => self.decompress(MAIL_MINUS),
+            &Self::MailOpen => self.decompress(MAIL_OPEN),
+            &Self::MailPlus => self.decompress(MAIL_PLUS),
+            &Self::MailQuestion => self.decompress(MAIL_QUESTION),
+            &Self::MailSearch => self.decompress(MAIL_SEARCH),
+            &Self::MailWarning => self.decompress(MAIL_WARNING),
+            &Self::MailX => self.decompress(MAIL_X),
+            &Self::Mail => self.decompress(MAIL),
+            &Self::Mailbox => self.decompress(MAILBOX),
+            &Self::Mails => self.decompress(MAILS),
+            &Self::MapPinOff => self.decompress(MAP_PIN_OFF),
+            &Self::MapPin => self.decompress(MAP_PIN),
+            &Self::Map => self.decompress(MAP),
+            &Self::Martini => self.decompress(MARTINI),
+            &Self::Maximize2 => self.decompress(MAXIMIZE_2),
+            &Self::Maximize => self.decompress(MAXIMIZE),
+            &Self::Medal => self.decompress(MEDAL),
+            &Self::MegaphoneOff => self.decompress(MEGAPHONE_OFF),
+            &Self::Megaphone => self.decompress(MEGAPHONE),
+            &Self::Meh => self.decompress(MEH),
+            &Self::MemoryStick => self.decompress(MEMORY_STICK),
+            &Self::MenuSquare => self.decompress(MENU_SQUARE),
+            &Self::Menu => self.decompress(MENU),
+            &Self::Merge => self.decompress(MERGE),
+            &Self::MessageCircle => self.decompress(MESSAGE_CIRCLE),
+            &Self::MessageSquareDashed => self.decompress(MESSAGE_SQUARE_DASHED),
+            &Self::MessageSquarePlus => self.decompress(MESSAGE_SQUARE_PLUS),
+            &Self::MessageSquare => self.decompress(MESSAGE_SQUARE),
+            &Self::MessagesSquare => self.decompress(MESSAGES_SQUARE),
+            &Self::Mic2 => self.decompress(MIC_2),
+            &Self::MicOff => self.decompress(MIC_OFF),
+            &Self::Mic => self.decompress(MIC),
+            &Self::Microscope => self.decompress(MICROSCOPE),
+            &Self::Microwave => self.decompress(MICROWAVE),
+            &Self::Milestone => self.decompress(MILESTONE),
+            &Self::MilkOff => self.decompress(MILK_OFF),
+            &Self::Milk => self.decompress(MILK),
+            &Self::Minimize2 => self.decompress(MINIMIZE_2),
+            &Self::Minimize => self.decompress(MINIMIZE),
+            &Self::MinusCircle => self.decompress(MINUS_CIRCLE),
+            &Self::MinusSquare => self.decompress(MINUS_SQUARE),
+            &Self::Minus => self.decompress(MINUS),
+            &Self::MonitorCheck => self.decompress(MONITOR_CHECK),
+            &Self::MonitorDot => self.decompress(MONITOR_DOT),
+            &Self::MonitorDown => self.decompress(MONITOR_DOWN),
+            &Self::MonitorOff => self.decompress(MONITOR_OFF),
+            &Self::MonitorPause => self.decompress(MONITOR_PAUSE),
+            &Self::MonitorPlay => self.decompress(MONITOR_PLAY),
+            &Self::MonitorSmartphone => self.decompress(MONITOR_SMARTPHONE),
+            &Self::MonitorSpeaker => self.decompress(MONITOR_SPEAKER),
+            &Self::MonitorStop => self.decompress(MONITOR_STOP),
+            &Self::MonitorUp => self.decompress(MONITOR_UP),
+            &Self::MonitorX => self.decompress(MONITOR_X),
+            &Self::Monitor => self.decompress(MONITOR),
+            &Self::MoonStar => self.decompress(MOON_STAR),
+            &Self::Moon => self.decompress(MOON),
+            &Self::MoreHorizontal => self.decompress(MORE_HORIZONTAL),
+            &Self::MoreVertical => self.decompress(MORE_VERTICAL),
+            &Self::MountainSnow => self.decompress(MOUNTAIN_SNOW),
+            &Self::Mountain => self.decompress(MOUNTAIN),
+            &Self::MousePointer2 => self.decompress(MOUSE_POINTER_2),
+            &Self::MousePointerClick => self.decompress(MOUSE_POINTER_CLICK),
+            &Self::MousePointerSquareDashed => self.decompress(MOUSE_POINTER_SQUARE_DASHED),
+            &Self::MousePointerSquare => self.decompress(MOUSE_POINTER_SQUARE),
+            &Self::MousePointer => self.decompress(MOUSE_POINTER),
+            &Self::Mouse => self.decompress(MOUSE),
+            &Self::Move3D => self.decompress(MOVE_3_D),
+            &Self::MoveDiagonal2 => self.decompress(MOVE_DIAGONAL_2),
+            &Self::MoveDiagonal => self.decompress(MOVE_DIAGONAL),
+            &Self::MoveDownLeft => self.decompress(MOVE_DOWN_LEFT),
+            &Self::MoveDownRight => self.decompress(MOVE_DOWN_RIGHT),
+            &Self::MoveDown => self.decompress(MOVE_DOWN),
+            &Self::MoveHorizontal => self.decompress(MOVE_HORIZONTAL),
+            &Self::MoveLeft => self.decompress(MOVE_LEFT),
+            &Self::MoveRight => self.decompress(MOVE_RIGHT),
+            &Self::MoveUpLeft => self.decompress(MOVE_UP_LEFT),
+            &Self::MoveUpRight => self.decompress(MOVE_UP_RIGHT),
+            &Self::MoveUp => self.decompress(MOVE_UP),
+            &Self::MoveVertical => self.decompress(MOVE_VERTICAL),
+            &Self::Move => self.decompress(MOVE),
+            &Self::Music2 => self.decompress(MUSIC_2),
+            &Self::Music3 => self.decompress(MUSIC_3),
+            &Self::Music4 => self.decompress(MUSIC_4),
+            &Self::Music => self.decompress(MUSIC),
+            &Self::Navigation2Off => self.decompress(NAVIGATION_2_OFF),
+            &Self::Navigation2 => self.decompress(NAVIGATION_2),
+            &Self::NavigationOff => self.decompress(NAVIGATION_OFF),
+            &Self::Navigation => self.decompress(NAVIGATION),
+            &Self::Network => self.decompress(NETWORK),
+            &Self::Newspaper => self.decompress(NEWSPAPER),
+            &Self::Nfc => self.decompress(NFC),
+            &Self::NutOff => self.decompress(NUT_OFF),
+            &Self::Nut => self.decompress(NUT),
+            &Self::Octagon => self.decompress(OCTAGON),
+            &Self::Option => self.decompress(OPTION),
+            &Self::Orbit => self.decompress(ORBIT),
+            &Self::Outdent => self.decompress(OUTDENT),
+            &Self::Package2 => self.decompress(PACKAGE_2),
+            &Self::PackageCheck => self.decompress(PACKAGE_CHECK),
+            &Self::PackageMinus => self.decompress(PACKAGE_MINUS),
+            &Self::PackageOpen => self.decompress(PACKAGE_OPEN),
+            &Self::PackagePlus => self.decompress(PACKAGE_PLUS),
+            &Self::PackageSearch => self.decompress(PACKAGE_SEARCH),
+            &Self::PackageX => self.decompress(PACKAGE_X),
+            &Self::Package => self.decompress(PACKAGE),
+            &Self::PaintBucket => self.decompress(PAINT_BUCKET),
+            &Self::Paintbrush2 => self.decompress(PAINTBRUSH_2),
+            &Self::Paintbrush => self.decompress(PAINTBRUSH),
+            &Self::Palette => self.decompress(PALETTE),
+            &Self::Palmtree => self.decompress(PALMTREE),
+            &Self::PanelBottomClose => self.decompress(PANEL_BOTTOM_CLOSE),
+            &Self::PanelBottomInactive => self.decompress(PANEL_BOTTOM_INACTIVE),
+            &Self::PanelBottomOpen => self.decompress(PANEL_BOTTOM_OPEN),
+            &Self::PanelBottom => self.decompress(PANEL_BOTTOM),
+            &Self::PanelLeftClose => self.decompress(PANEL_LEFT_CLOSE),
+            &Self::PanelLeftInactive => self.decompress(PANEL_LEFT_INACTIVE),
+            &Self::PanelLeftOpen => self.decompress(PANEL_LEFT_OPEN),
+            &Self::PanelLeft => self.decompress(PANEL_LEFT),
+            &Self::PanelRightClose => self.decompress(PANEL_RIGHT_CLOSE),
+            &Self::PanelRightInactive => self.decompress(PANEL_RIGHT_INACTIVE),
+            &Self::PanelRightOpen => self.decompress(PANEL_RIGHT_OPEN),
+            &Self::PanelRight => self.decompress(PANEL_RIGHT),
+            &Self::PanelTopClose => self.decompress(PANEL_TOP_CLOSE),
+            &Self::PanelTopInactive => self.decompress(PANEL_TOP_INACTIVE),
+            &Self::PanelTopOpen => self.decompress(PANEL_TOP_OPEN),
+            &Self::PanelTop => self.decompress(PANEL_TOP),
+            &Self::Paperclip => self.decompress(PAPERCLIP),
+            &Self::Parentheses => self.decompress(PARENTHESES),
+            &Self::ParkingCircleOff => self.decompress(PARKING_CIRCLE_OFF),
+            &Self::ParkingCircle => self.decompress(PARKING_CIRCLE),
+            &Self::ParkingMeter => self.decompress(PARKING_METER),
+            &Self::ParkingSquareOff => self.decompress(PARKING_SQUARE_OFF),
+            &Self::ParkingSquare => self.decompress(PARKING_SQUARE),
+            &Self::PartyPopper => self.decompress(PARTY_POPPER),
+            &Self::PauseCircle => self.decompress(PAUSE_CIRCLE),
+            &Self::PauseOctagon => self.decompress(PAUSE_OCTAGON),
+            &Self::Pause => self.decompress(PAUSE),
+            &Self::PawPrint => self.decompress(PAW_PRINT),
+            &Self::PcCase => self.decompress(PC_CASE),
+            &Self::PenLine => self.decompress(PEN_LINE),
+            &Self::PenSquare => self.decompress(PEN_SQUARE),
+            &Self::PenTool => self.decompress(PEN_TOOL),
+            &Self::Pen => self.decompress(PEN),
+            &Self::PencilLine => self.decompress(PENCIL_LINE),
+            &Self::PencilRuler => self.decompress(PENCIL_RULER),
+            &Self::Pencil => self.decompress(PENCIL),
+            &Self::PercentCircle => self.decompress(PERCENT_CIRCLE),
+            &Self::PercentDiamond => self.decompress(PERCENT_DIAMOND),
+            &Self::PercentSquare => self.decompress(PERCENT_SQUARE),
+            &Self::Percent => self.decompress(PERCENT),
+            &Self::PersonStanding => self.decompress(PERSON_STANDING),
+            &Self::PhoneCall => self.decompress(PHONE_CALL),
+            &Self::PhoneForwarded => self.decompress(PHONE_FORWARDED),
+            &Self::PhoneIncoming => self.decompress(PHONE_INCOMING),
+            &Self::PhoneMissed => self.decompress(PHONE_MISSED),
+            &Self::PhoneOff => self.decompress(PHONE_OFF),
+            &Self::PhoneOutgoing => self.decompress(PHONE_OUTGOING),
+            &Self::Phone => self.decompress(PHONE),
+            &Self::PiSquare => self.decompress(PI_SQUARE),
+            &Self::Pi => self.decompress(PI),
+            &Self::PictureInPicture2 => self.decompress(PICTURE_IN_PICTURE_2),
+            &Self::PictureInPicture => self.decompress(PICTURE_IN_PICTURE),
+            &Self::PieChart => self.decompress(PIE_CHART),
+            &Self::PiggyBank => self.decompress(PIGGY_BANK),
+            &Self::PilcrowSquare => self.decompress(PILCROW_SQUARE),
+            &Self::Pilcrow => self.decompress(PILCROW),
+            &Self::Pill => self.decompress(PILL),
+            &Self::PinOff => self.decompress(PIN_OFF),
+            &Self::Pin => self.decompress(PIN),
+            &Self::Pipette => self.decompress(PIPETTE),
+            &Self::Pizza => self.decompress(PIZZA),
+            &Self::PlaneLanding => self.decompress(PLANE_LANDING),
+            &Self::PlaneTakeoff => self.decompress(PLANE_TAKEOFF),
+            &Self::Plane => self.decompress(PLANE),
+            &Self::PlayCircle => self.decompress(PLAY_CIRCLE),
+            &Self::PlaySquare => self.decompress(PLAY_SQUARE),
+            &Self::Play => self.decompress(PLAY),
+            &Self::Plug2 => self.decompress(PLUG_2),
+            &Self::PlugZap2 => self.decompress(PLUG_ZAP_2),
+            &Self::PlugZap => self.decompress(PLUG_ZAP),
+            &Self::Plug => self.decompress(PLUG),
+            &Self::PlusCircle => self.decompress(PLUS_CIRCLE),
+            &Self::PlusSquare => self.decompress(PLUS_SQUARE),
+            &Self::Plus => self.decompress(PLUS),
+            &Self::PocketKnife => self.decompress(POCKET_KNIFE),
+            &Self::Pocket => self.decompress(POCKET),
+            &Self::Podcast => self.decompress(PODCAST),
+            &Self::Pointer => self.decompress(POINTER),
+            &Self::Popcorn => self.decompress(POPCORN),
+            &Self::Popsicle => self.decompress(POPSICLE),
+            &Self::PoundSterling => self.decompress(POUND_STERLING),
+            &Self::PowerOff => self.decompress(POWER_OFF),
+            &Self::Power => self.decompress(POWER),
+            &Self::Presentation => self.decompress(PRESENTATION),
+            &Self::Printer => self.decompress(PRINTER),
+            &Self::Projector => self.decompress(PROJECTOR),
+            &Self::Puzzle => self.decompress(PUZZLE),
+            &Self::QrCode => self.decompress(QR_CODE),
+            &Self::Quote => self.decompress(QUOTE),
+            &Self::Rabbit => self.decompress(RABBIT),
+            &Self::Radar => self.decompress(RADAR),
+            &Self::Radiation => self.decompress(RADIATION),
+            &Self::RadioReceiver => self.decompress(RADIO_RECEIVER),
+            &Self::RadioTower => self.decompress(RADIO_TOWER),
+            &Self::Radio => self.decompress(RADIO),
+            &Self::RailSymbol => self.decompress(RAIL_SYMBOL),
+            &Self::Rainbow => self.decompress(RAINBOW),
+            &Self::Rat => self.decompress(RAT),
+            &Self::Ratio => self.decompress(RATIO),
+            &Self::Receipt => self.decompress(RECEIPT),
+            &Self::RectangleHorizontal => self.decompress(RECTANGLE_HORIZONTAL),
+            &Self::RectangleVertical => self.decompress(RECTANGLE_VERTICAL),
+            &Self::Recycle => self.decompress(RECYCLE),
+            &Self::Redo2 => self.decompress(REDO_2),
+            &Self::RedoDot => self.decompress(REDO_DOT),
+            &Self::Redo => self.decompress(REDO),
+            &Self::RefreshCcwDot => self.decompress(REFRESH_CCW_DOT),
+            &Self::RefreshCcw => self.decompress(REFRESH_CCW),
+            &Self::RefreshCwOff => self.decompress(REFRESH_CW_OFF),
+            &Self::RefreshCw => self.decompress(REFRESH_CW),
+            &Self::Refrigerator => self.decompress(REFRIGERATOR),
+            &Self::Regex => self.decompress(REGEX),
+            &Self::RemoveFormatting => self.decompress(REMOVE_FORMATTING),
+            &Self::Repeat1 => self.decompress(REPEAT_1),
+            &Self::Repeat2 => self.decompress(REPEAT_2),
+            &Self::Repeat => self.decompress(REPEAT),
+            &Self::ReplaceAll => self.decompress(REPLACE_ALL),
+            &Self::Replace => self.decompress(REPLACE),
+            &Self::ReplyAll => self.decompress(REPLY_ALL),
+            &Self::Reply => self.decompress(REPLY),
+            &Self::Rewind => self.decompress(REWIND),
+            &Self::Rocket => self.decompress(ROCKET),
+            &Self::RockingChair => self.decompress(ROCKING_CHAIR),
+            &Self::RollerCoaster => self.decompress(ROLLER_COASTER),
+            &Self::Rotate3D => self.decompress(ROTATE_3_D),
+            &Self::RotateCcw => self.decompress(ROTATE_CCW),
+            &Self::RotateCw => self.decompress(ROTATE_CW),
+            &Self::Router => self.decompress(ROUTER),
+            &Self::Rows => self.decompress(ROWS),
+            &Self::Rss => self.decompress(RSS),
+            &Self::Ruler => self.decompress(RULER),
+            &Self::RussianRuble => self.decompress(RUSSIAN_RUBLE),
+            &Self::Sailboat => self.decompress(SAILBOAT),
+            &Self::Salad => self.decompress(SALAD),
+            &Self::Sandwich => self.decompress(SANDWICH),
+            &Self::SatelliteDish => self.decompress(SATELLITE_DISH),
+            &Self::Satellite => self.decompress(SATELLITE),
+            &Self::SaveAll => self.decompress(SAVE_ALL),
+            &Self::Save => self.decompress(SAVE),
+            &Self::Scale3D => self.decompress(SCALE_3_D),
+            &Self::Scale => self.decompress(SCALE),
+            &Self::Scaling => self.decompress(SCALING),
+            &Self::ScanFace => self.decompress(SCAN_FACE),
+            &Self::ScanLine => self.decompress(SCAN_LINE),
+            &Self::Scan => self.decompress(SCAN),
+            &Self::ScatterChart => self.decompress(SCATTER_CHART),
+            &Self::School2 => self.decompress(SCHOOL_2),
+            &Self::School => self.decompress(SCHOOL),
+            &Self::ScissorsLineDashed => self.decompress(SCISSORS_LINE_DASHED),
+            &Self::ScissorsSquareDashedBottom => self.decompress(SCISSORS_SQUARE_DASHED_BOTTOM),
+            &Self::ScissorsSquare => self.decompress(SCISSORS_SQUARE),
+            &Self::Scissors => self.decompress(SCISSORS),
+            &Self::ScreenShareOff => self.decompress(SCREEN_SHARE_OFF),
+            &Self::ScreenShare => self.decompress(SCREEN_SHARE),
+            &Self::ScrollText => self.decompress(SCROLL_TEXT),
+            &Self::Scroll => self.decompress(SCROLL),
+            &Self::SearchCheck => self.decompress(SEARCH_CHECK),
+            &Self::SearchCode => self.decompress(SEARCH_CODE),
+            &Self::SearchSlash => self.decompress(SEARCH_SLASH),
+            &Self::SearchX => self.decompress(SEARCH_X),
+            &Self::Search => self.decompress(SEARCH),
+            &Self::SendHorizontal => self.decompress(SEND_HORIZONTAL),
+            &Self::SendToBack => self.decompress(SEND_TO_BACK),
+            &Self::Send => self.decompress(SEND),
+            &Self::SeparatorHorizontal => self.decompress(SEPARATOR_HORIZONTAL),
+            &Self::SeparatorVertical => self.decompress(SEPARATOR_VERTICAL),
+            &Self::ServerCog => self.decompress(SERVER_COG),
+            &Self::ServerCrash => self.decompress(SERVER_CRASH),
+            &Self::ServerOff => self.decompress(SERVER_OFF),
+            &Self::Server => self.decompress(SERVER),
+            &Self::Settings2 => self.decompress(SETTINGS_2),
+            &Self::Settings => self.decompress(SETTINGS),
+            &Self::Shapes => self.decompress(SHAPES),
+            &Self::Share2 => self.decompress(SHARE_2),
+            &Self::Share => self.decompress(SHARE),
+            &Self::Sheet => self.decompress(SHEET),
+            &Self::Shell => self.decompress(SHELL),
+            &Self::ShieldAlert => self.decompress(SHIELD_ALERT),
+            &Self::ShieldBan => self.decompress(SHIELD_BAN),
+            &Self::ShieldCheck => self.decompress(SHIELD_CHECK),
+            &Self::ShieldEllipsis => self.decompress(SHIELD_ELLIPSIS),
+            &Self::ShieldHalf => self.decompress(SHIELD_HALF),
+            &Self::ShieldMinus => self.decompress(SHIELD_MINUS),
+            &Self::ShieldOff => self.decompress(SHIELD_OFF),
+            &Self::ShieldPlus => self.decompress(SHIELD_PLUS),
+            &Self::ShieldQuestion => self.decompress(SHIELD_QUESTION),
+            &Self::ShieldX => self.decompress(SHIELD_X),
+            &Self::Shield => self.decompress(SHIELD),
+            &Self::ShipWheel => self.decompress(SHIP_WHEEL),
+            &Self::Ship => self.decompress(SHIP),
+            &Self::Shirt => self.decompress(SHIRT),
+            &Self::ShoppingBag => self.decompress(SHOPPING_BAG),
+            &Self::ShoppingBasket => self.decompress(SHOPPING_BASKET),
+            &Self::ShoppingCart => self.decompress(SHOPPING_CART),
+            &Self::Shovel => self.decompress(SHOVEL),
+            &Self::ShowerHead => self.decompress(SHOWER_HEAD),
+            &Self::Shrink => self.decompress(SHRINK),
+            &Self::Shrub => self.decompress(SHRUB),
+            &Self::Shuffle => self.decompress(SHUFFLE),
+            &Self::SigmaSquare => self.decompress(SIGMA_SQUARE),
+            &Self::Sigma => self.decompress(SIGMA),
+            &Self::SignalHigh => self.decompress(SIGNAL_HIGH),
+            &Self::SignalLow => self.decompress(SIGNAL_LOW),
+            &Self::SignalMedium => self.decompress(SIGNAL_MEDIUM),
+            &Self::SignalZero => self.decompress(SIGNAL_ZERO),
+            &Self::Signal => self.decompress(SIGNAL),
+            &Self::Siren => self.decompress(SIREN),
+            &Self::SkipBack => self.decompress(SKIP_BACK),
+            &Self::SkipForward => self.decompress(SKIP_FORWARD),
+            &Self::Skull => self.decompress(SKULL),
+            &Self::Slack => self.decompress(SLACK),
+            &Self::Slash => self.decompress(SLASH),
+            &Self::Slice => self.decompress(SLICE),
+            &Self::SlidersHorizontal => self.decompress(SLIDERS_HORIZONTAL),
+            &Self::Sliders => self.decompress(SLIDERS),
+            &Self::SmartphoneCharging => self.decompress(SMARTPHONE_CHARGING),
+            &Self::SmartphoneNfc => self.decompress(SMARTPHONE_NFC),
+            &Self::Smartphone => self.decompress(SMARTPHONE),
+            &Self::SmilePlus => self.decompress(SMILE_PLUS),
+            &Self::Smile => self.decompress(SMILE),
+            &Self::Snail => self.decompress(SNAIL),
+            &Self::Snowflake => self.decompress(SNOWFLAKE),
+            &Self::Sofa => self.decompress(SOFA),
+            &Self::Soup => self.decompress(SOUP),
+            &Self::Space => self.decompress(SPACE),
+            &Self::Spade => self.decompress(SPADE),
+            &Self::Sparkle => self.decompress(SPARKLE),
+            &Self::Sparkles => self.decompress(SPARKLES),
+            &Self::Speaker => self.decompress(SPEAKER),
+            &Self::SpellCheck2 => self.decompress(SPELL_CHECK_2),
+            &Self::SpellCheck => self.decompress(SPELL_CHECK),
+            &Self::Spline => self.decompress(SPLINE),
+            &Self::SplitSquareHorizontal => self.decompress(SPLIT_SQUARE_HORIZONTAL),
+            &Self::SplitSquareVertical => self.decompress(SPLIT_SQUARE_VERTICAL),
+            &Self::Split => self.decompress(SPLIT),
+            &Self::SprayCan => self.decompress(SPRAY_CAN),
+            &Self::Sprout => self.decompress(SPROUT),
+            &Self::SquareAsterisk => self.decompress(SQUARE_ASTERISK),
+            &Self::SquareCode => self.decompress(SQUARE_CODE),
+            &Self::SquareDashedBottomCode => self.decompress(SQUARE_DASHED_BOTTOM_CODE),
+            &Self::SquareDashedBottom => self.decompress(SQUARE_DASHED_BOTTOM),
+            &Self::SquareDot => self.decompress(SQUARE_DOT),
+            &Self::SquareEqual => self.decompress(SQUARE_EQUAL),
+            &Self::SquareSlash => self.decompress(SQUARE_SLASH),
+            &Self::SquareStack => self.decompress(SQUARE_STACK),
+            &Self::Square => self.decompress(SQUARE),
+            &Self::Squirrel => self.decompress(SQUIRREL),
+            &Self::Stamp => self.decompress(STAMP),
+            &Self::StarHalf => self.decompress(STAR_HALF),
+            &Self::StarOff => self.decompress(STAR_OFF),
+            &Self::Star => self.decompress(STAR),
+            &Self::StepBack => self.decompress(STEP_BACK),
+            &Self::StepForward => self.decompress(STEP_FORWARD),
+            &Self::Stethoscope => self.decompress(STETHOSCOPE),
+            &Self::Sticker => self.decompress(STICKER),
+            &Self::StickyNote => self.decompress(STICKY_NOTE),
+            &Self::StopCircle => self.decompress(STOP_CIRCLE),
+            &Self::Store => self.decompress(STORE),
+            &Self::StretchHorizontal => self.decompress(STRETCH_HORIZONTAL),
+            &Self::StretchVertical => self.decompress(STRETCH_VERTICAL),
+            &Self::Strikethrough => self.decompress(STRIKETHROUGH),
+            &Self::Subscript => self.decompress(SUBSCRIPT),
+            &Self::Subtitles => self.decompress(SUBTITLES),
+            &Self::SunDim => self.decompress(SUN_DIM),
+            &Self::SunMedium => self.decompress(SUN_MEDIUM),
+            &Self::SunMoon => self.decompress(SUN_MOON),
+            &Self::SunSnow => self.decompress(SUN_SNOW),
+            &Self::Sun => self.decompress(SUN),
+            &Self::Sunrise => self.decompress(SUNRISE),
+            &Self::Sunset => self.decompress(SUNSET),
+            &Self::Superscript => self.decompress(SUPERSCRIPT),
+            &Self::SwissFranc => self.decompress(SWISS_FRANC),
+            &Self::SwitchCamera => self.decompress(SWITCH_CAMERA),
+            &Self::Sword => self.decompress(SWORD),
+            &Self::Swords => self.decompress(SWORDS),
+            &Self::Syringe => self.decompress(SYRINGE),
+            &Self::Table2 => self.decompress(TABLE_2),
+            &Self::TableProperties => self.decompress(TABLE_PROPERTIES),
+            &Self::Table => self.decompress(TABLE),
+            &Self::TabletSmartphone => self.decompress(TABLET_SMARTPHONE),
+            &Self::Tablet => self.decompress(TABLET),
+            &Self::Tablets => self.decompress(TABLETS),
+            &Self::Tag => self.decompress(TAG),
+            &Self::Tags => self.decompress(TAGS),
+            &Self::Tally1 => self.decompress(TALLY_1),
+            &Self::Tally2 => self.decompress(TALLY_2),
+            &Self::Tally3 => self.decompress(TALLY_3),
+            &Self::Tally4 => self.decompress(TALLY_4),
+            &Self::Tally5 => self.decompress(TALLY_5),
+            &Self::Target => self.decompress(TARGET),
+            &Self::Tent => self.decompress(TENT),
+            &Self::TerminalSquare => self.decompress(TERMINAL_SQUARE),
+            &Self::Terminal => self.decompress(TERMINAL),
+            &Self::TestTube2 => self.decompress(TEST_TUBE_2),
+            &Self::TestTube => self.decompress(TEST_TUBE),
+            &Self::TestTubes => self.decompress(TEST_TUBES),
+            &Self::TextCursorInput => self.decompress(TEXT_CURSOR_INPUT),
+            &Self::TextCursor => self.decompress(TEXT_CURSOR),
+            &Self::TextQuote => self.decompress(TEXT_QUOTE),
+            &Self::TextSelect => self.decompress(TEXT_SELECT),
+            &Self::Text => self.decompress(TEXT),
+            &Self::ThermometerSnowflake => self.decompress(THERMOMETER_SNOWFLAKE),
+            &Self::ThermometerSun => self.decompress(THERMOMETER_SUN),
+            &Self::Thermometer => self.decompress(THERMOMETER),
+            &Self::ThumbsDown => self.decompress(THUMBS_DOWN),
+            &Self::ThumbsUp => self.decompress(THUMBS_UP),
+            &Self::Ticket => self.decompress(TICKET),
+            &Self::TimerOff => self.decompress(TIMER_OFF),
+            &Self::TimerReset => self.decompress(TIMER_RESET),
+            &Self::Timer => self.decompress(TIMER),
+            &Self::ToggleLeft => self.decompress(TOGGLE_LEFT),
+            &Self::ToggleRight => self.decompress(TOGGLE_RIGHT),
+            &Self::Tornado => self.decompress(TORNADO),
+            &Self::TouchpadOff => self.decompress(TOUCHPAD_OFF),
+            &Self::Touchpad => self.decompress(TOUCHPAD),
+            &Self::TowerControl => self.decompress(TOWER_CONTROL),
+            &Self::ToyBrick => self.decompress(TOY_BRICK),
+            &Self::Tractor => self.decompress(TRACTOR),
+            &Self::TrafficCone => self.decompress(TRAFFIC_CONE),
+            &Self::TrainFrontTunnel => self.decompress(TRAIN_FRONT_TUNNEL),
+            &Self::TrainFront => self.decompress(TRAIN_FRONT),
+            &Self::TrainTrack => self.decompress(TRAIN_TRACK),
+            &Self::TramFront => self.decompress(TRAM_FRONT),
+            &Self::Trash2 => self.decompress(TRASH_2),
+            &Self::Trash => self.decompress(TRASH),
+            &Self::TreeDeciduous => self.decompress(TREE_DECIDUOUS),
+            &Self::TreePine => self.decompress(TREE_PINE),
+            &Self::Trees => self.decompress(TREES),
+            &Self::Trello => self.decompress(TRELLO),
+            &Self::TrendingDown => self.decompress(TRENDING_DOWN),
+            &Self::TrendingUp => self.decompress(TRENDING_UP),
+            &Self::TriangleRight => self.decompress(TRIANGLE_RIGHT),
+            &Self::Triangle => self.decompress(TRIANGLE),
+            &Self::Trophy => self.decompress(TROPHY),
+            &Self::Truck => self.decompress(TRUCK),
+            &Self::Turtle => self.decompress(TURTLE),
+            &Self::Tv2 => self.decompress(TV_2),
+            &Self::Tv => self.decompress(TV),
+            &Self::Twitch => self.decompress(TWITCH),
+            &Self::Twitter => self.decompress(TWITTER),
+            &Self::Type => self.decompress(TYPE),
+            &Self::Umbrella => self.decompress(UMBRELLA),
+            &Self::Underline => self.decompress(UNDERLINE),
+            &Self::Undo2 => self.decompress(UNDO_2),
+            &Self::UndoDot => self.decompress(UNDO_DOT),
+            &Self::Undo => self.decompress(UNDO),
+            &Self::UnfoldHorizontal => self.decompress(UNFOLD_HORIZONTAL),
+            &Self::UnfoldVertical => self.decompress(UNFOLD_VERTICAL),
+            &Self::Ungroup => self.decompress(UNGROUP),
+            &Self::Unlink2 => self.decompress(UNLINK_2),
+            &Self::Unlink => self.decompress(UNLINK),
+            &Self::Unlock => self.decompress(UNLOCK),
+            &Self::Unplug => self.decompress(UNPLUG),
+            &Self::UploadCloud => self.decompress(UPLOAD_CLOUD),
+            &Self::Upload => self.decompress(UPLOAD),
+            &Self::Usb => self.decompress(USB),
+            &Self::User2 => self.decompress(USER_2),
+            &Self::UserCheck2 => self.decompress(USER_CHECK_2),
+            &Self::UserCheck => self.decompress(USER_CHECK),
+            &Self::UserCircle2 => self.decompress(USER_CIRCLE_2),
+            &Self::UserCircle => self.decompress(USER_CIRCLE),
+            &Self::UserCog2 => self.decompress(USER_COG_2),
+            &Self::UserCog => self.decompress(USER_COG),
+            &Self::UserMinus2 => self.decompress(USER_MINUS_2),
+            &Self::UserMinus => self.decompress(USER_MINUS),
+            &Self::UserPlus2 => self.decompress(USER_PLUS_2),
+            &Self::UserPlus => self.decompress(USER_PLUS),
+            &Self::UserSquare2 => self.decompress(USER_SQUARE_2),
+            &Self::UserSquare => self.decompress(USER_SQUARE),
+            &Self::UserX2 => self.decompress(USER_X_2),
+            &Self::UserX => self.decompress(USER_X),
+            &Self::User => self.decompress(USER),
+            &Self::Users2 => self.decompress(USERS_2),
+            &Self::Users => self.decompress(USERS),
+            &Self::UtensilsCrossed => self.decompress(UTENSILS_CROSSED),
+            &Self::Utensils => self.decompress(UTENSILS),
+            &Self::UtilityPole => self.decompress(UTILITY_POLE),
+            &Self::Variable => self.decompress(VARIABLE),
+            &Self::Vegan => self.decompress(VEGAN),
+            &Self::VenetianMask => self.decompress(VENETIAN_MASK),
+            &Self::VibrateOff => self.decompress(VIBRATE_OFF),
+            &Self::Vibrate => self.decompress(VIBRATE),
+            &Self::VideoOff => self.decompress(VIDEO_OFF),
+            &Self::Video => self.decompress(VIDEO),
+            &Self::Videotape => self.decompress(VIDEOTAPE),
+            &Self::View => self.decompress(VIEW),
+            &Self::Voicemail => self.decompress(VOICEMAIL),
+            &Self::Volume1 => self.decompress(VOLUME_1),
+            &Self::Volume2 => self.decompress(VOLUME_2),
+            &Self::VolumeX => self.decompress(VOLUME_X),
+            &Self::Volume => self.decompress(VOLUME),
+            &Self::Vote => self.decompress(VOTE),
+            &Self::Wallet2 => self.decompress(WALLET_2),
+            &Self::WalletCards => self.decompress(WALLET_CARDS),
+            &Self::Wallet => self.decompress(WALLET),
+            &Self::Wallpaper => self.decompress(WALLPAPER),
+            &Self::Wand2 => self.decompress(WAND_2),
+            &Self::Wand => self.decompress(WAND),
+            &Self::Warehouse => self.decompress(WAREHOUSE),
+            &Self::Watch => self.decompress(WATCH),
+            &Self::Waves => self.decompress(WAVES),
+            &Self::Webcam => self.decompress(WEBCAM),
+            &Self::Webhook => self.decompress(WEBHOOK),
+            &Self::WheatOff => self.decompress(WHEAT_OFF),
+            &Self::Wheat => self.decompress(WHEAT),
+            &Self::WholeWord => self.decompress(WHOLE_WORD),
+            &Self::WifiOff => self.decompress(WIFI_OFF),
+            &Self::Wifi => self.decompress(WIFI),
+            &Self::Wind => self.decompress(WIND),
+            &Self::WineOff => self.decompress(WINE_OFF),
+            &Self::Wine => self.decompress(WINE),
+            &Self::Workflow => self.decompress(WORKFLOW),
+            &Self::WrapText => self.decompress(WRAP_TEXT),
+            &Self::Wrench => self.decompress(WRENCH),
+            &Self::XCircle => self.decompress(X_CIRCLE),
+            &Self::XOctagon => self.decompress(X_OCTAGON),
+            &Self::XSquare => self.decompress(X_SQUARE),
+            &Self::X => self.decompress(X),
+            &Self::Youtube => self.decompress(YOUTUBE),
+            &Self::ZapOff => self.decompress(ZAP_OFF),
+            &Self::Zap => self.decompress(ZAP),
+            &Self::ZoomIn => self.decompress(ZOOM_IN),
+            &Self::ZoomOut => self.decompress(ZOOM_OUT),
+        }
+    }
 }
