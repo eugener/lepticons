@@ -1,5 +1,8 @@
+use std::iter::Iterator;
 use leptos::logging::log;
 use leptos::*;
+use leptos::ev::{Event};
+use leptos::html::Input;
 use leptos_meta::*;
 use lucide_icons::*;
 use strum::IntoEnumIterator;
@@ -10,7 +13,17 @@ fn main() {
 
 #[component]
 fn App() -> impl IntoView {
+
     let (icon_filter, set_icon_filter) = create_signal( "".to_string());
+
+    let input_ref = create_node_ref::<Input>();
+
+    let clear_filter = move |_| { set_icon_filter.set("".to_string())};
+
+    let on_input = move |ev: Event| {
+        set_icon_filter.set( event_target_value(&ev));
+        log!("Filter: {}",icon_filter.get_untracked());
+    };
 
     view! {
         <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
@@ -20,47 +33,44 @@ fn App() -> impl IntoView {
             <Icon icon={LucideIcon::Search}/>
             <input type="text"
                    class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
+                   _ref=input_ref
                    prop:placeholder="Search icons..."
                    prop:value={move || icon_filter.get()}
-                   on:input={move |ev| {
-                      set_icon_filter.set( event_target_value(&ev));
-                      log!("Value: {}", event_target_value(&ev));
-                   }}
+                   on:input=on_input
             />
-            <Icon icon={LucideIcon::X} on:click={move |ev| {
-                      set_icon_filter.set( "".to_string());
-                      // log!("Value: {}", event_target_value(&ev));
-                   }}/>
+            <Icon icon={LucideIcon::X} class="cursor-pointer" on:click=clear_filter />
         </div>
-            {move || icon_filter.get()}
-            // <IconTable icons={filtered_icons} />
-            <IconTable icon_filter={icon_filter.get()} />
-        // <IconTable icon_filter={(move || icon_filter.get())()} />
+            // {move || icon_filter.get()}
+            <IconTable icon_filter=icon_filter />
         </div>
     }
 }
 
 #[component]
 fn IconTable(
-    //icons: Vec<&'static IconType<'static>>
-    icon_filter: String,
-    //&'static [IconType<'static>],
+    icon_filter: ReadSignal<String>,
 ) -> impl IntoView {
-    log!("Value: {}", icon_filter);
 
-    let filter = icon_filter.to_lowercase();
-    let filtered_icons: Vec<LucideIcon> = match filter.as_str() {
-        "" => LucideIcon::iter().collect(),
-        _ => LucideIcon::iter()
-            .filter(|icon| icon.to_string().to_lowercase().contains(&filter))
-            .collect(),
+    let filter = move || icon_filter.get().to_lowercase();
+
+    let filtered_icons = move || {
+
+        let f = filter().to_lowercase();
+        match f.as_str() {
+            "" => return LucideIcon::iter().collect(),
+            _ =>  LucideIcon::iter()
+                .filter(|icon| icon.to_string().to_lowercase().contains(&f))
+                .collect::<Vec<_>>()
+        }
+
     };
+
 
     view! {
 
         <div class="flex flex-row flex-wrap gap-2">
         {
-            filtered_icons.iter().cloned().map( |icon|
+            move || filtered_icons().iter().cloned().map( |icon|
                 view! {
                     <div class="relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group">
                         <Icon icon={icon.clone()}/>
