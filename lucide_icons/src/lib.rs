@@ -12,7 +12,7 @@ use strum::EnumProperty;
 const DEFAULT_SIZE: u16 = 24;
 const DEFAULT_FILL: &'static str = "none";
 const DEFAULT_STROKE: &'static str = "black";
-const DEFAULT_STROKE_WIDTH: u16 = 2;
+const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 // TODO
 //      add support for all the other svg attributes
@@ -36,7 +36,7 @@ pub fn Icon(
     stroke: &'static str,
 
     #[prop(default = DEFAULT_STROKE_WIDTH)]
-    stroke_width: u16,
+    stroke_width: f32,
 
 ) -> impl IntoView {
     view! {

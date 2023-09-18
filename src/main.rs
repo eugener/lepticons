@@ -74,7 +74,7 @@ fn IconTable(
             move || filtered_icons().iter().cloned().map( |icon|
                 view! {
                     <div class="relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group">
-                        <Icon icon={icon.clone()}/>
+                        <Icon icon={icon.clone()} stroke_width={1.7} stroke="#645e5f"/>
                         <div class="absolute left-1/2 -translate-x-1/2 translate-y-5 z-50 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 rounded" >
                            {icon.to_string()}
                         </div>
