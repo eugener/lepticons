@@ -41,8 +41,6 @@ fn main() {
     // write the imports
     writeln!(file, r#"
     use strum_macros::{{EnumProperty,EnumIter}};
-    use core::fmt;
-    use fmt::Result;
     use base64::*;
     use flate2::read::ZlibDecoder;
     use std::io::prelude::*;
@@ -87,10 +85,6 @@ fn main() {
     writeln!( file, r#"
 
     fn decompress(&self, input: &str) -> String {{
-
-    use base64::decode;
-    use flate2::read::ZlibDecoder;
-    use std::io::prelude::*;
 
     let input = base64::decode(input).unwrap();
     let mut decoder = ZlibDecoder::new(input.as_slice());

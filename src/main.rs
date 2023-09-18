@@ -1,8 +1,8 @@
 use std::iter::Iterator;
-use leptos::logging::log;
+
 use leptos::*;
-use leptos::ev::{Event};
-use leptos::html::Input;
+use leptos::ev::Event;
+use leptos::logging::log;
 use leptos_meta::*;
 use lucide_icons::*;
 use strum::IntoEnumIterator;
@@ -16,8 +16,6 @@ fn main() {
 fn App() -> impl IntoView {
 
     let (icon_filter, set_icon_filter) = create_signal( "".to_string());
-
-    let input_ref = create_node_ref::<Input>();
 
     let clear_filter = move |_| { set_icon_filter.set("".to_string())};
 
@@ -34,14 +32,13 @@ fn App() -> impl IntoView {
             <Icon icon={LucideIcon::Search}/>
             <input type="text"
                    class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
-                   _ref=input_ref
+                   // _ref=input_ref
                    prop:placeholder="Search icons..."
                    prop:value={move || icon_filter.get()}
                    on:input=on_input
             />
             <Icon icon={LucideIcon::X} class="cursor-pointer" on:click=clear_filter />
         </div>
-            // {move || icon_filter.get()}
             <IconTable icon_filter=icon_filter />
         </div>
     }
@@ -56,26 +53,29 @@ fn IconTable(
 
     let filtered_icons = move || {
 
-        let f = filter().to_lowercase();
-        match f.as_str() {
-            "" => return LucideIcon::iter().collect(),
-            _ =>  LucideIcon::iter()
-                .filter(|icon| icon.to_string().to_lowercase().contains(&f))
-                .collect::<Vec<_>>()
+        if filter().is_empty() {
+            return LucideIcon::iter().collect::<Vec<_>>();
         }
+
+        let f = filter().to_lowercase();
+        LucideIcon::iter()
+            .filter(|icon| icon.to_string().to_lowercase().contains(&f))
+            .collect::<Vec<_>>()
 
     };
 
+    const ICON_CONTAINER:  &'static str = "relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group";
+    const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-50 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 rounded";
 
     view! {
 
         <div class="flex flex-row flex-wrap gap-2 justify-between">
         {
-            move || filtered_icons().iter().cloned().map( |icon|
+            move || filtered_icons().iter().map( |icon|
                 view! {
-                    <div class="relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group">
+                    <div class=ICON_CONTAINER>
                         <Icon icon={icon.clone()} stroke_width={1.7} stroke="#645e5f"/>
-                        <div class="absolute left-1/2 -translate-x-1/2 translate-y-5 z-50 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 rounded" >
+                        <div class=TOOLTIP >
                            {icon.to_string()}
                         </div>
                     </div>
