@@ -8,6 +8,7 @@ use lucide_icons::*;
 use strum::IntoEnumIterator;
 
 fn main() {
+    provide_meta_context();
     mount_to_body(|| view! { <App/> })
 }
 
@@ -68,7 +69,7 @@ fn IconTable(
 
     view! {
 
-        <div class="flex flex-row flex-wrap gap-2">
+        <div class="flex flex-row flex-wrap gap-2 justify-between">
         {
             move || filtered_icons().iter().cloned().map( |icon|
                 view! {
