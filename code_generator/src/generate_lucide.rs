@@ -40,6 +40,7 @@ fn main() {
 
     // write the imports
     writeln!(file, r#"
+    use strum::EnumProperty;
     use strum_macros::{{EnumProperty,EnumIter}};
     use base64::*;
     use flate2::read::ZlibDecoder;
@@ -56,9 +57,21 @@ fn main() {
 
         let entry = SvgEntry::new(path);
 
-        // println!("{:?}", path);
-        println!("{:?} --> {} --> {}",  path, entry.icon_name, entry.feature_name);
-        // println!("\"{}\",", feature_name);
+        println!("{:?}", path);
+
+        //write enum props
+        writeln!(file, r#"#
+[strum(props(
+    svg="{}",
+    categories="{}",
+    tags="{}",
+    contributors="{}"
+))]"#,
+       compress_string(entry.content().as_str()).unwrap(),
+       entry.meta.categories.join(",").as_str(),
+       entry.meta.tags.join(",").as_str(),
+       entry.meta.contributors.join(",").as_str()).expect("write icon metadata");
+
 
         //read file
         writeln!(file, "   {},",  entry.icon_name).expect("write icon enum");
@@ -72,12 +85,13 @@ fn main() {
 
 
     // write static const for each icon
-    entries.iter().for_each(|entry| {
-        writeln!(file, "const {}: &'static str = r#\"{}\"#;\n",
-            entry.const_name,
-            compress_string(entry.content().as_str()).unwrap()).expect("write icon const");
-            // entry.content()).expect("write icon const");
-    });
+    // entries.iter().for_each(|entry| {
+    //
+    //     writeln!(file, "const {}: &'static str = r#\"{}\"#;\n",
+    //         entry.const_name,
+    //         compress_string(entry.content().as_str()).unwrap()).expect("write icon const");
+    //         // entry.content()).expect("write icon const");
+    // });
 
     // write impl for LucideIcon allowing to get the svg content
     writeln!(file, r#"impl LucideIcon {{"#).expect("write impl header");
@@ -91,20 +105,46 @@ fn main() {
     let mut decompressed = String::new();
     decoder.read_to_string(&mut decompressed).expect("decompress");
     decompressed
-}}"#);
+    }}
 
-    writeln!(file, r#"
-    pub fn svg(&self) -> String{{
-           match self {{
-    "#).expect("write impl header");
+    pub fn svg(&self) -> String {{
+        self.decompress(self.get_str("svg").expect("get svg"))
+    }}
 
-    entries.iter().for_each(|entry| {
-        writeln!(file, " &Self::{} => self.decompress({}),",
-            entry.icon_name,
-            entry.const_name).expect("write icon const");
+    pub fn categories(&self) -> Vec<&str> {{
+        self.get_str("categories")
+            .expect("get categories")
+            .split(',')
+            .collect::<Vec<&str>>()
+    }}
 
-    });
-    writeln!(file, "}}\n}}\n}}").expect("write enum footer");
+    pub fn tags(&self) -> Vec<&str> {{
+        self.get_str("tags")
+            .expect("get tags")
+            .split(',')
+            .collect::<Vec<&str>>()
+    }}
+
+    pub fn contributors(&self) -> Vec<&str> {{
+        self.get_str("contributors")
+            .expect("get contributors")
+            .split(',')
+            .collect::<Vec<&str>>()
+    }}
+    "#);
+
+    // writeln!(file, r#"
+    // pub fn svg(&self) -> String{{
+    //        match self {{
+    // "#).expect("write impl header");
+    //
+    // entries.iter().for_each(|entry| {
+    //     writeln!(file, " &Self::{} => self.decompress({}),",
+    //         entry.icon_name,
+    //         entry.const_name).expect("write icon const");
+    //
+    // });
+    writeln!(file, "}}").expect("write impl footer");
 
     // format the generated file
     let output = Command::new("rustfmt")
@@ -119,11 +159,23 @@ fn main() {
 
 }
 
+#[derive(Debug, serde::Serialize, serde::Deserialize)]
+// #[serde(rename_all = "lowerCase")]
+struct EntryMeta {
+    #[serde(default)]
+    categories: Vec<String>,
+    #[serde(default)]
+    tags: Vec<String>,
+    #[serde(default)]
+    contributors: Vec<String>,
+}
+
 struct SvgEntry {
     path: PathBuf,
     icon_name: String,
     feature_name: String,
     const_name: String,
+    meta: EntryMeta,
 }
 
 impl SvgEntry {
@@ -135,10 +187,17 @@ impl SvgEntry {
             .map(|s| s.to_case(Case::UpperCamel))
             .collect();
 
+        println!("{:?}", path.with_extension("json"));
+
+        let meta: EntryMeta = serde_json::from_reader(
+            fs::File::open(path.with_extension("json")
+            ).unwrap()).unwrap();
+
         Self{ path: path.clone(),
             icon_name: icon_name.clone(),
             feature_name: icon_name.to_case(Case::Snake),
             const_name: icon_name.to_case(Case::UpperSnake),
+            meta,
         }
     }
 
