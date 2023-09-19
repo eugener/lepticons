@@ -11,7 +11,7 @@ use strum::EnumProperty;
 
 const DEFAULT_SIZE: u16 = 24;
 const DEFAULT_FILL: &'static str = "none";
-const DEFAULT_STROKE: &'static str = "black";
+const DEFAULT_STROKE: &'static str = "currentColor";
 const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 // TODO
