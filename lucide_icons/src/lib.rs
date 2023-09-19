@@ -15,7 +15,7 @@ const DEFAULT_STROKE: &'static str = "currentColor";
 const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 // TODO
-//      add support for all the other svg attributes
+//      icon can belong to mutiple categories
 //      add support for crate features: default | feature1, feature2, ...
 
 

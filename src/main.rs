@@ -28,7 +28,7 @@ fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
 
         <div class="m-5 flex flex-col gap-4">
-        <div class = "flex flex-row items-center w-full focus:border-orange-700/50 p-2 px-4 bg-gray-100 rounded-lg">
+        <div class = "flex flex-row overflow-y-auto items-center w-full sticky top-0 z-50 focus:border-orange-700/50 p-2 px-4 my-6 bg-gray-100 rounded-lg">
             <Icon icon={LucideIcon::Search}/>
             <input type="text"
                    class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
@@ -65,7 +65,7 @@ fn IconTable(
     };
 
     const ICON_CONTAINER:  &'static str = "relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group";
-    const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-50 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
+    const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
 
     view! {
 
