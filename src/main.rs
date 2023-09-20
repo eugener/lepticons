@@ -74,7 +74,7 @@ fn IconTable(
             move || filtered_icons().iter().map( |icon|
                 view! {
                     <div class=ICON_CONTAINER>
-                        <Icon icon={icon.clone()} stroke_width={1.7} stroke="#645e5f"/>
+                        <Icon icon={icon.clone()} /> // stroke_width={1.7} stroke="#645e5f"/>
                         <div class=TOOLTIP >
                            {icon.to_string()}
                         </div>

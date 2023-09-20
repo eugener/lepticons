@@ -9,6 +9,9 @@ use scraper::{ElementRef, Html, Selector};
 mod compress;
 use compress::compress_string;
 
+mod cargo;
+use cargo::CargoToml;
+
 fn main() {
 
     let icon_path: &Path = Path::new("../lucide/icons");
@@ -141,15 +144,33 @@ fn main() {
     }
 
     // generate cargo feature definitions
-    println!("default = [{}]",
-        entries.iter()
-            .map(|entry|  format!("\"{}\"", entry.feature_name))
-            .collect::<Vec<_>>()
-            .join(", ")
-    );
+    // println!("default = [{}]",
+    //     entries.iter()
+    //         .map(|entry|  format!("\"{}\"", entry.feature_name))
+    //         .collect::<Vec<_>>()
+    //         .join(", ")
+    // );
+    // entries.iter().for_each(|entry| {
+    //     println!("{} = []", entry.feature_name);
+    // });
+
+    // update Cargo.toml in lucid_icons
+    let path = "../lucide_icons/Cargo.toml";
+    let mut cargo = CargoToml::load(path.to_string());
+    cargo.features.clear();
+    cargo.features.insert("default".to_string(),
+      toml::Value::Array( entries.iter()
+        .map(|entry| toml::Value::String(entry.feature_name.clone()))
+        .collect::<Vec<_>>()
+    ));
     entries.iter().for_each(|entry| {
-        println!("{} = []", entry.feature_name);
+        cargo.features.insert(entry.feature_name.clone(),
+            toml::Value::Array(vec![]));
     });
+
+
+    cargo.store(path.to_string());
+
 
 }
 
