@@ -10,7 +10,7 @@ leptos = { version = "0.5.0-rc2", features = ["csr"] }
 leptos_meta ={ version = "0.5.0-rc2", features = ["csr"] }
 strum = "0.25"
 strum_macros = "0.25"
-lucide_icons= { path = "./lucide_icons", features = ["all_icons"] }
+lucide_icons= { path = "./lucide_icons", features = ["default"] }
 convert_case = "0.6.0"
 
 [package.metadata.leptos]

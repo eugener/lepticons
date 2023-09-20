@@ -14,10 +14,6 @@ const DEFAULT_FILL: &'static str = "none";
 const DEFAULT_STROKE: &'static str = "currentColor";
 const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
-// TODO
-//      icon can belong to mutiple categories
-//      add support for crate features: default | feature1, feature2, ...
-
 
 #[component]
 pub fn Icon(

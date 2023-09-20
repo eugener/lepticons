@@ -59,6 +59,9 @@ fn main() {
 
         println!("{:?}", path);
 
+        // write feature annotation
+        writeln!(file, r#"#[cfg(feature = "{}")]"#,
+                 entry.feature_name).expect("write feature annotation");
         //write enum props
         writeln!(file, r#"#
 [strum(props(
@@ -84,19 +87,10 @@ fn main() {
     writeln!(file, "}}").expect("write enum footer");
 
 
-    // write static const for each icon
-    // entries.iter().for_each(|entry| {
-    //
-    //     writeln!(file, "const {}: &'static str = r#\"{}\"#;\n",
-    //         entry.const_name,
-    //         compress_string(entry.content().as_str()).unwrap()).expect("write icon const");
-    //         // entry.content()).expect("write icon const");
-    // });
-
     // write impl for LucideIcon allowing to get the svg content
     writeln!(file, r#"impl LucideIcon {{"#).expect("write impl header");
 
-    writeln!( file, r#"
+    writeln!(file, r#"
 
     fn decompress(&self, input: &str) -> String {{
 
@@ -131,19 +125,8 @@ fn main() {
             .split(',')
             .collect::<Vec<&str>>()
     }}
-    "#);
+    "#).expect("Write enum implementation body");
 
-    // writeln!(file, r#"
-    // pub fn svg(&self) -> String{{
-    //        match self {{
-    // "#).expect("write impl header");
-    //
-    // entries.iter().for_each(|entry| {
-    //     writeln!(file, " &Self::{} => self.decompress({}),",
-    //         entry.icon_name,
-    //         entry.const_name).expect("write icon const");
-    //
-    // });
     writeln!(file, "}}").expect("write impl footer");
 
     // format the generated file
@@ -156,6 +139,17 @@ fn main() {
         println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
         println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
     }
+
+    // generate cargo feature definitions
+    println!("default = [{}]",
+        entries.iter()
+            .map(|entry|  format!("\"{}\"", entry.feature_name))
+            .collect::<Vec<_>>()
+            .join(", ")
+    );
+    entries.iter().for_each(|entry| {
+        println!("{} = []", entry.feature_name);
+    });
 
 }
 
@@ -174,7 +168,6 @@ struct SvgEntry {
     path: PathBuf,
     icon_name: String,
     feature_name: String,
-    const_name: String,
     meta: EntryMeta,
 }
 
@@ -196,7 +189,6 @@ impl SvgEntry {
         Self{ path: path.clone(),
             icon_name: icon_name.clone(),
             feature_name: icon_name.to_case(Case::Snake),
-            const_name: icon_name.to_case(Case::UpperSnake),
             meta,
         }
     }
@@ -206,7 +198,6 @@ impl SvgEntry {
             .map( |s| html_children_only(s.to_string()).replace("\n", ""))
             .collect()
     }
-
 
 }
 
