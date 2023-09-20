@@ -4,7 +4,9 @@ use core::fmt;
 // use fmt::Result;
 
 mod lucide_icon_data;
-pub use lucide_icon_data::*;
+mod lucide_icon_impl;
+
+pub use lucide_icon_data::LucideIcon;
 
 use leptos::*;
 use strum::EnumProperty;

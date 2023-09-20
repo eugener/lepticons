@@ -43,11 +43,7 @@ fn main() {
 
     // write the imports
     writeln!(file, r#"
-    use strum::EnumProperty;
     use strum_macros::{{EnumProperty,EnumIter}};
-    use base64::*;
-    use flate2::read::ZlibDecoder;
-    use std::io::prelude::*;
     "#).expect("write imports");
 
 
@@ -89,49 +85,6 @@ fn main() {
     // close enum
     writeln!(file, "}}").expect("write enum footer");
 
-
-    // write impl for LucideIcon allowing to get the svg content
-    writeln!(file, r#"impl LucideIcon {{"#).expect("write impl header");
-
-    writeln!(file, r#"
-
-    fn decompress(&self, input: &str) -> String {{
-
-    let input = base64::decode(input).unwrap();
-    let mut decoder = ZlibDecoder::new(input.as_slice());
-    let mut decompressed = String::new();
-    decoder.read_to_string(&mut decompressed).expect("decompress");
-    decompressed
-    }}
-
-    pub fn svg(&self) -> String {{
-        self.decompress(self.get_str("svg").expect("get svg"))
-    }}
-
-    pub fn categories(&self) -> Vec<&str> {{
-        self.get_str("categories")
-            .expect("get categories")
-            .split(',')
-            .collect::<Vec<&str>>()
-    }}
-
-    pub fn tags(&self) -> Vec<&str> {{
-        self.get_str("tags")
-            .expect("get tags")
-            .split(',')
-            .collect::<Vec<&str>>()
-    }}
-
-    pub fn contributors(&self) -> Vec<&str> {{
-        self.get_str("contributors")
-            .expect("get contributors")
-            .split(',')
-            .collect::<Vec<&str>>()
-    }}
-    "#).expect("Write enum implementation body");
-
-    writeln!(file, "}}").expect("write impl footer");
-
     // format the generated file
     let output = Command::new("rustfmt")
         .arg(dest_path)
@@ -142,17 +95,6 @@ fn main() {
         println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
         println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
     }
-
-    // generate cargo feature definitions
-    // println!("default = [{}]",
-    //     entries.iter()
-    //         .map(|entry|  format!("\"{}\"", entry.feature_name))
-    //         .collect::<Vec<_>>()
-    //         .join(", ")
-    // );
-    // entries.iter().for_each(|entry| {
-    //     println!("{} = []", entry.feature_name);
-    // });
 
     // update Cargo.toml in lucid_icons
     let path = "../lucide_icons/Cargo.toml";
