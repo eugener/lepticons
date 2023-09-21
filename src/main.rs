@@ -59,7 +59,7 @@ fn IconTable(
 
         let f = filter().to_lowercase();
         LucideIcon::iter()
-            .filter(|icon| icon.to_string().to_lowercase().contains(&f))
+            .filter(|icon| icon.name().to_lowercase().contains(&f))
             .collect::<Vec<_>>()
 
     };
@@ -76,7 +76,7 @@ fn IconTable(
                     <div class=ICON_CONTAINER>
                         <Icon icon={icon.clone()} /> // stroke_width={1.7} stroke="#645e5f"/>
                         <div class=TOOLTIP >
-                           {icon.to_string()}
+                           {icon.name()}
                         </div>
                     </div>
                 }

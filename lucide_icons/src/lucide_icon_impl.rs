@@ -1,3 +1,8 @@
+extern crate core;
+
+use core::fmt;
+// use fmt::Result;
+
 
 use crate::lucide_icon_data;
 use lucide_icon_data::LucideIcon;
@@ -9,19 +14,21 @@ use std::io::prelude::*;
 use strum::EnumProperty;
 
 
+fn decompress(input: &str) -> String {
+    let input = base64::decode(input).unwrap();
+    let mut decoder = ZlibDecoder::new(input.as_slice());
+    let mut decompressed = String::new();
+    decoder
+        .read_to_string(&mut decompressed)
+        .expect("decompress");
+    decompressed
+}
+
 impl LucideIcon {
-    fn decompress(&self, input: &str) -> String {
-        let input = base64::decode(input).unwrap();
-        let mut decoder = ZlibDecoder::new(input.as_slice());
-        let mut decompressed = String::new();
-        decoder
-            .read_to_string(&mut decompressed)
-            .expect("decompress");
-        decompressed
-    }
+
 
     pub fn svg(&self) -> String {
-        self.decompress(self.get_str("svg").expect("get svg"))
+        decompress(self.get_str("svg").expect("get svg"))
     }
 
     pub fn categories(&self) -> Vec<&str> {
@@ -43,5 +50,9 @@ impl LucideIcon {
             .expect("get contributors")
             .split(',')
             .collect::<Vec<&str>>()
+    }
+
+    pub fn name(&self) -> String {
+        format!("{:?}", self)
     }
 }

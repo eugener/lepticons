@@ -1,8 +1,3 @@
-extern crate core;
-
-use core::fmt;
-// use fmt::Result;
-
 mod lucide_icon_data;
 mod lucide_icon_impl;
 
@@ -54,8 +49,4 @@ pub fn Icon(
     }
 }
 
-impl fmt::Display for LucideIcon {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{:?}", self)
-    }
-}
+
