@@ -14,21 +14,18 @@ use cargo::CargoToml;
 
 fn main() {
 
-    let icon_path: &Path = Path::new("../lucide/icons");
-    let dest_path: &Path = Path::new("../lucide_icons/src/lucide_icon_data.rs");
+    let icon_path = Path::new("../lucide/icons");
+    let gen_path = Path::new("../lucide_icons");
+    let dest_path = gen_path.join("src").join("lucide_icon_data.rs");
+    let cargo_path = gen_path.join("Cargo.toml");
 
     // read all the svg files available in the icons folder and sort them
     let mut paths = fs::read_dir(icon_path).unwrap()
-        .filter_map(|entry| {
-            // let entry = entry.unwrap();
-            let path = entry.unwrap().path();
-            if path.is_file() && path.extension().unwrap() == "svg" {
-                Some(path)
-            } else {
-                None
-            }
-        }).collect::<Vec<_>>();
-
+        .filter_map(|entry|
+             entry.ok()
+                  .filter( |e| e.path().is_file() && e.path().extension().unwrap() == "svg")
+                  .map( |e| e.path())
+        ).collect::<Vec<_>>();
     paths.sort();
 
 
@@ -38,7 +35,7 @@ fn main() {
         .truncate(true)
         .write(true)
         // .append(true)
-        .open(dest_path).unwrap();
+        .open(dest_path.clone()).expect("open file for code generation");
 
 
     // write the imports
@@ -87,9 +84,9 @@ fn main() {
 
     // format the generated file
     let output = Command::new("rustfmt")
-        .arg(dest_path)
+        .arg(dest_path.clone().as_path())
         .output()
-        .expect("Failed to execute command");
+        .expect("Failed to execute `rustfmt` command");
 
     if !output.status.success() {
         println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
@@ -97,8 +94,8 @@ fn main() {
     }
 
     // update Cargo.toml in lucid_icons
-    let path = "../lucide_icons/Cargo.toml";
-    let mut cargo = CargoToml::load(path.to_string());
+    let path = cargo_path.display().to_string();
+    let mut cargo = CargoToml::load(path.clone());
     cargo.features.clear();
     cargo.features.insert("default".to_string(),
       toml::Value::Array( entries.iter()
@@ -111,7 +108,7 @@ fn main() {
     });
 
 
-    cargo.store(path.to_string());
+    cargo.store(path.clone());
 
 
 }
@@ -146,8 +143,8 @@ impl SvgEntry {
         println!("{:?}", path.with_extension("json"));
 
         let meta: EntryMeta = serde_json::from_reader(
-            fs::File::open(path.with_extension("json")
-            ).unwrap()).unwrap();
+            fs::File::open(path.with_extension("json")).expect("open json")
+        ).expect("read json file");
 
         Self{ path: path.clone(),
             icon_name: icon_name.clone(),
@@ -171,10 +168,10 @@ fn html_children_only(svg_content: String ) -> String {
     let html = Html::parse_fragment(svg_content.as_str());
 
     let svg = html.select(&Selector::parse("svg").unwrap()).next().unwrap();
-    "\n".to_owned() + &svg.children()
+        svg.children()
         .filter_map(|node| ElementRef::wrap(node))
         .map(|el| el.html())
         .collect::<Vec<_>>()
-        .join("\n")
+        .join("")
 }
 
