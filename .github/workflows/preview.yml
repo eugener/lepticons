@@ -12,14 +12,14 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-  fmt:
-    name: Rustfmt
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@nightly
-        with:
-          submodules: true
+  # fmt:
+    # name: Rustfmt
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: actions/checkout@v3
+    #   - uses: dtolnay/rust-toolchain@nightly
+    #     with:
+    #       submodules: true
           # components: rustfmt
       # - name: Enforce formatting
       #   run: cargo fmt --check
@@ -59,6 +59,8 @@ jobs:
     steps:
       - name: git-checkout
         uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - uses: dtolnay/rust-toolchain@nightly
       - uses: Swatinem/rust-cache@v2
