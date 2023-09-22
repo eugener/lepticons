@@ -13,6 +13,7 @@ pub struct CargoToml {
 impl CargoToml {
 
     pub fn load(path: String) -> Self {
+
         let cargo_str = std::fs::read_to_string(&PathBuf::from(path)).expect("read config.toml");
         // println!("{}", cargo_str);
         let cfg: CargoToml = toml::from_str(&cargo_str).expect("parse config.toml");

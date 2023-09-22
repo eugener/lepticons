@@ -19,7 +19,7 @@ fn main() {
     let dest_path = gen_path.join("src").join("lucide_icon_data.rs");
     let cargo_path = gen_path.join("Cargo.toml");
 
-    // read all the svg files available in the icons folder and sort them
+    // read all the svg files available in the icons folder and sort them by path
     let mut paths = fs::read_dir(icon_path).unwrap()
         .filter_map(|entry|
              entry.ok()
@@ -29,7 +29,7 @@ fn main() {
     paths.sort();
 
 
-    // create the generated_icons.rs file
+    // prepare the generated_icons.rs file
     let mut file = OpenOptions::new()
         .create(true)
         .truncate(true)
@@ -48,7 +48,7 @@ fn main() {
     writeln!(file, "#[derive(EnumIter, EnumProperty, PartialEq, Eq, Debug, Clone )]").expect("write enum annotation");
     writeln!(file, "pub enum LucideIcon {{").expect("write enum header");
 
-    // write icons and collect their names
+    // write icon's enum entries and collect their names
     let entries: Vec<SvgEntry> = paths.iter().map(|path| {
 
         let entry = SvgEntry::new(path);
@@ -60,19 +60,19 @@ fn main() {
                  entry.feature_name).expect("write feature annotation");
         //write enum props
         writeln!(file, r#"#
-[strum(props(
-    svg="{}",
-    categories="{}",
-    tags="{}",
-    contributors="{}"
-))]"#,
-                 compress_str(entry.content().as_str()).unwrap(),
-                 entry.meta.categories.join(",").as_str(),
-                 entry.meta.tags.join(",").as_str(),
-                 entry.meta.contributors.join(",").as_str()).expect("write icon metadata");
+            [strum(props(
+                svg="{}",
+                categories="{}",
+                tags="{}",
+                contributors="{}"
+            ))]"#,
+             compress_str(entry.content().as_str()).unwrap(),
+             entry.meta.categories.join(",").as_str(),
+             entry.meta.tags.join(",").as_str(),
+             entry.meta.contributors.join(",").as_str()).expect("write icon metadata");
 
 
-        //read file
+        //read enum name
         writeln!(file, "   {},",  entry.icon_name).expect("write icon enum");
 
         entry
@@ -82,39 +82,14 @@ fn main() {
     // close enum
     writeln!(file, "}}").expect("write enum footer");
 
-    // format the generated file
-    let output = Command::new("rustfmt")
-        .arg(dest_path.clone().as_path())
-        .output()
-        .expect("Failed to execute `rustfmt` command");
-
-    if !output.status.success() {
-        println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
-        println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
-    }
+    format_code(&mut dest_path.clone());
 
     // update Cargo.toml in lucid_icons
-    let path = cargo_path.display().to_string();
-    let mut cargo = CargoToml::load(path.clone());
-    cargo.features.clear();
-    cargo.features.insert("default".to_string(),
-      toml::Value::Array( entries.iter()
-        .map(|entry| toml::Value::String(entry.feature_name.clone()))
-        .collect::<Vec<_>>()
-    ));
-    entries.iter().for_each(|entry| {
-        cargo.features.insert(entry.feature_name.clone(),
-            toml::Value::Array(vec![]));
-    });
-
-
-    cargo.store(path.clone());
-
+    update_cargo_features(cargo_path.display().to_string(), &entries);
 
 }
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
-// #[serde(rename_all = "lowerCase")]
 struct EntryMeta {
     #[serde(default)]
     categories: Vec<String>,
@@ -162,16 +137,53 @@ impl SvgEntry {
 }
 
 
-// extract svg children
-fn html_children_only(svg_content: String ) -> String {
+/**
+ * Extracts the children/operators of an svg element as a string
+ * @param svg_content the svg content
+ * @returns the children of the svg element as a string
+ */
+fn html_children_only(svg_content: String) -> String {
 
     let html = Html::parse_fragment(svg_content.as_str());
 
     let svg = html.select(&Selector::parse("svg").unwrap()).next().unwrap();
-        svg.children()
+    svg.children()
         .filter_map(|node| ElementRef::wrap(node))
         .map(|el| el.html())
         .collect::<Vec<_>>()
         .join("")
+}
+
+/**
+ * Formats the code of a file using rustfmt
+ * @param file_path the path to the file to format
+ */
+fn format_code( file_path: &mut Path ) {
+    let output = Command::new("rustfmt")
+        .arg(file_path)
+        .output()
+        .expect("Failed to execute `rustfmt` command");
+
+    if !output.status.success() {
+        println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
+        println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
+    }
+}
+
+fn update_cargo_features( path: String, entries: &Vec<SvgEntry>) {
+    let mut cargo = CargoToml::load(path.clone());
+    cargo.features.clear();
+    cargo.features.insert("default".to_string(),
+                          toml::Value::Array( entries.iter()
+                              .map(|entry| toml::Value::String(entry.feature_name.clone()))
+                              .collect::<Vec<_>>()
+                          ));
+    entries.iter().for_each(|entry| {
+        cargo.features.insert(entry.feature_name.clone(),
+                              toml::Value::Array(vec![]));
+    });
+
+
+    cargo.store(path.clone());
 }
 
