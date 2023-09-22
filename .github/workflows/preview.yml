@@ -12,16 +12,17 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-  # fmt:
-  #   name: Rustfmt
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: dtolnay/rust-toolchain@nightly
-  #       with:
-  #         components: rustfmt
-  #     - name: Enforce formatting
-  #       run: cargo fmt --check
+  fmt:
+    name: Rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          submodules: true
+          # components: rustfmt
+      # - name: Enforce formatting
+      #   run: cargo fmt --check
 
   # clippy:
   #   name: Clippy
