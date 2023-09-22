@@ -59,9 +59,11 @@ jobs:
     steps:
       - name: git-checkout
         uses: actions/checkout@v3
-        with:
-          submodules: true
-
+      - name: Submodules
+        run: |
+         cd lucide
+         cd git mull origin master
+         cd ..
       - uses: dtolnay/rust-toolchain@nightly
       - uses: Swatinem/rust-cache@v2
       - uses: jetli/trunk-action@v0.4.0
