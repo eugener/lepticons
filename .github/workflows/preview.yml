@@ -6,8 +6,6 @@ on:
     
   workflow_dispatch:
 
-permissions:
-  contents: read  
 
 env:
   CARGO_TERM_COLOR: always
@@ -56,17 +54,17 @@ jobs:
     # needs: [test]
     permissions:
       pull-requests: write
-    environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.preview-url }}
+    # environment:
+    #   name: preview
+    #   url: ${{ steps.deploy.outputs.preview-url }}
     steps:
       - name: git-checkout
         uses: actions/checkout@v3
-      - name: Submodules
-        run: |
-         cd lucide
-         cd git mull origin master
-         cd ..
+      # - name: Submodules
+      #   run: |
+      #    cd lucide
+      #    cd git mull origin master
+      #    cd ..
       - uses: dtolnay/rust-toolchain@nightly
       - uses: Swatinem/rust-cache@v2
       - uses: jetli/trunk-action@v0.4.0
