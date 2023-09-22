@@ -11,6 +11,8 @@ const DEFAULT_FILL: &'static str = "none";
 const DEFAULT_STROKE: &'static str = "currentColor";
 const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
+// TODO cache decompressed svg
+
 
 #[component]
 pub fn Icon(

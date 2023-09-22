@@ -1,8 +1,7 @@
 extern crate core;
 
 use core::fmt;
-// use fmt::Result;
-
+use std::collections::HashMap;
 
 use crate::lucide_icon_data;
 use lucide_icon_data::LucideIcon;
@@ -13,6 +12,7 @@ use flate2::read::ZlibDecoder;
 use std::io::prelude::*;
 use strum::EnumProperty;
 
+use std::sync::{Arc};
 
 fn decompress(input: &str) -> String {
     let input = base64::decode(input).unwrap();
@@ -25,7 +25,6 @@ fn decompress(input: &str) -> String {
 }
 
 impl LucideIcon {
-
 
     pub fn svg(&self) -> String {
         decompress(self.get_str("svg").expect("get svg"))

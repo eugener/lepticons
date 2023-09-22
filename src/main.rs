@@ -7,6 +7,10 @@ use leptos_meta::*;
 use lucide_icons::*;
 use strum::IntoEnumIterator;
 
+//TODO show and select icon attributes
+//     show and select categories
+//     main menu
+
 fn main() {
     provide_meta_context();
     mount_to_body(|| view! { <App/> })
