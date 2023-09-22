@@ -4,7 +4,7 @@ mod lucide_icon_impl;
 pub use lucide_icon_data::LucideIcon;
 
 use leptos::*;
-use strum::EnumProperty;
+// use leptos::logging::log;
 
 const DEFAULT_SIZE: u16 = 24;
 const DEFAULT_FILL: &'static str = "none";
@@ -34,6 +34,9 @@ pub fn Icon(
     stroke_width: f32,
 
 ) -> impl IntoView {
+
+    // log!("Icon: {}", icon.svg());
+
     view! {
         <svg
           xmlns="http://www.w3.org/2000/svg"

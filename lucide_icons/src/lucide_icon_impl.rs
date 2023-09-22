@@ -1,33 +1,26 @@
 extern crate core;
 
-use core::fmt;
-use std::collections::HashMap;
-
-use crate::lucide_icon_data;
-use lucide_icon_data::LucideIcon;
 
 use base64::*;
-use flate2::read::ZlibDecoder;
-
-use std::io::prelude::*;
+use base64::{ engine::general_purpose};
+use lucide_icon_data::LucideIcon;
 use strum::EnumProperty;
+use weezl::{BitOrder, decode::Decoder};
 
-use std::sync::{Arc};
+use crate::lucide_icon_data;
 
-fn decompress(input: &str) -> String {
-    let input = base64::decode(input).unwrap();
-    let mut decoder = ZlibDecoder::new(input.as_slice());
-    let mut decompressed = String::new();
-    decoder
-        .read_to_string(&mut decompressed)
-        .expect("decompress");
-    decompressed
+fn decompress_str(input: &str) -> String {
+    let compressed = general_purpose::STANDARD_NO_PAD.decode(input).unwrap();
+    let decompressed = Decoder::new(BitOrder::Msb, 9)
+        .decode(&compressed.to_vec())
+        .unwrap();
+    return String::from_utf8(decompressed).unwrap();
 }
 
 impl LucideIcon {
 
     pub fn svg(&self) -> String {
-        decompress(self.get_str("svg").expect("get svg"))
+        decompress_str(self.get_str("svg").expect("get svg"))
     }
 
     pub fn categories(&self) -> Vec<&str> {

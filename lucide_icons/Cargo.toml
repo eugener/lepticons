@@ -7,10 +7,10 @@ version = "0.2.0"
 bench = false
 
 [dependencies]
-base64 = "0.21.2"
-flate2 = "1.0.26"
+base64 = "0.21.4"
 strum = "0.25"
 strum_macros = "0.25"
+weezl = "0.1.7"
 
 [dependencies.leptos]
 features = ["csr"]

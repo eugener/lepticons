@@ -7,7 +7,7 @@ use convert_case::{Case, Casing};
 use scraper::{ElementRef, Html, Selector};
 
 mod compress;
-use compress::compress_string;
+use compress::compress_str;
 
 mod cargo;
 use cargo::CargoToml;
@@ -66,10 +66,10 @@ fn main() {
     tags="{}",
     contributors="{}"
 ))]"#,
-       compress_string(entry.content().as_str()).unwrap(),
-       entry.meta.categories.join(",").as_str(),
-       entry.meta.tags.join(",").as_str(),
-       entry.meta.contributors.join(",").as_str()).expect("write icon metadata");
+                 compress_str(entry.content().as_str()).unwrap(),
+                 entry.meta.categories.join(",").as_str(),
+                 entry.meta.tags.join(",").as_str(),
+                 entry.meta.contributors.join(",").as_str()).expect("write icon metadata");
 
 
         //read file
