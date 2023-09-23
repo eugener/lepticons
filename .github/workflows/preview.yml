@@ -54,12 +54,14 @@ jobs:
     # needs: [test]
     permissions:
       pull-requests: write
-    # environment:
-    #   name: preview
-    #   url: ${{ steps.deploy.outputs.preview-url }}
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.preview-url }}
     steps:
       - name: git-checkout
         uses: actions/checkout@v4
+        with: 
+          token: ${{ secrets.GH_PAT }}
       # - name: Submodules
       #   run: |
       #    cd lucide
