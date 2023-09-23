@@ -1,7 +1,7 @@
 use std::iter::Iterator;
 
 use leptos::*;
-use leptos::ev::Event;
+use leptos::ev::*;
 use leptos::logging::log;
 use leptos_meta::*;
 use lucide_icons::*;
@@ -29,8 +29,6 @@ fn App() -> impl IntoView {
     };
 
     view! {
-        <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
-
         <div class="m-5 flex flex-col gap-4">
         <div class = "flex flex-row overflow-y-auto items-center w-full sticky top-0 z-50 focus:border-orange-700/50 p-2 px-4 my-6 bg-gray-100 rounded-lg">
             <Icon icon={LucideIcon::Search}/>
