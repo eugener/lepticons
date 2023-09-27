@@ -1,7 +1,7 @@
 extern crate core;
 
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use base64::*;
 use base64::{ engine::general_purpose};
 use lucide_icon_data::LucideIcon;
@@ -60,12 +60,11 @@ impl LucideIcon {
         categories
     }
 
-    fn search_base(&self) -> Vec<String> {
-        let acc = vec![  self.name().to_lowercase() ];
-        self.tags().iter().fold(acc, |mut acc, tag| {
-            acc.push(tag.to_string());
-            acc
-        })
+    fn search_base(&self) -> HashSet<String> {
+        let mut acc = HashSet::from([self.name().to_lowercase()]);
+        acc.extend(  self.tags().iter().map(|tag| tag.to_string()));
+        acc.extend(  self.categories().iter().map(|cat| cat.to_string()));
+        acc
     }
 
     pub fn find(filter: &str) -> Vec<LucideIcon> {
