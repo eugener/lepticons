@@ -1,10 +1,11 @@
 extern crate core;
 
 
+use std::collections::HashMap;
 use base64::*;
 use base64::{ engine::general_purpose};
 use lucide_icon_data::LucideIcon;
-use strum::EnumProperty;
+use strum::{EnumProperty, IntoEnumIterator};
 use weezl::{BitOrder, decode::Decoder};
 
 use crate::lucide_icon_data;
@@ -46,5 +47,36 @@ impl LucideIcon {
 
     pub fn name(&self) -> String {
         format!("{:?}", self)
+    }
+
+    pub fn all_categories() -> HashMap<String, u16> {
+        let mut categories: HashMap<String, u16> = HashMap::new();
+        for icon in LucideIcon::iter() {
+            for category in icon.categories() {
+                let count = categories.entry(category.to_string()).or_insert(0);
+                *count += 1;
+            }
+        }
+        categories
+    }
+
+    fn search_base(&self) -> Vec<String> {
+        let acc = vec![  self.name().to_lowercase() ];
+        self.tags().iter().fold(acc, |mut acc, tag| {
+            acc.push(tag.to_string());
+            acc
+        })
+    }
+
+    pub fn find(filter: &str) -> Vec<LucideIcon> {
+
+        if filter.is_empty() {
+            return LucideIcon::iter().collect::<Vec<_>>();
+        }
+
+        LucideIcon::iter().filter(|icon| {
+            icon.search_base().iter().any(|tag| tag.to_lowercase().contains(filter))
+        }).collect::<Vec<_>>()
+
     }
 }

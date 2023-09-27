@@ -12,6 +12,15 @@ use strum::IntoEnumIterator;
 //     main menu
 
 fn main() {
+
+    // let binding = LucideIcon::all_categories();
+    // let mut cats: Vec<_> = binding.iter().map(|(k, v)| (k, v)).collect();
+    // cats.sort_by_key(|k| k.0);
+    //
+    // for cat in cats {
+    //     println!("{:?}", cat);
+    // };
+
     provide_meta_context();
     mount_to_body(|| view! { <App/> })
 }
@@ -52,19 +61,7 @@ fn IconTable(
 ) -> impl IntoView {
 
     let filter = move || icon_filter.get().to_lowercase();
-
-    let filtered_icons = move || {
-
-        if filter().is_empty() {
-            return LucideIcon::iter().collect::<Vec<_>>();
-        }
-
-        let f = filter().to_lowercase();
-        LucideIcon::iter()
-            .filter(|icon| icon.name().to_lowercase().contains(&f))
-            .collect::<Vec<_>>()
-
-    };
+    let filtered_icons = move || LucideIcon::find(filter().to_lowercase().as_str());
 
     const ICON_CONTAINER:  &'static str = "relative p-3.5 bg-gray-100 rounded-lg hover:bg-gray-200 border border-gray-100 hover:border-gray-400/50 hover:border-1 group";
     const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
