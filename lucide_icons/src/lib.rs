@@ -17,7 +17,7 @@ const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 #[component]
 pub fn Icon<T: Glyph>(
-    icon: T,
+    glyph: T,
     #[prop(default = "")]
     class: &'static str,
     #[prop(default = DEFAULT_SIZE)]
@@ -44,7 +44,7 @@ pub fn Icon<T: Glyph>(
           stroke-width=format!("{}", stroke_width)
           stroke-linecap="round"
           stroke-linejoin="round"
-          inner_html={icon.svg()}
+          inner_html={glyph.svg()}
         />
     }
 }

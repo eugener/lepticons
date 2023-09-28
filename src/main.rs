@@ -8,7 +8,6 @@ use leptos::*;
 use leptos_meta::*;
 
 use lucide_icons::*;
-use strum::IntoEnumIterator;
 use components::StickyTop;
 
 //TODO show and select icon attributes
@@ -44,16 +43,12 @@ fn App() -> impl IntoView {
                 <div class="px-10 pt-5 flex flex-col gap-2">
                    {
                        move || LucideGlyph::all_categories().iter()
-                                             .filter(|(k, _)| !k.is_empty())
-                                             .map(|(k, v)|
-                           view! {
-                           <div class="flex flex-row gap-4 text-sm text-primary/70">
-                                <a href="" class="flex-auto">{k}</a>
-                                <div class="flex-none text-primary/50 text-xs">{format!("{}", v)}</div>
-                           </div>
-
-                           }
-                       ).collect::<Vec<_>>()
+                             .filter(|(k, _)| !k.is_empty())
+                             .map(|(title, count)|
+                                  view! {
+                                   <Category title={title.to_string()} count={*count}/>
+                                  }
+                              ).collect::<Vec<_>>()
                    }
                 </div>
 
@@ -62,15 +57,14 @@ fn App() -> impl IntoView {
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                        <Icon icon={LucideGlyph::Search}/>
+                        <Icon glyph={LucideGlyph::Search}/>
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
-                               // _ref=input_ref
                                prop:placeholder="Search icons..."
                                prop:value={move || icon_filter.get()}
                                on:input=on_input
                         />
-                        <Icon icon={LucideGlyph::X} class="cursor-pointer" on:click=clear_filter />
+                        <Icon glyph={LucideGlyph::X} class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
                 <IconTable icon_filter=icon_filter />
@@ -97,6 +91,16 @@ fn MainMenu(
 }
 
 #[component]
+fn Category( title: String, count: u16 ) -> impl IntoView {
+    view! {
+       <div class="flex flex-row gap-4 text-sm text-primary/70">
+            <a href="" class="flex-auto">{title}</a>
+            <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
+       </div>
+   }
+}
+
+#[component]
 fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
     let filter = move || icon_filter.get().to_lowercase();
     let filtered_icons = move || LucideGlyph::find(filter().to_lowercase().as_str());
@@ -111,11 +115,10 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
             move || filtered_icons().iter().map( |icon|
                 view! {
                     <div class=ICON_CONTAINER>
-                        <Icon icon={icon.clone()} /> // stroke_width={1.7} stroke="#645e5f"/>
+                        <Icon glyph={icon.clone()} /> // stroke_width={1.7} stroke="#645e5f"/>
                         <div class=TOOLTIP >
                            {icon.name()}
                         </div>
-
                     </div>
                 }
             ).collect::<Vec<_>>()
