@@ -42,7 +42,6 @@ fn App() -> impl IntoView {
                            view! {
                            <div class="flex flex-row gap-4 text-sm text-primary/70">
                                 <a href="" class="flex-auto">{k}</a>
-                                // <div class="flex-auto">{k}</div>
                                 <div class="flex-none text-primary/50 text-xs">{format!("{}", v)}</div>
                            </div>
 
@@ -91,8 +90,7 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
     let filter = move || icon_filter.get().to_lowercase();
     let filtered_icons = move || LucideIcon::find(filter().to_lowercase().as_str());
 
-    //bg-gray-100 bg-gray-200
-    const ICON_CONTAINER:  &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1";
+    const ICON_CONTAINER:  &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1 transition-colors";
     const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
 
     view! {
