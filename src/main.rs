@@ -1,11 +1,15 @@
+mod components;
+
 use std::iter::Iterator;
 
 use leptos::ev::*;
 use leptos::logging::log;
 use leptos::*;
 use leptos_meta::*;
+
 use lucide_icons::*;
 use strum::IntoEnumIterator;
+use components::StickyTop;
 
 //TODO show and select icon attributes
 //     show and select categories
@@ -76,18 +80,6 @@ fn App() -> impl IntoView {
     }
 }
 
-#[component]
-fn StickyTop(
-    #[prop(default = "")]
-    class: &'static str,
-    children: Children
-) -> impl IntoView {
-    view! {
-        <div class={format!("sticky top-0 z-50 {}", class)}>
-            {children()}
-        </div>
-    }
-}
 
 #[component]
 fn MainMenu(
