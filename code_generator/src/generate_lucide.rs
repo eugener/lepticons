@@ -121,6 +121,11 @@ impl SvgEntry {
             fs::File::open(path.with_extension("json")).expect("open json")
         ).expect("read json file");
 
+        // check for empty categories
+        if meta.categories.is_empty() {
+            println!(">>>WARNING: {} has no categories", icon_name);
+        }
+
         Self{ path: path.clone(),
             icon_name: icon_name.clone(),
             feature_name: icon_name.to_case(Case::Snake),

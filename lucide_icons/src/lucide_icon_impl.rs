@@ -1,14 +1,15 @@
 extern crate core;
 
 
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashSet};
+
 use base64::*;
-use base64::{ engine::general_purpose};
+use base64::engine::general_purpose;
+use convert_case::Casing;
+use convert_case::Case::Title;
 use lucide_icon_data::LucideIcon;
 use strum::{EnumProperty, IntoEnumIterator};
 use weezl::{BitOrder, decode::Decoder};
-use convert_case::{Casing};
-use convert_case::Case::Title;
 
 use crate::lucide_icon_data;
 
@@ -51,8 +52,9 @@ impl LucideIcon {
         format!("{:?}", self)
     }
 
-    pub fn all_categories() -> HashMap<String, u16> {
-        let mut categories: HashMap<String, u16> = HashMap::new();
+    pub fn all_categories() -> BTreeMap<String, u16> {
+
+        let mut categories: BTreeMap<String, u16> = BTreeMap::new();
         for icon in LucideIcon::iter() {
             for category in icon.categories() {
                 let count = categories.entry(category.to_case(Title).to_string()).or_insert(0);

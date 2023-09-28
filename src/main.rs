@@ -38,7 +38,9 @@ fn App() -> impl IntoView {
 
                 <div class="px-10 pt-5 flex flex-col gap-2">
                    {
-                       move || LucideIcon::all_categories().iter().map(|(k, v)|
+                       move || LucideIcon::all_categories().iter()
+                                             .filter(|(k, _)| !k.is_empty())
+                                             .map(|(k, v)|
                            view! {
                            <div class="flex flex-row gap-4 text-sm text-primary/70">
                                 <a href="" class="flex-auto">{k}</a>
