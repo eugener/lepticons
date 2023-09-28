@@ -1,8 +1,8 @@
 use std::iter::Iterator;
 
-use leptos::*;
 use leptos::ev::*;
 use leptos::logging::log;
+use leptos::*;
 use leptos_meta::*;
 use lucide_icons::*;
 use strum::IntoEnumIterator;
@@ -18,25 +18,25 @@ fn main() {
 
 #[component]
 fn App() -> impl IntoView {
+    let (icon_filter, set_icon_filter) = create_signal("".to_string());
 
-    let (icon_filter, set_icon_filter) = create_signal( "".to_string());
-
-    let clear_filter = move |_| { set_icon_filter.set("".to_string())};
+    let clear_filter = move |_| set_icon_filter.set("".to_string());
 
     let on_input = move |ev: Event| {
-        set_icon_filter.set( event_target_value(&ev));
-        log!("Filter: {}",icon_filter.get_untracked());
+        set_icon_filter.set(event_target_value(&ev));
+        log!("Filter: {}", icon_filter.get_untracked());
     };
 
     view! {
         // <Meta name="color-scheme" content="light"/>
         <div class="flex flex-row">
-            <div class="w-64 p-10 flex-none bg-secondary h-screen overflow-y-auto">
-                <div class="text-2xl mb-4">
-                  Lucide.rs
+            <div class="w-64 flex-none bg-secondary h-screen overflow-y-auto">
+                <div class="text-2xl px-10  sticky top-0 z-50 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
+                  <div class="py-5">Lucide.rs</div>
+                  <hr/>
                 </div>
 
-                <div class="flex flex-col gap-2">
+                <div class="px-10 pt-5 flex flex-col gap-2">
                    {
                        move || LucideIcon::all_categories().iter().map(|(k, v)|
                            view! {
@@ -52,7 +52,7 @@ fn App() -> impl IntoView {
                 </div>
 
             </div>
-            <div class="m-10 flex flex-col gap-4 flex-auto h-screen  overflow-y-auto">
+            <div class="px-10 mt-5 flex flex-col gap-4 flex-auto h-screen  overflow-y-auto">
                 <div class="sticky top-0 z-50 bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
@@ -76,7 +76,6 @@ fn App() -> impl IntoView {
 
 #[component]
 fn MainMenu() -> impl IntoView {
-
     view! {
         <div class="flex flex-row gap-4 justify-end text-primary">
             <a href="">Icons</a>
@@ -88,10 +87,7 @@ fn MainMenu() -> impl IntoView {
 }
 
 #[component]
-fn IconTable(
-    icon_filter: ReadSignal<String>,
-) -> impl IntoView {
-
+fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
     let filter = move || icon_filter.get().to_lowercase();
     let filtered_icons = move || LucideIcon::find(filter().to_lowercase().as_str());
 
