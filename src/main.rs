@@ -31,10 +31,11 @@ fn App() -> impl IntoView {
         // <Meta name="color-scheme" content="light"/>
         <div class="flex flex-row">
             <div class="w-64 flex-none bg-secondary h-screen overflow-y-auto">
-                <div class="text-2xl px-10  sticky top-0 z-50 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
-                  <div class="py-5">Lucide.rs</div>
-                  <hr/>
-                </div>
+
+                <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
+                   <div class="py-5 text-2xl font-medium">Lucide.rs</div>
+                   <hr/>
+                </StickyTop>
 
                 <div class="px-10 pt-5 flex flex-col gap-2">
                    {
@@ -53,9 +54,9 @@ fn App() -> impl IntoView {
                 </div>
 
             </div>
-            <div class="px-10 mt-5 flex flex-col gap-4 flex-auto h-screen  overflow-y-auto">
-                <div class="sticky top-0 z-50 bg-gradient-to-b from-85% from-background to-100% to-transparent">
-                    <MainMenu/>
+            <div class="px-10 mt-5 flex flex-col gap-4 flex-auto h-screen overflow-y-auto">
+                <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
+                    <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
                         <Icon icon={LucideIcon::Search}/>
                         <input type="text"
@@ -67,7 +68,7 @@ fn App() -> impl IntoView {
                         />
                         <Icon icon={LucideIcon::X} class="cursor-pointer" on:click=clear_filter />
                     </div>
-                </div>
+                </StickyTop>
                 <IconTable icon_filter=icon_filter />
 
             </div>
@@ -76,9 +77,25 @@ fn App() -> impl IntoView {
 }
 
 #[component]
-fn MainMenu() -> impl IntoView {
+fn StickyTop(
+    #[prop(default = "")]
+    class: &'static str,
+    children: Children
+) -> impl IntoView {
     view! {
-        <div class="flex flex-row gap-4 justify-end text-primary">
+        <div class={format!("sticky top-0 z-50 {}", class)}>
+            {children()}
+        </div>
+    }
+}
+
+#[component]
+fn MainMenu(
+    #[prop(default = "")]
+    class: &'static str
+) -> impl IntoView {
+    view! {
+        <div class={format!("flex flex-row gap-4 {}", class)}>
             <a href="">Icons</a>
             <a href="">Guide</a>
             <a href="">Packages</a>
