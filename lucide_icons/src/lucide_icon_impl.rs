@@ -76,7 +76,7 @@ impl LucideIcon {
         }
 
         LucideIcon::iter().filter(|icon| {
-            icon.search_base().iter().any(|tag| tag.to_lowercase().contains(filter))
+            icon.search_base().iter().any(|tag| tag.contains(filter))
         }).collect::<Vec<_>>()
 
     }
