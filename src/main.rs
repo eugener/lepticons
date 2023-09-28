@@ -12,15 +12,6 @@ use strum::IntoEnumIterator;
 //     main menu
 
 fn main() {
-
-    // let binding = LucideIcon::all_categories();
-    // let mut cats: Vec<_> = binding.iter().map(|(k, v)| (k, v)).collect();
-    // cats.sort_by_key(|k| k.0);
-    //
-    // for cat in cats {
-    //     println!("{:?}", cat);
-    // };
-
     provide_meta_context();
     mount_to_body(|| view! { <App/> })
 }
@@ -39,28 +30,59 @@ fn App() -> impl IntoView {
 
     view! {
         // <Meta name="color-scheme" content="light"/>
-        <div class="m-5 flex flex-col gap-4 ">
-            <div class="sticky top-0 z-50 bg-gradient-to-b from-85% from-background to-100% to-transparent ">
-                <div class="flex flex-row gap-4 justify-end text-primary">
-                    <a href="">Icons</a>
-                    <a href="">Guide</a>
-                    <a href="">Packages</a>
-                    <a href="">License</a>
+        <div class="flex flex-row">
+            <div class="w-64 p-10 flex-none bg-secondary h-screen overflow-y-auto">
+                <div class="text-2xl mb-4">
+                  Lucide.rs
                 </div>
-                <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                    <Icon icon={LucideIcon::Search}/>
-                    <input type="text"
-                           class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
-                           // _ref=input_ref
-                           prop:placeholder="Search icons..."
-                           prop:value={move || icon_filter.get()}
-                           on:input=on_input
-                    />
-                    <Icon icon={LucideIcon::X} class="cursor-pointer" on:click=clear_filter />
-                </div>
-            </div>
-            <IconTable icon_filter=icon_filter />
 
+                <div class="flex flex-col gap-2">
+                   {
+                       move || LucideIcon::all_categories().iter().map(|(k, v)|
+                           view! {
+                           <div class="flex flex-row gap-4 text-sm text-primary/70">
+                                <a href="" class="flex-auto">{k}</a>
+                                // <div class="flex-auto">{k}</div>
+                                <div class="flex-none text-primary/50 text-xs">{format!("{}", v)}</div>
+                           </div>
+
+                           }
+                       ).collect::<Vec<_>>()
+                   }
+                </div>
+
+            </div>
+            <div class="m-10 flex flex-col gap-4 flex-auto h-screen  overflow-y-auto">
+                <div class="sticky top-0 z-50 bg-gradient-to-b from-85% from-background to-100% to-transparent">
+                    <MainMenu/>
+                    <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
+                        <Icon icon={LucideIcon::Search}/>
+                        <input type="text"
+                               class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
+                               // _ref=input_ref
+                               prop:placeholder="Search icons..."
+                               prop:value={move || icon_filter.get()}
+                               on:input=on_input
+                        />
+                        <Icon icon={LucideIcon::X} class="cursor-pointer" on:click=clear_filter />
+                    </div>
+                </div>
+                <IconTable icon_filter=icon_filter />
+
+            </div>
+        </div>
+    }
+}
+
+#[component]
+fn MainMenu() -> impl IntoView {
+
+    view! {
+        <div class="flex flex-row gap-4 justify-end text-primary">
+            <a href="">Icons</a>
+            <a href="">Guide</a>
+            <a href="">Packages</a>
+            <a href="">License</a>
         </div>
     }
 }

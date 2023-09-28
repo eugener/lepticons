@@ -7,6 +7,8 @@ use base64::{ engine::general_purpose};
 use lucide_icon_data::LucideIcon;
 use strum::{EnumProperty, IntoEnumIterator};
 use weezl::{BitOrder, decode::Decoder};
+use convert_case::{Casing};
+use convert_case::Case::Title;
 
 use crate::lucide_icon_data;
 
@@ -53,7 +55,7 @@ impl LucideIcon {
         let mut categories: HashMap<String, u16> = HashMap::new();
         for icon in LucideIcon::iter() {
             for category in icon.categories() {
-                let count = categories.entry(category.to_string()).or_insert(0);
+                let count = categories.entry(category.to_case(Title).to_string()).or_insert(0);
                 *count += 1;
             }
         }

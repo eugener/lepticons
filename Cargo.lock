@@ -899,6 +899,7 @@ name = "lucide_icons"
 version = "0.2.0"
 dependencies = [
  "base64 0.21.4",
+ "convert_case",
  "leptos",
  "strum",
  "strum_macros",
