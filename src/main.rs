@@ -43,7 +43,7 @@ fn App() -> impl IntoView {
 
                 <div class="px-10 pt-5 flex flex-col gap-2">
                    {
-                       move || LucideIcon::all_categories().iter()
+                       move || LucideGlyph::all_categories().iter()
                                              .filter(|(k, _)| !k.is_empty())
                                              .map(|(k, v)|
                            view! {
@@ -62,7 +62,7 @@ fn App() -> impl IntoView {
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                        <Icon icon={LucideIcon::Search}/>
+                        <Icon icon={LucideGlyph::Search}/>
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
                                // _ref=input_ref
@@ -70,7 +70,7 @@ fn App() -> impl IntoView {
                                prop:value={move || icon_filter.get()}
                                on:input=on_input
                         />
-                        <Icon icon={LucideIcon::X} class="cursor-pointer" on:click=clear_filter />
+                        <Icon icon={LucideGlyph::X} class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
                 <IconTable icon_filter=icon_filter />
@@ -99,7 +99,7 @@ fn MainMenu(
 #[component]
 fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
     let filter = move || icon_filter.get().to_lowercase();
-    let filtered_icons = move || LucideIcon::find(filter().to_lowercase().as_str());
+    let filtered_icons = move || LucideGlyph::find(filter().to_lowercase().as_str());
 
     const ICON_CONTAINER:  &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1 transition-colors";
     const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
@@ -115,6 +115,7 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
                         <div class=TOOLTIP >
                            {icon.name()}
                         </div>
+
                     </div>
                 }
             ).collect::<Vec<_>>()

@@ -1,7 +1,8 @@
 mod lucide_icon_data;
 mod lucide_icon_impl;
 
-pub use lucide_icon_data::LucideIcon;
+pub use lucide_icon_impl::Glyph;
+pub use lucide_icon_data::LucideGlyph;
 
 use leptos::*;
 // use leptos::logging::log;
@@ -15,24 +16,18 @@ const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 
 #[component]
-pub fn Icon(
-    icon: LucideIcon,
-
+pub fn Icon<T: Glyph>(
+    icon: T,
     #[prop(default = "")]
     class: &'static str,
-
     #[prop(default = DEFAULT_SIZE)]
     size: u16,
-
     #[prop(default = DEFAULT_FILL)]
     fill: &'static str,
-
     #[prop(default = DEFAULT_STROKE)]
     stroke: &'static str,
-
     #[prop(default = DEFAULT_STROKE_WIDTH)]
     stroke_width: f32,
-
 ) -> impl IntoView {
 
     // log!("Icon: {}", icon.svg());

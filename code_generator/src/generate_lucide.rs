@@ -46,7 +46,7 @@ fn main() {
 
     // write the icons enum header
     writeln!(file, "#[derive(EnumIter, EnumProperty, PartialEq, Eq, Debug, Clone )]").expect("write enum annotation");
-    writeln!(file, "pub enum LucideIcon {{").expect("write enum header");
+    writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");
 
     // write icon's enum entries and collect their names
     let entries: Vec<SvgEntry> = paths.iter().map(|path| {

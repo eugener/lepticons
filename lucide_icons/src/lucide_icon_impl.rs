@@ -7,7 +7,7 @@ use base64::*;
 use base64::engine::general_purpose;
 use convert_case::Casing;
 use convert_case::Case::Title;
-use lucide_icon_data::LucideIcon;
+use lucide_icon_data::LucideGlyph;
 use strum::{EnumProperty, IntoEnumIterator};
 use weezl::{BitOrder, decode::Decoder};
 
@@ -21,11 +21,17 @@ fn decompress_str(input: &str) -> String {
     return String::from_utf8(decompressed).unwrap();
 }
 
-impl LucideIcon {
+pub trait Glyph {
+    fn svg(&self) -> String;
+}
 
-    pub fn svg(&self) -> String {
+impl Glyph for LucideGlyph {
+    fn svg(&self) -> String {
         decompress_str(self.get_str("svg").expect("get svg"))
     }
+}
+
+impl LucideGlyph {
 
     pub fn categories(&self) -> Vec<&str> {
         self.get_str("categories")
@@ -55,7 +61,7 @@ impl LucideIcon {
     pub fn all_categories() -> BTreeMap<String, u16> {
 
         let mut categories: BTreeMap<String, u16> = BTreeMap::new();
-        for icon in LucideIcon::iter() {
+        for icon in LucideGlyph::iter() {
             for category in icon.categories() {
                 let count = categories.entry(category.to_case(Title).to_string()).or_insert(0);
                 *count += 1;
@@ -71,13 +77,13 @@ impl LucideIcon {
         acc
     }
 
-    pub fn find(filter: &str) -> Vec<LucideIcon> {
+    pub fn find(filter: &str) -> Vec<LucideGlyph> {
 
         if filter.is_empty() {
-            return LucideIcon::iter().collect::<Vec<_>>();
+            return LucideGlyph::iter().collect::<Vec<_>>();
         }
 
-        LucideIcon::iter().filter(|icon| {
+        LucideGlyph::iter().filter(|icon| {
             icon.search_base().iter().any(|tag| tag.contains(filter))
         }).collect::<Vec<_>>()
 
