@@ -74,9 +74,7 @@ jobs:
       - uses: jetli/trunk-action@v0.4.0
       - name: Build
         run: |
-#          cargo build --verbose
-#          rustup target add wasm32-unknown-unknown
-          trunk build --release
+           trunk build --release
       - name: Preview Deploy
         id: deploy
         uses: amondnet/vercel-action@v25
