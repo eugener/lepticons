@@ -52,17 +52,17 @@ pub fn ThemeToggle() -> impl IntoView {
              on:click=toggle_theme >
             <div class="flex-none w-6 h-6 bg-primary/100 rounded-full">
                 // <Icon glyph= MaybeSignal::from( move || theme_glyph)
-                //       class="text-secondary p-1" size={24.into()}/>
+                //       class="text-secondary p-1" size={24}/>
                       // class="text-secondary p-1" size={24}/>
                 {
                     move || if prefers_dark.get() {
-                        view!{<Icon glyph=LucideGlyph::Moon.into()
+                        view!{<Icon glyph=LucideGlyph::Moon
                                     class="text-secondary p-1"
-                                    size={24.into()} />}
+                                    size={24} />}
                     } else {
-                        view!{<Icon glyph=LucideGlyph::Sun.into()
+                        view!{<Icon glyph=LucideGlyph::Sun
                                     class="text-secondary p-1"
-                                    size={24.into()} />}
+                                    size={24} />}
                     }
                 }
             </div>

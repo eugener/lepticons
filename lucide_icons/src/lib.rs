@@ -4,7 +4,7 @@ mod lucide_icon_impl;
 pub use lucide_icon_data::LucideGlyph;
 pub use lucide_icon_impl::Glyph;
 
-use leptos::MaybeSignal;
+use leptos::Signal;
 use leptos::*;
 // use leptos::logging::log;
 
@@ -17,12 +17,12 @@ const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 #[component]
 pub fn Icon<T: Glyph + 'static>(
-    glyph: MaybeSignal<T>,
-    #[prop(into, default = MaybeSignal::from(""))] class: MaybeSignal<&'static str>,
-    #[prop(default = MaybeSignal::from(DEFAULT_SIZE))] size: MaybeSignal<u16>,
-    #[prop(default = MaybeSignal::from(DEFAULT_FILL))] fill: MaybeSignal<&'static str>,
-    #[prop(default = MaybeSignal::from(DEFAULT_STROKE))] stroke: MaybeSignal<&'static str>,
-    #[prop(default = MaybeSignal::from(DEFAULT_STROKE_WIDTH))] stroke_width: MaybeSignal<f32>,
+    #[prop(into)] glyph: Signal<T>,
+    #[prop(into, default = Signal::from(""))] class: Signal<&'static str>,
+    #[prop(into, default = Signal::from(DEFAULT_SIZE))] size: Signal<u16>,
+    #[prop(into, default = Signal::from(DEFAULT_FILL))] fill: Signal<&'static str>,
+    #[prop(into, default = Signal::from(DEFAULT_STROKE))] stroke: Signal<&'static str>,
+    #[prop(into, default = Signal::from(DEFAULT_STROKE_WIDTH))] stroke_width: Signal<f32>,
 ) -> impl IntoView {
     // log!("Icon: {}", icon.svg());
 
