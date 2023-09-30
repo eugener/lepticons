@@ -45,11 +45,18 @@ fn App() -> impl IntoView {
                    {
                        move || LucideGlyph::all_categories().iter()
                              .filter(|(k, _)| !k.is_empty())
-                             .map(|(title, count)|
+                             .map(|(title, count)| {
+                                  let title_cloned = title.clone();
                                   view! {
-                                   <Category title={title.to_string()} count={*count}/>
+                                    <div class="flex flex-row gap-4 text-sm text-primary/70 cursor-pointer">
+                                       <div class="flex-auto"
+                                               on:click=move |_| set_icon_filter.set(title_cloned.to_string()) >
+                                           {title}
+                                       </div>
+                                      <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
+                                    </div>
                                   }
-                              ).collect::<Vec<_>>()
+                              }).collect::<Vec<_>>()
                    }
                 </div>
 
@@ -96,36 +103,16 @@ fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
 }
 
 #[component]
-fn Category(title: String, count: u16) -> impl IntoView {
-    view! {
-        <div class="flex flex-row gap-4 text-sm text-primary/70">
-             <a href="" class="flex-auto">{title}</a>
-             <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
-        </div>
-    }
-}
-
-#[component]
 fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
-    let filter = icon_filter.get().to_lowercase();
-    let filtered_icons = LucideGlyph::find(filter.to_lowercase().as_str());
+    let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
 
     view! {
 
         <div class="flex flex-row flex-wrap gap-2 justify-between">
         {
-            move || filtered_icons.iter().map( |icon| {
-                // let icon = icon.clone();
-                view! {
-                    // <div class=ICON_CONTAINER>
-                    //     <Icon<LucideGlyph> glyph= icon /> // stroke_width={1.7} stroke="#645e5f"/>
-                    //     <div class=TOOLTIP >
-                    //        {icon.name()}
-                    //     </div>
-                    // </div>
-                      <IconCell icon=icon.clone()/>
-                }
-            }).collect::<Vec<_>>()
+            move || filtered_icons().iter().map( |icon|
+                view!{ <IconCell icon=icon.clone()/> }
+            ).collect::<Vec<_>>()
         }
         </div>
 
