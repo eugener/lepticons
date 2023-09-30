@@ -9,6 +9,7 @@ use lucide_icons::*;
 use components::*;
 
 mod components;
+mod local_storage;
 
 //TODO show and select icon attributes
 //     show and select categories
@@ -57,14 +58,14 @@ fn App() -> impl IntoView {
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                        <Icon glyph={LucideGlyph::Search}/>
+                        <Icon glyph= move || LucideGlyph::Search/>
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
                                prop:placeholder="Search icons..."
                                prop:value={move || icon_filter.get()}
                                on:input=on_input
                         />
-                        <Icon glyph={LucideGlyph::X} class="cursor-pointer" on:click=clear_filter />
+                        <Icon glyph=move || LucideGlyph::X class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
                 <IconTable icon_filter=icon_filter />
@@ -86,7 +87,7 @@ fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <a href="https://github.com/eugener/lucid-icons-leptos"
                target={"_blank".to_string()}
                class="flex-none ">
-                <Icon glyph={LucideGlyph::Github}
+                <Icon glyph= move || LucideGlyph::Github
                       class="cursor-pointer p-[1px] pt-[3px] text-secondary fill-secondary bg-primary/100 rounded-full w-6 h-6"
                       stroke_width={0.2}/>
             </a>
@@ -106,28 +107,43 @@ fn Category(title: String, count: u16) -> impl IntoView {
 
 #[component]
 fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
-    let filter = move || icon_filter.get().to_lowercase();
-    let filtered_icons = move || LucideGlyph::find(filter().to_lowercase().as_str());
-
-    const ICON_CONTAINER:  &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1";
-    const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
+    let filter = icon_filter.get().to_lowercase();
+    let filtered_icons = LucideGlyph::find(filter.to_lowercase().as_str());
 
     view! {
 
         <div class="flex flex-row flex-wrap gap-2 justify-between">
         {
-            move || filtered_icons().iter().map( |icon|
+            move || filtered_icons.iter().map( |icon| {
+                // let icon = icon.clone();
                 view! {
-                    <div class=ICON_CONTAINER>
-                        <Icon glyph={icon.clone()} /> // stroke_width={1.7} stroke="#645e5f"/>
-                        <div class=TOOLTIP >
-                           {icon.name()}
-                        </div>
-                    </div>
+                    // <div class=ICON_CONTAINER>
+                    //     <Icon<LucideGlyph> glyph= icon /> // stroke_width={1.7} stroke="#645e5f"/>
+                    //     <div class=TOOLTIP >
+                    //        {icon.name()}
+                    //     </div>
+                    // </div>
+                      <IconCell icon=icon.clone()/>
                 }
-            ).collect::<Vec<_>>()
+            }).collect::<Vec<_>>()
         }
         </div>
 
+    }
+}
+
+const ICON_CONTAINER:  &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1";
+const TOOLTIP:  &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
+
+#[component]
+fn IconCell(icon: LucideGlyph) -> impl IntoView {
+    let glyph = icon.clone();
+    view! {
+        <div class=ICON_CONTAINER>
+            <Icon<LucideGlyph> glyph= move || glyph.clone() /> // stroke_width={1.7} stroke="#645e5f"/>
+            <div class=TOOLTIP >
+               {icon.name()}
+            </div>
+        </div>
     }
 }

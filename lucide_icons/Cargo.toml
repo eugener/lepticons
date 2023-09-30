@@ -15,7 +15,7 @@ weezl = "0.1.7"
 
 [dependencies.leptos]
 features = ["csr"]
-version = "0.5.0-rc3"
+version = "0.5.0"
 
 [features]
 accessibility = []

@@ -1,6 +1,9 @@
+use leptos::logging::*;
 use leptos::*;
 use leptos_meta::*;
 use lucide_icons::*;
+
+use crate::local_storage::LocalStorage;
 
 #[component]
 pub fn StickyTop(#[prop(default = "")] class: &'static str, children: Children) -> impl IntoView {
@@ -11,12 +14,20 @@ pub fn StickyTop(#[prop(default = "")] class: &'static str, children: Children) 
     }
 }
 
+const THEME_KEY: &str = "dark-mode";
+
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
-    let (prefers_dark, set_prefers_dark) = create_signal(false);
+    let (dark_mode, set_prefers_dark) =
+        create_signal(LocalStorage::get(THEME_KEY).unwrap_or_default());
+
+    create_effect(move |_| {
+        LocalStorage::set(THEME_KEY, &dark_mode.get());
+    });
 
     let theme = move || {
-        if prefers_dark.get() {
+        log!(">>> Theme: {}", dark_mode.get());
+        if dark_mode.get() {
             "dark".to_string()
         } else {
             "light".to_string()
@@ -26,7 +37,7 @@ pub fn ThemeToggle() -> impl IntoView {
     let pos_class = move || {
         format!(
             "flex flex-row gap-2 items-center {} w-12 h-6 bg-primary/50 rounded-full",
-            if prefers_dark.get() {
+            if dark_mode.get() {
                 "justify-start".to_string()
             } else {
                 "justify-end".to_string()
@@ -35,36 +46,23 @@ pub fn ThemeToggle() -> impl IntoView {
     };
 
     let toggle_theme = move |_| {
-        set_prefers_dark.set(!prefers_dark.get());
+        set_prefers_dark.update(|dark| *dark = !*dark);
     };
 
-    // let theme_glyph = move || {
-    //     if prefers_dark.get() {
-    //         LucideGlyph::Moon
-    //     } else {
-    //         LucideGlyph::Sun
-    //     }
-    // };
+    let theme_glyph = move || {
+        if dark_mode.get() {
+            LucideGlyph::Moon
+        } else {
+            LucideGlyph::Sun
+        }
+    };
 
     view! {
         <Html class=theme />
         <button class=pos_class
              on:click=toggle_theme >
             <div class="flex-none w-6 h-6 bg-primary/100 rounded-full">
-                // <Icon glyph= MaybeSignal::from( move || theme_glyph)
-                //       class="text-secondary p-1" size={24}/>
-                      // class="text-secondary p-1" size={24}/>
-                {
-                    move || if prefers_dark.get() {
-                        view!{<Icon glyph=LucideGlyph::Moon
-                                    class="text-secondary p-1"
-                                    size={24} />}
-                    } else {
-                        view!{<Icon glyph=LucideGlyph::Sun
-                                    class="text-secondary p-1"
-                                    size={24} />}
-                    }
-                }
+                <Icon<LucideGlyph> glyph=theme_glyph class="text-secondary p-1" size={24}/>
             </div>
         </button>
     }

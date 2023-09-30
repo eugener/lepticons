@@ -4,7 +4,7 @@ mod lucide_icon_impl;
 pub use lucide_icon_data::LucideGlyph;
 pub use lucide_icon_impl::Glyph;
 
-use leptos::Signal;
+use leptos::RwSignal;
 use leptos::*;
 // use leptos::logging::log;
 
@@ -18,11 +18,11 @@ const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 #[component]
 pub fn Icon<T: Glyph + 'static>(
     #[prop(into)] glyph: Signal<T>,
-    #[prop(into, default = Signal::from(""))] class: Signal<&'static str>,
-    #[prop(into, default = Signal::from(DEFAULT_SIZE))] size: Signal<u16>,
-    #[prop(into, default = Signal::from(DEFAULT_FILL))] fill: Signal<&'static str>,
-    #[prop(into, default = Signal::from(DEFAULT_STROKE))] stroke: Signal<&'static str>,
-    #[prop(into, default = Signal::from(DEFAULT_STROKE_WIDTH))] stroke_width: Signal<f32>,
+    #[prop(into, default = RwSignal::from(""))] class: RwSignal<&'static str>,
+    #[prop(into, default = RwSignal::from(DEFAULT_SIZE))] size: RwSignal<u16>,
+    #[prop(into, default = RwSignal::from(DEFAULT_FILL))] fill: RwSignal<&'static str>,
+    #[prop(into, default = RwSignal::from(DEFAULT_STROKE))] stroke: RwSignal<&'static str>,
+    #[prop(into, default = RwSignal::from(DEFAULT_STROKE_WIDTH))] stroke_width: RwSignal<f32>,
 ) -> impl IntoView {
     // log!("Icon: {}", icon.svg());
 
@@ -37,8 +37,8 @@ pub fn Icon<T: Glyph + 'static>(
           width   = move || format!("{}", size.get())
           height  = move || format!("{}", size.get())
           viewBox = move || format!("0 0 {} {}", size.get(), size.get())
-          fill    = fill.get()
-          stroke  = stroke.get()
+          fill    = move || fill.get()
+          stroke  = move || stroke.get()
           stroke-width    = move || format!("{}", stroke_width.get())
           stroke-linecap  ="round"
           stroke-linejoin ="round"
