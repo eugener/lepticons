@@ -1,15 +1,14 @@
 extern crate core;
 
-
 use std::collections::{BTreeMap, HashSet};
 
-use base64::*;
 use base64::engine::general_purpose;
-use convert_case::Casing;
+use base64::*;
 use convert_case::Case::Title;
+use convert_case::Casing;
 use lucide_icon_data::LucideGlyph;
 use strum::{EnumProperty, IntoEnumIterator};
-use weezl::{BitOrder, decode::Decoder};
+use weezl::{decode::Decoder, BitOrder};
 
 use crate::lucide_icon_data;
 
@@ -21,7 +20,7 @@ fn decompress_str(input: &str) -> String {
     return String::from_utf8(decompressed).unwrap();
 }
 
-pub trait Glyph {
+pub trait Glyph: Clone {
     fn svg(&self) -> String;
 }
 
@@ -32,7 +31,6 @@ impl Glyph for LucideGlyph {
 }
 
 impl LucideGlyph {
-
     pub fn categories(&self) -> Vec<&str> {
         self.get_str("categories")
             .expect("get categories")
@@ -59,11 +57,12 @@ impl LucideGlyph {
     }
 
     pub fn all_categories() -> BTreeMap<String, u16> {
-
         let mut categories: BTreeMap<String, u16> = BTreeMap::new();
         for icon in LucideGlyph::iter() {
             for category in icon.categories() {
-                let count = categories.entry(category.to_case(Title).to_string()).or_insert(0);
+                let count = categories
+                    .entry(category.to_case(Title).to_string())
+                    .or_insert(0);
                 *count += 1;
             }
         }
@@ -72,20 +71,18 @@ impl LucideGlyph {
 
     fn search_base(&self) -> HashSet<String> {
         let mut acc = HashSet::from([self.name().to_lowercase()]);
-        acc.extend(  self.tags().iter().map(|tag| tag.to_string()));
-        acc.extend(  self.categories().iter().map(|cat| cat.to_string()));
+        acc.extend(self.tags().iter().map(|tag| tag.to_string()));
+        acc.extend(self.categories().iter().map(|cat| cat.to_string()));
         acc
     }
 
     pub fn find(filter: &str) -> Vec<LucideGlyph> {
-
         if filter.is_empty() {
             return LucideGlyph::iter().collect::<Vec<_>>();
         }
 
-        LucideGlyph::iter().filter(|icon| {
-            icon.search_base().iter().any(|tag| tag.contains(filter))
-        }).collect::<Vec<_>>()
-
+        LucideGlyph::iter()
+            .filter(|icon| icon.search_base().iter().any(|tag| tag.contains(filter)))
+            .collect::<Vec<_>>()
     }
 }

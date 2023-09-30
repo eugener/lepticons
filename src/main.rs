@@ -57,14 +57,14 @@ fn App() -> impl IntoView {
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                        <Icon glyph={LucideGlyph::Search}/>
+                        <Icon glyph={LucideGlyph::Search.into()}/>
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
                                prop:placeholder="Search icons..."
                                prop:value={move || icon_filter.get()}
                                on:input=on_input
                         />
-                        <Icon glyph={LucideGlyph::X} class="cursor-pointer" on:click=clear_filter />
+                        <Icon glyph={LucideGlyph::X.into()} class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
                 <IconTable icon_filter=icon_filter />
@@ -83,6 +83,13 @@ fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <a href="">Packages</a>
             <a href="">License</a>
             <ThemeToggle/>
+            <a href="https://github.com/eugener/lucid-icons-leptos"
+               target={"_blank".to_string()}
+               class="flex-none ">
+                <Icon glyph={LucideGlyph::Github.into()}
+                      class="cursor-pointer p-[1px] pt-[3px] text-secondary fill-secondary bg-primary/100 rounded-full w-6 h-6"
+                      stroke_width=0.2.into()/>
+            </a>
         </div>
     }
 }
@@ -112,7 +119,7 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
             move || filtered_icons().iter().map( |icon|
                 view! {
                     <div class=ICON_CONTAINER>
-                        <Icon glyph={icon.clone()} /> // stroke_width={1.7} stroke="#645e5f"/>
+                        <Icon glyph={icon.clone().into()} /> // stroke_width={1.7} stroke="#645e5f"/>
                         <div class=TOOLTIP >
                            {icon.name()}
                         </div>

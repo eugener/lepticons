@@ -4,6 +4,7 @@ mod lucide_icon_impl;
 pub use lucide_icon_data::LucideGlyph;
 pub use lucide_icon_impl::Glyph;
 
+use leptos::MaybeSignal;
 use leptos::*;
 // use leptos::logging::log;
 
@@ -16,30 +17,32 @@ const DEFAULT_STROKE_WIDTH: f32 = 1.5;
 
 #[component]
 pub fn Icon<T: Glyph + 'static>(
-    glyph: T,
-    #[prop(default = "")] class: &'static str,
-    #[prop(default = DEFAULT_SIZE)] size: u16,
-    #[prop(default = DEFAULT_FILL)] fill: &'static str,
-    #[prop(default = DEFAULT_STROKE)] stroke: &'static str,
-    #[prop(default = DEFAULT_STROKE_WIDTH)] stroke_width: f32,
+    glyph: MaybeSignal<T>,
+    #[prop(into, default = MaybeSignal::from(""))] class: MaybeSignal<&'static str>,
+    #[prop(default = MaybeSignal::from(DEFAULT_SIZE))] size: MaybeSignal<u16>,
+    #[prop(default = MaybeSignal::from(DEFAULT_FILL))] fill: MaybeSignal<&'static str>,
+    #[prop(default = MaybeSignal::from(DEFAULT_STROKE))] stroke: MaybeSignal<&'static str>,
+    #[prop(default = MaybeSignal::from(DEFAULT_STROKE_WIDTH))] stroke_width: MaybeSignal<f32>,
 ) -> impl IntoView {
     // log!("Icon: {}", icon.svg());
 
-    let svg = create_memo(move |_| glyph.svg());
+    // let svg = create_memo(move |_| glyph.get().svg());
+    // let glyph = glyph.get();
+    // let size = size.get();
 
     view! {
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class   = class.to_string()
-          width   =format!("{}", size)
-          height  =format!("{}", size)
-          viewBox =format!("0 0 {} {}", size, size)
-          fill    ={fill}
-          stroke  ={stroke}
-          stroke-width    =format!("{}", stroke_width)
+          class   = move || class.get()
+          width   = move || format!("{}", size.get())
+          height  = move || format!("{}", size.get())
+          viewBox = move || format!("0 0 {} {}", size.get(), size.get())
+          fill    = fill.get()
+          stroke  = stroke.get()
+          stroke-width    = move || format!("{}", stroke_width.get())
           stroke-linecap  ="round"
           stroke-linejoin ="round"
-          inner_html={svg}
+          inner_html=  move || glyph.get().svg()
         />
     }
 }
