@@ -1,4 +1,3 @@
-use leptos::logging::*;
 use leptos::*;
 use leptos_meta::*;
 use lucide_icons::*;
@@ -18,36 +17,27 @@ const DARK_MODE: &str = "dark-mode";
 
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
-    let (dark_mode, set_prefers_dark) =
-        create_signal(LocalStorage::get(DARK_MODE).unwrap_or_default());
+    let (dark_mode, set_dark_mode) = create_signal(LocalStorage::get(DARK_MODE).unwrap_or(false));
 
     create_effect(move |_| {
         LocalStorage::set(DARK_MODE, &dark_mode.get());
     });
 
-    let theme = move || {
-        log!(">>> Theme: {}", dark_mode.get());
-        if dark_mode.get() {
-            "dark".to_string()
-        } else {
-            "light".to_string()
-        }
-    };
+    let theme = move || if dark_mode.get() { "dark" } else { "light" }.to_string();
 
     let pos_class = move || {
         format!(
             "flex flex-row gap-2 items-center {} w-12 h-6 bg-primary/50 rounded-full",
             if dark_mode.get() {
-                "justify-start".to_string()
+                "justify-start"
             } else {
-                "justify-end".to_string()
+                "justify-end"
             }
+            .to_string()
         )
     };
 
-    let toggle_theme = move |_| {
-        set_prefers_dark.update(|dark| *dark = !*dark);
-    };
+    let toggle_theme = move |_| set_dark_mode.set(!dark_mode.get());
 
     let theme_glyph = move || {
         if dark_mode.get() {
