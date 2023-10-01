@@ -93,10 +93,9 @@ fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <ThemeToggle/>
             <a href="https://github.com/eugener/lucid-icons-leptos"
                target={"_blank".to_string()}
-               class="flex-none ">
+               class="flex-none w-6 h-6  rounded-full bg-primary/100 text-secondary">
                 <Icon glyph= move || LucideGlyph::Github
-                      class="cursor-pointer p-[1px] pt-[3px] text-secondary fill-secondary bg-primary/100 rounded-full w-6 h-6"
-                      stroke_width={0.2}/>
+                      class="cursor-pointer p-[1px] pt-[3px] fill-secondary"/>
             </a>
         </div>
     }

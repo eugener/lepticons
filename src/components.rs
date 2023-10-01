@@ -14,15 +14,15 @@ pub fn StickyTop(#[prop(default = "")] class: &'static str, children: Children) 
     }
 }
 
-const THEME_KEY: &str = "dark-mode";
+const DARK_MODE: &str = "dark-mode";
 
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
     let (dark_mode, set_prefers_dark) =
-        create_signal(LocalStorage::get(THEME_KEY).unwrap_or_default());
+        create_signal(LocalStorage::get(DARK_MODE).unwrap_or_default());
 
     create_effect(move |_| {
-        LocalStorage::set(THEME_KEY, &dark_mode.get());
+        LocalStorage::set(DARK_MODE, &dark_mode.get());
     });
 
     let theme = move || {
@@ -62,7 +62,7 @@ pub fn ThemeToggle() -> impl IntoView {
         <button class=pos_class
              on:click=toggle_theme >
             <div class="flex-none w-6 h-6 bg-primary/100 rounded-full">
-                <Icon<LucideGlyph> glyph=theme_glyph class="text-secondary p-1" size={24}/>
+                <Icon<LucideGlyph> glyph=theme_glyph class="text-secondary p-1"/>
             </div>
         </button>
     }
