@@ -46,7 +46,7 @@ fn main() {
 
     // write the icons enum header
     writeln!(file, "#[derive(EnumIter, EnumProperty, PartialEq, Eq, Debug, Clone )]").expect("write enum annotation");
-    writeln!(file, "pub enum LucideIcon {{").expect("write enum header");
+    writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");
 
     // write icon's enum entries and collect their names
     let entries: Vec<SvgEntry> = paths.iter().map(|path| {
@@ -120,6 +120,11 @@ impl SvgEntry {
         let meta: EntryMeta = serde_json::from_reader(
             fs::File::open(path.with_extension("json")).expect("open json")
         ).expect("read json file");
+
+        // check for empty categories
+        if meta.categories.is_empty() {
+            println!(">>>WARNING: {} has no categories", icon_name);
+        }
 
         Self{ path: path.clone(),
             icon_name: icon_name.clone(),

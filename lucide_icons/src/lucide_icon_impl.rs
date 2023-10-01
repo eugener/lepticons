@@ -1,11 +1,14 @@
 extern crate core;
 
+use std::collections::{BTreeMap, HashSet};
 
+use base64::engine::general_purpose;
 use base64::*;
-use base64::{ engine::general_purpose};
-use lucide_icon_data::LucideIcon;
-use strum::EnumProperty;
-use weezl::{BitOrder, decode::Decoder};
+use convert_case::Case::Title;
+use convert_case::Casing;
+use lucide_icon_data::LucideGlyph;
+use strum::{EnumProperty, IntoEnumIterator};
+use weezl::{decode::Decoder, BitOrder};
 
 use crate::lucide_icon_data;
 
@@ -17,12 +20,17 @@ fn decompress_str(input: &str) -> String {
     return String::from_utf8(decompressed).unwrap();
 }
 
-impl LucideIcon {
+pub trait Glyph: Clone {
+    fn svg(&self) -> String;
+}
 
-    pub fn svg(&self) -> String {
+impl Glyph for LucideGlyph {
+    fn svg(&self) -> String {
         decompress_str(self.get_str("svg").expect("get svg"))
     }
+}
 
+impl LucideGlyph {
     pub fn categories(&self) -> Vec<&str> {
         self.get_str("categories")
             .expect("get categories")
@@ -46,5 +54,35 @@ impl LucideIcon {
 
     pub fn name(&self) -> String {
         format!("{:?}", self)
+    }
+
+    pub fn all_categories() -> BTreeMap<String, u16> {
+        let mut categories: BTreeMap<String, u16> = BTreeMap::new();
+        for icon in LucideGlyph::iter() {
+            for category in icon.categories() {
+                let count = categories
+                    .entry(category.to_case(Title).to_string())
+                    .or_insert(0);
+                *count += 1;
+            }
+        }
+        categories
+    }
+
+    fn search_base(&self) -> HashSet<String> {
+        let mut acc = HashSet::from([self.name().to_lowercase()]);
+        acc.extend(self.tags().iter().map(|tag| tag.to_string()));
+        acc.extend(self.categories().iter().map(|cat| cat.to_string()));
+        acc
+    }
+
+    pub fn find(filter: &str) -> Vec<LucideGlyph> {
+        if filter.is_empty() {
+            return LucideGlyph::iter().collect::<Vec<_>>();
+        }
+
+        LucideGlyph::iter()
+            .filter(|icon| icon.search_base().iter().any(|tag| tag.contains(filter)))
+            .collect::<Vec<_>>()
     }
 }

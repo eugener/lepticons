@@ -2,8 +2,8 @@ name: Preview
 
 on:
   pull_request:
-    branches: [ "main" ]
-    
+    branches: [ "develop" ]
+
   workflow_dispatch:
 
 
@@ -60,21 +60,21 @@ jobs:
     steps:
       - name: git-checkout
         uses: actions/checkout@v4
-        with: 
+        with:
           token: ${{ secrets.GH_PAT }}
       # - name: Submodules
       #   run: |
       #    cd lucide
       #    cd git mull origin master
       #    cd ..
-      - uses: dtolnay/rust-toolchain@nightly
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
       - uses: jetli/trunk-action@v0.4.0
       - name: Build
         run: |
-          cargo build --verbose
-          rustup target add wasm32-unknown-unknown
-          trunk build
+           trunk build --release
       - name: Preview Deploy
         id: deploy
         uses: amondnet/vercel-action@v25

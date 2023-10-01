@@ -8,13 +8,14 @@ bench = false
 
 [dependencies]
 base64 = "0.21.4"
+convert_case = "0.6.0"
 strum = "0.25"
 strum_macros = "0.25"
 weezl = "0.1.7"
 
 [dependencies.leptos]
 features = ["csr"]
-version = "0.5.0-rc3"
+version = "0.5.0"
 
 [features]
 accessibility = []
