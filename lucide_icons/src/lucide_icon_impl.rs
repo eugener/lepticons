@@ -4,6 +4,8 @@ use std::collections::{BTreeMap, HashSet};
 
 use base64::engine::general_purpose;
 use base64::*;
+use cached::proc_macro::cached;
+
 use convert_case::Case::Title;
 use convert_case::Casing;
 use lucide_icon_data::LucideGlyph;
@@ -12,7 +14,14 @@ use weezl::{decode::Decoder, BitOrder};
 
 use crate::lucide_icon_data;
 
-fn decompress_str(input: &str) -> String {
+
+/**
+ * Decompresses the svg string of a LucideGlyph
+ * Uses caching to speed up the process for repeated calls
+ * The speed up is significant, approx 8-9x
+ */
+#[cached]
+fn decompress_str(input: String) -> String {
     let compressed = general_purpose::STANDARD_NO_PAD.decode(input).unwrap();
     let decompressed = Decoder::new(BitOrder::Msb, 9)
         .decode(&compressed.to_vec())
@@ -26,7 +35,7 @@ pub trait Glyph: Clone {
 
 impl Glyph for LucideGlyph {
     fn svg(&self) -> String {
-        decompress_str(self.get_str("svg").expect("get svg"))
+        decompress_str(self.get_str("svg").expect("get svg").to_string())
     }
 }
 
@@ -86,3 +95,26 @@ impl LucideGlyph {
             .collect::<Vec<_>>()
     }
 }
+
+// #[cfg(test)]
+// mod tests {
+//     use std::time::Instant;
+//     use super::*;
+//
+//     #[test]
+//     fn bench_svg_decompression() {
+//        let start_time = Instant::now();
+//        decompress_all();
+//        let elapsed_time = start_time.elapsed();
+//        println!("Elapsed time: {:?}", elapsed_time);
+//     }
+//
+//     fn decompress_all() {
+//         for _ in 1..10 {
+//             for icon in LucideGlyph::iter() {
+//                 icon.svg();
+//             }
+//         }
+//     }
+//
+// }
