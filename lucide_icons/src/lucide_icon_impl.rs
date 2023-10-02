@@ -29,6 +29,17 @@ fn decompress_str(input: String) -> String {
     return String::from_utf8(decompressed).unwrap();
 }
 
+/**
+ * Cached function to convert a command delimited string to a vector of strings
+ */
+#[cached]
+fn str_to_vec(input: String) -> Vec<String> {
+    input.trim()
+        .split(',')
+        .map(|s| s.to_string())
+        .collect()
+}
+
 pub trait Glyph: Clone {
     fn svg(&self) -> String;
 }
@@ -40,25 +51,16 @@ impl Glyph for LucideGlyph {
 }
 
 impl LucideGlyph {
-    pub fn categories(&self) -> Vec<&str> {
-        self.get_str("categories")
-            .expect("get categories")
-            .split(',')
-            .collect::<Vec<&str>>()
+    pub fn categories(&self) -> Vec<String> {
+        str_to_vec(self.get_str("categories").unwrap_or("").to_string())
     }
 
-    pub fn tags(&self) -> Vec<&str> {
-        self.get_str("tags")
-            .expect("get tags")
-            .split(',')
-            .collect::<Vec<&str>>()
+    pub fn tags(&self) -> Vec<String> {
+        str_to_vec(self.get_str("tags").unwrap_or("").to_string())
     }
 
-    pub fn contributors(&self) -> Vec<&str> {
-        self.get_str("contributors")
-            .expect("get contributors")
-            .split(',')
-            .collect::<Vec<&str>>()
+    pub fn contributors(&self) -> Vec<String> {
+        str_to_vec(self.get_str("contributors").unwrap_or("").to_string())
     }
 
     pub fn name(&self) -> String {
@@ -95,6 +97,7 @@ impl LucideGlyph {
             .collect::<Vec<_>>()
     }
 }
+
 
 // #[cfg(test)]
 // mod tests {
