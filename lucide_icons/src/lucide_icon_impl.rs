@@ -5,7 +5,6 @@ use std::collections::{BTreeMap, HashSet};
 use base64::engine::general_purpose;
 use base64::*;
 use cached::proc_macro::cached;
-
 use convert_case::Case::Title;
 use convert_case::Casing;
 use lucide_icon_data::LucideGlyph;
@@ -13,7 +12,6 @@ use strum::{EnumProperty, IntoEnumIterator};
 use weezl::{decode::Decoder, BitOrder};
 
 use crate::lucide_icon_data;
-
 
 /**
  * Decompresses the svg string of a LucideGlyph
@@ -30,14 +28,11 @@ fn decompress_str(input: String) -> String {
 }
 
 /**
- * Cached function to convert a command delimited string to a vector of strings
+ * Cached function to convert a comma delimited string to a vector of strings
  */
 #[cached]
 fn str_to_vec(input: String) -> Vec<String> {
-    input.trim()
-        .split(',')
-        .map(|s| s.to_string())
-        .collect()
+    input.trim().split(',').map(|s| s.to_string()).collect()
 }
 
 pub trait Glyph: Clone {
@@ -67,6 +62,9 @@ impl LucideGlyph {
         format!("{:?}", self)
     }
 
+    /**
+     * Returns a sorted map of all categories and their count
+     */
     pub fn all_categories() -> BTreeMap<String, u16> {
         let mut categories: BTreeMap<String, u16> = BTreeMap::new();
         for icon in LucideGlyph::iter() {
@@ -92,12 +90,18 @@ impl LucideGlyph {
             return LucideGlyph::iter().collect::<Vec<_>>();
         }
 
+        let filters = filter.split_whitespace().collect::<Vec<_>>();
+        // filters.any(|filter| filter.is_empty());
+
         LucideGlyph::iter()
-            .filter(|icon| icon.search_base().iter().any(|tag| tag.contains(filter)))
+            .filter(|icon| {
+                icon.search_base()
+                    .iter()
+                    .any(|tag| filters.iter().any(|filter| tag.contains(filter)))
+            })
             .collect::<Vec<_>>()
     }
 }
-
 
 // #[cfg(test)]
 // mod tests {
