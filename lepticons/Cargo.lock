@@ -720,6 +720,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
+name = "lepticons"
+version = "0.5.0"
+dependencies = [
+ "base64",
+ "cached",
+ "convert_case",
+ "leptos",
+ "strum",
+ "strum_macros",
+ "weezl",
+]
+
+[[package]]
 name = "leptos"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -885,19 +898,6 @@ name = "log"
 version = "0.4.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
-
-[[package]]
-name = "lucide_icons"
-version = "0.2.0"
-dependencies = [
- "base64",
- "cached",
- "convert_case",
- "leptos",
- "strum",
- "strum_macros",
- "weezl",
-]
 
 [[package]]
 name = "manyhow"

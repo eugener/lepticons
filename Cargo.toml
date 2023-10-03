@@ -10,7 +10,7 @@ leptos = { version = "0.5.0", features = ["csr"] }
 leptos_meta ={ version = "0.5.0", features = ["csr"] }
 strum = "0.25"
 strum_macros = "0.25"
-lucide_icons= { path = "./lucide_icons", features = ["default"] }
+lepticons= { path = "./lepticons", features = ["default"] }
 convert_case = "0.6.0"
 web-sys = { version = "0.3.64", features = ["Window", "Storage"] }
 

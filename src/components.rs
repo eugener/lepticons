@@ -1,6 +1,6 @@
+use lepticons::*;
 use leptos::*;
 use leptos_meta::*;
-use lucide_icons::*;
 
 use crate::local_storage::LocalStorage;
 

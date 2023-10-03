@@ -1,10 +1,10 @@
 use std::iter::Iterator;
 
+use lepticons::*;
 use leptos::ev::*;
 use leptos::logging::log;
 use leptos::*;
 use leptos_meta::*;
-use lucide_icons::*;
 
 use components::*;
 
