@@ -2,6 +2,15 @@
 edition = "2021"
 name = "lepticons"
 version = "0.5.0"
+license = "MIT"
+description = "A collection of 1000+ icons for use in your Rust projects."
+repository = "https://github.com/eugener/lepticons"
+readme = "README.md"
+keywords = ["icons", "svg", "leptos"]
+categories = ["graphics"]
+documentation = "https://docs.rs/lepticons"
+homepage = "https://lepticons.vercel.app"
+
 
 [lib]
 bench = false
