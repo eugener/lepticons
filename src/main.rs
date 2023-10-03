@@ -37,7 +37,8 @@ fn App() -> impl IntoView {
             <div class="w-64 flex-none bg-secondary h-screen overflow-y-auto">
 
                 <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
-                   <div class="py-5 text-2xl font-medium">Lucide.rs</div>
+                   //<div class="py-5 text-2xl font-medium">Lepticons</div>
+                   <img src="lepticons.png" class="py-5 w-48"/>
                    <hr/>
                 </StickyTop>
 
