@@ -91,7 +91,7 @@ fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <a href="">Packages</a>
             <a href="">License</a>
             <ThemeToggle/>
-            <a href="https://github.com/eugener/lucid-icons-leptos"
+            <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}
                class="flex-none w-6 h-6  rounded-full bg-primary/100 text-secondary">
                 <Icon glyph= move || LucideGlyph::Github
