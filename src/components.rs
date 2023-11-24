@@ -1,9 +1,11 @@
-use lepticons::*;
 use leptos::*;
 use leptos_meta::*;
 
+use lepticons::*;
+
 use crate::local_storage::LocalStorage;
 
+// StickyTop is a component that sticks to the top of the screen.
 #[component]
 pub fn StickyTop(#[prop(default = "")] class: &'static str, children: Children) -> impl IntoView {
     view! {
@@ -15,6 +17,7 @@ pub fn StickyTop(#[prop(default = "")] class: &'static str, children: Children) 
 
 const DARK_MODE: &str = "dark-mode";
 
+// ThemeToggle is a component that toggles between light and dark mode.
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
     let (dark_mode, set_dark_mode) = create_signal(LocalStorage::get(DARK_MODE).unwrap_or(false));
