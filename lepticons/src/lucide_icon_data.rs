@@ -4,7 +4,7 @@ use strum_macros::{EnumIter, EnumProperty};
 pub enum LucideGlyph {
     #[cfg(feature = "accessibility")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINAiCAcoMDGDxjHiEg2CIPg8C+A4FgeGhwGEdBoCAZIMG0MQ4CAMQ5isLQ3C0NorhmG4hiOIIiiSJgiG0NQgioMwtDMIA1C6PpBDILgzjIM5GjQL42GiOIjiWDBNDQLgyDSK5YDUYY+j4MAgmKYg2C4OIqhiGpQjmU46lYMZNDeMgxDeRpfkSY56DCMZnDiMZPlEPoB",
+        svg = "gAPBjGkchjGwZQgGMeQ9CINAigkeIMDENoPHKEgiD4PAvgOBYHhkcBhHQaAgGSDBtDEOAgDEOYqC0NwtDaKoYhqIIih+IYjiUIhtDUIIpDMLQzCANQuj2QAyC4M4xDORYzC+NRojeIokgwTQ0C4Mg0iqVw1GGPY9DAIJhmENguDiKYUhmT44lKOZVDGTA3jEMQ3kWXpDmKeQwjCZg4jCTpQD6AQ",
         categories = "accessibility,medical",
         tags = "disability,disabled,dda,wheelchair",
         contributors = "karsa-mistmere,jguddas"
@@ -12,7 +12,7 @@ pub enum LucideGlyph {
     Accessibility,
     #[cfg(feature = "activity_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeINDKERoGUaRnGgdINg+EYUCIM4RHmDYjD4PAvgOBYoHAYYLCAZINE0MQ3CAMQyGgLQyGyOwgDWOwtDEMI+DUSA3CKKAvi6Cw+gE",
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHcaRkHQaIKDEOINGgZRpGcaB0hiGggHmCoRD4PAvgOBYoHAYYWCAZIKE0MQ3CAMQyGgLQyGyOwgDWOwtDEMI+DUSA3CKKAvi6Fg+gE",
         categories = "medical,account,social,science,multimedia,shapes",
         tags = "pulse,action,motion,movement,exercise,fitness,healthcare,heart rate monitor,vital signs,vitals,emergency room,er,intensive care,hospital,defibrillator,earthquake,siesmic,magnitude,richter scale,aftershock,tremor,shockwave,audio,waveform,synthesizer,synthesiser,music",
         contributors = "danielbayley"
@@ -42,14 +42,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis"
     ))]
     Airplay,
-    #[cfg(feature = "alarm_check")]
+    #[cfg(feature = "alarm_clock_check")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDgIggGMeILDEMoOGMeYSDMIg+DwL4DgWB4bHAYR0GgIBkgsTQ1CAMwgDIIA2hqHIiiSIYjiWJwiG0MouDYLQzj6MQvjMaI1iSJooDYLgzDgIAxDgLg3CANItDGQZDkWN4oDENwuDaU5Ol2UQyDCVJWjaWJHjkOZNiyLouDQLQ0maNIBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQzhAcoMDgIg+DwL4DgWB4bHAYR0GgIBkgwTQ1CAMwgDIIA2hqHIiiSIYjiWJwiG0MouDYLQzj6MQvjMaI1iSJooDYLgzDgIAxDgLg3CANItDGQZDkWN4oDENwuDaU5Ol2UQyDCVJWjaWJHjkOZNiyLouDQLQ0maNIBA",
         categories = "devices,notifications,time",
         tags = "done,todo,tick,complete,task",
         contributors = "mittalyashu,ericfennis,jguddas,karsa-mistmere"
     ))]
-    AlarmCheck,
+    AlarmClockCheck,
     #[cfg(feature = "alarm_clock_off")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ2C4OA3CCDIOGEOAghQMAgDEIIXDEMQuDINoYh2HwiD4PAvgOBYliiBoIgoMQ5C4OYYDSHg1hOFYajkMAtjAMQ1jwLo+iSJoriqBIsgkbQyDKEAtDOTpDieR5GgWB4JguHogDEOAuDaDw0CAMgxlGRYCkeVgikqYZhhcMgwmSU5mlWLRNmCYJMDacIpgE",
@@ -60,7 +60,7 @@ pub enum LucideGlyph {
     AlarmClockOff,
     #[cfg(feature = "alarm_clock")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQzhAcoMDgIg+DwL4DgWB4bHAYR0GgIBkgwTYOCAOR2DQbAyCCD4bC+IokiGI4licIhNDUIAzjEIA2hqHI1GiN4kiaDBtDKMA2C0M5PkONI4keOYoDYLgzDgIAxDgLg3CANIxDGUpFlWSY7DENwuDaYpdmyYAyDCY5llSAQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQzCIIBygwOIQGMeIMDEMgiD4PAvgOBYHhwcBhHQaAgGSDBNhkIA5HYNBsDIIIahwL4jiWIokiaKAiE0NQgDOMggDaG4djYaI4iWJ4MG0MoxDYLQzlCRI1jmSI6ikNguDMOAgDEOAuDcIA0jIMZTkaVpKjwMQ3C4Npjl6bZhDIMJkmaVYB",
         categories = "devices,notifications,time",
         tags = "morning",
         contributors = "lscheibel,johnletey,ericfennis,jguddas,karsa-mistmere"
@@ -84,7 +84,7 @@ pub enum LucideGlyph {
     AlarmPlus,
     #[cfg(feature = "album")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDiDR4goM4NgkIoaCAaBlGkZxoHSFIWgeGILCIPg8C+A4FiwcBvGweRsGkbhlCCMo3HQc4UDEIAzCAMZAkSQw0CAOJDDeQ5FkyGosC+Mo0jaOA+gE",
+        svg = "gAPByGUYx0CAch5D0IgyCKBx4gqDAgHcaRkHQaIKDEOINGgZRpGcaB0hiGgggkIgzg2D4mCIPg8C+A4FiwcBvGweRsGkbhlCCMo3HQc4YDEIAzCAMZAkSQw0CAOJDDeQ5FkyJ4sC+Mo0jaOA+gE",
         categories = "photography,multimedia",
         tags = "photo,book",
         contributors = "ericfennis,csandman,mittalyashu"
@@ -92,7 +92,7 @@ pub enum LucideGlyph {
     Album,
     #[cfg(feature = "alert_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bGwaRuggeQyhmDx4DGKAgHmKwiDiKYngyGociKJIhiOCIqiyJoTDaD4uj+MoZC4MAxCKGwvjcZQ+gE",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bGwaRuggeAyhmEB5ieDYPCAeAxigIB5jAIg4CKGwviKJIhiOCIzhMNopisMZBi6NIOhCJoZC4MAxjeHI6GUPoB",
         categories = "notifications,shapes",
         tags = "warning,alert,danger,exclamation mark",
         contributors = "colebemis,ericfennis"
@@ -100,7 +100,7 @@ pub enum LucideGlyph {
     AlertCircle,
     #[cfg(feature = "alert_octagon")]
     #[strum(props(
-        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0Ig3C4OA2CAMggDENguDENIWhaF4ShSH4YhqHIkhuHQyiCE4ViqHoZiiHohhWM4WCIPg8C+A4Fgcbo4GyDBlCAeQyhAMQyCKQwxhAOJJHiSwikeTpFlGSI4C+QBuGWP5BkqRg2kmRJfk6UJSCAeJUkcLgwDGN45lmW4BA",
+        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0Ig3C4OA2CAMggDENguDENIWhaF4ShSH4YhqHIkhuHQyiCE4ViqHoZiiHohhWM4WCIPg8C+A4Fgcbo4GyDBlCAeAyhAMQyCKQwxkaSAgHmSwiDiSR5kUIpHjeOZAG4ZY/kGQ5VkcLgwDGSR4lCV5OmcNpTmCa44C+WpcgE",
         categories = "notifications,shapes",
         tags = "warning,alert,danger,exclamation mark",
         contributors = "colebemis,ericfennis"
@@ -132,7 +132,7 @@ pub enum LucideGlyph {
     AlignCenterVertical,
     #[cfg(feature = "align_center")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgzCIIB5DGCg2g0eIQCIMgxg0eYJCKEg+DwL4DgWHohgaD4KDEMoZhuKIThUMQ3hOG4wh6IIEGWI42geLg5iqJw4hmLo/geGw1CKNIkD6AQ",
+        svg = "gAPBsGkbhlCAeAyD0IgzCIIB5gkIg2g0eQxgqEoHhUIgyDEIg+DwL4DgWHohgYeIZDEN4NgiCopg6JwyhOEAxjCHoggQZYjjeLoKDEOIqicOYxjyPoHhANYdh+JA+gE",
         categories = "text",
         tags = "text,alignment,center",
         contributors = "colebemis,ericfennis"
@@ -140,7 +140,7 @@ pub enum LucideGlyph {
     AlignCenter,
     #[cfg(feature = "align_end_horizontal")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENgiCAch4g4MoShUIg0hIdxpGQdBog6EQgHmFgiD4PAvgOBYoiuBolCIOYShSJggh2H4hCKI4IgqDIOjIIIZDGG4oiqBB0igcBhiAIBkg4TQyDIIJREiF5FkqIA+gE",
+        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCg2g0eYKgwIIJCININGgZRpGcaB0goMYVD4PAvgOBYoiuBoPhGEwihUIIfiGI4KDmDYbDGHYHhuGYXCKOooiqBB0igcBhhIIBkgoTQyDIIJREiDJFkqEg+gE",
         categories = "layout",
         tags = "items,bottom,flex,justify",
         contributors = "ericfennis"
@@ -148,7 +148,7 @@ pub enum LucideGlyph {
     AlignEndHorizontal,
     #[cfg(feature = "align_end_vertical")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINAiCAdxpGQdBogkMQ2gwaBlGkZxoHSCYVCAch4gkMoMiEIojD4PAvgOBYoiuBolDmDIOhCEgijEIIXhmG4dgyIIigyCAiDGC4oiqBB0igcBhhEIBkgkTQyDIIJRFaJ4pkqEQ+gE",
+        svg = "gAPByGUYx0CAeA9CIMgiCAaBlGkZxoHSCQ2gwcoIgqDB5gkNIMHcaRkHQaIJDGFQ+DwL4DgWJ4qgaDoQhKFIaiSHQgh+IYjCIOYWhiC4HgmO4nimBB0iccBhiIIBkgkTQyDIIJOFaC5CkeIg+gE",
         categories = "layout",
         tags = "items,right,flex,justify",
         contributors = "ericfennis"
@@ -156,7 +156,7 @@ pub enum LucideGlyph {
     AlignEndVertical,
     #[cfg(feature = "align_horizontal_distribute_center")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig2CIIB5g0NYQGgZRpGcaB0g0MQ0hAch4g0MoQiEIoeD4PAvgOBYoiuBoSCIN4khyHoHgmC4Ng8IIgiKFYXhmGwiDEMAiiiKoEHSKBwGGCwgGSDRNDENwgDIMh2C2FJGkuC5KkwaJOlCUggDcVojlqXpdk2TwiE2U5VlcM5FimWxommX5rm0IA1mWcgvnQPoBA",
+        svg = "gAPByGUYx0CAeA9CINAiCAcoICIMoMHcaRkHQaIJDaDBoGUaRnGgdIJDGCwgHmCQ1CIPg8C+A4FimLIGhOFYXCKGYHiGI4lCIN4Mg6CYRCCG4dh+IQwiiKovikcBhhYIBkgkTQxDcIAyDIdgtieKQvkqFpJksaJNk+UQgDcVoRlmWxol2TJOCITZSlSVgzkaWpemqX5sm4IA1mWc5oD6AQ",
         categories = "layout",
         tags = "items,flex,justify,space,evenly,around",
         contributors = "r4lv,ericfennis"
@@ -164,7 +164,7 @@ pub enum LucideGlyph {
     AlignHorizontalDistributeCenter,
     #[cfg(feature = "align_horizontal_distribute_end")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAdxpGQdBog4NoSHiDoRCAeYODWEhyhwIgyCIPg8C+A4FimLIGiWEIjiWJ4HgmC4Ng8MISiAIg3hKFIWhgIoaimK4EHSKRwGGFwgGSDhNDEMAgDIdgyjuRpLheSpMGiTpQleVJWliKpaGgPoBA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAeIOhEIB5g4NYSHcaRkHQaIODaEhyhQIgyCIPg8C+A4FimLIGiSDonhODoQhuHYfiGEoIgqDI1DCEoYCIN4oiqL4pHAYYfCAZIOE0MQwCAMh2DKQIpC+SYfkiShokyTpVlKVJWiqWRoD6AQ",
         categories = "layout",
         tags = "right,items,flex,justify",
         contributors = "r4lv,ericfennis"
@@ -172,7 +172,7 @@ pub enum LucideGlyph {
     AlignHorizontalDistributeEnd,
     #[cfg(feature = "align_horizontal_distribute_start")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig2CIIB5g0NYQHIeINDKEIXCINIQGgZRpGcaB0g0MYdD4PAvgOBYoiuBoIgqDIOh6IIiiQIgxDCGolh0IIWhiEISCINwiiiKoEHSKBwGGCwgGSDRNDQIAyHYMo6kaS4LkqTBok6UImlOVZXimWRoD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJCININHcaRkHQaIKDaDR5goNYNGgZRpGcaB0goMYRD4PAvgOBYoiuBoThWFwihmB4PgyDolhEIIfiGI4lDCGoKDcIooiqBB0igcBhhYIBkgoTQ0CAMh2DKQJFkqFpJksaJNk+JpSlSVoplgaA+gE",
         categories = "layout",
         tags = "left,items,flex,justify",
         contributors = "r4lv,ericfennis"
@@ -180,7 +180,7 @@ pub enum LucideGlyph {
     AlignHorizontalDistributeStart,
     #[cfg(feature = "align_horizontal_justify_center")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAeYODWEhyHiDgyhIdxpGQdBog4NoShkIobD4PAvgOBYoiuBoIgqDIODEMIXiWGwgiUMYjCCHYfiEIo8hQIg3CKKIqgQdIoHAYYgCAZIOE0MQyCAMh2DKNZHkyIA+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAdxpGQdBog4NoSHmDg1hIch4g4MoSiEIojD4PAvgOBYoiuBoUhaGAihoIIlDGNIIgqDIODEMIbg4N4fiWJ4pi6KBwGGFwgGSDhNDEMggDIdgyj6KAvkiFw+gE",
         categories = "layout",
         tags = "center,items,flex,justify",
         contributors = "ericfennis"
@@ -188,7 +188,7 @@ pub enum LucideGlyph {
     AlignHorizontalJustifyCenter,
     #[cfg(feature = "align_horizontal_justify_end")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig2CIIBoGUaRnGgdINDENIQHiDQyhAeYNDWEByhwIoeD4PAvgOBYoiuBogCIN4QhKFIWhgMIQgiCoMg6G4Yh4IIkh0IooiqBB0igcBhgsIBkg0TQyDIIAyHYMo4kWSoLD6AQ",
+        svg = "gAPByGUYx0CAeQ9CINQiCAch4gkMoMHcaRkHQaIJDaDIPCKEQgGgZRpGcaB0gkMQ0CIPg8C+A4FimLIGhOFYXCKGYeiCIokCIMQwgyCAiDeDIOhCGolhGKYrgQdIpHAYYWCAZIJE0MgyCAMh2DKPJHkyFg+gEA",
         categories = "layout",
         tags = "right,items,flex,justify",
         contributors = "ericfennis"
@@ -196,7 +196,7 @@ pub enum LucideGlyph {
     AlignHorizontalJustifyEnd,
     #[cfg(feature = "align_horizontal_justify_start")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAch4g4MoSHcaRkHQaIODaEh5g4NYShUIofD4PAvgOBYoiuBolDGHwgiEIg3hiGoch6EoUhaEoIgqDIODEMAiiiKoEHSKBwGGHAgGSDhNDIIAyHYMpEkaS4cD6AQ",
+        svg = "gAPByGUYx0CAeA9CINgiCAaBlGkZxoHSCQxDSDB3GkZB0GiCYLCAeYJDWDByggIgyCIPg8C+A4FimLIGg6EIShQMIXhmG4dgyJQxh6JIJieH4JDeKIqi+KRwGGGwgGSCRNDIIAyHYMo1ikL5IhsPoBA",
         categories = "layout",
         tags = "left,items,flex,justify",
         contributors = "ericfennis"
@@ -204,7 +204,7 @@ pub enum LucideGlyph {
     AlignHorizontalJustifyStart,
     #[cfg(feature = "align_horizontal_space_around")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIOQiCAeYJDeDBoGUaRnGgdIJDEMIMHKCAiDKDB3GkZB0GiCQ2CIPg8C+A4FikcBhiQIBkgkTQ0CAMgyFaH4pC+L4ki6MBojKNAyDCN45juKo+GgPoBA",
+        svg = "gAPByGUYx0CAeQ9CINwiCAdxpGQdBogkNoMHIeIJDKDBoGUaRnGgdIJDEMIMhcIg5CIPg8C+A4FikcBhhEIBkgkTQ0CAMgyFaGYpC+L4Ri6MBojKNAyDCN45juKo+GgPoBA",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -212,7 +212,7 @@ pub enum LucideGlyph {
     AlignHorizontalSpaceAround,
     #[cfg(feature = "align_horizontal_space_between")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAeIODOEh5g4NYSHcaRkHQaIODaEhyhQIgyCIPg8C+A4FimLIGhyHogCKIggiSDonCCGAiDeEolDGGoHgmC4Ng8MIoiqL4pHAYYfCAZIOE0MwgDIdgykeKQvkyH5Lk0aJPlEMgxlSVpYiqWxoD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENAiCAch4g4MoSHmDg1hIdxpGQdBog4NoShUIgzCIPg8C+A4FimLIGh2H4hCKIwgiUMYbgeCYLg2DwwhiDg3hKFIWiiKovikcBhiAIBkg4TQzCAMh2DKP4pC+SogkmSxok2TwyDGUpUlaKpZGgPoBA",
         categories = "layout",
         tags = "around,items,bottom,flex,justify",
         contributors = "ericfennis"
@@ -220,7 +220,7 @@ pub enum LucideGlyph {
     AlignHorizontalSpaceBetween,
     #[cfg(feature = "align_justify")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgzCKBwygoMgxg0eYJCINoTg+FgiD4PAvgOBYch+BoUgoMQyhiJYng6EISgeFYMhyHoEGWIYzisIoRg2CIKgwIB5hkMQ4hOFZBhuHYiD6AQ",
+        svg = "gAPBsGkbhlCAeAxD0IgzCKBwygoMgxg0eYPCINoTgmFgiD4PAvgOBYch+Bh4hWEYNgiCoMCAeYZDEMoThWLobh2IohgSI4lhKK4xDiJ4ZiqLIKDGPYch6Nw+gEA",
         categories = "text",
         tags = "text,alignment,justified,menu,list",
         contributors = "colebemis,ericfennis"
@@ -228,7 +228,7 @@ pub enum LucideGlyph {
     AlignJustify,
     #[cfg(feature = "align_left")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyDEIoHDKCgzg4eYJCINoThCFgiD4PAvgOBYch+BoUgoMQyg6CIlDWKIZhIIB5hmJobh2IohgSBh4i2E4VDEOIYiWPoHjwN4zh6Nw+gEA",
+        svg = "gAPBsGkbhlCAeAxD0IgyDEIggHkMoKDaDh4hEIgzg4eYJCKEw+DwL4DgWHohgaFYKhiB4bDENYZhYMQyhmKowh6IIEGWI42geFoogiCgxDeLY+DiMZCCKNIkD6AQ",
         categories = "text",
         tags = "text,alignment,left,list",
         contributors = "colebemis,ericfennis"
@@ -236,7 +236,7 @@ pub enum LucideGlyph {
     AlignLeft,
     #[cfg(feature = "align_right")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgzCIIB5DGCg2g0eYJCKEoHhAIgyDEIg+DwL4DgWHohgaFIKDEMoThmKINgiCg5i2GYbh2H4kiOBIGHiMocg6Kw4hOFQxj+B4VDeNIgjgPoBA",
+        svg = "gAPBsGkbhlCAeAyD0IgzCIIB5DGCg2g0eYJCKEoHhAIgyDEIg+DwL4DgWHohgaFIKDEMoNHiGYbiqFQ5hOGYoh2H4kiOBIGiuCotg6Mg4i6Cg3hOFQxj+HogjgPoBA",
         categories = "text",
         tags = "text,alignment,right",
         contributors = "colebemis,ericfennis"
@@ -244,7 +244,7 @@ pub enum LucideGlyph {
     AlignRight,
     #[cfg(feature = "align_start_horizontal")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENgiCAeIODSEh5g6EQgHKFAiDKEh3GkZB0GiGQiD4PAvgOBYoiuBoIgqDIODmEodDGFgghgIoaiGI4ljuEocg6H4oiqBB0igcBhiQIBkg4TQyDIIAyEiRIpkqJA+gE",
+        svg = "gAPByGUYx0CAdxpGQdBoD0Ig2CIIB4g0NIQGgZRpGcaB0g0MYPCAeYNh4coSCIMgiD4PAvgOBYoiuBoWhiGoNDmEIIgqDIOhCJAxhSH4hhCI4NiaKIqgQdIoHAYYLCAZINE0MgyCAMhIkOKZJgsPoBA",
         categories = "layout",
         tags = "top,items,flex,justify",
         contributors = "ericfennis"
@@ -252,7 +252,7 @@ pub enum LucideGlyph {
     AlignStartHorizontal,
     #[cfg(feature = "align_start_vertical")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDaDYJCKFggHcaRkHQaIKDmDR5goMQ0CIPg8C+A4FimLIGiQIonCCGIagiCoMhuHYfiWGoPhGE4ViiKovikcBhh8IBkgoTQyCAMh2DIMJDC+R4fD6AQA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0Ig5CIIB5g0MQ0hAeINDaEByhcIgyhAaBlGkZxoHSGAiD4PAvgOBYoiuBochkIIbg2HoRg2FYHgmC4TjGIIiiSJooiqBB0igcBhgsIBkg0TQyCAMh2DIMInimR4LD6AQA",
         categories = "layout",
         tags = "left,items,flex,justify",
         contributors = "ericfennis"
@@ -260,7 +260,7 @@ pub enum LucideGlyph {
     AlignStartVertical,
     #[cfg(feature = "align_vertical_distribute_center")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDQIggGgZRpGcaB0g0NoRHmDYPhEch4g0MoRiEIg1CIPg8C+A4FimLIGhOFYXhmG4NhAIIlDeH4liOB4JguHQwiiKovikcBhgsIBkg0TQyDIIA3GgLYnikL5HguRpIGiSpMDeUBIDGQ5WlqWZJksIpNk8MZRC0M5ilcaJlluZxNDUIJrEiI5VnAPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMQ0CIIBoGUaRnGgdIJDaDR3GkZB0GiCYLg0eIJDWDRyiAIgyCIPg8C+A4FimLIGggIoMCCJQ3heGYbh0MINg+EYThWI4lieKYrgQdIpHAYYbCAZIJE0MgyCANxoC2IpEkmG5IkoaJMk4N5SEgMYoiqWBolqS5NCKT5RDGUwtDOYwvmWZ5cmkTQ1CCbRIkOZJbD6AQ",
         categories = "layout",
         tags = "items,flex,justify,space,evenly,around",
         contributors = "ericfennis"
@@ -268,7 +268,7 @@ pub enum LucideGlyph {
     AlignVerticalDistributeCenter,
     #[cfg(feature = "align_vertical_distribute_end")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDQIggHiDQ1hEaBlGkZxoHSDQ2hEeYNg+ERyhMIgyCIPg8C+A4FimLIGgiCoMg4MIRiUN4jiWJwgheGYbh2H4NhCKYrgQdIpHAYYLCAZINE0MggDIMBolKKIqkmC5IkoaJMk6UAxlOVZElgaA+gE",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDQIggGgZRpGcaB0g0NoRHmDYPhEeINDWERyiAIgyCIPg8C+A4FimLIGgiCoMg4MIjiWJwgiUN4bg2EIShSFoYCKGopiuBB0ikcBhgsIBkg0TQyCAMgwGiU4oiqSoLkmSxok2T5RDGVJWkWWRoD6AQ",
         categories = "layout",
         tags = "bottom,items,flex,justify",
         contributors = "ericfennis"
@@ -276,7 +276,7 @@ pub enum LucideGlyph {
     AlignVerticalDistributeEnd,
     #[cfg(feature = "align_vertical_distribute_start")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB5goMQ0g0aBlGkZxoHSCg2g2CQiDWDR3GkZB0GiEISD4PAvgOBYoiuBohiOJQiDEMINg8IoSCCFIWhiGocgoN4NgiCoMiiKoEHSKBwGGJAgGSChNDIIIRGgMo1kaS4kkqTBok6UJSDSVZXimWRoD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIB5goMQ0g2CQiDWDRoGUaRnGgdIKDaDR3GkZB0GiEISD4PAvgOBYoiuBoYhqHIehOCg3g2CIKgyDoKhIIIhiOJQiDEMAiiiKoEHSKBwGGJAgGSChNDIIIRGgMpEkaS4kkqTBok6UJSDSVZXimWRoD6AQ",
         categories = "layout",
         tags = "top,items,flex,justify",
         contributors = "ericfennis"
@@ -284,7 +284,7 @@ pub enum LucideGlyph {
     AlignVerticalDistributeStart,
     #[cfg(feature = "align_vertical_justify_center")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMQ2CIIB3GkZB0GiCQxDSDR4gkNYNHKGAiDKDRoGUaRnGgdIJgwPg8C+A4FimLIGh0N4Ng+EYTgoMINgiHobh2HwgiGI4licIopiuBB0ikcBhhIIBkgkTQyCAMQyGgMo4kWSoSD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDaDR5goMYWCCCQiDWDR3GkZB0GiGQ0CIPg8C+A4FimLIGh0N4giKJIZDCF4KgyB4djqD4RhOFYoiqL4pHAYYkCAZIKE0MggDEMhoDKN4pC+RokD6AQA",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -292,7 +292,7 @@ pub enum LucideGlyph {
     AlignVerticalJustifyCenter,
     #[cfg(feature = "align_vertical_justify_end")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMQyCIIB4gkNYNHcaRkHQaIJDENINHKDwigwIBoGUaRnGgdIJDYIg+DwL4DgWKotgaCIehuHYfhOFYXgoMINiGI4lieDYdDeKYrjCKhwGGFggGSCRNDIIAyDIaAyjuKgvkiFg+gE",
+        svg = "gAPByGUYx0CAeA9CINQiCAcoICIMoMGgZRpGcaB0gkNoMHmCQxhEIB3GkZB0GiHQ0CIPg8C+A4FimLIGg8N4Mg6CYfhyEIShSFoYCKGogiKJIdDCKIqi+KRwGGJAgGSCRNDIIAyDIaAykOKQvkiJA+gE",
         categories = "layout",
         tags = "bottom,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -300,7 +300,7 @@ pub enum LucideGlyph {
     AlignVerticalJustifyEnd,
     #[cfg(feature = "align_vertical_justify_start")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CINQiCAeYJDENoMHKCAiDKDB3GkZB0GiDw0gwaBlGkZxoHSCYRD4PAvgOBYoiuBoTgmFoHgkN4XhmG4PDCDIOCKEQgiCIokiYIooiqBB0igcBhhsIBkgkTQyCAMhoDKOpFkqGw+gE",
+        svg = "gAPByGUYx0CAeQ9CIMQ2CIIByHiCQyg0dxpGQdBogkMQ0g0aBlGkZxoHSCYMCCEAiDUIg+DwL4DgWKotgaD4RhyHogiIIokgiOIThWF4ZDCDYmDeKYrjCKhwGGFwgGSCRNDIIAyGgMpAioL5IhcPoBA",
         categories = "layout",
         tags = "top,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -308,7 +308,7 @@ pub enum LucideGlyph {
     AlignVerticalJustifyStart,
     #[cfg(feature = "align_vertical_space_around")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDYIggHiDg3hEeYODmERyhMIgyhEdxpGQdBog4MQwCIPg8C+A4FikcBhiMIBkg4TQyDIIAyDASIeikL4viOLowGiMo0jYIA0juKIqj8aA+gE",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDYIggHmDg5hEeIODeER3GkZB0GiDgxDCERyhcIgyCIPg8C+A4FikcBhh4IBkg4TQyDIIAyDASInikL4vh6LowGiMo0jYIA0juKIqj8aA+gE",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -316,7 +316,7 @@ pub enum LucideGlyph {
     AlignVerticalSpaceAround,
     #[cfg(feature = "align_vertical_space_between")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMQ1CIIByHiCQyg0dxpGQdBogkMQ0g0aBlGkZxoHSCQ2g2EAigwPg8C+A4FimLIGhSFoYgoMIch6IIiCKJAgiYN4Ng+EYNggIgzCKKYrgQdIpHAYYXCAZIJE0MggDIMRoDKNZHkyF5Lk0aJPlGUwzleWYqlsaA+gEA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDQIggHiDQ1hEeYNDGFQgHKEwiDKERoGUaRnGgdINDYIg+DwL4DgWKotgaHINh+B4JguGAwhGHQ3iCIokiYIooCCFwiDOKYrjCKhwGGCwgGSDRNDIIAyDEaAyjmKgvkuC5KkwaJOlCUgzlaWIrlsaA+gEA",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -340,7 +340,7 @@ pub enum LucideGlyph {
     Ampersands,
     #[cfg(feature = "anchor")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwNYQHKDAzCIPg8C+A4FgeGhsGkboIHgMYMg6EB5iYIgyg8IB4DKJ4uHmMQiDiGYbiGI4aHAYR0GgIBkgwTQ1CCDhIDIYQxDCRpMk4IJMDKThoC2GIaC+PY/D6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CINQiCAcoMDODxjHiDAxDIIg+DwL4DgWB4bGwaRuggeAyheGQgHmJwiDiDx5DGDAyikeIxCKGIahyIokhscBhHQaAgGSDBNDUIIYEgMhhDEMJHk2Twgk0MpPGgLYThsL4+kAPoBA",
         categories = "transportation,text,maps",
         tags = "ship",
         contributors = "colebemis,csandman,ericfennis"
@@ -348,7 +348,7 @@ pub enum LucideGlyph {
     Anchor,
     #[cfg(feature = "angry")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0MQ2CCKRzC0MQuDULQyC0NIyjQIIzDSOIZhuIYjiCIokiYIhNDeMAgDiKwwCAOY8C+PhokCI4lgwbQxjoOY4jCLpOlCUpCieWQxDAaIYhqT5Bl+VJEDENZKmWXZpgE",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDYIIqHMLQxC4NQtDILQ0jONQgjQNI5CKGwviKJIhiOJYnCITQ3jEIA4iwMAgDmPYckAaJCiSJoLG0MY7DmOYxi+UI/kOVJEiiW4NGiDo+lKYpWkYMQ1kyZ5fmqAQ",
         categories = "emoji",
         tags = "emoji,anger,face,emotion",
         contributors = "karsa-mistmere,ericfennis"
@@ -356,7 +356,7 @@ pub enum LucideGlyph {
     Angry,
     #[cfg(feature = "annoyed")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQ4CAMQ1GgOAihsL4iiSIYjiWJwiikIA5GiGocjMaI1iSJooDENI7j2MI/jYPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0OAgDENRoDiGYbiGI4giKJImCKKAgDkaIPhoL4xGiM4jiWJwxDSOY7i+Po0D6AQA",
         categories = "emoji",
         tags = "emoji,nuisance,face,emotion",
         contributors = "karsa-mistmere"
@@ -372,7 +372,7 @@ pub enum LucideGlyph {
     Antenna,
     #[cfg(feature = "aperture")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhsGkboIHgMYTDQLgzDGEB4DKDAyDALgwDWEB5i6DQ3C4OQ0jWJgiDiGYbiGI4giKCI2gyQAgHmPpKiWDA5C4Ng5iyNwyDELgxDeQQvkMZZFiOS5WjINosj6OQzk6NwxDOWYPkuPoUhqXZGmCJI3m0OY0nCE5lmKDA2mSZpQlKVJzl6dggi2LwuDgM49n2g4NiiKo1muZaHnUPJenyDZvkgIpXjqPKKnGgQ2m+i4NjEOJApmRIBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bGwaRuggeQxgwOIQHkMoTDcLg5DSEB4ieDQ0C4MwxjKLAiDIMAuDANQihsL4iiSIYjgiM4MDkLg2DmOoMDIMQuDEN4qjSKQgiuKJChyRRlkeJAgkoIouDOWYmhmUINDOVIPlqOwyj8NpdkSSJhkmO5tDmQZjjSTJOleE50nCDA2nOdZfniY5xC4OAzjKNAxjaOIqjsMaEmmDZ0kOig8l+hY8lOMKRoOTZvpqDprhSjopp2d4BA",
         categories = "photography",
         tags = "camera,photo",
         contributors = "colebemis,ericfennis"
@@ -380,7 +380,7 @@ pub enum LucideGlyph {
     Aperture,
     #[cfg(feature = "app_window")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMgiCAeYJDSDB3GkZB0GiCQyDCDBygiCoMGgZRpGcaB0gkMQ2CIPg8C+A4FikcBhhUIBkgkTQxDAIA0HaEIpC+L4Vi6MBojKNAyCAOBohiKIqj4aJAjGMwiE0No4jqSo9kEPoBA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHiDQyhEeYNDSERoGUaRnGgdINDENoRHKE4OCIPg8C+A4FikcBhgsIBkg0TQxDAIA0HaGYpC+L4Li6MBojKNAyCAOBog+KIqj4aJAjGMwiE0No4jqSo9kEPoBA",
         categories = "design,files,layout",
         tags = "application,executable",
         contributors = "danielbayley,karsa-mistmere"
@@ -396,7 +396,7 @@ pub enum LucideGlyph {
     Apple,
     #[cfg(feature = "archive_restore")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHmDQzhEaBlGkZxoHSDQ1hEch4g0MYRiGDgiD4PAvgOBYoHAYYLCAZINE0NAgDgdgxDEYQyCCPAwCCP4/jwMhoDKJ4pi6C4ti8aIxjOD42jiOpDkCVQxC2QxoliRwvkkaJLjCMgiG0OQgDENQgDMLQzmmaZcl6YJNmITQxjydR2Dmb5MD6AQA",
+        svg = "gAPByGUYx0CAeA9CIMgiCAaBlGkZxoHSCQ1gwdxpGQdBogkMgwgweYJDODByggIgxCIPg8C+A4FikcBhhoIBkgkTQ0CAOB2DEMRhDIII9DAIJAkCPQyGiC4pC+L4ai6MBojKNIdjeOY7kSQZWDELZEGiWYoiqShokyMYzCIbQ5CAMQ1CAMwtDOapql2SZNmGTpjE0MY9ncdg5nCXw+gE",
         categories = "files,mail",
         tags = "unarchive,index,backup,box,storage,records",
         contributors = "karsa-mistmere,ericfennis"
@@ -404,7 +404,7 @@ pub enum LucideGlyph {
     ArchiveRestore,
     #[cfg(feature = "archive_x")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHiDQyhEaBlGkZxoHSDQ1hEeYNDOERyhMIgxCIPg8C+A4FikcBhgsIBkg0TQ0CAOB2DEMRhDIII9DAIJAkCPQyGgMQyjyPpBkuQwtDIVg4iiKovguLowGiMoNG0OQuDUIAxDcIA1C2HopC+VBolaMYzCKW5dl+PZemWU5XD6AQ",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMYMg8IgygwdxpGQdBogkMgwgwaBlGkZxoHSCQ1CIPg8C+A4FikcBhhoIBkgkTQ0CAOB2DEMRhDIII9DAIJAkCPQyGgMQyjyPpBkuQwtDIVg4iiKovhqLowGiMoJG0OQuDUIAxDcIA1C2J4pC+VBolaMYzCKW5dl+PZemWU5XD6AQ",
         categories = "files,mail",
         tags = "index,backup,box,storage,records,junk",
         contributors = "danielbayley"
@@ -412,7 +412,7 @@ pub enum LucideGlyph {
     ArchiveX,
     #[cfg(feature = "archive")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMYMHcaRkHQaIJDIMIMGgZRpGcaB0gkNYMg8IgyCIPg8C+A4FikcBhhYIBkgkTQ0CAOB2DEMRhDIII9DAIJAkCPQyGgMQyjyPpBkuQwtDIVg4iiKovhaLowGiMo0DGQJHGgNJSC+VBoD6AQA",
+        svg = "gAPByGUYx0CAeA9CIMgiCAdxpGQdBogkMgwgweYJDODByggIgxgwaBlGkZxoHSCQ1CIPg8C+A4FikcBhhEIBkgkTQ0CAOB2DEMRhDIII9DAIJAkCPQyGgMQyjyPpBkuQwtDIVg4iiKovhGLowGiMo0DGQJHGgNJSC+VBoD6AQA",
         categories = "files,mail",
         tags = "index,backup,box,storage,records",
         contributors = "colebemis,ericfennis,karsa-mistmere"
@@ -428,7 +428,7 @@ pub enum LucideGlyph {
     AreaChart,
     #[cfg(feature = "armchair")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDkIA5FYNhhDIIITDAIIWDALQyhoSA3hKFIXiGGYTDIdgzCIPg8C+A4FimLIGgiCgzCAMQxHYNYfhWIogDIaAxDSOY7haG4lC2OIkkILQ0hcdgyh0doakGGIXkqFxaiiKovi6BIwgkTQ1jQOJNliK5cluBYHl6DJhmOKZli2AQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDkIA5FYNhhDIIITDAIIWDALQyhoSA3hKFIXiGGYTDIdgzCIPg8C+A4FimLIGgiCgzCAMYRiSIohiQaAxDSH4VjiG4lC0NY+jiGQ0hcdgyh0doakWGIXC2SAwFqKIqi+LoEjCCRNDWNA4kqVorlqWYFgeXIMl+YYpmOLYBA",
         categories = "furniture",
         tags = "sofa,furniture,leisure,lounge,loveseat,couch",
         contributors = "karsa-mistmere,jguddas"
@@ -500,7 +500,7 @@ pub enum LucideGlyph {
     ArrowBigUp,
     #[cfg(feature = "arrow_down_01")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQzCAMQ2CANIQhALQ0CIPg8C+A4FheGoGggIhNDcIAyDAVoVheGYEGiFxyGUYx0CAch5gkMgiCAdxpGSBYJhUIBoGUaRnGgdIJDaNozCKPR4gkMQ1haGIti+HIqgeCRNDGIokHYLQ2GgLY1iiHZTgWVYgk2IwwGiJ4YmKAQ",
+        svg = "gAPBwGEdBoCAZA9CIbQzCAMQ2CANIQhALQ0CIPg8C+A4FheGoGggIhNDcIAyDAVoVheGYEGiFxyGUYx0CAaBlGkZxoHSCQ2CIIB4gkMQ1joeYJhUIBykEIgyjodxpGSBZChaGIti+HIqgeCRNDGIokHYLQ2GgLZIiiHZTgWVYgj6IwwGiJ4YmKAQ",
         categories = "text,layout,arrows",
         tags = "filter,sort,ascending,numerical",
         contributors = "karsa-mistmere"
@@ -508,7 +508,7 @@ pub enum LucideGlyph {
     ArrowDown01,
     #[cfg(feature = "arrow_down_10")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQzCAMQ2CANIQhALQ0CIPg8C+A4FheGoGggIhNDcIAyDAVoVheGYEGiHIqgeCRNDGIgxiUNBoC0MoWhiHYsgWLogDENYNDAaInjqKoXHIZRjHQIByHmCY4CAeIJkAIggHcaRkgWCYVCCTwiDGXRoGUaRnGgdIJDaOQvkmSw+gE",
+        svg = "gAPBwGEdBoCAZA9CIbQzCAMQ2CANIQhALQ0CIPg8C+A4FheGoGggIhNDcIAyDAVoVheGYEGiHIqgeCRNDGIgxiUNBoC0MoWhiHYsgWLogDENYNDAaInjqKoXHIZRjHQIB4gmQAiCAaBlGkZxoHSCQ2lEch5gmOAgHcaRkgWCYVCCXQiDGRQvkmSw+gE",
         categories = "text,layout,arrows",
         tags = "filter,sort,descending,numerical",
         contributors = "karsa-mistmere"
@@ -524,7 +524,7 @@ pub enum LucideGlyph {
     ArrowDownAZ,
     #[cfg(feature = "arrow_down_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTYOCAOB2DgIobC+IokiGI4licIhtDgIIqDQII9DQLQ0i+HIyGgPoB",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAYR0GgIBkgwTYOCAOB2DgIobC+IokiGI4licIhtDgIIqDQII9DQLQ0i+HIyGgPoB",
         categories = "arrows,navigation,shapes,gaming",
         tags = "backwards,reverse,direction,south,sign,button",
         contributors = "colebemis,ericfennis"
@@ -548,7 +548,7 @@ pub enum LucideGlyph {
     ArrowDownLeftFromCircle,
     #[cfg(feature = "arrow_down_left_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEcoTCIMoRGgZRpGcaB0g2D4RHmFAiD4PAvgOBYoHAYYLCAZING0MQ2CAOAtDiN4nimLoLi2LxojGDRNjUII1EgOBWhCKAvj4aA+gEA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIBoGUaRnGgdIJDEOIMHcaRkHQaIYhoIByggIgyCIPg8C+A4FikcBhh8IBkgkbQxDYIA4C0OI4iiKovh+LowGiMoJE2NggjYSA4FaGopC+PxoD6AQ",
         categories = "arrows,navigation,shapes,gaming",
         tags = "direction,south-west,diagonal,sign,turn,keyboard,button",
         contributors = "danielbayley"
@@ -580,7 +580,7 @@ pub enum LucideGlyph {
     ArrowDownRightFromCircle,
     #[cfg(feature = "arrow_down_right_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeIJgsIByiAIgyCIPg8C+A4FikcBhhEIBkgkbQ4CCNo4iiKovhGLowGiMoJE0MQ2jcdg4EiFYpC+PBoD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeYODOEh3GkZB0GiDoQhIeIVhIcogCIMgiD4PAvgOBYoHAYYbCAZIOG0OAgjWN4nimLobi2LxojGDhNDENo2HYOBIhGKAvjsaA+gE",
         categories = "arrows,navigation,shapes,gaming",
         tags = "direction,south-east,diagonal,sign,turn,keyboard,button",
         contributors = "danielbayley"
@@ -596,7 +596,7 @@ pub enum LucideGlyph {
     ArrowDownRight,
     #[cfg(feature = "arrow_down_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINgkIgzg0dxpGQdBohWFwgHmCobD4PAvgOBYoHAYYgCAZIKE0MQyCAOB2heKAvi6IIti8aIxgobQ4CCNQgDSSJIC0NAijuPRoD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHiDgzhIeYdhIcocCIMgiD4PAvgOBYoHAYYXCAZIOE0MQyCAOB2hGKAvi6F4ti8aIxg4bQ4CCNQgDSSJIC0NInimPRoD6AQ",
         categories = "arrows,navigation,shapes,gaming",
         tags = "backwards,reverse,direction,south,sign,keyboard,button",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -604,7 +604,7 @@ pub enum LucideGlyph {
     ArrowDownSquare,
     #[cfg(feature = "arrow_down_to_dot")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIAyHYMQ0CIPg8C+A4FhSF4GggIhtDEOQgDkLQ3CAN4jiOE4VhqFBjGkchjGwZQgHKCQxCIIBjHiNQyjcYx5gkMo2hQL4ti+MQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAyHYMQ0CIPg8C+A4FhSF4GggIhtDEOQgDkLQ3CAN4jiOE4VhqFBjGkchjGwZQgGMeYJDIMQijMeIJgyORyjyKQvi2L4xD6AQ",
         categories = "arrows,navigation,maps",
         tags = "direction,south,waypoint,location,step,into",
         contributors = "danielbayley,karsa-mistmere"
@@ -652,7 +652,7 @@ pub enum LucideGlyph {
     ArrowDown,
     #[cfg(feature = "arrow_left_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDYIIUEgOAihsL4iiSIYjiWJwiG2FAgDgLQ0CCP5BjCHIzGgPoB",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAYR0GgIBkgwTQxDYIIOEgOAihsL4iiSIYjiWJwiG2DggDgLQ0CCP5BjCHIzGgPoB",
         categories = "arrows,navigation,shapes,gaming",
         tags = "previous,back,direction,west,sign,turn,button,<-",
         contributors = "colebemis,ericfennis"
@@ -676,7 +676,7 @@ pub enum LucideGlyph {
     ArrowLeftRight,
     #[cfg(feature = "arrow_left_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHcaRkHQaIKDEOINGgZRpGcaB0hiGggHmCoRD4PAvgOBYoHAYYWCAZIKG0MQyCAOAtDQII6jwIooC+LoWi2LxojGChNDENggjUSIaj+QRoD6AQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gweYJgsIByggIgygwaBlGkZxoHSE4VD4PAvgOBYoHAYYRCAZIJG0MQyCAOAtDQII6jwIooC+LoRi2LxojGCRNDENggjUSInimQRoD6AQ",
         categories = "arrows,navigation,shapes",
         tags = "previous,back,direction,west,sign,keyboard,button,<-",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -700,7 +700,7 @@ pub enum LucideGlyph {
     ArrowLeft,
     #[cfg(feature = "arrow_right_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0OAgg4aA4hmG4hiOIIiiSJgiG2DoqDYIA0C2PI+i4L4wGgPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQ4CCFBoDgIobC+IokiGI4licIhthSKw2CANAtj6QIvhyMhoD6AQ",
         categories = "arrows,navigation,shapes,gaming",
         tags = "next,forward,direction,east,sign,turn,button,->",
         contributors = "colebemis,ericfennis"
@@ -724,7 +724,7 @@ pub enum LucideGlyph {
     ArrowRightLeft,
     #[cfg(feature = "arrow_right_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhYIIJCIM4NHmCojD4PAvgOBYoHAYYSCAZIKE0OAgDEMhohaKAvi6Eoti8aIxgobY3jYNggDQLZJksIo7j0aA+gEA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIBoGUaRnGgdIJDEOIMHcaRkHQaIYhoIByggIgyCIPg8C+A4FikcBhh8IBkgkTQ4CAMQyGiGopC+L4fi6MBojKCRtjiNw2CANAtkqTIoiqPhoD6AQ",
         categories = "arrows,navigation,shapes",
         tags = "next,forward,direction,west,sign,keyboard,button,->",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -748,7 +748,7 @@ pub enum LucideGlyph {
     ArrowRight,
     #[cfg(feature = "arrow_up_01")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQzCAOAgDQLQ0g+DwiD4PAvgOBYWhmBoICITQ3g8dgxDaFYXhyFhyGUYx0CAch5gkMgiCCMAiDSMx4gkMQ1jMdxpGSBYJjcIBoGUaRnGgdIJiWFgviqLIbgSHYJE0MYhDIMB2C0NhoC2MpNiiApSgeVI7CCWBojeYJSD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQzCAOAgDQLQ0g+DwiD4PAvgOBYWhmBoICITQ3g8dgxDaFYXhyFhyGUYx0CAeYJDQIggGgZRpGcaB0gmJQgHiCQxDWMh3GkZIFjCMhyi8IgyiYL4qiyG4Eh2CRNDGIQyDAdgtDYaAtkuFoYlGUIFgeU4/CCVxojGX4ogEA",
         categories = "text,layout,arrows",
         tags = "filter,sort,ascending,numerical",
         contributors = "karsa-mistmere"
@@ -756,7 +756,7 @@ pub enum LucideGlyph {
     ArrowUp01,
     #[cfg(feature = "arrow_up_10")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQzCAOAgDQLQ0g+DwiD4PAvgOBYWhmBoICITQ3g8dgxDaFYXhyG4Eh2CRNDGIQxDAVg0GgLQyiaGIqimBYHiwMQ1CCMBoDSN4oDwchlGMdAgGgZRpGcaB0gmJQgHcaRkgWCZDCAeYJDGWhylwIo2CAeJdDWN5HkkPoB",
+        svg = "gAPBwGEdBoCAZA9CIbQzCAOAgDQLQ0g+DwiD4PAvgOBYWhmBoICITQ3g8dgxDaFYXhyG4Eh2CRNDGIQxDAVg0GgLQyiaGIqimBYHiwMQ1CCMBoDSN4oDwchlGMdAgHmCQxkMIBykwIo2CAdxpGSBYJk8eJNDUIggGgZRpGcaB0gmJYWC+R5JD6AQ",
         categories = "text,layout,arrows",
         tags = "filter,sort,descending,numerical",
         contributors = "karsa-mistmere"
@@ -812,7 +812,7 @@ pub enum LucideGlyph {
     ArrowUpLeftFromCircle,
     #[cfg(feature = "arrow_up_left_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gweYJgsIBoGUaRnGgdIThUIByggIgyCIPg8C+A4FikcBhhEIBkgkTQ4CAMQ2FYOBohWKQvi+EYujAaIyjSOI3DYII2j2KpAGgPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAch4gkMoMiGCgiD4PAvgOBYoHAYYRCAZIJE0OAgDENhWDgaIVigL4uhGLYvGiMYzjeNg2CCNY8imPxoD6AQ",
         categories = "arrows,navigation,shapes",
         tags = "direction,north-west,diagonal,sign,keyboard,button",
         contributors = "danielbayley"
@@ -844,7 +844,7 @@ pub enum LucideGlyph {
     ArrowUpRightFromCircle,
     #[cfg(feature = "arrow_up_right_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeYODOEh3GkZB0GiDoQhIch4g4MoSiEIoWD4PAvgOBYoHAYYbCAZIOE0OAgDgaA4HaEYoC+Lobi2LxojGDhtjUMQ2jYLY7imPhoD6AQ",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAaBlGkZxoHSCQxDiDB4gmCwgHcaRkHQaIUhYIByhgIgyCIPg8C+A4FikcBhh8IBkgkTQ4CAOBoDgdoWikL4vh+LowGiMoJG2NgxDaNwtjyKo/GgPoBA",
         categories = "arrows,navigation,shapes,social",
         tags = "direction,north-east,diagonal,sign,keyboard,button,share",
         contributors = "danielbayley"
@@ -860,7 +860,7 @@ pub enum LucideGlyph {
     ArrowUpRight,
     #[cfg(feature = "arrow_up_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIIJCIM4NHmCojD4PAvgOBYoHAYYcCAZIKG0MQ2CAMQyC0NI6joIA0CKKAvi6HIti8aIxgoTY4jcNhWheQZDGgPoB",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeIJgsIByiAIgyCIPg8C+A4FikcBhhEIBkgkbQxDYIAxDILQ0juOwgDSKIqi+EYujAaIygkTY5jgNhWhWKQvkMaA+gEA",
         categories = "arrows,navigation,shapes",
         tags = "forward,direction,north,sign,keyboard,button",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -916,7 +916,7 @@ pub enum LucideGlyph {
     Asterisk,
     #[cfg(feature = "at_sign")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwNIQGMeYMg4Ig+DwL4DgWB4bHAYR0GgIBkgwTQxDYIA4HYNRhDMIIxDAII0jSKwwHYLQxGEMY0j6NQgDGNQtDSLIahyIokD6AQA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKDA0CIPg8C+A4FgeGhwGEdBoCAZIME0MQ2CAOB2DUYQzCCMAwCCM4zioMB2C0MRhDGM49jQIAxjQLQ0iuGYbiGIw+gE",
         categories = "text,account",
         tags = "mention,at,email,message,@",
         contributors = "colebemis,csandman,ericfennis,danielbayley"
@@ -924,7 +924,7 @@ pub enum LucideGlyph {
     AtSign,
     #[cfg(feature = "atom")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwiD4PAvgOBYHhkcBhHQaAgGSDBNDIMAuDIIIoioYwyC4MA0C2MAwDOMQyC0NwuDMNgtDQLg1C0MQxC4OY/kGM5ADWOQ5C4OA3C0NpJkORZHkuNIxDSLIxDMLY4CCO49CCSwgkSRpkkmaZMCCTpQCCUw1luZw5msWoYhqIIih+IYjiUIhNDENQuDeZqDDcY5LjmS5bnGM5uoWWJ0lmNqUjOYo+jiVZoliiprjOjptk+UZlnSXI2qeW6YmCk5LneGQvnoaA+gEA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeILDEMoOGMeYShQPg8C+A4FgeGhwGEdBoCAZILE0MgwC4MggimKxjDILgwDQLYxDAM4yDILQ3C4Mw2C0NAuDULQxDELg5kCQo0kENY6DkLg4DcLQ2kqRJGkiTI1jINItjIMwtjkII8j4IJMCCRZHmWSpqk0IJPlEIJUDWXJoDmbBaCKGgviGI4giKJImCITQxDULg3mehQ3GOTI6kyXJyjSb6HlmdZajelo0mOP45laaZZoybI0pCbpQlKZp1l2N6plymphpWTJ4nqfBoD6AQ",
         categories = "science",
         tags = "atomic,nuclear,physics,particle,element,molecule",
         contributors = "danielbayley,karsa-mistmere"
@@ -932,7 +932,7 @@ pub enum LucideGlyph {
     Atom,
     #[cfg(feature = "award")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIOAiCAcoMDaDxjHiDAxDIIg+DwL4DgWB4bHAYR0GgIBkgwTQxDULg0DcNwghgLg4DmMIvDIMhsC0NQtDOOggDOMAuDUMo9DkLgxDGGociKJA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwOIQHKDA2CIPg8C+A4FgeGhwGEdBoCAZIME0MQ1C4NA3DcIIOC4OA5i+LgyDIbAtDULQzjkIAzi8Lg1DKPA5C4MQxhmG4hiMPoBA",
         categories = "account,sports,gaming",
         tags = "achievement,badge,rosette,prize,winner",
         contributors = "colebemis,karsa-mistmere"
@@ -964,7 +964,7 @@ pub enum LucideGlyph {
     Baby,
     #[cfg(feature = "backpack")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwFYMQwGGDIMDAIIWDEIA0C0NBoDiE4aheIoZhQdoRGEMoNiKGAtikMhIDaKIqhaLAyi0WgiD4PAvgOBY6j2BoIgoOQgDYVg0jKKY0CCGY2DIaAykmK5MioMh2DKOY7kCP4EkGCRNDiDQxHYLQ1lKS5Ni0aJIi6U5Ng0dg1lmPJdlyBYHl+YYRh6c5bgKXZ4gqeg4nyOp0j6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQwGGDIMDAIITDEIA0C0NBoDiEIXhSH4WhEdoOGEMggiaE4VC2JgyEgNolieH4qDKKxaCIPg8C+A4FjiO4GgiCg5CANhWDSMIoiCJ4rGgMpHjKDYxDIdgyjeOY+j2BI/gkTQ4icMR2C0NZOimUI0DIaJGiyT4Wiwdg1lWOpZliBYHluXYOhucJXgKWZ1gqdw4nmOJxjyAQ",
         categories = "gaming,photography,travel",
         tags = "bag,hiking,travel,camping,school,childhood",
         contributors = "karsa-mistmere"
@@ -972,7 +972,7 @@ pub enum LucideGlyph {
     Backpack,
     #[cfg(feature = "badge_alert")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDgIggHgMoJDEMpoHiZQim2aB5mucpulkL5fmGXpgmKapsDILgwDGdJ2DENpvnGc5jouiZ5nsZQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDgIpjDKCQxDKaB4moIpsm6ZZxm2WQvl+YZemCYh5nAMQ2m6fwyC4MAxmiZJroEIB4nScp3nkZQ+gE",
         categories = "account,social,shapes",
         tags = "check,verified,unverified,security,safety,issue",
         contributors = "karsa-mistmere,jguddas"
@@ -1012,7 +1012,7 @@ pub enum LucideGlyph {
     BadgeEuro,
     #[cfg(feature = "badge_help")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlmXIGgiCg5C4MA5CAORhDMIJqkuHA1g2agxGOGQyC2agznaa5YlqX5ZGwaRuGUIB4DKCQxDKZAxCIIB5DGhg3oseKOCKh6LHmhaUpCWQvn+gQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlmXIGgiCg5C4MA5CAORhDMIJqkuHA1g2agxGOGQyC2agznaa5YlqX5ZGwaRuGUIB5DKCQxDcIqDDGhqICAeKFCIMQymQMaJHii6RDKewvn+gQ+gE",
         categories = "account,accessibility,social,shapes",
         tags = "verified,unverified,help",
         contributors = "karsa-mistmere,jguddas"
@@ -1028,7 +1028,7 @@ pub enum LucideGlyph {
     BadgeIndianRupee,
     #[cfg(feature = "badge_info")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHgMYJDEMgimMMpmmgIB5mUIgxDaaR5mucZolkL5fmGXpgmKZJsmkeJ2mcLgwDGdJwDidJ2oueZ7GUPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDENgiCAeAymYMppHiZQiDGbpjmycpulkL5fmGXpgmKZIJDib52nMLgwDGb5xnOaR5nagp5nsZQ+gE",
         categories = "account,accessibility,social,shapes",
         tags = "verified,unverified,help",
         contributors = "karsa-mistmere,jguddas"
@@ -1044,7 +1044,7 @@ pub enum LucideGlyph {
     BadgeJapaneseYen,
     #[cfg(feature = "badge_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDEMgiCAeAymYNppHmbAimeaR4mUIg4liWpfmEPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHgMYJDgIpjDKCQxDaaB5mUIgxDKbpqnGc5ZC+X5hD6AQA",
         categories = "account,social,shapes",
         tags = "verified,unverified,delete,remove,erase",
         contributors = "karsa-mistmere,jguddas"
@@ -1060,7 +1060,7 @@ pub enum LucideGlyph {
     BadgePercent,
     #[cfg(feature = "badge_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDgIggHiZQiDEMpoHkMoJDENpoHicZsm6WQvl+YZemCYp2nKdJjmubZ1muZ5jnehp6nwZQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHgMYJDEMgiCAeZlCIOJpHkMpmDaaR4nEIpnliWpfmGXpgmKa5mmiap2niY5sm6Y6EnOWQvnsZQ+gEA",
         categories = "account,social,shapes",
         tags = "verified,unverified,add,create,new",
         contributors = "karsa-mistmere,jguddas"
@@ -1092,7 +1092,7 @@ pub enum LucideGlyph {
     BadgeSwissFranc,
     #[cfg(feature = "badge_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDkIpjDKCQxDWaB4moIpnCAeJlCKbJYlqX5hl6YJinSZpunCd5jnWch5oKbZZC+ehlD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQzC4OA1CAOAuDYMhhDQIIWDAIIZDGFwuDcOAtDSHg3heJYZhsIA2h6GIliyKIih+HYxhaLgghyGYqDeNImhqNohiOMg4i2PYbC2OYPhmO4nj6MIgjCJJKj2N5Gh4NhaCIPg8C+A4FlkbBpG4ZQgHkMYJDkIpjDKCQxDWaB4mUIpsm6agimeWQvl+YZemCYpvmaaJkn8IB4nScppmubZ3nkZQ+gEA",
         categories = "account,social,shapes",
         tags = "verified,unverified,lost,delete,remove",
         contributors = "karsa-mistmere,jguddas"
@@ -1108,7 +1108,7 @@ pub enum LucideGlyph {
     Badge,
     #[cfg(feature = "baggage_claim")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDgSA2GGDYNDAIIWDELQyhoVg3hMIIVheF4ahoIg+DwL4DgWJ4qgaCIKDEN4ODQVg0h+IYWDCJAyGgLQxjeIo5hqIB2DEMImiiLYnHIZRjHQIByHiCQxCIIBoGUaRnGgdIJDiVR5gkNpVHcaRkgWUwzlWUgil6JwvkyTonGMaRyGMbBllCCQylUY5gCIMpHCAY5rg+SAvnOdZ3nKdJ2ngcp6nyaw5nyfqAoaiKND6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDgSA2GGDYNDAIIWDELQyhoVg3hMIIVheF4ahoIg+DwL4DgWJ4qgaCIKDEN4ODQVg0h+IYWDCJAyGgLQxjeIo5hqIB2DEMImiiLYnHIZRjHQIB4gkOAiCAeYJDaVB3GkZIFgkMQzlQaBlGkZxoHSUpUHKUQiDGSAvkyTonGMaRyGMbBlCAY5WCIMpHnma4PmmCQym6c51necp0naeBjmsOZUnqg5+HKg6FoqiIBA",
         categories = "transportation,travel",
         tags = "baggage,luggage,travel,cart,trolley,suitcase",
         contributors = "karsa-mistmere,ericfennis"
@@ -1132,7 +1132,7 @@ pub enum LucideGlyph {
     Banana,
     #[cfg(feature = "banknote")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDGDAgHmCg2g2CYLg0dxpGQdBogoMgwCIPg8C+A4FikYxpHIYxsGUIBjh2FoNGOGQijiB4liiKovjGM4pHAYYjCAZIKE0NgghYaAuDAMRNDEOJODKUJSkAL5GiMPoB",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMgiCAdxpGQdBog4MgwhIch4hmEh5g4NoSh4IoRD4PAvgOBYoGMaRyGMbBlCAY4lhCEhjiGD4RCAcofigL4ujCMooHAYYXCAZIOE0NgghAaAuDAMRNDEOJODKUJSCKQJGhcPoB",
         categories = "currency,money",
         tags = "currency,money,payment",
         contributors = "ericfennis,mittalyashu"
@@ -1140,7 +1140,7 @@ pub enum LucideGlyph {
     Banknote,
     #[cfg(feature = "bar_chart_2")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgxDgIoHDKCoMg4eYJCIMgwhOEILhgPg8C+A4Fh2IIGHiGgxDKDoIhGKAgHmGg0hOFYXCKHYfgQZYijeLYyhiLYmjCD4KDaKYVkONYjD6AQ",
+        svg = "gAPBsGkbhlCAeQyD0IgxDAIoHDGCgyg0IB4hCCw4g4eIJhcIg+DwL4DgWHohgaGoKDEMoZhaKIOHmFoSi2Gw0h2H4kiOBIlhYNoxieM4UhuO4PhGDYeiCOA+gEA",
         categories = "charts",
         tags = "statistics,diagram,graph",
         contributors = "colebemis,ericfennis"
@@ -1164,7 +1164,7 @@ pub enum LucideGlyph {
     BarChart4,
     #[cfg(feature = "bar_chart_big")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCAMx2DEOBohAIg+DwL4DgWFRyGUYx0CAaBlGkZxoHSCQ3CIIB5gkMQwigeImigdxpGSBYJDSKByi8IgxhSFobh2Goch6IIiiSKwyjGM41CKN4pgkNYuiuUAgjmK49C+Px0D6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQzCAMx2DEOBohAIg+DwL4DgWFRyGUYx0CAch4gkMQiCAaBlGkZxoHSCQ3iQdxpGSBYJDSJB5iIMIkiEIothUL4bh2Goch6L4xGiM4kiaKIqiIMo5iINY1gmUIfjqI49j8dA+gE",
         categories = "charts",
         tags = "statistics,diagram,graph",
         contributors = ""
@@ -1172,7 +1172,7 @@ pub enum LucideGlyph {
     BarChartBig,
     #[cfg(feature = "bar_chart_horizontal_big")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCAMx2DEOBohAIg+DwL4DgWFRyGUYx0CAeIJDcIggHcaRkgWCQxDKIx5gkNYjHKIAiDGIxoGUaRnGgdIJDSFIWhuHYahyHo2jiOo8iOMoiCCLYzDOMIyjSJImigIoihUL5AHQPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQzCAMx2DEOBohAIg+DwL4DgWFRyGUYx0CAdxpGSBYJDEMgiCAeIJDeJx5gkNYnGgZRpGcaB0gkNInHKKQiDGFIWhuHYahyHo7isII6iSLIkDOJ4giIaIqjCMo0jYIo4hUL5AHQPoBA",
         categories = "charts",
         tags = "statistics,diagram,graph",
         contributors = ""
@@ -1188,7 +1188,7 @@ pub enum LucideGlyph {
     BarChartHorizontal,
     #[cfg(feature = "bar_chart")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgxDAIggHgMYKDEMoOHmEQiDKDYPgmC4UD4PAvgOBYfiKBh4hwMQ4hWF4Zg6EISiqB4cDQIofiGBBliSOIHiyGongoNouheQYyhKQY2iUPoBA",
+        svg = "gAPBsGkbhlCAeQxD0IgyDAIggHiCQiDEMoOHgMoKhODh5heEoND4PAvgOBYfiKBobgoNIVhEMQ4hWHIshqEYMCKH4hgQZYkjeD4RDaLoKj2B4yg2B4vj2NYlD6AQ",
         categories = "charts",
         tags = "statistics,diagram,graph",
         contributors = "colebemis,ericfennis"
@@ -1212,7 +1212,7 @@ pub enum LucideGlyph {
     Baseline,
     #[cfg(feature = "bath")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CANoNC4NQgDOEBhDGEAghaEQwCCGwwC0MQthAQw0C4Ng4DOEggDSEolieKoqhAVgxDcYQyCCNodhyN43GgMQyjWO45hsMgtDIdgtDUIg+DwL4DgWSxsGkbhlCAeAxgkMQwCKVQygkOJbHmXQiDeYJXCKSZLC+UZTlCUpUHmZo+luVoJDKc5iDKdggmGWJ2mmaxlm2U57nEOZgngMZ3gmZJVmaZJ/m6gpUnQIozoqlaMnwIgyomhJYoakJsgE",
+        svg = "gAPBwGEdBoCAZA9CITQ5CANoNC4NQgDOEBhDGEAghaEQwCCGwwC0MQthAQw0C4Ng4DOEggDSEolieKoqhAVgxDcYQyCCNodhyN43GgMQyjWO45hsMgtDIdgtDUIg+DwL4DgWSxsGkbhlCAeAxgkMQwCIIB5lcIpJlwMoJDeWx4mIIg4kqTJRlOUJSlSVoJDKWx5mePp0l6d5VmcMpzksL5sGWbpTlyeQ5mWXpkmGcgxmWZ5kn+gaDnCeaKl2WKHnuWKWnyjaRm8PoBA",
         categories = "travel",
         tags = "amenities,services,bathroom,shower",
         contributors = "karsa-mistmere,ericfennis"
@@ -1220,7 +1220,7 @@ pub enum LucideGlyph {
     Bath,
     #[cfg(feature = "battery_charging")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDUIA3GgMRhDIIITDAIIWDGFIUHYNoShqFoYC2EwyGiIgiD4PAvgOBYoiuBoIgoNoOEgNIehWF4XiKG4diOOIghqJAxieKYui2BIvgkbQxhkNwtDMIA1GgNBsk6UJDiqR4oGwaRuGUIB4DKCQyDIIpfDGYpkCAeZnCKS5lHmYZtDOV5bl0PoB",
+        svg = "gAPBwGEdBoCAZA9CITQxDUIA3GgMRhDIIITDAIIWDGFIUHYNoShqFoYC2EwyGiIgiD4PAvgOBYoiuBoIgoNoOEgNIehWF4XiKG4diOOIghqJAxieKYui2BIvgkbQxhkNwtDMIA1GgNBsk6UJDiqR4oGwaRuGUIB5DKCQxDMIggHgMYJDIMplHmaAikuZR4mEIpqleW5dD6AQ",
         categories = "connectivity,devices",
         tags = "power,electricity,accumulator,charge",
         contributors = "colebemis,ericfennis,csandman,karsa-mistmere,johnletey"
@@ -1228,7 +1228,7 @@ pub enum LucideGlyph {
     BatteryCharging,
     #[cfg(feature = "battery_full")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMgiCAeYJDeDB3GkZB0GiCQxDaDBygiCoag6HQgGgZRpGcaB0hcMAiD4PAvgOBYrGwaRuGWDQxhcMYMHkMoXDODB4juCoLgeNpBiqLIxjOMIyjSP4JhmQ5OjmRAxjiDZADGPYrC+SBlkqM5WjyPpTimB5XmQeZTjiWpcl6TJXDSYoXnCNY3jmV5ZkeSw+gE",
+        svg = "gAPByGUYx0CAeA9CIMgiCAdxpGQdBogkMQ2gweYJDeDBoGUaRnGgdITDCDBygiCojheJg+DwL4DgWKhsGkbhlgcMYJDKC4HDKNo4HmNQiDEMYWjqPwzCKKgvjCMovjGMx5kMMZFjmCYVjSU4Wj6QJGiuSRlkuMpSj+Iggk6E5Rj2E5BlWYZakiTJek2WJpmSRIMHiTw0nWWJ4keXA+gE",
         categories = "connectivity,devices",
         tags = "power,electricity,accumulator,charge",
         contributors = "ericfennis,karsa-mistmere,johnletey"
@@ -1236,7 +1236,7 @@ pub enum LucideGlyph {
     BatteryFull,
     #[cfg(feature = "battery_low")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMAiCAeYODeEh3GkZB0GiDgxDaEh4g4MoSHKFAiiMIByiGJwiD4PAvgOBYuGwaRuGWEwxh0MYgDKIooHiOYnigeY9g8M4ti+NI2jONY3HiRYfCCQIOlGRIdkeOI6kgL5KGUPoB",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDYIggHIeYNDKER4hWEYUCIN4RGgZRpGcaB0g0MQwhEcoYCKFg+DwL4DgWLRsGkbhlCAeQyiUM4XjmK4WCAeAxhWPx5kKDgxCKLQvjONYyjSNo4jqPINhCQJGlWRYlkiSpMGUPoB",
         categories = "connectivity,devices",
         tags = "power,electricity,accumulator,charge",
         contributors = "ericfennis,johnletey,karsa-mistmere"
@@ -1244,7 +1244,7 @@ pub enum LucideGlyph {
     BatteryLow,
     #[cfg(feature = "battery_medium")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDYIggHmDQ3hEaBlGkZxoHSDQxDCER4g0MoRHKIQiiMIByhOJwiD4PAvgOBYuGwaRuGWEgyh0M4gjmJ4oHkMYdDGIJBj6LYvjSNozjWNx4j2EI4jqRINlCQJCkcL5JGWS42lGDo7hKRQxkMIJOh2H5lmKH4ulmTA+gE",
+        svg = "gAPByGUYx0CAch4D0IgyCKBx5gqDAgHcaRkHQaIKDENoNg8Ig3g0aBlGkZxoHSGAwg2CYLCIPg8C+A4FiwbBpG4ZQgHgMoQhEeY4CIMQzigMY5huQY9DGK4tjKNIxjONR5kQMZGCCO4Yj+NpEhqNo8hqLAvkkZZLjSVomhuPI+iiZYnlKT5GlyXg+gE",
         categories = "connectivity,devices",
         tags = "power,electricity,accumulator,charge",
         contributors = "ericfennis,johnletey,karsa-mistmere"
@@ -1252,7 +1252,7 @@ pub enum LucideGlyph {
     BatteryMedium,
     #[cfg(feature = "battery_warning")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIA3GgMhhDIIITDAIIWDGFIUHYNhjhgLYZDILYTDIaIjCIPg8C+A4FimLIGgiCg2g4SA0hKGoWjmI4bh2GAgiGGolDKKIqi+KRsGkbhlCAeAygkMpDkwMZPlEeZTCIMQxCIIB5k6WAzkQL5IkqR5JkseJXDEMJbk2CZqluVoJDecJeDGYIpmKZplkqUpumuXJ1DcLgwlqXJpnOTJ1mueJjGUPoB",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIA3GgMhhDIIITDAIIWDGFIUHYNhjhgLYZDILYTDIaIjCIPg8C+A4FimLIGgiCg2g4SA0hKGoWjmI4bh2GAgiGGolDKKIqi+KRsGkbhlCAeAxgkMpDkwMpPlEeZOCIMQxCIIB5lOWAzkQL5IkqR5JkuVoJDeWx4l4MQwluXYJDGYJMlebphmMZZlkqUpym+XJ2mqdZ+nCbQ3C4MJaimYpmD6AQ",
         categories = "connectivity,devices",
         tags = "power,electricity,accumulator,charge,exclamation mark",
         contributors = "Kaladii,ericfennis"
@@ -1260,7 +1260,7 @@ pub enum LucideGlyph {
     BatteryWarning,
     #[cfg(feature = "battery")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDYIggGgZRpGcaB0g0MQwhEeINDKER5g0N4RHKHQih8IByiGJwiD4PAvgOBYuGwaRuGUIB4DKHooHkMYZDGII6g4M4cj6J4fi4L40jYPoBA",
+        svg = "gAPByGUYx0CAeA9CIMgiCAaBlGkZxoHSCQxDCDByHmCYLCAdxpGQdBohQNoMhkIg3heCIKCIPg8C+A4FiwbBpG4ZYHDKGobHgMY4iSOwiDEMYkjePwziuLYyjQPoBA",
         categories = "connectivity,devices",
         tags = "power,electricity,accumulator,charge",
         contributors = "colebemis,ericfennis,johnletey"
@@ -1276,7 +1276,7 @@ pub enum LucideGlyph {
     Beaker,
     #[cfg(feature = "bean_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAORjC0Lg2DSEQ0C0MQuDUMoXDkNYVDILg0DAMgghcMQ2DUQQ2CCKgwCCLYtDgIAyDIYQxDMLg5iqNo4iyLo+DmOAthMMQiD4PAvgOBZGkmBoIgoMQwC4Nw1CANQuDAOQzimK4+i0MYyiMOBji2Hw0DEMYQDaX4TDYOIWhEOAziuEQ2kWR5MkuBJNgkTZWDOZoklENo0DQIKFi+Pg2iAOA3iQLgyDAOBNlCEYjn6ZhhhMMAxlSmqcl2JIylcM4Mh8MA0naSJ6kYbBpG4ZQgHgMoJjMIggHmswirWsQxrSth5r2uqpq2rw+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAORjC0Lg2DSEQ0C0MQuDUMoXDkNYVDILg0DAMgghcMQ2DUQQ2CCKgwCCLYtDgIAyDIYQxDMLg5iqNo4iyLo+DmOAthMMQiD4PAvgOBZGkmBoIgoMQwC4Nw1CANQuDAOQzimK4+i0MYyiMOBji2Hw0DEMYQDaX4TDYOIWhEOAziuEQ2kWR5MkuBJNgkTZWDOZoklENo0DQIKFi+Pg2iAOA3iQLgyDAOBNlCEYjn6ZhhhMMAxlSmqcl2JIylcM4Mh8MA0naSJ6kYbBpG4ZQgHgMYJDIIggHkMq0rWt6zCKux4rmvq1kYL6tq8PoBA",
         categories = "food-beverage",
         tags = "soy free,legume,soy,food,seed,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -1316,7 +1316,7 @@ pub enum LucideGlyph {
     Bed,
     #[cfg(feature = "beef")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIOAuDUIggHKDAyg+ERjHiDAxhWEA+DwL4DgWB4eHAYR0GgIBkgwTYbg8IAyGENoujINQgDCNo2C2MgyDIIA0C4NhjC0MQuDEIAzkUMwtC4Nw4kcLg5C2SAxk6MgwDgQQzkeOI3jeNZUGMNI4g4NJDC6TgxkSZY/DMQY0CCb5djiLY1DIWgih4L4lieJImiiKgiG2VIzi+RQ5j6D4xC4NJVouTpykYLgzkaPYyDSh6WoekAthUNggDULgyEMMagmIMgwqEIJpi+PQ3qwYZalqm6dDiZg2DYTIVmIMY0niH57GgPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyC4NQigkeYMDiEISHKDIPhEPg8C+A4FgeHRwGEdBoCAZIME2DoQCAMhhDaLYxDUIAwjWNQtjEMgyCANAuDYYwtDELgxCAM5EDMLQuDcOJGC4OQtkcMZNjEMA4EEM5GjeNo2jSUxjDSN4WDSQguk0MZDmSPgzEGMwgm6XI3iyNAyFoIodC+JImiOJYnikIhtlOMoukQOY9hCMAuDSVKKk2cZFC4M5FjyMQ0oalaGo8LYPDYIA1C4MhDDGn5hDIMKgCCaIujwN6rGGWZZpqnA4mUNg2EyD5hDGM53h6ehoD6AQ",
         categories = "food-beverage",
         tags = "food,dish,restaurant,course,meal,meat,bbq,steak",
         contributors = "kemie,ericfennis"
@@ -1380,7 +1380,7 @@ pub enum LucideGlyph {
     Bell,
     #[cfg(feature = "bike")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMLg1CIIBjHiCwxDiDoQGMeYUDeFw+DwL4DgWB4eiGBoIgqDIXhGEwiDWKoZhuHYfiWI4CgSJorhSD4RhqLYQigMQih6II3jUcBhHQaAgGSCxNDEMggDGHA1FYMQ0GwLQzlkIA0luUAzGgMpCh+R5JD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ3C4NQigkeIMDEOIQhIcoMDOGA+DwL4DgWB4eiGBoIgqFYPhEIIaCKHIrGOFAiDWHYfiWI4CgSJoThWMILjOGYVCKHogjqOBwGEdBoCAZIME0MQyCCDoQFYMQ0GwLQzlkIA0luUQzGgMpDh+SJKD6AQ",
         categories = "transportation",
         tags = "bicycle,transport,trip",
         contributors = "ahtohbi4,ericfennis,Andreto,csandman,jguddas,karsa-mistmere"
@@ -1388,7 +1388,7 @@ pub enum LucideGlyph {
     Bike,
     #[cfg(feature = "binary")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB5goMQ0g0dxpGQdBogqEggGgZRpGcaB0goNoNgkIoRCIPg8C+A4FimLIGg8IoahyHogiKDYIgqDAgiWIwghSFoYjKKIqi+KRwGGFwgGSChNDYIAyDAaISikL5IheR5JGiS5NhEIAxlKVIqlcaJZkqTAik6Xw0GgMh2iOVZkmaW5oE2Xpsm6cJjloPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMQ0CIIB4gmC4NHcaRkHQaIJgwIBoGUaRnGgdIJDaDRyg8IgyCIPg8C+A4FimLIGhuHYfiGDYliKB4YiOJYnCCE4VhcIoMimK4EHSKRwGGFggGSCRNDYIAyDAaJCiqSIWkeSRokuTYLCAMZSlQL5WGiWJKkwIpOl4NBoDIdoikOY5llqZxNl2a5tm+VZZD6AQA",
         categories = "text,development",
         tags = "code,digits,computer,zero,one,boolean",
         contributors = "mittalyashu,karsa-mistmere,ericfennis"
@@ -1396,7 +1396,7 @@ pub enum LucideGlyph {
     Binary,
     #[cfg(feature = "biohazard")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQxC4OQiCAcoMDKEhjHiDAxhYPg8C+A4FgeHRwGEdBoCAZIME0NguDcIAzC4NBjC2EAgDILg1CAMAgDULgyjaPggiwNxDiyOQ5i+LQgDkLg2jYIIOk0IodC+JImiOJYnikIhtDiNQxDALgxlCMQuDiU4elYaJYiaKIqDENwuDOSYyjWN45juPQyC2N4/kOQA0C2D4/nqNJOiySIPDWaJVlmbJagwbQxj2Y5gmKgplmeVJqo+bgiE0MZ/DKYQ4jONw2jSgQ0k2fKsqsNwtj0M40j+p6tmOqw4C2r48j6jKcDyaqeqCPwxjAOR2g8Nq/o6wZZsOxo4r2MqCrSfLWnMMLMlezptluoIuqGMRji2NLhj6mJOoqraLpuzbCt+PY5tEObkseZpkDiZI5ne25rgE",
+        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeILDGDYPHmEgxC4OQiD4PAvgOBYHhwcBhHQaAgGSCxNDYLg3CAMwuDQYwthkIAyC4NQgDAIA1C4Mo1j0IIrDcQ4rjgOYuiwIA5C4No1CAMYYDaG4diOJYiiSJooCIbQ4jQMQwC4MZPjALg4lML5VGiV4lieKQxDcLgzkiMY0jaOI6jwMgtjaPpCj8NAthiPp5jOTYrkeGA1meaZrlmCxtDGPJil+YaBmSZocmiWKNm0IhNDGfgymAOIyjYNozoANJMnuq6qDcLY8DOM4+qarJiqoOAtq6O49oumw8mmnafj4MYvDkdpRr6VrAliwrFjevIxoGs57tScgwsqarMmyWqfi2oIwGOLIzt+PaWk2iasoqmaMtujqejyOLPDm4rGmWYw4mOOJ2tkPoBA",
         categories = "science",
         tags = "fallout,waste,biology,chemistry,chemical,element",
         contributors = "danielbayley,ericfennis"
@@ -1420,7 +1420,7 @@ pub enum LucideGlyph {
     Bitcoin,
     #[cfg(feature = "blinds")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCAMxoDEOAiD4PAvgOBYThaBoIgoMgwCANxIhGE4VgQaIYiWB4JE2HQgDEMYhhKFIZieBYpgoMYeDEOYPDCMYkheAoohsTQ4i0NYPDKPozkGNZDDSDR2DENJKiWExjGkchjGwZQgHKCZJCAYx4gmU5hHmCY6j6V5ZlsPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQzCAMxoDEOAiD4PAvgOBYThaBoIgoMgwCANxIhGE4VgQaIYiWB4JE2HQgDEMYhhKFIZieBYpgoMYeDEOYPDCMYkheAoohsTQ4i0NYPDKPozkGNZDDSDR2DENJKiWExjGkchjGwZQgHKCZJCAYx5gmOgimEeIJlOI5XlmWw+gE",
         categories = "home",
         tags = "shades,screen,curtain,shutter,roller blind,window,lighting,household,home",
         contributors = "karsa-mistmere,it-is-not"
@@ -1428,7 +1428,7 @@ pub enum LucideGlyph {
     Blinds,
     #[cfg(feature = "blocks")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAeIJDENIMHKDgiDGDB3GkZB0GiCQ3gwaBlGkZxoHSHQiD4PAvgOBYoHAYYbCAZIJE0MQwCAMgxFYOBhDEII9jaQAtDGQhIDSPI+CCQJJkKPh2DEMpHj+SZTj0MRok+UZTkqQwxHYLQ1lmSgwkKRILigL4uhsPoB",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMYMHcaRkHQaIJDeDBoGUaRnGgdIYgyDwiDENAiD4PAvgOBYoHAYYWCAZIJE0MQwCAMgxFYOBhDEII9jaQAtDGQhIDSPI+CCQJJkKPh2DEMpHj+SZTj0MRok+UZTkqQwxHYLQ1lmSgwkKRILigL4uhYPoB",
         categories = "development,shapes",
         tags = "addon,plugin,integration,extension,package,build,stack,toys,kids,children,learning",
         contributors = "danielbayley"
@@ -1436,7 +1436,7 @@ pub enum LucideGlyph {
     Blocks,
     #[cfg(feature = "bluetooth_connected")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ3CCDAxDAIIPC0NQgDUVgyGyFA1EyDg3CIPg8C+A4FiAbBpG4ZQgHkMoJDEMgiCAeAxi0OIwHmMwii6MB4iwIgyDGH4hiaKIlieKY8gkNo2jiOoxjgM42j2OogC+QxlD6AQA",
+        svg = "gAPBwGEdBoCAZA9CIbQ3CCDAxDAIIPC0NQgDUVgyGyFA1EyDg3CIPg8C+A4FiAbBpG4ZQgHgMYJDEOAiioMoJDIMYwHmMgiDEMo2iyOY7iAL4miiJYnimK4JDOMB4jgNo8i2OwgjeT4fiGQhlD6AQA",
         categories = "connectivity,devices",
         tags = "paired",
         contributors = "ericfennis,csandman"
@@ -1476,7 +1476,7 @@ pub enum LucideGlyph {
     Bold,
     #[cfg(feature = "bomb")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQzCKCR4gwMQxhAcoMDkIg+DwL4DgWB4bHAYR0GgIBkgwbQxDkLg1CCK4tDELg4C2MQ4GEMguDQII4joMAgj6QAtDOORsjQLg2kYNo3jmO5MkCP5Ck6RY1CCNYahyIokiGI4licIhtDIMo7kaMIslcL5ZGgPoB",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQxCIIBygwOYQGMeYMDEMwiD4PAvgOBYHhwcBhHQaAgGSDBNDENAuDMNQgiwNovDENotCAMguDcYY4DQMY3C6PQgDCQggj4M5AkIbAxC4NpFkyO5IjyRJDj6Q5HDQbAtksOYzC6XIbh2I4liKJImigIhtDIMo3loLpdDWYAvmIaA+gEA",
         categories = "",
         tags = "fatal,error,crash,blockbuster,mine,explosion,explode,explosive",
         contributors = "karsa-mistmere,ericfennis"
@@ -1490,91 +1490,163 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,jguddas"
     ))]
     Bone,
+    #[cfg(feature = "book_a")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCAiG0OINDMIA0C0N5HCAN44jqP4+gSQIJE2D4yDEMRoDULpNjmO5SD6AQ",
+        categories = "text,maps,gaming",
+        tags = "dictionary,define,definition,thesaurus,encyclopedia,encyclopaedia,reading,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,language,translate,alphabetical,a-z,ordered",
+        contributors = "danielbayley"
+    ))]
+    BookA,
+    #[cfg(feature = "book_audio")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDgIA4HYM44jqP4+gSQIJE0MQyiAdg3kiO5MkuBYHk4MQ2kSRpVkqAQ",
+        categories = "multimedia,text",
+        tags = "audiobook,reading,listening,sound,story,fiction,novel,information,knowledge,education,student,study,learning,research",
+        contributors = "danielbayley"
+    ))]
+    BookAudio,
+    #[cfg(feature = "book_check")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCAiG0OQgg+GwyhkIA0C0NI4jqPw+gEA",
+        categories = "text,development,gaming",
+        tags = "read,booklet,magazine,leaflet,pamphlet,library,written,authored,published,informed,knowledgeable,educated,schooled,homework,examined,tested,marked,passed,graduated,studied,learned,lesson,researched,documented,revealed,blank,plain language,true,truth,verified,corrected,task,todo,done,completed,finished,ticked",
+        contributors = "danielbayley"
+    ))]
+    BookCheck,
     #[cfg(feature = "book_copy")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQyCAMQ2FYNBhgyDAwCCFQxCAMgtDIaAxDEIg+DwL4DgWIYkgaCIKDWDQ0EiEYThaDYxhUNIdiCIoniaBIogmC4MDEOBIh6EoZjGGIVjSHQxFYNpCDGRIUjOG4ZHYMQyjeI47D6AQ",
-        categories = "development",
-        tags = "read,dictionary,booklet,library,code,version control,git,repository,clone",
+        categories = "development,text,gaming",
+        tags = "code,coding,version control,git,repository,clone,fork,duplicate,multiple,books,library,copies,copied,plagiarism,plagiarised,plagiarized,reading list,information,informed,knowledge,knowledgeable,knowledgable,education,high school,university,college,academy,student,study,learning,research,smart,intelligent,intellectual",
         contributors = "danielbayley"
     ))]
     BookCopy,
+    #[cfg(feature = "book_dashed")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQyDAIAyDIaAtDIIg+DwL4DgWFYYgaCIKgwIAxDUdoQhKFIWhuGoEhyCRNDSIA5C4NRWiGJoXiqKYFgeLIfDgdgzjWKICiqOoKDEOIOGgMojkCN5CjmHYtiAMRWDmTIZk6K5FDKSIThWNpXhuRBNDGW4PkmVhojiWZjlsMQ3meXpBmGUJHg8SA2jEYQyjGDp8g2DQxCAMAtDUSA4miapii6IgtjEQZ7DWfaRn+IAgnikQyoaiIB",
+        categories = "development",
+        tags = "code,coding,version control,git,repository,template,draft,script,screenplay,writing,writer,author,unwritten,unpublished,untold",
+        contributors = "danielbayley,jguddas"
+    ))]
+    BookDashed,
     #[cfg(feature = "book_down")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDEMoNDMVg3jiOo/j6BJAgkbQ5g2HQzCCVAzC0M5JjuTQ+gEA",
         categories = "development",
-        tags = "code,version control,git,repository,pull",
+        tags = "code,coding,version control,git,repository,pull",
         contributors = "danielbayley"
     ))]
     BookDown,
+    #[cfg(feature = "book_headphones")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWORjGkchjGwZQgGMeIJDkIpFHmCQxDKShyk2OI6j+QZDjmPIGgiCg4g0MoSDIYYMgyMIfl2JpPjmO4EGiPpAkKRBjkwIpOlCUpFkedA1lML5VnAPoBA",
+        categories = "multimedia,text",
+        tags = "audiobook,reading,listening,sound,story,fiction,novel,information,knowledge,education,student,study,learning,research",
+        contributors = "danielbayley"
+    ))]
+    BookHeadphones,
+    #[cfg(feature = "book_heart")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDENggDgLgyEOQwgDeDYbkQMQzC4OIgGMLZSjMMQuDQLgzhOUguDmVg0lYNoTlaYZZDiZxDDmIJFkub5GDIY4dC6IQzg2RwukyWQ2GgMJJjGWYyDEMoNnihaHHMMpem2UZdlEMZ/GOWpinuEwgpeWQ3HqOI6j8PoBA",
+        categories = "social,text,communication,gaming",
+        tags = "diary,romance,novel,journal,entry,entries,personal,private,secret,crush,like,love,emotion,feminine,girls,teens,teenager,therapy,theraputic,therapist,planner,organizer,organiser,notes,notepad,stationery,sketchbook,writing,written,reading,favorite,favourite,high school",
+        contributors = "danielbayley"
+    ))]
+    BookHeart,
+    #[cfg(feature = "book_image")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWORjGkchjGwZQgGMeIJDGN5FHmCQ4CIIBygkMo4jqP5BkOOY8gaCAiG2JYNDMLg3C2FwxmQLgxGMLQuDia5tDKbpnDiHBMg8N4NDeVI7gQaA+gE",
+        categories = "photography,text,multimedia,files,social,shopping,travel",
+        tags = "images,pictures,photos,album,collection,event,magazine,catalog,catalogue,brochure,browse,gallery",
+        contributors = "danielbayley"
+    ))]
+    BookImage,
     #[cfg(feature = "book_key")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDENAiD4PAvgOBYoiuBoIgoModDgdolEiIQ1GGGoZhiHYdDGHAtDUSIyieKYuigYxpHIYxsGUIBygkMgiCAYx4gmJZUGMeYJDiRgvkqTJOi2BIvgkbYyhkLQ0hibA1l+SICmWB5ng4IAzh8MZwmUPoBA",
-        categories = "development,security",
-        tags = "code,version control,git,repository,private",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDENAiD4PAvgOBYoiuBoIgoModDgdolEiIQ1GGGoZhiHYdDGHAtDUSIyieKYuigYxpHIYxsGUIBjHiCYlCIIBygkMpVGMeYJDiRgvkqTJOi2BIvgkbYyhkLQ0hibA1l+SICmWB5ng4IAzh8MZwmUPoBA",
+        categories = "development,security,gaming",
+        tags = "code,coding,version control,git,repository,private,public,secret,unlocked,hidden,revealed,knowledge,learning",
         contributors = "danielbayley,jguddas,karsa-mistmere"
     ))]
     BookKey,
     #[cfg(feature = "book_lock")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDEMAiD4PAvgOBYoiuBoIgoModhQdg3EiIQ1GGGoZhiHYzhwLQ1EiMonimLooHIZRjHQIByHiCQxCIIJPCIMQylIdxpGSBYJDiUhoGUaRnGgdIJDWUh5gkNpFC+SZLi2BIvgkTQxDiIBWDSOoZh4MZAgwMB2leKIqnEPoBA",
-        categories = "development,security",
-        tags = "code,version control,git,repository,private",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDEMAiD4PAvgOBYoiuBoIgoModhQdg3EiIQ1GGGoZhiHYzhwLQ1EiMonimLooHIZRjHQIB5gkNgiCAdxpGSBYJDiURyHiCQxlEaBlGkZxoHSCQ1lGWwiDEMpFC+SZLi2BIvgkTQxDiIBWDSOoZh4MZAgwMB2muKIqnEPoBA",
+        categories = "development,security,gaming",
+        tags = "code,coding,version control,git,repository,private,secret,hidden,knowledge",
         contributors = "danielbayley"
     ))]
     BookLock,
     #[cfg(feature = "book_marked")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWORwG8bB5GwaRuGUII/kQdBzgkMYdDKDYxjEMwgDeDQ2lCVoZjiOo/kGQ5FD6AQ",
-        categories = "development",
-        tags = "read,dictionary,booklet,library,code,version control,git,repository",
+        categories = "text,development,gaming",
+        tags = "dictionary,reading,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,saved,later,future,reference,index,code,coding,version control,git,repository",
         contributors = "danielbayley"
     ))]
     BookMarked,
     #[cfg(feature = "book_minus")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDmDQwGgNo4jqPw+gE",
-        categories = "development",
-        tags = "code,version control,git,repository,remove,delete",
+        categories = "development,text,gaming",
+        tags = "code,coding,version control,git,repository,remove,delete,censor,cancel,forbid,prohibit,ban,uneducated,re-educate,unlearn,downgrade",
         contributors = "danielbayley"
     ))]
     BookMinus,
     #[cfg(feature = "book_open_check")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ4CAMxIDIdgxDUaA3GMMQuDcIAwg0IIXDOHAzFaFQwC0MguDILYXDgLQ0iyLBaCIPg8C+A4FjKNYGggIhtDENodDIIJAkCLQ0jGM44jeBI5gkTQykANhWDMaAtDYY4lieGosh0LorDQIA0hENBjiSF4Zh4LYfDOaIUHaVwzkaNJKD6AQ",
-        categories = "gaming,development",
-        tags = "read,library,plain language,done,todo,tick,complete,task",
+        categories = "text,development,gaming",
+        tags = "read,pages,booklet,magazine,leaflet,pamphlet,library,written,authored,published,informed,knowledgeable,educated,schooled,homework,examined,tested,marked,passed,graduated,studied,learned,lesson,researched,documented,revealed,blank,plain language,true,truth,verified,corrected,task,todo,done,completed,finished,ticked",
         contributors = "schmidt-oliver,karsa-mistmere,ericfennis"
     ))]
     BookOpenCheck,
+    #[cfg(feature = "book_open_text")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQyCAMxoDYYQ0CCEgwCCFQxhOEx2DENBhDODYWiEMAtDOJBIDIegiD4PAvgOBYri6BoIgoMoMg4LYQhKFIiC2Oobh2H4fhWF4NiQaA3imK4tgQaIwkyB4JE0NggDgaAyiqLIxk6BZQgqUwxDKVpYkuL4Ck+MxNDGU5VleSpamaXJomoIJgmKbpMD6AQ",
+        categories = "text,development",
+        tags = "reading,pages,booklet,magazine,leaflet,pamphlet,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,revealed",
+        contributors = "danielbayley"
+    ))]
+    BookOpenText,
     #[cfg(feature = "book_open")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQyCAMxoDYYQ0CCEgwCCFQxhOEx2DENBhDODYWiEMAtDOJBIDIegiD4PAvgOBYri6BoIgoMoMg4LYQhKFIiC2Oobh2H4fhWF4NiQaA3imK4tgQaA+gE",
-        categories = "gaming,development",
-        tags = "read,library",
+        categories = "text,development,gaming",
+        tags = "reading,pages,booklet,magazine,leaflet,pamphlet,library,writing,written,writer,author,story,script,screenplay,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,revealed,blank,plain",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     BookOpen,
     #[cfg(feature = "book_plus")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDmDQwGgNo4jqP4+gSQIJE0MQyCANx2keOY7kwPoBA",
-        categories = "development",
-        tags = "code,version control,git,repository,add",
+        categories = "development,text,gaming",
+        tags = "code,coding,version control,git,repository,remove,delete,read,write,author,publish,inform,graduate,re-educate,study,learn,research,knowledge,improve,upgrade,level up",
         contributors = "danielbayley"
     ))]
     BookPlus,
-    #[cfg(feature = "book_template")]
+    #[cfg(feature = "book_text")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDAIAyDIaAtDIIg+DwL4DgWFYYgaCIKgwIAxDUdoQhKFIWhuGoEhyCRNDSIA5C4NRWiGJoXiqKYFgeLIfDgdgzjWKICiqOoKDEOIOGgMojkCN5CjmHYtiAMRWDmTIZk6K5FDKSIThWNpXhuRBNDGW4PkmVhojiWZjlsMQ3meXpBmGUJHg8SA2jEYQyjGDp8g2DQxCAMAtDUSA4miapii6IgtjEQZ7DWfaRn+IAgnikQyoaiIB",
-        categories = "development",
-        tags = "read,code,version control,git,repository,dashed",
-        contributors = "danielbayley,jguddas"
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDgIA3GgNo4jqP4+gSQIJE2QwxDEaA4kiO5MD6AQA",
+        categories = "text,development,gaming",
+        tags = "reading,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation",
+        contributors = "danielbayley"
     ))]
-    BookTemplate,
+    BookText,
+    #[cfg(feature = "book_type")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDENggDgVg2EgOInjiOo/j6BJAgkTQxDKIB2DeTI7lCT4FgeUgxjEMxoDSWZOgE",
+        categories = "text,design,gaming",
+        tags = "thesaurus,synonym,reading,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,language,translate,typography,fonts,collection",
+        contributors = "danielbayley"
+    ))]
+    BookType,
     #[cfg(feature = "book_up_2")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMgiD4PAvgOBYliiBoIgoMQ4hkaAyHYMgwEiIQ1GGGoZhiHYdDGHAtDUSI1iSJoriqBIsgkTQxDKDQzFYN5GieSpJgWB4JG0OYNh0MwtDMIJhDOVJIgKSpZCKWwghuX5jmKZZWgE",
         categories = "development",
-        tags = "code,version control,git,repository,push,force",
+        tags = "code,coding,version control,git,repository,push,force",
         contributors = ""
     ))]
     BookUp2,
@@ -1582,23 +1654,31 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCIKDEMoNDMVg3jiOo/j6BJAgkbQ5g2HQzC0MwglYM5JjuTQ+gEA",
         categories = "development",
-        tags = "code,version control,git,repository,push",
+        tags = "code,coding,version control,git,repository,push",
         contributors = "danielbayley"
     ))]
     BookUp,
+    #[cfg(feature = "book_user")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWORjGkchjGwZQgGMeYJDgIpFHiCQxDKShygmT45C+P5BkOOY8gaCIKhSDQzGEMwgmKMYzDaHI4jqWg+gEA",
+        categories = "account,connectivity,communication,social",
+        tags = "person,people,family,friends,acquaintances,contacts,details,addresses,phone numbers,directory,listing,networking",
+        contributors = "danielbayley"
+    ))]
+    BookUser,
     #[cfg(feature = "book_x")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgWOY8gaCAiG0MQ0hgN40CANY4jqP4+gSQIJG2D4bDeSZJkuO5PD6AQ",
-        categories = "development",
-        tags = "code,version control,git,repository,remove,delete",
+        categories = "development,text,gaming",
+        tags = "code,coding,version control,git,repository,remove,delete,reading,misinformation,disinformation,misinformed,charlatan,sophistry,false,lies,untruth,propaganda,censored,cancelled,forbidden,prohibited,banned,uneducated,re-education,unlearn",
         contributors = "danielbayley"
     ))]
     BookX,
     #[cfg(feature = "book")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0CAMQ5C4NR2C0MQ1EEMoQCCFw1CAMIcg0IA2hgMhIDIMB2iUSIhDUYYahmGIdh0MYcC0NYkDAIg+DwL4DgUPoBA",
-        categories = "gaming,development",
-        tags = "read,dictionary,booklet,magazine,library",
+        categories = "text,development,gaming",
+        tags = "reading,paperback,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     Book,
@@ -1612,7 +1692,7 @@ pub enum LucideGlyph {
     BookmarkCheck,
     #[cfg(feature = "bookmark_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDkIAyDELQ3C0NIRCANBWDUYQyg4IAwh0IAxg4LQyGgMQwhqHIeh6IYbDIdgxDYegiD4PAvgOBY0GwaRuGUIB4DKCQ5CIIB5DGCYmkMeJGCIMQ1kMeZAkwMIzjWOo8D6AQA",
+        svg = "gAPBwGEdBoCAZA9CIbQxDkIAyDELQ3C0NIRCANBWDUYQyg4IAwh0IAxg4LQyGgMQwhqHIeh6IYbDIdgxDYegiD4PAvgOBY0GwaRuGUIB5DGCYmCIIB4DKCQ5kMeZGCKQpEkCTA1jONY6jwPoBA",
         categories = "account",
         tags = "delete,remove",
         contributors = "siarie,ericfennis"
@@ -1620,7 +1700,7 @@ pub enum LucideGlyph {
     BookmarkMinus,
     #[cfg(feature = "bookmark_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDkIAyDELQ3C0NIRCANBWDUYQyg4IAwh0IAxg4LQyGgMQwhqHIeh6IYbDIdgxDYegiD4PAvgOBY0GwaRuGUIB5DKCQxDMIggHiQAiDEMpEHkMYJDeRB4k2SJKjQL46jyOY7j2TJBDCUJHDmUJSDENZLkeJozjWVxlD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQxDkIAyDELQ3C0NIRCANBWDUYQyg4IAwh0IAxg4LQyGgMQwhqHIeh6IYbDIdgxDYegiD4PAvgOBY0GwaRuGUIB4DKCQxDIIggHmQAiDEM5EHkMYJDeRB4k2SJDjQL46jyOY7j2P4JDmS5SiaUJgDWS5HmGVZXGUPoB",
         categories = "account",
         tags = "add",
         contributors = "siarie,ericfennis"
@@ -1644,7 +1724,7 @@ pub enum LucideGlyph {
     Bookmark,
     #[cfg(feature = "boom_box")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAORWDUYQyCCEgwCCFQxhMLQyGgMQyhGE4WiGGISDIdg0CIPg8C+A4FimLIGgiCg4CAOB2DGKIqi+LoEjCCRNh2NI2jiK48juBYHj4MQ2kGN4pkSLQ8HIZRjHQIByHiCQyCIIBoGUaRnGgdIJh2W5YCKWggHmCQ5lsdxpGSBZZDCQ5SlSKRjGkchjGwZQgGOagiDENZbGOZg4lscpZkOeJ6nyd55nufaFmMNqEoCgqIoqTqMpEPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAORWDUYQyCCEgwCCFQxhMLQyGgMQyhGE4WiGGISDIdg0CIPg8C+A4FimLIGgiCg4CAOB2DGKIqi+LoEjCCRNh2NI2jiK48juBYHj4MQ2kGN4pkSLQ8HIZRjHQIByHiCQyCIIB3GkZIFlkMJbGgZRpGcaB0gmHZblgIpaCAeYJDmQ5SlSKRjGkchjGwZQgGObQ4lsY5xCIMQ1lscpZkOeJ6nyd55nufaJm6gqEoagptkqi6Qo6AQ",
         categories = "devices,multimedia,social",
         tags = "radio,speakers,audio,music,sound,broadcast,live,frequency",
         contributors = ""
@@ -1708,7 +1788,7 @@ pub enum LucideGlyph {
     BrainCircuit,
     #[cfg(feature = "brain_cog")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME2DggDQLg1GEMosCCLw1CAMI0jQLYrDkNgtC4NA2jGMIyjaNQwC0MQuDkOAgDOQIzkKRI3kcMwyioLgyDSS5ZlCNQuDOWA1iySpCk+Q5AjqSwuDAOBBmOMJbCCKQxDmLIukGbpljkNo9libYzm+L46C0M5pkqTJMm+XQ0C2YA1mKdp+kORpdDKOJWnyj5lkWR5JoKbKYm+KYrDWGYbiGI4giKJImCIbQxmAN5wDCPY8nMNKkC+phoqiI4lgwbZzlQMaDpSSI9reua7qqvrCC6P6uC4N48oqSLHqmya9qwMaykqwLSrS1anDyubYq2r5woMNa0tK4K6uKqbksCsZIuqxoari1ruryq6trKM7PDes7UvayL5sq2aDDEILAwEObsD6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEMoOGMeYShQPg8C+A4FgeGhwGEdBoCAZILE2EwgDQLg1GEMosCCLw1CAMI0jQLYrDkNgtC4NA2jGMIyjaNQwC0MQuDkOAgDOQIzkKRI3kcMwyioLgyDSS5ZlCNQuDOWA1iySpCk+Q5AjqSwuDAOBBmOMJbCCKQxDmLIukGbpljkNo9libYzm+L46C0M5pkqTJMm+XQ0C2YA1mKdp+kORpdDKOJWnyj5lkWR5JoKbKYm+KYrDUIoaC+IYjiCIokiYIhtDGYA3nAMI9jycw0qSG6nGiqYjiWCxtnOVAxoOlJIj2uKmqqvKrr+wwuj+rwuDePKKkiyK6suvqtDGs5KsG1K1teyg8rq2qurCcKDDWtbUuKqLkqq5rBrKSLssepbYvCvasq6s4ztEN60ta+LjuW/LODEILBwIOburuAQ",
         categories = "science,development",
         tags = "mind,intellect,artificial intelligence,ai,deep learning,machine learning,computing",
         contributors = "karsa-mistmere,jguddas,it-is-not"
@@ -1724,7 +1804,7 @@ pub enum LucideGlyph {
     Brain,
     #[cfg(feature = "briefcase")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDENINHcaRkHQaIKDIMINgkIg3g0ch4h6DYngsIg+DwL4DgWLRwGGHAgGSChNDENggDIMRWDUYQyjwIAwkSRAtDKSBoC0NJBkORZQkiPB2jqLIujOHA+gE",
+        svg = "gAPByGUYx0CAeQ9CINwiCAch4gkMoMHKCAihEIB3GkZB0GiEAwgwaBlGkZxoHSCQxDSDIPhUIg+DwL4DgWLRwGGGwgGSCRNDENggDIMRWDUYQyjwIAwkSRAtDKSBoC0NJBkORZQkiPB2jqLIujOGw+gE",
         categories = "transportation",
         tags = "work,bag,baggage,folder",
         contributors = "colebemis,csandman,ericfennis"
@@ -1732,7 +1812,7 @@ pub enum LucideGlyph {
     Briefcase,
     #[cfg(feature = "bring_to_front")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIOAiCAeYJgsIB3GkZB0GiD4MGgZRpGcaB0hcIByggIgyCIPg8C+A4FiYcBhhUIBkgkTQ0CAMQwGEMggjgMAgjsMQtDKPxWDSN45jyRgxjmPxokOOI6keRYkiYL4shWK4tGiL4xDGMwyjaTZGjuO5NkuRJOmGSQyHYLZMkWZwwj+P4lieVBoD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIOINHmCoRCAdxpGQdBohSDRoGUaRnGgdIcD4PAvgOBYlHAYYaCAZIKE0NAgDEMBhDIII3DAII6DELQyj4Vg0jaOI7kUMY4j4aJCjeOZGkSDIlC+K4aiqLBoi6MAxjIMo1kyRY6jqTJKkOTZgkgMh2C2S5EmYMI+j4IpRlMaA+gEA",
         categories = "design,layout",
         tags = "bring,send,move,over,forward,front,overlap,layer,order",
         contributors = "james-yeoman,jguddas"
@@ -1780,7 +1860,7 @@ pub enum LucideGlyph {
     Building2,
     #[cfg(feature = "building")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgxDaDRoGUaRnGgdIKDIMINgkIg0g0eYeg0comgsIg+DwL4DgWLRwGGEggGSChNDkIAyDIdgtDQaA2HaJItC+M4SjKNBojaOA4CANhoC4MAxiyLpHGiSY1jcIhNhWT5RlOVZGkqWZLluXQyl+UpUkWV5lkyXAxmkMQwmCbJWmQPJXnCaAgDGQJrmKbp6kqfJenSdqCnme5noegJhm2i6FmeTqIoGkZIoSWpNn6j53mOSIBA",
+        svg = "gAPByGUYx0CAeQ9CIMgiCAdxpGQdBogkMQ2gwcoIgqFh4gmCwgGgZRpGcaB0hwMIMhsIg0CIPg8C+A4FiwcBhhEIBkgkTQ5CAMgyHYLQ0GgNh2iqLAvjKEYxjMaI1jcOAgDYaAuDAMYri2RhokiNI2CITYUk6UJSlSRZJliSpalwMpelGU5ElaZJLlsMZoDEMJfmuVZjDyVpvmcIAxj+aphm2eZJnuXZznWgZ4nqZqGn+YJsoqhJmk2h6ApCR6DlmTJ9o6dpikeAQA",
         categories = "account,buildings",
         tags = "organisation,organization",
         contributors = "ericfennis"
@@ -1788,7 +1868,7 @@ pub enum LucideGlyph {
     Building,
     #[cfg(feature = "bus_front")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CANggDIIA3CIPg8C+A4FhSF4GgiCgxDCDRoDSE4VhqGYEhuCRtDKEA3C0MgtDGI4WieFByGUYx0CAeYJDMIggHcaRkgWCQxDaPhyHiCQyj4aBlGkZxoHSRJGCCSQiiKFAvjaOImgWB4JgsIAxDEaJFjKJYCieX4KDiYg1GgLgwjGWZohqaxNkWbpwnKZ40mmXocE2DgxDkdpLnSfp2oEMZtDIMR2i6fYYgE",
+        svg = "gAPBwGEdBoCAZA9CITQ0CANggDIIA3CIPg8C+A4FhSF4GgiCgxDCDRoDSE4VhqGYEhuCRtDKEA3C0MgtDGI4WieFByGUYx0CAeYJDMIggHIeIJDKPh3GkZIFgkMQ2j4aBlGkZxoHSSZLCCQQiiKFAvjaOImgWB4JgsIAxDEaJKjKJYCieX4KDiYg1GgLgwjGWZohqaxNkqbpwnKZ40mmXocE2DgxDkdpDnSfp2oEMZtDIMR2i6fYYgE",
         categories = "transportation",
         tags = "coach,vehicle,trip,road",
         contributors = "danielbayley"
@@ -1796,7 +1876,7 @@ pub enum LucideGlyph {
     BusFront,
     #[cfg(feature = "bus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CANh2DYIg+DwL4DgWEoVgaCIKDENYNg+EYThiF4EhmCRNDIIAxDIaAxDkLoQhKFIkiOBYHiYMYMjgaAzHMLg1C0MQuDcLg4C0MpEGMLgxC0Lg0C4MpMDiT5Ak8IAwkwNJMkuRJMlCQQyGyVJZDUQwyDCSoNkSKYuDGDYpgwNhIDQYYoigMJWlaRggDIdgxDCO4gjKFg8GMaRyGMbBlCAYx4gkNwioseYJjikBygkMqBoWh6JjSJYKDmbxoDWgYioShqIooY6SCKlAgpYIqYoujasjCE6aqgPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ4CANh2DYIg+DwL4DgWEoVgaCIKDENYNg+EYThiF4EhmCRNDIIAxDIaAxDkLoQhKFIkiOBYHiYMYMjgaAzHMLg1C0MQuDcLg4C0MpEGMLgxC0Lg0C4MpMDiT5Ak8IAwkwNJMkuRJMlCQQyGyVJZDUQwyDCSoNkSKYuDGDYpgwNhIDQYYoigMJWlaRggDIdgxDCO4gjKFg8GMaRyGMbBlCAcoJDIIggGMeYJjijxjHiCQ3oGhaHomNIlgoOZvGgNaBiKhKGoiiqMCKjqQpcIgxhCkKSrAOKaqinYBA",
         categories = "transportation",
         tags = "bus,vehicle,transport,trip",
         contributors = "ahtohbi4,ericfennis,Andreto,karsa-mistmere"
@@ -1820,7 +1900,7 @@ pub enum LucideGlyph {
     Cable,
     #[cfg(feature = "cake_slice")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIOQigkeYMDeDxygwMgiD4PAvgOBYHhkcBhHQaAgGSDBNDcLgyCCKA5CAMwgDEMR2DkYwwCALg2C4NIwjwMRoDENhjjgII2DELY6jALYyC2NAwC0MgtDMLQ2C0NwtDgbJRkMMo4hiGogiKH4hiOJQiE2QIwDMSAzl4L5gGiYoiiSJpoDEN5rm2bw+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIOQiCAcoMDKDxjHmDA3CIPg8C+A4FgeGhwGEdBoCAZIME0NwuDIIIpDkIAzCAMQxHYORjDAIAuDYLg0jGPQxGgMQ2GOOQgjcMQtjuMQtjMLY1DALQyC0MwtDYLQ3C0OBslKRAyjmGYbiGI4giKJImCITZBjEMxIDOXwvmEaJjiOJYnmkMQ3mybpwD6AQA",
         categories = "food-beverage,social",
         tags = "birthday,birthdate,celebration,party,surprise,gateaux,dessert,candles,wish,fondant,icing sugar,sweet,baking",
         contributors = ""
@@ -1828,15 +1908,15 @@ pub enum LucideGlyph {
     CakeSlice,
     #[cfg(feature = "cake")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDAIAyDEdgtDgYQyg4IINhgLQyhoSA2hSFoYheGoOHYOAiD4PAvgOBYoiuBoIgoNAgDENhzC4NQtDGDo5g6N4WjKFQyjeIw0iOQg1j+FobjqS4nimLotgSL4JguDgxGiDJOiqUpRgWB5UDcIA4HYMpalCApSl+CgxhWY5liiW4smiXowE0MZhm6ZpcnOU4KmENBoC4MAxnqcoumqdoVoCgqEnCZ6HnWdwgoug6FGgPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIAyDEdgtDgYQyg4IINhgLQyhoSA2hSFoYheGoOHYOAiD4PAvgOBYoiuBoIgoNAgDENhzC4NQtDGDo5g6N4WjKFQyjeIw0iOQg1j+FobjqS4nimLotgSL4JguDgxGiDJOiqUpRgWB5UDcIA4HYM5alCApSl+CgxhWY5liiW4smiXowE0MZhm6ZpcnOU4KmENBoDALgwDGepyi6ap2hWgKCoShhol2fZ2n+gaDoWcJQgEA",
         categories = "food-beverage,social,account",
         tags = "birthday,birthdate,celebration,party,surprise,gateaux,dessert,fondant,icing sugar,sweet,baking",
-        contributors = "karsa-mistmere"
+        contributors = "karsa-mistmere,jguddas"
     ))]
     Cake,
     #[cfg(feature = "calculator")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CINAiCAeYJDKDB3GkZB0GiCQxDaDByggIoQCAaBlGkZxoHSDwwCIPg8C+A4FikbBpG4ZYNDGCYZgcMoXjYeY4CKNh4jQIg4iiKovjGLowjIeI8hiDI/jmDB5kAMYLg2S5CikL5FGWKRwGGFQgGSCRNhgIAxDAaAuDAMZDC+XYVlyXhomCYgxDKZZnmma5Ym4aJwl+YQiE0OJ3miapsnyfpyoCY52lOhZ6iqiA8nyc6BoOjp5oecaJpWjJlDij6am+k5xp2l6gpme6bgE",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAeIODSEh5g4MoSHcaRkHQaIODENoSHKFIPCIPg8C+A4FikbBpG4ZQgHkMoOiOEwxg4OIXjkIo3HiNQiiKKIqi+MYujCMpAiGP49kOM5OhaM5BDGO4pC+RhlikcBhh8IBkg4TYiCAMQwGgLgwDGRAvlyH5bl0aJfmEMQymSZpomqV5tGib5emAIhNDidpnmma57n2cZ/mKdQxDShJ5iqhw8nucqAoKjaPoacKIpWi5kDimZ6puk5wp2l6gnimpugE",
         categories = "maths,devices",
         tags = "count,calculating machine",
         contributors = "ericfennis,csandman"
@@ -1844,7 +1924,7 @@ pub enum LucideGlyph {
     Calculator,
     #[cfg(feature = "calendar_check_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDQVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2g+IIWiOIQyGgOAiD4PAvgOBYxGwaRuGUIB4DGCQxDYIo7DKPpACAeY9CIMpBHmQwikCMQvjeOY2jiOpMgmRY8gmL5CluS5IkqUJSGWVI5l2SQxkuTQxDCQZaCIM5fj6bZilWMY0gaCAiG2P4VheJQgDQLQ0jCMp4D6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDQVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2g+IIWiOIQyGgOAiD4PAvgOBYxGwaRuGUIB4DKCQxDYIggHkMYJDKQR4kQIo/kEeY9CKQIxC+N45jaOI6k2CZAjuTovjuSZdkORYwjKUxllWOZCk4MQwkeToMkySZrkeSQzmOUpWjGNIGggIhtj+FYXiUIA0C0NJ2noPoBA",
         categories = "time",
         tags = "date,time,event,confirm,subscribe,done,todo,tick,complete,task",
         contributors = "karsa-mistmere,ericfennis"
@@ -1852,7 +1932,7 @@ pub enum LucideGlyph {
     CalendarCheck2,
     #[cfg(feature = "calendar_check")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeYNDKERoGUaRnGgdINg+ER4g0M4RHKIQihYIIUCINAiD4PAvgOBYuGwaRuGUIB4DKHg2hEeY6CKPI4DGO49kOJ4ti+NI2jONY3j6DZBjmDYQimRooHiRoQi4L5KGWTI2imPwxDCRYemSQoiiCPwyDGSJck2LhwGGCwgGSDRtDkIAxDYIAyn0IA0C2LJbnKCw+gE",
+        svg = "gAPByGUYx0CAeQ9CINAiCAdxpGQdBogkMQ4gwch4gkMoWggIoaCCGAiDODBoGUaRnGgdIThUPg8C+A4FiwbBpG4ZYfDKEw2gweAxjiDB5jyHY+jcIo5iwL4yjSMYzjWO4JhWB5Ah4eZDjmNpOCKRpIGWSo0laHQxj6QAxDCQoTmSH5AiKWZLiwcBhhEIBkgkbQ5CAMQ2CAMp5CANAtguRpuhEPoB",
         categories = "time",
         tags = "date,time,event,confirm,subscribe,schedule,done,todo,tick,complete,task",
         contributors = "karsa-mistmere,ericfennis"
@@ -1868,7 +1948,7 @@ pub enum LucideGlyph {
     CalendarClock,
     #[cfg(feature = "calendar_days")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINAiCAaBlGkZxoHSCQxDiDB3GkZB0GiFIWCAeIJDODByiAIgyiOCImCIPg8C+A4FiwbBpG4ZYHDGCYnh+NwiDENoMHgMoUj6B5BCKPosC+Mo0jGM41HmO45HmRZDHiO4ekCCYWkiShlkyNJEhQMI/juIofkUMgxgyT5hiuLZciwcBhhsIBkgkTQ4CAMQ0GgLgwmmSJxhucJyGidJ2DEMp5nufZ/i2gRooOc51CITY9oqfJ+m0L6PpGhaTneeQ4pijaboSnaGpSiKhqOmqcDyj6opUNqroyramgE",
+        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDiDYJCININGgZRpGcaB0hSFggHiCgzg0colgsIg+DwL4DgWLRsGkbhliQMYUDaF44iuJAyjmF4/CKOotC+M41jKNI2HiQojHiPIjHmPIMCAeZCkSLpHGWSY1lWQgxDCDZMgoMgxjuFJhjeJoslmSotHAYYSCAZIKE0OAgDENBoC4MJmkWcISm+cRonOdQxDKeJ6nyfouoAaKCnKdAiE0MQ2ome59mwL6OpChKSnaeA4pijKboOnaFpOh6hqOmqcDyjqopSloVqyf6mgE",
         categories = "time",
         tags = "date,time,event",
         contributors = "karsa-mistmere,ericfennis"
@@ -1884,7 +1964,7 @@ pub enum LucideGlyph {
     CalendarHeart,
     #[cfg(feature = "calendar_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDMVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2DENIghaI4hDIaA4CIPg8C+A4FjIbBpG4ZQgHgMoJDENgiCAeQxgkMpCHiRQikCQh5j4IpBjIL44jqN45juToJkGQ5KkePJKjCPJPjCUpUGWVo6mKRgxk2SgxDCTZPm+SJKDOMYzmaaJYm4OZ0j+W5ZkufZqCIMpHmWVw+gE",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDMVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2DENIghaI4hDIaA4CIPg8C+A4FjIbBpG4ZQgHgMYJDENgiCAeQygmQY8kUIpAkIeY+CIMoxjOOI6jeOY7j2CYwkOSZHk2CZQkiWZRC+UxllWOo8k4M5Mk4MQwkIeJJgyTJJm6Y5lmeV5ymCWJKl2bQ5nSP6BjKZJWD6AQA",
         categories = "time",
         tags = "date,time,event,delete,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -1892,7 +1972,7 @@ pub enum LucideGlyph {
     CalendarMinus,
     #[cfg(feature = "calendar_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0C4MQ4CCDIOEEMgghQMAgheFwzCANh2DENBhhSFoYiSIhoh+IYViSGQgDELg4DILYug4Ig+DwL4DgWNo5gaCIKDIMYtDULg1FYNopiOGQtjEMhIDmRI1jePI7gSPYJE0MQ2hUdg0lGOJVlSBYHleGwxDAaA3l6U4ClWY4/kGZhoC2Qw1mqYA8GwaRuGUIB5DGCQyCIIB4n8IqBoMMqAoceaJoagY2C+eZ7D6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQ0C4MQ4CCDIOEEMgghQMAgheFwzCANh2DENBhhSFoYiSIhoh+IYViSGQgDELg4DILYug4Ig+DwL4DgWNo5gaCIKDIMYtDULg1FYNopiOGQtjEMhIDmRI1jePI7gSPYJE0MQ2hUdg0lGOJVlSBYHleGwxDAaA3l6U4ClWY4/kGZhoC2Qw1mqYA8GwaRuGUIB4DKCQyDIIggHkMaAoMeKGCKgqEn+i6CjYL55nsPoBA",
         categories = "time",
         tags = "date,time,event,delete,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -1900,7 +1980,7 @@ pub enum LucideGlyph {
     CalendarOff,
     #[cfg(feature = "calendar_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDMVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2DENIghaI4hDIaA4CIPg8C+A4FjIbBpG4ZQgHkMYJDIIggHiPgiDENpBHkMoJkeQpKkWR4yC+OI6jeOY7kmS5BkOCYwk2XJIkSQJRlMZZVjqXgigyYIJDEMJIk6bZakQM4xjOZJmleRJGm+P5AkKeg5lqcKBmOVp4jyg5ymyTI9mygZoDKYp2oaAQA",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDMVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2DENIghaI4hDIaA4CIPg8C+A4FjIbBpG4ZQgHgMoJDENgiCAeQxgkMpCHiRQikCQh5j4IpBjIL44jqN45juRJGkiT4wjySpdk6CZRjOVBllaOpDk8MQwkiSgzluRgxk2SprjGZJXmeO5Jj8OZNk8MpHjyap9kOdJjlOeA8mWXo/kGgpGoGYZLoSWaTnaiJVgEA",
         categories = "time",
         tags = "date,time,event,add,subscribe,create,new",
         contributors = "karsa-mistmere,ericfennis"
@@ -1908,7 +1988,7 @@ pub enum LucideGlyph {
     CalendarPlus,
     #[cfg(feature = "calendar_range")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAch5g4MoSHIeIWhKGgiDOEoVCINISHcaRkHQaIOhAIg+DwL4DgWLRsGkbhlCAeQyg4NocDGKo7CAeI5g+Px5j0IoXi0L4zjWMo0jaRYbjeQo/HiRoRkCQoRkmSxlk2NZYhYMYgkYMQwjyDoflKKpmluTotHAYYoCAZIOE0MQ3CAMQ0GgLY7kmcIom+cRonOdQxDOeQ4EgN4si6gBooKcp0CITZ4noaAuDCYp/oOkaEpOdqWDimKao0L6PD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgyCKBx5gqDAggkIgzg0aBlGkZxoHSCgxDiDYPCININHcaRkHQaIdh8Pg8C+A4FiwbBpG4ZYSDKHQ2iAMYQiCNwijmEo7CIMY5iwL4yjSMYzjUeZChEeY+kAeJCh+NoKiuLZIGWSo0kGCoVlaCwxjqHQwj2ZQikaWosHAYYoCAZIKE0MQ3CAMQ0GgLZFi2bYomybhonCcgxDOdg4EgN5pnygJ/m+cQiE2dZ3GgLgwmORp9GijaBo+c6SDilKWooL6ZD6AQ",
         categories = "time",
         tags = "date,time,event,range,period",
         contributors = "karsa-mistmere,ericfennis"
@@ -1924,7 +2004,7 @@ pub enum LucideGlyph {
     CalendarSearch,
     #[cfg(feature = "calendar_x_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDMVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2DENIghaI4hDIaA4CIPg8C+A4FjIbBpG4ZQgHkMoJDYIo8DGCQykEeI+CIMZACAeJDkmQIyC+OI6jeOY7keCYwjySJLk2WZBHmTpFlGUxllWOpbgkMQwmCTprkaTgzkaSIMjGM5lmeV50kWTJuDebZqn+aQiDKY53laeZ9oGYJIDGgphkSfJYoShpSoiAQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDMVg2GEMgghQMAghcMAtDKGxIDWE4VhiIoahQMh2DENIghaI4hDIaA4CIPg8C+A4FjIbBpG4ZQgHgMYJDENgijwMo/kEIB5j4IgykIeZECKQYyC+OI6jeOY7HiTowjySZakiCZLkeTpQjOUxllWOpDl8MZMk4MQwkySZukKPYJDOMZklaZ5Xk4Mpgl4IgxDebJfmCdKAoKUZlnqW4/oKR5Jn2c58n6baIniVIBA",
         categories = "time",
         tags = "date,time,event,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -1932,7 +2012,7 @@ pub enum LucideGlyph {
     CalendarX2,
     #[cfg(feature = "calendar_x")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIIJCIM4NHIeYKgwIImCINAiD4PAvgOBYuGwaRuGWKQxieDR4DKFQ2g0eY9CKP4gjkIgxj+LgvjSNozjWNx4kaH5BgqRB5kaKI8gqF5KkwZZOjaRYKiOKZCDEMJAkaZ47kIMgxi2L5emCN5XhWLJikeaJlh6bJ2nCS5PnOe5HlOap3lGfogmaaJdoGAQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINHmCg0g0coZguDYJCIM4NHcaRkHQaIVhcPg8C+A4FiwbBpG4ZQgHkMYKgwIB4jgIgxDaIAyhWQI2kIIpAiwL4yjSMYzjWPIKheRYKkQeJGlKN45CKSZLGWTY0juRgyDGGJGDEMIgj2I42j2Z5bi2XZfk+ZoblOPpYm2dZQj6aJck6cpshWdR5maUp7DGepmn2cJ/gEA",
         categories = "time",
         tags = "date,time,event,remove,busy",
         contributors = "karsa-mistmere,ericfennis"
@@ -1940,7 +2020,7 @@ pub enum LucideGlyph {
     CalendarX,
     #[cfg(feature = "calendar")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQ0hEcoTCIMoRGgZRpGcaB0g2D4RHiDQzhaJYZCIPg8C+A4FiwbBpG4ZQgHgMoiDaER5DGDYahKOAijqNo9g6OosC+Mo0jGM41HmQZDHiRYQhKRY/jeDYQkiShlkyNJEiaO5FDEMI7kGZIkkEMgxiuLZcD6AQA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeYODSEh3GkZB0GiDoQhIch4g4MofhQIojCCIQiDMIg+DwL4DgWLRsGkbhlhMMYihIeI4g8NoSHkMoOj6KJBj2LIujONYyjSNpAkKP48ieO4OhGRJUkcL5JGWS41jeHQwjqPIrhORQxmCVomDGWJaD6AQ",
         categories = "time",
         tags = "date,birthdate,birthday,time,event",
         contributors = "colebemis,ericfennis"
@@ -1948,7 +2028,7 @@ pub enum LucideGlyph {
     Calendar,
     #[cfg(feature = "camera_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5gmC4NHgMoKDKDIOhSC4MD4PAvgOBYcHAYR0GgIBkgoTQ3CANxIDQYQyCCMAwCCMwwC2MAyHYOYvjGNI+jOOBoDENgihwL4iiSIYjiWJwiE0OQuDUIA0GgNRMDGKg3GgM48jKPgxj2OQ3lGRYdkgaJKiSJooDENAuDEMpgDENZvnEQQzCCeIznIIJQDgOAgDEMAun+ZZHksPoBA",
+        svg = "gAPBsGkbhlCAeAyD0IgyDIIggHmCYLg2BwxgqEx5hWCwiD4PAvgOBYcHAYR0GgIBkgoTQ3CANxIDQYQyCCMAwCCMwwC2MAyHYOYvjGNI+jOOBoDENobh2IokiGI4licIhNDkLg1CANBoDUTAxioNxoDOPIyj4MY9jkN5QkUL5HGiSYkiaKAxDQLgxDKXwxDWbpwEEMwgneM5xCCTw4DgIAxDALp+mSZg+gE",
         categories = "photography,devices,communication",
         tags = "photo,webcam,video",
         contributors = "colebemis,lscheibel,Andreto,ericfennis,karsa-mistmere"
@@ -1956,7 +2036,7 @@ pub enum LucideGlyph {
     CameraOff,
     #[cfg(feature = "camera")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CANBoC0NRMDcIA3EgNBhDIIIcDAIIfDALYcDIdg5huHYgiqH4kGgMQ2iiHorh2IxWieJIziIMojhIMxsiODgtDMegiD4PAvgOBZGGMaRyGMbBlCAYx4gkMQyCIIBygkM5YGMeZVlyRgvkyTpQD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CANBoC0NRMDcIA3EgNBhDIIIcDAIIfDALYcDIdg5huHYgiqH4kGgMQ2iiHorh2IxWieJIziIMojhIMxsiODgtDMegiD4PAvgOBZGGMaRyGMbBlCAcoJDMIggGMeIJDEMpWGMeZalWRgvkyTpQD6AQ",
         categories = "photography,devices,communication",
         tags = "photo,webcam,video",
         contributors = "colebemis,lscheibel,ericfennis"
@@ -1964,7 +2044,7 @@ pub enum LucideGlyph {
     Camera,
     #[cfg(feature = "candlestick_chart")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CANR2DQIg+DwL4DgWEhyGUYx0CAdxpGSBYJhAIBoGUaRnGgdIJDYIggHiCQ3iwcouCIMYsHmCQ5hGE4YhqEoVgaCIKgwMYODKOoUgQaI+kmB4JE0MQ3CAMx2kaEpIhYPI8huNwiDWLIdh8aIhiyJImiiCQ4iyM5EjGa5HlqS4Fk2CpQCAMZTDOR4/nGQJODOUh2DEOBooKepJD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQ5CANR2DQIg+DwL4DgWEhyGUYx0CAeIJDcIggHmCQ5iAcodCIMYgGgZRpGcaB0gkNogHcaRkgWCYQhIL4YhqEoVgaCIKgwMYODKEYTj+PoEkCCRNDENwgDMdpGjqSQ8jyG4mgmKQgjSNhojiIIiCINYqiyLowCIOIgieRJHjuGR0kqBYHk2TwgDGUgzm+Vo/nWCgzlEdgxDgaKEnySw+gE",
         categories = "charts,money",
         tags = "trading,trader,financial,markets,portfolio,assets,prices,value,valuation,commodities,currencies,currency,exchange,hedge fund,statistics,diagram,graph",
         contributors = ""
@@ -1980,7 +2060,7 @@ pub enum LucideGlyph {
     CandyCane,
     #[cfg(feature = "candy_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ4C4NQggwNQtDEIAxGENAuDmDoXhkIAwh2Hw3CANxsDGEgiD4PAvgOBYoiuBoICITQxDELg4DQMwgDYLgxDgNxBhsNIhkCIYeh6EwxjqDg3g2FoYkEIJDh+RoUC4MwxjiFw2DUN4nimLotgSL4JjINIUkkVgxDSXYqmGYIFgeY5pjmDR2jSNgzmuX4CmGcIxDGRgwHaSw1nmbZ7m+MBtkiIoUC2Do0DMNpLDYOAzEGOI4kWHwxDkLg3DAOAgDMSAyDGdQuDIOQyGGmJSh+VQxiGkA0DETAyDKIhso6FKFiyh5igqoaxhIIIRpCkgtC6lKWq2moeheqa4qUSAzHaEqoqqrKiq4MLJlYN7XDOtK2hSI7Gr0aIoGwaRuGUIB5DGCQyCK7wyvK8wgHi8QivgeL2vy84oC+67tD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQ4C4NQggwNQtDEIAxGENAuDmDoXhkIAwh2Hw3CANxsDGEgiD4PAvgOBYoiuBoICITQxDELg4DQMwgDYLgxDgNxBhsNIhkCIYeh6EwxjqDg3g2FoYkEIJDh+RoUC4MwxjiFw2DUN4nimLotgSL4JjINIUkkVgxDSXYqmGYIFgeY5pjmDR2jSNgzmuX4CmGcIxDGRgwHaSw1nmbZ7m+MBtkiIoUC2Do0DMNpLDYOAzEGOI4kWHwxDkLg3DAOAgDMSAyDGdQuDIOQyGGmJSh+VQxiGkA0DETAyDKIhso6FKFiyh5igqoaxhIIIRpCkgtC6lKWq2moeheqa4qUSAzHaEqoqqrKiq4MLJlYN7XDOtK2hSI7Gr0aIoGwaRuGUIB4DKCa3CIIB5DG8r0Hm8QivO773vya7ru0PoBA",
         categories = "food-beverage",
         tags = "sugar free,food,sweet,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -1996,7 +2076,7 @@ pub enum LucideGlyph {
     Candy,
     #[cfg(feature = "car_front")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQyDEIA4C0MggDILQxC4NQtDMLg3EGEYRDAIIfh8MQ1C4Ng0DYIA1EgOAuDQYYdiCMQwhQLg5DAMwghUMg1DcTA1jmH44DgIg+DwL4DgWRZIgaCAiE0N45DQaAuDAMZEkaS5KgSTIJE0MZQDGUpUlaRZHluRRyGUYx0CAeIJDMIggHmCQxDCcRym4IgynEdxpGSBZ0kMIBoGUaRnGgdIJkOZZpmuWoFgeXY/DEOB2nuZZZgKW6Rk4MQ5jmlaXliZ4BA",
+        svg = "gAPBwGEdBoCAZA9CIbQyDEIA4C0MggDILQxC4NQtDMLg3EGEYRDAIIfh8MQ1C4Ng0DYIA1EgOAuDQYYdiCMQwhQLg5DAMwghUMg1DcTA1jmH44DgIg+DwL4DgWRZIgaCAiE0N45DQaAuDAMZEkaS5KgSTIJE0MZQDGUpUlaRZHluRRyGUYx0CAeYJDEMAiCAeIJDOchynQIgynIdxpGSBZvkMIBoGUaRnGgdIJkOZZpmuWoFgeXY/DEOB2nuZZZgKW6Rk4MQ5jmlaXliZ4BA",
         categories = "transportation",
         tags = "vehicle,drive,trip,journey",
         contributors = "danielbayley"
@@ -2004,7 +2084,7 @@ pub enum LucideGlyph {
     CarFront,
     #[cfg(feature = "car_taxi_front")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDAIAyGgNAiD4PAvgOBYThaBoICIbQyDEIA4C0MoOC0MQuDULQzC4NxBiOI4NjAIAxDULg2DQNggDUSA4C4NBhi4IIxDCJQuDkMAzjILgyDUNxMDWMoNkgOIShSGYYgSGoJE0N4yDQaAuDAMZUhWWJXgWB5aDGXAxl6YJihOZIXDwchlGMdAgHIeIJDIIggGgZRpGcaB0gmUwgnoIgzn0eYJgyfR3GkZIFo2U5wnSdpmlmCpPDEOB2nycJWgKWJogoMQ5jKnqglWZYBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDAIAyGgNAiD4PAvgOBYThaBoICIbQyDEIA4C0MoOC0MQuDULQzC4NxBiOI4NjAIAxDULg2DQNggDUSA4C4NBhi4IIxDCJQuDkMAzjILgyDUNxMDWMoNkgOIShSGYYgSGoJE0N4yDQaAuDAMZUhWWJXgWB5aDGXAxl6YJihOZIXDwchlGMdAgGgZRpGcaB0gmUwgHmCYMCIIByHiCQyoWiAiDOhR3GkZIFoOU5wnSdpmlmCpPDEOB2oqcJWgKWJogoMQ5jKnqglWZYBA",
         categories = "transportation",
         tags = "cab,vehicle,drive,trip,journey",
         contributors = "danielbayley"
@@ -2012,7 +2092,7 @@ pub enum LucideGlyph {
     CarTaxiFront,
     #[cfg(feature = "car")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDkIAxDcaAyGMLg2CAMIOC0Lg0hgMR2C0MxjDCGQ5hkNwtDELomigNYnC4ORDDEOIpg4MIUg6FQxhcMY4DAc4tDOLQ0C0MguDKQwuiCGYshqLQxiWLQ4iUSA1GOGYViKKIokKWouGyQQgkQORBDOM5kDeFpohcMoODIdg0iEIIUhqDp0DGEQiD4PAvgOBZ5GMaRyGMbBlCAYx4gkNwioUeYJg+ihygkMp4nqf6BoOeZ8gaCIKg2DxoDak57gQaJ+oCgqEpAIqSoWhwio6i6NomeQvpWpw+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDkIAxDcaAyGMLg2CAMIOC0Lg0hgMR2C0MxjDCGQ5hkNwtDELomigNYnC4ORDDEOIpg4MIUg6FQxhcMY4DAc4tDOLQ0C0MguDKQwuiCGYshqLQxiWLQ4iUSA1GOGYViKKIokKWouGyQQgkQORBDOM5kDeFpohcMoODIdg0iEIIUhqDp0DGEQiD4PAvgOBZ5GMaRyGMbBlCAcoJDIIggGMeIJDeiRjHmCYPniep/oGg55nyBoIgqDYPGgNqUnuBBon6gKCoShgioiiqRCKk6Koyr6OnkL6WqgPoBA",
         categories = "transportation",
         tags = "vehicle,drive,trip,journey",
         contributors = "ahtohbi4,ericfennis,Andreto"
@@ -2020,7 +2100,7 @@ pub enum LucideGlyph {
     Car,
     #[cfg(feature = "caravan")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMgiCAdxpGQdBogkNIMHmCQ5gwaBlGkZxoHSEwiD4PAvgOBYiiWBoICIMQwhmG4dh+K4tg2D4RiAIIWCKGIiiSBB0iIcBhhEIBkgkTQxDgIAxDkVg5GENAglAMAglMMAtDSVxIDaT5RlSXpWlANB2DgYQyCCZpVl6ZgyGiC48kGEYiGMaRyGMbBlCAcoJgsIBjjmS4MGOKg4iGI5znWd5AkIaJEkaLJKDkaAxDIdgtm6I5wGgPoB",
+        svg = "gAPByGUYx0CAeA9CIMgiCAeYJDmDB3GkZB0GiCQ0gwaBlGkZxoHSFwiD4PAvgOBYiiWBoahyHoJDEMIMggIougyDgihAIIShSFgihiIokgQdIiHAYYVCAZIJE0MQ4CAMQ5FYORhDQIJSDAIJVDALQ0lkSA2lGU5WmCWJSDQdg4GEMggmiV5gmgMhoguPpDhWIhjGkchjGwZQgGOMQ4gwY41k2DBygmcIjnWd55kKRBokaSIukwORoDEMh2C2hgvnIaA+gEA",
         categories = "transportation,travel,nature",
         tags = "trailer,tow,camping,campsite,mobile home,holiday,nomadic,wilderness,outdoors",
         contributors = "danielbayley"
@@ -2036,7 +2116,7 @@ pub enum LucideGlyph {
     Carrot,
     #[cfg(feature = "case_lower")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwM4QGMeIMDcIg+DwL4DgWB4bHAYR0GgIBkgwTQxDAIA5HYNoahyIokhuHoGgiFoMDGGYJguDYPhGE4wh2BI2iGI4licIopDQIA3HYOJCjIaA+gEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CINwiCAcoMDODxjHmDAxDIIg+DwL4DgWB4bHAYR0GgIBkgwTQxDAIA5HYNoahyIokhuHoGgiFYXhmCYLCIMYOhCEowh2BI2iGI4licIopDQIA3HYOJCjIaA+gEA",
         categories = "text",
         tags = "text,letters,characters,font,typography",
         contributors = "danielbayley"
@@ -2060,7 +2140,7 @@ pub enum LucideGlyph {
     CaseUpper,
     #[cfg(feature = "cassette_tape")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgyDCDYJguDR5goNINGgZRpGcaB0goMQ2CIPg8C+A4FikYxpHIYxsGWB4Ug0Y4bCIMYWCAY4YDiKIqi+MYzikcBhhIIBkgoTQ4CAMQyGiQIpC+R4Si6MIyjQco2j2GImjeOY7kEL5DlqRpIGiSoKG0NgghUIAuDcLQyC4ORBDELg0k+eggDCfpPCAOAuDGTw2GgNwuDgYZ5nujaAn+haPDEbJyCAM5klYaA+gEA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDENoNHcaRkHQaIKDIMINHmCg0g2CYLCIPg8C+A4FikYxpHIYxsGWB4eg0Y4mDiN4iCIMYgikL4vjGM4pHAYYcCAZIKE0OAgDEMhojqQJGhyLowjKNByjYIBjjyPo3iaFooiqQpYkWRxokmChtDYIIfCALg3C0MguDkQQxC4NJOnkIAwn2TggDgLgxk4NhoDcLg4GGeJ6oyf5+oSjgxGycQgDOYwvlQaA+gEA",
         categories = "connectivity,devices,multimedia,communication,files",
         tags = "audio,music,recording,play",
         contributors = ""
@@ -2068,7 +2148,7 @@ pub enum LucideGlyph {
     CassetteTape,
     #[cfg(feature = "cast")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCAOBWDYYYMgwMAghQMQgDILQyGgMYQhKFYgheEh2DEMoRhiIIWhqGBoC0NgiD4PAvgOBYxjSBoIgqDIlGEOQgj6FIWg2DYwjKN42gSOIJgsIIdGENQglCQZNCANJVkWM5JjEbBpG4ZQgHgMoJDILgwDEIpgDGY5oHmYgiDIMJsmqb5xjEL5cl4PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyCAOBWDYYYMgwMAghQMQgDILQyGgMYQhKFYgheEh2DEMoRhiIIWhqGBoC0NgiD4PAvgOBYxjSBoIgqDIlGEOQgj6FIWg2DYwjKN42gSOIJgsIIdGENQglCQZNCANJVkWM5JjEbBpG4ZQgHkMYJDIMAimAMpjmUIB4mIIgymYeJom4LgwDGWJcl4PoBA",
         categories = "devices,connectivity",
         tags = "chromecast,airplay,screen",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -2100,7 +2180,7 @@ pub enum LucideGlyph {
     CheckCheck,
     #[cfg(feature = "check_circle_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIAyDIYw1C4NQyDMIAwCAMQwC0NAuDQNw3hmG4aFMMQ3hOFYOhmDYsCANoeiCKoMHOHYfiGGoiiIegiD4PAvgOBY9kCBoICIbQ5iuKoNDSHI8j6Qw+gEA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsbQ5CCFAgDKLQgDQLQ0CKGwviKJA+gEA",
         categories = "notifications,shapes",
         tags = "done,todo,tick,complete,task",
         contributors = "mittalyashu,ericfennis"
@@ -2108,15 +2188,23 @@ pub enum LucideGlyph {
     CheckCircle2,
     #[cfg(feature = "check_circle")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDELgwDgVgxDIYQxDCDoZhkMYOC0NQuDkMwtDkLgxDQIg+DwL4DgWKhwG8bB5GwaRuGUIIwjUdBzgmDAgDSDoNieEYdDmDoQDAMYpiuMIyjSNg+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDELgwDgVgxDIYQxDCDoZhkMYOC0NQuDkMwtDkLgxDQIg+DwL4DgWKotgaCAiG0OYOh0MwgDMTIMCCKIqiyBBoD6AQ",
         categories = "notifications,shapes",
         tags = "done,todo,tick,complete,task",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     CheckCircle,
+    #[cfg(feature = "check_square_2")]
+    #[strum(props(
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHmCoRCAaBlGkZxoHSCgxDiDR3GkZB0GiHYfD4PAvgOBYoHAYYkCAZIKG0OQgDEMggjiOA0C0NAiigL4uiQPoBA",
+        categories = "notifications,shapes",
+        tags = "done,todo,tick,complete,task",
+        contributors = ""
+    ))]
+    CheckSquare2,
     #[cfg(feature = "check_square")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig5CAMQxhMMoTDQIAyhcNAiD4PAvgOBYHgmHxwGEdBoCAZIQE0MoVDEMh2DcYYXhcMAgjgMQtjYSA1jWGo5kKOwyjwVo/jaQo6hqPBohSHogieKQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CIbQ5CAMQxCAM4QEwMgyCANAiD4PAvgOBYZhyBoICITQyg8MQyHYNxhhWFQwCCLQxC2KxIDWKggiyLoNjGMRWjSK44i+NoxGiDoYhqHw+gEA",
         categories = "notifications,shapes",
         tags = "done,todo,tick,complete,task",
         contributors = "colebemis,csandman,ericfennis"
@@ -2124,7 +2212,7 @@ pub enum LucideGlyph {
     CheckSquare,
     #[cfg(feature = "check")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgyDAIA2CAOQgDENwgDSGAyCIPg8C+A4FgeCQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIA2CAOQgDENxsC0NYWCIPg8C+A4FD6AQ",
         categories = "notifications",
         tags = "done,todo,tick,complete,task",
         contributors = "colebemis"
@@ -2132,7 +2220,7 @@ pub enum LucideGlyph {
     Check,
     #[cfg(feature = "chef_hat")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ2CAMQzC4OA3EENAghQMAghcMQgDcLg0hoNhhDULgxhqIokhiKIaDELgwDULYrDWFA1CCM4XhmG4sDiGBBiaJYjhqNoNg0NguDUOQggyFIWimDY6g6EA3FYMgxEgNhaCIPg8C+A4FlkbBpG4ZQgHgMoJDEOAiCAeZlCIMQ3mkeAxgkNppHmcptm+WQvl+YQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ2CAMQzC4OA3EENAghQMAghcMQgDcLg0hoNhhDULgxhqIokhiKIaDELgwDULYrDWFA1CCM4XhmG4sDiGBBiaJYjhqNoNg0NguDUOQggyFIWimDY6g6EA3FYMgxEgNhaCIPg8C+A4FlkbBpG4ZQgHgMYJDYIggHkMoJDEN5oHiawiDEOJoHmZZym6WQvl+YQ+gE",
         categories = "food-beverage",
         tags = "cooking,food,kitchen,restaurant",
         contributors = "karsa-mistmere,ericfennis"
@@ -2148,7 +2236,7 @@ pub enum LucideGlyph {
     Cherry,
     #[cfg(feature = "chevron_down_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0MQ2CAMQwC0NAgDSLouhmG4hiMPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAYR0GgIBkgwbQxDYIIUC0NAgDSLouCKGwviKJA+gEA",
         categories = "arrows,navigation,shapes",
         tags = "back,menu",
         contributors = "danielbayley,ericfennis"
@@ -2156,7 +2244,7 @@ pub enum LucideGlyph {
     ChevronDownCircle,
     #[cfg(feature = "chevron_down_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHiDgzhIeYdhIcocCIMgiD4PAvgOBYoHAYYXCAZIOG0MQ2CAMQwC0NAgDSOo6ieKYuhcPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAeIJgsIBoGUaRnGgdIJDEOIMHcaRkHQaIYhoIByg4IgyCIPg8C+A4FikcBhh8IBkgkbQxDYIAxDALQ0CANI7juKIqi+Hw+gEA",
         categories = "arrows,navigation,shapes",
         tags = "back,menu,panel",
         contributors = "danielbayley,ericfennis"
@@ -2188,7 +2276,7 @@ pub enum LucideGlyph {
     ChevronLast,
     #[cfg(feature = "chevron_left_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAYR0GgIBkgwbQxDQIAxDYLQ0i8IIwDQIobC+IokD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0MQ0CAMQ2C0NIuCCLw0hmG4hiMPoBA",
         categories = "arrows,navigation,shapes",
         tags = "back,previous,less than,fewer,menu,<",
         contributors = "danielbayley"
@@ -2196,7 +2284,7 @@ pub enum LucideGlyph {
     ChevronLeftCircle,
     #[cfg(feature = "chevron_left_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAch4g4MoSHcaRkHQaIOhCEh5g4M4ShUIojD4PAvgOBYoHAYYcCAZIOG0MQ0CAMQ2C0NI6CCOw0CKKAvi6HA+gEA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwcoICIMoMHmCYLCAaBlGkZxoHSE4VD4PAvgOBYoHAYYRCAZIJG0MQ0CAMQ2C0NI6CCOw0CKKAvi6EQ+gEA",
         categories = "arrows,navigation,shapes",
         tags = "back,previous,less than,fewer,menu,panel,button,keyboard,<",
         contributors = "danielbayley,ericfennis"
@@ -2212,7 +2300,7 @@ pub enum LucideGlyph {
     ChevronLeft,
     #[cfg(feature = "chevron_right_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAYR0GgIBkgsbYNCAOAgDSLQti4NAihsL4iiQPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0MQwCAOAgDSLQti4NIZhuIYjD6AQ",
         categories = "arrows,navigation,shapes",
         tags = "back,more than,greater,menu,>",
         contributors = "danielbayley"
@@ -2220,7 +2308,7 @@ pub enum LucideGlyph {
     ChevronRightCircle,
     #[cfg(feature = "chevron_right_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeYODOEh4hWEhyhgIgyhIdxpGQdBog6EAiD4PAvgOBYoHAYYjCAZIOG0MQwCAOAgDSOQtjoNInimLojD6AQ",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwch4gkMoMGgZRpGcaB0hOFQghiCgiD4PAvgOBYoHAYYRCAZIJG0MQwCAOAgDSOQtjoNInimLoRD6AQ",
         categories = "arrows,navigation,shapes,development",
         tags = "forward,next,more than,greater,menu,panel,code,coding,command line,terminal,prompt,shell,console,>",
         contributors = "danielbayley,ericfennis"
@@ -2236,7 +2324,7 @@ pub enum LucideGlyph {
     ChevronRight,
     #[cfg(feature = "chevron_up_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwbQ4CAMQ0CANAti2MQihsL4iiQPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0OAgDENAgDQLYsjCGYbiGIw+gE",
         categories = "arrows,navigation,shapes",
         tags = "caret,ahead,menu,^",
         contributors = "danielbayley"
@@ -2244,7 +2332,7 @@ pub enum LucideGlyph {
     ChevronUpCircle,
     #[cfg(feature = "chevron_up_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINgkIgzg0dxpGQdBohWFwgHmCobD4PAvgOBYoHAYYgCAZIKG0OAgDENAgDQLY4jwIooC+LogD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHIeIODKEh5g4M4Sh0IojD4PAvgOBYoHAYYXCAZIOG0OAgDENAgDQLY4jwIooC+LoXD6AQ",
         categories = "arrows,navigation,maths,shapes",
         tags = "caret,keyboard,button,mac,control,ctrl,superscript,exponential,power,ahead,menu,panel,^",
         contributors = "danielbayley,ericfennis"
@@ -2324,7 +2412,7 @@ pub enum LucideGlyph {
     ChevronsUp,
     #[cfg(feature = "chrome")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bh6BoIheGYPgoIg0haEoMhqHIiiAPBsGkboIHkMoLDiDx4DGCwyDELgxDeDx5j0Io6CAeI4i0IobC+M41huUIIjyCwzC4OQ1kSRg2C4MA2juSw4C4NYqCCN4TiqTpTlKNJUkaDQuDiSJogyZpKhMNQuDSYJnkaP5YmqHJsgEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGodgaCIKhOD4RiWFYMDSGYbiGHw8GwaRuggeQxgwOIQHiNgiDIMQuDEN45DKKAgHmQwijiGgvjGM4akyNJHDGK5FjsNguDANo5jsMwuDkNZCjcLg1iuSpPk6MoIjqFwuDiOJUgyPZdlORoTlMeJRDULg0lmZZoD6AQ",
         categories = "brands",
         tags = "browser,logo",
         contributors = "colebemis,ericfennis"
@@ -2340,7 +2428,7 @@ pub enum LucideGlyph {
     Church,
     #[cfg(feature = "cigarette_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5DKCgygyB4QguEx5gmCwiD4PAvgOBYcHAYR0GgIBkgoTQxDIIIqEgMh2DQaAxDSG4diKJIhiOJYnCITYSiyL40hwL43GiOYkiaKAxDiQBoC0Lg1jWRI6keO4oDeQIwlKRZVkmPZLCAOBjDALQylCZZlmcMgtlGQ5cDyRZej6K5imSZg1mid5om2NpUgE",
+        svg = "gAPBsGkbhlCAeQxD0IgyCIIB4DKCgygyB4QguEx4gmCwiD4PAvgOBYcHAYR0GgIBkgoTQxDIIIqEgMh2DQaAxDSG4diKJIhiOJYnCITYSiyL40hwL43GiOYkiaKAxDiQBoC0Lg1jWRI6keO4oDeQIwlKRZVkmPZLCAOBjDALQylCZZlmcMgtlGQ5cDyRZej6K5imSZg1mid5om2NpUgE",
         categories = "travel,transportation,medical",
         tags = "smoking,no-smoking",
         contributors = "karsa-mistmere,ericfennis"
@@ -2364,7 +2452,7 @@ pub enum LucideGlyph {
     CircleDashed,
     #[cfg(feature = "circle_dollar_sign")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDYIA4GgLQ2GEMggjIMAgDEII1jUNBoDSMYzjiNpBjoSA4CKGwviKJIhiOJYnCKKYyDEOBWDaRockkaA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0MQ2CAOBoC0NhhDIIIxDAIAxCCNI0DQaA0jCMo3jWQI5EgOIZhuIYjiCIokiYIoojEMQ4FYNpFC+RxoD6AQA",
         categories = "shapes,money,currency",
         tags = "monetization,marketing,currency,money,payment",
         contributors = "karsa-mistmere,jguddas"
@@ -2372,7 +2460,7 @@ pub enum LucideGlyph {
     CircleDollarSign,
     #[cfg(feature = "circle_dot_dashed")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDALgxCAMoODgYQ5C4OQzCCFYXCAMIcCCDwzC4OIcCIPg8C+A4FiaKYGgiCgxDcLg2CCIQ3DGFIWDWGY5h6HYPhENg5hALg3iWJ4siuBItgkTQyDGIgyh+DY3hqGJVj2H4eiEOJGiiSpJgWB5MDKDQykKMIyjgOY6hqOodj4LYRDeQ5Bl2SICkqYoviGQpOlCag0jsOaBm+HwtluJIml6Kp4mGLhNDYLqBmQLpmmqbI8oUMZxjIOackWip3iyepNhKH58mqVoWhimocoeIp2l+jZLgqNYPpENKXoKboej+RKcnWoayGMaRyGMbBlCAYx5gkMQyCKyh4s2zwgHKzZdsSxrID6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDALgxCAMoODgYQ5C4OQzCCFYXCAMIcCCDwzC4OIcCIPg8C+A4FiaKYGgiCgxDcLg2CCIQ3DGFIWDWGY5h6HYPhENg5hALg3iWJ4siuBItgkTQyDGIgyh+DY3hqGJVj2H4eiEOJGiiSpJgWB5MDKDQykKMIyjgOY6hqOodj4LYRDeQ5Bl2SICkqYoviGQpOlCag0jsOaBm+HwtluJIml6Kp4mGLhNDYLqBmQLpmmqbI8oUMZxjIOackWip3iyepNhKH58mqVoWhimocoeIp2l+jZLgqNYPpENKXoKboej+RKcnWoayGMaRyGMbBlCAYx4gkMQyCKyh5s2zwgHKzZdsSxrID6AQA",
         categories = "development,shapes",
         tags = "pending,dot,progress,issue,draft,code,coding,version control",
         contributors = ""
@@ -2380,7 +2468,7 @@ pub enum LucideGlyph {
     CircleDotDashed,
     #[cfg(feature = "circle_dot")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bh6BoIheGYQhKDYWguDYahyIoggEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGodgaCIKhODwghaDYQGOEoNg+GocgSIg+gE",
         categories = "development,shapes",
         tags = "pending,dot,progress,issue,code,coding,version control,choices,multiple choice,choose",
         contributors = "karsa-mistmere"
@@ -2388,7 +2476,7 @@ pub enum LucideGlyph {
     CircleDot,
     #[cfg(feature = "circle_ellipsis")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDcIIUGgLgwDEIobC+IokiGI4licIopDKLAyi6MIyhyNRojeJImiiK4ti+MYzkQPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQxDcIIOGgLgwDEIobC+IokiGI4licIopDKLAyi6MIyhyNRojeJImiiK4ti+MYzkQPoBA",
         categories = "shapes",
         tags = "pending,ellipsis,progress,…,...",
         contributors = "karsa-mistmere,ericfennis"
@@ -2396,7 +2484,7 @@ pub enum LucideGlyph {
     CircleEllipsis,
     #[cfg(feature = "circle_equal")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ3CAMQwGiDgiD4PAvgOBYThaBoIgqDAxDSEAwhKFIZhMYxpHIYxsGUIBygmEQgGMeIuDIIowHmM4iC+JooioPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ3CAMQwGiDgiD4PAvgOBYThaBoIgqDAxDSEAwhKFIZhMYxpHIYxsGUIBjHiCQxDIIggHKL4hiweYvjGEwviaKIqD6AQA",
         categories = "maths,shapes",
         tags = "calculate,shape,=",
         contributors = "danielbayley"
@@ -2412,7 +2500,7 @@ pub enum LucideGlyph {
     CircleOff,
     #[cfg(feature = "circle_slash_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0MgyCCKosg+GgviGIw+gE",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0MgyCCKosg+GgviGIw+gE",
         categories = "shapes,maths,development",
         tags = "diameter,zero,Ø,nothing,null,void,ban,maths,divide,division,half,split,/",
         contributors = "danielbayley"
@@ -2420,7 +2508,7 @@ pub enum LucideGlyph {
     CircleSlash2,
     #[cfg(feature = "circle_slash")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0Ig5CIIB4DGCoMgeEAiDENYNHiCYVhcPg8C+A4Fh0YxpHIYxsgYcoKDEMINGMeIqDKLR5jAIodC+I4licPoB",
+        svg = "gAPBsGkbhlCAeQxD0IgxDUIggHiCQiDmDh4DKCoMg4eYWhIIg+DwL4DgWHhjGkchjGyBhjHmFwyg4Yx4iyDhyhcMIdh+JImigPoB",
         categories = "shapes,development,maths",
         tags = "diameter,zero,Ø,nothing,null,void,cancel,ban,no,stop,forbidden,prohibited,error,incorrect,mistake,wrong,failure,divide,division,or,/",
         contributors = "danielbayley"
@@ -2428,7 +2516,7 @@ pub enum LucideGlyph {
     CircleSlash,
     #[cfg(feature = "circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgcPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgcPoBA",
         categories = "shapes",
         tags = "off,zero,record,shape",
         contributors = "colebemis"
@@ -2436,7 +2524,7 @@ pub enum LucideGlyph {
     Circle,
     #[cfg(feature = "circuit_board")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMoMGgZRpGcaB0gkMQ4gwdxpGQdBohmGwgg+CgiD4PAvgOBYoHAYYgCAZIJE0MQxCAORoDQYQyCCPAwCCP4/DILQyFaC4oC+LogigYxpHIYxsGUIBjiUOYMGOCAilaDYQieKZNk+UYti8aIxjMN49DEdgtjqPI+kAII2kMMo5l6SZkkyTpQlKVIZDWDByl2U5ZDGf5ImCew+gE",
+        svg = "gAPByGUYx0CAeA9CIMwiCAcoICIMoMHcaRkHQaIJDEOIMHmCYLCAaBlGkZxoHSGIaD4PAvgOBYoHAYYWCAZIJE0MQxCAORoDQYQyCCPAwCCP4/DILQyFaC4oC+LoWigYxpHIYxsGUIBjhwIg5gwY4PleDYJhGSJNk+UYti8aIxjMN49DEdgtjqPI+kAII2kMMo5CKSJKGiTJOlCUpUhgNZYg8MaAlyEJ2imYJ8D6AQ",
         categories = "science,development",
         tags = "computing,electricity,electronics",
         contributors = "danielbayley,jguddas"
@@ -2460,7 +2548,7 @@ pub enum LucideGlyph {
     Clapperboard,
     #[cfg(feature = "clipboard_check")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig4CIIByHiDQxhAch5hSEBoGUaRnGgdINDSEITg6EIYCIMgiD4PAvgOBYrHAYYLCAZINE0MQ2CANBoDIYQyCCPwwCCQgxkCQB2DENI+kaQpEC2PwyEgNpLkGQwgDGT5PFaU5QlaRJAk+PIqiyMYLjCMhojSDRtDmVw0kaPw0C2IorC+ZRoD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDQIggHcaRkHQaIODiERyHmDgxhoeIdhGIAihkIIcCIMgiD4PAvgOBYrHAYYWCAZIOE0MQ2CANBoDIYQyCCPwwCCQgxkCQB2DENI+kaQpEC2PwyEgNpLkGQwgDGT5PFaU5QlaRJAk+PIqiyMYWjCMhojSDhtDmVw0kaPw0C2EIrC+ZRoD6AQ",
         categories = "text",
         tags = "copied,pasted,done,todo,tick,complete,task",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -2468,7 +2556,7 @@ pub enum LucideGlyph {
     ClipboardCheck,
     #[cfg(feature = "clipboard_copy")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIOAiCAcoICIMYMGgZRpGcaB0gkNIMHIeYJhEIIdCIMoMHcaRkHQaIJgsPg8C+A4FiwcBhigIBkgkTQ4CANBIDYYQyCCPwwCCQgwC2PwyHYMQ0j6QJDk6QpHGgMQykyQZPkCRh2kYIosC+MoojGMxojWNwxDaOholSR5XDGTZIhqXZfGiYY0jYIhNDKbZKEgMYRnGYp0mOdhtDENQgDGRQ0jqi5wi2cg+gEA",
+        svg = "gAPByGUYx0CAeQ9CIMgiCAcoICIMYMHcaRkHQaIJDiDBoGUaRnGgdIJDSDB4hiDByiSEAiD4PAvgOBYrHAYYWCAZIJE0OAgDQSA2GEMggj4MAgkEMAtj4Mh2DENI9j+QpNkGRhoDEMpLkCTo/kUdpFiqLIxhaMIyGiNI2DENo5GiU5GlYMZMkeIorC+XRol+M41CITQymuSRIDGEZvnGc5hnUbQxDUIAxkQNI5oqbpcmAPoB",
         categories = "text,arrows",
         tags = "copy,paste",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -2476,7 +2564,7 @@ pub enum LucideGlyph {
     ClipboardCopy,
     #[cfg(feature = "clipboard_edit")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgxCIIBoGUaRnGgdIKDSDR5goMoNHcaRkHQaIKDiDRyhiC4NgkIoiD4PAvgOBYrHAYYfCAZIKE0MQwC4NAyCAMQyC4NgxGGPwxCCRAgDCPZKj8OQ3kYLpNEwN5QDWRpFDSRgyGyUA5C0M5UCANY6DMLZiDQNBaCKKwvjGH4wjIaI0jYMQ2CANBoDKQ5GkifJFjwMh2DENJ6jySZJDELZ/GiZQuDWaosm0aJvjONQiE2WAxl8NRWDahJ8oeRqJnij5snAPoB",
+        svg = "gAPByGUYx0CAeA9CIOAiCAch5gkMYMHKCAihEIB3GkZB0GiCYLCAaBlGkZxoHSCQ0gyDwiDIIg+DwL4DgWLRwGGGwgGSCRNDEMAuDQMggDEMguDYMRhkEMQgkYIAwj+TJBDkN5IC6TxMDeUg1kiRw0kgMhslIOQtDOVggDWPAzC2ZA0DQWosi6M4bjKNBojaOAxDYIA0GgMpFkiSp9kePgyHYMQ0nuPpLksMQtoAaJnC4NZsC+bhonCNY3CITZaDGYQ1FYNqFn2iJIoqeaQpIPoB",
         categories = "text",
         tags = "edit,paste,signature",
         contributors = "karsa-mistmere,ericfennis"
@@ -2484,7 +2572,7 @@ pub enum LucideGlyph {
     ClipboardEdit,
     #[cfg(feature = "clipboard_list")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDQIggHcaRkHQaIODiERyHiDgxhGHAihkIByHmHYRiUIgyCIPg8C+A4FiwcBhhYIBkg4TQxDYIA0GgMhhDIIJADAIJDDGQZBHYMQ0j+R5DkULZADISA2kyQpECAMZQlAVpUlGV5FkGUI9iuLYyhaMYzGiNY3DGQAxDEaIQiwL5mGiaI0jYIo4m4NpxmSdJpneap5E0OJYnALgwh6c51oKa56oaORoomi5loGAQ",
+        svg = "gAPByGUYx0CAeA9CIOAiCAch5gkMYMg8IgygwaBlGkZxoHSCQ0gwcoICKEQgHcaRkHQaIJgsPg8C+A4FiwcBhigIBkgkTQxDYIA0GgMhhDIIJADAIJDDGQZBHYMQ0j+R5DkULZADISA2kyQpECAMZQlAVpUlGV5FkGUI9CKLAvjKKIxjMaI1jcMZADEMRoh6ZZnGiaY0jYIo4m8NpymSLZ1nea55E0OJYnELgwhGdJqoKbJ6oaORoomi6Ao2AQ",
         categories = "text",
         tags = "copy,paste,tasks",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -2500,7 +2588,7 @@ pub enum LucideGlyph {
     ClipboardPaste,
     #[cfg(feature = "clipboard_signature")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgxCIIB4goOINgkIgyg0coPguDRoGUaRnGgdIKDSDR3GkZB0GiEAiD4PAvgOBYrHAYYnCAZIKE0OAgDQSA2GEMggj4MAgkEMAtj4Mh2DENI9j+QpNkGRhoDEMpLkCTo/kUdgtC4NYqiyMYnjCMhojSNgxDaORolORpWDEIAxC4Nwzm6XQvl8aJhjONQiE0MQ4C4NI+DkLg2DGPQum0MqHk2baIC4OQ3j+jg3EyZqODWbqQDGcp9Gyjg5C0M6WjmfwzC0NJ/DQWp0naeJjnqN5uDiUarmIPoBA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0Ig4CIIBoGUaRnGgdINDSEByHiDQxhoeYdhCHIOhCIAiDIIg+DwL4DgWKhwGGCwgGSDRNDgIA0EgNhhDIII9DAIJADALY9DIdgxDSPI+kGTJAkUaAxDKSo/k2PpEHYLQuDWKYrjCC4vjEaIzjUMQ2jgaJSkWVQxCAMQuDcM5tlwL5eGiYIyjQIhNDEOAuDSPQ5C4NgxjwLpsDKhpMmyhwuDkN4+o0NxMmWjQ1m2jwxnGfBso0OQtDOlY4n4MwtDSfg0Fqc51neYp5jabQ4lCqphD6AQ",
         categories = "text,account",
         tags = "paste,signature",
         contributors = "karsa-mistmere,ericfennis"
@@ -2508,7 +2596,7 @@ pub enum LucideGlyph {
     ClipboardSignature,
     #[cfg(feature = "clipboard_type")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig4CIIB4g2DwgHmDQyhAaBlGkZxoHSDQ0hAcoSCIMYihaJQiD4PAvgOBYrHAYYLCAZINE0MQ2CANBoDIYQyCCPwwCCQgxkCQB2DENI+kaQpEC2PwyEgNpLkGQwgDGT5PFaU5QlaRJAk+PIqiyMYLjCMhojSNg5lcMh2C0MRoDaSJjC+ZRomeM41CKN5FDEN5iiudponmaZ7jePwxDEdg2nWdw+gEA",
+        svg = "gAPByGUYx0CAch4D0IgxCIIB5goMoNGgZRpGcaB0goNINHcaRkHQaIKDiDYJCKIoHg+CwiD4PAvgOBYrHAYYfCAZIKE0MQ2CANBoDIYQyCCPwwCCQgxkCQB2DENI+kaQpEC2PwyEgNpLkGQwgDGT5PFaU5QlaRJAk+PIqiyMYfjCMhojSNg5lcMh2C0MRoDaSJjC+ZRomeM41CKN5FDEN5iiudponmaZ7jePwxDEdg2nWdw+gEA",
         categories = "text",
         tags = "paste,format,text",
         contributors = "karsa-mistmere,ericfennis"
@@ -2516,7 +2604,7 @@ pub enum LucideGlyph {
     ClipboardType,
     #[cfg(feature = "clipboard_x")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgxCIIBoGUaRnGgdIKDSDRyHiCoMCAdxpGQdBogoOINhkIojCCCQiDIIg+DwL4DgWLRwGGIAgGSChNDENggDQaAyGEMggkEMAgkQMZCkIdgxDSQJIkSRgtkEMhIDaTZDkUIAxlGURWlWUpYkaQpRj6LIujOIIyjQaI2gobQxDWWZajsNplC+ZxommNY3CIbQ5nEIJznWdw+gEA",
+        svg = "gAPByGUYx0CAch5D0IgxCIIB4goOINGgZRpGcaB0goNINHKD4Lg0dxpGQdBohCDYJCIMgiD4PAvgOBYrHAYYjCAZIKE0MQ2CANBoDIYQyCCPwwCCQgxkCQB2DENI+kaQpEC2PwyEgNpLkGQwgDGT5PFaU5QlaRJAk+PIqiyMYjjCMhojSChtDENZXliOQ2mML5lGiZ4zjUIhtDmbwgnGc51D6AQ",
         categories = "text",
         tags = "copy,paste,discard,remove",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -2524,7 +2612,7 @@ pub enum LucideGlyph {
     ClipboardX,
     #[cfg(feature = "clipboard")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMgiCAaBlGkZxoHSCQ0gwcoICIMYWHiCYaCCHAiDiDB3GkZB0GiCYiD4PAvgOBYrHAYYnCAZIJE0MQ2CANBoDIYQyCCPwwCCQgxkCQB2DENI+kaQpEC2PwyEgNpLkGQwgDGT5PFaU5QlaRJAk+PAiisL4xicPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMgiCAeIJDiDByg4IgxgwdxpGQdBog+EYIhSDBoGUaRnGgdIJDQIg+DwL4DgWKhwGGGggGSCRNDENggDQaAyGEMggj4MAgkEMY/j8dgxDSPZFkGQwtj4MhIDaSpAkIIAxk6ThWlKT5VkOP5OjuKYrjCGg+gE",
         categories = "text",
         tags = "copy,paste",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -2532,7 +2620,7 @@ pub enum LucideGlyph {
     Clipboard,
     #[cfg(feature = "clock_1")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDKMQ0C4NQgDgIobC+IokiaKA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDKMQ0C4NQgDgIobC+IokiaKA+gE",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2548,7 +2636,7 @@ pub enum LucideGlyph {
     Clock10,
     #[cfg(feature = "clock_11")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi4OQuDUIA4hmG4hiOJYnD6AQA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi4OQuDUIA4hmG4hiOJYnD6AQA",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2556,7 +2644,7 @@ pub enum LucideGlyph {
     Clock11,
     #[cfg(feature = "clock_12")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxg+GgviGI4licPoB",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxhqHIiiSJooD6AQ",
         categories = "time",
         tags = "time,watch,alarm,noon,midnight",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2564,7 +2652,7 @@ pub enum LucideGlyph {
     Clock12,
     #[cfg(feature = "clock_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCFIxDKMYwg0IobC+IokiaKA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi4MYwDGGIaC+IYjiWJw+gE",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2572,7 +2660,7 @@ pub enum LucideGlyph {
     Clock2,
     #[cfg(feature = "clock_3")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDKMQ2C4NYzCKGwviKJImigPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi4MQ2C4NYzhmG4hiOJYnD6AQA",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2588,7 +2676,7 @@ pub enum LucideGlyph {
     Clock4,
     #[cfg(feature = "clock_5")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDKMQ0C4NYxDYIobC+IokiaKA+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCFIxDKMQ0C4NYxDYIobC+IokiaKA+gE",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2596,7 +2684,7 @@ pub enum LucideGlyph {
     Clock5,
     #[cfg(feature = "clock_6")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDKM4xDYLg1CKGwviKJImigPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi6MgxDYLg1hmG4hiOJYnD6AQA",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2612,7 +2700,7 @@ pub enum LucideGlyph {
     Clock7,
     #[cfg(feature = "clock_8")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi4OIxDSGYbiGI4licPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDIIA4jENAihsL4iiSJooD6AQA",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2620,7 +2708,7 @@ pub enum LucideGlyph {
     Clock8,
     #[cfg(feature = "clock_9")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCFIxDIIA3C4NYzCKGwviKJImigPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDIIA3C4NYzCKGwviKJImigPoBA",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -2628,7 +2716,7 @@ pub enum LucideGlyph {
     Clock9,
     #[cfg(feature = "clock")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIA2CCDoxi4MYwDENIZhuIYjiWJw+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhkIA2CCDoxDKMYwDENAihsL4iiSJooD6AQA",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "colebemis"
@@ -2636,7 +2724,7 @@ pub enum LucideGlyph {
     Clock,
     #[cfg(feature = "cloud_cog")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEMoOGMeYSDcIg+DwL4DgWB4bHAYR0GgIBkgsTQ0C4MggDENQuDEQQ3CCMwwi2N4uC4NwxCAOBoDGOg5GGKg1CCRAgjaNo8DILpFDiK4ahyIokiGI4licIhtjmMwxk8NAtC4OZgg2GwvlMaJViSJoLG0OYri2L5imGY5RmaVpplebAxDALg2CAMp8DcLgzmAOZ1meeJrlkMQzjCLYqkyhJhoedw8meipao2fqAjqYJfDGlJUpaVqYnsLg4o+g6eC2oJloio5qlgbZPDOLZPn4MaeqGaKwnmi4qlyL6orkLg0rsPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQ3hAcoMDMIg+DwL4DgWB4bHAYR0GgIBkgwTQ0C4MggDENQuDEQQ3CCMwwi2N4uC4NwxCAOBoDGOg5GGKg1CCRAgjaNo8DILpFDiK4ahyIokiGI4licIhtjmMwxk8NAtC4OZghmGwvlMaJViSJoMG0OYri2L5imGY5RmaVpplebAxDALg2CAMp8DcLgzmAOZ1meeJrlkMQzjCLYqkyhJhoedw8meipao2fqAjqYJfDGlJUpaVqYnsLg4o+g6eC2oJloio5qlgbZPDOLZPn4MaeqGaKwnmi4qlyL6orkLg0rsPoBA",
         categories = "development",
         tags = "computing,ai,cluster,network",
         contributors = "karsa-mistmere"
@@ -2788,7 +2876,7 @@ pub enum LucideGlyph {
     Code,
     #[cfg(feature = "codepen")]
     #[strum(props(
-        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgxDIIITDKEw4C4NYUhMMQ1hkIIShuFIgh6GoXh+IQyCIPg8C+A4FgcbosGyDBlCAeAyhCEgiCAeQxhCFo8HmOYRiWPB4j+EYqiwL40G4ZYsi8eZOjaC4Ng8IoWCCGIaiGHYficNYri2UpUlGBJTjWChvgyDpAiSKJhiKX5ikyZY1jOao4jqKo3kmO49kmfZDhCXJjk2eIBA",
+        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgxDIIITDKEw4C4NYUhMMQ1hkIIShuFIgh6GoXh+IQyCIPg8C+A4FgcbosGyDBlCAeQyhCHYZCKNwxhCFo9HiP4RioIB4jmRYri2NBuGWLIvHmTY2guDYPCKFgghiGohjuJpajyLIugSUo1lCZJTgob4Mg6QIkiiJ4mhyJZLmOBZTjONZHkSEo9jiEJbkKSZ9j6QJ1niAQA",
         categories = "brands,development",
         tags = "logo",
         contributors = "colebemis,ericfennis"
@@ -2796,7 +2884,7 @@ pub enum LucideGlyph {
     Codepen,
     #[cfg(feature = "codesandbox")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDYVg4GEMgghQMAghcMAtDGGwuDcMxsC0NwtDSE4VhiKIahaIQ3CANBBhSFopCAMwgDgdoSjGM4Xg0MYeiCLYljqGYoiuI4vkOM4Mg4Nh6CIPg8C+A4FlAcBvGweRsGkbhlCCVpbHQc4JDcLg1i4LpLDGFA2C4OI9myZg0mgMZPlGVpYlqXJVleWZbl2XxumGY5lg4OYeDkIJkmYMZyDaNIODKdZSnyeRlnueJ+l4b5gmIIpphSD6EowLqOqGi6GDcOaSnefZ6gKlKZoCggiDOaItmwOalqAMguDCDQyDCPwgrgNqrrCrqVCAeAygmagiCAebMCKzrKDGzaRtC1qerwMA4pKlQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDYVg4GEMgghQMAghcMAtDGGwuDcMxsC0NwtDSE4VhiKIahaIQ3CANBBhSFopCAMwgDgdoSjGM4Xg0MYeiCLYljqGYoiuI4vkOM4Mg4Nh6CIPg8C+A4FlAcBvGweRsGkbhlCCVpbHQc4JDcLg1i4LpLDGFA2C4OI9myZg0mgMZPlGVpYlqXJVleWZbl2XxumGY5lg4OYeDkIJkmYMZyDaNIODKdZSnyeRlnueJ+l4b5gmIIpphSD6EowLqOqGi6GDcOaSnefZ6gKlKZoCggiDOaItmwOalqAMguDCDQyDCPwgrgNqrrCrqVCAeAxgmagisoMrNpEIB5tEIrOtSzKerwMA4pKlQ+gEA",
         categories = "brands,development",
         tags = "logo",
         contributors = "colebemis,csandman,ericfennis"
@@ -2804,7 +2892,7 @@ pub enum LucideGlyph {
     Codesandbox,
     #[cfg(feature = "coffee")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDcIA4GgMRhDQIITDAIAxhcIIWg8LQxCIPg8C+A4FiCI4GgiCgzg6EA0HYOYShSGoyDELYTDQSA3jCFYzjWNRah+IYmiAbBpG4ZQgHgMoJDYIggHkMYJDKTR4lAIpMk6SgiDSQAvkSRpDkWR5PlGU5ZDEMJNHmWZbkiVZnlyXhlmCRpImabJqgmd5VlKbYJDGW4gl2YQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDcIA4GgMRhDQIITDAIAxhcIIWg8LQxCIPg8C+A4FiCI4GgiCgzg6EA0HYOYShSGoyDELYTDQSA3jCFYzjWNRah+IYmiAbBpG4ZQgHgMoJDYIggHmSgiDSTR4DGS5NHmVQiDKQAvkSRpDkWR5JgkMQwlOWZlleWZbk6UJSiCXZhmCRpIlAMZSk6a5Xm6Z5km+IZeGUPoB",
         categories = "food-beverage",
         tags = "drink,cup,mug,tea,cafe,hot,beverage",
         contributors = "colebemis,csandman,mittalyashu,ericfennis,karsa-mistmere"
@@ -2820,7 +2908,7 @@ pub enum LucideGlyph {
     Cog,
     #[cfg(feature = "coins")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIOAigkeYMg4IBygwNgiD4PAvgOBYHhkcBhHQaAgGSDBNDEOAuDAOQgDEMAuDMNxBDYII0DCLY4i6MA0i2DoZC+IIih+IYjiUIhNDeNRoDEdg0hiGpBGiQ4iiSDBtDENguDcMYtDMLg4ikN5aDELQyl8MggmYOAyk+QJED6AQA",
+        svg = "gAPBjGkchjGwZQgHIPQiDYIggGMeILDiDhjHmEgiD4PAvgOBYHhkcBhHQaAgGSCxNDEOAuDAOQgDEMAuDMNxBDYII0DCLY4i6MA0i2E4ZC+IIih+IYjiUIhNDeNRoDEdg0hiGpBGiQ4iiSCxtDENguDcMYtDMLg4ikN5aDELQyl8MggmYOAyk+QJED6AQA",
         categories = "money,gaming",
         tags = "money,cash,finance,gamble",
         contributors = "lscheibel,ericfennis,karsa-mistmere"
@@ -2828,7 +2916,7 @@ pub enum LucideGlyph {
     Coins,
     #[cfg(feature = "columns")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAcoICIMoMGgZRpGcaB0gkMQ4gweIJguDYdhCDB3GkZB0GiGYbD4PAvgOBYrGwaRuGWBwygkMgxhyNgiDGEYHDGHockCPIRisL4xjMPoBA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHiDQzhEeYdhEcocCIMoiiCJQiD4PAvgOBYrGwaRuGUIB5DGIQgHgMoZiaOY3g6PR5juJQxiqLIxjMPoBA",
         categories = "layout,design,text",
         tags = "split,parallel,vertical,horizontal",
         contributors = "zenoamaro,ericfennis,csandman,mittalyashu"
@@ -2836,7 +2924,7 @@ pub enum LucideGlyph {
     Columns,
     #[cfg(feature = "combine")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDiDYJguDR5gqDAgHcaRkHQaIVCIPg8C+A4FiYcBhiIIBkgoTQxDQIAyGMMQuDEIAwjUIAuDmPQyHYNBjjyOAxC2P41C0Mo1iWJ4siKK4tGiL4xDKPI2keO49kqTZCkSRo5kmQAykyTomC+URolOLowCKMpGDgSA1GMLY4DeOwtDOdwunyfx2neT5qlSKxvGweRsGkbhlCAcBvosdBzgqeQyjoMZyCCeQxDWg6PoiiqMiaKYGhsIozg2CIcg2H4hiMIoWCCGKog6EIShSsKDqQPoBA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCg4g2CYLg0aBlGkZxoHSFINHmCoMD4PAvgOBYlHAYYSCAZIKE0MQ0CAMhjDELgxCAMI0CALg5jwMh2DQY47jcMQtj6NAtDKNAiiUL4rhKKosGiLowDKO41kaOo8kmTJBkORY4kiPwykuTZPlEaJTi2LwijGRQ4EgNRjC2Nw3joLQznYLp7n4dp2k6JpqiobxsHkbBpG4ZQgHAb6KHQc4KngMo5DGcQgngMQ1oKUKGoiihliWKIGiIIoyg2CIjhmG4dh8IoVCCF6og6EISiCT6kD6AQ",
         categories = "shapes,development,files",
         tags = "cubes,packages,parts,units,collection,cluster,combine,gather,merge",
         contributors = "danielbayley,ericfennis"
@@ -2852,7 +2940,7 @@ pub enum LucideGlyph {
     Command,
     #[cfg(feature = "compass")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkZxvG4IIiGkbh0HOEw2C4Mg0CANwuDcNggDENAug6OY7j2NY3jmMIyCAOQuDgOJGkiSgxkSM5BDYIobC+IokiYbg+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GcbxuCCIRpG4dBzhMNguDINAgDcLg3DYIAxDQLoOjiOo8jSNo4i+MQgDkLg4DiRZHkkMZDjKQA2hmG4hiOJRuD6AQA",
         categories = "navigation,maps,travel",
         tags = "direction,north,east,south,west,safari,browser",
         contributors = "colebemis"
@@ -2868,7 +2956,7 @@ pub enum LucideGlyph {
     Component,
     #[cfg(feature = "computer")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMgiCAeIJDWDB3GkZB0GiCQxDSDBoGUaRnGgdIJDiDByg6CgiD4PAvgOBYoiuBoShSFoKDCI4lguB4XhmDYJjeG4dh+IYnimLooHAYYVCAZIJE0NggDEOBoguKAvkaFZFkcaJJksMQyk6UA2kKVJYD6AQA",
+        svg = "gAPByGUYx0CAeA9CINQiCAdxpGQdBogkMQ0gweYJDKDByggIoZCAaBlGkZxoHSCQ4CIPg8C+A4FimLIGhuGIMiCIokiaFoThWB4yg2D4RhgMIoiqL4pHAYYRCAZIJE0NggDEOBohmKQvkaEZFkcaJJksMQyk6UA2kKVJYD6AQA",
         categories = "devices,development,gaming",
         tags = "pc,chassis,codespaces,github",
         contributors = ""
@@ -2884,7 +2972,7 @@ pub enum LucideGlyph {
     ConciergeBell,
     #[cfg(feature = "cone")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQyDALg5CAMQ4C4NQ1C0OAtDENYODgYQxhAIAwiCIIYC4OIgGyFoQhoOQ4CIPg8C+A4Fi8ZRsGwaRwHMZQgGMeIJDEMgiCAch5gkM5CGORQiDEOZCHKPgik2LwvjWN45GUPoBA",
+        svg = "gAPBwGEdBoCAZA9CIbQyDALg5CAMQ4C4NQ1C0OAtDENYODgYQxhAIAwiCIIYC4OIgGyFoQhoOQ4CIPg8C+A4Fi8ZRsGwaRwHMZQgHIeYJDMIggGMeIJDEMpBGOPgiDEOZBHKRAik2LwvjWN45GUPoBA",
         categories = "shapes,maths",
         tags = "conical,triangle,triangular,geometry,filter,funnel,hopper,spotlight,searchlight",
         contributors = ""
@@ -2892,7 +2980,7 @@ pub enum LucideGlyph {
     Cone,
     #[cfg(feature = "construction")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHiDQyhEaBlGkZxoHSDQ4hEcoTCIMYRHmDQ2CIPg8C+A4FikcBhgsIBkg0TQxDcIAxDQdg3iiKovguLowGiMo0jeOY7j0L4/GiQYxjMIo1jcMx2DOSZLk2Q5PE2UpUlaQpYkSUAxDCOA0CAMguDMIA2mmXpADyS5hG2OZrCANwujed48imSpfnCQpyDidaCh6fJXgE",
+        svg = "gAPByGUYx0CAeA9CIMgiCAeYJDaDBoGUaRnGgdIJDiDB3GkZB0GiCQyDCDByggIgxCIPg8C+A4FikcBhh4IBkgkTQxDcIAxDQdg3iiKovh6LowGiMo0jeOY7j0L4/GiQYxjMIo1jcMx2DOSZLk2Q5PE2UpUlaQpYkSUAxDCOA0CAMguDMIA2mmXpADyS5hG2OZrCANwujed48imSpfnCQpyDidaChmfJXgE",
         categories = "development",
         tags = "roadwork,maintenance,blockade,barricade",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -2900,17 +2988,17 @@ pub enum LucideGlyph {
     Construction,
     #[cfg(feature = "contact_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIAxDgYQ0CCEgwCCFQwC0OIWCIPg8C+A4Fh0YxpHIYxsGUIBjHmCQxDEIggHKCQzi8Yx4iwMoch6I4lieHRyGUYx0CAaBlGkZxoHSLA4i+NgijMIIrCINIvHKTY4CAdxpGSBZKjkL4/kGHRsGkbooHgMYJkuUJoCKVx5DKCZTCAeJwCKS4dC+Y5lmKZJmnWDJMmygJrgmbp1lOeJ6GUPoBA",
-        categories = "account",
-        tags = "person,user",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIAxDgYQ0CCEgwCCFQwC0OIWCIPg8C+A4Fh0YxpHIYxsGUIBjHmCQxDEIggHKCQzi8Yx4iwMoch6I4lieHRyGUYx0CAdxpGSBYsDiL4rCINIvHKNgijgIBoGUaRnGgdJIi+UIzh0L4/kGHRsGkbooHkMoJk0IB4mgIpJmsMYJm8eZxlGOQvmOZZimSKJsiwNpbnWDJKnWUpnmmd55GUPoBA",
+        categories = "account,connectivity,communication,social",
+        tags = "user,person,family,friend,acquaintance,listing,networking",
         contributors = "karsa-mistmere"
     ))]
     Contact2,
     #[cfg(feature = "contact")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDcIAxDgYQyCCEgwCCFQwC0MoZEgOYRhOFoghiEgyCIPg8C+A4FiYchlGMdAgHmCQ0CIIBoGUaRnGgdIJg+NByHiCYkCCQAiDONB3GkZIFjwOIlieLIuiYYxpHIYxsGUIBykGNBjkQMZCGOMQiDEMJOC+U5VleJhsGkbpYHkMZbjAMoyjQeJxCKTZDnSeZmmybprm2WB4nwMQ2naeKGjScJyHmfIziYL5/GUPoBA",
-        categories = "account",
-        tags = "person,user",
+        svg = "gAPBwGEdBoCAZA9CITQxDcIAxDgYQyCCEgwCCFQwC0MoZEgOYRhOFoghiEgyCIPg8C+A4FiYchlGMdAgHmCQ0CIIByHiCYkCAdxpGSBYJg+NBoGUaRnGgdI/DiNI3CIM4lieLIuiYYxpHIYxsGWNY4jQY4xCIMQwluSwxiSJgvlOVZXiYbBpG6WB5DKMpKnAIpJCAeAxgmdR5ngIpkiea5tmqbJYHicwxDaNJ7lqdp8oeiZzjOZaAGUPoBA",
+        categories = "account,connectivity,communication,social",
+        tags = "user,person,family,friend,acquaintance,listing,networking",
         contributors = "lscheibel,karsa-mistmere,FPDK,ericfennis"
     ))]
     Contact,
@@ -2924,7 +3012,7 @@ pub enum LucideGlyph {
     Container,
     #[cfg(feature = "contrast")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTYOCAMQ4GENggi8MAgjKNAtg4doOHoIobC+IokD6AQA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTYUCAMQ4GENggi8MAgjKNAthQdoUHoIobC+IokD6AQA",
         categories = "photography,accessibility,design",
         tags = "display,accessibility",
         contributors = "lscheibel,csandman,ericfennis"
@@ -2940,7 +3028,7 @@ pub enum LucideGlyph {
     Cookie,
     #[cfg(feature = "copy_check")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDIIAxDUIINg0NAtDQIg+DwL4DgWGByGUYx0CAeYJDgIggHIeIJDKJh3GkZIFgkMYWieIwiisIBoGUaRnGgdIxjOKQiiWGAvh6IIYhuBoICITQ0g4NhjC0MQuDEIAwC0MgtC4OZYlgVg0GOV5TlOXISlgaAxDAY5jlaEQgluborkSSQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CIbQxDIIAxDUIINg0NAtDQIg+DwL4DgWGByGUYx0CAeIJDgIggHcaRkgWCQxhYIByiMIgyiYaBlGkZxoHSLIuHmJImHKPYyheGYeiCGIbgaCAiE0NIODYYwtDELgxCAMAtDILQuDmV5XFYNBjlaUpSluEpXGgMQwGOYpVhEIJam2M4YhqBBoD6AQ",
         categories = "text,notifications",
         tags = "clone,duplicate,done,multiple",
         contributors = "danielbayley,jguddas"
@@ -2948,7 +3036,7 @@ pub enum LucideGlyph {
     CopyCheck,
     #[cfg(feature = "copy_minus")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgxDgIggHkMYKDENYOHmCYLhSB4RgsMgiD4PAvgOBYfHIZRjHSB4Kg0IByHiCodiweYvg4dxpGQdBohINIOGgZRpGcaB0jqFYqh6IIlieHxwGGOAgGSChNDQIAxDYYwtDELgxCAMAtDILQuDmXZdFYNBjlyWJYmEMggl4MhoDEMBjmiW5sCCYJ1h2HwvkuOA+gE",
+        svg = "gAPBsGkbhlCAeAxD0IgxDIIoHDKCgxDiDh5gmCw1hSEIXCIPg8C+A4Fh0chlGMdAgHcaRkHQaIRDSDh4gqEwgHmMYOHKMAig0IBoGUaRnGgdItjaNI5hyHojiWHRwGGKwgGSChNDQIAxDYYwtDELgxCAMAtDILQuDmXZdFYNBjlyWJYmEMggl4MhoDEMBjmiW5sCCYJ1g2HQvkuKw+gE",
         categories = "text,maths",
         tags = "clone,duplicate,remove,delete,collapse,subtract,multiple,-",
         contributors = "danielbayley,jguddas"
@@ -2956,7 +3044,7 @@ pub enum LucideGlyph {
     CopyMinus,
     #[cfg(feature = "copy_plus")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0IgxDIIggHgMoKDENYOHmEYLDiDh4gmC4UD4PAvgOBYfiKBobhKDYHheE4aiuGYHhyLIfiGBBlh8chlGMdIPgqLxoGUaRnGgdISDSDhyHmCopHIeJKhWPYOHcaRkHQaJFCKM44jqHxwGGVQgGSChNDQIAxDYYwtDELgxCAMAtDILQuDmb5vFYNBjm6apqnMMggnAMhoDEMBjnqbZ+CCcqHg2M5dlUPoB",
+        svg = "gAPBsGkbhlCAeAxD0IgxDUIoHDKCoMg4eYJgsMoThCCw4CIPg8C+A4Fh2IIGgiEYXg+EYbCAeYZhKK4VhKHYfgQZYdHIZRjHSK4KioaBlGkZxoHSEQ0g4eI8g4ch5gqJxykcIonHcaRkHQaJEhyHo3jmHRwGGVQgGSChNDQIAxDYYwtDELgxCAMAtDILQuDmb5vFYNBjm6apqnMMggnAMhoDEMBjnqbZ+CCcqHheMpdlUPoB",
         categories = "text,maths",
         tags = "clone,duplicate,add,multiple,expand,+",
         contributors = "danielbayley,jguddas"
@@ -2964,7 +3052,7 @@ pub enum LucideGlyph {
     CopyPlus,
     #[cfg(feature = "copy_slash")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgxDIIoHDKCgxDiDh5hCC4NCAeYJguEw+DwL4DgWHhyGUYx0hmCoTgeKYOHIeIKhgch5jCDhoGUaRnGgdIRDSDh3GkZB0GiPAih4L4kiaHhwGGQggGSChNDQIAxDYYwtDELgxCAMAtDILQuDmXZdFYNBjlyWJYmEMggl4MhoDEMBjmiW5sCCYJ1g2RpLkIPoBA",
+        svg = "gAPBsGkbhlCAeQxD0IgxDgIoHDKCgxDKDh4hCC4NCAeIJguEw+DwL4DgWHhyGUYx0CAch4gqEwgHcaRkHQaIRDSFIKhgaBlGkZxoHSM4OHmNoOHKQAih2H4kiaHhwGGMQgGSChNDQIAxDYYwtDELgxCAMAtDILQuDmXZdFYNBjlyWJYmEMggl4MhoDEMBjmiW5sCCYJ1kYL5LjEPoBA",
         categories = "text,development,maths",
         tags = "clone,duplicate,cancel,ban,no,stop,forbidden,prohibited,error,multiple,divide,division,split,or,/",
         contributors = "danielbayley,jguddas"
@@ -2972,7 +3060,7 @@ pub enum LucideGlyph {
     CopySlash,
     #[cfg(feature = "copy_x")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgxDIIoHDKCgxDiDh5hCC4TCAeYJguDQ+DwL4DgWHohgaFYRg2D4RhiGoqg6CInCKHoggQZYeHIZRjHSGYKhgch5gqKB3GkZB0GiEQ0g4ch4kCDhoGUaRnGgdJHi6PIxh+N45h4cBhkUIBkgoTQ0CAMQ2GMLQxC4MQgDALQyC0Lg5m6bhWDQY5tmmaZyDIIJvDIaAxDAY55myfQgnGhodh+XJFD6AQ",
+        svg = "gAPBsGkbhlCAeAxD0IgxDIIoHDKCgxDiDh5gmC4NCAeYQguEw+DwL4DgWHohgaGoRhgeIbhKFIWiuB4tg2HoggQZYeHIZRjHQIBoGUaRnGgdIRDSDhyHiCoYHcaRkHQaJCkQeZHhSCoTgeUwijKN45h4cBhkwIBkgoTQ0CAMQ2GMLQxC4MQgDALQyC0Lg5m6bhWDQY5tmmaZyDIIJvDIaAxDAY55myfQgnGhoxh+XJMD6AQ",
         categories = "notifications,maths",
         tags = "cancel,close,delete,remove,clear,multiple,multiply,multiplication,times",
         contributors = "danielbayley,jguddas"
@@ -2980,7 +3068,7 @@ pub enum LucideGlyph {
     CopyX,
     #[cfg(feature = "copy")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIOAiCAeYJgsIByggIgygwcoOhSDB3GkZB0GiCQxDSDBoGUaRnGgdIgiIPg8C+A4FiwcBhh4IBkgkTQ0CAMQ2GMLQxC4MQgDALQyC0Lg5kSRBWDQY5Dj+P5IDIIJFDIaAxDAY5PkKUwgkeXIViwL4yh4PoBA",
+        svg = "gAPByGUYx0CAeA9CIOAiCAcoICIMoMHmCYLCAaBlGkZxoHSCQxDSDByhOEIMHcaRkHQaIdh8Pg8C+A4FiwcBhigIBkgkTQ0CAMQ2GMLQxC4MQgDALQyC0Lg5kSRBWDQY5Dj+P5IDIIJFDIaAxDAY5PkKUwgkeXIRiwL4yigPoBA",
         categories = "text",
         tags = "clone,duplicate,multiple",
         contributors = "colebemis,csandman,ericfennis,danielbayley,jguddas"
@@ -2988,7 +3076,7 @@ pub enum LucideGlyph {
     Copy,
     #[cfg(feature = "copyleft")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQ5CAOQuDQYQ0CCMAwCAMY0CCMw1C4Mg1CKGwviKJA+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQ5C4MQ3CAMQ0C4OAzGENAgjUMIuCCOAwC0NQuDYNgihsL4iiQPoB",
         categories = "",
         tags = "licence",
         contributors = "ericfennis,johnletey,csandman"
@@ -2996,7 +3084,7 @@ pub enum LucideGlyph {
     Copyleft,
     #[cfg(feature = "copyright")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDUIA5C4NBhDQIIxDAIAxCCNI0DULgyDQNgihsL4iiQPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQxDQLg4DMIIqiwMxhDQII0DCL44DALQ1C4Ng2CKGwviKJA+gEA",
         categories = "",
         tags = "licence,license",
         contributors = "ericfennis,johnletey,csandman"
@@ -3068,7 +3156,7 @@ pub enum LucideGlyph {
     CornerUpRight,
     #[cfg(feature = "cpu")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENgiCAeYODSEh3GkZB0GiDoQhIch4g4MoSiEIoWD4PAvgOBYoiuBoYhqHAihGB4JguDYziSDg5hKFAijyKIqgQdIoHAYYbCAZIOE0MQ1CAMh2iOQZGhuRZHGiSZLk2TwwlEIpTleVpIkoIhNDIIJNGiUoplQaJiliZJmCAOZql+bJhDybZZmUMgwmgNZ1mCVZ5lee5mn6dJrC+bZvoYOZPl6gpuoSY5Lo+faRneVYB",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDYIggGgZRpGcaB0g2D4RHIeINDKEYdCINIRHmDYjD4PAvgOBYoiuBolCIOYRhOFYXg2EIHgmC43iCDYyiiKoEHSKBwGGCwgGSDRNDENQgDIdofkCRYLkSRhokiSpMk4MJQCKUpWlWR5JCITQyCCTBolGKZTGiYZXmOZQgDmaZemuYA8myWJkDIMJnDWdJflSeJWnqZZ9nOagvmybqFDmTpdoGbaDmKSqOnykJ2lSAQ",
         categories = "devices",
         tags = "processor,cores,technology,computer,chip,circuit,memory,ram,specs,gigahertz,ghz",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -3084,7 +3172,7 @@ pub enum LucideGlyph {
     CreativeCommons,
     #[cfg(feature = "credit_card")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMgiCAcoIgqDB3GkZB0GiCQyDCDB5gkNYMGgZRpGcaB0gkMQ0CIPg8C+A4FikbBpG4ZYHDKF4LCAeY0CIMYZgcMYXhqPo6hmKQvi+MQ+gEA",
+        svg = "gAPByGUYx0CAeA9CIMgiCAdxpGQdBogkMgwgweYJDWDBoGUaRnGgdIJDENIMHKCIKCIPg8C+A4FikbBpG4ZYHDGE4MHgMoTgsIB5jQIgxhWO44j6FYpC+L4xD6AQ",
         categories = "account,money",
         tags = "bank,purchase,payment,cc",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -3116,7 +3204,7 @@ pub enum LucideGlyph {
     Cross,
     #[cfg(feature = "crosshair")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhsGkboIHgMoTDiEB5iaDYPCAeAxgwMotHmMIshmG4hiOIIigiNITjOK4Ui6NQ2hCJYxjcL45GWO4jCCPgikWT4ri2R42kOP5JkuTYkkGM41jKRo1kKKonlqPA+gEA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhsGkboIHgMoTDiEB5iaDYPCAeQxhOLR4jAIgyg+GgviGI4giKJIri2KoxhCM4MDaKY0hSOI6GWPIji6P5DkiQI0kYIIlkKSo9k2PpCi6NI2lGXZBg2KJZjuAQ",
         categories = "photography",
         tags = "aim,target",
         contributors = "colebemis,ericfennis"
@@ -3148,7 +3236,7 @@ pub enum LucideGlyph {
     CupSoda,
     #[cfg(feature = "currency")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKDA4CIPg8C+A4FgeGhsGkboIHkMYMDOEB4iYIooCAeAygwNoQHmMAijKGgviGI4giKJIri2L4ThiLorDIMYzjWN4bjoZY8iORInjORZHi6SZIkKGZLj2To+gyRoplOKY1DGQ40liOJMD6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDgIggGMeILDEMoOGMeYShQPg8C+A4FgeGhsGkboIHgMYLDODh4DKCw2g4eYmCKKAgHmKwii2GgviGI4giKJIwDIMYpjUMYNjONYtjOMIojiOhljyI5JguQIukORYlieQosCKTI9k+CI0hKVpVi6P5BCCVwilOXI7gEA",
         categories = "currency,money",
         tags = "finance,money",
         contributors = "connium,ericfennis"
@@ -3156,7 +3244,7 @@ pub enum LucideGlyph {
     Currency,
     #[cfg(feature = "cylinder")]
     #[strum(props(
-        svg = "gAPBlGwbBpHAcxlCAch4D0Ig5CKCh5g0M4QGODAiDEMoVhIIg1CIPg8C+A4FgcZYgHAYR0GgIBkg0TQzCANR2DENBhDkIIwDAII6joMQ4jsVoeiAL4oioPoB",
+        svg = "gAPBlGwbBpHAcxlCAch5D0IgzCKCh4g0OYQGOEgiDEMoVgwIg1CIPg8C+A4FgcZYgHAYR0GgIBkg0TQzCANR2DENBhDkIIwDAII6joMQ4jsVoeiAL4oioPoB",
         categories = "shapes,design,maths",
         tags = "shape,elliptical,geometry,container,storage,tin,pot",
         contributors = ""
@@ -3164,7 +3252,7 @@ pub enum LucideGlyph {
     Cylinder,
     #[cfg(feature = "database_backup")]
     #[strum(props(
-        svg = "gAPBlGwbBpHAcxlCAch4D0Ig5CIIBjgwIgxDKEBjHmDQ1hAcoZCIMwiD4PAvgOBYHGWIhwGEdBoCAZINE0MwghUYQ5CCMgwCCOY5DUIAyC4NoPiIL4qiyKYri2LwiE0MgxCAOQuDMVobkORRokeLIujCMg1HYMQ0jWN46mOOQ2C4NA3j4Lg4DiIYjlaWJJjCFYzDIdg0GgNJukSSJxlqSwxjIMgwGGPY9juYw5C2Mg0C6PaNoeZAtpCk6OGMLQxlGOAtj8NaQDSi5nk6mQ0DETJ0DENp7nCAQA",
+        svg = "gAPBlGwbBpHAcxlCAch4D0Ig5CKCh5g0M4QGODAiDEMoVhIIg1CIPg8C+A4FgcZYgHAYR0GgIBkg0TQzCCGRhDkIIwDAII3jcNQgDILg2g+IAviiKonimK4tCITQyDEIA5C4MxWh6QZDGiRYqiyLowDUdgxDSM41jiYY3DYLg0DePAuDgOIfiGVJWkeLoZjEMh2DQaA0myQpGm+WJJDGMAyDAYY7juOZhDkLYwDQLo7ouhZiC2jqRowYwtDGT42C2PQ1o4NKJmWTKXDQMRMnIMQ2nmboBA",
         categories = "devices,arrows,design,development,photography",
         tags = "storage,memory,bytes,servers,backup,timemachine,rotate,arrow,left",
         contributors = "ericfennis,jguddas,danielbayley,karsa-mistmere"
@@ -3172,7 +3260,7 @@ pub enum LucideGlyph {
     DatabaseBackup,
     #[cfg(feature = "database_zap")]
     #[strum(props(
-        svg = "gAPBlGwbBpHAcxlCAYx5D0Ig1CIIByHiDQ5hAcoMCIM4QGOEwiDEMgiD4PAvgOBYHGWIhwGEdBoCAZINE0MwgDUVgxDkQQ5CCMgwCCPI8DENQgDIMQuDgNIhiOKosimK4ti8IhNkOMxWDiSAvkoaJMiyLowlKHxMDEOAgDENxIDIMpgjmZ5WliWpOjCMofjiOo9nWPw0C4NY5DGeA4DebJND6AQ",
+        svg = "gAPBlGwbBpHAcxlCAYx4D0IgxDIIoKHmDQ1hEcoMCIOYWhMIgzCIPg8C+A4FgcZYgHAYR0GgIBkg0TQzCANRWDEORBDkIIwDAII6joMQ1CAMgxC4OA0h+IYoiqJ4piuLQiE2QYxFYOJGC+SBokqKosi6UIPEwMQ4CAMQ3EgMgyl6N5llSVpYkyLowg+No4juc49DQLg1jcMZ2DgN5qksPoBA",
         categories = "devices,development",
         tags = "cache busting,storage,memory,bytes,servers,power,crash",
         contributors = "danielbayley"
@@ -3180,7 +3268,7 @@ pub enum LucideGlyph {
     DatabaseZap,
     #[cfg(feature = "database")]
     #[strum(props(
-        svg = "gAPBlGwbBpHAcxlCAch4D0Ig5CIIBjgwIgxDKEByHmDQzhAY4ZCINQiD4PAvgOBYHGWIhwGEdBoCAZINE0MwgDUVgxDkQQ5CCMgwCCPI8DIMQgjYVogiIL4qiyKYri2LwijGQgyjiOo9lSP5BhWIYjkgaA+gEA",
+        svg = "gAPBlGwbBpHAcxlCAYx4D0IgxDIIggHKDAiDmERjHmDQ1hEcoZCIMwiD4PAvgOBYHGWIhwGEdBoCAZINE0MwgDUVgxDkQQ5CCMgwCCPI8DIMQgjYVobiIL4qiyKYri2LwijGQgyjiOo9lSP5Bg+IYjkgaA+gEA",
         categories = "devices,development",
         tags = "storage,memory,container,tin,pot,bytes,servers",
         contributors = "colebemis,jguddas"
@@ -3188,7 +3276,7 @@ pub enum LucideGlyph {
     Database,
     #[cfg(feature = "delete")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDAIA1EgORsC0NwghSFhoDEMRhDIIIcg2H4dC0MhWDeG4dCCIAwiKIhaCIPg8C+A4Fi8bBpG4ZQgHgMYJDEOAiCAeY7CIOY/HgMo8DKPx5kcIgxDWLowjWN40jaOJLjyT45kIMZJjmTI9kqQpEi8L5SGUPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIA1EgORsC0NwghSFhoDEMRhDIIIcg2H4dC0MhWDeG4dCCIAwiKIhaCIPg8C+A4Fi8bBpG4ZQgHkMoJDENQiCAeI7CIMQyj8eQxgkOY/HiSJDDiLowjWN40jaOJBjyT45kKPZGk2SpAk2RJQC+UhlD6AQ",
         categories = "text,arrows",
         tags = "backspace,remove",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -3196,7 +3284,7 @@ pub enum LucideGlyph {
     Delete,
     #[cfg(feature = "dessert")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygyD4JHmDA0CIPg8C+A4FgeGhwGEdBoCAZIME0MQwC4MggDOKxDDULg1CANAgiwOAuDGNggDEMxhiyLAwCCQpCjUMB2C0MY/juRI8jSQx2DSS5BkOVZGkiUpAlWQo6leSpak2RZDGMMAtDQLg5C2Lg1C2aY4DKbQuDiGYbiGI4giKJImCITYuiwMZnDgYQ5CChJhjwNwuDaQ50C+dhoD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CINAigkeIMDEMoPHKDIUD4PAvgOBYHhkcBhHQaAgGSDBNDEMAuDIIAzioQw1C4NQgDQIIrDgLgxjUIAxDMYYrisMAgkGQY0DAdgtDGPo6kOO4zkIdg0kqQJClSRZHlGP5UkGOZWkmWZMkSQhjDALQ0C4OQti0NQtmiNwymwLg4CKGQviCIofiGI4lCITYtisMZmDgYQ5CChJgjsNwuDaQpzhqdhoD6AQ",
         categories = "food-beverage",
         tags = "pudding,christmas,xmas,custard,iced bun,icing,fondant,cake,ice cream,gelato,sundae,scoop,dollop,sugar,food,sweet",
         contributors = ""
@@ -3204,7 +3292,7 @@ pub enum LucideGlyph {
     Dessert,
     #[cfg(feature = "diameter")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ5CKCR4gyDoQHKDAyCIPg8C+A4FgeGodgaCBjhIIg1hCCoMicIIWCKGIahyBIihocBhHQaAgGSDBNDYLg0DgIAzC4Ng2GEMQwCCRwgkiSAxkmQg4DaTwulGGYbjWN40jaOI6CIbY9DSTpgk4MQxC4MZAmWZw4lYL5YGiWo3jmO5CkQIJgDiRpNkyS59DGUJSn+VA2m2bw+gE",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ5CIIBygwMoQGMeIMg4Ig+DwL4DgWB4bh6BoIgqDA1hWFwiieEYThqHIiiAPBwGEdBoCAZIME0NguDQOAgDMLg2DYYQxDAIJFCCRpGDGR5ADgNpNC6T4uC+M41huVo2jgIhtjsNJMl6TAxDELgxj6Y5lDiVJZliNJajmQJCCCXg4kSS5KkmeQxk6UJ7lINprm4PoB",
         categories = "shapes,maths,design,tools",
         tags = "shape,circle,geometry,trigonometry,width,height,size,calculate,measure",
         contributors = ""
@@ -3220,7 +3308,7 @@ pub enum LucideGlyph {
     Diamond,
     #[cfg(feature = "dice_1")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeIODOEh3GkZB0GiDoQhIeYVhIcoUCIMoiiCJQiD4PAvgOBYrHAYYbCAZIOE0MQyCCOBoC4MAxiqLIxhsPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAaBlGkZxoHSCQxDiDByHiCQyheCAihsIB3GkZB0GiFIWCCGYKCIPg8C+A4FiwcBhiQIBkgkTQxDIII5GgLgwDGK4tjKJA+gEA",
         categories = "gaming",
         tags = "dice,random,tabletop,1,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -3228,7 +3316,7 @@ pub enum LucideGlyph {
     Dice1,
     #[cfg(feature = "dice_2")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCKBx5gqDAgg8Igzg0dxpGQdBogoMQ4g0aBlGkZxoHSHIeCCCYUCIPg8C+A4FiwcBhhoIBkgoTQxDUIA5GgLgwDGK4tjKGoxjMaI1jcOQgjmPY/kEL5DGgPoB",
+        svg = "gAPByGUYx0CAch4D0IgyCKBx5gqDAggkIgzg2D4Ug0aBlGkZxoHSCgxDiDR3GkZB0GiIIiD4PAvgOBYrHAYYnCAZIKE0MQ1CAORoC4MAxCKKwvjGJ4wjIaI0jYOQgjiPI+kCLJDGgPoB",
         categories = "gaming",
         tags = "dice,random,tabletop,2,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -3236,7 +3324,7 @@ pub enum LucideGlyph {
     Dice2,
     #[cfg(feature = "dice_3")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHmDQzhEch4g0MoRiEIoeCAcocCKIw+DwL4DgWLRwGGCwgGSDRNDENggDgaAuDAMQii0L4zguMo0GiNo4DEMggkyPpAkKLpFGiR41jcIhNDiTg2lCQZDlQPoBA",
+        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIB4goM4NgkIojgeIYLCIPg8C+A4FiwcBhhwIBkgoTQxDYIA4GgLgwDGK4tjKHIxjMaI1jcMQyCCSo9j+QQvkMaJFjSNgiE0OJMDaTpAiyUZGD6AQ",
         categories = "gaming",
         tags = "dice,random,tabletop,3,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -3244,7 +3332,7 @@ pub enum LucideGlyph {
     Dice3,
     #[cfg(feature = "dice_4")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAcoICIMoMHcaRkHQaIJDEOIMGgZRpGcaB0hiGggHiCYLg2JYQCIPg8C+A4FiwcBhhYIBkgkTQxDYIA4GgLgwDGK4tjKFoxjMaI1jcOI7j2P5BC+QxokWNI2CITZKjmTJAiyT5GlKR5UjiOpYj6WpCl2AQ",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHiDQzhEeYdhEcocCIMoiiCJQiD4PAvgOBYrHAYYLCAZINE0MQ2CAOBoC4MAxiqLIxguMIyGiNI2DiOo8j6QAvkIaJEjONQiE2SY4kuP4rk6RZRkaU43jmV49lmQZcgE",
         categories = "gaming",
         tags = "dice,random,tabletop,4,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -3252,7 +3340,7 @@ pub enum LucideGlyph {
     Dice4,
     #[cfg(feature = "dice_5")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHiDQzhEeYdhEcogCIMoihyJQiD4PAvgOBYrHAYYLCAZINE0MQ2CAOBoC4MAxiqLIxguMIyGiNI2DiOo8j6QAvkIaJEjONQiE2SY4kuP4rk6RZRkaU43jmV49lmQZcDyT5HlQMQyCCa5Yk2Tw+gE",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHIeYNDKER4g0M4Rh0IojCAcohCKHw+DwL4DgWLRwGGCwgGSDRNDENggDgaAuDAMQii0L4zguMo0GiNo4DiPI+kCQoukUaJHjWNwiE2TI6k6QZDlKVJJlaOY7lqP5clGSJfkqVwxDIIJsluUJEmiAQ",
         categories = "gaming",
         tags = "dice,random,tabletop,5,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -3260,7 +3348,7 @@ pub enum LucideGlyph {
     Dice5,
     #[cfg(feature = "dice_6")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEeYUhEaBlGkZxoHSDYPhEcoTCIMoiheJQiD4PAvgOBYrHAYYLCAZINE0MQ2CAOBoC4MAxiqLIxguMIyGiNI2jgIAxDKPI+kAL5CGiRIzjUIo3jmOJNj+K5QkWU5GlUTQ4jqWpPlGX5HlaY5LmWXJnDyUZpmKSg2m2QZegEA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAcoICIMoMGgZRpGcaB0gkMQ4gwch5gmEQgh6CoMHcaRkHQaIZhsPg8C+A4FiwcBhigIBkgkTQxDYIA4GgLgwDEIosC+MoojGMxojWN45CAMQyj2P5Bi2RBokaNI2CKOI6jmT5AkKU5VkiVxNDiO5clGQ5HmCSZYmSTZml6aQ8lOa5jkwNpvlKaYBA",
         categories = "gaming",
         tags = "dice,random,tabletop,6,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -3268,7 +3356,7 @@ pub enum LucideGlyph {
     Dice6,
     #[cfg(feature = "dices")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMgiCAcoIgqDB5gkMQwgwaBlGkZxoHSE4LCAdxpGQdBoh2DByhKEA+DwL4DgWKhwGGIwgGSCRtDENwuDkMggDENAgDMLg1C2QA1GEMguDKPpHkkIAwk2TwwkMbAtkINI5DKRpIkqWpQk2Q5NEyFAgDYIoqC+MIji+MRojOCRNDaPA4GgLgwDGZYrmgaJqjKNAiE2Yo9nOdZ3mea57myfZ/DWY6CnaZp5oebZ+DEOAgDmjaEpCAQ",
+        svg = "gAPByGUYx0CAeA9CIMgiCAeYJDEMIMHKDoKhKCIVCAdxpGQdBog+CwgGgZRpGcaB0h8Ig+DwL4DgWKhwGGHQgGSCRtDENwuDkMggDENAgDMLg1C2QA1GEMguDKPpHkkIAwk2TwwkMbAtkINI5DKRpIkqWpQk2Q5NEyEAgDaKYrjCHYvjEaIzgkTQ2jwOBoC4MAxmUL5nGiaYyjQIhNmKPZynSdp4nqa58n4NZjoGdYqneaqFmyfQxDgIA5oug6PgEA",
         categories = "gaming",
         tags = "dice,random,tabletop,board,game",
         contributors = "karsa-mistmere,ericfennis"
@@ -3278,13 +3366,13 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQxDIIAzHYMQ0CIPg8C+A4FhSF4GgiCg1CAMQwGiEYThWGoZgSG4JE2HgyDGIoShSFooD6AQA",
         categories = "development,files",
-        tags = "patch,difference,plus,minus,plus-minus,maths",
+        tags = "patch,difference,compare,plus,minus,plus-minus,maths",
         contributors = "karsa-mistmere,danielbayley"
     ))]
     Diff,
     #[cfg(feature = "disc_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bh6BoIhGGYWhiDIVgmCw0CKG4dgSI4bHAYR0GgIBkgsTYUCCFBoC4MAxi6HI0jYPoB",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bh6BoIheGYPgoIg0haEoMhqHIiiAPBwGEdBoCAZILE2FAghQaAuDAMQihsL4zjUPoB",
         categories = "devices,multimedia",
         tags = "album,music,vinyl,record,cd,dvd,format,dj,spin,rotate,rpm",
         contributors = "danielbayley,jguddas,ericfennis"
@@ -3292,7 +3380,7 @@ pub enum LucideGlyph {
     Disc2,
     #[cfg(feature = "disc_3")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0Nggg4YwwC0MQuDeMAtDMLgyioLg4C0NI1hmG4hiOGodgaCIKhOD4RkaFYMg+GocgSQ4giKJImCITQxDiKgyiyNw3C2MAgjQMoujgII7kyPpSD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQ2CCDhjDALQxC4N4xC0MwuDKKwuDgLQ0jYIobC+IokhuHoGgiCoZhCEgig+CYYg2GockSIA8kGJYnCITQxDiKwyi2OA3C2MQgjUMovjkII8lCQIjGgPoBA",
         categories = "devices,multimedia",
         tags = "album,music,vinyl,record,cd,dvd,format,dj,spin,rotate,rpm",
         contributors = "danielbayley"
@@ -3300,7 +3388,7 @@ pub enum LucideGlyph {
     Disc3,
     #[cfg(feature = "disc")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGodgaCBjhKDYPCCFgiieCoTg+GocgSIg+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGodgaCIWCKD4RhOJoKiiGYbiGH4B",
         categories = "devices,multimedia",
         tags = "album,music,cd,dvd,format,dj,spin,rotate,rpm",
         contributors = "colebemis,danielbayley,jguddas,ericfennis"
@@ -3308,7 +3396,7 @@ pub enum LucideGlyph {
     Disc,
     #[cfg(feature = "divide_circle")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0IgxDIIoHDKCoMg4eIJCIOIThCCw2CIPg8C+A4Fh2IIGHiGYSgeFQxhsIIUhGDYPhGG4dh+BBliKNYwhaE4pi+JYug6CIKheM4jh0YxpHIYxsgYYx4j8IBjHmTxyhEMIch6R5JksPoBA",
+        svg = "gAPBsGkbhlCAeAxD0Ig4CKBwygoMQ2g0eYJCIMQyhOD4WhgPg8C+A4Fh2IIGHiGoXhmEISCCFIpg2CIQhyHojiKBIkhWJ4rhWDIOjCKILCKHYfjWHRjGkchjGyBhjHmPQgHKEAwg0Yx4j2QZFkeSQ+gE",
         categories = "maths,shapes",
         tags = "calculate,maths,÷,/",
         contributors = "csandman,ericfennis"
@@ -3316,7 +3404,7 @@ pub enum LucideGlyph {
     DivideCircle,
     #[cfg(feature = "divide_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAcoICIMoMHcaRkHQaIJDEOIMGgZRpGcaB0hiGoNHiCYRCCJYKCIPg8C+A4FiwbBpG4ZYoDKGA2gweAxgmIx5jwIgxiceY3kGEYsC+Mo0jGM41HiRZCgyRI4lKQAxjmKJWkeLZKGWTI0jaGJDkCI47mKUpFhqSJdD6AQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAch5gkMoMGgZRpGcaB0gkMQ4gyD4KgwcoICKEQgHcaRkHQaIZhsPg8C+A4FiwbBpG4ZYHDKGQ2hyNwiDGIx4DGCYbCAeZAjyEYsC+Mo0jGM41HiO49jqOIMj+GYjkSU5IkoZZMjSB5FlGNpWhyRZCHmO4ri2Ww+gEA",
         categories = "maths,shapes",
         tags = "calculate,maths,÷,/",
         contributors = "csandman,ericfennis"
@@ -3324,7 +3412,7 @@ pub enum LucideGlyph {
     DivideSquare,
     #[cfg(feature = "divide")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeYLDaDhjHiCwxDIIg+DwL4DgWB4bGwaRuggeAxgsNYOHgMoXDmDh5ieDIZCAeYsjKGociKJIbh6BoIgqDIUhaN4PhGDA4jiHYEj4PoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeYLDaDhjHiCwxDIIg+DwL4DgWB4bGwaRuggeAyhcOYOHkMYXhkIB5ieDIuHiLAiDWGociKJIbh6BoIhWLYOgqDIUhGDA4jiHYEj4PoBA",
         categories = "maths,development",
         tags = "calculate,maths,division,operator,code,÷,/",
         contributors = "csandman,ericfennis"
@@ -3332,7 +3420,7 @@ pub enum LucideGlyph {
     Divide,
     #[cfg(feature = "dna_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDUIAyGMLQxC4M4NhINQtDILgwDkMggDOGAug0NIhE0OYOg+EoUhGIYOhqHAtDOLYXiMNQiD4PAvgOBY3jqBoIgqHYMGMM4TDOH4xDYLg2DYN4wCAMQwjAbZQjCEIWk+E4XjGGYbDILY0jKNo4j2PIEj6CZTDcIA2iCF4ZjWN45maZYFgeaAxDQIA4iuF4WmKco7gKZp2CIbZqDEOIymGcZkoKdY/G2RIVjSIYhn+jY9oQbQyDAIImpWcJjnOjpnoWSYVm+T5Ppeo6ZpAMank8MIsDGq6Mq2g6vp2sJYhWlq3oEbBpG4ZQgHkMYJDIIggHiyAisqxgysm0B4tKz7KnGwrED6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDUIAyGMLQxC4M4NhINQtDILgwDkMggDOGAug0NIhE0OYOg+EoUhGIYOhqHAtDOLYXiMNQiD4PAvgOBY3jqBoIgqHYMGMM4TDOH4xDYLg2DYN4wCAMQwjAbZQjCEIWk+E4XjGGYbDILY0jKNo4j2PIEj6CZTDcIA2iCF4ZjWN45maZYFgeaAxDQIA4iuF4WmKco7gKZp2CIbZqDEOIymGcZkoKdY/G2RIVjSIYhn+jY9oQbQyDAIImpWcJjnOjpnoWSYVm+T5Ppeo6ZpAMank8MIsDGq6Mq2g6vp2sJYhWlq3oEbBpG4ZQgHkMoJDIMgiCAeAxsmzB4sgIrKswebPtSf7CsQPoBA",
         categories = "medical,food-beverage",
         tags = "gene,gmo free,helix,heredity,chromosome,nucleic acid",
         contributors = "karsa-mistmere,ericfennis"
@@ -3356,7 +3444,7 @@ pub enum LucideGlyph {
     Dog,
     #[cfg(feature = "dollar_sign")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgxDIIoHDKCoMg4eYQCIMoNCAeYJhYIg+DwL4DgWHhwGEdBoCAZIKE0MQ3CANRIDkLg1GEM4yCCNQ1CAMI6jyOw3GiM44jeNo7jsMY8DcSA2h2H4kiYPoBA",
+        svg = "gAPBsGkbhlCAeAyD0IgxDIIggHmCQiDKDYPDGCoUHiFoLg0Pg8C+A4Fh0cBhHQaAgGSChNDENwgDUSA5C4NRhDOMQgjQNQgDCOY7joNxojKN42jWOo6DGOw3EgNgih0L4jiUPoBA",
         categories = "currency,money",
         tags = "currency,money,payment",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -3364,7 +3452,7 @@ pub enum LucideGlyph {
     DollarSign,
     #[cfg(feature = "donut")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDALg1CAMQwGEMoOCCFIPDAIIZDELYUDQLQzEgMQ4hMLg5g+FInhqK4chQNgtDQLg0hCG4ZhuKw2C4MwgDcLgxGMLY6C4MpBDiOgtDGQ46CIPg8C+A4Fk0YxpHIYxsGUIBjHiCQxDIIpZHmXJeCAcoJDOTJOlOVZXD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDALg1CAMQwGEMoOCCFIPDAIIZDELYUDQLQzEgMQ4hMLg5g+FInhqK4chQNgtDQLg0hCG4ZhuKw2C4MwgDcLgxGMLY6C4MpBDiOgtDGQ46CIPg8C+A4Fk0YxpHIYxsGUIBjHmCQxDIIggHKCQzl8Yx4lyXpNC+U5VlcPoBA",
         categories = "food-beverage",
         tags = "doughnut,sprinkles,topping,fast food,junk food,snack,treat,sweet,sugar,dessert,hollow,ring",
         contributors = ""
@@ -3388,7 +3476,7 @@ pub enum LucideGlyph {
     DoorOpen,
     #[cfg(feature = "dot")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyC4MQigkeYMg6EISHKFQiD4PAvgOBYHD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyC4MQiCAcoMhGCR5hWD4RD4PAvgOBYHD6AQ",
         categories = "shapes,text",
         tags = "interpunct,interpoint,middot,step,punctuation,period,full stop,end,finish,final,characters,font,typography,type,center,.",
         contributors = "danielbayley,karsa-mistmere"
@@ -3404,7 +3492,7 @@ pub enum LucideGlyph {
     DownloadCloud,
     #[cfg(feature = "download")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDUdg0GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGx2C0NAiD4PAvgOBYrHAbxsHkbBpG4ZQgjGNh0HOCQ3g6GYUg+Do/DEMIqiyMYzjWN4rkyOB4DGCQxDIIggHkMoJDOVh4lkIpUlYeZSl8NZIC+Tw+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDUdg0GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGx2C0NAiD4PAvgOBYrHAbxsHkbBpG4ZQgjGNh0HOCQ3g6GYUg+Do/DEMIqiyMYzjWN4rkyOB5DGCYPCIIB5DKCQzlUeJSCIMQyluWJemCKwvk8PoBA",
         categories = "arrows,files",
         tags = "import,export,save",
         contributors = "colebemis,csandman,ericfennis"
@@ -3412,7 +3500,7 @@ pub enum LucideGlyph {
     Download,
     #[cfg(feature = "drafting_compass")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeILDGDYPHmCw1CIPg8C+A4FgeGhwGEdBoCAZILG0MwgDIMQgDgLgwDILQxDQLgyDaGYbiGI4giKJImCIbYTC4OQ5CANguDcNAgDGQ4pDMLg0DSOAvjoaI8iOJYLE0MZFhMYwtk8OA3CANIyDALgximZYzCAMJTlWV4+ieK4qDELQymgNpgC4OJShqVI9D6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwNYQHKDIPD4PAvgOBYHhkcBhHQaAgGSDBtDMIAyDEIA4C4MAyC0MQ0C4Mg2CKGQviCIofiGI4lCIbYOC4OQ5CANguDcNAgDGQ4oDMLg0DSN4ajoaI8iKJIME0MZFg4Ywtk8OA3CANIxDALgxiiZYyCAMJTjmPZXj6JoqikMQtDKaA2mALg4lKOJVD6AQ",
         categories = "shapes,maths,design,tools",
         tags = "geometry,trigonometry,radius,diameter,circumference,calculate,measure,arc,curve,draw,sketch",
         contributors = ""
@@ -3428,7 +3516,7 @@ pub enum LucideGlyph {
     Drama,
     #[cfg(feature = "dribbble")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDkLgxDMIA1C4MA5EMMYwDIMggisMQ0CCDY9DALg0jwMguDINY/C4OQ0CKGwviKJIhiOJYnCITQyDELg3keFAuDgNBjC0NguDYMgtlgNAxmaRI7j2ZpiDMOAgm+Gock8aJRiSJooDgLg1DYIJEloYw0C4Mw3nKiIrDSOJxDEN5ZnSTpSD6AQA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDkLgxDMIA1C4MA5EMMYwDIMggisMQ0CCDY9DALg0jwMguDINY/C4OQ0CKGwviKJIhiOJYnCITQyDELg3keFAuDgNBjC0NguDYMgtlgNAxmaRI7j2ZpiDMOAgm+Gock8aJRiSJooDgLg1DYIJEloYw0C4Mw3nKiIrDSOJxDEN5ZnSTpSD6AQA",
         categories = "brands,social,design",
         tags = "design,social",
         contributors = "ahtohbi4,karsa-mistmere"
@@ -3468,7 +3556,7 @@ pub enum LucideGlyph {
     Dumbbell,
     #[cfg(feature = "ear_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ2CAMQ4C4NRhDOEAghMNQgDCDYYCAN4YGMMAtDGEA3C4OQyC0MoQDIIIpDANAthMNA2CIPg8C+A4FjWOIGgiCoMg8NYfC0Lg3DULgxDOIQuDSJAzDaKJHDSNI2juOoEjyCRNg8OIVkcNRBDaFJhheGYZDGDQ5CCQIfg0Lg2kmSw0iwLg4DGSgwmmEw3jONY3leVoFgeWQximFw2EGhZzmSG5nDGF5AE0MZmDMYYriuZaMnSJ4ig6U5+jkPBsGkbhlCAeQxgkMgiqYMqpqoIB4q0Igyq8eKorOnqiqQPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ2CAMQ4C4NRhDOEAghMNQgDCDYYCAN4YGMMAtDGEA3C4OQyC0MoQDIIIpDANAthMNA2CIPg8C+A4FjWOIGgiCoMg8NYfC0Lg3DULgxDOIQuDSJAzDaKJHDSNI2juOoEjyCRNg8OIVkcNRBDaFJhheGYZDGDQ5CCQIfg0Lg2kmSw0iwLg4DGSgwmmEw3jONY3leVoFgeWQximFw2EGhZzmSG5nDGF5AE0MZmDMYYriuZaMnSJ4ig6U5+jkPBsGkbhlCAeAxgkMgiCAeQyqmqqsqgIqwHirqzqqfaiqQPoBA",
         categories = "medical,accessibility",
         tags = "hearing,hard of hearing,hearing loss,deafness,noise,silence,audio,accessibility",
         contributors = "karsa-mistmere,ericfennis"
@@ -3492,7 +3580,7 @@ pub enum LucideGlyph {
     EggFried,
     #[cfg(feature = "egg_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ2C4Mw5DkIIMg4ORDDWDQ2DIIA4C4MQ1DcIA0C4Ng1CAMQwhwOIQiGJAxDIYwtg2H4hDQM4lC4MofDkLg5iQNwuiwMAgDONw1DaMAwDINgghYMg1DkLQxj8NIfhINw1C2Q4YDUIg+DwL4DgWXZggaCIKDGOg1DOGQxkMOJWEEMYhDCH5xC6cwgkGeYlmiJYujAM5GiEMw0liO5XjoOZGj6V4mlCdpyi0LQynYOKTDWSKFDANJKlEMg5DeXJemOXRsGkbhlCAeAxgkMgiCAearCKravDKrKzHitayq2XQvqWpw+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQ2C4Mw5DkIIMg4ORDDWDQ2DIIA4C4MQ1DcIA0C4Ng1CAMQwhwOIQiGJAxDIYwtg2H4hDQM4lC4MofDkLg5iQNwuiwMAgDONw1DaMAwDINgghYMg1DkLQxj8NIfhINw1C2Q4YDUIg+DwL4DgWXZggaCIKDGOg1DOGQxkMOJWEEMYhDCH5xC6cwgkGeYlmiJYujAM5GiEMw0liO5XjoOZGj6V4mlCdpyi0LQynYOKTDWSKFDANJKlEMg5DeXJemOXRsGkbhlCAeAygkMgyCKqQxqyrx5qsIqtrOsa2qEL6lqcPoB",
         categories = "food-beverage",
         tags = "egg free,vegan,hatched,bad egg",
         contributors = "karsa-mistmere,ericfennis"
@@ -3508,7 +3596,7 @@ pub enum LucideGlyph {
     Egg,
     #[cfg(feature = "equal_not")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0Ig1CKBwygoMQ5g0eYJCKEggHmD4WCIPg8C+A4Fh2IIGHiGoRhOFQxgyGImiuCIKgyHYfgQZYijSDowiiOYHimF4ZhCEoyiMPoBA",
+        svg = "gAPBsGkbhlCAeQyD0Ig5CKBwxgqDAgHiCQiDGER4g8Ig1CIPg8C+A4Fh2IIGHmGQxhuB4UieDYYgqKITgqFoch6I4igSJIqhGJYuiyJoXhSG4dh+Nw+gEA",
         categories = "maths,development",
         tags = "calculate,off,maths,operator,code,≠",
         contributors = "ericfennis"
@@ -3516,7 +3604,7 @@ pub enum LucideGlyph {
     EqualNot,
     #[cfg(feature = "equal")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0Ig1CIIB5gkIg5g0eAygoMYSg6FYRCIPg8C+A4Fh2IIGhSFoYHmGgxgyB4QiuD4WgyHYfgQZQ+gE",
+        svg = "gAPBsGkbhlCAeAxD0Ig1CKBwygoMQ5g0eYPCKEggHmCYWCIPg8C+A4Fh2IIGHiFYRhOGgxgyB4aiuFIQgyHYfgQZQ+gE",
         categories = "maths,development",
         tags = "calculate,maths,operator,assignment,code,=",
         contributors = "ericfennis"
@@ -3548,7 +3636,7 @@ pub enum LucideGlyph {
     Expand,
     #[cfg(feature = "external_link")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgIAxDMdg2GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGxWDiIIWiOFYbGgNgiD4PAvgOBYxHAbxsHkbBpG4ZQgjePB0HOCQxDUIAzhUMZHkkIA5jCMo3jmO49jGU4+HgMZEDAIggHmWQiDENJcHkMoJDOXB4mUIgyDGTwvlYPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDgIAxDMdg2GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGxWDiIIWiOFYbGgNgiD4PAvgOBYxHAbxsHkbBpG4ZQgjePB0HOCQxDUIAzhUMZHkkIA5jCMo3jmO49jGU4+HgMoJDIMQiCAeQxkQNJdHiYAiDEMJdHmWQiDOTwvlYPoBA",
         categories = "text,arrows",
         tags = "outbound",
         contributors = "colebemis,csandman,ericfennis"
@@ -3556,7 +3644,7 @@ pub enum LucideGlyph {
     ExternalLink,
     #[cfg(feature = "eye_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5C4OA4CCDIOGEMwghQMAgDEIIXDQLgyDQIIch4Ig+DwL4DgWJIngaCIKDEMAuDeFA1C4MA4EGLguDSFI4jqGo+hkMQyCANRjDeP4XkaLggDcYQxDMLgxDaGJPlGPoXDELQxC4NpGDKWw4iOJYqimBIrgkTQ2luGZpDYMY3k8NQylKTgunGUoXngIJCkEc4UkmSBhgwN4foKH55heMwzDmWZqmGJpliQbBpG4ZQgHkMYJDIIqWDKmaaCAeKdCIMqfHimKjo6kqUD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQ5C4OA4CCDIOGEMwghQMAgDEIIXDQLgyDQIIch4Ig+DwL4DgWJIngaCIKDEMAuDeFA1C4MA4EGLguDSFI4jqGo+hkMQyCANRjDeP4XkaLggDcYQxDMLgxDaGJPlGPoXDELQxC4NpGDKWw4iOJYqimBIrgkTQ2luGZpDYMY3k8NQylKTgunGUoXngIJCkEc4UkmSBhgwN4foKH55heMwzDmWZqmGJpliQbBpG4ZQgHkMoJDIMgiCAeKYCKmqcHkMaZpweKkqCjqSpQPoBA",
         categories = "accessibility,photography",
         tags = "view,watch,hide,hidden",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -3564,7 +3652,7 @@ pub enum LucideGlyph {
     EyeOff,
     #[cfg(feature = "eye")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCAMQyHMMwtDeDQwhKFAghMMQwhgLQzhyGofhUNwthqEhaCIPg8C+A4FikYxpHIYxsGUIBjHiCYOCIIBygkM46GMeY4DKKIqi+MYzD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyCAMQyHMMwtDeDQwhKFAghMMQwhgLQzhyGofhUNwthqEhaCIPg8C+A4FikYxpHIYxsGUIBygkMwiCAYx4gmDo5GMeY9DKKIqi+MYzD6AQ",
         categories = "accessibility,photography",
         tags = "view,watch",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -3604,7 +3692,7 @@ pub enum LucideGlyph {
     FastForward,
     #[cfg(feature = "feather")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDALgyDQIAxDKDg0GENgghcMAghoMAtDgLg0DmHogDkTA1hGDQ1FYMQ5GiHw1HoIg+DwL4DgWMxsGkbhlCAeAygkMgiCAeQxgkOJCHmPwiDKQY9kUIgxDaMo0jmO44jqPB4k8MQ3C4NZCj6CQ5kiW5fkOSgxl+MwvlUZQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQyDALgyDQIAxDKDg0GENgghcMAghoMAtDgLg0DmHogDkTA1hGDQ1FYMQ5GiHw1HoIg+DwL4DgWMxsGkbhlCAeAxgkMQ2CIIB5DKCQyDKQx4kYIpJkSPwiDiMo0jmO44jqPI+kANwuDWQ5FkCXo9kwOZflAMZejML5VGUPoBA",
         categories = "gaming",
         tags = "logo",
         contributors = "colebemis,csandman,ericfennis"
@@ -3612,7 +3700,7 @@ pub enum LucideGlyph {
     Feather,
     #[cfg(feature = "ferris_wheel")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKDIPD4PAvgOBYHhkcBhHQaAgGSDBNg4IAyHYNAihkL4giKH4hiOJQiG0NguDgIAxDULQzC4NYpi2GowGiMoiiSDBtDIMAuDcIA3j6QJCi6RZHjSJo4joOQgj8M5QkOL4zleSY2kyTo7lGP49hiRJjDyRZlG2XAyDKXQtjqXw4mGVpwjOZRNjqdRonuVZvnGNYnjoMQ4k4YZclwMI7CAMAtigMJ8mOAQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeYLDGDYPHiEoND4PAvgOBYHhkcBhHQaAgGSCxNhMIAyHYNAihkL4giKH4hiOJQiG0NguDgIAxDULQzC4NYpi2GowGiMoiiSCxtDIMAuDcIA3j6QJCi6RZHjSJo4joOQgj8M5QkOL4zleSY2kyTo7lGP49hiRJjDyRZlG2XAyDKXQtjqXw4mGVpwjOZRNjqdRonuVZvnGNYnjoMQ4k4YZclwMI7CAMAtigMJ8mOAQ",
         categories = "maps",
         tags = "big wheel,daisy wheel,observation,attraction,entertainment,amusement park,theme park,funfair",
         contributors = "karsa-mistmere"
@@ -3628,7 +3716,7 @@ pub enum LucideGlyph {
     Figma,
     #[cfg(feature = "file_archive")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgyFYNBjDALQuDULgyC0MQgC4NoZC4NBDDWDYXCCFoiDIIA2g0aA4hUTAyDAIA3hUVowhKGw1hSKAxhSKgxh+FA0kALg5hyHpCDYaAtDIIg+DwL4DgWThwG8bB5GwaRuGUIJUlkdBzgkMYMjuDA4g2MQ4k2T5UlaWJak4YxpHIYxslscoJkwIBjHiYQwCKeh5nifpOC+cZznWU4EgaCIKDGMQ3FYNpqlCiqJgWB4JE2jggDEMh2hmk5RGilqLpmmwxDin5MoSog+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMgyFYNBjDALQuDULgyC0MQgC4NoZC4NBDDWDYXCCFoiDIIA2g0aA4hUTAyDAIA3hUVowhKGw1hSKAxhSKgxh+FA0kALg5hyHpCDYaAtDIIg+DwL4DgWThwG8bB5GwaRuGUIJUlkdBzgkMYMjuDA4g2MQ4k2T5UlaWJak4YxpHIYxslsYx5gmMAiCAcp5nsYx4mEMJqC+cZznWU4EgaCIKDGMQ3FYNqElEaKJgWB4JE2jggDEMh2hmk6Kpai6ZpsMQ4p+TJOlCooBA",
         categories = "files",
         tags = "zip,package,archive",
         contributors = "karsa-mistmere"
@@ -3636,7 +3724,7 @@ pub enum LucideGlyph {
     FileArchive,
     #[cfg(feature = "file_audio_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgyGgMQ0GEMoNCAMIWhgMgtDIVg3C4NRMhGH4NEgNoThWF4phuDR2DIIg+DwL4DgWMBwG8bB5GwaRuGUII2jsdBzgmEYVkQOINhcOIvjGNo4jqPI1gSBoIgqFAxDcdgtDMYYMgyKQgDEIJHDAdgzkuMpSjAYxpHIYxsj0Yx5kMNwiCAYx4gkOZ1HKQ5nmubZvmqbJunCeAimadpyCKV57n2MAvn+hA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMgyGgMQ0GEMoNCAMIWhgMgtDIVg3C4NRMhGH4NEgNoThWF4phuDR2DIIg+DwL4DgWMBwG8bB5GwaRuGUII2jsdBzgmEYVkQOINhcOIvjGNo4jqPI1gSBoIgqFAxDcdgtDMYYMgyKQgDEIJHDAdgzkuMpSjAYxpHIYxsj0Yx4gkOQiCAYx5kMN51HKQ5nmubZvmqbJuj2fAiDGdZ3nmiZyCKZowC+f6ED6AQA",
         categories = "files",
         tags = "music,audio,sound,headphones",
         contributors = "karsa-mistmere"
@@ -3740,7 +3828,7 @@ pub enum LucideGlyph {
     FileCode,
     #[cfg(feature = "file_cog")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQzCIIBygyD4JHiDA2CIPg8C+A4FgeGhwGEdBoCAZIMG0OQuDcIAxDQLg0C0Lg5jGD4aC+IYjiCIokiYIhtDMLgyiwMYyjGMwujWG44GiOojiWJ4uDaLA2iqSJGhmSo7k2PInDcLpSDGVA3jGMAxliN5aDyS5Pj6Lg4iwMJWi8LZmjaS5bmwbQykiLJRiyZJnneao7nkOIqkMLpvDGgJ2mma49G2Xg0CCKQzjSMqBo6hI9E2LQgDIdg2GiGKNjmg5Opykw1C4NRWDQYZCkIMAgrMMafC0MhooYNRMDKs5eq2vqwp+tLFousRIDaw6ysauJ0qymY5gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CINgigkeYMDEM4PHKDIUD4PAvgOBYHhkcBhHQaAgGSDBtDkLg3CAMQ0C4NAtC4OYwhiGogiKH4hiOJQiG0MwuDKKwxjGMIyC6NAvjYaI4iKJImi0NorDaKZGkQIoZkiOZLjqJg3C6UAxlIN4wi8MZWjWWQ8kmTY8i0OIrDCVIuC2ZZXkmWprG0MpGiuT4rmOZpYjeaY5ngOIpkELpuDGf51miao7G2XQ0CCKAzjOMaAnag5MjsTYsCAMh2DYaIOo2gqPgwTaTDULg1FYNBhkCQAwCCtAxqALQyGihg1EwMq0l2rq/rGoK1sai6yEgNrErOx65nOraZlmAQ",
         categories = "files",
         tags = "executable,settings,cog,edit,gear",
         contributors = "karsa-mistmere"
@@ -3756,7 +3844,7 @@ pub enum LucideGlyph {
     FileDiff,
     #[cfg(feature = "file_digit")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig0CIIB4g0MoQHKEgihQIBoGUaRnGgdINDaEB5g0MYUD4PAvgOBYoHAYYLCAZINE0MQ0CAMh2DYaIiigL4uguLYvGiMYzjYMgyGiNRhDKNwgDCTpQDILQyFYNwuDUTI1leNxIDaS5Nk+YZTjcdoPj2PxokGMIyCKNJPiYaI4jyKZomqQ5sm4IAxDgaJmnSQg+gEA",
+        svg = "gAPByGUYx0CAeQ9CIMQyCIIBoGUaRnGgdIJDaDRyHiCYMCCGQihsdxpGQdBogkNAiD4PAvgOBYoHAYYjCAZIJE0MQ0CAMh2DYaIWigL4uiOLYvGiMYzjYMgyGiNRhDKNwgDCTpQDILQyFYNwuDUTI1leNxIDaS5Nk+YZTjcdomj2PxokGMIyCKNJPgsaI4jyKZomqQ5sm4IAxDgaJmnSQg+gEA",
         categories = "files,development",
         tags = "number,document",
         contributors = "ericfennis,karsa-mistmere"
@@ -3788,7 +3876,7 @@ pub enum LucideGlyph {
     FileHeart,
     #[cfg(feature = "file_image")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOBjGkchjGyRRjHmSwzCIIBjHiSwwmQcoJDKUwvlqXJej2BIGggIhtDKGAxDcLQxC4MA5n2fw5imFYrDCGwuDihoyiSbY4jqdA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOBjGkchjGyRRjHiSwwCIIBjHmSwzmQcoJDKUwvlqXJej2BIGggIhtDKGAxDcLQxC4MA5n2fw5imFYrDCGwuDihoyiSbY4jqdA+gE",
         categories = "files",
         tags = "image,graphics,photo,picture",
         contributors = "karsa-mistmere"
@@ -3820,7 +3908,7 @@ pub enum LucideGlyph {
     FileJson,
     #[cfg(feature = "file_key_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQwFYNBhDIIITDAIIWDGFAtDIaA4C4NRMDKFg3h8VoihKFIXioMYbhQSA0CIPg8C+A4FjIcBvGweRsGkbhlCCOI9HQc4JDGDITkYIA4hSFg4jGM44jqPI+jIYxpHIYxsj8Yx5kUNgiCAcoJDKYBjHiCYwjIL5WliWo3gSBoICIbYOg0MAtDSHwgnkNZPjScJvgWB4JG0OYNhmiJ+jUaA+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQwFYNBhDIIITDAIIWDGFAtDIaA4C4NRMDKFg3h8VoihKFIXioMYbhQSA0CIPg8C+A4FjIcBvGweRsGkbhlCCOI9HQc4JDGDITkYIA4hSFg4jGM44jqPI+jIYxpHIYxsj8Yx5kUNgiCAYx4gmMAgHKCQyk8L5WliWo3gSBoICIbYOg0MAtDSHwgnkNZqjUaJvgWB4JG0OYNhmiJ+nAPoBA",
         categories = "files,security",
         tags = "key,private,public,security",
         contributors = "karsa-mistmere"
@@ -3828,7 +3916,7 @@ pub enum LucideGlyph {
     FileKey2,
     #[cfg(feature = "file_key")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgYxpHIYxsGUIBygkMgiCAYx4gkMQwkgYx5kwNo3jmPpAkKOI7gaCAiG2Hwgk0LYNg+Y5UjqBBolmaIHgmXoPDEMZgmCZpaD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgYxpHIYxsGUIBjHmCYfCIIBygkMpJGMeJHDCN45j6QJCjiO4GggIhth8IAxDALYNg+Y5TjqBBoliaIHgmXYPDEMZfl+ZpZD6AQ",
         categories = "files,security",
         tags = "key,private,public,security",
         contributors = "karsa-mistmere"
@@ -3844,7 +3932,7 @@ pub enum LucideGlyph {
     FileLineChart,
     #[cfg(feature = "file_lock_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CANRWDQYQyCCEgwCCFQxhMLQyGgOAuDUTAyhUN4eFaIYRhOFopDGGoTEgNAiD4PAvgOBYxHAbxsHkbBpG4ZQgjePB0HOCQxgyEpFCAOIThUOIwjKN45juPYxHIZRjHQIB3GkZIFgmTQgGgZRpGcaB0gkNQiCAeZEDOaRyHiRJpnAIgyk4L5VleNoEgaCIKkoMQzHaGonhQIIYDALYMDAdp1jGM57D6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ0CANRWDQYQyCCEgwCCFQxhMLQyGgOAuDUTAyhUN4eFaIYRhOFopDGGoTEgNAiD4PAvgOBYxHAbxsHkbBpG4ZQgjePB0HOCQxgyEpFCAOIThUOIwjKN45juPYxHIZRjHQIB3GkZIFgmTQgGgZRpGcaB0gkNQiCAeIJDKaRymsIgxmkeZEDOTgvlWV42gSBoIgqSgxDMdoaieFAghgMAtgwMB2m2MYznwPoBA",
         categories = "files,security",
         tags = "lock,password,security",
         contributors = "karsa-mistmere,ericfennis"
@@ -3852,7 +3940,7 @@ pub enum LucideGlyph {
     FileLock2,
     #[cfg(feature = "file_lock")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgchlGMdAgHmCYnCIIB4gkOJGHcaRkgWSZGHKSAiDGRhoGUaRnGgdIJDaN45j6QI4juBoIgoMYPicdobGEMwgm6GAxhoNoXHYMpfjqBBoD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgchlGMdAgHmCYnCIIByHiRJGHcaRkgWCQ4kaSQilEIBoGUaRnGgdIJDaN45j6QI4juBoIgoMYPicdobGEMwgm6GAxhoNoXHYMpfjqBBoD6AQA",
         categories = "files,security",
         tags = "lock,password,security",
         contributors = "karsa-mistmere,ericfennis"
@@ -3868,7 +3956,7 @@ pub enum LucideGlyph {
     FileMinus2,
     #[cfg(feature = "file_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQxksNQiCAeJdCIOZgHkMpemAeJoCIMZfjgL5aD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQxksNQiCAeAyl6YB5mMIgxl+YZdCIOZTC+Wg+gE",
         categories = "files",
         tags = "delete,remove,erase,document",
         contributors = "colebemis,ericfennis"
@@ -3900,7 +3988,7 @@ pub enum LucideGlyph {
     FilePlus2,
     #[cfg(feature = "file_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQxkuUggHkMpLDIIggHiXQiieZR4mKaZkjgL5almQ5bmgMQ1mWYZLniZpoDma5tneU5xnQPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQyksMgiCAeJdCKJ5gHgMZemAeZomSUo4C+WpZkOW5sDENZqmOdpmmwOZmnmd5vnGAQ",
         categories = "files",
         tags = "add,create,new,document",
         contributors = "colebemis,ericfennis"
@@ -3924,7 +4012,7 @@ pub enum LucideGlyph {
     FileScan,
     #[cfg(feature = "file_search_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOBjGkchjGyRRygkMoOCIIBjHiSwxmOZR5kuDQ1lML5alyXo9gSBoIgoMQzC4MoPh+fJ+n6Uo4jqdg+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOBjGkchjGyRRjHmS4NDUIggGMeJLDGDplHKCQymuOAvlqXJej2BIGgiCgxDMLgyg+H59n+f5SnGOxoD6AQA",
         categories = "files",
         tags = "lost,document,find,browser",
         contributors = "karsa-mistmere"
@@ -3980,7 +4068,7 @@ pub enum LucideGlyph {
     FileTerminal,
     #[cfg(feature = "file_text")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQyksMwiCAeAxksNpgHiXQilIIB5mMIgxl+OAvlqWZDkWYpkmaaJqlySw3mCbJ9lOcp1nSRJrm0OZ/miiZhm0MQwnmCZSnGc4BA",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeAxksNgiCAeAygmUggHmYwiDEM5gHmXZpmuOAvlqWZDkWZ5LDeYJcl6epomWbZ4lOcp1nSRJmm4OZ6m4MQwmyaKJmGfqCnOAQA",
         categories = "files,text",
         tags = "data,txt,pdf,document",
         contributors = "colebemis,ericfennis"
@@ -4012,7 +4100,7 @@ pub enum LucideGlyph {
     FileUp,
     #[cfg(feature = "file_video_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAOBWDQYQyCCEgwCCFQxhMLQyGgOAuDUTAyhUN4eFaIYRhOFopDGGoTEgNAiD4PAvgOBYxHAbxsHkbBpG4ZQgjePB0HOCQxgyEpFg2E4VDiMIyjeOY7j2NoEgaCAiG0MYXDWHggkaHh2C0NhsC2Xg1k2M5UjEchlGMdAgGgZRpGcaB0gkNgiCAeIJDKeB5kSfAgHcaRkgWCZMCAcp6CIMZnmubQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAOBWDQYQyCCEgwCCFQxhMLQyGgOAuDUTAyhUN4eFaIYRhOFopDGGoTEgNAiD4PAvgOBYxHAbxsHkbBpG4ZQgjePB0HOCQxgyEpFg2E4VDiMIyjeOY7j2NoEgaCAiG0MYXDWHggkaHh2C0NhsC2Xg1k2M5UjEchlGMdAgHmRAyCIIByHiRJzGgZRpGcaB0gkNpznYIpyCAdxpGSBYJkyMQvmubQ+gEA",
         categories = "files",
         tags = "movie,video,film",
         contributors = "karsa-mistmere,ericfennis"
@@ -4060,7 +4148,7 @@ pub enum LucideGlyph {
     FileX2,
     #[cfg(feature = "file_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQxksMoOCIIB5DKS4wDWYR4l0Ig5mAIB4mQIozmeOAvlqWZDlucAxmaaJqnKaJwmyZ5in6X5zjmdoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDQLg1CAMhIDYYQyhAIAwheFwthUMh2DGE4chmGIYhwaAxDKFIWiOGQyhsVg3g4TIMg6EB6CIPg8C+A4FjgcBvGweRsGkbhlCCPpDHQc4JgyFpMDiEIYDiN45j6QJCkSOJXkUeQxksMoOCIIB4DKS4NDWYR4l0Ig5mAIB5mQIgxjCZ44C+WpZkORZjgmbJnmKaozn6XJem2b5LnOU52nkPoBA",
         categories = "files",
         tags = "lost,delete,remove,document",
         contributors = "ericfennis"
@@ -4084,7 +4172,7 @@ pub enum LucideGlyph {
     Files,
     #[cfg(feature = "film")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMoMGgZRpGcaB0gkMQ4gyD4KgwdxpGQdBohmGw+DwL4DgWJxwGGIwgGSCRNDcIAzHaGgiicL4tiOLIuGiMIyDMIA3C4NRoDSOYojwaI+i+MQiE2QwxDIaI4jqTJOkCUJSCAMQ2kaSJKjuP5akGUQxjSNpXkuZQ8kyZxNmmRJhkmWJunCXJzl+dZjlmAQ",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAch4gkMoMiGCgiD4PAvgOBYoHAYYRCAZIJE0NwgDMdoUieKYuhGLYvGiMYzDMIA3C4NRoDSOgvjwaI+jCMgiE2QwxDIaI5iiS4/k6QJQlIIAxDaRpIkqTJbkGUQxjWN5XjuWg8kyZxNmmRJikmWJlm+P5xnOYJ1mSWoBA",
         categories = "photography,multimedia",
         tags = "movie,video,reel,camera,cinema,entertainment",
         contributors = "colebemis,ericfennis,danielbayley"
@@ -4140,7 +4228,7 @@ pub enum LucideGlyph {
     Fish,
     #[cfg(feature = "flag_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMhjDMIAwCANYNCCDAyHMNAtDEIIaDEdgxDEIg+DwL4DgWJIngaCIKDSDQyFYNIjiWKopgSK4JE2LgxDUcwxhuHZAhQMoWg2M4mjeJBsGkbhlCAeQygkMgyCIIB4lEIpTlUeQxlKVR4l2WZHkuTQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ4CAMhjDMIAwCANYNCCDAyHMNAtDEIIaDEdgxDEIg+DwL4DgWJIngaCIKDSDQyFYNIjiWKopgSK4JE2LgxDUcwxhuHZAhQMoWg2M4mjeJBsGkbhlCAeAxgkMgiCAeZRCKU5VDKUpZHiW5YlOJAvkuTQ+gE",
         categories = "account,social",
         tags = "unflag",
         contributors = "karsa-mistmere,cyberalien,ericfennis"
@@ -4164,7 +4252,7 @@ pub enum LucideGlyph {
     FlagTriangleRight,
     #[cfg(feature = "flag")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ1HMMQtDEIA0hIIA1CAMggDiGYUhaFQxFYMxzhaEYMhENQtDILQ4ioLYni+DR6CIPg8C+A4FjUbBpG4ZQgHgMYJDQIggHkMoJg6RB5kEIgyDKRB4kcIpDjUL47j0PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQ1HMMQtDEIA0hIIA1CAMggDiGYUhaFQxFYMxzhaEYMhENQtDILQ4ioLYni+DR6CIPg8C+A4FjUbBpG4ZQgHgMYJDQIo/DKQpEHmQQiDIMpIkYIoOjSNo7j0PoBA",
         categories = "account,social",
         tags = "report",
         contributors = "colebemis,ericfennis"
@@ -4188,7 +4276,7 @@ pub enum LucideGlyph {
     Flame,
     #[cfg(feature = "flashlight_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIIMHYNBhDIIITDAIIWDELYTDIaAthGG4XiGGQyhoVgxDAYwwhqK4kiQNAiD4PAvgOBYxjSBoIgoN4UGgMQxhCKYUhqQoTDQdgxjCMo3jEbBpG4ZQgHgMoJDEOAiCAeZTCINpXHgMZUkiWJfluSQvk2T5Mk6UB5mMMpXlmCQym6UZanKXZtmWZxlD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIIMHYNBhDIIITDAIIWDELYTDIaAthGG4XiGGQyhoVgxDAYwwhqK4kiQNAiD4PAvgOBYxjSBoIgoN4UGgMQxhCKYUhqQoTDQdgxjCMo3jEbBpG4ZQgHgMYJj4IggHkMoJDaVh5lMIpblGWQiDEOJJC+TZPkyTpQliCQyDKXJenCUZylYeJim+ZpoGUPoBA",
         categories = "photography,devices",
         tags = "torch",
         contributors = "Andreto,ericfennis,karsa-mistmere,csandman"
@@ -4196,7 +4284,7 @@ pub enum LucideGlyph {
     FlashlightOff,
     #[cfg(feature = "flashlight")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgIA2GMMAgDILQyhKFAgDQdgxDAYYVhWEYRDGFwyGgLQ0h2EggiAIIihMMhWhuEIUjOLomFaJAxDIegiD4PAvgOBY9GwaRuGUIB4DGCQ2CKRwygmDJMHmTgiksIB5kmVI8j6Q5FkKRJGkiTwylGU45lGWJmk2YpaC+XBlD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDgIA2GMMAgDILQyhKFAgDQdgxDAYYVhWEYRDGFwyGgLQ0h2EggiAIIihMMhWhuEIUjOLomFaJAxDIegiD4PAvgOBY9GwaRuGUIB5DGCQ2CIIB4kkIpLkcMpKkweJTCKDI8j6Q5FkKRJGHmV45lWT5jkeZQylWYppj0L5cGUPoBA",
         categories = "photography,devices",
         tags = "torch",
         contributors = "csandman,ericfennis"
@@ -4204,7 +4292,7 @@ pub enum LucideGlyph {
     Flashlight,
     #[cfg(feature = "flask_conical_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDAIIMCANAuDcMggDIMAuDUNRhDGDggg2HwgC4OYOC4NA1GgMQyhINobh2IINiILQxiUNRsjILgyhMLYqDUNAyCIPg8C+A4FkGRIGgiCoPDIdoqDMNAzkCQpHkaBJIgmCw0hUdg2C6T5RkGQ5WlWBYHlgOIYhUaA3lKYpFgKVpmgoN4ODYaA5m2VA8GwaRuGUIB4DGCY/oAMqDoQeaCCKiKGouP5hnyfg+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDAIIMCANAuDcMggDIMAuDUNRhDGDggg2HwgC4OYOC4NA1GgMQyhINobh2IINiILQxiUNRsjILgyhMLYqDUNAyCIPg8C+A4FkGRIGgiCoPDIdoqDMNAzkCQpHkaBJIgmCw0hUdg2C6T5RkGQ5WlWBYHlgOIYhUaA3lKYpFgKVpmgoN4ODYaA5m2VA8GwaRuGUIB4DGCY/oAMqDoQeaGCIMqIoKi5tnyfg+gE",
         categories = "science,gaming",
         tags = "beaker,erlenmeyer,non toxic,lab,chemistry,experiment,test",
         contributors = "karsa-mistmere,ericfennis"
@@ -4260,7 +4348,7 @@ pub enum LucideGlyph {
     FlipVertical,
     #[cfg(feature = "flower_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIA1GEMwghEMAgDGFYShIbQtDOG4QhiFIWDCG4ZhwMx2DETQ5CAOIehOF4UhEM4pisaAxG0NQgDCLY5hcMYjDMbYlGgLY2C2DYmkQIg+DwL4DgWSxjGkchjGwZQgHKCQyCIIBjHiCYMlsYx5gkOJKkyUZTlWS5OgaCIKgyFQwieWpLk2BBomud4HgmC4NDIMhjDQLoNhQN5EC4Ng2DcIKGDULaCoQLaLDGiKKpKDhamadpPgKepun0IJ/GOj6DjmkqHomhqNCCkI8pOlaLosNaZnWbA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIA1GEMwghEMAgDGFYShIbQtDOG4QhiFIWDCG4ZhwMx2DETQ5CAOIehOF4UhEM4pisaAxG0NQgDCLY5hcMYjDMbYlGgLY2C2DYmkQIg+DwL4DgWSxjGkchjGwZQgGMeYJDgIpXHiCYMlwcoJDKSpMlGU5VkuToGgiCoMhUMInmSS5NgQaJqnaB4JguDQyDIYw0C6DYUDeRAuDYNg3CChQ1C2gaDC2igxoeiaRg4WplnWT4CnmbZ8CCfhjo6go5pGhqIoWjAgo+PKSpSiqKDWmJ0msPoBA",
         categories = "nature,sustainability,seasons",
         tags = "sustainability,nature,plant",
         contributors = "karsa-mistmere"
@@ -4276,7 +4364,7 @@ pub enum LucideGlyph {
     Flower,
     #[cfg(feature = "focus")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwM4QGMeIMg4Ig+DwL4DgWB4bHAYR0GgIBkgwTQzCANxWDUYQyCCMAwCCMwxjELQyGiD4bC+IokiGI4licIhNDENwgDOOovjGNJNjaMAyHaO4cj4aJAiSJooDKNpGlKS4yk6OIxGiOIalSQZXkKKJHlsSIulCTY1jiOB2mWPJVD6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEMoOGMeYShQPg8C+A4FgeGhwGEdBoCAZILE0MwgDcVg1GEMggi8MAgjIMYwC0MhohmG4hiOIIiiSJgiE0MQ3CAM45i6MIzkuNYvDIdo6C+PBoj6I4licMo1kSUJJjGTI3jAaI3CKGpSj+VZAieRZZEiLZOkuNI3jcdpjmWUw+gEA",
         categories = "photography",
         tags = "camera,lens,photo,dashed",
         contributors = "karsa-mistmere,danielbayley,jguddas,ericfennis"
@@ -4300,7 +4388,7 @@ pub enum LucideGlyph {
     FoldVertical,
     #[cfg(feature = "folder_archive")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIAyDAVg4GGDYNDAIIWDALQyhoaAtDcLg5DOE4OheJQxC0MQuDYNgtiAbItDiG4pDIQYUiWGAgh+IQgDMSA0iOFY3hqDh2DEMxjhaKYpDmJIUGgNgiD4PAvgOBZSGMaRyGMbBlCAcoJDIIggGMeIJDGUJjHmZg5lGU5YlqXJSlWBoIgqZwgDEMR2iibZUgQaJyn+B4JE2dwxDee5hlKfpWgEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ1CKCR5gwMQ5hAcoMDIIg+DwL4DgWB4bHAYR0GgIBkgwTQyDALg5CCFAuDgQQyCCMwwCCNo2DKMwxDgVg4GGM41jeNwtDKRRoC0N4skCNJDjYMQtDELg2DkLYsEwOZTCAM4sjKTY4kOSg5DOWxIDSTJCjiRY0HYMQzmiTpDkEaA1C4MYahyIokiGI4licIhNg6LgxHaUZ4C+ehonyJImiiggxDehYZhuiJ9D6AQ",
         categories = "files",
         tags = "archive,zip,package",
         contributors = "karsa-mistmere,jguddas"
@@ -4308,7 +4396,7 @@ pub enum LucideGlyph {
     FolderArchive,
     #[cfg(feature = "folder_check")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlmXIGggIhtlSTpVCANAtDSWJal8PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIIMGEMoOCCDYUg4LQyFYOIQhKFQwheFxoC0NwuDmG4RhUMQtDELg2DkLYkEwOYsCAM4kEGEYnhOOojDkM40EgNImjqFIXg4dgxDOQodhIMhaCIPg8C+A4FlCU4GggIhtDkIJIkwIA0C0NJPlGVg+gE",
         categories = "files",
         tags = "done,directory,todo,tick,complete,task",
         contributors = "karsa-mistmere,ericfennis"
@@ -4316,7 +4404,7 @@ pub enum LucideGlyph {
     FolderCheck,
     #[cfg(feature = "folder_clock")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ3CAMgwEgNBhDKDQgDCFQgDELQyhoVg1GMMAtDELoiDmGoNhoaAzC4OQzhKFIWhYMYYC4Ng2isbAuDiE4iDKLoTjCF4ijWKxIg6PoXjGFAyCIPg8C+A4Fk0YxpHIYxsGUIBjHiCQxDYIpZHmXJeCAcoJl6TQvlOVZXk2UIGgiCpdhgNB2DIbIyDGTJOm4PoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ2CIIBygyD4JHmDIOCIPg8C+A4FgeGhwGEdBoCAZIME0NwgDIMBIDQYQyioIAwjIIAxC0Mo3FYNYvjGM4zDGKo3GgMwuDmPIwj6NY1C4Ng5kUbAuDiQAxC4MpHjSSZUDYN5FEiK5XlmMQyhmG4hiOIIiiSJgiE2Do1DQdgyGyU5kC+ZhoD6AQ",
         categories = "files,time",
         tags = "history,directory,clock",
         contributors = "karsa-mistmere,jguddas"
@@ -4324,7 +4412,7 @@ pub enum LucideGlyph {
     FolderClock,
     #[cfg(feature = "folder_closed")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlmXIGgiCoUDGD4OliWpfD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIIMGEMoOCCDYUg4LQyFYOIQhKFQwheFxoC0NwuDmG4RhUMQtDELg2DkLYkEwOYsCAM4kEGEYnhOOojDkM40EgNImjqFIXg4dgxDOQodhIMhaCIPg8C+A4FlCU4GgiCoRDEMBogyT5RlYPoBA",
         categories = "files",
         tags = "directory,closed",
         contributors = "karsa-mistmere,ericfennis"
@@ -4332,7 +4420,7 @@ pub enum LucideGlyph {
     FolderClosed,
     #[cfg(feature = "folder_cog")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEOIOGMeYShQPg8C+A4FgeGhwGEdBoCAZILE0MQwC4NQgDIMBIDQYQyi0IAwjUIAxC0Mo6FYNYyjSNo2DGLY6GgMwuDmP4zkGOI4C4Ng5kgbAuDiQwxC4MpKjeTJXDYN5IEiLpalyNAyHaRw1CKGgviGI4giKJImCIbQylcN44lENAtkie4NmubRom+I4lgsbQxDWWI4DafKMn6G6AoKcaFDGiw2i2dguDOew5mqj5wpGhJzDGUZWogMqZpunZsp8PKAqGhpRpadQuDee56DGqqQq2cKvpSVI4oimgureuasq6cqGDSmZ4k+OK2sWbq7oOyIurSiq/jmw7QoGAQA",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEOIOGMeYShQPg8C+A4FgeGhwGEdBoCAZILE0MQwC4MwgDIMBIDQYQyi0IAwjUIAxC0Mo6FYNYyjSNo2DGLY6GgMwuDmP4zkGOI4C4Ng5kgbAuDiQwxC4MpKjeTJXDYN5IEiLpalyNAyHaR4NhoL4hiOIIiiSJgiG0MpXDeOJRDQLZInqaYbmwaJuiOJYLG0MQ1liOA2nui59mub6BnChAxooNotnWK56DkIpqn+kKDnIMZRlahwypiSKbn6jw8n+n6FlGlZ0C4N56nkMaoo6barm+raTlSOKHDOtAtranKqqycaFDSK53k+OK0rena6oKyIurKia+jkLg0tCj4BA",
         categories = "files",
         tags = "directory,settings,control,preferences,cog,edit,gear",
         contributors = "karsa-mistmere"
@@ -4348,7 +4436,7 @@ pub enum LucideGlyph {
     FolderDot,
     #[cfg(feature = "folder_down")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlmXIGgiCgxhQMQwHYNpYlqX5egSYIJG0MQ1i4MwtDORJ1nWaZbm0PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIIMGEMoOCCDYUg4LQyFYOIQhKFQwheFxoC0NwuDmG4RhUMQtDELg2DkLYkEwOYsCAM4kEGEYnhOOojDkM40EgNImjqFIXg4dgxDOQodhIMhaCIPg8C+A4FlCU4GgiCgxhEMQwHYNpPlGVpVgSV4JG0MQ1CCSAtj4M5smyYJSmQPoBA",
         categories = "files,arrows",
         tags = "directory,download,import,export",
         contributors = "karsa-mistmere,jguddas"
@@ -4356,7 +4444,7 @@ pub enum LucideGlyph {
     FolderDown,
     #[cfg(feature = "folder_edit")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4C4NAyCAMQwC4NgxGEMguDEIIXhkMIQh6Fw5DeGguiETA1iQNYQDmGoaDAbIkDkLQzigIInDQMwtjYNBaCIPg8C+A4Fj6QYGgiCoPDEMQuDUVg1GMMAtkqSoxg8MgtDIaIzDkM4WiyHYdhmSg2DaJIvDiSAuDKXYPl8IJghOZA5EgMgwmubp3hmVR2hGdptDGV4aGgLQ5kuPY/kQPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ4C4NAgDEMAuDYYQyC4MQghWFwwg+HIVDkOYYC4OQ4EwNoPDkbAtg6FwxC0M4iFoIg+DwL4DgWM42gaCIKDKDwxC4NRWDWFIYCCG4bhcMgtDIaIvDmRI9keHI/DYOYiGwLg4iwLgylCRpfkiEg3iISAyDCXpSkmGB2hCaJfi2PZMC2Vg1jKNI5D6AQ",
         categories = "files",
         tags = "directory,edit,rename",
         contributors = "karsa-mistmere"
@@ -4364,7 +4452,7 @@ pub enum LucideGlyph {
     FolderEdit,
     #[cfg(feature = "folder_git_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAMgwEgNBhDKDQgDCFQgDELQyhoVg1hKFIWhYMYNhoaAzC4OYfhOIYYhgLg2DmKBsC4OIjDELgyiqF4sjcNg3igSIOjqPIUDIdg1CIPg8C+A4FkoYxpHIYxsGUIBygkMgiCAYx4gkMQzloYx5l6WZKC+UJSlSSpNgaCIKDEOIYDkY4ajSFQtDWdYbnkNR2DiSZLmyT5RlOVZclgMJhmMIgxDmWpXCKZZLmihQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMgwEgNBhDKDQgDCFQgDELQyhoVg1hKFIWhYMYNhoaAzC4OYfhOIYYhgLg2DmKBsC4OIjDELgyiqF4sjcNg3igSIOjqPIUDIdg1CIPg8C+A4FkoYxpHIYxsGUIBjHiCQxDMIpWHmWQylwcoJmCSgvlCUpUkqTYGgiCgxDiGA5GOGo0hULQ1nSG54DUdg4kmS5rk+UZTlWV5jDCYZjlwY5eCIMQ5n+ZqDmmAQA",
         categories = "files",
         tags = "directory,root,project,git,repo",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -4372,7 +4460,7 @@ pub enum LucideGlyph {
     FolderGit2,
     #[cfg(feature = "folder_git")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlkYxpHIYxsGUIBjHmCZOCKZR4mgMpqHKCZulkL5fmGY5ZlyBoIgoMYMk4aAzliWp5niBJ6gkTQ3i4M6AoKW6GD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQzCKCR4gwMQyhAcoMhUPg8C+A4FgeGhwGEdBoCAZIME0MgwCCKRhDKKwgiqMYrC0MhWDiLYvjIMI0jQaAtDcLg5jiLoyDELQxC4Ng5C2QRMDmSQgDOQRBi6RIwleQA5DOURIDSQ5XjGNIrHaDpfjqLwyFoIoaC+IYjiCIokiYIhNDENAgg4aIPmybhonCI4licN54DOeprhufQ+gE",
         categories = "files",
         tags = "directory,root,project,git,repo",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -4380,7 +4468,7 @@ pub enum LucideGlyph {
     FolderGit,
     #[cfg(feature = "folder_heart")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDEIAyDASA0GEMoOCAMIWCAMQtDKGxWDUYwwC0MQuiMOYbg6GxoDMLg5DOE4VheF4NiMNg2iwbAuDiFIjDKL4UjGGI0jYORIg+PoYjKFQyHaIw1CIPg8C+A4FlCU4GgiCgyjwOYZisN4TC4NAzg6YZjkCIQyC4Ng1C0Lg1DIY5tisMYcm4NwuDObQ4m4MxsnINJ4DScpsoGYJimSh5nhuaqEDUM5xniJJ1DWNp5C4Nw5nybQ5DWLKCg2aaOC6FJeDQTAxncNYODEbIrDYLYrDWH48iKo4ziSgppnsMYmqUWpPlGVg+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDEIAyDASA0GEMoOCAMIWCAMQtDKGxWDWE4VheF4NhwMhoDMLg5iCFIihmGQuDYOYpGwLg4g0MQuDKK4Yi2OA2DeKRIg+O49hUMh2jgNQiD4PAvgOBZMk+BoIgoMYoDmGZADQNRjC2OIcl+XguDENIbjULY5C2KA3DOEwuDQM4Om+cZFigNA0haNAzDYLgzDSfZloCbpwnKhJ1m8NZoDAMR2DAY4pDWkIuDILg1DOaIUmsNBMDGQA1g4MRakuTZSD6AQ",
         categories = "files",
         tags = "directory,heart,favourite,bookmark,quick link",
         contributors = "karsa-mistmere"
@@ -4388,7 +4476,7 @@ pub enum LucideGlyph {
     FolderHeart,
     #[cfg(feature = "folder_input")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCAORWDUYwwC0MQuhQOQtgwMoYGgMwuDkMxhhkIAwiMIAxiYLg2DaHhsC4OIMhQMohCCDIkjaKIqh4SAyDCM41iWJ4ZHYMY9iKNwxhiNBIDSPoliSSIaDIdoTCIPg8C+A4FlaWYGgiCowDMaJElWV5cluBJdgkbQ5iYNggDMLZwnKZJYmgPoB",
+        svg = "gAPBwGEdBoCAZA9CITQyCAORWDUYYMgwMAghQMQgDILQyGgMwuDmEYYhWIoXDELg2DmHhsC4OIkC4MoghOIoWiYN4eEgMgwjCMggheEh2DGOYSjsMYahgSA0jqFIWhqGh2C0MQiD4PAvgOBZSlWBoIgqDAxDMaJAlGU5YleBJZgkbQ5jwNggDMLZtm+YZUmUPoBA",
         categories = "files,arrows",
         tags = "directory,import,export",
         contributors = "karsa-mistmere,jguddas"
@@ -4404,7 +4492,7 @@ pub enum LucideGlyph {
     FolderKanban,
     #[cfg(feature = "folder_key")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDAIAyDASA0GEMoOCCDYNDELQyhoVg1GMMAtDELoiDmGoOhoaAzC4OQzhOFYXCAMYxC4Ng2isbAuDiFIiDKLoUjCGI0jYORIg+PoWkiMoUDIdgyCIPg8C+A4FlAYxpHIYxsGUIBjHmCYPCIIByl+YRjHiCQxDaT5RlaWJalCU4GggIhtDKOw0C0NAuDUIJ6DWa5SgQaJwoKB4JnWMgxnyiaAnEPoB",
+        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeILDENoOGMeYLDIMAiD4PAvgOBYHhwcBhHQaAgGSCxNDEMAghkSA0GEMotCCLIsDELQyjgVg1jGM41CAMYtjgaAzC4OY9jKP5BDELg2DmRhsC4OJLC4MpIjSWI2k0N5GEiGZXkqMwyHaDYcC+I4liKJImigIhtDKMgxDQLQ0C4NQgnUNYbh2aBomqJYngub5LneS57meaw+gE",
         categories = "files,security",
         tags = "directory,key,private,security,protected",
         contributors = "karsa-mistmere"
@@ -4412,7 +4500,7 @@ pub enum LucideGlyph {
     FolderKey,
     #[cfg(feature = "folder_lock")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDAIAyDASA0GEMoOCCDYNDELQyhoVg1GMMAtDELoiDmGoOhoaAzC4OQzhOFYXCAMYxC4Ng2isbAuDiFIiDKLoUjCGI0jYORIg+PoWkiMoUDIdgyC4NQiD4PAvgOBZSHIZRjHQIB4gkMQ0CIIByl0IgxmEeZeDeYR3GkZIFgkOJhGgZRpGcaB0gmUJSC+WJalKVYGgiCoPjENx2hqR4YhYLQ0haTZRlOgA+gE",
+        svg = "gAPByGUYx0CAch4D0IgxCIIB3GkZB0GiCg4g0eYKDEN4NGgZRpGcaB0goNYNgmCw0CIPg8C+A4FikcBhhIIBkgoTQxDAIAyDASA0GEMo4CCN43DELQykQVg1j2P5BCAMY4kQaAzC4OZJj6S5NDELg2DmUhsC4OJXC4MpUkCZJClkN5SEiOZjlaPwyHYMguiOKQvi+EoujAaIyjSOZMDcdpEmyTJAC0NJAnCKIqnYaA+gEA",
         categories = "files,security",
         tags = "directory,lock,private,security,protected",
         contributors = "karsa-mistmere,ericfennis"
@@ -4420,7 +4508,7 @@ pub enum LucideGlyph {
     FolderLock,
     #[cfg(feature = "folder_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlkbBpG4ZQgHkMYJk4IggHiZQiDmaB5DKZgzmgeJwCIMQ1liWpfmEPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMQzGgNgiD4PAvgOBYThaBoIgoMgwCCHRhDKHwgh6JYfC0MhWDiIYjiYMIoigaAtDcLg5iyIomDELQxC4Ng5C2NRMDmPQgDONRBiKOIkkuNA5DORRIDSN5LiWKIfHaDpTi6IwyFqEoUhkPoBA",
         categories = "files",
         tags = "directory,remove,delete",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -4428,7 +4516,7 @@ pub enum LucideGlyph {
     FolderMinus,
     #[cfg(feature = "folder_open_dot")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ2CAMQ0g0Lg0DULQyC4ORBDIIIZDAIIcDEIA5C4MoPDEMBIDIMBhhmG4dg2EA5g+FQ1GwLQxC4NQ1CANoqhqLYejWFokjcSA0jyLI/DKFBWDUYwwkCNg5hSGoUGgM4WDORo+i6Ng2DaFhsC4OIZjYMpZhyZ4Ql2FhIDEOJmi2H4rHYMgiD4PAvgOBZ2GMaRyGMbBlCAYx5gkMQ1CIIByoWiBjHihQ0nWd58n6gA+gE",
+        svg = "gAPBwGEdBoCAZA9CIbQ2CAMQ0g0Lg0DULQyC4ORBDIIIZDAIIcDEIA5C4MoPDEMBIDIMBhhmG4dg2EA5g+FQ1GwLQxC4NQ1CANoqhqLYejWFokjcSA0jyLI/DKFBWDUYwwkCNg5hSGoUGgM4WDORo+i6Ng2DaFhsC4OIZjYMpZhyZ4Ql2FhIDEOJmi2H4rHYMgiD4PAvgOBZ2GMaRyGMbBlCAYx4gmDgioIeaFDWhxyoWdZ3nyfqAD6AQA",
         categories = "files,development",
         tags = "directory,root,project,active,current,pinned",
         contributors = ""
@@ -4436,7 +4524,7 @@ pub enum LucideGlyph {
     FolderOpenDot,
     #[cfg(feature = "folder_open")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ2CAMQ0g0Lg0DULQyC4ORBDIIIZDAIIcDEIA5C4MoPDEMBIDIMBhhmG4dg2EA5g+FQ1GwLQxC4NQ1CANoqhqLYejWFokjcSA0jyLI/DKFBWDUYwwkCNg5hSGoUGgM4WDORo+i6Ng2DaFhsC4OIZjYMpZhyZ4Ql2FhIDEOJmi2H4rHYMgiD4PAvgOBQ+gE",
+        svg = "gAPBwGEdBoCAZA9CIbQ2CAMQ0g0Lg1C0MguDkQQyCCGAwCCGwxCAOQuDKDwxDASAyDAYYYhqHINhAOYPhQNRsC0MYRg8NophmLIdjSFQ1hANRIDSOYrjwMoTFYNZEjuLZHDIaAzhWS4bh2EA2iAORsC4OIejUMpTkyNQ2DeFRIDEOJglWKh2DIIg+DwL4DgUPoBA",
         categories = "files",
         tags = "directory",
         contributors = "ericfennis,karsa-mistmere"
@@ -4452,7 +4540,7 @@ pub enum LucideGlyph {
     FolderOutput,
     #[cfg(feature = "folder_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlkbBpG4ZQgHgMYJDEMgimMMpmmgIB5mUIgxDCaR5mucQ2liWpfmGXpgmKZIJDmaR4nYMQ1nScJOnShQznkL57GUPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAxDAdg2CIPg8C+A4FhSF4GgiCg5g4MxohKFIWgQaIZiWB4JE0MgwCCLBhg2DYtjOLgtDIVg4jCLggjQMI2jYaAtDcLg5jqMo8g4LQxC4Ng5C2RBMDmTAgDORBBjGSI0kMOQzlQSA0kaWY8jaLh2DEM5hj2OwyFqE4VhoPoBA",
         categories = "files",
         tags = "directory,add,create,new",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -4468,7 +4556,7 @@ pub enum LucideGlyph {
     FolderRoot,
     #[cfg(feature = "folder_search_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlkYxpHIYxsGUIBjHmCQxDILg1CIIBygmapsmUeJojGbJZC+X5hmOWZcgaCIKk4LgyDeLg0oOhQxDWLg2liWp+D6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyC4NQiCAcoMg+EYJHiDAxDGEAiD4PAvgOBYHh8cBhHQaAgGSDBNDIMAgi4YQyjAIIvjaMAtDIVg4jKNI3DCOY5GgLQ3C4OY9jONwxC2HA2DkLZGEwOQuDYIAzkYQYzkmNZckUOQzlYSA0kiXI2jmMB2DEM5kj+NAyFqHogiaKIlieKYrCITZqC6YAxDSfAgDENaBDacQvnMaA+gE",
         categories = "files",
         tags = "directory,search,find,lost,browser",
         contributors = "karsa-mistmere"
@@ -4476,7 +4564,7 @@ pub enum LucideGlyph {
     FolderSearch2,
     #[cfg(feature = "folder_search")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDEIAyDASA0GEMoOCAMIWCAMQtDKGxWDUYwwC0MQuiMOYbg6GxoDMLg5DOE4VheF4NiMNg2iwbAuDiFIjDKL4UjGGI0jYORIg+PoYjKFQyHYNAiD4PAvgOBZPGMaRyGMbBlCAcoJDMIggGMeYJDEN5fGMeJjmWTwvlWV5Zk+UoGggIhtDKDZ2iILg1nkNZOlCcQ+gEA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ3CKCR4gyDoQHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0MQwC4NwgDIMBIDQYQyi0IAwjUIAxC0Mo6FYNYyjSNo2DGLY6GgMwuDmP4zkGOI4C4Ng5kgbAuDiQwxC4MpKjeTJXDYN5IEiLpalyNAyHYNAuDGGYbiGI4giKJImCIbQykOdQtlcNZ4C4NZrC+bRoD6AQ",
         categories = "files",
         tags = "directory,search,find,lost,browser",
         contributors = "karsa-mistmere"
@@ -4500,7 +4588,7 @@ pub enum LucideGlyph {
     FolderSync,
     #[cfg(feature = "folder_tree")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDMIAxDAaA3GEMYOCAMIWhgMQtDEVg2hOFYXiGG4bGgLQyC4NYfhSIYOC0Lg4i4NBsi4OYbC4MhBhSK4YhcMQ1CAM4lDKKo8haG4OHaKY6kWPYOFoIg+DwL4DgWUZUgaCIKgwIAyDGEZEiyPYbHYLQzmCPIjl6JovDiZ5iC6NYoDWMwuDQNI0m6Rpwi4NQ1EiDJ5DCRwxkmgYVDGT5RlOBBolajIHgkTYNDMdgyGOPQuDGcJcpwMhoDOUJSlejoFpCCqTHaDKXg6mabDKnafqGi5VgEA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIAxDAYQxg4IINhWDgtDEVg2hGE4WDCGIYGgLQyC4NYchKFgxC0Lg4isNBsisOYYC4MhBhKKIUjkMQ1CAM4iDKJ45hWGIOHaJo3kKOoOFoIg+DwL4DgWTpRgaCIKgwIAyDGQYehcMR2C0M5ckKIAxj8Lg5mODYqiyLYlDWMAuDQMorDiR4dmSaJ0C4NhIDGYpIh6RJfneOIpkuTZPlSU4ElWCRNDMIImDKWZJg2lAyGgM6JlCjaMgWB6PpEMx2n8YaYpalaZpuTqdlKAQ",
         categories = "files",
         tags = "directory,tree,browser",
         contributors = "karsa-mistmere"
@@ -4508,7 +4596,7 @@ pub enum LucideGlyph {
     FolderTree,
     #[cfg(feature = "folder_up")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlmXIGgiCgxhQMQwHYNpYlqX5egSYIJG2VJOkQLQzkSRJplubQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIIMGEMoOCCDYUg4LQyFYOIQhKFQwheFxoC0NwuDmG4RhUMQtDELg2DkLYkEwOYsCAM4kEGEYnhOOojDkM40EgNImjqFIXg4dgxDOQodhIMhaCIPg8C+A4FlCU4GgiCgxhEMQwHYNpPlGVpVgSV4JG0OQgkiNAtj6bZglKZA+gE",
         categories = "files,arrows",
         tags = "directory,upload,import,export",
         contributors = "karsa-mistmere,jguddas"
@@ -4516,7 +4604,7 @@ pub enum LucideGlyph {
     FolderUp,
     #[cfg(feature = "folder_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FlmXIGggIhtDkLg1i4MJlCCZg1liWpfl6BJggkbQxDSaQxmgNQtmubZbnEPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIIMGEMoOCCDYUg4LQyFYOIQhKFQwheFxoC0NwuDmG4RhUMQtDELg2DkLYkEwOYsCAM4kEGEYnhOOojDkM40EgNImjqFIXg4dgxDOQodhIMhaCIPg8C+A4FlCU4GggIhtjINQgDEMAulyYZPlGVpVgSV4JG0MQ0mCXZfDULZilCUpnD6AQ",
         categories = "files",
         tags = "directory,remove,delete",
         contributors = "karsa-mistmere,jguddas"
@@ -4524,7 +4612,7 @@ pub enum LucideGlyph {
     FolderX,
     #[cfg(feature = "folder")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgwGgMQ2GEMoNCAMIWhgMgtDIVg4hOFYXiGG4bGgLQ3C4OQzh+FIhCAMQtDELg2DYLYoGyNQ4hqMQyEGFIshiF4nikIAzEgNIrkCFobg0dgxDMY4XjGMQ5hWPhaCIPg8C+A4FD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIIMGEMoOCCDYUg4LQyFYOIQhKFQwheFxoC0NwuDmG4RhUMQtDELg2DkLYkEwOYsCAM4kEGEYnhOOojDkM40EgNImjqFIXg4dgxDOQodhIMhaCIPg8C+A4FD6AQ",
         categories = "files",
         tags = "directory",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -4532,7 +4620,7 @@ pub enum LucideGlyph {
     Folder,
     #[cfg(feature = "folders")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMQ3GgMQyGEMgghQMAgheFwyC0MhWDmE4VhiIgwhyHBoC0MwuDkM4ghaIgxC0MQuDYNgtiobI2DiG4yhKFIuhmMYzjWKhIDiLYjhiHIVHYORjheMoyDmIY+FoIg+DwL4DgWV5agaCIKhQOB2DEMZOg0LpRlOFYQDSVpYl0PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIAxDcYQyCCEoNhWEwtDIVg5hGEwghYMIYhgaAtDMLobhKFIeg4LQxC4Ng5C2JhsjEOAxiwLgyhyKYVjcNg3jEORIDiOoqjyKB2ieHYfh0MhaCIPg8C+A4FlCU4GgiCoSDgdgxDGRJLigaAxDST5RlYPoBA",
         categories = "files",
         tags = "multiple,copy,directories",
         contributors = "karsa-mistmere,jguddas"
@@ -4548,7 +4636,7 @@ pub enum LucideGlyph {
     Footprints,
     #[cfg(feature = "forklift")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIIMEgNRhg2DQwCCFQwC2Ex2DUIg+DwL4DgWHhjGkchjGwZQgGMeIJDEMwiioeYtDmMBygkModh+JImiiI4lieKYrgmHAgjYIo4jGM45C+O5Ah6IYGgiCg4g4ORoDMbQ1C0MQ3HaXBoDYTQ2g4MhWDcY4YDELpqDmGQgDKGZXGwNQghyHoggQaA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIIMEgNRhg2DQwCCFQwC2Ex2DUIg+DwL4DgWHhjGkchjGwZQgHKCQyCIIBjHiCQxDOLhjHmMg5h2H4kiaKIjiWJ4pisIoti+NwiDGOYvjEIoch4L48kGHohgaCIKDiDg5GgMxtDULQxDcdpgGgNhNDaDgyFYNxjhgMQum4OYZCAMoZlsbA1CCToflQPoBA",
         categories = "transportation",
         tags = "vehicle,transport,logistics",
         contributors = "ericfennis"
@@ -4556,7 +4644,7 @@ pub enum LucideGlyph {
     Forklift,
     #[cfg(feature = "form_input")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINgiCAch4gkMoMg8IoRCAdxpGQdBohAMIMGgZRpGcaB0gkMYRD4PAvgOBYoHAYYaCAZIJE2JggiYaAuDAMQiigL4uhqLYvGiMYzDEN42DKOI6jyKY/GiQYwjIIhNkeN45juPZOD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMgiCAeYODaEh4g6EQgHcaRkHQaIZDCEhyhgIoRD4PAvgOBYoHAYYfCAZIOE2EAghAaAuDAMQiigL4uh+LYvGiMYzDEN42DKOI6jyKY/GiQYwjIIhNkeN45juPZOD6AQ",
         categories = "text",
         tags = "2fa,authenticate,login,field,text",
         contributors = "mittalyashu,ericfennis"
@@ -4572,7 +4660,7 @@ pub enum LucideGlyph {
     Forward,
     #[cfg(feature = "frame")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0Ig2CIIB4gkIgyDKDR4DKCoTgeFoLCIPg8C+A4Fh2IIGg+F4YhWF4NgiCgxDiKoai2HIeiOIoEiSGoMgeEIYHmGoShSEIMh2H42jWBY6imDoQjGGYmhSMIukONIB",
+        svg = "gAPBsGkbhlCAeQxD0Ig2CIIB4gkIgyDKDR4DKCoTgeFoLCIPg8C+A4Fh2IIGHmGgxDiDYIgqJ4UhqGIPheE4dh+BBliKNYOhCDIHhCL4ajuJYxhyHojjeBY5iuKIZkKPIXi2SZDjSIYB",
         categories = "design,photography",
         tags = "logo,design,tool",
         contributors = "Bowero,karsa-mistmere,ericfennis"
@@ -4588,7 +4676,7 @@ pub enum LucideGlyph {
     Framer,
     #[cfg(feature = "frown")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0MQ2CCKRzC0MQuDULQyC0NIyjQIIzDSOIZhuIYjhobBpG6CB4DGDA5hAeAykcLgwDGEB5kYIpICAeZLlOPAvkGQ5AkKRJSDENZJleYZNk+VZSlSVpHlmWxlD6AQA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQxDYIIqHMLQxC4NQtDILQ0jONQgjQNI5CKGwviKJIbGwaRuggeAygwOQuDAMYQHgMZJhAeZQCIOZSkiVY9hyQ5FkKRJGlgMQ1kuTQglOUZmliVggk+Ew1loL5cGUPoBA",
         categories = "emoji,account",
         tags = "emoji,face,bad,sad,emotion",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -4596,7 +4684,7 @@ pub enum LucideGlyph {
     Frown,
     #[cfg(feature = "fuel")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgzCIIB5gkIgyDKDR4DKCgxDWDR5haEYTD4PAvgOBYfiKBoVhcNIahAOYUhCKYOhyLIfiGBBlh8cBhHQaAgGSChNDENAghIVg0GEMpCCAMJJkkLQyk0SA2kaSJKlSTZCHYMQ4CKM44jqN45juPQij+QQxDMaAylKR5UCAMZIDIdppkea5LkqcxoDCap1kuTgyFYOQuDgM56mwMAtC4NQ5C0MQuDQMhMlkIIZlyYA+gE",
+        svg = "gAPBsGkbhlCAeAxD0IgzCKBwygoMQ1g0eYJCIMgyhOD4WhgPg8C+A4Fh2IIGHmGg5g2CIKDSE4VieDoQiuHYfgQZYdHAYR0GgIBkgoTQxDQIIXFYNBhDKQQgDCSJIC0MpMEgNpFkeSZTkyQR2DEOAijKN45jaOI6jwIo+kAMQzGgMpRkaUwgDGRwyHaaJGmqSpJnIaAwmmdJKk0MhWDkLg4DOeZrDALQuDUOQtDELg0DITJYCCEpbl8PoBA",
         categories = "transportation,maps",
         tags = "filling-station,gas,petrol,tank",
         contributors = "karsa-mistmere,ericfennis"
@@ -4604,7 +4692,7 @@ pub enum LucideGlyph {
     Fuel,
     #[cfg(feature = "fullscreen")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCANxWDUYQyCCEgwCCFQxhMLQyGgMgiD4PAvgOBYfiKBoIgoMQ3CAM4chGE4WjCGISDIdodh+IYEGiJI5geCRNDKGIpjWLoUjGGoTGiGoeiCJY7gWPYKiqQBIhCM4wheGoaHaSo3k0PByGUYx0CAeYJDgIggHiCQ3mgcpqCIMZoGgZRpGcaB0maaB3GkZIFgkMQwksL5gmIPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQzCANxWDUYQyCCEgwCCFQxhMLQyGgMgiD4PAvgOBYfiKBoIgoMQ3CAM4chGE4WjCGISDIdodh+IYEGiJI5geCRNDKGIpjWLoUjGGoTGiGoeiCJY7gWPYKiqQBIhCM4wheGoaHaSo3k0PByGUYx0CAch4gkMQiCAaBlGkZxoHSCQ4mkdxpGSBZnDCaR5nGaZmCIN5LC+YJiD6AQ",
         categories = "layout,multimedia,design,photography",
         tags = "expand,zoom,preview,focus,camera,lens,image",
         contributors = "danielbayley"
@@ -4612,7 +4700,7 @@ pub enum LucideGlyph {
     Fullscreen,
     #[cfg(feature = "function_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHmCoRCAaBlGkZxoHSCgxDiDR3GkZB0GiHYfgeE4LCIPg8C+A4FiwcBhiQIBkgoTQ5CAMQ3GMMggDAIAyC4OAtDGQZDC2Qg4FYMQwGMMJJjoLQzC4MwglQMpTiuLYyiSMYzGiNY3jkMQxC4MhoDULg3lsL5dGgPoBA",
+        svg = "gAPByGUYx0CAch4D0IgyCKBx5gqDAgGgZRpGcaB0goMQ4g0dxpGQdBohmGwggkIgzg2D4mCIPg8C+A4FiwcBhiAIBkgoTQ5CAMQ3GMMggDAIAyC4OAtDGQZDC2Qg4FYMQwGMMJJjoLQzC4MwglQMpTiuLYyiCMYzGiNY3jkMQxC4MhoDULg3lsL5dGgPoBA",
         categories = "development,shapes,maths",
         tags = "programming,code,automation,maths",
         contributors = "mittalyashu,ericfennis"
@@ -4620,7 +4708,7 @@ pub enum LucideGlyph {
     FunctionSquare,
     #[cfg(feature = "gallery_horizontal_end")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCANx2DEMAiD4PAvgOBYThaBoIgoNggDWDw0hKFIZhMchlGMdAgHcaRkgWCQxDIIggGgZRpGcaB0i8OIyHiL4RCAco9CKMQgHmCQziIL4migPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyCANx2DEMAiD4PAvgOBYThaBoIgoNggDWDw0hKFIZhMchlGMdAgHIeIJDIIggiwIoQi8aBlGkZxoHSCQxDiLx5gkM4vHcaRkgWO4uhML4migPoBA",
         categories = "layout,design,development,photography,multimedia,files",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio,history,versions,backup,time machine",
         contributors = "danielbayley"
@@ -4628,7 +4716,7 @@ pub enum LucideGlyph {
     GalleryHorizontalEnd,
     #[cfg(feature = "gallery_horizontal")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCAMx2DEOAiD4PAvgOBYTHIZRjHQIByHiCQyCIIB5gkM4iHcaRkgWCQxiEIBoGUaRnGgdIshEIIfCINoShSGYbhOFoGgiCgygyDoQjyFYEGgPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyCAMx2DEOAiD4PAvgOBYTHIZRjHQIB4gkNgiCAaBlGkZxoHSCYQiEeYJDOIRyh4IgyiEdxpGSBYpjOEwvhmG4ThaBoIgoMoMg6Ko7kAPoBA",
         categories = "layout,design,development,photography,multimedia",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio",
         contributors = "danielbayley"
@@ -4636,7 +4724,7 @@ pub enum LucideGlyph {
     GalleryHorizontal,
     #[cfg(feature = "gallery_thumbnails")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gweIJgsIBoGUaRnGgdITDSDByhcIgyCIPg8C+A4FikcBhhEIBkgkTQ0CAMgxGgMYoiqL4Ri6MBojKNA5jeOY7ikL4+GiQIxjMIhNDGNo4jqPJKkGTZCk+UZFlSSI9liAQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAcoICIMoMHmCYLCAdxpGQdBogkMQ4gwaBlGkZxoHSHA0CIPg8C+A4FikcBhhoIBkgkTQ0CAMgxGgMYoiqL4ai6MBojKNA5jeOY7ikL4+GiQIxjMIhNDGNo4jqPJKkGTZCk+UZFlSSI9liAQ",
         categories = "layout,design,development,photography,multimedia",
         tags = "carousel,pictures,images,album,portfolio,preview",
         contributors = "danielbayley"
@@ -4644,7 +4732,7 @@ pub enum LucideGlyph {
     GalleryThumbnails,
     #[cfg(feature = "gallery_vertical_end")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ3CAMhoDEMAiD4PAvgOBYThaBoIgoNQgDaDw0hKFIZhMchlGMdAgHIeIJDIIggiwIgzi8aBlGkZxoHSCQxi4IB5juEQgHcaRkgWOw4iIL4migPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ3CAMhoDEMAiD4PAvgOBYThaBoIgoNQgDaDw0hKFIZhMchlGMdAgHiCQzCIIB3GkZIFgkMQ4i4aBlGkZxoHSNAyi4eY0hEIByisIo/hML4migPoBA",
         categories = "layout,design,development,photography,multimedia,files",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio,history,versions,backup,time machine",
         contributors = "danielbayley"
@@ -4652,7 +4740,7 @@ pub enum LucideGlyph {
     GalleryVerticalEnd,
     #[cfg(feature = "gallery_vertical")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCAMhoDEOAiD4PAvgOBYTHIZRjHQIB3GkZIFgmEAiCAeIJDOJBoGUaRnGgdIiDKJByiYIoxCAeYJDaEoUhmG4ThaBoIgqDAyg6I4ThWBBoD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQzCAMhoDEOAiD4PAvgOBYTHIZRjHQIByHiCQyCIIB5gkNoiGgZRpGcaB0gkMYhCAdxpGSBYuhEIIfCIM4ShSGYbhOFoGgiCoMDKDoQjyFYEGgPoBA",
         categories = "layout,design,development,photography,multimedia",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio",
         contributors = "danielbayley"
@@ -4660,7 +4748,7 @@ pub enum LucideGlyph {
     GalleryVertical,
     #[cfg(feature = "gamepad_2")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgxDEIggHiCYLDCDh5DGCoMg4eIWCINgiD4PAvgOBYfiKBoVgoOYUhEMQzhmGw4hmEYwh+IYEGWJI2geKwyjGFw1C4MINgeGwxjyD5EDWHogiWOIFkeF4wkOF4TjqU49gsOJAg2NJMDwcBhHQaAgGSChNDENwuDMMggDUSA2C4Ng4GENAgnQMAgncMAtDMLg5DcOAgnwNQ5GMLZADCbwwDUMqGkELgxkGjZno+ixDDKcAwnQOQuDQMQ2CCawxDSnA1p+oQ2GEM6BnirJ3qoMxjDGrAxC4NaGDWoAtDEbK0p0NK6pyohBmua55CCsqbDgMqAp4aKjDMNA0GGxKtsex7BqMNQ4DYTJnscOBjrWtbWrKoapquxqunsY56rQNQ0ramK/m+2q/nAOK2mgMrao0MA3o28ZBDGhsDlq/6UDEQZ0na1aTmqbB6koL5fmEPoBA",
+        svg = "gAPBsGkbhlCAeQxD0IgxDEIoHDKCoMg4eIQgsMITgkIg2CIPg8C+A4Fh2IIGgiCg5hiCg4g4eYVDEM4ThWKodh+BBliKNQgHiGQxDWK47DKMIRDULgwg2D4RkCM4jjeBY5juKoHjuF5HhaQYLDiRINkqNYdHAYR0GgIBkgoTQxDcLgzDIIA1EgNguDYOBhDQIJzDAIJ2DALQzC4OQ3DgIJ7DUORjC2RAwm4MA1DKhZFC4MZFoyZqOooQwym8MJzDkLg0DENggmoMQ0psNaeqANhhDOgJ3qudqpDMYwxqsMQuDWhQ1p8LQxGys6cDSuabqEQZqmqeAgrGmg4DKf6dGiogzDQNBhsOrLGsawKiDUOA2EyZrGDgY60rS1axqCqKqsWrZ6GOeazDUNK1pevputmvpvDitZnDK2aMDAN6MvCRQxoXApZv6kwxEGc51tSkppmseoch6XpgD6AQ",
         categories = "gaming,devices",
         tags = "console",
         contributors = "ericfennis,csandman,johnletey"
@@ -4668,7 +4756,7 @@ pub enum LucideGlyph {
     Gamepad2,
     #[cfg(feature = "gamepad")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgxDAIoHDGCg2g4eYJgsMoThCFgiD4PAvgOBYch+Bh4hkOIOgiComCAeYZgyE4VDENIbh2IohgSI4wDULgwDGGIKDEM4ni0NYvj+QYch6N42gWD4/iqLI/j2B4wDiO5ShSUYzkmIA8HIZRjHQIBoGUaRnGgdI/hcIByHiCpqHmEYOHcaRkHQaJug2B5ulqXpgD6AQ",
+        svg = "gAPBsGkbhlCAeAxD0Ig2CIIB5gkIgxDKDR5DKCoSg0eIWhEMAiD4PAvgOBYfiKBoagoOIZhCKYOhsMQ0hSEAxh2H4hgQZYkjeB4uDULgwDGMYXDOFIukOB4yDWHogiWOYFjuFw4j6QJHlCRIXlOD5XkqNojDwchlGMdAgGgZRpGcaB0heE4OgqDAgHIeIKmsdxpGQdBonKHYHnKW5fmEPoBA",
         categories = "gaming,devices",
         tags = "console",
         contributors = "ericfennis,johnletey"
@@ -4676,7 +4764,7 @@ pub enum LucideGlyph {
     Gamepad,
     #[cfg(feature = "gantt_chart_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeYJgsIByggIgyCIPg8C+A4FikcBhhEIBkgkTQ5CAOBoDeKIqi+EYujAaIyjQOAgDEMhoDaOwvj0aI/jGMwiE0MQxkUNhoDWSpMD6AQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAaBlGkZxoHSCQxDiDByggIgygweYJgsIB3GkZB0GiFIWD4PAvgOBYoHAYYkCAZIJE0OQgDgaA3CKKAvi6JIti8aIxjMOAgDEMhoDaOopj0aI/jCMgiE0MQxkUNhoDWSo8kAPoBA",
         categories = "charts,time,development,design",
         tags = "projects,manage,overview,roadmap,plan,intentions,timeline,deadline,date,event,range,period,productivity,work,agile,code,coding,toolbar,button",
         contributors = "danielbayley"
@@ -4692,7 +4780,7 @@ pub enum LucideGlyph {
     GanttChart,
     #[cfg(feature = "gauge_circle")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDULg2CAMguDcYQxDAIIVCCFgxhkIINDeHYSCIPg8C+A4FiMYxpHIYxsGUIBjHiCQxDIIggHKCY0i8eYyjSIwvimK4tiOJoGgiCgxDMLg0hcMIOhcOYdiKJJED6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDULg2CAMguDcYQxDAIIVCCFgxhkIINDeHYSCIPg8C+A4FiMYxpHIYxsGUIBjHmCQxDIIggHKCY0i8eIyjSIwvimK4tiOJoGgiCgxDMLg0hcMIOhcOYdiKJJED6AQ",
         categories = "account,transportation,sports,science",
         tags = "dashboard,dial,meter,speed,pressure,measure,level",
         contributors = ""
@@ -4732,7 +4820,7 @@ pub enum LucideGlyph {
     Ghost,
     #[cfg(feature = "gift")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSCQ0gwcoICIMYMHmCYVD4PAvgOBYoHAYYRCAZIJE0MQyCAOB2DGC4oC+LoRi2LxojGMwxDkII1HYNxhjaNgwCCTgxC2TBIkqTJPleUQylIdgtDcIo8j4aJAjCMgiE0NwuDWN5LmkIAym2TpQk8LQ1EENAuDiN5XnKNZrneeZ5nGRwgncNZ0m6bZvmqggxlcNZfimYQ+gE",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDQIggHiDgzhEeYODiERyhMIgxhEdxpGQdBog4MYZD4PAvgOBYoHAYYjCAZIOE0MQyCAOB2DGFYoC+Loji2LxojGMwxDkII1HYNxhjaNgwCCTgxC2TBIkqTJPleUQylIdgtDcIo8j4aJAjCMgiE0NwuDWN5LmkIAym2TpQk8LQ1EENAuDiN5XnKNZrneeZ5nGRwgncNZ0m6bZvmqggxlcNZfimYQ+gE",
         categories = "gaming,account",
         tags = "present,box,birthday,party",
         contributors = "colebemis,csandman,ericfennis,jguddas"
@@ -4742,71 +4830,119 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ2CAMx2DEMgiD4PAvgOBYThaBoIgoMQ4CAORhDODQgDAIAxiSJAtgyIoiiWLooDYeoShSGYYgSGoJgsIAyDGIYjiWJ4uiqI4tiiL4xjOFY3jaBYHjkMQ1CANhhDmH5GimVQ5kmNYCjeToch6UB2DaW5Ll2TYbE2PImDgaIqmWF4BA",
         categories = "development",
-        tags = "add,create",
+        tags = "add,create,+",
         contributors = "mittalyashu,ericfennis"
     ))]
     GitBranchPlus,
     #[cfg(feature = "git_branch")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgxDUIggHiCQiDaDh5DGCgzg4eIWhIIg+DwL4DgWHhjGkchjGyBhjHiCgxDiDhjHmCoTCAcoXh2H4kiaKIjiWJ4piuHI0jYIIwiyLoeC+OY+h4cBhHQaAgGSChNi0IA5GEOZWCAMJbCAMQtlkOY3C+TZPD6AQ",
+        svg = "gAPBsGkbhlCAeAyD0Ig2CIIB5DGCgzg0eIQguDR5gkIgxDUIg+DwL4DgWHhjGkchjGyBhjHmCoMCAYx4goMQ4g0coRh2H4kiaKIjiWJ4GjUIoSi6MIWi6K4ajOHgvjmPoeHAYR0GgIBkgoTYyCAORhDmWAgDCXQgDELZbDmNwvk+UQ+gEA",
         categories = "development",
         tags = "code,version control",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     GitBranch,
-    #[cfg(feature = "git_commit")]
+    #[cfg(feature = "git_commit_horizontal")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEMoOGMeYShQPg8C+A4FgeGhsGkboIHkMYYg4eQyicIB4iaDIOHiKgiDkIoaC+IYjiCIoIjGCwyDGMIuDENYokKFAgimJ42jgZQ+gE",
-        categories = "development",
-        tags = "code,version control",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEMoOGMeYShQPg8C+A4FgeGhsGkboIHgMYLg0IB4DKCw5g4eYmCKE4uiuMYZhuIYjiCIoIi+GIOiqCwyDGM4+imMAxDUIoaC+OBlD6AQ",
+        categories = "development,maps,navigation",
+        tags = "code,version control,waypoint,stop,station",
         contributors = "colebemis,ericfennis,johnletey"
     ))]
-    GitCommit,
+    GitCommitHorizontal,
+    #[cfg(feature = "git_commit_vertical")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAzHYNgiD4PAvgOBYTGMaRyGMbBlCAYx5gmDAih8eIiDKJBygkM4ShSGYbh2E4WgaCIKgwIAxDWEIthWBBoD6AQA",
+        categories = "development,maps,navigation",
+        tags = "code,version control,waypoint,stop,station",
+        contributors = "danielbayley"
+    ))]
+    GitCommitVertical,
+    #[cfg(feature = "git_compare_arrows")]
+    #[strum(props(
+        svg = "gAPBjGkchjGwZQgGMeQ9CINgigkeIMDWDxygwMwiD4PAvgOBYHhkcBhHQaAgGSDBNDEMggDYaA1GGKYpDAIIxDEIIvHYN4YhqIIih+IYjiUIhtDENQgDkLQzkcIJIheGQvjsaIZhyBoIGOEQiDEOYPgqDAxDiFIWjmG4ElOPYiiSJooCCXRIDeLo1jKcAxC0MpzFaWZNk+ZY/gwbQ5mqRAzkqSZMjqPg+gE",
+        categories = "development,arrows",
+        tags = "code,version control,diff",
+        contributors = "danielbayley"
+    ))]
+    GitCompareArrows,
     #[cfg(feature = "git_compare")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQ4CIIBygwM4QGMeYMg4Ig+DwL4DgWB4bh6BoIhIIoUgmCwiDaFYXiqGociKIA8HAYR0GgIBkgwTQxDMIA2GgMxhDIIJDDAIJGDGRJEHYN4vC+NI2huUI3jkIo7kmDhIDiQpKkaSAtDKYBWDmTpTD6AQ",
-        categories = "development",
-        tags = "code,version control",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDEOIOGMeIShQPg8C+A4FgeGodgaCIWgsNoVhEIomgmC4NhqHIEiKGhwGEdBoCAZILE0MQzCANhoDMYQyCCQgwCCRQxkOQx2DcIoujONYyjSNo4CKOpIhMSA4kGSZFkcLQyl8Vg5k2G5PGgPoBA",
+        categories = "development,arrows",
+        tags = "code,version control,diff",
         contributors = "karsa-mistmere,ericfennis"
     ))]
     GitCompare,
     #[cfg(feature = "git_fork")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQ4hAcoMDMIg+DwL4DgWB4bh6BoIGOEgiDaEIKgyKAghcIoZhuHYEiOIYzgeCYLg2FYRiuFoYhqHIiiAPBwGEdBoCAZIME2FAgDkdgxGEMgglMMAglYMQtlMMhIDiUpUleYZZDKWhWDmQAvkWR4bmqSJKCKTJTg4dowhybQ+gEA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ4CIIBygwM4QGMeIMDEMgiD4PAvgOBYHhyH4GgiFoMDaFYLCKKIRhOG4diOIYCgSJIJiqLImg2D4tCKFIch6NIyHAYR0GgIBkgwTYOCAOR2DIYwwCALg2C0Lg0CAMQtDGWBIDcY5VDYIAwlqVQ0mQMRWDmLwvkORYcm2RpICKSgylgMh2j6HZwD6AQA",
         categories = "development",
         tags = "code,version control",
         contributors = "ericfennis"
     ))]
     GitFork,
+    #[cfg(feature = "git_graph")]
+    #[strum(props(
+        svg = "gAPBjGkchjGwZQgGMeQ9CINgiCAcoMDODxjHiDA1CIPg8C+A4FgeGhwGEdBoCAZIME0NQgDkdoOhoL4hiOGodgaCIKgwMQ4g+EQihOCYWCKGIujOHw8jCJImCITQxDIIAzHaOIZhuRoygSNIQhKFI/DEOYUguDZRhyVZEkaJYnDENggDENQuDcQQ5ioIAwnGc5biqYJTgEA",
+        categories = "development",
+        tags = "code,version control,commit graph,commits,gitlens",
+        contributors = "danielbayley"
+    ))]
+    GitGraph,
     #[cfg(feature = "git_merge")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ4CKCR4gyDoQHKDAzCIPg8C+A4FgeGodgaCIKgwNoVheEBjhIIomhqHIEiKGhwGEdBoCAZIME0NggDIMRWDkYQ5CCQgwCCRZFkIOYZhuM41D6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ4CKCR5gyDoQHKDAzCIPg8C+A4FgeGodgaCIKgwNoQGOEgiiYIIWCKGIahyBIihocBhHQaAgGSDBNDYIAyDEVg5GEOQgkQMAgkeR5EDmGYbjWNw+gEA",
         categories = "development",
         tags = "code,version control",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     GitMerge,
+    #[cfg(feature = "git_pull_request_arrow")]
+    #[strum(props(
+        svg = "gAPBjGkchjGwZQgGMeA9CINQiCAcoMDODxjHmDA2CIPg8C+A4FgeGhwGEdBoCAZIME0NQgDkdgxDKGYbiGI4ah2BoIhWDAxDiD4RCKE4JgsIgxDmL4cgSNYgiKJImCIbQxikOQtDOUQglKE4aC+MRokiI4lieLQgDYaA1GEMggmUMAgmgMZmmYdg3kSWQ+gE",
+        categories = "development,arrows",
+        tags = "code,version control,open",
+        contributors = "danielbayley"
+    ))]
+    GitPullRequestArrow,
     #[cfg(feature = "git_pull_request_closed")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQ4CKCR5gyDoQHKDAzCIPg8C+A4FgeGodgaCIKgwNoQGOEgiiYIIWCKGIahyBIihocBhHQaAgGSDBNg4IAxDELg1FYMQ1hmG41jeNI2jiOgiG0MgxCAMwtDYIImjCSBokqN45gyT5RDmVJUkYL5ZhobBpG6CB4DKJYQHgMZuCAeZtCKUIQHmcQiDmZJomoPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CINgiCAcoMDODxjHmDIOD4PAvgOBYHhkcBhHQaAgGSDBNDYIA5HYMQyCKGQviCIofiGI4lCIbQyDEIAzC2KIYhqMRojOIokgyOI6DmPY9i6QI0kONYmDEOAgDEMQuDUVgxDWTIwk6AoEgaCIKgyUoUhYIplhCEpchyYQ+gE",
         categories = "development",
-        tags = "code,version control,rejected",
+        tags = "code,version control,rejected,closed,cancelled,x",
         contributors = "karsa-mistmere,ericfennis"
     ))]
     GitPullRequestClosed,
+    #[cfg(feature = "git_pull_request_create_arrow")]
+    #[strum(props(
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDaDhjHiCw1CIPg8C+A4FgeGhwGEdBoCAZILE0NQgDkdgxDKGYbiGI4giKJImCIbQxikOQtDOPAgj2DYaC+MRojOI4lieLQgDYaA1GEMgglAMAglMMZRlEdpBjCNJGjWSQ5CCOR2hOQpEl2SAiE0MpQDEOBoC2ZJbjKAQ",
+        categories = "development,arrows",
+        tags = "code,version control,open,plus,add,+",
+        contributors = "danielbayley"
+    ))]
+    GitPullRequestCreateArrow,
+    #[cfg(feature = "git_pull_request_create")]
+    #[strum(props(
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDaDhjHiEgiD4PAvgOBYHhkcBhHQaAgGSCxNDYIA5HYMQyhiGogiKH4hiOJQiE0MQzCANhoDMYQyCCPwwCCQgxkCQB2g2GQvjAaIyiKJImDEOAgDENR2hOSpMk6NImDKRZSGgLZYi+Mw+gE",
+        categories = "development,arrows",
+        tags = "code,version control,open,plus,add,+",
+        contributors = "danielbayley"
+    ))]
+    GitPullRequestCreate,
     #[cfg(feature = "git_pull_request_draft")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDEOIOGMeIShQPg8C+A4FgeGodgaCIQgsNoVhcIomgmC4NhqHIEiKGhwGEdBoCAZILE2EwgDYVg1CKLozjWMo0jaOAijoOAgDEMR2C0MZAhuQhohobBpG6CB4DKJYOHgMZcCAeZfCIOYOHmWwiDKUIulaWA+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDEOIOGMeIShQPg8C+A4FgeGodgaCIQgsNoVhcIomgmC4NhqHIEiKGhwGEdBoCAZILE2EwgDYVg1CKLozjWMo0jaOAijoOAgDEMR2C0MZAhuQhohobBpG6CB5DKCwylAIB4DGJYOHmYQiDmDh4luKZRC+VpYD6AQA",
         categories = "development",
-        tags = "code,version control,draft",
+        tags = "code,version control,open,draft,dashed",
         contributors = "karsa-mistmere,ericfennis"
     ))]
     GitPullRequestDraft,
     #[cfg(feature = "git_pull_request")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ4CIIBygwM4QGMeIMg4Ig+DwL4DgWB4bh6BoIhaDA2hWCwiieEYThqHIiiAPBwGEdBoCAZIME0MQzCANhoDMYQyCCQgwCCRQxkOQx2DeLgvjONYbGwaRuggeQxgwOYQHiV4qloMomhAeZfCIMgxk2UpUD6AQ",
-        categories = "development",
-        tags = "code,version control",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDEOIOGMeIShQPg8C+A4FgeGodgaCIWgsNoVhEIomgmC4NhqHIEiKGhwGEdBoCAZILE0MQzCANhoDMYQyCCQgwCCRQxkOQx2DcIoujONYaGwaRuggeAyiWDh5DGCw5g4eJbimWZXCIMgxk2G5SlQPoB",
+        categories = "development,arrows",
+        tags = "code,version control,open",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     GitPullRequest,
@@ -4836,7 +4972,7 @@ pub enum LucideGlyph {
     GlassWater,
     #[cfg(feature = "glasses")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CINgigkeYMDENYPHKDA0CIPg8C+A4FgeGodgaCBjhEIoTg+CoSDiFYXhmG4hh8PBwGEdBoCAZIME0MQ0CCExhDIIJADAIJDDALQykeQZKkWRJJDKLgvjONYalKNo4CITQyC4NY9DMIJcDcYwuDcLQxC6XpmDSSQzkeUJVlSNJWjkMpmlwMZoDkIJhC2Y5lmefg1kcLZsk+GpRnEPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ1CIIBygwNIQGMeIMDYIg+DwL4DgWB4bh6BoIgqDIOhCEgihSCYXg0OIahyIogDwcBhHQaAgGSDBNDENAgg4YQyCCQgwCCRQwC0MpJkOTJHkaSwyjAL41jeG5UjiOgiE0MguDWPwzCCXg3GMLg3C0MQumCaA0ksM5JlKV5WjaWI7DKaJeDGag5CCYwtmWZ5poANZJC2bpRhuU5zD6AQ",
         categories = "accessibility",
         tags = "glasses,spectacles",
         contributors = "ahtohbi4,ericfennis"
@@ -4844,7 +4980,7 @@ pub enum LucideGlyph {
     Glasses,
     #[cfg(feature = "globe_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDELg1DQIAxDUSAxDcYQyCCGAwCCGwwC2GAyHYNIODQIg+DwL4DgWJ4qgaCIKDcIAzC4Mw0FYNRhDOMocjyG46DMdgwheGY9hGRIhDAY4bg2DQ5keGZBkOGpFDKH5BkoLZMC4OYfhmHxojOFYmiiLYsgSLoJE0MQxhmTQ1FYMQ4lKRYelWSJzh2EYflaWZ4j2ewyEgMguDANZjimZ4nGMaRyGMbBlCAYx4gkMQyCKkR5pSlggHKlAwoei6No8PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDELg1DQIAxDUSAxDcYQyCCGAwCCGwwC2GAyHYNIODQIg+DwL4DgWJ4qgaCIKDcIAzC4Mw0FYNRhDOMocjyG46DMdgwheGY9hGRIhDAY4bg2DQ5keGZBkOGpFDKH5BkoLZMC4OYfhmHxojOFYmiiLYsgSLoJE0MQxhmTQ1FYMQ4lKRYelWSJzh2EYflaWZ4j2ewyEgMguDANZjimZ4nGMaRyGMbBlCAYx4gkMQyCIIBypQMKXGMeaUpaJwvoujaPD6AQ",
         categories = "maps,navigation",
         tags = "world,browser,language,translate",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -4852,7 +4988,7 @@ pub enum LucideGlyph {
     Globe2,
     #[cfg(feature = "globe")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhsGkboIHgMYMg8IB5DKE4oHiKwiDKKB5iaDYPhoL4hiOGhwGEdBoCAZIME2DggDIYQxDULgzCCSJKCAMJPkwIA0kyUJNkuV5RlYLZUDGVpJliYJakyXAtl6TJilmUJWlOZgwHqGYbjyPg+gEA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME2DggDIYQxDQLg1CCLYvCAMI0jaNQyjWMowjuN43C2OYZhuIYjiCIokiYIhNDKMQyGiQYaC+RBoD6AQ",
         categories = "maps,navigation",
         tags = "world,browser,language,translate",
         contributors = "colebemis,csandman,ericfennis"
@@ -4884,7 +5020,7 @@ pub enum LucideGlyph {
     GraduationCap,
     #[cfg(feature = "grape")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIA1FYMhsC0NQuDgOYOhUOQiD4PAvgOBYcGMaRyGMbBlCAYx4gkMQ2C4NgiigeYrhSFowHKCQzhuHYiiSJohiOJYnGOMgiDcLg0jaOIwimCQ4C4MQxjoL48kGP49kKKgiDEMguDMNZLkSUIul8II3CKOYclOQI+DyVImjGCY0mSZo5iiWQxDMLg5lGaZuGWVpBmWSp2iuTgxmSQ4rDALgwhqfZrn+baQoKZ5LlmLQ1i+cJankMpSn6gJvkyWqLDiYIrkYNJIpSaI7pCoZCmGGqspacafq+AQA",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIA1FYMhsC0NQuDgOYOhUOQiD4PAvgOBYcGMaRyGMbBlCAYx4gkMQ2C4NgiCAcoJDOMBjHmK4UhaG4diKJImiGI4lieMgijSKIqCIOAuDEMY1jcIg3C4NI7C+PZCkCPonimKwyC4Mw1k6Kwxi6YIxjOVJWj8PJplqT45mWWwiDEMwuDmTZmkWaJBmqbJ4kacQxkoMZwk8MQwC4MIahyVZ7GWWJCkeCYtDWL4ooWdAyjCRI0oubKPiakZyocOKamelorlENJTp2jaflqSKEiuGp+nqWQ+gE",
         categories = "food-beverage",
         tags = "fruit,wine,food",
         contributors = "karsa-mistmere"
@@ -4892,7 +5028,7 @@ pub enum LucideGlyph {
     Grape,
     #[cfg(feature = "grid_2_x_2")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeYODOEh4hWEh3GkZB0GiDoQhIcoYCIMgiD4PAvgOBYoHAYYeCAZIOE0MwgDEMhoiGKAvi6Hoti8aIxjONwgDMdo6imPRoD6AQA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAcoICIMoMHcaRkHQaIJDEOIMGgZRpGcaB0hiGggHmCYLD4PAvgOBYoHAYYWCAZIJE0MwgDEMhohkIooC+LoWi2LxojGM43CAMx2jqPI+GgPoBA",
         categories = "text,layout,design,shapes,maths",
         tags = "table,rows,columns,blocks,plot,land,geometry,measure,size,width,height,distance,surface area,square meter,acre",
         contributors = "danielbayley"
@@ -4900,7 +5036,7 @@ pub enum LucideGlyph {
     Grid2X2,
     #[cfg(feature = "grid_3_x_3")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhYIIJCIM4NHmCojD4PAvgOBYoHAYYSCAZIKE0MwgDkaIVCKKAvi6Eoti8aIxjONQxDWOIWjuPRoj+MIyCITQ5CAMx2jmSZAkyQZOE2RZSlSSIpkoPoBA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEaBlGkZxoHSDYPhEcoTCIMoRHmFAiD4PAvgOBYoHAYYLCAZINE0MwgDkaIeigL4uguLYvGiMYzjUMQ1jiEI6jwaI+jCMgiE0OQgDMdo5imSZLkCTRNkSUZTkeVY/D6AQ",
         categories = "text,layout,design",
         tags = "table,rows,columns",
         contributors = "colebemis,zenoamaro,ericfennis,csandman,mittalyashu"
@@ -4908,7 +5044,7 @@ pub enum LucideGlyph {
     Grid3X3,
     #[cfg(feature = "grip_horizontal")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIOQigkeIMDEMoPHKEgiD4PAvgOBYHhmHIGgiCoMg6EISiWFgiDGGIaiCHoCgSIQgimK4JguDYPGOEQiDWLIbjGL4uiKO4ThWF42hKPYZj+HRlh+QIIjSOY3DGPYmiqDpLkKT5NkiKpWlKV5Ki2UA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwOYQHKDAxCIPg8C+A4FgeGodgaCIWg2EIKheFIRhOGYbiGH4CgSIoJgsIg1iaEgiimJIYhqHIxi+LojheJo0g6N4XjaPZBiCP4IGOOAxjaM4ohWQ5Kk2TIek6NJSjuR4NkmLZYgE",
         categories = "layout",
         tags = "grab,dots,handle,move,drag",
         contributors = "ericfennis"
@@ -4916,7 +5052,7 @@ pub enum LucideGlyph {
     GripHorizontal,
     #[cfg(feature = "grip_vertical")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeILDmDhjHmCwxDIIg+DwL4DgWB4bh6BoIhCEoOgqDIUhYIg1hqHIiiCAoEiOD4RCKE4PisMY4iiDYbh2M4xjCJI6hmCYXhSNgxi2P5DiGQYIj2SYXi2OYLkyL5Qk+H5EheOIlgyVZSk2WoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeILDmDhjHmCwxDIIg+DwL4DgWB4bh6BoIhCEoUhYIg1g6CoMhqHIiiCAoEiOD4RCKE4JheJ4XhOG4djOMYwiSKIYiuOo1heKo+kKIZAkOC4qkiDJRiyDZLk6TYfgiVYUjYMZRhWPIuj+Wg+gE",
         categories = "layout",
         tags = "grab,dots,handle,move,drag",
         contributors = "ericfennis,johnletey"
@@ -4924,7 +5060,7 @@ pub enum LucideGlyph {
     GripVertical,
     #[cfg(feature = "grip")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINQigkeIMDEMoPHKEgiD4PAvgOBYHhmHIGggY4RCIMQ5g+CoMg4IIWiWGIaiCHoCgSIYQiqKILg2FYXhmG40jKMYIi0MYoiSE44hKFI9kGH4/iKRoniyF4JjmR5Lk6TYdiKVYUlKLo2jqV5almNYpiWUYjkmO4umKIZkgeVISmiUJrkSbZAk6cZnkWN5enaMJYgEA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeILDEMoOGMeYLDUIg+DwL4DgWB4bh6BoIhCEg5hWFwihmCYShqHIiiCAoEiOD4piuJYqg6CoMi6HYzjGMIkhGDIUjWEpFjuDYbj6HxliGP4IkmFZDDGJ5GkSPZBk+TYPkOK5SleE5ZlCW40mCFomlOR5jk2ZYHmGVo4lWOotkuWoylyZ5eiiaZ2mSAQ",
         categories = "layout",
         tags = "grab,dots,handle,move,drag",
         contributors = "koole,ericfennis"
@@ -4932,7 +5068,7 @@ pub enum LucideGlyph {
     Grip,
     #[cfg(feature = "group")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCANxWDUYwwC0MQuhQOQtDIIAyhgaAyCIPg8C+A4FiCI4GgiCgxDcIAzh0Y4UDEIAwhoIAuDmNAyHaHogiKBBoiWPoHgkTQyjGKo6hEIIwC2NoahiGhohiH4hiaQIFkKCorkUSIQhOFYyhiTIXhuOZSjyVQ8HIZRjHQIBoGUaRnGgdIJDUIggHIeIJDGd56CIN53HmCaACAdxpGSBaDlML5qmyIKNm2eZ7neb5xnOdZ3oaiBoooIJ+DEMKBnuO4hpAPoB",
+        svg = "gAPBwGEdBoCAZA9CITQzCANxWDUYwwC0MQuhQOQtDIIAyhgaAyCIPg8C+A4FiCI4GgiCgxDcIAzh0Y4UDEIAwhoIAuDmNAyHaHogiKBBoiWPoHgkTQyjGKo6hEIIwC2NoahiGhohiH4hiaQIFkKCorkUSIQhOFYyhiTIXhuOZSjyVQ8HIZRjHQIBoGUaRnGgdIJDUIggHiCQ3ncdxpGSBZ6nceaBCAcp5CIMZTC+apsiCjJtoaCaJCCfZ/GihKHDEMKCpKHpunCcp0CKdo8o8PoB",
         categories = "shapes,files",
         tags = "cubes,packages,parts,units,collection,cluster,gather,dashed",
         contributors = "danielbayley"
@@ -4964,7 +5100,7 @@ pub enum LucideGlyph {
     Hand,
     #[cfg(feature = "hard_drive_download")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIAyHYOAiD4PAvgOBYThaBoICIbQxDYIA2C0NAgDSIoihKFIZhMchlGMdAgHcaRkgWCQyDAIggHmCQxDSOBoGUaRnGgdIJhEIB4jWOBykgIgyigL4si6GIEhqCRNh8MQ4GgLgwDGT4qgKVIHlYMQwCCWZbl2X5UD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAyHYOAiD4PAvgOBYThaBoICIbQxDYIA2C0NAgDSIoihKFIZhMchlGMdAgHmCQxDQIggHcaRkgWCQyDCNRyHiO41kAIgyjUaBlGkZxoHSCYRhML4si6GIEhqCRNh8MQ4GgLgwDGKIVlSU4FgeVgxDAIJZluXZfiqAQ",
         categories = "development,devices,arrows,files",
         tags = "computer,server,memory,data,ssd,disk,hard disk,save",
         contributors = "danielbayley"
@@ -4972,7 +5108,7 @@ pub enum LucideGlyph {
     HardDriveDownload,
     #[cfg(feature = "hard_drive_upload")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDYIA2C0NIQhAIA0CIPg8C+A4FheGoGggIhNDEMggDIdg4haGIdhcchlGMdAgHIeIJDIIggGgZRpGcaB0gmJwgHmCQxhUIIyCKNAgHcaRkgWMwwigL4si6HIEh6CRNg0MQ4GgLgwDGT4qgKVIHlYMQwCCWZbl2X5UD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQxDYIA2C0NIQhAIA0CIPg8C+A4FheGoGggIhNDEMggDIdg4haGIdhcchlGMdAgGgZRpGcaB0gmJwgHcaRkgWCQyDAIggHiPpBHmCQxhUIBykMIgyigL4si6HIEh6CRNg0MQ4GgLgwDGT4qgKVIHlYMQwCCWZbl2X5UD6AQ",
         categories = "development,devices,arrows,files",
         tags = "computer,server,memory,data,ssd,disk,hard disk,save",
         contributors = "danielbayley"
@@ -4980,7 +5116,7 @@ pub enum LucideGlyph {
     HardDriveUpload,
     #[cfg(feature = "hard_drive")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyDIIoHDKCoNCAeYJCIMYSHmEIWg0Pg8C+A4Fh0cBhHQaAgGSChNDULg0DUIIrDEMQgDIIIXHYNhhjSNAwCCPI8joaAxjiOo9kWPwtDIdgtDYbAtDOLA1ksLg4DkQZEj6RZCC4Nw2CANBIDcLgyDSOYzkaPQtDGWw5jULoxHoIodC+I4lh2IIGhmCpCg4eIaDYLgwDGfIVDaDoUnqhZynedoEniFZ7gejwwoaGqQn2egwoCgqKo0PoBA",
+        svg = "gAPBsGkbhlCAeQyD0IgxDIIggHgMYKDKDYPgkIoUHmEYLg0Pg8C+A4Fh0cBhHQaAgGSChNDULg0DUIIrDEMQgDIIIMHYNhhjSNAwCCPI8joaAxjiOo9kWPwtDIdgtDYbAtDOLA1ksLg4DkQZEj6RZCC4Nw2CANBIDcLgyDSOYzkaPQtDGWw5jULoxHoIodC+I4lh2IIGgiCpCg6EIKDafIWDYLgwDGDoZnqf5ynedoEniGp7geFqQHikgwoOhYPo8MJxh6i4BA",
         categories = "development,devices",
         tags = "computer,server,memory,data,ssd,disk,hard disk",
         contributors = "colebemis,csandman,ericfennis"
@@ -4996,7 +5132,7 @@ pub enum LucideGlyph {
     HardHat,
     #[cfg(feature = "hash")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgyDAIoHDGCg0g4eYQCIOYTgmFgiD4PAvgOBYch+Bh4hWEoHhmDIYgoMQ1hOFYshuHYiiGBIjhkOIugoM4qgsMYOiSK4NhyHo1jSBYPisNo5CKOwgHmKI+ieK4SkOM4BA",
+        svg = "gAPBsGkbhlCAeQyD0Ig5CIIB4gkIgyDCDR4DGCg0g0eYWgsIg+DwL4DgWHohgaFYXhmEAxDWFIQhKGYbiqHYfiSI4EgaGoKDOLIKDiFIwhOB4tDGMogjaNYFg6MA2i+OYogoMpDg6KYYh6RYigE",
         categories = "text,social",
         tags = "hashtag,number,pound",
         contributors = "colebemis,ericfennis"
@@ -5060,7 +5196,7 @@ pub enum LucideGlyph {
     Heading5,
     #[cfg(feature = "heading_6")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQyGgOAiD4PAvgOBYThaBoIgqDAxDgVg2hKFIZhiBIagkTYOg2H4hhOFYmhMYxpHIYxsGUIBygkMgiCAYx4gkMQ5jwYx5kCLYUjKNI2iWBYHigMgwg0MBjC0MggDILQzCAMwuDWWQgkeL4XgE",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQyGgOAiD4PAvgOBYThaBoIgqDAxDgVg2hKFIZhiBIagkTYOg2H4hhOFYmhMYxpHIYxsGUIBjHiCQxDkIo4HmO4hCAcoJDKIgvjKNI2iWBYHigMgwg0MBjC0MggDILQzCAMwuDWWQgi2I4wgE",
         categories = "text,development",
         tags = "h6,html,markup,markdown",
         contributors = "ericfennis"
@@ -5100,7 +5236,7 @@ pub enum LucideGlyph {
     HeartHandshake,
     #[cfg(feature = "heart_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgyDIIggHmCYLg2BwxgqEx5hWCwiD4PAvgOBYcHAYR0GgIBkgoTQxDYLg1CCKosi4MggDIMRsC0N43GMLQxiyOwuDQNQtDOQguDKQgtDWLBhkmLZMCAMJPi6MwuDENAtDQLgzDWG4diKJIhiOJYnCITQ4C4Nw2CAM5UGOPAxkmDJTDGaw3DiapFDSLguDmepBjyLQymeVoyliQQyEGTpOlCUAxjOMpmDUY5QoEMZGjwM53nULaBDYNwgkkMQ3lwL5eGgPoB",
+        svg = "gAPBsGkbhlCAeQyD0IgyDIIggHiCYLg2BwxgqEx4hWCwiD4PAvgOBYcHAYR0GgIBkgoTQxDYLg1CCKosi4MggDIMRsC0N43GMLQxiyOwuDQNQtDOQguDKQgtDWLBhkmLZMCAMJPi6MwuDENAtDQLgzDWG4diKJIhiOJYnCITQ4C4Nw2CAM5UGOPAxkmDJTDGaw3DiapFDSLguDmepBjyLQymeVoyliQQyEGTpOlCUAxjOMpmDUY5QoEMZGjwM53nULaBDYNwgkkMQ3lwL5eGgPoB",
         categories = "social,multimedia",
         tags = "unlike,dislike,hate,emotion",
         contributors = "karsa-mistmere,ericfennis,danielbayley"
@@ -5124,7 +5260,7 @@ pub enum LucideGlyph {
     Heart,
     #[cfg(feature = "help_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx5gsMQyg8Yx4hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQ5C4MA5CAORhDMIIxDAII0DEIA1C4OIxDEY40DILYxDOQYyCKGwviKJIhiOJYnCITYUCAMQ3GiKwxkaHJJGgPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQ5C4MA5CAORhDMIIxDAII0DEIA1C4OIxDEY40DILYxDOQYyCKGwviKJIhiOJYnCITYUCAMQ3GiKwxkaHJJGgPoBA",
         categories = "accessibility,text,shapes,notifications",
         tags = "question mark",
         contributors = "danbovey,colebemis,csandman,ericfennis,danielbayley"
@@ -5172,7 +5308,7 @@ pub enum LucideGlyph {
     Home,
     #[cfg(feature = "hop_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDcLg1CANYOEMMQ5CANwgDIMIOCCFQyDEIAxDEYwtDELgzDIMwuDINg1C0MguDYNA2iYOQtDQLohDiKorCIPg8C+A4Fj6QYGgiCoRg+DISheFIchiGpJh+Hhjg6LoOlWLQxC2Og1j2P5EkOBJFgmC4NkmZoji+DwwjYIJsDaJJekCYphgWB5khmIIlDUY4fnuGAgimDwyCCN5dj6c5CgKYp3gqIYbhmfYbh+gqAoagJVn+bAzC2VaGnKYKLnaRhNDKhKmmmbgtoKnYtkiJIOqCdKimOCo3DcOAzoULq4DKEwuDAN66joNA5oSfqXkkOJ9iSGI2pOVYzkmk6FiCEJXDUTY6qaF5qDeE57riIImDOSYRDQNa6i8MA4hUMQ4hCIwuDiOr0quvLjDcNpahEN4ruO+w4rKihsGkbhlCAeAygmpgiCAeQxwzDh5wsIsNwnEcWnLBcHD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDcLg1CANYOEMMQ5CANwgDIMIOCCFQyDEIAxDEYwtDELgzDIMwuDINg1C0MguDYNA2iYOQtDQLohDiKorCIPg8C+A4Fj6QYGgiCoRg+DISheFIchiGpJh+Hhjg6LoOlWLQxC2Og1j2P5EkOBJFgmC4NkmZoji+DwwjYIJsDaJJekCYphgWB5khmIIlDUY4fnuGAgimDwyCCN5dj6c5CgKYp3gqIYbhmfYbh+gqAoagJVn+bAzC2VaGnKYKLnaRhNDKhKmmmbgtoKnYtkiJIOqCdKimOCo3DcOAzoULq4DKEwuDAN66joNA5oSfqXkkOJ9iSGI2pOVYzkmk6FiCEJXDUTY6qaF5qDeE57riIImDOSYRDQNa6i8MA4hUMQ4hCIwuDiOr0quvLjDcNpahEN4ruO+w4rKihsGkbhlCAeAygmpgiwkMcMw4ecQCIMsSwvFcWojBcHD6AQ",
         categories = "food-beverage",
         tags = "beer,brewery,drink,hop free,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -5220,7 +5356,7 @@ pub enum LucideGlyph {
     IceCream,
     #[cfg(feature = "image_down")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIOQiCAcoMDKDxjHiDIOD4PAvgOBYHhkcBhHQaAgGSDBNDEMAuDMIAyDESA1GEMosCAMI0CAMQtDKORWjCMoyjWNQxiyORoDENIxjOQI3jMMh2igLg4CKGQviCIofiGI4lCIbYtjcNQtDMLo4mEMZIj+NgwjmUJGC4MJGEwNosDGUoalUaJXiKJIMG2Ro3DkLg1CCKwzHYLQ2nSVJYniWZ7DEN4sDKgKCmCiJ2D6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeYLDmDhjHiEgiD4PAvgOBYHhkcBhHQaAgGSCxNDEMAuDMIAyDESA1GEMosCAMI0CAMQtDKORWjCMoyjWNQxiyORoDENIxjOQI3jMMh2igLg4hiGogiKH4hiOJQiG2LY3DULQzC6OJgDGSI/jYMI5lCRguDCRhMDaLAxlIL5UGiVoiiSCxtkaNw5C4NQgisMx2C0NpznWd5YnoMQ3iwMp/oGX6HlcPoBA",
         categories = "photography,text,multimedia,files",
         tags = "picture,photo",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -5228,7 +5364,7 @@ pub enum LucideGlyph {
     ImageDown,
     #[cfg(feature = "image_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIA5HYMQwGEMgghQMAghcMQthQMhIDWE4VhiIoaDKGxWh+HIihmFYbGgNwiD4PAvgOBYxGwaRuGUIB5DGCQ1CIIB4DKCQyDKQB4j0IgxDaQB5kMIo/jEL43jmMRjGkchjGyOhjHiCQ5kAcpEkAYx5l+MIyleWZbjGNIGggIhtgwIAxDULQzC4MA4Dad55nuIIWiqGwuDgMg4hgTA2hUMZojOBBoD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIA5HYMQwGEMgghQMAghcMQthQMhIDWE4VhiIoaDKGxWh+HIihmFYbGgNwiD4PAvgOBYxGwaRuGUIB5DGCQ1CIIB4j0IgxDaQB4DKCQyDKQB5kkIo/jEL43jmMRjGkchjGyOhjHiCQ5kAYx5l+QBykqMIyleWZbjGNIGggIhtgwIAxDULQzC4MA4Dad55nuIIWiqGwuDgMg4hgTA2hUMZojOBBoD6AQ",
         categories = "photography,multimedia,files",
         tags = "remove,delete",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -5236,7 +5372,7 @@ pub enum LucideGlyph {
     ImageMinus,
     #[cfg(feature = "image_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgyDIIggHiCYLg2BwxgqEx4hWCwiD4PAvgOBYcHAYR0GgIBkgoTQxDALg0DEIIqiwMRhDIII0DCL4vC0MguDgM46jwM4bh2IokhyH4GHmGQxDMLg1g6EIKDaDoIhYMZPkqTJOhyHoEGWRpdgeEQxk6D5KDiT4RDKVoUgoMYNluR4hiOJYnCITZZDkIJ4EEMQuDmeZ9n8II3oSeggDUdgxDSM41oOjo3jQMhoooY5NDWjp9DANQyC0LoMi+MadDUOZCC+RBonKJImiiaovDUVg1oyNqPjqOhIqSW6nD6AQ",
+        svg = "gAPBsGkbhlCAeQyD0IgyDIIggHgMYKg2B4RguDh4gmC4ND4PAvgOBYcHAYR0GgIBkgoTQxDALg0DEIIqiwMRhDIII0DCL4vC0MguDgM46jwMwihwL4iiSHIfgaCISDGF4ZDaDh5hUMQzC4NYXlKVJWkOSJHgSBoQgoMQ4k2S5QhkMZWhSYYbh2XA8kWJYnCITZZDkIJ1EEMQuDmdp6nwII3oGdwgDUdgxDSM41oCi43jQMhoocY5VDWi56DANQyC0LoMi+MaaDUOZCh2cIhiOcYoDKLpoFYNaJjajI6joSKhkOpIBA",
         categories = "photography,multimedia,files",
         tags = "picture,photo",
         contributors = "ericfennis,karsa-mistmere"
@@ -5244,7 +5380,7 @@ pub enum LucideGlyph {
     ImageOff,
     #[cfg(feature = "image_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDIdg3GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGxWh+HIihmFYbGgNwiD4PAvgOBYxGwaRuGUIB4DGCQxDYIo7DKCQyDKQR5j0Ig1keQ5KjCMo3jmNo4joeZNDiQY8j4OZHkmRpCluTwvlEZYxGMaRyGMbI6HKRJBGMeYJlwIBjHicpimeaZrjGNIGggIhtgyDg1C0MwuDAOA2oWh6JiCFoqhsLg4DIOIYEwNoVDGYp9D6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDIdg3GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGxWh+HIihmFYbGgNwiD4PAvgOBYxGwaRuGUIB4DGCQxDYIo7DKCQyDKQR5j0Ig1keQ5KjCMo3jmNo4jqPI+DmQR4k0MZYCCSJEkyCQ4k8L5RGWMRjGkchjGyOhjHmCZdGMeJxkEcpgjEL5pmubYxjSBoICIbYMg4NQtDMLgwDgNqHomi4ghaKobC4OAyDiGBMDaFQxmSfw+gE",
         categories = "photography,multimedia,files",
         tags = "add,create",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -5252,7 +5388,7 @@ pub enum LucideGlyph {
     ImagePlus,
     #[cfg(feature = "image")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEcoTCIMoRGgZRpGcaB0g2D4RHmFIWiWGQiD4PAvgOBYrGMaRyGMbBlCAY4oDmFoNhqN4YjqKwvjGM41iscBhgsIBkg0bQyDEIAxDULQzC4MA4DaU5VlcYQyCCXQwCCYAwC0MguDgMg4mETA2l4MYqiyR4LD6AQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gweYJgsIBoGUaRnGgdIThUIByhcIgygwcoIiYIg+DwL4DgWLRjGkchjGwZQgGOKg5gwY4ljyI4JieLQvjONY3i0cBhhEIBkgkbQyDEIAxDULQzC4MA4DaVpYloYQyCCYAwCCYwwC0MguDgMg4mQTA2mEMYsi6SoRD6AQ",
         categories = "photography,text,multimedia,files",
         tags = "picture,photo",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -5276,7 +5412,7 @@ pub enum LucideGlyph {
     Inbox,
     #[cfg(feature = "indent")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgzCAOAgDcIAxDIIISDENgiD4PAvgOBYHgmH4kgoeQxhCGAiCAeIqCIMgxi0eQyisMotHiNgiDGM4fC+J4mgiKIwh2Lo7j2NI7kaL4QjKHogkEPInkeK4zCCNYrDiOYwk+WIwDGW4/kGAQA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgzCAOAgDcIAxDIIISDENgiD4PAvgOBYHgmH4kgoeQyhCGAiCAeIqCIMQxi0eAxhAMozCAeY2jEMoeiCJ4mgiKIwh2Lo8jiNIwjKLY7hCHYfC+QQ8ieLpLjmNY3jmToxDiTZLl6UZBgE",
         categories = "text,development",
         tags = "text,tab",
         contributors = "Themistoklis,ericfennis"
@@ -5308,7 +5444,7 @@ pub enum LucideGlyph {
     Info,
     #[cfg(feature = "instagram")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0Ig1CIIIJCIMoNGgZRpGcaB0goMgwg0eIZg0dxpGQdBohmG4Hh2CwiD4PAvgOBYrHAYYjCAZIKE0MQ2CAMQxC4Mw3EENAgkEMI6kUMQyC4NgzCAOJCk6RJEDGOo5juPQ3HqKosjGI4rGwaRuGUIB4DKCgxDcLg1DGHAxmWZ4Mg6bAiDaaINHmZJynSKwvl6YA+gE",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAeIODKEhyhQIg1hceYOhsIB3GkZB0GiFYRCCHYPCIPg8C+A4FiwcBhiQIBkg4TQxDYIAxDELgzDcQQ0CCQgwjuRgxDILg2DMIA4kOT5FkUMY7jqPI+Dceori2MokiwbBpG4ZYoDGDg2C6Hx4mQIgxDeZ4SHkMplm6E5xmubQ1DGWgvl+YQ+gE",
         categories = "brands,social,photography",
         tags = "logo,camera,social",
         contributors = "colebemis,csandman,ericfennis"
@@ -5316,7 +5452,7 @@ pub enum LucideGlyph {
     Instagram,
     #[cfg(feature = "italic")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0Ig0CIIB4gkIgxDCDR4DGCgxDmDR5haCwiD4PAvgOBYfiKBoVheDIHhwMoTg6EA1hqEIsh6IIliSBImhwMYwi6CoZiqCopgiCozh+IY4D6AQ",
+        svg = "gAPBsGkbhlCAeQyD0Ig0CIIB4DGCgxDmDR5hCC4NHiCQiDEMAiD4PAvgOBYfiKBoIgoModg6Gg1hiFgxgyB4WimHogiWJIEiaFoxg+EYtiuCoTgeGo0h+IY5D6AQ",
         categories = "text",
         tags = "oblique,text,format",
         contributors = "colebemis,ericfennis"
@@ -5348,7 +5484,7 @@ pub enum LucideGlyph {
     JapaneseYen,
     #[cfg(feature = "joystick")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDcYQyCCEgwCCFQwC0MoZEgNYRhOFoghiEgyHYMoehSIYfDIaAxDSJ4phWGokhkWgiD4PAvgOBY3jqBoIgoNoODUdoZjaOI9jyBI+gkTQxhIMQ1FYOZGjmSo3GMaRyGMbBlCAYx5gkNgiCAcoJDOYxjHiCZOlSWJalwPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDcYQyCCEgwCCFQwC0MoZEgNYRhOFoghiEgyHYMoehSIYfDIaAxDSJ4phWGokhkWgiD4PAvgOBY3jqBoIgoNoODUdoZjaOI9jyBI+gkTQxhIMQ1FYOZGjmSo3GMaRyGMbBlCAYx5gkNgil4eIJk6YxygkM5UliWpcD6AQA",
         categories = "gaming,devices",
         tags = "game,console,control stick",
         contributors = "mittalyashu,karsa-mistmere,ericfennis"
@@ -5364,7 +5500,7 @@ pub enum LucideGlyph {
     KanbanSquareDashed,
     #[cfg(feature = "kanban_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMoMg+CoMHcaRkHQaIJDEOIMGgZRpGcaB0huHQ+DwL4DgWJxwGGGQgGSCRNDgIA3HYNwiicL4thmLIuGiMIyDEMo1HYNI5iiPBoj6L4xCITQxDaRQ5kiO4/D6AQA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeIJgsIByiAIgyCIPg8C+A4FikcBhhEIBkgkTQ4CANx2DeKIqi+EYujAaIyjQMQyjcdg0jsL49GiP4xjMIhNDENpGDmSZLD6AQA",
         categories = "charts,development,design",
         tags = "projects,manage,overview,board,tickets,issues,roadmap,plan,intentions,productivity,work,agile,code,coding,toolbar,button",
         contributors = "danielbayley"
@@ -5380,7 +5516,7 @@ pub enum LucideGlyph {
     Kanban,
     #[cfg(feature = "key_round")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCAMQ4HYMxjDAIAuDYLg0g2GQxGgNB2C0MxoDOHogDIbAxhcLYnDQYYWDUIItCCEwxjELQ0jUWgiD4PAvgOBY6GMaRyGMbBlCAYx4gkMYtCKRh5gkNwuDWTBygmUY5juQJCkQPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyCAMQ4HYMxjDAIAuDYLg0g2GQxGgNB2C0MxoDOHogDIbAxhcLYnDQYYWDUIItCCEwxjELQ0jUWgiD4PAvgOBY6GMaRyGMbBlCAYx5gkNwuDUIggHKCZLk0Yx4gkMYtjmO5AkKRA+gEA",
         categories = "security,account",
         tags = "password,login,authentication,secure,unlock",
         contributors = ""
@@ -5396,7 +5532,7 @@ pub enum LucideGlyph {
     KeySquare,
     #[cfg(feature = "key")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDULg1CIIBjHiCw3g6EBjHmCwxg2Dw+DwL4DgWB4eHAYR0GgIBkgsbQyDEIAyC0OQuDYIIyDYIoeC+JYniSJooioIhthuDgghUNQgDOSBMDIMpFGwLQzlCOIfjsaA+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDULg1CIIBjHmCwxg2D4RHiCw3g4Ig+DwL4DgWB4eHAYR0GgIBkgsbQyDEIAyC0OQuDYIIyDaHYfiWJ4kiaKIqCIbYVg4IIbDUIAzkcTAyDKRBsC0M5PjgL46GgPoBA",
         categories = "security,account",
         tags = "password,login,authentication,secure,unlock,keychain,key ring,fob",
         contributors = "ashygee,csandman,mittalyashu,ericfennis,jguddas"
@@ -5404,7 +5540,7 @@ pub enum LucideGlyph {
     Key,
     #[cfg(feature = "keyboard")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDENoNgmC4NHmCg0g0cochoIB3GkZB0GiCgyDAIg+DwL4DgWLRwGGJwgGSChNDYIA4GgLgwDAMYsi6M4njKNBojaOAxDCO49j+QYtC+RBokaNY3CITQxDSTY+kCQpSkeVZIleWQ4lyT5flOYpJliZgxDKTpelGag8lObJZDIIJvnGUJDmGdZHneFp6nCXZ9mCRaAlaOA3noNhokuaZhgE",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENgiCAeIODKEhyhQIoWCAch5hWEoeCINISHcaRkHQaIVDAIg+DwL4DgWLRwGGKAgGSDhNDYIA4GgLgwDAMYsi6M4ojKNBojaOAxDCO49j+QYtC+RBokaNY3CITQxDSTY+kCQpSkeVZIleWQ4lyT5flOYpJliZgxDKTpelGag8lObJZDIIJvnGUJDmGdZHneEJ6nCXZ9mCRaAlaOA3noNhokuaZhgE",
         categories = "text,devices,development",
         tags = "layout,spell,settings,mouse",
         contributors = "it-is-not,ericfennis"
@@ -5468,7 +5604,7 @@ pub enum LucideGlyph {
     LandPlot,
     #[cfg(feature = "landmark")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgzCIIB5gkIgyDKDR5DKCoSg0eIWhEMQiD4PAvgOBYfiKBoagoNoUhAMQ4hSGwxh2B4QimH4hgQZYkjeDori2DovjGCIKDEMIZi+RI1iWOYFjKQg0kWTYukKMYPkKLZIjeSomi+PZBCKLJRl6U48h6IJJDwcBvGweRnG8bggmiBB0HOQgyCCdQyDAIA3CANJ6mQL5omqbBuD6AQ",
+        svg = "gAPBsGkbhlCAeAxD0IgzCIIB5DKCgyDKDR5gkIoSg0eIQhcMQiD4PAvgOBYfiKBoIgoNoUhsMYdgeG4pg6FgxDiHogiWJIEgaFYKjOKo8i2JwiDEMIZiuRIfiGOY4gWLo8DSPpCkCMpPjGPI0kiN4CjmDorkCK40lWQpgkGPZYkoPBwG8bB5GcbxuCCaYEHQc48DIIJ2DIMAgDcIA0nuNQvmma5tG4PoBA",
         categories = "money,maps,buildings",
         tags = "bank,building,capitol,finance,money",
         contributors = "connium,ericfennis"
@@ -5484,7 +5620,7 @@ pub enum LucideGlyph {
     Languages,
     #[cfg(feature = "laptop_2")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMgiCAdxpGQdBog4MQ4hIeIODOEh5g4NISHKHQihEIByiGJwiD4PAvgOBYuGwaRuGUIB5DGDgyDCHAyjuKB4jqLI4j+J49i4L40jYPoBA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAeYJDSDByg4IgygwaBlGkZxoHSCQxhUIBygiFIMHcaRkHQaIdDgIg+DwL4DgWLRsGkbhlgcMoJDKHx5jiFAwgweAxjmDB5kKPosi6M41D6AQA",
         categories = "devices",
         tags = "computer,screen,remote",
         contributors = "ericfennis"
@@ -5516,7 +5652,7 @@ pub enum LucideGlyph {
     Lasso,
     #[cfg(feature = "laugh")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDgIAxDMYQ2CCMAwCCMwxC2MA1jGOozjWNwtDUaIUFoIobC+IokhsbBpG6CB4DGCw5g8eQylCDx4lQIg5C4MAxlKT5ZkSHJKkySZLk2WAxDWW5dCCToTDWUpYlEIB5l+UZFmMZQ+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQxDgIAxDMYQ2CCMAwCCMwxC2MA1jGOozjWNwtDUaIUFoIobC+IokhsbBpG6CB4DGCw5g8eAylALgwDGDx5k8IpRCAeZUlyRIckqTJJkuCJalCUpbDENZSmCbZWliXpglGRZkGUPoBA",
         categories = "emoji",
         tags = "emoji,face,happy,good,emotion",
         contributors = "karsa-mistmere,ericfennis"
@@ -5548,7 +5684,7 @@ pub enum LucideGlyph {
     Layers,
     #[cfg(feature = "layout_dashboard")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIBoGUaRnGgdIJDmDByggIgxgwdxpGQdBogkNwiD4PAvgOBYoiuBocDENIMhKFIWgkNYfiGI4lgyDoKhqMInimLotgSBobgmHggiCIokCKJoRhOFYXCKGYHkmMoNkkMpCiqRpFgWUY1lSOJXj+WodDaQJJjmTY8iiXosgE",
+        svg = "gAPByGUYx0CAdxpGQdBoD0Ig3CIIByHiDQxhAeYNDOEBoGUaRnGgdINDmEITCKGQ+DwL4DgWJ4qgaG4dh+DQ1iOFA0haGIQgiCoMg6EIShQIonimBB0iyRIHgmC4Ng8IIvh6IAiiIIIXCIMQyj6JIVCCWY2kKLZGgWSI7kuGock+Mo0iWWJAlOFA2kGKJfgE",
         categories = "design,layout",
         tags = "masonry,brick",
         contributors = "ericfennis,danielbayley"
@@ -5556,7 +5692,7 @@ pub enum LucideGlyph {
     LayoutDashboard,
     #[cfg(feature = "layout_grid")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMYMHcaRkHQaIJDeDIPgqDBoGUaRnGgdIYCIPg8C+A4FiaKYGgiHAghsMQ0hKFIWiQIIeiCIo3g6EIlieLIrgSBo5iGIwihkIIThWF5IhqEIzgeUIMj0IoRiaKJDkKBYNjGNJMjeG4LjiH5GjeLoyj+WYqgEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDcIggHIeIODGER3GkZB0GiDoQCCFAiDOER5g6Ig+DwL4DgWJ4qgaIAxDSI4lheGYbh2EYIgqDI3hKLwiieKYEHSLJCCCJAijCOIJguDYPhGL4xCCGIahyTo9hWP4oi2RIFgeS47laIIilKNZVh6E5YkaFYxkCW4BA",
         categories = "design,layout",
         tags = "app,home,start",
         contributors = "zenoamaro,ericfennis,csandman,mittalyashu,danielbayley"
@@ -5564,7 +5700,7 @@ pub enum LucideGlyph {
     LayoutGrid,
     #[cfg(feature = "layout_list")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIB3GkZB0GiCQ3gwcoICIMYMGgZRpGcaB0hcIg+DwL4DgWJ4qgaDocDSDIShSFgihgIIagmHQgh+IYjiWB4PiaKIticcBhhUIBkgkTQxDQIA0GiGInC+R4VkaSBokqTJOCAOZSkOVZZliSZLCKTZPDENZglSVhomSWpmmgIAyDCbIom4PoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkN4MHIeIJDGDBoGUaRnGgdITgyF4KCIPg8C+A4FiaKYGggIgxDSGoch6IAihQIIjgsIIWhiDIOhCEo2iWJ4siYcBhhEIBkgkTYwCANBohSJgvkeEZGkgaJKkyTg5lGQ5UliV5JksIpNDQIAxDWXpTlUaJilmZJmCAMgwmuJ5tD6AQ",
         categories = "design,layout,photography,text",
         tags = "todo,tasks,items,pending,image,photo",
         contributors = "ericfennis,danielbayley"
@@ -5572,7 +5708,7 @@ pub enum LucideGlyph {
     LayoutList,
     #[cfg(feature = "layout_panel_left")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAaBlGkZxoHSCQxDiDB3GkZB0GiCQ3gwch4hSDIhgoIg+DwL4DgWJ4qgaGIahwIoeg2D4RhOMoMgiJQgiCIggiQMQ0iaKItiyBIGj0IgxgyDoQhKHYXhmG5QgeFJCj+VpDimRw+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog4N4SHmDgzhIch4g4MYSiEIoeD4PAvgOBYoiuBoIgqDIZhKFIWhgIoaCCHImh+JYjCCPg0CKKIqgQdItkaE4VheM4HgmC4NjiJIikIIIgiKG5UkOKYuD6AQ",
         categories = "design,layout",
         tags = "app,home,start,grid",
         contributors = "danielbayley"
@@ -5580,7 +5716,7 @@ pub enum LucideGlyph {
     LayoutPanelLeft,
     #[cfg(feature = "layout_panel_top")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgxCIIIJCIM4NHmCoRCAaBlGkZxoHSCg3g0dxpGQdBogoMQ4CIPg8C+A4FimLIGheGYbh2DYPhWIIiiQIoeCCE4LDSDYIiWKIqi+LoEgaOIjjSB4PgyPYlkCFoYhqHI7jWUZEiuSA+gEA",
+        svg = "gAPByGUYx0CAch4D0IgxCIIBoGUaRnGgdIKDeDYJCIM4NHcaRkHQaIKDEOINHmCoaD4PAvgOBYoiuBoch6IAihYIIYhoIIlgsNINgiIYNg+EYThUIooiqBB0i2RwgjCH5DgeGIMg6EIShSM4kiGO41liRIpi4PoB",
         categories = "layout",
         tags = "window,webpage,block,section,grid,template,structure",
         contributors = "danielbayley"
@@ -5588,7 +5724,7 @@ pub enum LucideGlyph {
     LayoutPanelTop,
     #[cfg(feature = "layout_template")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIB3GkZB0GiCQxDiDBoGUaRnGgdIJDeDByggIgxCIPg8C+A4FimLIGg6Jg0gyEoUhYIg5hqHIeiAIoigeD4jiWJ4piuBB0i6RwghuHYfiGDIxDGM5AiYNpCheNIThWCQ1iiKovD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgxCIIB3GkZB0GiCgxDiDRoGUaRnGgdIKDeDR5goM4NgkIojD4PAvgOBYoiuBoliMIIhgsNINgiFINg+EYTCIOYXhmG4dCKH4oiqBB0i2RwgiUMQ2jmEISgoNYghSNQghiGoch6NpMCKRYuD6AQ",
         categories = "layout",
         tags = "window,webpage,block,section",
         contributors = "mittalyashu,danielbayley"
@@ -5596,7 +5732,7 @@ pub enum LucideGlyph {
     LayoutTemplate,
     #[cfg(feature = "layout")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhYIB5goM4NHKIYLg2CQiiMPg8C+A4FiwbBpG4ZQgHgMYig0eY4CIOY6DKCo+jaQILDEIosC+Mo0jGM41HiRJCjuCgykaNo8lGUJHi2ShlD6AQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAaBlGkZxoHSCQxDiDByggIgyhceYJhsIB3GkZB0GiFIWCCHYKCIPg8C+A4FiwbBpG4ZYHDGCYLgcMoeDGDB5jsIg5j6N5BiuLYyjSMYzjUeJEkKOoJk8eZEDKPYokCQosC+SBlD6AQ",
         categories = "design,layout",
         tags = "window,webpage",
         contributors = "colebemis,ericfennis"
@@ -5618,17 +5754,33 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere"
     ))]
     LeafyGreen,
+    #[cfg(feature = "library_big")]
+    #[strum(props(
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EQgHiDgzhIeYdhIcocg8Ig+DwL4DgWJxwGGFwgGSDhNDcIAzHaEImiiLYXiyLhojCMgyDALg0CCEAuDkYwuDILg1C0LgxkaUJPDaUgzGwLQxkgLg3GOTw1kuWZTlOWgzlQTAxlqUZgDGXphk2ZJQC4NpileWg5k+XZNk8MpSmqVpzFqOQvjsaA+gE",
+        categories = "text,photography,multimedia,maps,development",
+        tags = "books,reading,written,authors,stories,fiction,novels,information,knowledge,education,high school,university,college,academy,learning,study,research,collection,vinyl,records,albums,music,package",
+        contributors = "danielbayley"
+    ))]
+    LibraryBig,
+    #[cfg(feature = "library_square")]
+    #[strum(props(
+        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhYIIJCIM4NHmCojD4PAvgOBYoHAYYSCAZIKE0NwgDcdgxDAIooC+LoSi2LxojGMwxDGNo4jqPI+GiQIwjIIhtDENY2CAMggjmO4pksPoBA",
+        categories = "text,photography,multimedia,maps,development",
+        tags = "books,reading,written,authors,stories,fiction,novels,information,knowledge,education,high school,university,college,academy,learning,study,research,collection,vinyl,records,albums,music,package",
+        contributors = "danielbayley"
+    ))]
+    LibrarySquare,
     #[cfg(feature = "library")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CIbQxDYIINDQIAxDQIg+DwL4DgWFYYgaCAiE0MQyg4doShSFobhqBIcgkTQ4CAOIjDKJYXimKIFgeK4QDSIw2jKJ4BA",
-        categories = "photography,multimedia",
-        tags = "book,music,album",
+        categories = "text,photography,multimedia,maps,development",
+        tags = "books,reading,written,authors,stories,fiction,novels,information,knowledge,education,high school,university,college,academy,learning,study,research,collection,vinyl,records,albums,music,package",
         contributors = "johnletey,csandman,ericfennis"
     ))]
     Library,
     #[cfg(feature = "life_buoy")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0NAuDkMwgimK4tC4Mg0jCMoZhuIYjiCIokiYIhtDGKQ4iwOQuDEN40DQLYpjWGgvjgaI6iOJYnkALpCCCVZXkuM5bjaTo7lGPInkSRpYkEM5KjGXJql6T4ah2BoIGOEoNg8IIWCINIQgqE4Pk2cIfgEA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwbQ0C4OQzCCKosi4LgyDSMYzCKGwviKJIhiOJYnCIbQxioOItDkLgxDeNQ0C2Ko2jiOhojyJImiiQgukQIJWliTY0lyN4clCUo+iiRpIlmQwzkyMpdmuX45j2G4egaCIXhmFoLg2D4RgwNJunKIIBA",
         categories = "accessibility,medical",
         tags = "preserver,life belt,lifesaver,help,rescue,ship,ring,raft,inflatable,wheel,donut",
         contributors = "colebemis,ericfennis,danielbayley,karsa-mistmere"
@@ -5668,7 +5820,7 @@ pub enum LucideGlyph {
     LineChart,
     #[cfg(feature = "link_2_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ3EgNxBDUIITDAIIWDEIA3hoIg+DwL4DgWHohgaCIKDGEw3GgMhhhOFYXg0IA0CAOIdh+JIeGwaRuGUIB4DGCY1CAeZACIMQyCKQwygmR5JHiS5GkiHgvjqPI5juPZEgmSJKluXI/luTpQDKUoflUZQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ3EgNxBDUIITDAIIWDEIA3hoIg+DwL4DgWHohgaCIKDGEw3GgMhhhOFYXg0IA0CAOIdh+JIeGwaRuGUIB4DKCQxDIIggHmQAikKRB5DGQZDj6TAijWHgvjqPI5juPY/gkMpOkaW5dlCTh4mGNpUlgPoBA",
         categories = "text",
         tags = "unchain,chain",
         contributors = "ericfennis,csandman,karsa-mistmere"
@@ -5676,7 +5828,7 @@ pub enum LucideGlyph {
     Link2Off,
     #[cfg(feature = "link_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ3EgNxBDUIITDAIIWDEIA3hoaAyCIPg8C+A4FiCI4GgiCgxhMN4dGGE4Vg2MYYDAaAth6IIigQaIgGwaRuGUIB4DKCQxDYIggHmQwiDGHpBDGCQ4kceZPkuN4hj2Pw+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ3EgNxBDUIITDAIIWDEIA3hoaAyCIPg8C+A4FiCI4GgiCgxhMN4dGGE4Vg2MYYDAaAth6IIigQaIgGwaRuGUIB4DKCQxDYIggHkMZEh6QZKCIOJHHmQwiDGN4hj2Pw+gE",
         categories = "text,account",
         tags = "chain,url",
         contributors = "colebemis,ericfennis,csandman,karsa-mistmere,johnletey"
@@ -5692,7 +5844,7 @@ pub enum LucideGlyph {
     Link,
     #[cfg(feature = "linkedin")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIA4GGDYNDAIITDEIIRHYNxoC0NB2C0NxhDIIIihOJQtDKJ4jiqJYUikMoZhuHYfhCF4UjaFg2C0Nh6CIPg8C+A4Fj4chlGMdAgGgZRpGcaB0gkMQyCIIB3GkZIFgkNJSHiCZRCAeYJDmPY/kSRo+GMaRyGMbBlCAcpclIY5bCKWQgGOX5zmIL5nmmaw+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIA4GGDYNDAIITDEIIRHYNxoC0NB2C0NxhDIIIihOJQtDKJ4jiqJYUikMoZhuHYfhCF4UjaFg2C0Nh6CIPg8C+A4Fj4chlGMdAgGgZRpGcaB0gkMQyCIIB5gkOZSHcaRkgWCQ0lIeIJlGPgvkSRo+GMaRyGMbBlCAY5UCKXQgHKYJSGOX5wj2P5nmmaw+gE",
         categories = "account,social,brands",
         tags = "logo,social media,social",
         contributors = "okcoker,csandman,ericfennis"
@@ -5740,7 +5892,7 @@ pub enum LucideGlyph {
     ListMusic,
     #[cfg(feature = "list_ordered")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0Ig2CIIB4DKCgyDGDR5hCC4NHiCQiDEMAiD4PAvgOBYfiKBoIgoMQyhiFoShSFophiGoch6IIliSBImjIOIxiiHYOiyE4Hi+O4fiGOIfHAYR0GgIBkgoTQ0CANhoDEdg0jQL5JkuSJKkyTgilAIIcGiKpFloaJckuTZPDaYg4EgNBjDALQxCAMgtDKdgtDMc50nQLg1nidJYmcPoBA",
+        svg = "gAPBsGkbhlCAeQyD0Ig2CKBwxgqDAgHiDwiDEMINHiCQiDIMQiD4PAvgOBYfiKBoIgoMQyhiFIWhiGocg0eYsiqH4hgQZYkjeEovh2DooDiK4oheB4aDGQI1iWHxwGEdBoCAZIKE0NAgDYaAxHYNIeiCS5NkqTJOlAIpSCCFhojSW5fl6TZPlENpkDgSA0GMMAtDEIAyC0Mp3C0MxznWdQuDWeZ1loL5cGgPoBA",
         categories = "text",
         tags = "number,order,queue",
         contributors = "ericfennis,csandman"
@@ -5772,7 +5924,7 @@ pub enum LucideGlyph {
     ListStart,
     #[cfg(feature = "list_todo")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINQiCAeIJDODBoGUaRnGgdIJDaDB3GkZB0GiGIMHKDgiDEIg+DwL4DgWJxwGGHggGSCRtDMIAxDcIAyjgIA0C0NImiiLYeiyLhojCCRNDGNA2GgOI/C+QRokOL4xCKSI0DEMpMk6UJSkWVJWjUOJaieT5ED6AQ",
+        svg = "gAPByGUYx0CAch4D0IgxCIIBoGUaRnGgdIKDaDR5goNYNHcaRkHQaIVg2CQiDMIg+DwL4DgWJxwGGHwgGSChtDMIAxDcIAyjgIA0C0NImiiLYfiyLhojCChNDGNA2GgOI/C+QRokOL4xCKSI0DEMpMk6UJSkWVJWjUOJaieT5ED6AQ",
         categories = "text",
         tags = "todo,done,check,tick,complete,tasks,items,pending",
         contributors = ""
@@ -5804,7 +5956,7 @@ pub enum LucideGlyph {
     ListX,
     #[cfg(feature = "list")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0Ig2CKBwxgqDAgHiCQiDIMYNHiDwiDgIg+DwL4DgWHohgaCIKDEMoYhSFoNHmGoohiGoch6IIEGWI42geFAxhyEoyiqCosg6J4zh+JI4gWPoKDOLYUhGE5LC4MIXkOC4dkaNpIgaGZLi2L4phKFAzlKVImCKMI0keAo5lwIpMmGUZTl6RJNnSaZZgEA",
+        svg = "gAPBsGkbhlCAeQxD0Ig2CKBwygqDAgHiDwiDIMYNHiCQiDgIg+DwL4DgWHohgaE4KhaGIahyB4aDEMoNHmFIuh2H4kiOBIlhSKIOgoMYrhmCorgiPYch6II4jeBYShoM4whqEYmCIMwuDCF48guNJHiKAo4hKFJTlWTo9i+V4zkuCpNkaNpckqQwij6GJflSVoxkSKZolmNoBA",
         categories = "text",
         tags = "options",
         contributors = "colebemis,ericfennis"
@@ -5820,7 +5972,7 @@ pub enum LucideGlyph {
     Loader2,
     #[cfg(feature = "loader")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgxDIIoHDKCoMg4eYJCKDQgHmEAiDYIg+DwL4DgWHohgaCIRheFIRDiE4aDKFx4hqEoeiCBBliONYYhoNwuDeHIHhUNAuDkM4OjCCo7j2E5AkKRIziSN4Fg+EQ5C4MA3iyU5VleP4RDYLgyDSSpdl+YZOjWUIGimC4vhqPomhaWJrh2H5PgKOJGhaKIVhKOYnkWe4rmaIp2lGeJIj6agxlSVp/gqQZDnEMZemCc40oOJIYhWh5xo+RJcguk5hlKC6Llego2gEA",
+        svg = "gAPBsGkbhlCAeAxD0IgxDIIggHkMoKDaDh5gkIoNgeEYLg0Pg8C+A4Fh2IIGgiCoMhSFgxDiFIaDKGB4hqJ4dh+BBliKNYHhYNAuDkM4sgoNwuDeE4PjqPI+hmQJChOM4jjeBZJgsOQuDAN4OiWCw2C4Mg0iiJpalyP5SlSVpNjWT4khqRJYhiEImm2KYch6ToCjiFZvmKJ45iaK5Ri4IpmiGdZQneY5VnmYJdnsIo7j2V4akGQ6AnOZ6DmmJpToeiwxomYqNkihaRkylIhgEA",
         categories = "multimedia,layout",
         tags = "load,wait",
         contributors = "colebemis,ericfennis"
@@ -5828,7 +5980,7 @@ pub enum LucideGlyph {
     Loader,
     #[cfg(feature = "locate_fixed")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0Ig1CIIB5DGCgxDKDR5gkIoSg0eIQCKEw+DwL4DgWHohgaGoRDmGYWDKE4OhuGIOhaGIeiCBBliONYHjGLImheLIPgqPoWgyM4kjeBYHi6PouiiOYRkGQIdh+RQ8GMaRyGMbIGHKCg3g0Yx4k6Xh5mGM5VleWYemaWJagoM5emCPZimSH5qmiAQ",
+        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5DKCgxgyB4QCINYNHmCQihIIg+DwL4DgWHohgaD4RhMeIVDKKIaDEOYYi2DIeiCBBliONYHjGMIKiiFYcg6FYXjOJI3gWOYng2KZIg6LYvkCPIyh+RA8GMaRyGMbIGGMeJLGMeZLHKCg3h2H5VleWYemaWJal+G4TluYIKDOZAvmqaIB",
         categories = "navigation,maps",
         tags = "map,gps,location,cross",
         contributors = "csandman,danielbayley,jguddas,ericfennis"
@@ -5836,7 +5988,7 @@ pub enum LucideGlyph {
     LocateFixed,
     #[cfg(feature = "locate_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5DKCgxgyDoJCKEoNHiEAiDUIg+DwL4DgWHohgaGYKDKE4IhEOYNHmFYXg6GoXh6IIEGWI42jGCocgeL4Ti6J4YjKDI0iSOIFjqC4pj6QoRj+L4skWNoeHAYR0GgIBkgoTQ3C4MQxCCXZfEMNQuDgMwgDgLgzDkIA1CAMQwl6bpwDIYwwCAM5mDeeZemifKAnALptnieg2DELZmmgNJmDkLQyl4MYdh+VZXlSVpYloIhNDGag3mAMZ6DkNhjl6jguDaegyo4MQuqurqsoMNggDALZ6DgN62n4La5r2iQ2nytatDOeqIq2o6wpML6VGiR4lhWP4aiiLbQk2SrKkaAQ",
+        svg = "gAPBsGkbhlCAeAxD0IgyCKBwygoNYNHmDwiDGDAgHmCYVgwPg8C+A4Fh2IIGgiCgxDmEoUhaEoaiuDoKDKHIeiOIoEgaE4Qg0eIqheJYbiyMAih2H42jWBYYi2KIvj+GIUjGOotjKRIhDwcBhHQaAgGSChNDcLgxDEIJemAQw1C4OAzCAOAuDMOQgDUIAxDCX5vnEMhjDAIAzmcN56l+aZ9oGcQum6eZ7DYMQtmeaQ0mcOQtDKXwxkKHpWliHaWlmWwiE0MZrDeYQxnsOQ2GOX6PC4Np7DKjwxC6rKvq2hA2CAMAtnsOA3refwtrqvqKDafa2q4M57omrqkrGlAvpmRo3k6PYaj20JAguy40gEA",
         categories = "navigation,maps",
         tags = "map,gps,location,cross",
         contributors = "fdev"
@@ -5844,7 +5996,7 @@ pub enum LucideGlyph {
     LocateOff,
     #[cfg(feature = "locate")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0IgxDIIoHDKCoMg4eIJCKDQgHiEAiDUIg+DwL4DgWHohgaCIRheGYKDKFx5hqEoYhUMQ5h2H4kiOBIlhqHIYi6KIxiyFYNh6II4jeBY8ieDomguM4wkmD4qkKNZFDwYxpHIYxsgYYx5k8Yx4k8coKDeNAvlaWJaD6AQ",
+        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5gkIgxgyDgygqEoNHiFQiDUIg+DwL4DgWHohgYeYaheB4QDEOYYhoMoTg+FoMh6IIEGWI42hSCocimMotj6DoQjOH4kjiBY9hGE4ZkCMYRiyOoLkONYiDwYxpHIYxsgYcoKDeDRjHiQBjHmPo0laWJaD6AQ",
         categories = "navigation,maps",
         tags = "map,gps,location,cross",
         contributors = "csandman,ericfennis,karsa-mistmere"
@@ -5852,7 +6004,7 @@ pub enum LucideGlyph {
     Locate,
     #[cfg(feature = "lock_keyhole")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeYLDENoOGMeISDIIg+DwL4DgWB4bHIZRjHQIB3GkZB0GiEg4g6FwiDODhoGUaRnGgdIYg4covhkIIRgwMIahyIokhscBhioIBkgsTQ3CAMQwFYNxhDUIJVDAIJYDGT5YDAdoxhsL5HioPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQ2hAcoTCIPg8C+A4FgeGhyGUYx0CAcoLCKDwghKDQwhAdxpGQdBohMOIQGgZRpGcaB0hOKYnDOGYbiGI4aHAYYyCAZIME0NwgDEMBWDcYQ1CCVAwCCVwxk6VwwHaQIaC+RoyD6AQA",
         categories = "security",
         tags = "security,password,secure,admin",
         contributors = ""
@@ -5860,7 +6012,7 @@ pub enum LucideGlyph {
     LockKeyhole,
     #[cfg(feature = "lock")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQxDGERyHiDQyhGGQiDOERoGUaRnGgdIUhYIByhMIobD4PAvgOBYuHAYYLCAZINE0NwghUVg3GENQgkEMAgkQMY8kQMB2DQIouC+NILD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMQiCAdxpGQdBog4MQ4hIeYZhEIB4g4M4SHKHQiDKJIhicIg+DwL4DgWLRwGGFwgGSDhNDcIIQFYNxhDUIJADAIJDDGO5DDAdg0iyLozhcPoBA",
         categories = "security",
         tags = "security,password,secure,admin",
         contributors = "colebemis,csandman,ericfennis"
@@ -5868,7 +6020,7 @@ pub enum LucideGlyph {
     Lock,
     #[cfg(feature = "log_in")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDUIAzGgNBhDIIITDAIIWDGFIUHYMYRhOFYXCAMQth8aAtDQIg+DwL4DgWKhwG8bB5GwaRuGUIIwjUdBzgkMYYDeIoNDGE4+CAN4piuMIyjSNoqkyNx5DKPQyCIIB4DGPQ1lUeJSCIM5VHmWAikOSAvk8PoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDUIAzGgNBhDIIITDAIIWDGFIUHYMYRhOFYXCAMQth8aAtDQIg+DwL4DgWKhwG8bB5GwaRuGUIIwjUdBzgkMYYDeIoNDGE4+CAN4piuMIyjSNoqkyNx4DKCQzCIIB4DGPQ1lUeZYCKQ5blKXgykgL5PD6AQ",
         categories = "arrows,account",
         tags = "sign in,arrow,enter,auth",
         contributors = "colebemis,csandman,ericfennis"
@@ -5876,7 +6028,7 @@ pub enum LucideGlyph {
     LogIn,
     #[cfg(feature = "log_out")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAMgxEgNRhDKDQgDCFQgDELQyhoVoRhOE4WhYMYNhoaA0CIPg8C+A4FikcBvGweRsGkbhlCCL40HQc4JDENoYDeDYjDGE49CAN4oiqL4xjONYpkyNh4DGCYOCIIB4DKCQ5lUeZSCKQ5bliXgykgL5PD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMgxEgNRhDKDQgDCFQgDELQyhoVoRhOE4WhYMYNhoaA0CIPg8C+A4FikcBvGweRsGkbhlCCL40HQc4JDENoYDeDYjDGE49CAN4oiqL4xjONYpkyNh4DGCYOCIIB5lIIpDlUeQyjwMpVHiXQiDmSAvk8PoBA",
         categories = "arrows,account",
         tags = "sign out,arrow,exit,auth",
         contributors = "colebemis,csandman,ericfennis"
@@ -5884,7 +6036,7 @@ pub enum LucideGlyph {
     LogOut,
     #[cfg(feature = "lollipop")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQxCIIBygwOIQGMeYMg4Ig+DwL4DgWB4bHAYR0GgIBkgwbQyDEIIqC0NAuDOLowhqHIiiSIYjiWJwiE2Dggg4YQyiwIAwkSRg0kcIJIkWTAtDiRg2CCUZMkYMZCDCNAvjYaA+gEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQxCKCR5gyDoQHKDA4CIPg8C+A4FgeGhwGEdBoCAZIMG0MgxCCKQtDQLgzi2L4ZhuIYjiCIokiYIhNg4IIOGEMorCAMJDkUNJGCCR5EksLQ4kUNgglCS5FDGQQwjML41GgPoBA",
         categories = "food-beverage",
         tags = "lolly,candy,sugar,food,sweet,dessert,spiral",
         contributors = ""
@@ -5892,7 +6044,7 @@ pub enum LucideGlyph {
     Lollipop,
     #[cfg(feature = "luggage")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ2CAMgwGgMBhDKDQgDCFQgDELQyhoVg4hKFIWhYMYNhoaAxDKH4TiGGIUDIdgxhGE4qheGYyhAIg+DwL4DgWOY8gaCIKDiGA4FYNIpheIokDIaJHjKSYsjKLw0jiOo/j6BJAgkTYwg2D5UjmO5ZjkYxpHIYxsGUIBygkMgiCAYx4gkMQ2m8Yx5m0MJVC+ZZnmmZJmmiapxgkOJvmwIpunCeKJnqYZ9oIPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ2CAMgwGgMBhDKDQgDCFQgDELQyhoVg4hKFIWhYMYNhoaAxDKH4TiGGIUDIdgxhGE4qheGYyhAIg+DwL4DgWOY8gaCIKDiGA4FYNIpheIokDIaJHjKSYsjKLw0jiOo/j6BJAgkTYwg2D5UjmO5ZjkYxpHIYxsGUIBygkMgiCAYx5m0MJvGMeIJDENpVC+ZZnmmZJmmiapxnOdZ3CIOJvmwIpumGfaCD6AQ",
         categories = "travel,transportation",
         tags = "baggage,luggage,travel,suitcase",
         contributors = "karsa-mistmere"
@@ -5900,7 +6052,7 @@ pub enum LucideGlyph {
     Luggage,
     #[cfg(feature = "m_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeIODOEhyhQIgyhIdxpGQdBog6EISHmFQiD4PAvgOBYoHAYYgCAZIOE0OAgDENhWDgbA0CCPA0C0NB2hGKAvi6IA+gEA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIIJCIM4NHmCojD4PAvgOBYoHAYYcCAZIKE0OAgDENhWDgbA0CCPA0C0NB2heKAvi6HA+gEA",
         categories = "transportation,maps,navigation",
         tags = "metro,subway,underground,track,line",
         contributors = "danielbayley"
@@ -5956,7 +6108,7 @@ pub enum LucideGlyph {
     MailQuestion,
     #[cfg(feature = "mail_search")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDILg1FYNhhg2DQwCCGAwC0MocEgNIVCCF4ZhmHIiHaDxjhgMQuiwOYijAMhoDeEQiD4PAvgOBY3jqBoICIbYMCANwtDgLg5DcIA1C4Nxhi4NIOkeUIag6HAuDANoZEyDQ3jaOI9jyBI+gkTQxDiIgxGEMwgmuK4khuWZrm2b4kDYdgwFqXo5mKNxjGkchjGwZQgGMeIJmYIqEHmhw4okcoJDOep+oCgphgWB4JkGFodiwNQtp2epggE",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDILg1FYNhhg2DQwCCGAwC0MocEgNIVCCF4ZhmHIiHaDxjhgMQuiwOYijAMhoDeEQiD4PAvgOBY3jqBoICIbYMCANwtDgLg5DcIA1C4Nxhi4NIOkeUIag6HAuDANoZEyDQ3jaOI9jyBI+gkTQxDiIgxGEMwgmuK4khuWZrm2b4kDYdgwFqXo5mKNxjGkchjGwZQgHKCQzCIIBjHiCZmogYx5owOJ6n6gKCmGBYHgmQYWh2LA1C2np6mCAQ",
         categories = "mail",
         tags = "email,message,letter,search",
         contributors = "karsa-mistmere"
@@ -5980,7 +6132,7 @@ pub enum LucideGlyph {
     MailX,
     #[cfg(feature = "mail")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINAiCAch4gkMoMGgZRpGcaB0gkMQ2gwdxpGQdBohAMIMg8IoRD4PAvgOBYoHAYYgCAZIJG0MgyCANwtDgLg5DcIA1C4NxhDGOw0CCQw5kUMAgkoMQtDILgwDaSxMjYNwiigL4uiAPoBA",
+        svg = "gAPByGUYx0CAeQ9CINAiCAdxpGQdBogkMgwgweITgwaBlGkZxoHSCQxDaDByhcIgyCIPg8C+A4FikcBhhEIBkgkbQyDIIA3C0OAuDkNwgDULg3GEMY8DQIJEDmRgwCCSwxC0MguDANpMEyNw3iiKovhEPoBA",
         categories = "text,account,mail",
         tags = "email,message,letter,unread",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -5988,7 +6140,7 @@ pub enum LucideGlyph {
     Mail,
     #[cfg(feature = "mailbox")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDcYYNg0MAghQMQthISA0hEIIThWDoYhgVg5C4NRDg0NwgDQIA1CANoliwSAxDgYwyC6HorDELg4iqKh2DgWgiD4PAvgOBZDHAbxsHkbBpG4ZQgkmTh0HOCQxDULA5g4OJZlsLAxDGQpEkmS5Nk+SIEgaCIKi+LYmlqLZgCCKZyiQNRWg+HIehaGIdHYMJikWaZDmaUB5DGVqACAeKICINgiCAeQyomkB4pMIg3oGhQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDcYYNg0MAghQMQthISA0hEIIThWDoYhgVg5C4NRDg0NwgDQIA1CANoliwSAxDgYwyC6HorDELg4iqKh2DgWgiD4PAvgOBZDHAbxsHkbBpG4ZQgkmTh0HOCQxDULA5g4OJZlsLAxDGQpEkmS5Nk+SIEgaCIKi+LYmlqLZgCCKZyiQNRWg+HIehaGIdHYMJikWaZDmaUB4DGCQ2CIIB4DKCQ3oseaICIMaACAeaOpSgJDC+hQ+gE",
         categories = "mail",
         tags = "emails,messages,letters,mailing list,newsletter",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -5996,7 +6148,7 @@ pub enum LucideGlyph {
     Mailbox,
     #[cfg(feature = "mails")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMwiCAdxpGQdBog4MQ2hIeYODSEhyHiDgyhKIgihsPg8C+A4FikcBhhcIBkg4bQyDIIA3C0NwuDEIAzC4Nw4GMLQuDWOwzC0MQuDKP5IkoOAgDATA2jgIopC+L4Xi6MBojKDhNjcOB2DEMRjDAIJKkoOQgjebRoDGH5XlkaA+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMwiCAch4g4MoShUIg2hIeYODSEh3GkZB0GiDgxhsPg8C+A4FikcBhiQIBkg4bQyDIIA3C0NwuDEIAzC4Nw4GMLQuDWOwzC0MQuDKP5IkoOAgDATA2jgIopC+L4ki6MBojKDhNjcOB2DEMRjDAIJKkoOQgjebRoDGH5XlkaA+gEA",
         categories = "mail",
         tags = "emails,messages,letters,multiple,mailing list,newsletter,copy",
         contributors = "karsa-mistmere,ericfennis"
@@ -6004,7 +6156,7 @@ pub enum LucideGlyph {
     Mails,
     #[cfg(feature = "map_pin_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1C4NAzCCDIOEEOAuDANgghSFggDCG4dDQIAxDAY4chcOIgDKGInGEMg5C4OYfiyLofhyNIQC0NQiD4PAvgOBY6j2BoIgoMYtDGJgxDMLg1DKEwuDaJZOheNYcDKHIhGGJomlMLQ4lwIA3C4OImmCYodjQLZJkuYQyjmO5Aj+BJBgkTZFg+dRBDILg3iaeZ7maHQ5iAMBhg+D5TCChQgn2fJ6lqf5hDcLQukibY8nGcIFgecwxDSLggi0Mg1oSiJ/DALZ5DENanpMNqVm8PBsGkbhlCAeAxgmbAgHkMq4rkeK8CIMq5Hmt7BpWsazD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ1C4NAzCCDIOEEOAuDANgghSFggDCG4dDQIAxDAY4chcOIgDKGInGEMg5C4OYfiyLofhyNIQC0NQiD4PAvgOBY6j2BoIgoMYtDGJgxDMLg1DKEwuDaJZOheNYcDKHIhGGJomlMLQ4lwIA3C4OImmCYodjQLZJkuYQyjmO5Aj+BJBgkTZFg+dRBDILg3iaeZ7maHQ5iAMBhg+D5TCChQgn2fJ6lqf5hDcLQukibY8nGcIFgecwxDSLggi0Mg1oSiJ/DALZ5DENanpMNqVm8PBsGkbhlCAeAxgmbK1DKuK5Hmtwir2u7AmyOgvrGsw+gEA",
         categories = "maps,navigation,travel",
         tags = "location,waypoint,marker,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -6012,7 +6164,7 @@ pub enum LucideGlyph {
     MapPinOff,
     #[cfg(feature = "map_pin")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDAIAxDAY4NDYLQ4g4MoUhYc4UC2Ew4C0MQyGGFYVg2DQxg4NggDAWgiD4PAvgOBYuGMaRyGMbBlCAYx4gmIAijoeY9DCPxygkM4ti+NI2jgPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIAxDAY4NDYLQ4g4MoUhYc4UC2Ew4C0MQyGGFYVg2DQxg4NggDAWgiD4PAvgOBYuGMaRyGMbBlCAcoJDMIggGMeYJg+PhjHiQgyi2L40jaOA+gE",
         categories = "maps,navigation,travel,account",
         tags = "location,waypoint,marker,drop",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -6020,7 +6172,7 @@ pub enum LucideGlyph {
     MapPin,
     #[cfg(feature = "map_pinned")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgIA4GMMAgDQLg1C0NggDmFoYHOFgthOFQ2C0ORhheF4RhEMQgDEMggDAIg+DwL4DgWMBjGkchjGwZQgHKCQyCIIBjHmCQ4kAYx4gmK4vjGNo4jqMIzgaCIKDgLg4DMNYqDQSA1GGKYpieLQtC4OQuDcbAtiwNhjmMMQuDGbQuDKcQzi0IAuDYLg0iqfAxGiDBjnidpwnqKgtmCbZinKbZjDOaJzDaXp8mEMJjhmZhoC0M5WliS4ygQaA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDgIA4GMMAgDQLg1C0NggDmFoYHOFgthOFQ2C0ORhheF4RhEMQgDEMggDAIg+DwL4DgWMBjGkchjGwZQgGMeIJisIo8HmCQ4kEcoJDKL4xjaOI6jCM4GgiCg4C4OAzDWKg0EgNRhimKYni0LQuDkLg3GwLYsDYY5iDELgxmwLgynAM4tCALg2C4NIqnsMRogwY53nWb55ioLZfmyYZxmyYgzmecg2l2e5gDCYoZmUaAtDOVZXkqMoEGgPoBA",
         categories = "maps,navigation,travel,account",
         tags = "location,waypoint,marker,drop",
         contributors = "danielbayley"
@@ -6028,7 +6180,7 @@ pub enum LucideGlyph {
     MapPinned,
     #[cfg(feature = "map")]
     #[strum(props(
-        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgzCANggDkIISDENYTCAMgxheHIeDEOAghmIIViSI4Sh0Ig+DwL4DgWBxui0bIMGUIB5DGEAzCIIB4DKEA5j0eZACKIo9HiOgikKLQvjUbhljSNo+kWGZDkoNpDkWK4+kqVpNk+UYBA",
+        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgzCANggDkIISDENYTCAMgxheHIeDEOAghmIIViSI4Sh0Ig+DwL4DgWBxui0bIMGUIB4DKEA5CIIB5DGEAzj0eJACKPI+joIoiiyLo1G4ZY0jaOJJhmQ5FlWSIQiuPpFDaTAvk6UIBA",
         categories = "text,maps",
         tags = "location,navigation,travel",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -6044,7 +6196,7 @@ pub enum LucideGlyph {
     Martini,
     #[cfg(feature = "maximize_2")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDUIAzCAMgxhSFoYDkIg+DwL4DgWB4Jh6IYGgiCoMG6DoQDmGoZheGYSh2H4miMZYejcIB5DGEAzCKOwyhAMQwkAeI9CKF5GkKEQ0jQL43jmKAgkePpAHmTAxk6VJZkWO5IkqHpQigPoBA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDUIAzCAMgxhSFoYDkIg+DwL4DgWB4Jh6IYGgiCoMG6DoQDmGoZheGYSh2H4miMZYejcIB4DKEAxDQIggHkMYQDOQR4kQIoXkEeY9hEMI0C+N45iiQpOj+R5JkaQpJkuO5XlCHpSigPoBA",
         categories = "arrows,layout,design",
         tags = "fullscreen,arrows,expand",
         contributors = "colebemis,ericfennis"
@@ -6060,7 +6212,7 @@ pub enum LucideGlyph {
     Maximize,
     #[cfg(feature = "medal")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ3C4MgxCAMQ1CAMguDYNgggwMQ0GEMoTCAMIfhAIAuDEMwthQMhMDQLg0hMLg4EGHYdiCIIPhcMhoDEMoch6NIiDGFYvGyQI3iSG4yiGNYjhqLopDENguDcOYQDUIg+DwL4DgWV5agaCIKDGD46CANYkjKDZWliXZcgSXoJG2JYQh2ZQ4DgLQ5i+aZZm2bIFgeCRNDiGBoDieprDwYxpHIYxsGUIBjHmCQxDcIggHKCZVo8eKSDKeqJoujZ9m6YIdDEOB2icaAtC6VZXnuW4BA",
+        svg = "gAPBwGEdBoCAZA9CITQ3C4MgxCAMQ1CAMguDYNgggwMQ0GEMoTCAMIfhAIAuDEMwthQMhMDQLg0hMLg4EGHYdiCIIPhcMhoDEMoch6NIiDGFYvGyQI3iSG4yiGNYjhqLopDENguDcOYQDUIg+DwL4DgWV5agaCIKDGD46CANYkjKDZWliXZcgSXoJG2JYQh2ZQ4DgLQ5i+aZZm2bIFgeCRNDiGBoDieprDwYxpHIYxsGUIBjHiCY6CIIBygmVaPHmkg3nqiaLo2fZumCHQxDgdonGgLQulWV57luAQ",
         categories = "sports,gaming",
         tags = "prize,sports,winner,trophy,award,achievement",
         contributors = "karsa-mistmere"
@@ -6068,7 +6220,7 @@ pub enum LucideGlyph {
     Medal,
     #[cfg(feature = "megaphone_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5C4Mg2CCDIOCAMwgDEMR2DMbAxDQLobhOHQ0CIPg8C+A4FiOJoGgiCgyDGFQ1C4Mw0FYNhsC0N4xi4MguDAM4iiSKYogSKoJE2Fgug8MQ2C4OBhhSFAwhWFQtjAOAtDGSI/iWQ4jGwaRuGUIB4DGCQyCIIB5mQIpmmgMplmweJumuZojC+XpgD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ5C4Mg2CCDIOCAMwgDEMR2DMbAxDQLobhOHQ0CIPg8C+A4FiOJoGgiCgyDGFQ1C4Mw0FYNhsC0N4xi4MguDAM4iiSKYogSKoJE2Fgug8MQ2C4OBhhSFAwhWFQtjAOAtDGSI/iWQ4jGwaRuGUIB5DKCQyDIIggHiZAimaaB4DGZZoHmcJslqXpgD6AQ",
         categories = "multimedia,notifications",
         tags = "advertisement,attention,alert,notification,disable,silent",
         contributors = "karsa-mistmere"
@@ -6084,7 +6236,7 @@ pub enum LucideGlyph {
     Megaphone,
     #[cfg(feature = "meh")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhsGkboIHgMYMDiEB4DKEw2hAeYmg0NYuiuMYZhuIYjiCIoIHmNA5imMI/CCKoMDkLgwDGLpBjYL44GWOojkONAxDWR5JkOMJUkqRYzlyGpNjsPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bGwaRuggeQxhMNYQHkMoohAeIsg0NouicIg4CKGwviKJIhiOCB4jQOYqkCLowDkLgwDGKpFjeHI6GWPIkCCP4tlKMAxDWR5JCCK4MkGW5DjiTg+gE",
         categories = "emoji",
         tags = "emoji,face,neutral,emotion",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -6100,7 +6252,7 @@ pub enum LucideGlyph {
     MemoryStick,
     #[cfg(feature = "menu_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHiDgzhIeYdhIcocCIMgiD4PAvgOBYoHAYYXCAZIOE0NwgDgaAxDCJ4pi6F4ti8aIxjONQxDKOI6igL49GiP4wjIIo0CAMQ2keO5KkAPoBA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEaBlGkZxoHSDYPhEeYUhEcoTCIMgiD4PAvgOBYoHAYYLCAZINE0NwgDgaAxDCJ4pi6C4ti8aIxjONQxDKOI6igL49GiP4wjIIo0CAMQ2keO5KkAPoBA",
         categories = "layout,account",
         tags = "bars,navigation,hamburger,options,menu bar,panel",
         contributors = "danielbayley"
@@ -6108,7 +6260,7 @@ pub enum LucideGlyph {
     MenuSquare,
     #[cfg(feature = "menu")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0Ig0CKBwygoMgwg0eYJCIMQyhOD4WhgPg8C+A4Fh2IIGHiGoRhmCg2hOFYqgeFYMh2H4EGWIozCCFIKDEOINgiCoMg6EISjeGo6CKMYjD6AQ",
+        svg = "gAPBsGkbhlCAeQyD0IgxDIIggHiCQiDIMIOHkMYKgyDh4hcIg0CIPg8C+A4FiCI4GhCCoThWEQ2hqHIegeHItiCIoEGWJY2g+EYqjGGA4iuPougqHo0iYPoB",
         categories = "layout,account",
         tags = "bars,navigation,hamburger,options",
         contributors = "colebemis,ericfennis"
@@ -6140,7 +6292,7 @@ pub enum LucideGlyph {
     MessageSquareDashed,
     #[cfg(feature = "message_square_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDUYQyCCEgwCCFQxC2EgyEgNxsC0NAgDQVoQhqFomg0MoZGgMQ0hGE4mheLwyHoIg+DwL4DgWNhsGkbhlCAeQygkMQwCIIB4DGCQ5kYeJCCKD5GHmSZPkWNgvjyPo7j2P5SgkN5Rk4MQzkyUwxDKTJhmeVpYGUPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDUYQyCCEgwCCFQxC2EgyEgNxsC0NAgDQVoQhqFomg0MoZGgMQ0hGE4mheLwyHoIg+DwL4DgWNhsGkbhlCAeAxgkOQiCAeQygkMQwkUeJICKD5FHmQpPkuNgvjyPo7j2P5SgkN5Mk4MQylGYQzkyU5ijWN5YGUPoBA",
         categories = "account",
         tags = "comment,chat,conversation,add,feedback",
         contributors = "danielbayley"
@@ -6164,7 +6316,7 @@ pub enum LucideGlyph {
     MessagesSquare,
     #[cfg(feature = "mic_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDIIA4C0OQuDANAghEMA2GEMguDiDYahwIAwCAMYgCAMwuDkOIlicOBMDENoiDIIg+DwL4DgWMxjGkchjGwZQgGMeYJDcIo/HiCQxkMIBygkNYyjSOY7j0PoB",
+        svg = "gAPBwGEdBoCAZA9CIbQxDIIA4C0OQuDANAghEMA2GEMguDiDYahwIAwCAMYgCAMwuDkOIlicOBMDENoiDIIg+DwL4DgWMxjGkchjGwZQgGMeIJDENwiCAcoJDWRRjHmCZEjML45juPQ+gEA",
         categories = "devices,multimedia",
         tags = "lyrics,voice,listen,sound,music,radio,podcast,karaoke,singing,microphone",
         contributors = "it-is-not,danielbayley,karsa-mistmere"
@@ -6172,7 +6324,7 @@ pub enum LucideGlyph {
     Mic2,
     #[cfg(feature = "mic_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0IgyCIIB4DKCgygyB4QguEx4gmCwiD4PAvgOBYcHAYR0GgIBkgoTQxDgLg4DkIAxDMLgyDMQQ3C4MQyCCNo4CAMI9j8MYujgdgtgyHAviKJIhiOJYnCITQ1i8MB2DIYQ3jqP4+j6PA1huHZJGiS4kiaKAxlEOQuDMNBWDUYQzCCb5aj0LQ1C4Ng4C0MZpDOXpIkyYpNiiLg5HYM5unCWY/nWPAyjeRpfn+AoEgaCIKkGDYPpaF4ZjiDR5hWEp9h8ZQ+gEA",
+        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5gmC4NHgMoKDKDIOhSC4MD4PAvgOBYcHAYR0GgIBkgoTQxDgLg4DkIAxDMLgyDMQQ3C4MQyCCNo4CAMI9j8MYujgdgthuHYiiSIYjiWJwiE0NYvDAdgyGEN46j+Po+jwNQihwL5IGiSokiaKAxlAOQuDMNBWDUYQzCCb5Zj0LQ1C4Ng4C0MZpDOXZHkuYpMiiLg5HYM5unCWI/nWPAyjeRpfn+AoEgaCIKjiEoZpeGIVheD6WDmfYepMPoBA",
         categories = "devices,communication,connectivity,multimedia",
         tags = "record,sound,mute,microphone",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -6180,7 +6332,7 @@ pub enum LucideGlyph {
     MicOff,
     #[cfg(feature = "mic")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIAyGEMwghEMAghQMAthEMx2DeEIShWH4UDaFRWDWHYTiCGIYFoIg+DwL4DgWLYwgaCIKDEOQgDEMB2g8Nwgj6Fo5C0MQ0hUdgtDKLIujOLRsGkbhlCAeQxgmNwiCAeJUCKDJXHgMpVkmUpfCIMpJi0L5OlAPoB",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAyGEMwghEMAghQMAthEMx2DeEIShWH4UDaFRWDWHYTiCGIYFoIg+DwL4DgWLYwgaCIKDEOQgDEMB2g8Nwgj6Fo5C0MQ0hUdgtDKLIujOLRsGkbhlCAeAygmDAilIMZVkkIB5lkIo3lceZUCIMpJi0L5OlAPoB",
         categories = "devices,communication,connectivity,multimedia",
         tags = "record,sound,listen,radio,podcast,microphone",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -6196,7 +6348,7 @@ pub enum LucideGlyph {
     Microscope,
     #[cfg(feature = "microwave")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHiDQyhEaBlGkZxoHSDQxDWER5g0NIRHKE4OCIPg8C+A4FimLIGgiCoMCIOIgg2NYSg0NoWhiGocCIN4kiYMYoiqL4pHAYYLCAZINE0MQ4CAOB2kGKQvkmC5IkoaJMk4NggDEOR2hWVpYGiWpLk0IpPlGYZjkWV5bD6AQ",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHiDQyhEcoTg6ER5g0NIRGgZRpGcaB0g0MQ1CIPg8C+A4FimLIGgiCoMCIOIeiCIokCIN4RhgNoWhgMYag2NYpiuBB0ikcBhgsIBkg0TQxDgIA4HaO5FkqC5JksaJNk8NggDEOR2hWV5blqTJOCKUJSmGY4oiqWBoD6AQ",
         categories = "food-beverage,home",
         tags = "oven,cooker,toaster oven,bake",
         contributors = "karsa-mistmere,ericfennis"
@@ -6212,7 +6364,7 @@ pub enum LucideGlyph {
     Milestone,
     #[cfg(feature = "milk_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMhoDgIg+DwL4DgWEoVgaCIKDmDR2DELgzDQMxNDENYdDILg3DgORhDQIIuDAIIxjELg2DcMoNC4MgxDkbI1DUNguDkOA0i2L4ykgMQgjWN45DIMoeC4MQzDETQ3C6DJXDgbAtlIMg4lIOQyEGLowkiMQ3CAMQwjoMQyFYMgwGGOI4jOSJ0GgNpzg2Z53C2UAtDOEYThiF4EhmCZWmoNRhkENJpo6aZ2kqJoxpGOKXn2MQzC6Ig1p0Mw1oOFKHhIbBpG4ZQgHgMYJDIIqrDKrqvCAeayCKT6wHmra4qOp6pD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ4CAMhoDgIg+DwL4DgWEoVgaCIKDmDR2DELgzDQMxNDENYdDILg3DgORhDQIIuDAIIxjELg2DcMoNC4MgxDkbI1DUNguDkOA0i2L4ykgMQgjWN45DIMoeC4MQzDETQ3C6DJXDgbAtlIMg4lIOQyEGLowkiMQ3CAMQwjoMQyFYMgwGGOI4jOSJ0GgNpzg2Z53C2UAtDOEYThiF4EhmCZWmoNRhkENJpo6aZ2kqJoxpGOKXn2MQzC6Ig1p0Mw1oOFKHhIbBpG4ZQgHgMYJDIIqrDKrqvCAeatCKtB5rKuKvhIL6nqkPoBA",
         categories = "food-beverage",
         tags = "lactose free,bottle,beverage,drink,water,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -6228,7 +6380,7 @@ pub enum LucideGlyph {
     Milk,
     #[cfg(feature = "minimize_2")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig0CAMYSDEMIThWFwyDAIg+DwL4DgWB4Jh6IYGgiCoMG6DoQhuE4XhSL4YCANIdh+JojGWHo5CAeQxhCFgiCAeI/CKFJCHgMotDGQh5koIgzjYL45juKJDkWUY9kUMpMj2T5HkOX4ch6U4oD6AQ",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig0CAMYSDEMIThWFwyDAIg+DwL4DgWB4Jh6IYGgiCoMG6DoQhuE4XhSL4YCANIdh+JojGWHo5CAeAyi0MQiCAeY/CIM5CHkMYQhaQh4koIoUjYL45juKJDkWUZDk8MpBj2T5Hj2WIch6U4oD6AQ",
         categories = "arrows,layout,design",
         tags = "exit fullscreen,arrows,close,shrink",
         contributors = "colebemis,ericfennis"
@@ -6244,7 +6396,7 @@ pub enum LucideGlyph {
     Minimize,
     #[cfg(feature = "minus_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0OAgg4aA4hmG4hiMPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQ4CCFBoDgIobC+IokD6AQA",
         categories = "maths,shapes",
         tags = "subtract,remove,decrease,reduce,calculate,line,operator,code,coding,minimum,downgrade,-",
         contributors = "colebemis,ericfennis"
@@ -6252,7 +6404,7 @@ pub enum LucideGlyph {
     MinusCircle,
     #[cfg(feature = "minus_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwch4gkMoMhiCoMGgZRpGcaB0hOFQ+DwL4DgWJxwGGEQgGSCRNDgIAxDIaImiiLYRD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeYODOEhyHiDgyhIdxpGQdBog6EIShkIoWD4PAvgOBYoHAYYgCAZIOE0OAgDEMhohGKAvi6IA+gE",
         categories = "maths,development,text,tools,devices,shapes",
         tags = "subtract,remove,decrease,reduce,calculator,button,keyboard,line,divider,separator,horizontal rule,hr,html,markup,markdown,---,toolbar,operator,code,coding,minimum,downgrade",
         contributors = "colebemis,ericfennis"
@@ -6268,7 +6420,7 @@ pub enum LucideGlyph {
     Minus,
     #[cfg(feature = "monitor_check")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ5CAMQwCAMoQCANAtDQIg+DwL4DgWGByGUYx0CAeIJDIIggHcaRkgWJAwiYaBlGkZxoHSCQxhYIByiMIolCAeYJDOF4Zh6IIYhuBoICITQxhEMQ3HaFoYhqBBokWU4HgkTQ4hAMRoDiQZShyAQ",
+        svg = "gAPBwGEdBoCAZA9CIbQ5CAMQwCAMoQCANAtDQIg+DwL4DgWGByGUYx0CAeYJDMIggGgZRpGcaB0gkMYWCAdxpGSBYJDIMImHIeI2iaOwiDKF4Zh6IIYhuBoICITQxhEMQ3HaFoYhqBBokWU4HgkTQ4hAMRoDiQZShyAQ",
         categories = "connectivity,devices,development",
         tags = "tv,screen,display,desktop,running,active,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6276,7 +6428,7 @@ pub enum LucideGlyph {
     MonitorCheck,
     #[cfg(feature = "monitor_dot")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINgigkeIMDEOYPHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0MgyCAMQyHYMxhiqKgwCCMwxC2MRIDSMAgjKNIrjeNxWDWO49jWPI3GiFIaC+IYjiCIokiYIhNiyKw3HYNIZhuTRok+I4licOI8DEaA4lqTJQD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ5CKCR5gwNoQHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0MgyCAMQyHYMxhiqKgwCCMwxC2MRIDSMAgjKNIrjeNxWDWO49jWPI3GiD4aC+IYjiCIokiYIhNiyKw3HYNIZhuTRok+I4licOI8DEaA4lqTJQD6AQ",
         categories = "connectivity,devices,development",
         tags = "tv,screen,display,desktop,running,active,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6284,7 +6436,7 @@ pub enum LucideGlyph {
     MonitorDot,
     #[cfg(feature = "monitor_down")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIAxDMVg3CIPg8C+A4FhSF4GggIhtDENYODALQzCAM4jiOE4VhqFByGUYx0CAch4gkMgiCCMwijUIBoGUaRnGgdIJDENI2HcaRkgWNAwjYeYJDOKQvi2L4ZgSG4JguDQxDcdpEhSFpVlSBYHlcOAgDIMRoDiUIrgEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAxDMVg3CIPg8C+A4FhSF4GggIhtDENYODALQzCAM4jiOE4VhqFByGUYx0CAeYJDMIggHiCQyjUaBlGkZxoHSCQxDSNR3GkZIFjgMI1HKNwijmFAvi2L4ZgSG4JguDQxDcdpDlCK4ClWB5XDgIAyDEaA4imFpVD6AQ",
         categories = "connectivity,devices",
         tags = "tv,screen,display,desktop,download",
         contributors = "danielbayley,karsa-mistmere,jguddas"
@@ -6300,7 +6452,7 @@ pub enum LucideGlyph {
     MonitorOff,
     #[cfg(feature = "monitor_pause")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDAIAxDMVg3CIPg8C+A4FhSF4GgiCgxDSDoQhKFIWgQaIUHIZRjHQIBoGUaRnGgdIJh4IggHmCQzjUeIJDKNRyjsIo9CAdxpGSBY8DCE4ViiKoZiWB4JgsMoODcdg0kqJIYgKT4cE0OAgDIMRoDiWIaD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDAIAxDMVg3CIPg8C+A4FhSF4GgiCgxDSDoQhKFIWgQaIUHIZRjHQIBoGUaRnGgdIJh4IggHIeIJDKNR3GkZIFjkMI1HmCQzjWOAijqI4oiqGYlgeCYLDKDg3HYNIThWGpNgWT4KDgIAyDEaA4leJIYgE",
         categories = "connectivity,devices,multimedia,development",
         tags = "tv,screen,display,desktop,video,movie,film,suspend,hibernate,boot,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6308,7 +6460,7 @@ pub enum LucideGlyph {
     MonitorPause,
     #[cfg(feature = "monitor_play")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDAIA3CANQgDMLYRDMWgiD4PAvgOBYZHIZRjHQIB4gkMgiCAaBlGkZxoHSCQxDSJxyiQIomCAeYJDOJx3GkZIFiUMIYhqH4hhmHIGggIhNDEMggDENx2jGGYbgQaJGlWB4JE0OAgDIMRoDiQpUh2AQA",
+        svg = "gAPBwGEdBoCAZA9CIbQxDAIA3CANQgDMLYRDMWgiD4PAvgOBYZHIZRjHQIB3GkZIFgkMgwCIIBoGUaRnGgdIJDENIrHIeIoiuOAiDKKx5gkM4YhqH4hhmHIGggIhNDEMggDENx2jWGYbgQaJGlWB4JE0OAgDIMRoDiQpUh2AQA",
         categories = "connectivity,devices,multimedia,development",
         tags = "tv,screen,display,desktop,video,movie,film,running,start,boot,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6316,7 +6468,7 @@ pub enum LucideGlyph {
     MonitorPlay,
     #[cfg(feature = "monitor_smartphone")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgIA4FYNhhDIIITDAIIWDALQyhoSA0hKFIXiGGYTDIdg3h+FYiiAMhoDgIg+DwL4DgWMIzgaCIKDGFgxDkdgtDMLg5DYIJADENYvjGNo1gSN4JE0NwgjwaJHjCMpMjAchlGMdAgHcaRkgWCQ2CIIB5gkMQymQeJnmMIBymsIppCAaBlGkZxoHSZwwkgL5ZlsPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDgIA4FYNhhDIIITDAIIWDALQyhoSA0hKFIXiGGYTDIdg3h+FYiiAMhoDgIg+DwL4DgWMIzgaCIKDGFgxDkdgtDMLg5DYIJADENYvjGNo1gSN4JE0NwgjwaJHjCMpMjAchlGMdAgHmCQxDIIggHiXw2mIcpkCKYQgHcaRkgWCZmCAaBlGkZxoHSXwwkgL5ZlsPoBA",
         categories = "connectivity,devices",
         tags = "smartphone,phone,cellphone,device,mobile,desktop,monitor,responsive,screens",
         contributors = "badraxas,karsa-mistmere,jguddas,ericfennis"
@@ -6324,7 +6476,7 @@ pub enum LucideGlyph {
     MonitorSmartphone,
     #[cfg(feature = "monitor_speaker")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1C4NQgDIMBIDgIg+DwL4DgWFYYgaCIKDENwgDkaAuDAMYUhaG4VHIZRjHQIBoGUaRnGgdIJDENgiCAch4gkMo5jwIgxj4IB3GkZIFjYMI5HmCQ0icL4ri2GoEhyCRNDgIA2EgNBhDKDwgDCYJgC2XgyHYNpdl+YZrl8Mhok6FYXlSFRjGkchjGwZQgGOTJBDWORjkCH45HKNpPnWd55D6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ1C4NQgDIMBIDgIg+DwL4DgWFYYgaCIKDENwgDkaAuDAMYUhaG4VHIZRjHQIB3GkZIFgkMQwCIIB4jQMo3HmCQ0jcco5CKOwgGgZRpGcaB0jQNonC+K4thqBIcgkTQ4CANhIDQYQyg8IAwl+Xwtl0Mh2DaXJemCapeDIaI/hWF5ThUYxpHIYxsGUIBjkKH43GOPQiDENZAjSTp0naeA+gE",
         categories = "connectivity,devices",
         tags = "devices,connect,cast",
         contributors = "mittalyashu,ericfennis"
@@ -6332,7 +6484,7 @@ pub enum LucideGlyph {
     MonitorSpeaker,
     #[cfg(feature = "monitor_stop")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIOQiCAaBlGkZxoHSCQ2gweYJDeDB3GkZB0GiFAiD4PAvgOBYiiWBoOhCEoJDENIahyHoJDIMIMggIgyhaCQzgwco3jmIokgQdIiHAYYeCAZIJE0MQyCAMQ3HaL5BkaHpFkcaJJksOAgDIMRoDiIYjlUaA+gE",
+        svg = "gAPByGUYx0CAeA9CIOQiCAeYJDeDB3GkZB0GiCQ2gwaBlGkZxoHSFwiD4PAvgOBYiiWBoICIMoZhuHYfCIMQ0gwcoqiwIIShSForDCDIOCIM4hiOKIiHAYYVCAZIJE0MQyCAMQ3HaM4iC+RoVkWRxokmSw4CAMgxGgOJClWWQ+gE",
         categories = "connectivity,devices,multimedia,development",
         tags = "tv,screen,display,desktop,video,movie,film,stop,shutdown,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6340,7 +6492,7 @@ pub enum LucideGlyph {
     MonitorStop,
     #[cfg(feature = "monitor_up")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ5CAMQwCAMwtDOEIQCIPg8C+A4FheGoGggIhNDEMoNDMVg3haGIdhcchlGMdAgHiCQyCIIByjEIozCAdxpGSBYyDCNB5gkM40GgZRpGcaB0gkMQ0igL4si6HIEh6CYhiMMQ3HaToXhmVJTgWB5WDgIAyDEaA4k+KoB",
+        svg = "gAPBwGEdBoCAZA9CIbQ5CAMQwCAMwtDOEIQCIPg8C+A4FheGoGggIhNDEMoNDMVg3haGIdhcchlGMdAgHmCQzCIIByHiCQyjQaBlGkZxoHSCQxDSNB3GkZIFjgMI0jcIo5hcL4si6HIEh6CYhiMMQ3HaQ5PiqApUgeVg4CAMgxGgOIohmVA+gEA",
         categories = "connectivity,devices",
         tags = "tv,screen,display,upload,connect,remote,screen share",
         contributors = "danielbayley,karsa-mistmere,jguddas"
@@ -6348,7 +6500,7 @@ pub enum LucideGlyph {
     MonitorUp,
     #[cfg(feature = "monitor_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDQLg1CAMQyg4LQ1hQIg+DwL4DgWGIbgaCIKDmDoQhKD4VDWF4Zh6GByGUYx0CAdxpGSBYJDIMAiCAeI2jkaBlGkZxoHSCYMjkeYJDOORyjsIgyikL4ti+HYEh+CRNhGEA3HYNJPiuApUgeVg4CAMgxGgOJdlQPoB",
+        svg = "gAPBwGEdBoCAZA9CIbQxDQLg1CAMQyg4LQ1hQIg+DwL4DgWGIbgaCIKDmDoQhKD4VDWF4Zh6GByGUYx0CAaBlGkZxoHSCYMCIIB5gkM46HcaRkgWCQyDCOhyHiRI6kkIgyikL4ti+HYEh+CRNhGEA3HYNJPiuApUgeVg4CAMgxGgOJdlQPoB",
         categories = "connectivity,devices,development",
         tags = "tv,screen,display,desktop,virtual machine,vm,close,stop,suspend,remove,delete",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6356,7 +6508,7 @@ pub enum LucideGlyph {
     MonitorX,
     #[cfg(feature = "monitor")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgyDCDYJguDR5goM4NGgZRpGcaB0goMQ0CIPg8C+A4FikbBpG4ZQgHkMYUDGF41CIOIXDKJQ2hqPYLjeKQvi+MYujCMh5kEMo3jOOQxDeOIlgwIB4kEMYMkSRhlD6AQ",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHiDQyhEaBlGkZxoHSDQxDSERyhODoRHmDQzCIPg8C+A4FikbBpG4ZYSDKHQ2iSNIODGJAxhSOoSjwIg4iiKovjGLowjIeZADEN4RHiOAxhUIB5jgMo+HiS4VikL5FGUPoB",
         categories = "connectivity,devices,development",
         tags = "tv,screen,display,virtual machine,vm",
         contributors = "colebemis,ericfennis,danielbayley,jguddas,karsa-mistmere"
@@ -6380,7 +6532,7 @@ pub enum LucideGlyph {
     Moon,
     #[cfg(feature = "more_horizontal")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeILDEMoOGMeYShQPg8C+A4FgeGodgaCIQhIOYVheDIUgmEgihqHIEiKIIwgeD4RCINYnhiDoKgyLYbiGH4BA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMYQGMeYTg8Pg8C+A4FgeGodgaCIWhiFYLg0OYQhKDQihqHIEiKIIwgeCYnDWFYXg2D4RhOLYbiGH4BA",
         categories = "layout,development",
         tags = "ellipsis,menu,options,operator,code,spread,rest,…,...",
         contributors = "colebemis"
@@ -6388,7 +6540,7 @@ pub enum LucideGlyph {
     MoreHorizontal,
     #[cfg(feature = "more_vertical")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeYLDEMoOGMeIShQPg8C+A4FgeGodgaCIWhiFYRCINYOgqDAihqHIEiKIIwgeD4XgyFIPicMQ5iqEothuIYfgE",
+        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeILDEMoOGMeYShQPg8C+A4FgeGodgaCIWgsNYVhGDIUgmEgihqHIEiKIIwgeD4XgwOYOgqDInhiLYbiGH4BA",
         categories = "layout",
         tags = "ellipsis,menu,options",
         contributors = "colebemis"
@@ -6452,7 +6604,7 @@ pub enum LucideGlyph {
     MousePointer,
     #[cfg(feature = "mouse")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAeYODKEhyHiDg3hKGQiDWEh3GkZB0GiDgxDQIg+DwL4DgWKhwGGJAgGSDhNDEMggDYdooioL4wiQPoBA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAdxpGQdBog4MQ0hIeIODWEhyh0Ig3hIeYODIIg+DwL4DgWKhwGGFwgGSDhNDEMggDYdobioL4whcPoBA",
         categories = "devices",
         tags = "device,scroll,click",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -6468,7 +6620,7 @@ pub enum LucideGlyph {
     Move3D,
     #[cfg(feature = "move_diagonal_2")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig1CAMQxCCEoShSFgiD4PAvgOBYHgmHIfgaCIKgwboOhAMQ5hMM4Ti2LIujCG4diSIRlhyOAgHkMYQDUIo8DKKw5kEeJDCKLJGj6EY1C+OA+gEA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig1CAMQxCCEoShSFgiD4PAvgOBYHgmHIfgaCIKgwboOhAMQ5hMM4Ti2LIujCG4diSIRlhyOAgHkMYQDUIo8DKKw5kEeI+hGRpDCKLI1C+OA+gEA",
         categories = "arrows,cursors",
         tags = "double,arrow",
         contributors = "ericfennis"
@@ -6476,7 +6628,7 @@ pub enum LucideGlyph {
     MoveDiagonal2,
     #[cfg(feature = "move_diagonal")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDMIA1CAMQ5hSFoYDEMQiD4PAvgOBYHgmH4igaCIKgwboOhCHIahmF4xDOHogieJBlh+OAgHkMouDkIo8DGEA1kEeJDhGQAgHiPgikWHwvjgPoB",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDMIA1CAMQ5hSFoYDEMQiD4PAvgOBYHgmH4igaCIKgwboOhCHIahmF4xDOHogieJBlh+OAgHkMYQDUIggHgMo/kEeI+hEOZBHmRJJjUL44D6AQ",
         categories = "arrows,cursors",
         tags = "double,arrow",
         contributors = "ericfennis"
@@ -6508,7 +6660,7 @@ pub enum LucideGlyph {
     MoveDown,
     #[cfg(feature = "move_horizontal")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDgIITDIMggDGF4ShgNgiD4PAvgOBYHgmH4igaCIKgwboOhANoUCCGoXi8MYdh+IYEiiJQ8iSCh5DGEIZCIIB5DKQQykMeJGCKFpJkCTIeiCPQ+gEA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDgIITDIMggDGF4ShgNgiD4PAvgOBYHgmH4igaCIKgwboOhANoUCCGoXi8MYdh+IYEiiJQ8iSCh4DKEIWCIIB5DGEIZkMeZAhEMpDHiRgik2N49D6AQ",
         categories = "arrows,cursors",
         tags = "double,arrow",
         contributors = "ericfennis,csandman"
@@ -6556,7 +6708,7 @@ pub enum LucideGlyph {
     MoveUp,
     #[cfg(feature = "move_vertical")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig4CAMYSDEMggDKFwxDaEw4CIPg8C+A4FgeCYgiOBoIgqDBug6EIShyFoYhOHA2h+IYoiUZYgjoIB5DGEAyCKPgykGQggHiQAihaQx4kWS5CiAL46D6AQ",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig4CAMYSDEMggDKFwxDaEw4CIPg8C+A4FgeCYgiOBoIgqDBug6EIShyFoYhOHA2h+IYoiUZYgjoIB4DGEIWCKPgykEMpDHmQAikcIB5kWS5HiAL46D6AQ",
         categories = "arrows,cursors",
         tags = "double,arrow",
         contributors = "ericfennis"
@@ -6564,7 +6716,7 @@ pub enum LucideGlyph {
     MoveVertical,
     #[cfg(feature = "move")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig1CAOQgDIIAxhaEgxDUIg+DwL4DgWB4Jh6IYGgiCoMG6DoQhSGoWhaGwghyHoggSJ4kgKN4jikb4Ng8IoyDGFIYhWFpEDmHYfiaPIljuKILj6K5AkOE5GheMZEjSS5PjmPAgHgMoQDIMgiCAeZikGZZgDGY5mHmbZqkoL5NDyXx4nGGJvmmZJvnGa5hhCeo1k2AQ",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig1CAOQgDIIAxhaEgxDUIg+DwL4DgWB4Jh6IYGgiCoMG6DoQhSGoWhaGwghyHoggSJ4kgKN4jikb4Ng8IoyDGFIYhWFpEDmHYfiaPIljuKILj6K5AkOE5GheMZEjSS5PjmPAgHgMYQDIIggHmYpBmSYAymOah5myaZKC+TQ8l+b5tmWZ5jmUeJwhifJon+NZNgEA",
         categories = "arrows,cursors",
         tags = "arrows",
         contributors = "colebemis,ericfennis"
@@ -6572,7 +6724,7 @@ pub enum LucideGlyph {
     Move,
     #[cfg(feature = "music_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ4CIIBygwNIQGMeIMg8Pg8C+A4FgeGhwGEdBoCAZIME0MQyCCDhWDIbA3CCFIaC+IYjD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ4CKCR4gyDwgHKDA0CIPg8C+A4FgeGhwGEdBoCAZIME0MQyCCDhWDIbA3CCGIaC+IYjD6AQ",
         categories = "multimedia,files",
         tags = "quaver,eighth note,note",
         contributors = "it-is-not,danielbayley,karsa-mistmere"
@@ -6580,7 +6732,7 @@ pub enum LucideGlyph {
     Music2,
     #[cfg(feature = "music_3")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDQIggGMeILDEMoOGMeYSDgIg+DwL4DgWB4bHAYR0GgIBkgsTQxDYIAxDgVoUhsL4iiQPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQ4hAcoMDQIg+DwL4DgWB4bHAYR0GgIBkgwTQxDYIIUFaD4bC+IokD6AQA",
         categories = "multimedia,files",
         tags = "crotchet,minim,quarter note,half note,note",
         contributors = "it-is-not,danielbayley,karsa-mistmere"
@@ -6588,7 +6740,7 @@ pub enum LucideGlyph {
     Music3,
     #[cfg(feature = "music_4")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ4FYNRsDEMgtDIdgxDMIg+DwL4DgWG4egaCAiG2DIMhOFYahyIYbGMaRyGMbBlCAYx4gkNgijQeYJg6ORygmGYbC+LowjKLYvjGM41jwOI5GOOwiDGOAgj8IpBhyRJJD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ4FYNRsDEMgtDIdgxDMIg+DwL4DgWG4egaCAiG2DIMhOFYahyIYbGMaRyGMbBlCAYx4gkNgijQeYJg6ORygmGYbC+LowjKLYvjGM4/CKGY0jYIo9jqPI4kKRJJD6AQA",
         categories = "multimedia,files",
         tags = "semiquaver,sixteenth note,note",
         contributors = "it-is-not,karsa-mistmere"
@@ -6596,7 +6748,7 @@ pub enum LucideGlyph {
     Music4,
     #[cfg(feature = "music")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ4FYNRsDEMgtDIdgxDMIg+DwL4DgWGxjGkchjGwZQgHKCYZCAYx4gkNgiiseYJg6GociGI4liCIokiYY4yCIMYvieKYwiyMw4jUL43jwPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ5CAMQ4FYNRsDEMgtDIdgxDMIg+DwL4DgWGxjGkchjGwZQgHKCYZCAYx4gkNgiiseYJg6GociGI4liCIokiaLIzDiMIoCKKhjjIIgxi+GwvjePA+gE",
         categories = "multimedia,files",
         tags = "note,quaver,eighth note",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -6604,7 +6756,7 @@ pub enum LucideGlyph {
     Music,
     #[cfg(feature = "navigation_2_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ5C4MwxCCDIOCANQgDIMRsDcLQ0CANwgDQLQxC4MYZDOIg3CIPg8C+A4FimLIGgiCgxDQLg1DMIA4C4OA4CAMQyhUbIgiYIIliOKIqi+KRsGkbhlCAeAxgkMgiCAeZRCKU5VDKUpZHiW5YlOKQvkuTQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ5C4MwxCCDIOCANQgDIMRsDcLQ0CANwgDQLQxC4MYZDOIg3CIPg8C+A4FimLIGgiCgxDQLg1DMIA4C4OA4CAMQyhUbIgiYIIliOKIqi+KRsGkbhlCAeAxgkMgik8MpSlMIB5lEIpYHmVpclOKQvkuTQ+gE",
         categories = "navigation,maps",
         tags = "location,travel",
         contributors = "karsa-mistmere,ericfennis"
@@ -6620,7 +6772,7 @@ pub enum LucideGlyph {
     Navigation2,
     #[cfg(feature = "navigation_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4C4NAzCCDIOCCDwxDEbA4CAMoZhCGQuDUNwtDWDQzCIPg8C+A4FiaKYGgiCgxDcLgzDkIIVC4N4PDKGgyGwLQ5jeDw0C4NgxiWJ4siYbBpG4ZQgHkMYJDIIggHiUAilKTgylGWB4lqV5SiYL5KkwPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ4C4NAzCCDIOCCDwxDEbA4CAMoZhCGQuDUNwtDWDQzCIPg8C+A4FiaKYGgiCgxDcLgzDkIIVC4N4PDKGgyGwLQ5jeDw0C4NgxiWJ4siYbBpG4ZQgHgMoJjoIpODGUZTHmVQiDKV5QlqW4mC+SpMD6AQA",
         categories = "navigation,maps",
         tags = "location,travel",
         contributors = "karsa-mistmere,ericfennis"
@@ -6636,7 +6788,7 @@ pub enum LucideGlyph {
     Navigation,
     #[cfg(feature = "network")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig2CIIB4g0MYPCAaBlGkZxoHSDYVHKEgiDGEB5hODw+DwL4DgWJ4qgaF4ZhuHYQh+E4QgiCoMg6I4lhCIAyCKJ4pgQdIskOEYNDmOwij+B4JguMoWhiGocjoII0iGQIoi2JxwGGCwgGSDRNDUIIUHYLQzGEMZlCAMJtmwMQtDEaAxDKapsm6bprnsdgzlkL5dguXJeGiYJinWZQyFYOJ/oEaA+gEA",
+        svg = "gAPByGUYx0CAeQ9CIMQ2CIIByHiCQxg2EIKgwIB3GkZB0GiCYWGgZRpGcaB0h0Ig+DwL4DgWJ4qgaGIahwIoWg+EYNgiFYTgkMoNh+IYjiWJ4pgQdIskMII9iKJIyjaOoNi+G4lg6FISCCFA5iaKIticcBhhsIBkgkTQ1CCCx2C0MxhDGZAgDCbJrDELQxGgMQymma5tm2ap6HYM5YC+XIbluXRol+YZ0mQMhWDifqAGgPoB",
         categories = "development",
         tags = "tree",
         contributors = "ericfennis,johnletey,csandman,karsa-mistmere"
@@ -6660,7 +6812,7 @@ pub enum LucideGlyph {
     Nfc,
     #[cfg(feature = "nut_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIA0FYMgiD4PAvgOBYThaBoIgoNQgDEMB2DQYQ3C4MAwDQIIkiaKAwCCLYtDULgyDcNwgDYLg3DgNxjC4NIMC6Hw0C4OAwDKMg5g0MZAkULg1kgTIMCAMgyGwLg2DIMQtlaWI8DOWgzlYOZaDQOA4h6SwylqTgyiOJQximbounKLZCgwNQtkYOQzDmEoUhmGIEhqCYLDmHogmAMw0DOfYVoGgIFgeg5RgwYwtkqiZik0N5ekoOQwneSomneRqjmoNI3p6aahmSZwzDWXqklKlpuDiWg2DQNKzqeswwrWaaqiUMg4jiWZKDYOQuDkMa1DOHpnr2xYlqySg3DUN54iWzZps2QA5rmOA3jcOK5koNQ1m+1JikaWBtDGxg1iiMQ5DmO5DjqY7WmewpaDiypnuYNqzjmNahDOeQxDaZw2DizZKDG+cNrMMr0rwM8BtQNa+tmeAtl6Tccrmua1t8N4sroNqhwu2MPt2EYTo2Fw8GwaRuGUIB4DGCYRCAec5CLOx5DLOs7HjQs/y6FMzzUPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIA0FYMgiD4PAvgOBYThaBoIgoNQgDEMB2DQYQ3C4MAwDQIIkiaKAwCCLYtDULgyDcNwgDYLg3DgNxjC4NIMC6Hw0C4OAwDKMg5g0MZAkULg1kgTIMCAMgyGwLg2DIMQtlaWI8DOWgzlYOZaDQOA4h6SwylqTgyiOJQximbounKLZCgwNQtkYOQzDmEoUhmGIEhqCYLDmHogmAMw0DOfYVoGgIFgeg5RgwYwtkqiZik0N5ekoOQwneSomneRqjmoNI3p6aahmSZwzDWXqklKlpuDiWg2DQNKzqeswwrWaaqiUMg4jiWZKDYOQuDkMa1DOHpnr2xYlqySg3DUN54iWzZps2QA5rmOA3jcOK5koNQ1m+1JikaWBtDGxg1iiMQ5DmO5DjqY7WmewpaDiypnuYNqzjmNahDOeQxDaZw2DizZKDG+cNrMMr0rwM8BtQNa+tmeAtl6Tccrmua1t8N4sroNqhwu2MPt2EYTo2Fw8GwaRuGUIB4DGCYRzcMs6zsec5CLP890LLoUzPNQ+gE",
         categories = "food-beverage",
         tags = "hazelnut,acorn,food,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -6692,7 +6844,7 @@ pub enum LucideGlyph {
     Option,
     #[cfg(feature = "orbit")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwM4QGMeIMg4Ig+DwL4DgWB4bh6BoIgqDA1hCEgig+CYXg0OYahyIoggKBIjgmC4uhWLYnhGDIPhuHY1jMcBhHQaAgGSDBNDEMAuDQIAyDELg5GGTAglYMAglmWQ5lMNAxC0MQ1k4MQ2jAL5EkaG5pkeSQiksMwuDWUAuDGVZZliWpaC2XQ4l+V5jl+ZpAmwPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKDAzCIPg8C+A4FgeGodgaCBjhIIg1hCCoTDmFYMg+GocgSIogjGBwghYIoPgmC4miiJQxiuL4hh8PBwGEdBoCAZIME0MQwC4NAgDIMQuDkYZNCCVwwCCWpaDmVA0DELQxDWTwxDaGYbkWR4amqSJKCKTAzC4NZRC4MZWlqWZblsLZeDiYJYmSYJni+bQ+gE",
         categories = "science",
         tags = "planet,space,physics,satellites,moons",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -6700,7 +6852,7 @@ pub enum LucideGlyph {
     Orbit,
     #[cfg(feature = "outdent")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig3CAOAgDMIAxDIIISDENgiD4PAvgOBYHgmH4kgoeAxhAMgxCIIB4DKEAxi0IB5ioIoYi4eYxjgMoeiCJ4mgiKI8jOOo8h2NY3kmKYri2HwvkEPIni+N4si6MIyjSNoyDiR5dj+UZDD6AQA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig3CAOAgDMIAxDIIISDENgiD4PAvgOBYHgmH4kgoeAxhAMgxCIIB5DKEIYi4eIxCIMYti+Ko3DKHogieJoIiiO4sjSNo4i6MIQh2OpLj4L5ADyJ5NjcOJJkeVggjWMo5imK4th+UJCD6AQA",
         categories = "text,development",
         tags = "text,tab",
         contributors = "Themistoklis,ericfennis"
@@ -6716,7 +6868,7 @@ pub enum LucideGlyph {
     Package2,
     #[cfg(feature = "package_check")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDYIIMCAMoQCANAtDQIg+DwL4DgWGIbgaCAiE0Mgxg4MBWDgYYRhEMAgiwMAtDGMAuDcMxsC0N4VimEoui0LYrjYN4TEGKotkWLAzCAOB2iiRI8iyJAxjONZBDSOorkaOxsDKMgxhaGIagQaIdmGB4JG0NwuDWEwuDKQQ5CANQuDENYXhmHodG8bB5GwaRuGUIBwG+fR0HOCQzmyb5BDGEaLhAMIziQN51hqeZ7n0ZYYnyfggHgMoJosIggHkMYJDIMqhHipAiqCoqequp5fpqmIB",
+        svg = "gAPBwGEdBoCAZA9CIbQxDYIIMCAMoQCANAtDQIg+DwL4DgWGIbgaCAiE0Mgxg4MBWDgYYRhEMAgiwMAtDGMAuDcMxsC0N4VimEoui0LYrjYN4TEGKotkWLAzCAOB2iiRI8iyJAxjONZBDSOorkaOxsDKMgxhaGIagQaIdmGB4JG0NwuDWEwuDKQQ5CANQuDENYXhmHodG8bB5GwaRuGUIBwG+fR0HOCQzmyb5BDGEaLhAMIziQN51hqeZ7n0ZYYnyfggHkMoJosIggHgMafDKoR4p4IqgpypAiDKppfpqmIB",
         categories = "development",
         tags = "confirm,verified,done,todo,tick,complete,task,delivered",
         contributors = "Reund0,ericfennis,karsa-mistmere"
@@ -6724,7 +6876,7 @@ pub enum LucideGlyph {
     PackageCheck,
     #[cfg(feature = "package_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIIMGgNgiD4PAvgOBYThaBoIgoMgxg4MBWDgYQyCCJAwCCJwwC0MYrC4NwzGwLQ3C0NIjiWKI4iqJoxDcIA0EGJImjkIAzCAOB2iKQZDieHgxi6MI9jWSopjiOwyi0MQ0hKFIZhiBIagkbQ3C4NY+C4Mo9DkIA1C4MQ1luFZfhgbxsHkbBpG4ZQgHAb54HQc4JDOZ5qj0MYkoaJQwi6Hg3nCfJ1neeYTpGeh5DKCaGCIIB4pcIqZCAeQxgkMgypoeKip6pYTC+lA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIIMGgNgiD4PAvgOBYThaBoIgoMgxg4MBWDgYQyCCJAwCCJwwC0MYrC4NwzGwLQ3C0NIjiWKI4iqJoxDcIA0EGJImjkIAzCAOB2iKQZDieHgxi6MI9jWSopjiOwyi0MQ0hKFIZhiBIagkbQ3C4NY+C4Mo9DkIA1C4MQ1luFZfhgbxsHkbBpG4ZQgHAb54HQc4JDOZ5qj0MYkoaJQwi6Hg3nCfJ1neeYTpGeh4DGCaGCIIB5pcIgyDKmh5DKmKgCAeKjCKmYTC+lA+gE",
         categories = "development",
         tags = "delete,remove",
         contributors = "Reund0,ericfennis,karsa-mistmere"
@@ -6732,7 +6884,7 @@ pub enum LucideGlyph {
     PackageMinus,
     #[cfg(feature = "package_open")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDALg5DEIA4C4OA0hELg1DYIAyC4MgzGEMYODMIIgDmIgwCCJwwC2IA4hAMBMDMLoQDSMoehsMQyhqMo5imKAtC4MA1CCMQ2DkbI4hyOQ2iEYY5jyKJQiSFYvDKEJIDUMZNjuOo4lCKY/DAOQtkQNxaCIPg8C+A4Fmia4GggIhtjGYYWhSI4bDMNQtksNpZiSIp/l6I4jhOLhskSQoklqXY3k+J4QjKQwukUTISDegI0DcNZNhqggxiuDpTjCd4XlmjZco6g5AmKZJmmiaoEGiaBsGkbhlCAeAygmOAirgMa7DKvR5r8IgysEIB5roIgxDOZ5prStptrGB4Jguj4xDUdoxDMN5aDCGYbt+nqgDGVoTDMbJ7pIMA4h+IaEiW44gDcOIoukNpjkAOBBuG4JAhmPYziOSw4DcVrMhezqwmyAQA",
+        svg = "gAPBwGEdBoCAZA9CITQyDALg5DEIA4C4OA0hELg1DYIAyC4MgzGEMYODMIIgDmIgwCCJwwC2IA4hAMBMDMLoQDSMoehsMQyhqMo5imKAtC4MA1CCMQ2DkbI4hyOQ2iEYY5jyKJQiSFYvDKEJIDUMZNjuOo4lCKY/DAOQtkQNxaCIPg8C+A4Fmia4GggIhtjGYYWhSI4bDMNQtksNpZiSIp/l6I4jhOLhskSQoklqXY3k+J4QjKQwukUTISDegI0DcNZNhqggxiuDpTjCd4XlmjZco6g5AmKZJmmiaoEGiaBsGkbhlCAeAxgmOAiCAea6CIMgyr0eQyrsM69Hixgiryr60rabaxgeCYLo+MQ1HaMQzDeWgwhmG7ep6oAxlaEwzGye6SDAOIfiGhIluKIA3DiKLoDaY5ADgQbgt+QIZj2M4jksOA3FYMbXmeaZuD6AQA",
         categories = "files,development",
         tags = "box,container,storage,unpack,unarchive,unzip,opened,delivered",
         contributors = "karsa-mistmere,ericfennis"
@@ -6740,7 +6892,7 @@ pub enum LucideGlyph {
     PackageOpen,
     #[cfg(feature = "package_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIIMGgNgiD4PAvgOBYThaBoIgoMQ5g4Mx2hGE4VgQaIYiWB4JE0Mgxg4MBWDgYQyCCMwwCCNgwC0MY6C4NwzGwLQ3C0NIyjSN5HjmNZADcIA0EGM41kgIAzCAOB2jGUJSjaLQxj2P5MkSWY4keSgyjwMQ0hKFIZieBYpCIbQ3C4NZNC4MpMh4NQuDENZqiSF4CG8bB5GwaRuGUIBwG+hh0HOCQznaHpMDGM6UjQMI9i0N5+oqg6FoeE6fogeAygmlAiCAealCKpwgHgMamDKqB5rAIgyrKI6iD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIIMGgNgiD4PAvgOBYThaBoIgoMQ5g4Mx2hGE4VgQaIYiWB4JE0Mgxg4MBWDgYQyCCMwwCCNgwC0MY6C4NwzGwLQ3C0NIyjSN5HjmNZADcIA0EGM41kgIAzCAOB2jGUJSjaLQxj2P5MkSWY4keSgyjwMQ0hKFIZieBYpCIbQ3C4NZNC4MpMh4NQuDENZqiSF4CG8bB5GwaRuGUIBwG+hh0HOCQznaHpMDGM6UjQMI9i0N5+oqg6FoeE6fogeQxgkMgyCIIB4qUIqUqkeAygmrggHmsatqiI6iD6AQ",
         categories = "development",
         tags = "new,add,create",
         contributors = "Reund0,ericfennis,karsa-mistmere"
@@ -6748,7 +6900,7 @@ pub enum LucideGlyph {
     PackagePlus,
     #[cfg(feature = "package_search")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDAVg4GEMgghQMAghcMAtDGGwuDcMxsC0NwtDSE4VhiKIahaIQ3CANBBhSFopCAMwgDgdoSjGM4Xg0MYeiCLYljqGYoisModDENAiD4PAvgOBZMk+BoICIbQ3C4NYuC4MotDkIA1C4MQ1kuTZSlEbxsHkbBpG4ZQgHAb5sHQc4JDOW5ei0MYUnqFQwh6DQ3mSTpomqbBlkya5tCAeQygmegiCAeKNCKj6RDGjgypAeaXCIMqZkwL6JocPBjGkchjGybhjHmjpgmMIBygkMpYpAYx4o4OK0qCpanqmUYElOCYLn6XIOlexaeg4OaCmaAQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDAVg4GEMgghQMAghcMAtDGGwuDcMxsC0NwtDSE4VhiKIahaIQ3CANBBhSFopCAMwgDgdoSjGM4Xg0MYeiCLYljqGYoisModDENAiD4PAvgOBZMk+BoICIbQ3C4NYuC4MotDkIA1C4MQ1kuTZSlEbxsHkbBpG4ZQgHAb5sHQc4JDOW5ei0MYUnqFQwh6DQ3mSTpomqbBlkya5tCAeQygmegiCAeAxo4MqQHmkwiDKlaRo0IqPkwL6JocPBjGkchjGybhygkMpYpAYx5o6YJjCAYx4o4OKuqCpanqmUYElOCYLn6XIOlexaag4OaCmaAQ",
         categories = "files,development",
         tags = "find,product process",
         contributors = "Reund0,ericfennis,karsa-mistmere"
@@ -6756,7 +6908,7 @@ pub enum LucideGlyph {
     PackageSearch,
     #[cfg(feature = "package_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDAVg4GEMgghQMAghcMAtDGGwuDcMxsC0NwtDSE4VhiKIahaIQ3CANBBhSFopCAMwgDgdoSjGM4Xg0MYeiCLYljqGYoisModDENAiD4PAvgOBZMk+BoICIbQ3C4NYuC4MotDkIA1C4MQ1kuTZSlEbxsHkbBpG4ZQgHAb5sHQc4JDOW5ei0MYUnqFQwh6DQ3mSTpomqbBlkya5tCAeAygmegiCAeaNCKj6RDGCQyDKkB4pelKakwL6JoeAoElOCRtDGeY1lkNRtC2WYXDWr6CmaAQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDAVg4GEMgghQMAghcMAtDGGwuDcMxsC0NwtDSE4VhiKIahaIQ3CANBBhSFopCAMwgDgdoSjGM4Xg0MYeiCLYljqGYoisModDENAiD4PAvgOBZMk+BoICIbQ3C4NYuC4MotDkIA1C4MQ1kuTZSlEbxsHkbBpG4ZQgHAb5sHQc4JDOW5ei0MYUnqFQwh6DQ3mSTpomqbBlkya5tCAeQxgkMgyCIIB4o0Ip6pEeAygmlqLpmlaQkwL6JoeAoElOCRtDGeY1lkNRtC2WYXDWr6CmaAQ",
         categories = "development",
         tags = "delete,remove",
         contributors = "Reund0,ericfennis,karsa-mistmere"
@@ -6796,7 +6948,7 @@ pub enum LucideGlyph {
     Paintbrush,
     #[cfg(feature = "palette")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINguDUIggHKDIPhEYx4gwMQzhUPg8C+A4FgeHYggaCIXhkN4VgmCwiDEMIqhMIoch6JIigKBIlhKFIQgmGAiDiKoKgyKYQh2H44jaNYmj6Do8kKLQyjCOwikaSodHAYR0GgIBkgwTQxDIIAyEOTZimaZZhmAcw0g8IIum4MJwGMLg5DINggnEMQuDYNA4C0Lg3DSd56nyfqEDgOJ4n8NAzDefwxn4Lg4DMNaLo0LZ6mClQuDIOZ/DIOKeC6jKRDYNQypahgupoYaEDSbp7q+cZ5rANg2qqtg4Gieg5DkNhjhsMA1DGeAgDWDw1pWUQ1DAM7GsilbHskNBDDKvKmCCDgwmCbopoKxJpmEMh6lSHpYloPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiC4NQiCAYx4gsMQzg2DxjHmCw2hYPg8C+A4FgeHYggaCIKgyDoQhIIgxDeFoQhmLAwhyHokiKAoEiWCYLi+EYLDiPYxi6Dodh+OY3jaJo8imGITDKPYrhuRI1kcZYdHAYR0GgIBkgsTQxDIIAyEOUpimaZZhmAcw0g0IAxDCbpwm8YwuDkMg2CCcguDYNA4C0Lg3DSeAxnufQtoQNg4DieZ/DQMw3n8MZ+C4OAzDWjaPocLpgpcLgyDmfwyDioAuo6kw2DUMqYn6hKcGGiA0m6hZ5rQMayDaiaargOBooQOQ5DYY4VDANa2nANYNDWl5PDUMAzCCyLKpe0Q1DQQwyr6qAghsMJgm6LqCraaZhDIegikWWJaD6AQ",
         categories = "text,design,photography",
         tags = "color,theme",
         contributors = "ericfennis,csandman"
@@ -6812,7 +6964,7 @@ pub enum LucideGlyph {
     Palmtree,
     #[cfg(feature = "panel_bottom_close")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIIJCIM4NHIeIKgwIIUhCDRoGUaRnGgdIKDEOINHcaRkHQaIhiMPg8C+A4FiwbBpG4ZYXDKFQxg0eAxgqEYOjwIgxDWDR5jeQZDiwL4yjSLBwGGKAgGSChtkIIA4C0MwgDOWJYCKSZOigPoBA",
+        svg = "gAPByGUYx0CAch5D0IgyCIIB4goM4NGgZRpGcaB0goMQ4g2CQihEIB3GkZB0GiGYbgeD4LCIPg8C+A4FiwbBpG4ZYODKCgyDGDR4DGEIcj0IgxDWHI3kGQ4sC+Mo0iwcBhiQIBkgobZCCAOAtDMIAzleV4ri2TYkD6AQ",
         categories = "layout,arrows",
         tags = "drawer,dock,hide",
         contributors = "danielbayley,ericfennis"
@@ -6820,7 +6972,7 @@ pub enum LucideGlyph {
     PanelBottomClose,
     #[cfg(feature = "panel_bottom_inactive")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEcoTCIMoRGgZRpGcaB0g2D4RHmFAiD4PAvgOBYoHAYYLCAZINE0MQ0CAMQ1GgMYnimLoLi2LxojGMwxDmN45hqKAvj4aJAjCMgiE0M5HGiSY9kGTpClATZGjiOo8kuWIBA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHcaRkHQaIKDEOINHmCoRCAaBlGkZxoHSGIaD4PAvgOBYoHAYYWCAZIKE0MQ0CAMQ1GgMQiigL4uhaLYvGiMYzDEOY3jmDI9j8aJBjCMgiE0M5IGiSopkyTpDlATZHjiOo8leQg+gE",
         categories = "layout",
         tags = "drawer,dock,show,reveal,dashed",
         contributors = "danielbayley,ericfennis"
@@ -6828,7 +6980,7 @@ pub enum LucideGlyph {
     PanelBottomInactive,
     #[cfg(feature = "panel_bottom_open")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINgkIgzg0ch5gqDAgh6GoNHcaRkHQaIVhcPg8C+A4FiwbBpG4ZYhDGFQ1g0eQyjiGI3iMIB4jyCwxCKLAvjKNIsHAYYoCAZIKG0OQgDEMAgDMLQzleV5Gi2TIoD6AQ",
+        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwcoICIMoMGgZRpGcaB0hOFQgHmCYLCAcolhkIg+DwL4DgWLRsGkbhlgcMYmgweAygkMgxgweY4CIMQ1kCPJDkWLQvjONYtHAYYRCAZIJG0OQgDEMAgDMLQzlqWosi6T4RD6AQA",
         categories = "layout,arrows",
         tags = "drawer,dock,show,reveal",
         contributors = "danielbayley,ericfennis"
@@ -6836,7 +6988,7 @@ pub enum LucideGlyph {
     PanelBottomOpen,
     #[cfg(feature = "panel_bottom")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwch4gkMoWggIoaCAaBlGkZxoHSE4VCCGIKCIPg8C+A4FiwbBpG4ZYHDKEw1gweAxgmC4ojeHQxgweY8CIMY5iwL4yjQPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAcoICIMoMHcaRkHQaIJDEOIMHiCYLg2HIQgwaBlGkZxoHSGIaD4PAvgOBYrGwaRuGWBwxhgNYbDKCQyDGDB5joIgxjgIB4jaCgiisL4xjMPoBA",
         categories = "layout",
         tags = "drawer,dock",
         contributors = "danielbayley,ericfennis"
@@ -6844,7 +6996,7 @@ pub enum LucideGlyph {
     PanelBottom,
     #[cfg(feature = "panel_left_close")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhaBx5gqDAggkIgzg2IYmCIPg8C+A4FiwcBhhIIBkgoTQ5CAMx2hWK4tjKEoxjMaI1gobQxDYIAxDULQzk2OpNj4L5AGgPoBA",
+        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhYIB4goM4NgkIojgeIYLCIPg8C+A4FiwcBhhIIBkgoTQ5CAMx2hWK4tjKEoxjMaI1gobQxDYIAxDULQzk2OpNj4L5AGgPoBA",
         categories = "layout,arrows",
         tags = "primary,drawer,hide",
         contributors = "mittalyashu,danielbayley,ericfennis"
@@ -6852,7 +7004,7 @@ pub enum LucideGlyph {
     PanelLeftClose,
     #[cfg(feature = "panel_left_inactive")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeINDKEYUCIM4RGgZRpGcaB0g2D4RHmDYaD4PAvgOBYoHAYYLCAZINE0OQgDENB2DEIooC+LoLi2LxojGM41DEOR2haPI+GiQIwjIIo0CAM5IjuKZLk2QpPlGR46kqQQ+gEA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAaBlGkZxoHSCQxDiDByggIgygwdxpGQdBohSFggHmCYLD4PAvgOBYoHAYYgCAZIJE0OQgDENB2DEIooC+Logi2LxojGM41DEOR2huPI+GiQIwjIIo0CAM5IjuKZLk2QpPlGR46kqQQ+gEA",
         categories = "layout",
         tags = "sidebar,primary,drawer,show,reveal,dashed",
         contributors = "danielbayley,ericfennis"
@@ -6860,7 +7012,7 @@ pub enum LucideGlyph {
     PanelLeftInactive,
     #[cfg(feature = "panel_left_open")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAcoICIMoMHiCYLg2E4QgwdxpGQdBogkMQ4gwaBlGkZxoHSH4hD4PAvgOBYrHAYYdCAZIJE0OQgDMdogCKKwvjGHYwjIaI0gkbQxDQII4DOOQtkyC4+kAaA+gEA",
+        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDiDRyHiCoMCAaBlGkZxoHSFIWCCGQiDODYJicIg+DwL4DgWLRwGGEggGSChNDkIAzHaFYsi6M4SjKNBojaChtDENAgjoM47C2TYoi0L5BGgPoBA",
         categories = "layout,arrows",
         tags = "primary,drawer,show,reveal",
         contributors = "mittalyashu,danielbayley,ericfennis"
@@ -6868,7 +7020,7 @@ pub enum LucideGlyph {
     PanelLeftOpen,
     #[cfg(feature = "panel_left")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMoMHKCAihEIB3GkZB0GiCQxDiDBoGUaRnGgdIdh8IIPgoIg+DwL4DgWLRsGkbhlikMYJDmDB4DKOYMHmPYVDGP44iuLQvjONQ+gE",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAcoICIMoMHIeIJhEIB3GkZB0GiCQxDiDBoGUaRnGgdIdh8IIUgoIg+DwL4DgWLRsGkbhlgcMoVDGDB4DGCQ5juOAij+B49iuLQvjONQ+gE",
         categories = "layout",
         tags = "primary,drawer",
         contributors = "colebemis,danielbayley,ericfennis"
@@ -6876,7 +7028,7 @@ pub enum LucideGlyph {
     PanelLeft,
     #[cfg(feature = "panel_right_close")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeIODOEh3GkZB0GiDoQhIch5g4MofhQIojCCIQihYPg8C+A4FiwbBpG4ZYTDGHQ1hIeY3iqOgyiIMYSHiP4PjmLAvjKNIsHAYYbCAZIOG0OAgDkIAzlYLZXiuLZMhsPoB",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeIODOEh5hWEhyhgIgyhqFIdhIdxpGQdBog6EAiD4PAvgOBYrGwaRuGUIB5DKDgyDGEh4DGKA1juN4Pj+NY9CKForC+MYziscBhiYIBkg4bQ4CAOQgDOVwtliR4sk2Jg+gEA",
         categories = "layout,arrows",
         tags = "sidebar,secondary,drawer,hide",
         contributors = "danielbayley,ericfennis"
@@ -6884,7 +7036,7 @@ pub enum LucideGlyph {
     PanelRightClose,
     #[cfg(feature = "panel_right_inactive")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEaBlGkZxoHSDYPhEeYUhEcoTCIMgiD4PAvgOBYoHAYYLCAZINE0MQ1CAMQ0HYMYnimLoLi2LxojGM41jcOR2iaKAvj4aJAjCMgijSNgzkiPJLkGTpClCUggkeO5KkwPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwch4gkMoMGgZRpGcaB0hOFQghiCgiD4PAvgOBYoHAYYRCAZIJE0MQ1CAMQ0HYMYnimLoRi2LxojGM41jcOR2hqKAvj4aJAjCMgijSNgzkiPJLkGTpClCUggkeO5KkwPoBA",
         categories = "layout",
         tags = "sidebar,secondary,drawer,show,reveal,dashed",
         contributors = "danielbayley,ericfennis"
@@ -6892,7 +7044,7 @@ pub enum LucideGlyph {
     PanelRightInactive,
     #[cfg(feature = "panel_right_open")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDEOINHiCgzg0dxpGQdBohWFwggkIobgeGYLCIPg8C+A4FiwbBpG4ZQgHgMoVDWGAxjmDR5jyJo+jiCwxiuLYyjSLBwGGIAgGSChtDEMAgDENQtDOVwgliG4sC+S4gD6AQ",
+        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDiDRoGUaRnGgdIUhYIIJCIM4NHiCojgeJYLCIPg8C+A4FiwbBpG4ZQgHgMoUDWDR5jiCwxiQMY5juQYiiuLYyjSLBwGGEggGSChtDEMAgDENQtDOVwgliI4sC+S4SD6AQ",
         categories = "layout,arrows",
         tags = "sidebar,secondary,drawer,show,reveal",
         contributors = "danielbayley,ericfennis"
@@ -6900,7 +7052,7 @@ pub enum LucideGlyph {
     PanelRightOpen,
     #[cfg(feature = "panel_right")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQzhEcoTCIMoRHiFIWhyGYRGgZRpGcaB0g2DwiD4PAvgOBYrGwaRuGWEgxh2Egyg0MgxhuNoODWG45j+KosjGMw+gEA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQzhEch4g0MoWhMIoaCAaBlGkZxoHSDYPhGGAihUPg8C+A4FiwbBpG4ZQgHgMomDWKAxjmER5jyKo+jiHQxCKLAvjKNA+gE",
         categories = "layout",
         tags = "sidebar,secondary,drawer",
         contributors = "danielbayley,ericfennis"
@@ -6908,7 +7060,7 @@ pub enum LucideGlyph {
     PanelRight,
     #[cfg(feature = "panel_top_close")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQzhEch4g0MoRhgIoVCAcoTCKGggGgZRpGcaB0g2DwiD4PAvgOBYuGwaRuGWEgxg0OYbjmHYbDKGQxhEeZACKO4uC+NI2i4cBhgsIBkg0bQ5CAMQ2CAMwtDOWJYi2L5NgsPoBA",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAaBlGkZxoHSCQxDiDByHiCQygyGYKheCAihsIB3GkZB0GiFIWD4PAvgOBYrGwaRuGUIB4DGCYLjUMoaDGDB5jcIg5j6O5BCKKwvjGM4rHAYYnCAZIJG0OQgDENggDMLQzleV5GiyTInD6AQ",
         categories = "layout,arrows",
         tags = "menu bar,drawer,hide",
         contributors = "danielbayley,ericfennis"
@@ -6916,7 +7068,7 @@ pub enum LucideGlyph {
     PanelTopClose,
     #[cfg(feature = "panel_top_inactive")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAch4g4MoSHmDgzhIdxpGQdBog6EIShUIobD4PAvgOBYoHAYYgCAZIOE0MQ0CAORoDEIooC+Logi2LxojGMwxDmNxohePI+GiQIwjIIhNDOR5JimS5NkKTxNkaOI6kqQQ+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAeIODOEhyhQIgyhIdxpGQdBog6EISHmFQiD4PAvgOBYoHAYYgCAZIOE0MQ0CAORoDGJ4pi6IIti8aIxjMMQ5jcaIbigL49GiP4wjIIhNDORpIjyQJNkGTxNkWOI6kmSw+gEA",
         categories = "layout",
         tags = "menu bar,drawer,show,reveal,dashed",
         contributors = "danielbayley,ericfennis"
@@ -6924,7 +7076,7 @@ pub enum LucideGlyph {
     PanelTopInactive,
     #[cfg(feature = "panel_top_open")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIIJCIM4NHiCojgeJYLCIPg8C+A4FiwbBpG4ZYgDKCg5iSN4LDGDR5DGOIkkCIori2Mo0iwcBhhwIBkgobQxDUIAxDQLQzCAM5WlaRQvkqHA+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHiDgzhIeYdhIcogCIMoihyJQiD4PAvgOBYrGwaRuGUIB5DGDg5hsMoODIMYbjcIoejWOwijmKwvjGM4rHAYYXCAZIOG0MQ1CAMQ0C0MwgDOWJYiqLJMhcPoBA",
         categories = "layout,arrows",
         tags = "menu bar,drawer,show,reveal",
         contributors = "danielbayley,ericfennis"
@@ -6932,7 +7084,7 @@ pub enum LucideGlyph {
     PanelTopOpen,
     #[cfg(feature = "panel_top")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIByggIgygwaBlGkZxoHSCQxDiDByg6FIMHcaRkHQaIdh8Pg8C+A4FiwbBpG4ZYHDGD4MHkMoJDmDB4juFAxjmNwij2LAvjKNA+gE",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAeIJgsIBoGUaRnGgdIJDEOIMHKCAiDKG4Oh6DB3GkZB0GiGIaD4PAvgOBYrGwaRuGWBwxgkOYMHgMoJDIMY5jaCoMHmOwijiKwvjGMw+gE",
         categories = "layout,design,development",
         tags = "drawer,menu bar,browser,webpage",
         contributors = "danielbayley,ericfennis"
@@ -6956,7 +7108,7 @@ pub enum LucideGlyph {
     Parentheses,
     #[cfg(feature = "parking_circle_off")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsbQ1CCKgxDQIItCKGwviKJIhiOJYnCITQxDOLwzGGPY9DCLwgkMMAtDYSA5HaGocjQaI2iSJoLE0OYvDcdgtDILgzDSMZOjcPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwbQ1CCKgxDQIItCKGwviKJIhiOJYnCITQxDOLwzGGPY9DCLwgkMMAtDYSA5HaGocjQaI2iSJoME0OYvDcdgtDILgzDSMZOjcPoBA",
         categories = "transportation,maps",
         tags = "parking lot,car park,no parking",
         contributors = "karsa-mistmere,jguddas,ericfennis"
@@ -6964,7 +7116,7 @@ pub enum LucideGlyph {
     ParkingCircleOff,
     #[cfg(feature = "parking_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQ5CAMQ3FYNxoDQYQzCCMwwCCNgxjcIA2EgOQihsL4iiQPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsTQ5CAMQ3FYNxoDQYQzCCMwwCCNgxjcIA2EgOQihsL4iiQPoBA",
         categories = "transportation,maps",
         tags = "parking lot,car park",
         contributors = "karsa-mistmere,jguddas"
@@ -6988,7 +7140,7 @@ pub enum LucideGlyph {
     ParkingSquareOff,
     #[cfg(feature = "parking_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQzhEaBlGkZxoHSDYPhEch4g0MoRiEIoVD4PAvgOBYoHAYYLCAZINE0OQgDENxWDcaA0GEMwgj4MAgkEMZCCANhIDkIooC+LoLD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHiDgzhIeYdhIcocCIMgiD4PAvgOBYoHAYYXCAZIOE0OQgDENxWDcaA0GEMwgj4MAgkEMZCCANhIDmJ4pi6Fw+gE",
         categories = "transportation,maps",
         tags = "parking lot,car park",
         contributors = "karsa-mistmere,jguddas,danielbayley"
@@ -7004,7 +7156,7 @@ pub enum LucideGlyph {
     PartyPopper,
     #[cfg(feature = "pause_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bGwaRuggeAyhOFQgHkMYTDWEB5icIg5hAeIsg2FYbC+IokiGI4ljYMQ0jSMZBi+QIuiqMYzjmOxlD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bGwaRuggeAyhOFQgHgMYohAeYnCIOYuiyDQ1CKGwviKJIhiOCB5jQMY2CCL4MjKKpADSEImhOSY4joZQ+gEA",
         categories = "multimedia,shapes",
         tags = "music,audio,stop",
         contributors = "colebemis,ericfennis"
@@ -7020,7 +7172,7 @@ pub enum LucideGlyph {
     PauseOctagon,
     #[cfg(feature = "pause")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENgiCAeYODSEh4g6EQgHcaRkHQaIVCIPg8C+A4FiOJoGhyHogCKFoTiEIIYg+L4IgqDIOhCIokikPoBA",
+        svg = "gAPByGUYx0CAeA9CINgiCAaBlGkZxoHSCQxgsIB3GkZB0GiCQ0gweYdCIPg8C+A4FiOJoGggIgxh4IIgCKLoYhqHIxgyDoQhKFILiOJYEHQPoBA",
         categories = "multimedia",
         tags = "music,stop",
         contributors = "colebemis,ericfennis"
@@ -7028,7 +7180,7 @@ pub enum LucideGlyph {
     Pause,
     #[cfg(feature = "paw_print")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINAigkeIMDEMYPHKDAyCIPg8C+A4FgeGodgaCBjhEIgxDiD4KgyKAghYIoYhqHIEiKIIzgeCYLiYNoVheKYlDIMIZhuIYfDwcBhHQaAgGSDBNDkIAxDAYQ1CCVAwCCVwxlWVR2DMLg1GGXpUmKWJlDELQ2C4OA0lALgwDQNRRmkNQylANwuDQOAgDSeA2lCaZrEGZJkleWZVl+UAwFqQgvkeSQ+gEA",
+        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeILDEMYOGMeYLDQIg+DwL4DgWB4bh6BoIgqDIVhEIgxDiFYXCKK4bh2BIjiGMoHg+LQxDaDolg2D4oDIMIahyIogDwcBhHQaAgGSCxNDkIAxDAYQ1CCVAwCCVwxlWVR2DMLg1GGXpUmKWJlDELQ2C4OA0lALgwDQNRRmkNQylANwuDQOAgDSeA2lCaZrEGZJkleWZVl+UAwFqQgvkeSQ+gEA",
         categories = "animals",
         tags = "pets,vets,veterinarian,domesticated,cat,dog,bear",
         contributors = "danielbayley"
@@ -7036,7 +7188,7 @@ pub enum LucideGlyph {
     PawPrint,
     #[cfg(feature = "pc_case")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CINQiCAeYJDKDBoGUaRnGgdIPDCDByggIoQCAdxpGQdBogkMQ0CIPg8C+A4FikcBhiMIBkgkTQxDUIImGgLgwDGKIqi+I4ujAaIyjQOQgDYaA2j4L5AGiQoxjMIhNkcMQwkqTJOD6AQ",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDQIggHmDQyhEeINDWERyhcIoVCAaBlGkZxoHSFAwCIPg8C+A4FikcBhgsIBkg0TQxDUIIPGgLgwDGKIqi+C4ujAaIyjQOQgDYaA2j4L5AGiQoxjMIhNkcMQwkqTJOD6AQ",
         categories = "devices,gaming",
         tags = "computer,chassis",
         contributors = "karsa-mistmere,ericfennis"
@@ -7060,7 +7212,7 @@ pub enum LucideGlyph {
     PenSquare,
     #[cfg(feature = "pen_tool")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDIIAxDkIA3C0NwgDOFYThELQzhoegiD4PAvgOBYfiKBoIgoMQ4g6GwxC4NYTi4TINDIbAzi6Dg0jEMYWikbIvDWHYfiGBBoiSRIHgkbYzhGLg4DaTA1k6HogiWHxjGkchjGwZQgGMeYJDEMQiCAcoJDKYxjHiYJikKV5ZlsPoBA",
+        svg = "gAPBwGEdBoCAZA9CIbQxDIIAxDkIA3C0NwgDOFYThELQzhoegiD4PAvgOBYfiKBoIgoMQ4g6GwxC4NYTi4TINDIbAzi6Dg0jEMYWikbIvDWHYfiGBBoiSRIHgkbYzhGLg4DaTA1k6HogiWHxjGkchjGwZQgGMeIJDEMQil0eZgmIIBygkMpTC+V5ZlsPoBA",
         categories = "text,design,cursors",
         tags = "vector,drawing,path",
         contributors = "ashygee,mittalyashu,ericfennis"
@@ -7108,7 +7260,7 @@ pub enum LucideGlyph {
     Pentagon,
     #[cfg(feature = "percent_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0MQ1CAOQtDYIA2hmG4hiOIIiiSJgiE0OYrGgLgwDGMQvjMaI1iOJYME2KQgimPY/kGQw+gEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bHAYR0GgIBkgwbQxDUIA5C0NggDYIobC+IokiGI4licIhNDmLBoC4MAxjKHI1GiN4kiaDBNioIIqj+QZDjSOA+gEA",
         categories = "account,social,money,shopping,maths,shapes",
         tags = "verified,unverified,sale,discount,offer,marketing,sticker,price tag",
         contributors = "danielbayley"
@@ -7124,7 +7276,7 @@ pub enum LucideGlyph {
     PercentDiamond,
     #[cfg(feature = "percent_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIIJCIM4NHmCojD4PAvgOBYoHAYYcCAZIKG0MQ1CAOQtDYIA2CKKAvi6HIti8aIxgoTQ5jcaAuDAMY9imQBokKMIyCITY1CCNZKkyTo/kMPoB",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeINDKEYUCIM4RGgZRpGcaB0g2D4RHmDYaD4PAvgOBYoHAYYLCAZING0MQ1CAOQtDYIA2CKKAvi6C4ti8aIxg0TQ5jcaAuDAMY9imQBokKMIyCITY1CCNZKkyTo/kMPoB",
         categories = "account,social,money,shopping,maths,shapes",
         tags = "verified,unverified,sale,discount,offer,marketing,sticker,price tag",
         contributors = "danielbayley"
@@ -7132,7 +7284,7 @@ pub enum LucideGlyph {
     PercentSquare,
     #[cfg(feature = "percent")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0Ig1CIIB5gkIgxDmDR5DGCoMgeFoRhMPg8C+A4Fh0YxpHIYxsgYYx5goNguhgcoKDKLYNGMeIrjKHQviOJYniKJImiiNYRDeMggimCgxkOLowjeHo6j8PoBA",
+        svg = "gAPBsGkbhlCAeQyD0IgxDkIggHgMYKgyDh4gkIg1g4eYRhcIg+DwL4DgWHhjGkchjGyBhygoMguhgIBjHmCg2i2DhjHiMo0h4L4kiaKIjiWJ4GjCEg3jQIIqCKLIujaRI5h+PJBD6AQ",
         categories = "maths,development,money,shopping",
         tags = "percentage,modulo,modulus,remainder,%,sale,discount,offer,marketing",
         contributors = "colebemis,ericfennis"
@@ -7156,7 +7308,7 @@ pub enum LucideGlyph {
     PhoneCall,
     #[cfg(feature = "phone_forwarded")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDgIAyhSFQ2CCEoZDAIg+DwL4DgWB4Jh6I4KHkMYQDYIggHgMoQDIMosHmLwiiuLYphENIdh+JoeHAYR0GgIBkhATYxhkNguDkMh2DMYYVhUMAglMMQtDILoahUMQ5C4Nw5hmXZflSZJWDgLg2DMLQzC4MA3mELg1nCcpTlULQ2necJjlyXpgnWGZrm0NwtmcNg3EGUZklUIA0lkMYUGiT6Jn+j5bl6W5YDgNIZpmm5/lOXoUC4OKVhSiqAC4NJylgMQxEyZwwmCXQ5DEYQxhit6nlOGA2GwMQuDKg6/sGUKmpSoqtC2qZyDGnacqOnqnpmv6HpOZYWkmSwyHqPIgkEaA+gEA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDgIAyhSFQ2CCEoZDAIg+DwL4DgWB4Jh6I4KHgMYQDENAiCAeYpCINotHgMoQDIMotHmNYxh2H4mh4cBhHQaAgGSEBNjeGQ2C4OQyHYMxhhWFQwCCVAxC0MguhqFQxDkLg3DmGZemCVZllcOAuDYMwtDMLgwDeYguDWcZzlSVgtDaeJxmSXZfmGdoZmybg3C2aA2DcQZSmWVggDSWgxhQaJQoqgKQlyX5clkOA0hmmqcoCVJfhQLg4paFKLoELg0nOWQxDETJoDCYZeDkMRhDGGK4qiVIYDYbAxC4MqEsCwpRqelajq4LaqnMMaep2pKfqimrAoilJmhaSpMDIeo9iCQhoD6AQ",
         categories = "arrows,connectivity,devices,communication",
         tags = "call",
         contributors = "colebemis,ericfennis,csandman"
@@ -7164,7 +7316,7 @@ pub enum LucideGlyph {
     PhoneForwarded,
     #[cfg(feature = "phone_incoming")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDYIAyCCEggDiFIVDgIg+DwL4DgWB4Jh6I4KHgMYQDIMgiCAeYpCKLAgHgMoQhKLR5jUIoch4L4mh4cBhHQaAgGSEBNiuFg2C4OQyHYMxhhWFQwCCVAxC0MguDGGYVDEOQuDcOYWl+YZVmaVw4C4NgzC0MwuDAN5jC4NZynSVJWC0Np5nKZZemCYp3habZvDcLZpDYNxBlKZpWCANJaDGFBolCi6BpGXZgl2WQ4DSFqbp2gZUmCFAuDil4UoygguDSdJZDEMRMmkMJil8OQxGGF4XqEIITDYbAxC4MqFsCwpRqilqkq8LarnQMafp6pagqmm7AomlZnhqSpMDIeodh+QZDD6AQ",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDYIAyCCEggDiFIVDgIg+DwL4DgWB4Jh6I4KHgMoQhIIggHmKQihwIB4DGEAyDKLB5jQIo3h4L4mh4cBhHQaAgGSEBNjaFg2C4OQyHYMxhhWFQwCCVAxC0MguDGGYVDEOQuDcOYWl+YZVmaVw4C4NgzC0MwuDAN5jC4NZynSVJWC0Np5nKZZemCYp3habZvDcLZpDYNxBlKZpWCANJaDGFBolCi6BpGXZgl2WQ4DSFqbp2gZUmCFAuDil4UoygguDSdJZDEMRMmkMJil8OQxGGF4XqEIITDYbAxC4MqFsCwpRqilqkq8LarnQMafp6pagqmm7AomlZnhqSpMDIeodh+QZDD6AQ",
         categories = "arrows,connectivity,devices,communication",
         tags = "call",
         contributors = "colebemis,ericfennis,csandman"
@@ -7172,7 +7324,7 @@ pub enum LucideGlyph {
     PhoneIncoming,
     #[cfg(feature = "phone_missed")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyDIIoHDKCgxDaDh5gmC4UhAIg4CIPg8C+A4Fh2IIGhWCoNCAeYZhuB4WhKDh4hmDIch6I4dHAYR0GgIBkgoTYMCCEguDkMh2DMYQyCCSAwCCSwxC0MguDEOJJkAOQuDcOZVleWZLk0LQ4C4NgzC0MwuDAN5aDWaZMmyTg2C0Npalicpcm2ZJmDeX5hDcQZIkqbQgDSUQxkkaJGn6bJNlQMZXkgMZQDgNJApCkpdmyV5JC4OKEoilpOC4NJqlAMQxEyYAwlmVg5DEYYSkCcaWkucQ2GyjAynmtg3keVKepmpAtqCaqPpqkrDpGiZspCjJ8p2gI/kGQx6jML43jkPoB",
+        svg = "gAPBsGkbhlCAeAyD0IgxDYIoHDGCgyDKDh5gkIg4hSEAihMPg8C+A4Fh2IIGhWCoYgeFoShmEYOHiGoMCKHYfgQZYdHAYR0GgIBkgoTYSCCDAuDkMh2DMYQyCCSAwCCSwxC0MguDEOJJkAOQuDcOZVleWZLk0LQ4C4NgzC0MwuDAN5aDWaZMmyTg2C0Npalicpcm2ZJmDeX5hDcQZIkqbQgDSUQxkkaJGn6bJNlQMZXkgMZQDgNJApCkpdmyV5JC4OKEoilpOC4NJqlAMQxEyYAwlmVg5DEYYMkCcaWkucQ2GyjAynmtg3keVKepmpAtqCaqPpqkrDpGiZspCjJ8p2gI/kGQx6jGHo3jkPoB",
         categories = "connectivity,devices,communication",
         tags = "call",
         contributors = "colebemis,ericfennis,csandman"
@@ -7180,7 +7332,7 @@ pub enum LucideGlyph {
     PhoneMissed,
     #[cfg(feature = "phone_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDALg2DgIAxDMLgzDEYQxDaEYZDAIIchyEw0DEIAyg4bAxC4Mg3C2J4pGEMojh2MYiiQMQxC0Lg0DWEYkDgNI7C6PYxh6I5AicN4wi+Q4ikaLwyHYM4ujCSgtjSEIvDEOQuDcOYRlmW5ChELQ4g4MwthMMJHliOJXlkNJJjKZoUmWJA2DcbZUg6KoTDMNIXl6XJql+U5niqYw2DMQZNmCIg0C6NYjGiUKKkqMJMj+QQxjyPpDhyWpEDiM5SnCOI6jQMRMmMMJclkOQxCIPg8C+A4FrAbBpG4ZQgHgMYJDIMgiroMq9sAea8CKvwgHmwrHr+sAvrauA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDALg2DgIAxDMLgzDEYQxDaEYZDAIIchyEw0DEIAyg4bAxC4Mg3C2J4pGEMojh2MYiiQMQxC0Lg0DWEYkDgNI7C6PYxh6I5AicN4wi+Q4ikaLwyHYM4ujCSgtjSEIvDEOQuDcOYRlmW5ChELQ4g4MwthMMJHliOJXlkNJJjKZoUmWJA2DcbZUg6KoTDMNIXl6XJql+U5niqYw2DMQZNmCIg0C6NYjGiUKKkqMJMj+QQxjyPpDhyWpEDiM5SnCOI6jQMRMmMMJclkOQxCIPg8C+A4FrAbBpG4ZQgHgMYJDIMgiCAea8CKv7BDKvbFHix7Eq+sa2rgPoBA",
         categories = "connectivity,devices,communication",
         tags = "call,mute",
         contributors = "colebemis,ericfennis,csandman"
@@ -7188,7 +7340,7 @@ pub enum LucideGlyph {
     PhoneOff,
     #[cfg(feature = "phone_outgoing")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgyDIIA4CCEoWCAMQ2hYIg+DwL4DgWB4Jh6I4KHkMoQDIIggHkMYQDiLB4i8IoajKKYRiuHgviaHhwGEdBoCAZIQE2F4aC4OQyHYMxhhOEwwCCUQxC0MguDGFYTDEOQuDcOYZlyXpSmOVA4C4NgzC0MwuDAN5gC4NZvnGUZTC0Np2m+Ypbl2X50hmapsDcLZmDYNxBk+Y5TCANJXDGFhok2iJ+o6WpdlqVg4DSGaYpqfpRl2FguDilIYpMLQuDScZWDEMRMmYMJflwOQxGGGoZhungghsNhsDELgyoKvrAk6pZkqGrKnqmm6ipoMacomY6Yr6hqSsaRw2kkMh6h2H4/kEPoBA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgyDIIA4CCEoWCAMQ2hYIg+DwL4DgWB4Jh6I4KHgMoQhIIggHmKYRiweQxhAOIsHiMwihqHYfiaHhwGEdBoCAZIQE2F4aC4OQyHYMxhhOEwwCCUQxC0MguDGFYTDEOQuDcOYZlyXpSmOVA4C4NgzC0MwuDAN5gC4NZvnGUZTC0Np2m+Ypbl2X50hmapsDcLZmDYNxBk+Y5TCANJXDGFhok2iJ+o6WpdlqVg4DSGaYpqfpRl2FguDilIYpMLQuDScZWDEMRMmYMJflwOQxGGGoZhungghsNhsDELgyoKvrAk6pZkqGrKnqmm6ipoMacomY6Yr6hqSsaRw2kkMh6juIJAGgPoBA",
         categories = "arrows,connectivity,devices,communication",
         tags = "call",
         contributors = "colebemis,ericfennis,csandman"
@@ -7204,7 +7356,7 @@ pub enum LucideGlyph {
     Phone,
     #[cfg(feature = "pi_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHmCoRCAdxpGQdBogoMQ4g0aBlGkZxoHSHIeD4PAvgOBYoHAYYaCAZIKE0NwgDcaAxDAIooC+Loai2LxojGM45jYdo5juKY+GiQIwjIIhNDENggDENxhDIIJYDAIJbDELQyl8Vg3kmPZBD6AQ",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAaBlGkZxoHSCQxDiDB4gmCwgHKGAiDKDB3GkZB0GiFIWD4PAvgOBYoHAYYkCAZIJE0NwgDcaAxDAIooC+Loki2LxojGM45jYdo5juKY+GiQIwjIIhNDENggDENxhDIIJYDAIJbDELQyl8Vg3kmPZBD6AQ",
         categories = "development,maths,shapes",
         tags = "constant,code,coding,programming,symbol,trigonometry,geometry,formula",
         contributors = "danielbayley"
@@ -7212,7 +7364,7 @@ pub enum LucideGlyph {
     PiSquare,
     #[cfg(feature = "pi")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0Ig5CKBwxgqDAgHmCQiDIMINHmDwiDQIg+DwL4DgWHhwGEdBoCAZIKE0NAgDcYwwC0MQuDcIIyDMLQzCCNwzGgMQzh2H4kiaI4lieKQiE0MQ4CCFhjjGMwgjCN42jiOBWhyHgvkIaA+gEA",
+        svg = "gAPBsGkbhlCAeQyD0IgyDAIggHiCQiDmDh5DGCg0g4eIWhIIg+DwL4DgWHhwGEdBoCAZIKE0NAgDcYwwC0MQuDcIIyDMLQzCCNwzGgMQzh2H4kiaI4lieKQiE0MQ4CCDBjjGMwgjCN42jiOBWhiHgvkIaA+gEA",
         categories = "development,maths,shapes",
         tags = "constant,code,coding,programming,symbol,trigonometry,geometry,formula",
         contributors = "danielbayley,jguddas"
@@ -7220,7 +7372,7 @@ pub enum LucideGlyph {
     Pi,
     #[cfg(feature = "picture_in_picture_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIA5FYNhhDIIITDAIIWDALQyhoSA0hKFIXiGGYTDIdgxDAY4WDELorDmIIkGgNAiD4PAvgOBY0HIZRjHQIByHiCQyCIIBoGUaRnGgdIJDeQx3GkZIFgmJ5DHmUgzkOQAiDGQo0C+Oo8D6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIA5FYNhhDIIITDAIIWDALQyhoSA0hKFIXiGGYTDIdgxDAY4WDELorDmIIkGgNAiD4PAvgOBY0HIZRjHQIB5gkMQzCIIB3GkZIFkAMJDHiQAykMcpMCKTggGgZRpGcaB0gkN4zjWOo8D6AQ",
         categories = "multimedia",
         tags = "display,play,video,pop out,always on top,window,inset,multitask",
         contributors = "cd16b,ericfennis"
@@ -7228,7 +7380,7 @@ pub enum LucideGlyph {
     PictureInPicture2,
     #[cfg(feature = "picture_in_picture")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CANAuDUdg1EgMxtC0MQtDYIIZDYbQxDMIAwHYLQzGMMIWC4MQ2C0Lg4DQLQyi+LxoC0N4VDkIA5HYMolCAMQuDANQuDkNQgDKRZFGgMwiD4PAvgOBZMHIZRjHQIBoGUaRnGgdIJDcIggHmCYeg+XxymEIgyl8eJimkIB3GkZIFmIMJLk2UpUD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ4CANAuDUdg1EgMxtC0MQtDYIIZDYbQxDMIAwHYLQzGMMIWC4MQ2C0Lg4DQLQyi+LxoC0N4VDkIA5HYMolCAMQuDANQuDkNQgDKRZFGgMwiD4PAvgOBZMHIZRjHQIB4gkMQyCIIB3GkZIFlgMJbHmWAzg+WxymQIpaCAaBlGkZxoHSCQ3kuTZSlQPoBA",
         categories = "multimedia",
         tags = "display,play,video,pop out,always on top,window,inset,multitask",
         contributors = "cd16b,ericfennis"
@@ -7252,7 +7404,7 @@ pub enum LucideGlyph {
     PiggyBank,
     #[cfg(feature = "pilcrow_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEcoTCIMoRGgZRpGcaB0g2D4RHmFAiD4PAvgOBYoHAYYLCAZINE0MQyCCNRIDkLg1GEMo7CCPg1CAMJDjeQwtDUSAxDeJ4pi6C4ti8aIxjONQgDcdgxDCTQvk8aJRjCMgijQNpXlmW4ol2Ug+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHIeIODKEh5g4M4Sh0IojD4PAvgOBYoHAYYXCAZIOE0MQyCCNRIDkLg1GEMo7CCPg1CAMJDjeQwtDUSAxDcIooC+LoXi2LxojGM41CANx2DEMJNimUBolKMIyCKNA2liWpck6Xw+gEA",
         categories = "text",
         tags = "paragraph,mark,paraph,blind,typography,type,text,prose,symbol",
         contributors = "danielbayley"
@@ -7276,7 +7428,7 @@ pub enum LucideGlyph {
     Pill,
     #[cfg(feature = "pin_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgyDIIoHDGCoNCAeIJguEh4hCCwiD4PAvgOBYch+BoUgoMYSHmGQxDeDoYiWJ4VgyG4diKHBwGEdBoCAZIKE0OQgDkdgxC4Nw2GEMggkcMAgkoMQtkIMQxCCQg3DkbJOkMOAuDkQZHkmS5fDWUg1C4Mg0FaKhoiaMgvjaOI1jeOY7CITQxmEOQuDOZg2mmRpIl+SqAC0NBIDcLg4Dma5tGgPoBA",
+        svg = "gAPBsGkbhlCAeAyD0IgyDIIggHmCYLg2DwxgqEx4hWCwiD4PAvgOBYch+BoIgoMYXhmJoOHmKA3iqEYMhuHYihwcBhHQaAgGSChNDkIA5HYMQuDcNhhDIIJGDAIJJDELZBDEMQgkENw5GyTZCDgLg5EGRpIkqXg1lENQuDINBWDENxoimHAvjWN40jaOI6CITQxmAOQuDOZQ2mmRZHl6SaAC0NBIDcLg4DmMZsnAPoBA",
         categories = "maps",
         tags = "unpin,map,unlock,unfix,unsave,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -7284,7 +7436,7 @@ pub enum LucideGlyph {
     PinOff,
     #[cfg(feature = "pin")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgxDIIggHmCQiDKDYHDGCoMg4eYWgsNwiD4PAvgOBYfHAYR0GgIBkgoTQ1CAMQ3GgMQ0HYLQxC4Nw2GEMggjsMAgj4MI1C4MQxkINw5GyRg4C0Lg5EGO49j+Loui0MQwjcNhWDaMY6jyUpAj8LQ0EgOJdlGYI+DSMR2DSWJml+LpCkSLo3kiSpNk+XpoCCVQ1C4Mg0FqHogiWJw+gE",
+        svg = "gAPBsGkbhlCAeAxD0IgxDIIggHmCYLDeDh5DKCgyg2B4WguDQ+DwL4DgWHhwGEdBoCAZIKE0NQgDENxoDENB2C0MQuDcNhhDIII6DAII9DCNAuDEMZBDcORskUOAtC4ORBjqPI+i2LYsDEMI2DYVg2jCOY7lGP4+C0NBIDiXJQl+PQ0jAdg0leZZei2QZDi2NpHkmTJOl2ZwglQNQuDINBaCKHgviSJg+gE",
         categories = "maps,account",
         tags = "save,map,lock,fix",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -7332,7 +7484,7 @@ pub enum LucideGlyph {
     Plane,
     #[cfg(feature = "play_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAbxsHkZxvG4IIiGkbh0HOEwwCAOAgDENozDKM4wjSOIxCKGwviKJImG4PoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwG8bB5GcbxuCCIRpG4dBzhcIA4CAMQ2jEMoxDCMYzDGNw4hmG4hiOJRuD6AQ",
         categories = "shapes,multimedia",
         tags = "music,start,run",
         contributors = "colebemis"
@@ -7340,7 +7492,7 @@ pub enum LucideGlyph {
     PlayCircle,
     #[cfg(feature = "play_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeYJgsIByggIgyCIPg8C+A4FikcBhhEIBkgkbQ5CAOAgDYIA0C2Og0FqKIqi+EQ+gEA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHiDQzhEeYdhEcocCIMgiD4PAvgOBYoHAYYLCAZING0OQgDgIA2CANAtjkNBaieKYugsPoBA",
         categories = "arrows,multimedia",
         tags = "music,audio,video,start,run",
         contributors = "danielbayley,karsa-mistmere"
@@ -7388,7 +7540,7 @@ pub enum LucideGlyph {
     Plug,
     #[cfg(feature = "plus_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwMQwhAYx4hODw+DwL4DgWB4bHAYR0GgIBkgwTQ4CCDhoDgIobC+IokiGI4licIhNg4IA4HaLowjIaA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0OAgg4aA4hmG4hiOIIiiSJgiE2DggDgdothoL4wGgPoBA",
         categories = "maths,development,shapes,cursors,gaming",
         tags = "add,new,increase,increment,positive,calculate,crosshair,aim,target,scope,sight,reticule,maximum,upgrade,extra,operator,join,concatenate,code,coding,+",
         contributors = "colebemis,ericfennis"
@@ -7396,7 +7548,7 @@ pub enum LucideGlyph {
     PlusCircle,
     #[cfg(feature = "plus_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkMQ4gwch4gkMoMhiCoMGgZRpGcaB0hOFQ+DwL4DgWJxwGGEQgGSCRNDgIAxDIaImiiLYRiyLhojCMo2CAOB2jkL47GgPoBA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINgkIgzg0dxpGQdBohWFwgHmCobD4PAvgOBYoHAYYgCAZIKE0OAgDEMhoheKAvi6IIti8aIxjONwgDgdo6imPRoD6AQA",
         categories = "maths,tools,development,text,shapes",
         tags = "add,new,increase,increment,positive,calculate,calculator,button,keyboard,toolbar,maximum,upgrade,extra,operator,join,concatenate,code,coding,+",
         contributors = "colebemis,ericfennis"
@@ -7428,7 +7580,7 @@ pub enum LucideGlyph {
     Pocket,
     #[cfg(feature = "podcast")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQxCKCR4gwMQyhAcoTCIPg8C+A4FgeGhwGEdBoCAZIME2DggDENxhDGKggDCMIvDKMBjjELg1C0LgzDQIAzjoNQgDSOBhjiOIyjEMQti4MBjjoMQ2kuOJAC0NJUkMNRahmG4hiOIIiiSJgiE0OIqDQYZBkGSYvmUMJbC+XRol+I4lieK4qDiRA5CCe5rDCS4xm6GpwmAPoBA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQxCIIBygyD4JHiEwyCIPg8C+A4FgeGhwGEdBoCAZIME2DggDENxhDGKggDCMIvDKMBjjELg1C0LgzDQIAzjoNQgDSOBhjiOIyjEMQti4MBjjoMQ2kuOJAC0NJUkMNRahmG4hiOIIiiSJgiE0OIqDQYZBkGSYvmUMJbC+XRol+I4lieK4qDiRA5CCe5rDCS4xm6GpwmAPoBA",
         categories = "multimedia,social",
         tags = "mic,music",
         contributors = "iiaishwarya,ericfennis,karsa-mistmere"
@@ -7466,6 +7618,14 @@ pub enum LucideGlyph {
         contributors = "ericfennis,mittalyashu"
     ))]
     PoundSterling,
+    #[cfg(feature = "power_circle")]
+    #[strum(props(
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME2Dggg4Vg2hmG4hiOIIiiSJgiE0OAgDcLg1EENguDEII+kAMAgkSRIpDEOBhDaQZFk6RA0C0MQwjuLgvjAaA+gE",
+        categories = "connectivity",
+        tags = "on,off,device,switch,toggle,binary,boolean,reboot,restart,button,keyboard,troubleshoot",
+        contributors = "danielbayley"
+    ))]
+    PowerCircle,
     #[cfg(feature = "power_off")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQxDgLgzDYIA2C4Ng0EEOQghcMAghoMQgDIMAuDcNwgDENQiD4PAvgOBYoiuBoIgqEgxhCMg2GGF4ZiSG4kDKEw4jyPonimLotgSL4JgsMoeHYNJCiqRpFgWB4JG2SpWhqH5OkSAQ",
@@ -7474,11 +7634,19 @@ pub enum LucideGlyph {
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
     ))]
     PowerOff,
+    #[cfg(feature = "power_square")]
+    #[strum(props(
+        svg = "gAPByGUYx0CAch4D0IgyCIIB5goM4NGgZRpGcaB0goMQ4g2CQihEIB3GkZB0GiGYbD4PAvgOBYoHAYYkCAZIKE0MQyCANx2DUIooC+Loki2LxojGMw4CAORhDULgxDQIJJksIAwlCUpMkUNAuDkNQglaWJSlGUQ0C2J4pj4aA+gE",
+        categories = "connectivity",
+        tags = "on,off,device,switch,toggle,binary,boolean,reboot,restart,button,keyboard,troubleshoot",
+        contributors = "danielbayley"
+    ))]
+    PowerSquare,
     #[cfg(feature = "power")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgLgzDYIA2C4Ng0GEOQghcMAgDGGwtDEMguDcMwgDAIg+DwL4DgWJxsGkbhlCAeAxgmHwijEMo0DKNh5jMIo6CAeY4CKNYnC+LYvD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAyHYMQwCIPg8C+A4FhSF4GgiCgxDgLg0CANguDYYQ5CCJwwCAMYrC2DAuDcNwuDANIThWGg+gEA",
         categories = "connectivity",
-        tags = "on,off,device,switch,reboot,restart",
+        tags = "on,off,device,switch,toggle,binary,boolean,reboot,restart,button,keyboard,troubleshoot",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     Power,
@@ -7492,7 +7660,7 @@ pub enum LucideGlyph {
     Presentation,
     #[cfg(feature = "printer")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig2CAOQghIMggDEOAgheGYTCIPg8C+A4FgeCYgHAYR0GgIBkhATYShkSA0GGF4XDAII3DELQyjsdgtDWNIbjiQwxhuOxoDENpBjaRJCDIdpAjWQ45juGxojuH4hiiKogHIZRjHQIB5hAMQ0CIIB3GkZIqmQMpnGgZRpGcaB0hAOJnHiEA2lkL5emAPoBA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig2CAOQghIMggDEOAgheGYTCIPg8C+A4FgeCYgHAYR0GgIBkhATYShkSA0GGF4XDAII3DELQyjsdgtDWNIbjiQwxhuOxoDENpBjaRJCDIdpAjWQ45juGxojuH4hiiKogHIZRjHQIB5hAMQ0CIIBoGUaRnGgdIQDiZx4hANpnHcaRkiqZAylkL5emAPoBA",
         categories = "devices,account",
         tags = "fax,office,device",
         contributors = "colebemis,csandman,ericfennis"
@@ -7500,7 +7668,7 @@ pub enum LucideGlyph {
     Printer,
     #[cfg(feature = "projector")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1CANwgDMIA1CIPg8C+A4FhSF4GgiCg5CANhWDOE4VhqGYEhuCRtDGEIODILQyiOFonhQYxpHIYxsGUIBygmIggGMeYJisIo/HiCQ5jGNY3jmJoFgeCRNDEMQuDiEAxDISAyDAYQyCCXQwCCYAxl6Xh2DSXJkmCYovl4SJnl2X5hCAMYvi8dgtm+aZymOLgyGgMguDEN4xiWAonk+CgxDacw2n+hIzgEA",
+        svg = "gAPBwGEdBoCAZA9CITQ1CANwgDMIA1CIPg8C+A4FhSF4GgiCg5CANhWDOE4VhqGYEhuCRtDGEIODILQyiOFonhQYxpHIYxsGUIBjHmCYrCIIBygmIo7HiCQ5jGNY3jmJoFgeCRNDEMQuDiEAxDISAyDAYQyCCXQwCCYAxl6Xh2DSXJkmCYovl4SJnl2X5hCAMYvi8dgtm+aZymOLgyGgMguDEN4xiWAonk+CgxDacw2n+hIzgEA",
         categories = "multimedia,photography,devices,communication",
         tags = "cinema,film,movie,home video,presentation,slideshow,office,meeting,project,planning",
         contributors = "danielbayley"
@@ -7524,7 +7692,7 @@ pub enum LucideGlyph {
     Pyramid,
     #[cfg(feature = "qr_code")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0Ig1CIIB5g0M4QHiE4QHKFgiDGEBoGUaRnGgdINg8Pg8C+A4FiaKYGhoMQ2hCEgihQIIeiCIokhCCIKgyDoYi4IomiiBB0iuRIRg2L46gmC45CCGo0jaIYjj4IIZkmQYniyJhwGGCwgGSDRNDIMQgi8aAtDMYQyCCbAwCCbwwC2bAyHaFJCl2C5cl4aJgmKZJtDEdguDCHJ4nye5fmEIhNDGbA3naa5tnClAxnObRIDeWQvnkaKJn2ixNDOZgyGihKGienafn6jKOCAM6moWm6qDynaso2bIvoOsqHnqtZ8reL6kGiqKcoiv6Kn+ZaOruxa0raoaumQdgts6iIB",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDUIggHiDgzhEcoTCIMYRHmFIRHcaRkHQaIOhAPg8C+A4FiaKYGhwIoVhKDgxDaFoYhoIIfiGI4PhGCIKgyJAiiaKIEHSK5FjiIIikGB4JguDY8CCF4yhuMo0jGL5CieLImHAYYiCAZIOE0MgxCCMxoC0MxhDIIJtDAIJwDALZtDIdoVkOXoil2XxomGY5lm4MR2C4MIanmfZ8mCYgiE0MZtDed5sm6caVDGdJuEgN5aC+ehooqfqME0M5nDIaKFoeJ6eqCf6No8IAzqehqcqsPKeq2jptjOhKzoie62n2uIzqUaKpp2ibAougJmo+vLGrWt6iq+ZR2C2z6JgEA",
         categories = "development,social",
         tags = "barcode,scan,link,url,information,digital",
         contributors = "ericfennis,csandman,karsa-mistmere"
@@ -7548,7 +7716,7 @@ pub enum LucideGlyph {
     Rabbit,
     #[cfg(feature = "radar")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDkLgwDcIA0C4OQzEEMQwCCFwghiHAgDaEw5CAMwuDMNAiD4PAvgOBYoiuBoIgoNIeGiDgxieKYui2BIvgkTQyC4Mohg0NgyhaGIakeGwgDIMYkDEIA4iQNY3iqO46gWB49DGHwyjINwuDcNhBDaHpKk+GJRDIM4Zh8Ng3lSOYCjuWYKDEMoZDiNAwjaKJViycpYjCC5fDmIQxk0NpimSZIdk8MQ1mCEJbC6bpwlYPBjGkchjGwZQgGMeIJnYIggHKCQyqQYx5qKqJ9pmm6dlePAiG0MYjDSjgwC4NYhpCiQtr4NqWiyAQA",
+        svg = "gAPBwGEdBoCAZA9CITQxDkLgwDcIA0C4OQzEEMQwCCFwghiHAgDaEw5CAMwuDMNAiD4PAvgOBYoiuBoIgoNIeGiDgxieKYui2BIvgkTQyC4Mohg0NgyhaGIakeGwgDIMYkDEIA4iQNY3iqO46gWB49DGHwyjINwuDcNhBDaHpKk+GJRDIM4Zh8Ng3lSOYCjuWYKDEMoZDiNAwjaKJViycpYjCC5fDmIQxk0NpimSZIdk8MQ1mCEJbC6bpwlYPBjGkchjGwZQgGMeYJnYIqfHiogyqQcoJqifaZpunZXjwIhtDGIw0o4MAuDWIaQokLa9DalosgE",
         categories = "navigation,maps,security,communication",
         tags = "scan,sonar,detect,find,locate",
         contributors = "danielbayley,karsa-mistmere"
@@ -7556,7 +7724,7 @@ pub enum LucideGlyph {
     Radar,
     #[cfg(feature = "radiation")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIIMGgMAiD4PAvgOBYThaBoIgoNwuDUIA0C4MhjC0LgziUNYlDmJQ3C0MYmiUNBDDMLg5CANYeCAMomCAOAuDGOoODGJI/h4Lg0g6SQxGgNRjDCLpGDgLY7DiOgtjQNJQDGUIrDKV4elOYIhDQeoShSGYYgSGoJE0MpAgwYwuDYIAwg6MZ2luMI7iuL5SjiKYhluHZ5lmMIvnmXovjSJ5yjWUIfjuKY7nOIQzg6IguDeQYNg2NA1kyZYThWappgWB5sh2HwxDkLg4kSnolm+RZIoqOpypeDY4nOL4Nj6DZ1mCmItq2R5QoyKaOi+WaRmGgKGsKYY+i2SJPoel5Sp2xaRiCJqhmepIBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIIMGgMAuDAMQiD4PAvgOBYWhmBoIgoNwuDUIA0C4MhjC0LgzigNYoDmKA3C0MYpigNBDDMLg5CANYhCAMopCAOAuDGPYODGJ5CiELg0g6TAxGgNRjDCMZJDgLY+DiPQtjcNJTDGU4uDKWohlaY4kDQeoVheHIbgSHYJE0MpDgwYwuDYIAwg6NJ5l6M4+i6MpVjuLIkl6IJ8lyM4ynyYYyjeKp1jiU4ij6LI+naJAzg6JQuDeRINg2Nw1k+aIWhibZsgWB5viCIgxDkLg4keoYonKSJLo2PZ1pqDY7naMoNkGDZ4mOm4wrCSpTo+LKRjKXKUmSg6JsWZJBjCS5SoqmpVqCyKUiOKakmqp4B",
         categories = "science",
         tags = "radioactive,nuclear,fallout,waste,atomic,physics,particle,element,molecule",
         contributors = "danielbayley,ericfennis"
@@ -7564,7 +7732,7 @@ pub enum LucideGlyph {
     Radiation,
     #[cfg(feature = "radio_receiver")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1CAMQ2HYMgiD4PAvgOBYThaBoIgoMQ5g2D4RhOFYEGiExyGUYx0CAch4gmEQgGgZRpGcaB0gkOAiCAeY3jmLQii8dxpGSBYuDCEoUieKYYiSB4JE0MQ4g0MhokaIoZD6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQ1CAMQ2HYMgiD4PAvgOBYThaBoIgoMQ5g2D4RhOFYEGiExyGUYx0CAdxpGSBYJDIMAiCAaBlGkZxoHSCQ4jMeY7jMch4jCM5CCKIYUieKYYiSB4JE0MQ4g0MhojKIoZD6AQA",
         categories = "devices",
         tags = "device,music,connect",
         contributors = "ericfennis"
@@ -7572,7 +7740,7 @@ pub enum LucideGlyph {
     RadioReceiver,
     #[cfg(feature = "radio_tower")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0C4OQgDENguDEQwxg8MguDKDwgDULg4CCDIODGDQiD4PAvgOBYliiBoIgoN4dh8Lg3GGEQxDQII1jcMAgjsMAtjCLw1iSJoriUYxpHIYxsGUIBjHmCQ5CKTR4gkMQylIcoJleJQvkeSZLiqBIsgkTYQhiMQ4GOGZrhgNobhKIoei8NA3kOJ5imGBYHmQMQ5hKD4NGGfg5m6g5uj2Go7jaEp2kWApinuCp+DWDw4GiQpco6K6RG2HgyhkNAtDGFY3qOjZ4gEA",
+        svg = "gAPBwGEdBoCAZA9CITQ0C4OQgDENguDEQwxg8MguDKDwgDULg4CCDIODGDQiD4PAvgOBYliiBoIgoN4dh8Lg3GGEQxDQII1jcMAgjsMAtjCLw1iSJoriUYxpHIYxsGUIBjHmCQ5CIIBygkMpSGMeIJDGVolC+R5JkuKoEiyCRNhCGIxDgY4ZmyGA2huEoih6Lw0DeQ4nmOYoFgeZQxDmEoPg0YZ/Dmb6Em+PYajuNoSneRYCmOfIKn8NYPDgaJCl2j4rpIbYeDKGQ0C0MYVjepKOnmAQ",
         categories = "devices,multimedia,social",
         tags = "signal,broadcast,connectivity,live,frequency",
         contributors = "danielbayley,karsa-mistmere"
@@ -7588,7 +7756,7 @@ pub enum LucideGlyph {
     Radio,
     #[cfg(feature = "radius")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDALgzDQIAxDcLg1DIYQxDCEYZhkMQgDALQyC4OAyCCIYjCIPg8C+A4FikYxpHIYxsGUIBjHmCQxDkIggHKCQyjsYx4jiOopC+L4xjOKYsgaCAiG0MQzC4NIdlCUodDQLgxDgIJYlqKIqkuLowjKNI2jiP48j6QJCCIMY/kWR5kD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDALgzDQIAxDcLg1DIYQxDCEYZhkMQgDALQyC4OAyCCIYjCIPg8C+A4FikYxpHIYxsGUIBjHiCQxDkIo1HmOI6CAcoJDKKIqi+MYzimLIGggIhtDEMwuDSHZPlGHQ0C4MQ4CCV5ZkSK4EGiLowjKNBjj0IgxkOQJCjuNo4kOKQvkaZA+gEA",
         categories = "shapes,maths,design,tools",
         tags = "shape,circle,geometry,trigonometry,radii,calculate,measure,size",
         contributors = ""
@@ -7620,7 +7788,7 @@ pub enum LucideGlyph {
     Rat,
     #[cfg(feature = "ratio")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAeYODKEh4g4NoSHKGIPhIdxpGQdBog4MYWD4PAvgOBYoiuBoIgqDIlhaE4ZhuHY0jiH4hiOFYRiiKoEHQPoBA",
+        svg = "gAPByGUYx0CAeA9CINgiCAeYJDKDByggIoQCAaBlGkZxoHSDwwgwdxpGQdBogkMYQD4PAvgOBYoiuBogiKJIUh6DYJguB4PhGE4VheGYbiWJ4pi4PoBA",
         categories = "connectivity,devices,design,photography",
         tags = "screens,rotate,rotation,aspect ratio,proportions,16:9,widescreen,4:3,responsive,mobile,desktop,monitor,orientation,portrait,landscape",
         contributors = "danielbayley"
@@ -7636,7 +7804,7 @@ pub enum LucideGlyph {
     Receipt,
     #[cfg(feature = "rectangle_horizontal")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMgiCAcoIgqDB3GkZB0GiCQyDCDB5gkNoMGgZRpGcaB0gkMYLD4PAvgOBQ+gEA",
+        svg = "gAPByGUYx0CAeA9CIMgiCAdxpGQdBogkMgwgwaBlGkZxoHSCQxgsIBygiCoMHmCQ2CIPg8C+A4FD6AQ",
         categories = "shapes,design",
         tags = "rectangle,aspect ratio,16:9,horizontal,shape",
         contributors = "colebemis,Reund0,danielbayley,karsa-mistmere,ericfennis"
@@ -7644,7 +7812,7 @@ pub enum LucideGlyph {
     RectangleHorizontal,
     #[cfg(feature = "rectangle_vertical")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMgiCAch4gmCwgGgZRpGcaB0hAMIMg8Ig2gwdxpGQdBogkMYLD4PAvgOBQ+gEA",
+        svg = "gAPByGUYx0CAeQ9CIMgiCAeIJDaDByg6CoMGgZRpGcaB0gkMgwgwdxpGQdBogkMYLD4PAvgOBQ+gEA",
         categories = "shapes,design",
         tags = "rectangle,aspect ratio,9:16,vertical,shape",
         contributors = "colebemis,Reund0,danielbayley,karsa-mistmere,ericfennis"
@@ -7684,7 +7852,7 @@ pub enum LucideGlyph {
     Redo,
     #[cfg(feature = "refresh_ccw_dot")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCAMh2DYaA2CIPg8C+A4FhSF4GgiCgyDEIAxDIQQ5CCJAwCCJ4nDYIA1C4MxMgwOIThWGoZgSG4JE2HoNg4LYQj6M4WjeNoFgeOYMiEYYkiaKJNDENQgDYLg3GwMwtDKU5BjUPBjGkchjGwZQgGMeYJiEIpjHiZgymgcpmkGXZfmEPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQzCAMh2DYaA2CIPg8C+A4FhSF4GgiCgyDEIAxDIQQ5CCJAwCCJ4nDYIA1C4MxMgwOIThWGoZgSG4JE2HoNg4LYQj6M4WjeNoFgeOYMiEYYkiaKJNDENQgDYLg3GwMwtDKU5BjUPBjGkchjGwZQgGMeIJiEIggHKZpoGMeZmDKQZdl+YQ+gEA",
         categories = "arrows,development,shapes",
         tags = "arrows,rotate,reload,synchronise,synchronize,circular,cycle,issue,code,coding,version control",
         contributors = ""
@@ -7764,7 +7932,7 @@ pub enum LucideGlyph {
     Repeat,
     #[cfg(feature = "replace_all")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIA0GMMAtDELoTDkLQyCAMoXCIPg8C+A4Fh2IIGgiCgyDCGRjhMMQgiiGAuDmGYZhyHojiKBIkgkTQyhgOIQCCKwtjCGYXjOHYfjiN4FgeOgxDaQAwGOEoUi2F5ChaGgyjSSIhgKOJMCIbQzCANwgmOZwtDOW42l6S4lE2TwxDAVg1hCU5lhMM5pmaaRoDGa5JDwchlGMdAgHiCZaCAdxpGSBYJDgIggGgZRpGcaB0pCkh5gmDKSHKiAilqR6DoWSo5gqDJAg+K4tjKQ4YDIdoPiiQawkWo41oGI5gjutaslSLggrCGazj+toxlmRq6iGAQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIA0GMMAtDELoTDkLQyCAMoXCIPg8C+A4Fh2IIGgiCgyDCGRjhMMQgiiGAuDmGYZhyHojiKBIkgkTQyhgOIQCCKwtjCGYXjOHYfjiN4FgeOgxDaQAwGOEoUi2F5ChaGgyjSSIhgKOJMCIbQzCANwgmOZwtDOW42l6S4lE2TwxDAVg1hCU5lhMM5pmaaRoDGa5JDwchlGMdAgHcaRkgWCQ4CIIB4gmWggGgZRpGcaB0oyjh5gmDKOHKkAilqR6DoWSo5gqDJAg+K4tjKQ4YDIdoPiiQawkWo41oGI5gjutaslSLggrCGazj+toxlmRq6iGAQ",
         categories = "text",
         tags = "search,substitute,swap,change",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -7772,7 +7940,7 @@ pub enum LucideGlyph {
     ReplaceAll,
     #[cfg(feature = "replace")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIA0GMMAtDELoTDkLQyCAMoXCIPg8C+A4Fh2IIGgiCgyDCGRjhMMQgiiGAuDmGYZhyHojiKBIkgkTQyhgOIQCCKwtjCGYXjOHYfjiN4FgeOgxDaQAwGOEoUi2F5ChaGgyjSSIhgKOJMCIbQzCANwgmOZwtDOW42l6S4lE2TwxDAVg1hCU5lhMM5pmaaRoDGa5JDwchlGMdAgHmCYMCIIB3GkZIFgkOKLHIeIJloIKVCKlxoGUaRnGgdKRlug6FD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIA0GMMAtDELoTDkLQyCAMoXCIPg8C+A4Fh2IIGgiCgyDCGRjhMMQgiiGAuDmGYZhyHojiKBIkgkTQyhgOIQCCKwtjCGYXjOHYfjiN4FgeOgxDaQAwGOEoUi2F5ChaGgyjSSIhgKOJMCIbQzCANwgmOZwtDOW42l6S4lE2TwxDAVg1hCU5lhMM5pmaaRoDGa5JDwchlGMdAgHcaRkgWCQ4CIIBoGUaRnGgdKMo4eYJgyjhyHiCZaCCnQilqR6DoUPoB",
         categories = "text",
         tags = "search,substitute,swap,change",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -7802,6 +7970,14 @@ pub enum LucideGlyph {
         contributors = "colebemis"
     ))]
     Rewind,
+    #[cfg(feature = "ribbon")]
+    #[strum(props(
+        svg = "gAPBwGEdBoCAZA9CITQxDcLg3DUIA5C4MAxGMLQuDUMggDKEw4C0MQuDgMwgDMLg2DQLYlDEOAgDULg0DkbAthwNokhiKIcDkNwgiiJQ1jON42DiPw0C6OoWiAOA2kANgxkCHolDcN4pC4MZLi4NA0CIPg8C+A4FlyX4GgiCoMg6EIShQQY7jsMAgm6bg2C6GoSDEQ5yDCNQ4hgII1g0OIan4YwwlSEIciILYQi4OYeDUQwxi4Mg0hsIIrjaEKWDegwgg4M4XDAOaVi+FwyoaEwxFqW5dmKYYEmOCRthIM6YkUNYjjSPQuDMMaql6rqtgWB6wDGII6pWewwpOOahpOPo4jeVA5p4Na9qyAqusKZaTDim5ODGG5AhSNgyDKj7fDGbrohGlZuDgYYahq6aVjyb7Vr+AQ",
+        categories = "social,medical,emoji",
+        tags = "awareness,strip,band,tape,strap,cordon",
+        contributors = "karsa-mistmere"
+    ))]
+    Ribbon,
     #[cfg(feature = "rocket")]
     #[strum(props(
         svg = "gAPBwGEdBoCAZA9CITQ0C4NQgDENoNGMLQxg2DwuDINgtDIIA1huHRzDMLg3DQLYWh4MhjiMMYmDiDA3hsLgxDOJgwDmMQ5DEYQyjIOAgjwMY+DAIJDDCOIsC6Nh6CIPg8C+A4Fk2UIGggIhtDGHAxh6NAzjuHAyhyRYPj8LYiDkNRBlgLg4j6apskScAxj+XxjkOPA3DKJg3j4N4NC0NoPjqYAuDODqDoWcJDiwNI/kuTZPgQaJSpGB4JE0OYPDISA0HODZbkkM5kDQY4VDaeYVDCPoOkOq5Mk6U6TgWlYKliDw1HYNYhqCJg1g6JYpqgOIUC6ppEC2q7Hq6kJRgEA",
@@ -7812,7 +7988,7 @@ pub enum LucideGlyph {
     Rocket,
     #[cfg(feature = "rocking_chair")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgzC4NQgDIIA2hMIAxDKGQxDiGocDUIg+DwL4DgWB4JiSKYKHgMYQDmEwiCAeYvCKG4yCAeAyhANY5HmPAiDIMIjiWLIrgiCpAhCQ4zjuEIej+No4iKOpTiKJAvkeAhhHQaAgGSEBNhwN4Uh4YQxDOGpqDAIJtm2UYUkSWRwl0aA+gEA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgzC4NQgDIIA2hMIAxDKGQxDiGocDUIg+DwL4DgWB4JiSKYKHgMoQDWEwiCAeAxhAOYyCAeYvCIMgwjMeY2CKG4yiQL4siuCItkIMYijqTIhjOLoQh6OY7hCPojiWSICGEdBoCAZIQE2HA3hSHhhDEM4amsMAgm6bpVhSP5GHCXhoD6AQ",
         categories = "furniture",
         tags = "chair,furniture,seat",
         contributors = "connium,ericfennis"
@@ -7852,7 +8028,7 @@ pub enum LucideGlyph {
     RotateCw,
     #[cfg(feature = "route_off")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDEOYOGMeILDYIg+DwL4DgWB4bHAYR0GgIBkgsTQ5CCExoDgLg1GMLg0CAMAgC4OQtC4MYrC4M45DKGociKJIhiOJYnCITQ1C4MggksMhBDOLwglINQzjSWI1DaUwxDISJdkEL5DGiRYkiaCxtk2ao1DIMJhmOZZHigMo7DGSwzGGVZUlONZ9C2Uo+oCb5GnGZ5JnaThoC0NI9oORICgSBoIgqDIVhcIgxDiFYRCINZhh6kg+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDaDhjHmCwxDkIg+DwL4DgWB4bHAYR0GgIBkgsTQ5CCGBoDgLg1GMLg0CAMAgC4OQtC4MYrC4M45DKGociKJIhiOJYnCITQ1C4MggksMhBDOLwglINQzjSWI1DaUwxDISJdkEL5DGiRYkiaCxtk2ao1DIMJhmOZZHigMo7DGSwzGGVZUlONZ9C2Uo+oCb5GnGZ5JnaThoC0NI9oORICgSBoIhCFw4hSFgiDWDoKgyYYepIPoBA",
         categories = "maps,navigation",
         tags = "path,journey,planner,points,stops,stations,reset,clear,cancelled,closed,blocked",
         contributors = "danielbayley"
@@ -7860,7 +8036,7 @@ pub enum LucideGlyph {
     RouteOff,
     #[cfg(feature = "route")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ5CIIBygwM4QGMeIMDYIg+DwL4DgWB4bHAYR0GgIBkgwTQ5CCDhoDgLg1GEM4vCCMg1CAMI3jkMAtDcaAtDEMYxjONY6iuN48EgMQ1hqHIiiSG4egaCIWgwMQ4hCEgihSCYLCKS4bh2BJSD6AQA",
+        svg = "gAPBjGkchjGwZQgGMeA9CINgigkeYMDEOYPHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0OQghMaA4C4NRhDOLggjENQgDCNo4DALQ3GgLQxDGMIyjSOYqjaOxIDENYZhuIYjhqHYGgiCoSDiDxjhEIpKCCFgihiGocgSUQ+gE",
         categories = "maps,navigation",
         tags = "path,journey,planner,points,stops,stations",
         contributors = "danielbayley"
@@ -7868,7 +8044,7 @@ pub enum LucideGlyph {
     Route,
     #[cfg(feature = "router")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgyDCDRoGUaRnGgdIKDiDYJguDR5goMQ0CIPg8C+A4FikcBhhIIBkgoTQ2C4MAxCAMQ4EgNooiqL4Si6MBojKNAxDCN45jsSJIj8L5BGiQ4xjMIhNDENY6DAdonimUJElORZVlcNwuDgNAgmUMQ3GGaJoDAIJwDALQ1C4Ng2nGT5RmGRpWhWdp4DQLgzDQYQ4CCh5ynELQxDGg45haXp7gE",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDgIggHcaRkHQaIODIMIRHIeIYhEeYODENIRh0IgyCIPg8C+A4FikcBhhYIBkg4TQ2C4MAxCAMQ4EgNooiqL4Wi6MBojKNAxDCN45jsSJIj8L5BGiQ4xjMIhNDENY6DAdojimUJElORZVlcNwuDgNAgmUMQ3GGaJoDAIJwDALQ1C4Ng2nGT5RmGRpWhmdp4DQLgzDQYQ4CCh5ynELQxDGg45hqXp7gE",
         categories = "development,devices,connectivity,home",
         tags = "computer,server,cloud",
         contributors = "FrancoMaxime,ericfennis,karsa-mistmere"
@@ -7876,7 +8052,7 @@ pub enum LucideGlyph {
     Router,
     #[cfg(feature = "rows")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeINDKEYUCIM4RHmDYaCAaBlGkZxoHSDYPhEcocCKFg+DwL4DgWLRsGkbhlCAeAyhUMYXDGHYbj2DoWCAeY5kEIotC+M41D6AQA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHmCoRCAdxpGQdBogoMQ4g0coTguDRoGUaRnGgdIch4Pg8C+A4FiwbBpG4ZYODKCgyDGEgxhyDIOjyEISjcIgxgyLAvjKNA+gE",
         categories = "layout,design,text",
         tags = "split,lines,queue,series,list,vertical,horizontal",
         contributors = "danielbayley"
@@ -7884,7 +8060,7 @@ pub enum LucideGlyph {
     Rows,
     #[cfg(feature = "rss")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQxGEOQghEMAghQMYShIIg+DwL4DgWG4egaCIKgwNBhDENoNimFIWiqKoahyIYbGMaRyGMbBlCAYx4gkNQiCAcoJDGPxjHmQg5jAL40jaOA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQxGEOQghEMAghQMYShIIg+DwL4DgWG4egaCIKgwNBhDENoNimFIWiqKoahyIYbGMaRyGMbBlCAYx4gkNQijoeYJDEOY/HKQowC+NI2jgPoBA",
         categories = "development,social",
         tags = "feed,subscribe",
         contributors = "colebemis,csandman,ericfennis"
@@ -7964,7 +8140,7 @@ pub enum LucideGlyph {
     Save,
     #[cfg(feature = "scale_3_d")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeILDEOYOGMeYShQPg8C+A4FgeGodgaCIWgsNYOgqDIVhEIomhqHIEiKGhwGEdBoCAZILE0NQgDcdgxDIaI/CKLozjWMo0jaOAiG2O4TCANgtDaQ4bkUaA+gE",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ5CKCR5gyDoQHKDAyCIPg8C+A4FgeGodgaCBjhIIg1hCCoMicIIWCKGIahyBIihocBhHQaAgGSDBNDUIA3HYMQyGiQYZhuNY3jSNo4joIhtj2DggDYLQ2kUL5HGgPoBA",
         categories = "design",
         tags = "gizmo,transform,size",
         contributors = "lscheibel,ericfennis,jguddas"
@@ -8020,7 +8196,7 @@ pub enum LucideGlyph {
     ScanLine,
     #[cfg(feature = "scan_search")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCANxWDUYQyCCEgwCCFQxhMLQyGgMgiD4PAvgOBYfiKBoIgoMQ3CAM4chGE4WjCGISDIdodh+IYEGiJI5geCRNDKGIpjWLoUjGGoTGiGoeiCJY7gWPYKiqQBIhCM4wheGoaHaSo3k0PBjGkchjGwZQgHKCQzCIIBjHiCQxh2ax5m6NogmCYpkk6JoJG0MQ2CCfQtDELg5oGg5LjiI4BA",
+        svg = "gAPBwGEdBoCAZA9CITQzCANxWDUYQyCCEgwCCFQxhMLQyGgMgiD4PAvgOBYfiKBoIgoMQ3CAM4chGE4WjCGISDIdodh+IYEGiJI5geCRNDKGIpjWLoUjGGoTGiGoeiCJY7gWPYKiqQBIhCM4wheGoaHaSo3k0PBjGkchjGwZQgGMeYJDGHZmHiaZrHKCQzksL5gmKZJOiaCRtDENggnwLQxC4OaAoKc5NgE",
         categories = "photography,multimedia,layout,accessibility",
         tags = "preview,zoom,expand,fullscreen,gallery,image,focus,lens",
         contributors = "danielbayley"
@@ -8044,7 +8220,7 @@ pub enum LucideGlyph {
     Scan,
     #[cfg(feature = "scatter_chart")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINwuDUIoJHiDIOhAIBygyDwiD4PAvgOBYHhyH4GgiGAihqCYLCINYoGOEwiDEOIahyHoEiSIo2geEoMDEMYoiaLYqj2M4diOIYCjmCIuhSP4ZhaCo8DaRI1iAZY4lWO4whWEZQjANJNieEI0kaVg8HAYR0GgIBkgwTQzCAMx2jEaIxhuHZnmkPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiC4NQiCAYx5gsN4Ng8Yx4hOFQ+DwL4DgWB4bh6BoIhGCw1hWCYLiiF4LDEOIahyIoggKBIjhCGAiDEMYogqDIOhCEo5juDobh2NYzjKCI9iuOIUj+JY5DaMJGh8ZYhkeJJBDENI8iqT44DGTgikWSYbHAYR0GgIBkgsTQzCAMx2i4aIumOHJnmkPoBA",
         categories = "charts",
         tags = "statistics,diagram,graph",
         contributors = "danielbayley,ericfennis"
@@ -8052,7 +8228,7 @@ pub enum LucideGlyph {
     ScatterChart,
     #[cfg(feature = "school_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeYLDEMIOGMeISDIIg+DwL4DgWB4bHAYR0GgIBkgsTQyDIIAyDAVg4GgLQ0GwLQ2jKNQgDQSAyHYMQyGGK4rDAIJDkOQRoDENpAiyRJNkYLQyFqGociKJIhiOJYnCITQ2CAMQ3HYLgwg2GwvlUaJXiSJool0MQzmGY5TmaWJplmKAxDiXpgmKZJUnQPJnmuW54l6b58nKZ51oITQxDSLI8C0NZLkKTpQlAdgwpOTpElCLB2DWiJ0gE",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQwCIIBygwMYQGMeITDIIg+DwL4DgWB4bHAYR0GgIBkgwTQyDIIAyDAVg4GgLQ0GwLQ2jKNQgDQSAyHYMQyGGK4rDAIJDkOQRoDENpAiyRJNkYLQyFqGociKJIhiOJYnCITQ2CAMQ3HYLgwhSGwvlUaJXiSJool0MQzmGY5TmaWJplmKAxDiXpgmKZJUnQPJnmuW54l6b58nKZ51oITQxDSLI8C0NZLkKTpQlAdgwpOTpElCLB2DWiJ0gE",
         categories = "buildings,maps",
         tags = "building,education,childhood,university",
         contributors = "karsa-mistmere"
@@ -8060,7 +8236,7 @@ pub enum LucideGlyph {
     School2,
     #[cfg(feature = "school")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ0CANggDgLYMDgIA0CIPg8C+A4FheGoGgiCgxhMMQwhQIAyHYOBhDKJggiSJAxC2KwyEgNIqiyLggjAMoxHYLQ4GwNIxhaGIdhyBIegkTQxgwMonhGNorjgMIxjwMJQi2WJTjIdoVheGZHkaBYHkmIQgDUdgxDeQ5fhuApHmMIhNg6Z5pmuRQ8GMaRyGMbBlCAYx4gkMQyCIIBygmhJ/HmCQ5mueZ7n0PoBA",
+        svg = "gAPBwGEdBoCAZA9CIbQ0CANggDgLYMDgIA0CIPg8C+A4FheGoGgiCgxhMMQwhQIAyHYOBhDKJggiSJAxC2KwyEgNIqiyLggjAMoxHYLQ4GwNIxhaGIdhyBIegkTQxgwMonhGNorjgMIxjwMJQi2WJTjIdoVheGZHkaBYHkmIQgDUdgxDeQ5fhuApHmMIhNg6Z5pmuRQ8GMaRyGMbBlCAcoJDIIggGMeIJDGgqEHmCQ5mueZ7n0PoBA",
         categories = "buildings,maps",
         tags = "building,education,childhood,university",
         contributors = "karsa-mistmere"
@@ -8068,7 +8244,7 @@ pub enum LucideGlyph {
     School,
     #[cfg(feature = "scissors_line_dashed")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1C4NAyCAOYNg8OAgDEMgiD4PAvgOBYZGMaRyGMbBlCAcoJhcIBjHmCQ4CKKR4gkNIYhqH4hiOGYcgaCAiG0MQ0CANgtDgLg1hSQ5FjOG4EGiHogiKJIqgkMQ2i4Y4wCKMolieSY1k+OJLgeCRNDEMAuhSPpmhWPwxi2GZKh2ApgjuYw2hUMhoC2F5ujmX4FmGCgyg+Fp4nqGp8gE",
+        svg = "gAPBwGEdBoCAZA9CITQ1C4NAyCAOYNg8OAgDEMgiD4PAvgOBYZGMaRyGMbBlCAYx5gkOAiiUeIJDSKhygmF4ZC+H4hiOGYcgaCAiG0MQ0CANgtDgLg1hSQ5FhiGo5h6IIiiSMAiheK4tiqJoJDENpJjSTY3gKBI6gkTQxDALoUj6ZYVj8MYpjOS5egWB5hliFQyGgLYykqX44l+cYKDKD4WnaeIbnqAQ",
         categories = "design,tools",
         tags = "cut here,along,snip,chop,stationery,crafts,instructions,diagram",
         contributors = "danielbayley"
@@ -8076,7 +8252,7 @@ pub enum LucideGlyph {
     ScissorsLineDashed,
     #[cfg(feature = "scissors_square_dashed_bottom")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMgyGEMoNCAMITCAMQtDKGBWDSEIShSFAxg2GBoDENodhGH4WhIMh2iWJ4ViCGINCIPg8C+A4FjWOIGgiCgxhSDhIDiNI2juOoEjyCRNiWDQyGiGJEjeSI1GMaRyGMbBlCAcoJDIIggGMeIJkOYB5mOUZVleWZHgWB5KDkLg0DGDJwnKDAxhGeJRkaApIm6Pg0C4OIWoGgwxoaQ41lKOQ8mmWJamGZ5lgmJZflwIpeoqjprn2bY9G2hwgDYLQ4C4NQ4DYIKlqcNp7lOAQ",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMgyGEMoNCAMITCAMQtDKGBWDSEIShSFAxg2GBoDENodhGH4WhIMh2iWJ4ViCGINCIPg8C+A4FjWOIGgiCgxhSDhIDiNI2juOoEjyCRNiWDQyGiGJEjeSI1GMaRyGMbBlCAYx5gmQ5bHiXgiCAcoJDKUZVleWZHgWB5KDkLg0DGDJwnKDAxhGeJRkaApIm6Pg0C4OIWoGgwxoaQ41lKOQ8mmWJalyCYlmOZQimeYJioqjprn2bY9G2hwgDYLQ4C4NQ4DYIKlqcNp7lOAQ",
         categories = "text,design,tools,files,development",
         tags = "cut,snippet,chop,stationery,crafts",
         contributors = "danielbayley"
@@ -8084,7 +8260,7 @@ pub enum LucideGlyph {
     ScissorsSquareDashedBottom,
     #[cfg(feature = "scissors_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggGgZRpGcaB0g2D4RHiGYRHKHIOhEeYdD4PAvgOBYlGMaRyGMbBlCAY4gDiERjiMIo0CAcokiaK4ti+JRwGGCwgGSDRNDkLg0DENAgkmS5NDEMgglIIolC+QoLkGQxokWR5MC4OJUDSYZUmIMY0leWRoiqLIujCMoNjmNoNDENoejwL4+m+W5EkYIhtmgIA2C0OAuDUOA2CChqIneapcD6AQ",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggGgZRpGcaB0g2D4RHmGYRHiHQgHKH4OCIPg8C+A4FiYYxpHIYxsGUIBjhwIg4hEcogGOI42iYL4si6MImHAYYLCAZINE0OQuDQMQ0CCSpMk4MQyCCU4lieQ4LkKRBokaSJNC4OJVDSYZVmIMY8liXIri2L4xjqDY2iGOY0DENpXj6bZBDyWZdkcIhtmgIA2C0OAuDUOA2CChqInePZ9D6AQ",
         categories = "text,design,tools,files,development",
         tags = "cut,snippet,chop,stationery,crafts,toolbar,button",
         contributors = "danielbayley"
@@ -8092,7 +8268,7 @@ pub enum LucideGlyph {
     ScissorsSquare,
     #[cfg(feature = "scissors")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CINgigkeYMg4IBygwMwiD4PAvgOBYHhkcBhHQaAgGSDBNDgLgxDIIIoioIIuiqGIaiCIofiGI4lCITQyDAIA0iyKYrDENQuDgOIyC+NBohmHIGgiCoSg8Y4RCIMZHhSFpIk2Hg8kqJImDENJFi+Yg4CCPJnDCSJKD6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeYLDaDhjHiEgiD4PAvgOBYHhkcBhHQaAgGSCxNDgLgxDIIIoioIIuiqGIaiCIofiGI4lCITQyDAIA0iyKYrDENQuDgOIyC+NBohmHIGgiCoMhSEQiDGR4PhYIoThmG4Ek6NoiiSJgxDSRYvmQOAgjyaQwkiSg+gE",
         categories = "text,design,tools",
         tags = "cut,snip,chop,stationery,crafts",
         contributors = "colebemis,ericfennis"
@@ -8148,7 +8324,7 @@ pub enum LucideGlyph {
     SearchCode,
     #[cfg(feature = "search_slash")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDMLg1CAOIOC2Dw1CIPg8C+A4FhcYxpHIYxsGUIBjHmCQxDEIggHKCQ4ikYx4iaKIXC+HYfiGF4agaCIKDIMQgj0LQ0C4M5BkOFoYjkPoBA",
+        svg = "gAPBwGEdBoCAZA9CIbQxDMLg1CAOIOC2Dw1CIPg8C+A4FhcYxpHIYxsGUIBygkOAiCAYx4gkMQxicYx5iuLYXC+HYfiGF4agaCIKDIMQgj0LQ0C4M5BkOFoYjkPoBA",
         categories = "text,account,social",
         tags = "find,scan,magnifier,magnifying glass,stop,clear,cancel,abort,/",
         contributors = ""
@@ -8156,7 +8332,7 @@ pub enum LucideGlyph {
     SearchSlash,
     #[cfg(feature = "search_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDMLg1CAOIOC2Dw1CIPg8C+A4FheGoGgiCoRg+IQghSFoYh2FxjGkchjGwZQgHKCQ4CIIBjHmCQxDGNBjHiOI6hcL4qiyLocgSHoJG0MgxCCSgtDQLgzk6UImhmRg+gE",
+        svg = "gAPBwGEdBoCAZA9CIbQxDMLg1CAOIOC2Dw1CIPg8C+A4FheGoGgiCoRg+IQghSFoYh2FxjGkchjGwZQgGMeYJDEMQiCAcoJDiNhjHiM41hcL4qiyLocgSHoJG0MgxCCSgtDQLgzk6UImhmRg+gE",
         categories = "text,account,social",
         tags = "find,scan,magnifier,magnifying glass,stop,clear,cancel,abort",
         contributors = ""
@@ -8180,7 +8356,7 @@ pub enum LucideGlyph {
     SendHorizontal,
     #[cfg(feature = "send_to_back")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMQ0CIIB5gmC4NHcaRkHQaIJDiDRoGUaRnGgdIYg0coICIMgiD4PAvgOBYoiuBoThWFwihkIIjgmJoHjeGoch6IIzg2D4lieKYuigcBhhYIBkgkTQ3CCCx2DEYQyCCVAwCCV5XlQMhoDGQwvkeFpGkgaJKkyCwgDeXZTlWWJuDGbQylGX5hGgPoB",
+        svg = "gAPByGUYx0CAeA9CIMQ0CIIB5gmC4NGgZRpGcaB0gkOINHKCAiDKDR3GkZB0GiGQiD4PAvgOBYoiuBoThWF4mCCHIJh+Do2iCIokjOHYfiiKoEHSKBwGGJAgGSCRNDcIILHYMRhDIIJSDAIJVlWUgyGgMYnimRYkkSRhokiSoLCAN5blGU5WmwMZrDKT5dC+XxoD6AQ",
         categories = "design,layout",
         tags = "bring,send,move,under,back,backwards,overlap,layer,order",
         contributors = "james-yeoman,jguddas"
@@ -8196,7 +8372,7 @@ pub enum LucideGlyph {
     Send,
     #[cfg(feature = "separator_horizontal")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAyD0IgyDEIggHkMYKDEMoOHiEQiDODh5gkIoTCIPg8C+A4FiAcBvGweYjgaJoEHQc4KDgIIxhMIA0CAMQ2jKH4hiaKIqiWJ4pgSKxvi2L4djmOI3DIIAyDCMo3DaOwvj2QokgE",
+        svg = "gAPBsGkbhlCAeAxD0IgzCIIB5DKCgxDKDR4hAIgyDGDR5gkIoSCIPg8C+A4FiAcBvGweYjgaJoEHQc4KDgIIxhIIA0CAMQ2jKH4hiaKIqiWJ4pgSKxvi2L4djmOI3DIIAyDCMo3DaOwvj2QokgE",
         categories = "text,arrows,layout",
         tags = "move,split",
         contributors = "ericfennis"
@@ -8204,7 +8380,7 @@ pub enum LucideGlyph {
     SeparatorHorizontal,
     #[cfg(feature = "separator_vertical")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgxDIIggHmCQiDODh4DKCoMg4eYWCIMgxCIPg8C+A4FiAcBvGweYjgaJoEHQc4KDgIIxDQIIMjKNQ2h+IYmiiKolieKYEisb4ti+Cw2jgIAyDCNQykkOI6C+PJBiSAQ",
+        svg = "gAPBsGkbhlCAeQxD0IgzCIIB4gkIgxDKDR4DKCoSg0eYWCIMgxCIPg8C+A4FiAcBvGweYjgaJoEHQc4KDgIIxDQIISjKNQ2h+IYmiiKolieKYEisb4ti+EQ2jgIAyDCNQykkOI6C+PJBiSAQ",
         categories = "text,arrows,layout",
         tags = "move,split",
         contributors = "ericfennis"
@@ -8212,7 +8388,7 @@ pub enum LucideGlyph {
     SeparatorVertical,
     #[cfg(feature = "server_cog")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwM4QGMeYMg4Ig+DwL4DgWB4bHAYR0GgIBkgwTQ0C4NQgDEMBIDQYQyCCMwwCCNgxC0Mo6FaMYzjWN4tjSOhoDENoyjSQY4kkMh2j6SY2jiOo0GgLYrhqHIiiSIYjiWJwiimK4tDSMJIkCUZTk2T5nkGP5FkeP5Km2Oh2C2a5yDCOpElYNZYC+WholyJImigNggDYaAuDAMZ+oCgpeoWLQ4omi6Nl2j6ECIbQxDULg3i0MwuDSVg5laFIbn+lw8oCmRtDkLozi4LqlrOpqWluq5dq2sqGpynguDOpK3oGuaDl+m6hr2nQ3lao6MqijrFpCmqyDgIKvsGogts+Waqqyxw4sCoAur2zbDpixwxiqn7Vi25rQt6urpqENAguG2ahDm54B",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0NAuDUIAxDASA0GEMggjIMAgjUMQtDKORWjCMo0jaLIzjkaAxDaMYzkCN5IDIdo9kiNY3jmMxoC2KoZhuIYjiCIokiYIooiqLA0i+R4/lCUpMk6ZpAj6RJGj6SZsjkdgtmqcQwjmQ5VDWVwvlkaJbiOJYnDYIA2GgLgwDGfZ/oGXaEiwOKIoqjJco6gwiG0MQ1C4N4sDMLg0lUOZVhiGp+pYPJ/pgbQ5C6MotC6pKyqWlZaqqXKsrGhabp0LgzqOtqArigpepqoK8pwN5VqKi6no2xKPpmsQ4CCrrAqELbOliqarsYOK/p8Lq8sywqXsYMYpp61IsuWz7drm6KgDQILgtioA5uaAQ",
         categories = "development,devices",
         tags = "cloud,storage,computing,cog,gear",
         contributors = "karsa-mistmere"
@@ -8236,7 +8412,7 @@ pub enum LucideGlyph {
     ServerOff,
     #[cfg(feature = "server")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMgiCAaBlGkZxoHSCQ4gwch4gmCwgHcaRkHQaIZDCDIYgqFoIiUPg8C+A4FimLIGg6EIShSDInDENIMhyHoggqIggheGYjkGP4nguKYrgQdIpGwaRuGWBwygkNojDGUo1lUIpTCAeJRlkLgwDEIpHkyTpLk2T5clKX5hluWJaHmWAxhWUIJnKYoqmQZQ+gE",
+        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDiDR3GkZB0GiCgyDCDRyHiHYNgmC4NiKJg+DwL4DgWKotgaCIjCCJQxDSDYPhGE4VheGYbh2HwgiiDIHkMIoqiyBB0iobBpG4ZZCDKCg2C4MAxicMZTiSWQiDaJJSl2R4rk2T5Mk6UB4lyXo0lwMYWjSYJuieYJUlaYgvmQZQ+gE",
         categories = "development,devices",
         tags = "cloud,storage",
         contributors = "colebemis,ericfennis"
@@ -8244,7 +8420,7 @@ pub enum LucideGlyph {
     Server,
     #[cfg(feature = "settings_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDAIA3GgLQ5CIPg8C+A4FhSF4GgiCgxDQIAxDcSA1hOFYahQYxpHIYxsGUIBygkMwiCAYx4gmIYzGMeY3DeJQvimK4tiiKosi6NYJj2NI7CKSYwCKMoUj+RJCgEA",
+        svg = "gAPBwGEdBoCAZA9CITQyDAIA3GgLQ5CIPg8C+A4FhSF4GgiCgxDQIAxDcSA1hOFYahQYxpHIYxsGUIBygkMwiCAYx4gmIYzGMeY3DeJQvimK4tiiKosi6OoJj2L4xjmNgij2FI/kSQoB",
         categories = "account",
         tags = "cog,edit,gear,preferences",
         contributors = "mittalyashu,ericfennis"
@@ -8252,7 +8428,7 @@ pub enum LucideGlyph {
     Settings2,
     #[cfg(feature = "settings")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDILgyDIIAyGgLQuDQNBhhCEAwCCGwwC2GR2C4MQ4hiEYcicMQtDEIAxC4NwzGyFA0DODg1iWGooh+HIxiINYUDCJIZieHYfi6NIvjyDwuDOQYmh2J5GhGRhsj2Io3kOLJZi0NwyiENQxleT4piuWw0jwMQ1C4MA5mGQ4Ui+UpIg6DZMm2T4Ni+U49j+TY4huK4alSM41naWoskYVgyDChYbhkaIVheQpPo2Hx2hSI6FmSKp6jOFAyjakook6VJomqfZYo2RpvjCc4UDObKhkSqp4jCl4+qamYqpsNw0pYLqgk6opji6Zp7mqsLBk+s5Tp4Mquqek5Fi+q5nmmQK5oGMgzp6wJ+iyupbDMVqRsmHIfh8egiD4PAvgOBbrGMaRyGMbBlCAYx5gmDAiCAcoJDO/BjHi+gyuq7LxvO9Q+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDILgyDIIAyGgLQuDQNBhhCEAwCCGwwC2GR2C4MQ4hiEYcicMQtDEIAxC4NwzGyFA0DODg1iWGooh+HIxiINYUDCJIZieHYfi6NIvjyDwuDOQYmh2J5GhGRhsj2Io3kOLJZi0NwyiENQxleT4piuWw0jwMQ1C4MA5mGQ4Ui+UpIg6DZMm2T4Ni+U49j+TY4huK4alSM41naWoskYVgyDChYbhkaIVheQpPo2Hx2hSI6FmSKp6jOFAyjakook6VJomqfZYo2RpvjCc4UDObKhkSqp4jCl4+qamYqpsNw0pYLqgk6opji6Zp7mqsLBk+s5Tp4Mquqek5Fi+q5nmmQK5oGMgzp6wJ+iyupbDMVqRsmHIfh8egiD4PAvgOBbrGMaRyGMbBlCAYx4gmDAiCAcoJDO/BjHm+gyuq7LxvO9Q+gE",
         categories = "account",
         tags = "cog,edit,gear,preferences",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -8260,7 +8436,7 @@ pub enum LucideGlyph {
     Settings,
     #[cfg(feature = "shapes")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4C4MwgDEMBhC4N4TCAMIWg8LQuDYMg2C0MQuDANw5EwMYgDQIAzhKFA3hiFwxg8LgxDkOIaDANAziUNoNCCDA5iuFYXi+Gg1DcMoxDEWgiD4PAvgOBZMHIZRjHQIB4gkMwiCAcpXCIMZaHcaRkgWCQ3loeYJDENJaGgZRpGcaB0mWS5NlKVJMGMaRyGMbBlCAY5ol6FA1locpYC6hJ/l0MaDnQL55nufQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ4C4MwgDEMBhC4N4TCAMIWg8LQuDYMg2C0MQuDANw5EwMYgDQIAzhKFA3hiFwxg8LgxDkOIaDANAziUNoNCCDA5iuFYXi+Gg1DcMoxDEWgiD4PAvgOBZMHIZRjHQIB4gkMwiCAeYJDENJaHcaRkgWCQ3loaBlGkZxoHSZZaHKVwiDGS5NlKVJMGMaRyGMbBlCAY5xDGFA1m+WAuoSf5cnKg50C+eZ7n0PoBA",
         categories = "shapes,gaming",
         tags = "triangle,equilateral,square,circle,classification,different,collection,toy,blocks,learning",
         contributors = ""
@@ -8268,7 +8444,7 @@ pub enum LucideGlyph {
     Shapes,
     #[cfg(feature = "share_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQ4CIIBygwM4QGMeYMDUIg+DwL4DgWB4bh6BoIhaDAxDKEISCKFIJgsIg2hqHIiiCAoEiOLYmg+EYThWF4NDmMYdjaNBsGkboIHgMYMDgLg1kAIB4DKJg1C4NIoCAeZKg0M5NDGEB5lKDQ3lWQIbC+RZHhuaIImCJgwmSEJRkuTZPkmU5Vl6WJaDaXZBmsPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ4CKCR5gwNYQHKDAzCIPg8C+A4FgeGodgaCIKgwNoQGOEoNDKFYXhmG4hh+AoEiKEYMDEOYsCKGIJguDYPhqHIzjEbBpG6CB5DGNgzC4NQxhAeAyjYNQuDSKwgHmUYNDeVI4CAeJJCIOJMjiQJEkaGpmgiUIMmINZdliNgwlyT5gDGUw0k6V5gDaTJOmWRRlD6AQ",
         categories = "account,social",
         tags = "network,connections",
         contributors = "colebemis,ericfennis"
@@ -8276,7 +8452,7 @@ pub enum LucideGlyph {
     Share2,
     #[cfg(feature = "share")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQyHYOBhDIIITDAIIWhaEwyGiDoShSF4ghkLYPC0OAiD4PAvgOBYoHAbxsHkbBpG4ZQgi6Mx0HOCQxDYII9g6Hw4j6J4pi6MIyjSKJIjUeQyjsNQiCAeQxgkMpRHiTgig6V5UlqVooC+Sw+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQyHYOBhDIIITDAIIWhaEwyGiDoShSF4ghkLYPC0OAiD4PAvgOBYoHAbxsHkbBpG4ZQgi6Mx0HOCQxDYII9g6Hw4j6J4pi6MIyjSKJIjUeAxjsMgiCAeAyk+UR5k4IpQCAeZUCIMQ1kQL5LD6AQA",
         categories = "account,social",
         tags = "network,connections",
         contributors = "colebemis,csandman,ericfennis"
@@ -8284,7 +8460,7 @@ pub enum LucideGlyph {
     Share,
     #[cfg(feature = "sheet")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeINDKERyHmFYRhkIgzhGFIdhEaBlGkZxoHSDYPCIPg8C+A4FiwbBpG4ZQgHgMoVDGHwxg2HggHmPAiDmG44kKK4tjKNIxjONZAikNY7j2H5FDKOo/kUMZQiwL5JGWS40leOYbkGQ42kWZR4mSR5ckyX41mmT5jg2aJYlCYQilWa5dD6AQA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHIeINDKEYUCIM4RHmDYaCAaBlGkZxoHSDYPhEcocCKFg+DwL4DgWLRsGkbhlCAeAxh2G45CIOYXDKFQxhuQI9CKLQvjONYyjSNo4joIB5kQMQ1juJpUjeRAykKR5JGWS41lCPI+lCWZCliDZjk6RZckyX5NlKV5RkGF48lOVZri6XQ+gE",
         categories = "text,files",
         tags = "spreadsheets,table,excel",
         contributors = "zenoamaro,ericfennis,csandman,mittalyashu"
@@ -8388,7 +8564,7 @@ pub enum LucideGlyph {
     Shield,
     #[cfg(feature = "ship_wheel")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwOIQGMeIMg4Ig+DwL4DgWB4bHAYR0GgIBkgwTYOCAMh2DcLg1hqHIiiSIYjiWJwiG0MQ5CANQtDULgyDOPZBDOMQvjMaI1iSJooDIMggg4aAti6MIbkiNpLjeDI6jyO4/kWYJCkeSZak0IoplAMQ0i8VpPmSWQ8kmZ4pDCRZRDMLg3DePZRDmcI0nKNp0DmL5RDISIPleZaCkyOJ1ncMZ2kKfZWjKcYegaCISCIMovhWC4Ng+CYXqKR6ZiCAQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwOIQGMeYMg4Ig+DwL4DgWB4bHAYR0GgIBkgwTYOCAMh2DcLg1hqHIiiSIYjiWJwiG0MQ5CANQtDULgyDOPZBDOMQvjMaI1iSJooDIMggg4aAti6MIbkiNpLjeDI6jyO4/kWYJCkeSZak0IoplAMQ0i8VpPmSWQ8kmZ4pDCRZRDMLg3DePZRDmcI0nKNp0DmL5RDISIPleZaCkyOJ1ncMZ2kKfZWjKcYegaCIKhiD4JheDaehIIgyi+R6ZiCAQ",
         categories = "transportation,travel,maps",
         tags = "steering,rudder,boat,knots,nautical mile,maritime,sailing,yacht,cruise,ocean liner,tanker,vessel,navy,trip",
         contributors = "danielbayley"
@@ -8428,7 +8604,7 @@ pub enum LucideGlyph {
     ShoppingBasket,
     #[cfg(feature = "shopping_cart")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDEIggGMeYLDKDYPHiCw4CIPg8C+A4FgeGodgaCIQhKFBjhaDA5g6CoMhmG4hh8PBwGEdBoCAZILE0MguDANQgjuPRoDIbI7DYNggDGOw0DIYQyj8IAwlCUpODELg1DgaA5C4Nw4k2T5RmCSAuDkNQtlUNQ3GyVQ2mUNwuDQMxIDULpJi4L4zjUPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIOAiCAcoMDGDxjHmDAyhMPg8C+A4FgeGodgaCIKhIOYUhYIoYg+EQihmG4hh8PBwGEdBoCAZIME0MguDANQgjuPRoDIbI7DYNggDGOw0DIYQyj8IAwlCUpODELg1DgaA5C4Nw4k2T5RmCSAuDkNQtlUNQ3GyVQ2mUNwuDQMxIDULpJCKGgvjONQ+gE",
         categories = "shopping",
         tags = "trolley,cart,basket,e-commerce,store,purchase,products,items,ingredients",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -8476,7 +8652,7 @@ pub enum LucideGlyph {
     Shuffle,
     #[cfg(feature = "sigma_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeYJgsIByggIgyCIPg8C+A4FikcBhhEIBkgkTQxDYIA4C4ORWDcSA4GwNAgDULZBDUaA4HYLQxjqKIqi+EQ+gEA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIB5goM4NHcaRkHQaIKDEOINGgZRpGcaB0hiGgggkIoRD4PAvgOBYoHAYYWCAZIKE0MQ2CAOAuDkVg3EgOBsDQIA1C2QA1GgOB2C0MY5CKKAvi6Fg+gEA",
         categories = "text,maths",
         tags = "sum,calculate,formula,maths,enumeration,enumerate",
         contributors = "danielbayley"
@@ -8556,7 +8732,7 @@ pub enum LucideGlyph {
     Siren,
     #[cfg(feature = "skip_back")]
     #[strum(props(
-        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgxDkIAyDAIITDEMgghIIA0huE4VCIPg8C+A4FgcbojGyDBlCAeAyhANQii4MYxjMeY1hEOY3jAIoyiML4rG4ZQ+gEA",
+        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgxDkIAyDAIITDEMgghIIA0huE4VCIPg8C+A4FgcbojGyDBlCAeQyhANQiCAeAxjGMx4jAIoyi6NoRDmIokisbhlD6AQ",
         categories = "multimedia,arrows",
         tags = "arrow,previous,music",
         contributors = "colebemis,ericfennis"
@@ -8564,7 +8740,7 @@ pub enum LucideGlyph {
     SkipBack,
     #[cfg(feature = "skip_forward")]
     #[strum(props(
-        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0Ig1CANAgDGEgxDIIISDIMIahMIg+DwL4DgWBxuiEbIMGUIB4DKEAxDkIggHkMYQDWMh4jUIowjIeYujuMYhC+KRuGUPoB",
+        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0Ig1CANAgDGEgxDIIISDIMIahMIg+DwL4DgWBxuiEbIMGUIB5DGEA1CIIB4DKEAxDmMR5jQIo2jEeIujuN4hC+KRuGUPoB",
         categories = "multimedia,arrows",
         tags = "arrow,skip,next,music",
         contributors = "colebemis,ericfennis"
@@ -8572,7 +8748,7 @@ pub enum LucideGlyph {
     SkipForward,
     #[cfg(feature = "skull")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIOQigkeYMDEMoPHKEgiD4PAvgOBYHhmHIGgiCoSDWDxjhEIoThWF4ZhuBIhhkcBhHQaAgGSDBNDgIAyDAdgyGgOB2C2FItjKNIxjONY3CIbYTC4NQgDENwtk8LQxlSUAxGgMR6hiGpGGiSI0jaOAxDaOwwGEMo7CAMJtm8MZPDYLQzC4MpQjqOpuDGbZWnGE5tEGa5rm6hQgjqPJeC+YA+gEA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIOQigkeYMDEMoPHKEgiD4PAvgOBYHhmHIGgiFgiDGD4KhINYmhGJIUhmG4EiGGRwGEdBoCAZIME0OAgDIMB2DIaA4HYLYthqM41jKNI2jgIhthMLg1CAMQ3C2UAtDGVZRDEaAxHqGJGkqSY1jeOQxDaPAwGEMo8CAMJtm8MZQDYLQzC4MpRjuO5uDGbZXnGE5tEGa5rm6hQgjuPZfC+RxoD6AQ",
         categories = "gaming",
         tags = "death,danger,bone",
         contributors = "ericfennis"
@@ -8580,7 +8756,7 @@ pub enum LucideGlyph {
     Skull,
     #[cfg(feature = "slack")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgzCIIB5g0MoQHiDQxg8IByhYIgxC4NYQGgZRpGcaB0g0OAiD4PAvgOBYrHAYYLCAZINE0MQ5CAOIfFYMQwGiHg1EGQQgkQMJFCCR44jqH4qiyMYLiuLoGhyKYHgmC4NhmIokiaKIQhKHQ0hCG4Xk2K4tgQdIwjIaI0jYNZFDWPAxDQSAzh+Q4fkWe5KkkIJxDGc4gmiUBolKagghydZkouTZXgqDAilaYYYiGI4lieDpOmmLw8oabwijeg5FDkSJ1HaQRhkSRpIkqHwtkGnKGoiBaQlmk6Xl2moZhyFIRl+GqOoSLJTmyM41qKO5xDWpwwFaeJCqyfaukyzKzm0PoBA",
+        svg = "gAPByGUYx0CAch4D0IgxC4NQiCAdxpGQdBogoM4PGgZRpGcaB0goOIPgmC4XCAeYKDIIg+DwL4DgWKhwGGFAgGSChNDEOQgDiDRWDEMBogwNRBkAIJDDCRAgkaN45g2KYrjCFIqi2BoRhOFQiiSCIKkCGIahyHgiiAIIimGJoLDSTYsgQdIvjEaIzjUNZEDWOwxDQSAzg2QoNkSe5JkgIJxDGc4OioL5PGiUZqhCEoUh+XIbh2FohlqZ4llqWIiluhZSmyMo0CKNqDkQORInUdpAGGQ5FkeSYNC2mpOm2iYFCCGaQl+mJakylpgg+VKNr2YonminA8oeb6gjqcQ1qUMBWniQaqn2rJLsuaKHD6AQ",
         categories = "account,social,communication,brands,development",
         tags = "logo",
         contributors = "colebemis,ashygee,wojtekmaj,mittalyashu,ericfennis"
@@ -8604,7 +8780,7 @@ pub enum LucideGlyph {
     Slice,
     #[cfg(feature = "sliders_horizontal")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQxD0Ig0CIIB4gkIgyDGDR5DKCoMg6FgiDGDA+DwL4DgWHohgaCIXg0eIaDOFIahiD4KDEMAih6IIEGWI42g6EISiiGgxDKFIQj+LIwkCNIkjiBYZgqK4Hj6QI6goOJBkWM4fkiAo5iaEYyk6Cgyl2L4RhOS4bDaVo1iKWZKimTJElyKJClCW5gmiWIklGG4YnSPYwnuGpnkeNpJgabQilOB5Cl2FZ+nGUp2oOa4lkKiJiDGZ5lpebwykaV6DgE",
+        svg = "gAPBsGkbhlCAeQxD0Ig0CIIB4gkIgyDGDR5DKCoMg6FgiDGDA+DwL4DgWHohgaCIXg2D4KDEMIUhqGB4hoMwih6IIEGWI42g6EISiiGgxDKFIQj+LYqkCNIkjiBY6goOJBkWPYKjKB4+kaH5IgKOYphGE4ZioNpOhGLJTgoMoskeNpJgaMJRmCZYokKQJjmGM5WmiWJKmuG4YiaEZECKX5LnqdI1iKd4lj6L4Qk2XQioufIroOV4kowMaAhWZJxlqlZgDGTZniKAQA",
         categories = "account",
         tags = "settings,filters,controls",
         contributors = "karsa-mistmere,ericfennis"
@@ -8612,7 +8788,7 @@ pub enum LucideGlyph {
     SlidersHorizontal,
     #[cfg(feature = "sliders")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0Ig0CKBwygqDAgHmCQiDIMYNHmDwiDGDA+DwL4DgWHohgYeIahGE4KDEMIYhoM4NgiEAih6IIEGWI42geFAxDKLYqj2Do/hiFIWjOH4kjiBYSi6MI7kCKQiDiMIajyRo1iKAo5iaCgyiyEpEheS4qDaTZciyNJIlmSoxhWXpbm2Pgii+X5CmiNpJiWGpknSG4RmyT5Uh2R53mqeYqiiGpSjqKpelCUp2liJJBhWQJsDGipQDGe4ZmOVpIgE",
+        svg = "gAPBsGkbhlCAeAyD0Ig0CKBwxgqDAgHmDwiDIMYNHmCQiDGDA+DwL4DgWHohgYeIUhGCIQhiFAxDCGIaDMIoeiCBBliONYShSFoNimGwyjyLI/hKGgxj+M4kjeBYOgqRYrgoOIvgqMYHkSRofkiAo4hOCo7kuFYukOTA2jyGgyi6R41kmJY6mCGZSk6PpklyZ5XmmWZKm6G4RluepyCKY5elaNIineBp5lCVJMiiLJthSUJooSJJeDGiJ5DGgI9DKQp8peMp1iKAQA",
         categories = "account",
         tags = "settings,controls",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -8620,7 +8796,7 @@ pub enum LucideGlyph {
     Sliders,
     #[cfg(feature = "smartphone_charging")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CINQiCAdxpGQdBogkMQ0gwaBlGkZxoHSCQyDCDByggIgygweYdiCJojCIPg8C+A4FiwcBhhEIBkgkTQxDILg2DYNwgDgIAxDCQQyGgNBsC2Oo8j6FYsC+MoRD6AQ",
+        svg = "gAPByGUYx0CAeA9CINQiCAdxpGQdBogkMQ0gwaBlGkZxoHSCQyDCDB5h2DByggIgyiOIYmCIPg8C+A4FiwcBhhEIBkgkTQxDILg2DYNwgDgIAxDCQQyGgNBsC2Oo8j6FYsC+MoRD6AQ",
         categories = "connectivity,devices",
         tags = "phone,cellphone,device,power,screen",
         contributors = "mittalyashu,ericfennis"
@@ -8628,7 +8804,7 @@ pub enum LucideGlyph {
     SmartphoneCharging,
     #[cfg(feature = "smartphone_nfc")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMgiCAeYODaEh4g6EQgHcaRkHQaIODeEhyhiDwiD4PAvgOBYoHAYYfCAZIOE0MQzCAOAuDMMhhDcLg0jaPY/CAMJDCAMZFj0M4WigL4uh+LYvGiMYzDENo+DYIJWDIMRhDEMQuDeWJemCWJEkSR5nl8NQ4ieKZOGiUIwjIIo0DkLg5kcNAulwMQ1neR59n+RZnCALgwoCfpskybw+gEA",
+        svg = "gAPByGUYx0CAeA9CIMgiCAdxpGQdBogkN4MHmCQ2gwaBlGkZxoHSCQxgsIByggIgxCIPg8C+A4FikcBhhEIBkgkTQxDMIA4C4MwyGENwuDSN4+kAIAwkQIAxkaPgzhiKQvi+EYujAaIyjQMQ2j8NgglcMgxGEMQxC4N5Zl+YZZkWRZImiYA1DiKIqk8aJRjGMwijUOQuDmSA0C6XQxDWeJIn6gJGmgIAuDCgZ/m2TZwD6AQ",
         categories = "communication,money,devices",
         tags = "contactless,payment,near-field communication,screen",
         contributors = "karsa-mistmere,jguddas,ericfennis"
@@ -8636,7 +8812,7 @@ pub enum LucideGlyph {
     SmartphoneNfc,
     #[cfg(feature = "smartphone")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMgiCAch4gmC4NgiCoMHcaRkHQaIJDENIMGgZRpGcaB0hAMIMg8Ig1CIPg8C+A4FiwcBhhkIBkgkTQxDIIAxDgaAuDAMYri2MoZD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAdxpGQdBog4MQ0hIeYODKEh4g4NYSHKIYPiSHYnD4PAvgOBYrHAYYXCAZIOE0MQyCAMQ4GgLgwDEIorC+MYXD6AQ",
         categories = "connectivity,devices",
         tags = "phone,cellphone,device,screen",
         contributors = "colebemis,mittalyashu,ericfennis"
@@ -8644,7 +8820,7 @@ pub enum LucideGlyph {
     Smartphone,
     #[cfg(feature = "smile_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDEdgxGEMQwg6FYVDGDgtDkLYUCIPg8C+A4FiCI4GgiCg4g4NBzDELg1CCDQ0jEIA0C2Mo3h+IYmiAbBpG4ZQgHgMYJDkIggHmRAikaQgykULgwDGRx5k6S46C+PpAj2P5BkmRZTlWTJDgkMQ1kceJVmWUJSiCWJciWBIngkTQxDYIA1GgNpXjyApxgecwxDmMR2nqbY8gE",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIAxDEdgxGEMQwg6FYVDGDgtDkLYUCIPg8C+A4FiCI4GgiCg4g4NBzDELg1CCDQ0jEIA0C2Mo3h+IYmiAbBpG4ZQgHgMoJDkLgwDEIggHmRAiDmSh4DGRZKHmUpOjoL4+kCPY/kGQ4JDENZHkmS5Wk+S5NmeUZgDWWJaGWJYEieCRNDENggDUaA2liPICnKB50DEOYxHae4giKcg+gE",
         categories = "emoji,social,notifications,communication",
         tags = "emoji,face,happy,good,emotion,react,reaction,add",
         contributors = "karsa-mistmere,ericfennis"
@@ -8652,7 +8828,7 @@ pub enum LucideGlyph {
     SmilePlus,
     #[cfg(feature = "smile")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0OAgDENBzDELg1CAMggDSMYzC2Mg0jeGYbiGI4aGwaRuggeQxgwOYQHgMpGC4MAxhAeZKCKRwgHiRZSjsL5AkKP5BgiVYTDWSJRDENZMk4IJQkaT5WkeGpZl0PoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIME0OAgDENBzDELg1CAMggDSMYzC2Mg0jeGYbiGI4aGwaRuggeAxgwOYQHgMpGC4MAxhAeZKCKRwgHmRZSjsL5AkKP5BgiUJGk+VpTkSEw1kiUQxDWTJOhqWZdD6AQA",
         categories = "emoji,account",
         tags = "emoji,face,happy,good,emotion",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -8660,7 +8836,7 @@ pub enum LucideGlyph {
     Smile,
     #[cfg(feature = "snail")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyCAMQzGENgghEMINCCFAxgyFA0CCG4XhYLQ4hYIIMhmIoahYIg+DwL4DgWKhjGkchjGwZQgHKCQ4CIIBjHmCYOjoYx4j4MIpiuMIyjSKotgaCIKiQMRohgYw0C6HQgDgLQzC6EZYDgVg3GGJIiDGH4dHYNpFiyBBokqa4HgkTQxiEM4NDkLpkDULgymmS5tgWb5OgydAyDALg5CCeZ7iqaougEA",
+        svg = "gAPBwGEdBoCAZA9CITQyCAMQzGENgghEMINCCFAxgyFA0CCG4XhYLQ4hYIIMhmIoahYIg+DwL4DgWKhjGkchjGwZQgHKCQ4CIIBjHiCQxDCOhjHmPgzimK4wjKNIqi2BoIgqJAxGiGBjDQLodCAOAtDMLoRlkOBWDcYYkiIMYfh0dg2kaLIEGiS5sgeCRNDGIQzg0OQumUNQuDKapMm6BZwk+DJ1DIMAuDkIJ6nyKpri6AQ",
         categories = "animals,food-beverage",
         tags = "animal,insect,slow,speed,delicacy,spiral",
         contributors = "danielbayley"
@@ -8668,7 +8844,7 @@ pub enum LucideGlyph {
     Snail,
     #[cfg(feature = "snowflake")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgyCIIB5gkIgxgyDgygqEoNHiFYLgwPg8C+A4Fh2IIGHmGgyhOD4KhOCIWiuGoXh2H4EGWHRwGEdBoCAZIKG0MgwCAMQ2C0NJDCCRA0CKMY2jiNY3jmOwiG0NAgDiRpGkWSJKk6TY4jqPJBleU5HkOSYeksaJck+PJVj6YZWlmZpbgE",
+        svg = "gAPBsGkbhlCAeAyD0IgyDIIggHmCQiDGDYHDGCoUHmFoSg0Pg8C+A4Fh2IIGgiCoTg6EIXhQeIaieD4ahyHojh0cBhHQaAgGSChtDIMAgDENgtDSQggkMNAih0L41jeNI2jiOgiG0NAgDiRZFkSR5JksaJNjeOY7kCV5TkaQpIh6W5dk+O5Vj2YpWlmZ5OD6AQ",
         categories = "weather,seasons",
         tags = "cold,weather,freeze,snow,winter",
         contributors = "lscheibel,ericfennis"
@@ -8724,7 +8900,7 @@ pub enum LucideGlyph {
     Sparkles,
     #[cfg(feature = "speaker")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDaDRyHiCoMCAaBlGkZxoHSGgwg2GQiDSDYJgsIg+DwL4DgWLRjGkchjGwZQgGOKgxiiB4Kj0Y4mDGDItC+M41jeLRsGkbo4HgMYUhseAylELgwDGKZQCKFggHmVJbiyLpLk0PoBA",
+        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDIMINHiCg0g2CYLg0coZh4IB3GkZB0GiCgxDYIg+DwL4DgWLRjGkchjGwZYHhqDRjiEMYMCAY4dDGG4tC+M41jeLRsGkbo4HgMYpj8eAylELgwDGHJQCKKwgHmVJbiyLpLk0PoBA",
         categories = "multimedia,devices",
         tags = "audio,music",
         contributors = "colebemis,ericfennis"
@@ -8756,15 +8932,15 @@ pub enum LucideGlyph {
     SpellCheck,
     #[cfg(feature = "spline")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINQiCAcoMDKDxjHiDAxDkIg+DwL4DgWB4bh6BoIhWDIOhCEoUgsIoYhqHIiiAPBwGEdBoCAZIME0NQgDENxBDEMo8kEMAgkQMY8DcIIOhsL4zjUPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeYLDWDhjHiCwxDkIg+DwL4DgWB4bh6BoIhCF4ZgmC4Ng+FgihOG4dgSI4bHAYR0GgIBkgsTQ1CAMQ3EEMQyj2QgwCCRQxj0Nwgi6HI0jYPoBA",
         categories = "design",
-        tags = "",
+        tags = "path,pen,tool,shape,curve,draw",
         contributors = "ericfennis,jguddas"
     ))]
     Spline,
     #[cfg(feature = "split_square_horizontal")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMQ5EgNRjC0MQgDALQyhOF4XFYNxjhaFAxhcIIYDIaAzCIPg8C+A4FimLIGgiCgxDYIA1iYY4UDCI4NjsMh2DEMIeg2E4jiKJQtieKYrgQaIpGwaRuGUIB4DKCQxDIIggHkMYJDSWR5lUIgyDCWR4lwIpXiiKpPlEPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ4CAMQ5EgNRjC0MQgDALQyhOF4XFYNxjhaFAxhcIIYDIaAzCIPg8C+A4FimLIGgiCgxDYIA1iYY4UDCI4NjsMh2DEMIeg2E4jiKJQtieKYrgQaIpGwaRuGUIB5DKCQyDAIggHiVQiDEMpZHkMYJDSWR4mKXZfkqT5RD6AQ",
         categories = "layout",
         tags = "split,divide",
         contributors = "Patchethium,ericfennis"
@@ -8772,7 +8948,7 @@ pub enum LucideGlyph {
     SplitSquareHorizontal,
     #[cfg(feature = "split_square_vertical")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1CAOBWDUYwwC0MQgDELQyCAMoXGgMQwGOFAwhmFYiDIdgzCIPg8C+A4FimLIGgiCgxDmFQ2iaEYVhOGYXhkSA3GOOoShqFoaiULYnimK4EGiKRsGkbhlCAeQygkMQyCIIB4DGCQ0lgeJUCIMgwlgeZbCKVooiqTpQD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ1CAOBWDUYwwC0MQgDELQyCAMoXGgMQwGOFAwhmFYiDIdgzCIPg8C+A4FimLIGgiCgxDmFQ2iaEYVhOGYXhkSA3GOOoShqFoaiULYnimK4EGiKRsGkbhlCAeQygkMQyCKUgxlWVwgHiWgiDSWB4lQIgyDCKIqk6UA+gEA",
         categories = "layout",
         tags = "split,divide",
         contributors = "Patchethium,ericfennis"
@@ -8788,7 +8964,7 @@ pub enum LucideGlyph {
     Split,
     #[cfg(feature = "spray_can")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCAMxoC4MAxCIPg8C+A4FhSF4GgiCg3CANYPhGE4VhqGYEhuCRNDEMQgDeIYShSFoniaBYHimDIuhCMIkjOAonjaHQgDmL4jjKGI+jWHILCCK5EjGJQ8HIZRjHQIB3GkZIFgkNAiCAeIJDENZdGgZRpGcaB0luXR5gmYoxlKVI0igIhtDEOZCCAMp5HYMQwGMMAgC4NgtC4NJMC2LAxGgLQ2GOhA2CAMKIoQNKTDEVorGwMgtDKRZQhqQJ1gwMaGDinKej2oIcqKTJ3qanZPjOAQ",
+        svg = "gAPBwGEdBoCAZA9CITQzCAMxoC4MAxCIPg8C+A4FhSF4GgiCg3CANYPhGE4VhqGYEhuCRNDEMQgDeIYShSFoniaBYHimDIuhCMIkjOAonjaHQgDmL4jjKGI+jWHILCCK5EjGJQ8HIZRjHQIBoGUaRnGgdIJDQIggHcaRkgWXZfHiCQxDWXx5gmaoxlKVI0igIhtDEOZCCAMp5HYMQwGMMAgC4NgtC4NJMC2LAxGgLQ2GOhA2CAMKIoQNKTDEVorGwMgtDKRZQhqQJ1gwMaGDinKej2oIcqKTJ3qanZPjOAQ",
         categories = "design,tools",
         tags = "paint,color,graffiti,decoration,aerosol,deodorant,shaving foam,air freshener",
         contributors = "danielbayley"
@@ -8804,7 +8980,7 @@ pub enum LucideGlyph {
     Sprout,
     #[cfg(feature = "square_asterisk")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMoMHcaRkHQaIJDEOIMg+CoMGgZRpGcaB0hiGg+DwL4DgWJxwGGFggGSCRNDEMggDgdomiiLYWiyLhojCCRtDgLg1CAMQ0CANwtDQIonC+Oxoj2L4xCKQpEkYMJJCCTJOlAPoB",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAch4g4MoSHcaRkHQaIOhCEoVCIM4SHmDojD4PAvgOBYoHAYYcCAZIOE0MQyCAOB2hGKAvi6HIti8aIxg4bQ4C4NQgDENAgDcLQ0CKO49GiP4wjIIpEkaSAwksIJOlCQA+gEA",
         categories = "text,security,account,maths,development",
         tags = "password,secret,access,key,multiply,multiplication,glob pattern,wildcard,*",
         contributors = "danielbayley"
@@ -8812,7 +8988,7 @@ pub enum LucideGlyph {
     SquareAsterisk,
     #[cfg(feature = "square_code")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAdxpGQdBog6EISHiDgzhIeYdhIcocCIMgiD4PAvgOBYoHAYYXCAZIOG0MQwCCNQtDIII6jyJ4pi6F4ti8aIxjMMQ0jeSAyjmTImigL5AGgPoB",
+        svg = "gAPByGUYx0CAch4D0IgyCIIBoGUaRnGgdIKDEOINHcaRkHQaIVhcIIJCIM4NHmCojD4PAvgOBYoHAYYcCAZIKG0MQwCCNQtDIII6jwIooC+Loci2LxojGMwxDSN5JDKOZNgyP5BGgPoB",
         categories = "text,development",
         tags = "gist,source,programming,html,xml,coding",
         contributors = ""
@@ -8836,7 +9012,7 @@ pub enum LucideGlyph {
     SquareDashedBottom,
     #[cfg(feature = "square_dot")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAch4g4MoShUIgzhIeYOhsIB3GkZB0GiDoQCIPg8C+A4FikYxpHIYxsGUIBjhkMYXjWHYPjkcomiiKovjGMw+gEA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEcoTCIMoRHmFIRGgZRpGcaB0g2DwiD4PAvgOBYoGMaRyGMbBlCAcolhEY4YDGGggGOHIOhqKAvi6MIyD6AQ",
         categories = "shapes,development",
         tags = "git,diff,modified,.",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -8844,7 +9020,7 @@ pub enum LucideGlyph {
     SquareDot,
     #[cfg(feature = "square_equal")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAaBlGkZxoHSCQxDiDB4gmCwgHKGAiDKDB3GkZB0GiFIWD4PAvgOBYoHAYYkCAZIJE0NwgDEMBojcIooC+Loki2LxojGM41DENI5DCO4pj4aA+gE",
+        svg = "gAPByGUYx0CAeA9CIMwiCAeYJgsIByggIgygwdxpGQdBogkMQ4gwaBlGkZxoHSHIeD4PAvgOBYoHAYYaCAZIJE0NwgDEMBojcIooC+Loai2LxojGM41DENI5DCO4pj4aA+gE",
         categories = "maths,shapes",
         tags = "calculate,=",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -8852,7 +9028,7 @@ pub enum LucideGlyph {
     SquareEqual,
     #[cfg(feature = "square_slash")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAeIJgsIBoGUaRnGgdIJDEOIMHKDgiDKDB3GkZB0GiGIaD4PAvgOBYoGwaRuGWDQxgkOYMHkMo0gweI4CIMQ1jaM49j+KAvi6MA+gEA",
+        svg = "gAPByGUYx0CAch4D0IgyCIIB5goM4NGgZRpGcaB0goMQ4g0dxpGQdBohmGwggkIoRD4PAvgOBYoGwaRuGWDgygoOYNHgMY0jaMwiDENYNHmOI8j6KAvi6MA+gEA",
         categories = "shapes,development,maths",
         tags = "git,diff,ignored,divide,division,shortcut,or,/",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -8860,7 +9036,7 @@ pub enum LucideGlyph {
     SquareSlash,
     #[cfg(feature = "square_stack")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ0CAMQwGMLQxC4MQgDALQyC0Lg5heFxWDQY4WhKEobDIIIYDIaIfiKFYmCCGotDIIg+DwL4DgWM42gaCIKg6DQ2hCK4WhiGocDIdgth+IYTkSJYnikY5Bi2L5NjKNI5jMchlGMdAgHiCQxDQIggGgZRpGcaB0gkOJiHcaRkgWapiHmX5hCAcpeCKMYzC+WZbD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ0CAMQwGMLQxC4MQgDALQyC0Lg5heFxWDQY4WhKEobDIIIYDIaIfiKFYmCCGotDIIg+DwL4DgWM42gaCIKg6DQ2hCK4WhiGocDIdgth+IYTkSJYnikY5Bi2L5NjKNI5jMchlGMdAgHcaRkgWCQ4CIIB4gkMQ0mQeZnmkIBoGUaRnGgdJimQcpmCKMYzC+WZbD6AQ",
         categories = "text,files,development",
         tags = "versions,clone,copy,duplicate,multiple,revisions,version control,backup,history",
         contributors = ""
@@ -8868,7 +9044,7 @@ pub enum LucideGlyph {
     SquareStack,
     #[cfg(feature = "square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB5goM4NHcaRkHQaIKDEOINGgZRpGcaB0hiGgggkIoRD4PAvgOBQ+gEA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQ4gwaBlGkZxoHSE4VCAeYJgsIByggIgyCIPg8C+A4FD6AQ",
         categories = "shapes",
         tags = "rectangle,aspect ratio,1:1,shape",
         contributors = "colebemis,ericfennis"
@@ -8900,7 +9076,7 @@ pub enum LucideGlyph {
     StarHalf,
     #[cfg(feature = "star_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4C4Mw0CCDIOCAMggDkLgyDcbA1CANAuDgNxMDWHoUDIMQgDGFAxDcLg3DeJ4MDEOITDEbAtC4NQ5C0MwuDQMwiD4PAvgOBZAkOBoIgqMY8ikMosDaE4UhaGI1DYLg5DELQxEyKITjUMY8g+TZXj+QZGkAbBpG4ZQgHkMoJDIMgiCAeJuCKcJyHkMZvnIeJ6naZAvmiag+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQ4C4Mw0CCDIOCAMggDkLgyDcbA1CANAuDgNxMDWHoUDIMQgDGFAxDcLg3DeJ4MDEOITDEbAtC4NQ5C0MwuDQMwiD4PAvgOBZAkOBoIgqMY8ikMosDaE4UhaGI1DYLg5DELQxEyKITjUMY8g+TZXj+QZGkAbBpG4ZQgHgMoJDIMgiCAeZuCKcJyHkMZvnIeJ6naZAvmiag+gEA",
         categories = "multimedia,social",
         tags = "dislike,unlike,remove,unrate",
         contributors = "karsa-mistmere,ericfennis"
@@ -8916,7 +9092,7 @@ pub enum LucideGlyph {
     Star,
     #[cfg(feature = "step_back")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0Ig0CKBwxgoMgwg0eIPCIMQ4hOCYWhgPg8C+A4Fh0cBvGweRnG8bggiOBB0HOCgxDQLIRCCMQxDIIIwCyDIdC+I4licbg+gE",
+        svg = "gAPBsGkbhlCAeAxD0IgxDgIggHmCQiDIMIOHkMoKDSDh4heC4ND4PAvgOBYfHAbxsHkZxvG4IIlgQdBzgoMQ0CyEwgjMMQyCCMgshmHwviWJ4pG4PoBA",
         categories = "multimedia,arrows",
         tags = "arrow,previous,music,left,reverse",
         contributors = "danielbayley"
@@ -8956,7 +9132,7 @@ pub enum LucideGlyph {
     StickyNote,
     #[cfg(feature = "stop_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhyGUYx0CAaBlGkZxoHSDA2hCCwiDmEISjCEB3GkZB0GiLIZhuIYjD6AQA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGhyGUYx0CCCwiDmEISieEBoGUaRnGgdIMDaEB3GkZB0GiM4ZhuIYjD6AQA",
         categories = "multimedia,shapes",
         tags = "media,music",
         contributors = "colebemis,ericfennis"
@@ -8972,7 +9148,7 @@ pub enum LucideGlyph {
     Store,
     #[cfg(feature = "stretch_horizontal")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINAiCAaBlGkZxoHSCQ2gweIJDKDB3GkZB0GiGAwgwcoXCKGQ+DwL4DgWJ4qgaG4dh+JYhCCI4YgyDoQhKFIWjaB4JDGC4nimBB0D6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDYIggHIeIODKER5g4NIRhQIoWCAdxpGQdBohUMAiD4PAvgOBYoiuBogiKJIdiYIIch6E4VheDgxhqB4JguDYPieKYuD6AQ",
         categories = "layout",
         tags = "items,flex,justify,distribute",
         contributors = "ericfennis"
@@ -8980,7 +9156,7 @@ pub enum LucideGlyph {
     StretchHorizontal,
     #[cfg(feature = "stretch_vertical")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDIMAiCAeYODKEhyHiFYShkIg0hIdxpGQdBog4NgiD4PAvgOBYoiuBoIgqDIVhEIIgiKJAiiYIIcDGHoThoIIYhqKIqgQdA+gEA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0Ig2CIIBoGUaRnGgdINDIMIQHmGIQHIeIdCCIAiDQIg+DwL4DgWJ4qgaH4hgiCoMg6EIjDGJQghwIgyhCEoUhaGIaieKYEHQPoB",
         categories = "layout",
         tags = "items,flex,justify,distribute",
         contributors = "ericfennis"
@@ -8988,7 +9164,7 @@ pub enum LucideGlyph {
     StretchVertical,
     #[cfg(feature = "strikethrough")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIA0EgORhDMIITDAIIWDALQyC4OITDQIg+DwL4DgWIYkgaCIKDENAgDEMhhiyLIYi2FwgDgSA2iCIoniEbBpG4ZQgHkMoJi4IggHgMYJh+QpKCKRpIkQIgyDCOgvj6QA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIA0EgORhDMIITDAIIWDALQyC4OITDQIg+DwL4DgWIYkgaCIKDENAgDEMhhiyLIYi2FwgDgSA2iCIoniEbBpG4ZQgHgMoJDIMAiCAeZECKLpIHgMYJh+SZQkwMo6C+PpAD6AQ",
         categories = "text",
         tags = "cross out,delete,remove,format",
         contributors = "ericfennis,johnletey,csandman"
@@ -9012,7 +9188,7 @@ pub enum LucideGlyph {
     Subtitles,
     #[cfg(feature = "sun_dim")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwNIQGMeIMg4Ig+DwL4DgWB4bHAYR0GgIBkgwTYOCANBoC4MAxhqHIiiSIYjiWJwiE0MgwCCDoti+MQvjMaI1iSJooiqO4/jCG5CjaRY3igNI9DKS5BkOUJHjkMQ3C4Ng1DcIA2C4Mw0DOVpNlgPJDlqKZdl+YZcl6YJojKT5rjabZjmUM49m+dIukydo0niRo4E2e5mmKZJmnWTo0gEA",
+        svg = "gAPBjGkchjGwZQgHIPQiDQIggGMeYLDEMoOGMeIShQPg8C+A4FgeGhwGEdBoCAZILE2EwgDQaAuDAMQihoL4hiOIIiiSJgiE0MgwCCE4si6MIbjMaI1iOJYnimO4/i+MZDkWN4nDSPQykuQYyjaT5HjkMQ3C4Ng1DcIA2C4Mw0DOVZNlgPJDlqKJdl+YZcl6YJokKapsjgTZjmUM49m+dItkydo0muNptnuZpimSZp1leNIB",
         categories = "accessibility,weather",
         tags = "brightness,dim,low,brightness low",
         contributors = "mittalyashu,bduffany,karsa-mistmere"
@@ -9020,7 +9196,7 @@ pub enum LucideGlyph {
     SunDim,
     #[cfg(feature = "sun_medium")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDQIggGMeILDEMoOGMeYShQPg8C+A4FgeGhwGEdBoCAZILE2EwgDMdgxCKGgviGI4giKJImCKKAyCAMgwiyLobjEaIziOJYnDMIITGiLYvkCQo1ieO5HDKSY+jCNJNkQIhtDEOAuDMNg0CANQuDaXgtC4NwwDeZ5plSTA8kCWBtDaXQ0kYMZqDYNQ3maaJqn2bZWm+NJxmKZA2mGY5emufpskugZwjaWp4nqR6Toyl6AjKAQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKDA0CIPg8C+A4FgeGhwGEdBoCAZIME2DggDMdgxhmG4hiOIIiiSJgiigMggDIMIsi4L4wGiMojiWJwzCCDhoi2Go+jOQY0ieOpGDKSI9j+TZDCIbQxDgLgzDYNAgDULg2l0LQuDcMA3maaJUkwPI/lcbQ2lwNJFDGaQ2DUN5lmeaZ8myMZujOcJhmMNpgmKXZqn2a5KlWgZCjWWZ3nmRqToul5/kCAQ",
         categories = "accessibility,weather",
         tags = "brightness,medium",
         contributors = "mittalyashu,karsa-mistmere"
@@ -9044,7 +9220,7 @@ pub enum LucideGlyph {
     SunSnow,
     #[cfg(feature = "sun")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKDA0CIPg8C+A4FgeGhwGEdBoCAZIME2DggDIdoPhoL4hiOIIiiSJgiigMoqDCLIZhuMBojKI4lgwbQ0C4OQzCCRZHCAMQuDQMZMk4MY8i+M5AjSQwxDcLg2DaTJbl2UZPmKU4uj6V5CjaOIOGiLY9lYPI+mkTQyDCTAym2VJnnGM5pG0NguDMNJflwNgtk2Y6ImWb4xnyQY1G0MQ5C4MA3kmRgzoeUpknqVoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDQIggGMeYLDEMoOGMeIShQPg8C+A4FgeGhwGEdBoCAZILE2EwgDIdoZhuIYjiCIokiYIooDKKgwiwIoaC+LxojGI4lgsbQ0C4OQzCCRZHCAMQuDQMZMk4MY7i6MpAjOQwxDcLg2DaTJbl2UZPmKU48j6V5CjWN4TGiLY9lYPI+mkTQyDCTAym2VJvjCcYymkbQ2C4Mw0l+XA2C2TZjomZZVnyco0G0MQ5C4MA3kmRgzoiUpknqZ4BA",
         categories = "accessibility,weather,seasons",
         tags = "brightness,weather,light,summer",
         contributors = "colebemis,ericfennis,karsa-mistmere"
@@ -9084,7 +9260,7 @@ pub enum LucideGlyph {
     SwissFranc,
     #[cfg(feature = "switch_camera")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDEIAxDkSA0GEMgghQMAghcMQtDKGxWDeE4VhiIoNhwMhoDUIg+DwL4DgWKotgaCIKDEMwgDUaIfhSFojiEMh2DEMIgjuGYbhUaAtiiKosgQaIqGMaRyGMbBlCAYx5gkMQyCIIBygkM5bGMeJYlqSpPlGU4vkyB4JG0MQ4hWHAzC2NZyl+SowmmBZrCIbQ2iGdJzCCdorniAQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDEIAxDkSA0GEMgghQMAghcMQtDKGxWDeE4VhiIoNhwMhoDUIg+DwL4DgWKotgaCIKDEMwgDUaIfhSFojiEMh2DEMIgjuGYbhUaAtiiKosgQaIqGMaRyGMbBlCAcoJDMIggGMeIJDEMpZGMeZdl+SpPlGU4vkyB4JG0MQ4hWHAzC2NZyliSowmmBZrCIbQ2iGdJzCCdorniAQ",
         categories = "communication,devices",
         tags = "photo,selfie,front,back",
         contributors = "lscheibel,csandman,ericfennis"
@@ -9092,7 +9268,7 @@ pub enum LucideGlyph {
     SwitchCamera,
     #[cfg(feature = "sword")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDQLg1CAMQ3hQIAzCANoah6HYbheGYShQIg+DwL4DgWB4JieLIKHgMoQDEOQiCAeYyhEM42HkMYzjUIB4j6OomiiL4ugiMI5DIMI2kKMw2jyS5NjeQwxlGJwvkcPIvkGSwxk6VpAj2EAymCN45jSRZakkPoBA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDQLg1CAMQ3hQIAzCANoah6HYbheGYShQIg+DwL4DgWB4JieLIKHkMYQDEOQiCAeIyhEM42HgMozjUIB5j6OomiiL4ugiMJDDIMI8jkMQ2jaMYzlGN5Lk2JwvkcPIvkGQ40k6P5SjkMgxjyS5mlmR4B",
         categories = "gaming,tools",
         tags = "battle,challenge,game,war,weapon",
         contributors = "karsa-mistmere,jguddas,ericfennis"
@@ -9100,7 +9276,7 @@ pub enum LucideGlyph {
     Sword,
     #[cfg(feature = "swords")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDQLg1CAMQ3hQIAzCANoah6HYbheGYShQIg+DwL4DgWB4JieLIKHgMYQDEMwiCAeAyjMOY2HmMoRjsIB5jmEY1icL4vi6CIwkMMgwjyPgxDaNoxjOUpBkyTpGkgPIvjeUJAjiEAyDGPJDDGQI9mKZJakqJ4qgaSoLG+DYPhGE4VDaIw4h6Y58DGHIWhiFQ5iWRpvluXZUCINZPjMNJTkOaJmDiJoooicaKDejYRpqN5Do+V5ilmlptlymJDoyQZfmWapTj6Raki2AQ",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDQLg1CAMQ3hQIAzCANoah6HYbheGYShQIg+DwL4DgWB4JieLIKHkMoQDEMwiCAeAxjONQgHmOYRDmNh4jKP4miiL4ugiMJDDIMJBkuTY3j4MQ2jaPYzlSJwvkcPIvjeSwxlWPgymCPJDDGQJRjOQJZluKoGkmCxvg2D4RhOFQ2iMOIemOewxhyFoYhUOYllmbpbl2OIQDWVZmDiYYzDSToQmuRpJkiCZpCIN6SCKkY8lKm5lhCTJFlqlpcnCQqKoyo5klaRKZjWbKWgEA",
         categories = "gaming,tools",
         tags = "battle,challenge,game,war,weapon",
         contributors = "karsa-mistmere,ericfennis"
@@ -9124,7 +9300,7 @@ pub enum LucideGlyph {
     Table2,
     #[cfg(feature = "table_properties")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDUIAzHYMQ4CIPg8C+A4FhQchlGMdAgHmCQzCIIB4iCIhoGUaRnGgdIJhGIhyiQIgyiIdxpGSBYthKFAvhqHIUheBoIgoMgxCAORIiGO5Aj+BJBgkTZECCDJIhOFZLgE",
+        svg = "gAPBwGEdBoCAZA9CITQxDUIAzHYMQ4CIPg8C+A4FhQchlGMdAgHiCQzCIIByh8IgyiIaBlGkZxoHSCYRiIdxpGSBYvhIIB5iCE4VhqHIUheBoIgoMgxCAORIiGFIWgQaI/kyB4JE2RAggySI7kuGIBA",
         categories = "text,development,files",
         tags = "property list,plist,spreadsheet,grid,dictionary,object,hash",
         contributors = "danielbayley"
@@ -9132,7 +9308,7 @@ pub enum LucideGlyph {
     TableProperties,
     #[cfg(feature = "table")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDIIAzHYMQ4CIPg8C+A4FhQchlGMdAgHiCQzCIIBoGUaRnGgdIJhGIhyh8IgyiIdxpGSBYqhIIB5iCE4VhqHIUheBoIgoMwgDkaIrhSFoEGiP5LgeCRNkQMQ1keEpJkAPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQxDIIAzHYMQ4CIPg8C+A4FhQchlGMdAgHmCQzCIIByHiCQyiIdxpGSBYJhGIhoGUaRnGgdIthIIIlCKIYUC+GochSF4GgiCgzCAORoi6PJBkCBJCgkTZFDENZIhKSpND6AQA",
         categories = "text,files",
         tags = "spreadsheet,grid",
         contributors = "colebemis,zenoamaro,ericfennis,csandman,mittalyashu"
@@ -9140,7 +9316,7 @@ pub enum LucideGlyph {
     Table,
     #[cfg(feature = "tablet_smartphone")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDAIggGgZRpGcaB0g0MQ0hEeINDOER5g0OIRHKHQiDIIg+DwL4DgWKhwGGCwgGSDRNDUIA0GEMggjsMAgj4MY8C0MhoDEMo6jyP5KkGOwyHYMQ2kiPZLkOPBokMLobioL4wguL4xGiM41DgIAxDgaAuDAMYpiuXRoD6AQA",
+        svg = "gAPByGUYx0CAeA9CIMwiCAdxpGQdBogkMQwgweYJDiDBoGUaRnGgdITDSDByggIgyCIPg8C+A4FikcBhhEIBkgkTQ1CANBhDIII6DAII9DGOwtDIaAxDKOY7j6SZAjoMh2DENpHjySpCjsaJCC6IopC+L4Ri6MBojKNA4CAMQ4GgLgwDGKIqlwaA+gE",
         categories = "devices,design,development,tools",
         tags = "responsive,screens,browser,testing,mobile",
         contributors = ""
@@ -9148,7 +9324,7 @@ pub enum LucideGlyph {
     TabletSmartphone,
     #[cfg(feature = "tablet")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDaDRoGUaRnGgdIKDIMINHiCg0g2CYLg0coiicPg8C+A4FiwbBpG4ZQgHgMYUgyNgyjkLgwDGJY4CIMQ4iWPJDkWLAvjKNA+gE",
+        svg = "gAPByGUYx0CAch5D0IgyCIIIJguDR4goNINGgZRpGcaB0goMgwg0coShAIB3GkZB0GiCgxDYIg+DwL4DgWLRsGkbhlCAeAximDIOjkIgxDiDR5DKKZAjeQ4+DILgwDGLIujONQ+gEA",
         categories = "devices",
         tags = "device",
         contributors = "colebemis,ericfennis"
@@ -9156,7 +9332,7 @@ pub enum LucideGlyph {
     Tablet,
     #[cfg(feature = "tablets")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINwigkeIMg4IBygwNQiD4PAvgOBYHhmHIGggY4RCIMYTgqDImg+FQiheGYbgSIYZHAYR0GgIBkgwTQxDIIImGgMQwhiGo0jaM41jeOQiG0MwuDQNo+DALg1DQIA3C4MA4C2V5ZkML5FGgPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CINwigkeYMg4IBygwNQiD4PAvgOBYHhmHIGgiCoMDGE4VCKF4QiSDoZhuBIhhkcBhHQaAgGSDBNDEMggiUaAxDCGIajKNIxjONY3CIbQzC4NA2jwMAuDUNAgDcLgwDgLZVleQQvkMaA+gEA",
         categories = "medical",
         tags = "medicine,medication,drug,prescription,pills,pharmacy",
         contributors = "karsa-mistmere,it-is-not,ericfennis"
@@ -9220,7 +9396,7 @@ pub enum LucideGlyph {
     Tally5,
     #[cfg(feature = "tangent")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQ3CKCR5gwNIQHKDAyCIPg8C+A4FgeGhwGEdBoCAZIME0MQ1C4NQ5CCKg0DGLgujAIIpisOYZhuIYjhqHYGgiCoThAY4Sg2DwghYIoYhqHIEj+IIiiSJgiigMggDIMhzC0NAtDkLQxiuX5gDUU5YjWVpmDGS46lEPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ3CKCR5gwNIQHKDAyCIPg8C+A4FgeGhwGEdBoCAZIME0MQ1C4NQ5CCKg0DGLgujAIIpisOYZhuIYjhqHYGgiFgihiCYLCKFIRgyDo5hyBI/iCIokiYIooDIIAyDIcwtDQLQ5C0MYrl6Xw1FOV41lWZQxhiGgvjsaA+gE",
         categories = "shapes,maths,design,tools",
         tags = "tangential,shape,circle,geometry,trigonometry,bezier curve",
         contributors = ""
@@ -9228,7 +9404,7 @@ pub enum LucideGlyph {
     Tangent,
     #[cfg(feature = "target")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwMQwhAYx5hODw+DwL4DgWB4bh6BoIhIIg2haGINg+CYLioIobh2BIjiGMoHhGDIrgqGYojuMIiiCAQA",
+        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCKCR4gyDoQHKEwwCIPg8C+A4FgeGodgaCBjhKDYPgmC4mhWDA2hmG4hh+AoEiIIIWCKJ4khOOIphSGocjOH4BA",
         categories = "brands,gaming",
         tags = "logo,bullseye,deadline,projects,overview,work,productivity",
         contributors = "colebemis"
@@ -9236,7 +9412,7 @@ pub enum LucideGlyph {
     Target,
     #[cfg(feature = "tent_tree")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINAiCAcoMDKDxjHiDIOD4PAvgOBYHhkcBhHQaAgGSDBtDENAgDUIAzC0M4siwIoZC+IIih+IYjiUIonikMQwiyLowDOMoajUaI3iKJIME0MQ3CCKBWhOM5GkiOZLk2Tw0EgNxsC2Kw4GgMgwFqRI0jiVZKCITQ4lkdg4mWVA8kaaRtDmWYqCCb5TmeAQA",
+        svg = "gAPBjGkchjGwZQgGMeA9CINAiCAcoMDKDxjHmDIOD4PAvgOBYHhkcBhHQaAgGSDBtDENAgDUIAzC0M4siwIoZC+IIih+IYjiUIonikMQwiyLowDOMoajUaI3iKJIME0MQ3CCKBWhOM5GkiOZLk2Tw0EgNxsC2Kw4GgMgwFqRI0jiVZKCITQ4lkdg4mWVA8kaaRtDmWYqCCb5TmeAQA",
         categories = "travel,nature",
         tags = "camping,campsite,holiday,retreat,nomadic,wilderness,outdoors",
         contributors = "danielbayley"
@@ -9252,7 +9428,7 @@ pub enum LucideGlyph {
     Tent,
     #[cfg(feature = "terminal_square")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQ3CAMQxCAMgthGEwiD4PAvgOBYWhmBoICITYOg0MxoDSFYXhyFhyGUYx0CAch5gkMgiCAaBlGkZxoHSCQxDiM4wCIM4zHiCZBi6QwijIIB3GkZIFjuPYWC+KosD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQ3CAMQxCAMgthGEwiD4PAvgOBYWhmBoICITYOg0MxoDSFYXhyFhyGUYx0CAeIJDMIggHKLwiDKMhoGUaRnGgdIJDEOIyHmMIyHcaRkgWP5BjOQ42iYL4qiwPoB",
         categories = "development,shapes",
         tags = "code,command line,prompt,shell",
         contributors = "mittalyashu,ericfennis"
@@ -9260,7 +9436,7 @@ pub enum LucideGlyph {
     TerminalSquare,
     #[cfg(feature = "terminal")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig0CAMQ3hMMITDEIISDUIg+DwL4DgWB4Jh6I4KHgMYQDEMgiCAeAyhAMgwi0eYwCIMQ5jSKY3jmHgviYPoBA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig0CAMQ3hMMITDEIISDUIg+DwL4DgWB4Jh6I4KHgMYQDEMgiCAeAyhAMgwi0eYpCIMQ5jSMI3jmHgviYPoBA",
         categories = "development",
         tags = "code,command line,prompt,shell",
         contributors = "colebemis,ericfennis"
@@ -9316,7 +9492,7 @@ pub enum LucideGlyph {
     TextQuote,
     #[cfg(feature = "text_select")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1CAMxhDIIIQDAIITDALYQDIIg+DwL4DgWG4egaCIKDEOYNg+EYUioMYphmG4dgQaIgjGB4JE0MosiWKISiuF4RhqHIhjOBY1gqDI4juKoTDGF4XkCMIfgKNIjE2JgzGgMZPkKUpElSJo4liWoxkOIo2DENINmGL5biGRRNmeEQxmqQZjlyZYKDMIA5HaWZrnWbZUjiep8mKUaAjaeZnoSfqGlONqCoqfZ0lEbBpG4ZQgHkMoJDgIggHimwiDENaeHkMacp4eKnCIN5PpWl4bq+mKagkMYZp+oQxq2n6rrupq1i6HKyrGlqzrkNqlqsMbIritQzqmvausUPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ1CAMxhDIIIQDAIITDALYQDIIg+DwL4DgWG4egaCIKDEOYNg+EYUioMYphmG4dgQaIgjGB4JE0MosiWKISiuF4RhqHIhjOBY1gqDI4juKoTDGF4XkCMIfgKNIjE2JgzGgMZPkKUpElSJo4liWoxkOIo2DENINmGL5biGRRNmeEQxmqQZjlyZYKDMIA5HaWZrnWbZUjiep8mKUaAjaeZnoSfqGlONqCoqfZ0lEbBpG4ZQgHkMYJDgIggHimwiDenh5DKnKeHipgiDENZPpWl4bq+mKpgkMajp+oa3pqtYZpmqgxi6HKyrGlqYruqw2qSv7JriCa3rSqwzq6xQ+gEA",
         categories = "text,cursors",
         tags = "find,search,selection,dashed",
         contributors = "danielbayley"
@@ -9404,7 +9580,7 @@ pub enum LucideGlyph {
     TimerReset,
     #[cfg(feature = "timer")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgyCIIB4DGCgxDCDR4gkIgxDSDR5hCCwiD4PAvgOBYfiKBobhGGYOhYMQ1hqKwxhSHAxgyH4hgQZYfGMaRyGMbIGGMeYog0coKDiDRjHiEY0iCOo8j4PoBA",
+        svg = "gAPBsGkbhlCAeQxD0IgyCIIB4gkIgxDCDR4DKCgxDSDR5haCwiD4PAvgOBYfiKBoIheGYOhwMQ1hSEAxgyB4rDGHogiWHxjGkchjGyBhjHiF4xHKCg4g0Yx5iiNQvjmO49D6AQ",
         categories = "time",
         tags = "time,timer,stopwatch",
         contributors = "ahtohbi4,ericfennis"
@@ -9412,7 +9588,7 @@ pub enum LucideGlyph {
     Timer,
     #[cfg(feature = "toggle_left")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0Ig2CIIB3GkZB0GiCgyDCDRyHmCoMCCCQiDKDYZguDRoGUaRnGgdIKDGHw+DwL4DgWLRjGkchjGwZQgGOIYrg0Y4dDiF4UCKLQvjONY3D6AQ",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHIeYNDaERoGUaRnGgdINDEMoRHiDYgCCFAihaEoiicIg+DwL4DgWLRjGkchjGwZQgGOKg4hEY4mh+ERyiOLIujONY3D6AQ",
         categories = "layout,account,development",
         tags = "on,off,switch,boolean",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -9420,7 +9596,7 @@ pub enum LucideGlyph {
     ToggleLeft,
     #[cfg(feature = "toggle_right")]
     #[strum(props(
-        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMgiCAch5g4NoSHcaRkHQaIODIMIShUIoXCAeIehIcomiMIg+DwL4DgWLRjGkchjGwZYTicIBjioMYkGOIoQiyLozjWNw+gEA",
+        svg = "gAPByGUYx0CAeQ9CINgiCAcoIgqDBoGUaRnGgdIJDEMoMHIeIJgsIB3GkZB0GiCQyDCDIdCKGg+DwL4DgWLRjGkchjGwZQgGOKgxh8Y4PhmG4mCKLQvjONY3D6AQ",
         categories = "layout,account,development",
         tags = "on,off,switch,boolean",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -9436,7 +9612,7 @@ pub enum LucideGlyph {
     Tornado,
     #[cfg(feature = "torus")]
     #[strum(props(
-        svg = "gAPBlGwbBpHAcxlCAYx4D0IgxDIIoKHmDQxDGERygwIgzheEwihAPg8C+A4FgcZYgiOBoIgqGYPhEY4dg8Lg1heLAwhyDQ4jIIogiKBIpiaAQA",
+        svg = "gAPBlGwbBpHAcxlCAch4D0IgzCKCh5g0MoQGODAiDGFAgGOEoYDEIg+DwL4DgWBxliGJIGgiG4dhkLg1hWF4ZhCC4NDEMI0h0OIviCIopiYPoBA",
         categories = "shapes,design,tools,food-beverage",
         tags = "donut,doughnut,ring,hollow,3d,fast food,junk food,snack,treat,sweet,sugar,dessert",
         contributors = ""
@@ -9452,7 +9628,7 @@ pub enum LucideGlyph {
     TouchpadOff,
     #[cfg(feature = "touchpad")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIB3GkZB0GiCgyDCDRoGUaRnGgdIKDENoNHmCg0g2CYLCIPg8C+A4FikcBhhIIBkgoTQyCAMQ0GiFYoiqL4Si6MBojKNAxjaFR2C2IIpC+PhoD6AQ",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDENgiCAeIODKEh3GkZB0GiFQwhIeYODSEhyhQIoWD4PAvgOBYoHAYYbCAZIOE0MggDENBoDKHooC+Lobi2LxojGMwxjWOh2C2EY8j4aA+gE",
         categories = "devices",
         tags = "trackpad,cursor",
         contributors = "karsa-mistmere,ericfennis"
@@ -9468,7 +9644,7 @@ pub enum LucideGlyph {
     TowerControl,
     #[cfg(feature = "toy_brick")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g0MQyhEeINDOERyh2DoRHmDYQD4PAvgOBYoHAYYLCAZINE0MQwCAOBWDUYwwC0Lg2j0NAtDGQpCEgNhhDEIJJjaTJCkodofigL4uguLYvGiMYzDEOY3jmO49j8LpBkOZBoC0M5IkoIJMmuTgxlAIpSlQaA+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEMgiCAeIODOEh3GkZB0GiDgxDiEhyhSD4SHmDofD4PAvgOBYoHAYYbCAZIOE0MQwCAOBWDUYwwC0Lg2j0NAtDGQpCEgNhhDEIJJjaTJCkodoWigL4uhuLYvGiMYzDEOY3jmO49j8LpBkOZBoC0M5IkoIJMmuTgxlAIpSlQaA+gEA",
         categories = "gaming,development",
         tags = "lego,block,addon,plugin,integration",
         contributors = "ericfennis,jguddas,karsa-mistmere"
@@ -9476,7 +9652,7 @@ pub enum LucideGlyph {
     ToyBrick,
     #[cfg(feature = "tractor")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCANBoDkbAxCANwiD4PAvgOBYWhmBoIgoNAgDEMRWDSFYXhyG4Eh2CRNDiIQwiSJoYiqKYFgeLAxi4NRjC0Lg2CAMAthILg0kKIR2DWPoyiiAoqjcIhtDEMIhhKIggC4ORjj6QJXDkLpJi4MQuDEbI9joaJCkuNA8GMaRyGMbBlCAYx5gkMQ1CKcx4gmFAgHKCZfjKbZvnGFqDnCchjnsIp9nSdp4n6CZ4hYL6HoWTY2h4TQxj+OZopOJ5rpacp/CIMp5o4Io5qii6rpSow+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQzCANBoDkbAxCANwiD4PAvgOBYWhmBoIgoNAgDEMRWDSFYXhyG4Eh2CRNDiIQwiSJoYiqKYFgeLAxi4NRjC0Lg2CAMAthILg0kKIR2DWPoyiiAoqjcIhtDEMIhhKIggC4ORjj6QJXDkLpJi4MQuDEbI9joaJCkuNA8GMaRyGMbBlCAYx4gmFJzHmCQxDUIggHKCZfjKbZvnGFqDnCcp0nafRjnkIp7n2fwinyFgvoehZNjaHhNDGP45milInmul5ypIMqMnWjw4oyjo5oKbqID6AQ",
         categories = "transportation,sustainability,food-beverage",
         tags = "farming,farmer,ranch,harvest,equipment,vehicle",
         contributors = "danielbayley"
@@ -9516,7 +9692,7 @@ pub enum LucideGlyph {
     TrainTrack,
     #[cfg(feature = "tram_front")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDYIggHIeINDKERoGUaRnGgdINg+ER5g0M4RhQIg0CIPg8C+A4FikcBhgsIBkg0TQ0CAMQxGiH4pC+L4Li6MBojKNAxDIIAzHYOIoiqPhokCMYzCIbQ4jcOQtkaI48k2T5ClEbQxlQMgylcLZZkyQZckMIhNlQMQ1GgMJLj2aA8k2ahNg+N5vnGWpogE",
+        svg = "gAPByGUYx0CAeQ9CIMwiCAch4gkMoMGgZRpGcaB0gkMQ2gwdxpGQdBohmGwgg8Ig0CIPg8C+A4FikcBhiAIBkgkTQ0CAMQxGiGooiqL4gi6MBojKNAxDIIAzHYOI8C+PhokCMYzCIbQ4jcOQtkaC4pkyQZPkKURtDGVAyDKVwtlmPZcDyTZDCITZUDENRoDCS5Nl2bBNhqN5xnOWp1gE",
         categories = "transportation",
         tags = "railway,metro,subway,underground,track,line,tourism",
         contributors = "ericfennis,karsa-mistmere"
@@ -9524,7 +9700,7 @@ pub enum LucideGlyph {
     TramFront,
     #[cfg(feature = "trash_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQzCANhoDEOAiD4PAvgOBYThaBoIgoMQ5g0dgxDQYwwCAMQtDEIAyC0MopEgNxjicIAwiuJ40DIVg2hKFIZhiBIagkTQ4g0VoijOKImiyKgyGiIooiSLIokkdgyjqFY+hMbBpG4ZQgHgMYJDEMAil0MpgmIIB5mUIgxDeYx5l+awxlWWZbliWpcm+YJyl2cIhmMeJqn6aKBm2EwvnQZQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQzCANhoDEOAiD4PAvgOBYThaBoIgoMQ5g0dgxDQYwwCAMQtDEIAyC0MopEgNxjicIAwiuJ40DIVg2hKFIZhiBIagkTQ4g0VoijOKImiyKgyGiIooiSLIokkdgyjqFY+hMbBpG4ZQgHgMYJDEMAiCAeZfCIMQxmMeAymCYpkmyZw3lWWZbliWpcmuYA0mOZZgmmXZmiGfJwDGcoTC+dBlD6AQ",
         categories = "files,mail",
         tags = "garbage,delete,remove,bin",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -9540,7 +9716,7 @@ pub enum LucideGlyph {
     Trash,
     #[cfg(feature = "tree_deciduous")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMQ5GgOBhDQIITDAIIWhYMwuDgLQyhuFIghiFwtDELg2C0NAuDUYwxiQLgxg2HQuDcLg0igLYzi4MoyjuO4aieJQ3GEMwgkSIgwC0M5JkWTJHksMxji6Nguj0Lg5iqSYmg2OYzluSoqCCHpXhMNISiGF4jiUNoUioQZkmiIoMg4WgiD4PAvgOBZ2nmBoIgoMQyg0OR2DOdZ3nwPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ4CAMQ5GENAghEMAghQMQtDILgyDQLQ3C4MwyEEMwuDUIIjiWFIWCAOQgDYLgwDMVg2GEM4mhWDY4DaFR2i8NI0iSJpAimOIjhsIA1C4Ng1EGEYTjcMYNjqDhaCIPg8C+A4FlaWYGgiCgxDKDQ5HYM5VleXA+gEA",
         categories = "nature",
         tags = "tree,forest,park,nature",
         contributors = "karsa-mistmere,ericfennis"
@@ -9564,7 +9740,7 @@ pub enum LucideGlyph {
     Trees,
     #[cfg(feature = "trello")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAcoICIMoMHcaRkHQaIJDEOIMHmCYLCAaBlGkZxoHSGIag2HIQCIPg8C+A4FiyL4Gg8N4ShSFodgyIIiiSCQ5huCY1iyLoEHSMZFgeGA0jaFYXgqOohiOJQiDWQAikKLYyD6AQ",
+        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDEOINgkIgzg0dxpGQdBohWFwgHiCobgeJYLCIPg8C+A4FiyL4Gh2H4hhqDYPhGE4KDmDYpDeGIKkCLIugQdIxkaDoQhKFAiDWHIeiCJpBCKQIkhUNIri2Mg+gEA",
         categories = "account,brands,development",
         tags = "logo,brand",
         contributors = "bdbch,csandman,mittalyashu,ericfennis"
@@ -9612,7 +9788,7 @@ pub enum LucideGlyph {
     Trophy,
     #[cfg(feature = "truck")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1CAMQ4EgMxjC0Lg2CAMAtDGEw0hiGBWDcY4XhQLobDGDYYGgMQwGOFIWg0IIji4MR2DEMQiD4PAvgOBY3jqBoIgoMQ0CAORoDQbJCDQdg0iCLw2hqJolDEaAtDKNo4j2NxjGkchjGwZQgGMeYJg4IggHKCZVmAeIJDeVgvlqXJejyBI+gkTQxgyDhIDmbpYDycJdl+YZjDiZZnCKaRjmsIgxm2N5vlugQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ1CAMQ4EgMxjC0Lg2CAMAtDGEw0hiGBWDcY4XhQLobDGDYYGgMQwGOFIWg0IIji4MR2DEMQiD4PAvgOBY3jqBoIgoMQ0CAORoDQbJCDQdg0iCLw2hqJolDEaAtDKNo4j2NxjGkchjGwZQgGMeIJDcIpgHmCYOmUcoJlWNwvlqXJejyBI+gkTQxgyDhIDmVo5nSWZbl2X5hmiZAgmsIpVmaaA4n2cKCD6AQ",
         categories = "transportation",
         tags = "delivery,van,shipping,haulage,lorry",
         contributors = "colebemis,ahtohbi4,ericfennis,Andreto,csandman,karsa-mistmere,danielbayley"
@@ -9628,7 +9804,7 @@ pub enum LucideGlyph {
     Turtle,
     #[cfg(feature = "tv_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ3CAMgxGgMQwCIPg8C+A4FhQchlGMdAgGgZRpGcaB0gkMQ0CIIB4gkMooHmCQzigdxpGSBYrhIIByioIoshQL4ahwPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ3CAMgxGgMQwCIPg8C+A4FhQchlGMdAgGgZRpGcaB0gkMQ0CIIB4gkMooHmCQzigcoqCKLAgHcaRkgWK4ShQL4ahwPoBA",
         categories = "devices,multimedia",
         tags = "flatscreen,television,stream,display,widescreen,high-definition,hd,1080p,4k,8k,smart,digital,video,home cinema,entertainment,showtime,channels,catchup",
         contributors = "ericfennis"
@@ -9636,7 +9812,7 @@ pub enum LucideGlyph {
     Tv2,
     #[cfg(feature = "tv")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch5D0IgyCIIBoGUaRnGgdIKDENYNHcaRkHQaIKDIMINgkIg3g0ch4h6DYngsIg+DwL4DgWLRwG8bB5GwaRuGUIIzjgdBzhUNwgDIIAxkOQZBgyLQvjONY3jkPoBA",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgyDAIggHIeYNDKERoGUaRnGgdINDENYRhQIg3hEeIVhEcomg4Ig+DwL4DgWLRwG8bB5GwaRuGUIIzjgdBzh4NwgDIIAxkOQZBhaLQvjONY3jkPoBA",
         categories = "devices,multimedia,communication",
         tags = "television,stream,display,widescreen,high-definition,hd,1080p,4k,8k,smart,digital,video,entertainment,showtime,channels,terrestrial,satellite,cable,broadcast,live,frequency,tune,scan,aerial,receiver,transmission,signal,connection,connectivity",
         contributors = "colebemis,ericfennis"
@@ -9660,7 +9836,7 @@ pub enum LucideGlyph {
     Twitter,
     #[cfg(feature = "type")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig0CANwghKEgyDCFQghiEwiD4PAvgOBYHgmH4kgoeAxhAOQiCAeYqCKGItHkMoQjIIB4jUIgxDWHogieJoIgqL4QDSLYphAMQyjOOo3jmSZLh8L5AgEA",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0Ig0CANwghKEgyDCFQghiEwiD4PAvgOBYHgmH4kgoeAyhAMQ1CIIB5DGEIYi4eYqCKMwgHiMQiDmHogieJoIiiNgxDKLo6iuRovjaOIwhANI+C+QIB",
         categories = "text",
         tags = "text,font,typography",
         contributors = "colebemis,ericfennis"
@@ -9671,7 +9847,7 @@ pub enum LucideGlyph {
         svg = "gAPBwGEdBoCAZA9CITQxDIIAyHYMQiD4PAvgOBYThaBoIgoMQ1C4NYODEYQxC4OIgiSJggDCKggDELQzh8LQxHYLQ4EgMojisMYrjyLQgjANAyDgLQ2h8Nw1hKFIZhiBIagmCw3h+LQyjcMhBjuLY9j0OQuDAMA0j8Lg0DWSIThWTZMgWB4JG2DZuisMgwkmZ4XgEA",
         categories = "weather",
         tags = "rain,weather,uncovered,uninsured,antivirus,unprotected,risky",
-        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,jguddas,jguddas"
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,jguddas"
     ))]
     UmbrellaOff,
     #[cfg(feature = "umbrella")]
@@ -9684,7 +9860,7 @@ pub enum LucideGlyph {
     Umbrella,
     #[cfg(feature = "underline")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ2CANB2DYYYMgwMAghSFAxDKFRWDQIg+DwL4DgWHhsGkbhlCAeQygkMgwCIIB4DGCYci+KgiiyLh5jGNoth4L4kiYPoBA",
+        svg = "gAPBwGEdBoCAZA9CITQ2CANB2DYYYMgwMAghSFAxDKFRWDQIg+DwL4DgWHhsGkbhlCAeQygkMgwCIIB4ioIosi4eAxgmHIojaMoth4L4kiYPoBA",
         categories = "text",
         tags = "text,format",
         contributors = "colebemis,ericfennis,csandman,johnletey"
@@ -9732,7 +9908,7 @@ pub enum LucideGlyph {
     UnfoldVertical,
     #[cfg(feature = "ungroup")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CINQiCAcoICIMYMHmCQ0gwdxpGQdBogkOIMGgZRpGcaB0gkNgiD4PAvgOBYoiuBoOgmEYHjGMofiGI4lhKMYVCCF4ZhsIodiiKoEHQPoB",
+        svg = "gAPByGUYx0CAdxpGQdBoD0Ig4CIIByHiDQxhAeYNDSEBoGUaRnGgdINDaEITCINQiD4PAvgOBYoiuBobh2H4hhCCIKgyDojhSFQghcIgxhmEYkhWKIqgQdA+gEA",
         categories = "shapes,files",
         tags = "cubes,packages,parts,units,collection,cluster,separate",
         contributors = "danielbayley"
@@ -9748,7 +9924,7 @@ pub enum LucideGlyph {
     Unlink2,
     #[cfg(feature = "unlink")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQxDgLg4DQIAxDILgyDWEQuDcMgtDGGAxGgLQuDAMhhDWIQwhCJQwicIAwiyLIghILQ3iENwgikMA2jaJo5i2PQtDYLg5hYMBshuGAyhcNwxCIPg8C+A4Fk2UIGgiColDGNQxhwNw1kaSpJDGJImiiY4uj0IAuhIIIzDCNY3jmb5mi6QJCiwbJbDGXpLk2T4EGiTRsGkbhlCAeQxgkMgiCAeKHCIOKKHkMoJDWih4pKjpMk6gaDoCgqEoaCaPoujaJoWl6ipak6ZC+mxlp2g6moipagCIMQ5pWjQxDalaXrqq6tq+n65ruo4JravKypCva7nywIBA",
+        svg = "gAPBwGEdBoCAZA9CIbQxDgLg4DQIAxDILgyDWEQuDcMgtDGGAxGgLQuDAMhhDWIQwhCJQwicIAwiyLIghILQ3iENwgikMA2jaJo5i2PQtDYLg5hYMBshuGAyhcNwxCIPg8C+A4Fk2UIGgiColDGNQxhwNw1kaSpJDGJImiiY4uj0IAuhIIIzDCNY3jmb5mi6QJCiwbJbDGXpLk2T4EGiTRsGkbhlCAeQygkNQioUMYJDKih4owIg4o+h6SkyTqBoOgKCoQeaRpMIB4pWiahpGjqFpWk58pkZaboOpYJDENqUrGs6oo2p6erEOaXC+rKuoSoq4oqugirKj6RDGvK3sas6rpwPoBA",
         categories = "text",
         tags = "url,unchain",
         contributors = "ericfennis,csandman"
@@ -9756,7 +9932,7 @@ pub enum LucideGlyph {
     Unlink,
     #[cfg(feature = "unlock_keyhole")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ2CKCR4gwMQyhAcoTCIPg8C+A4FgeGhyGUYx0CCEgiDOEBoGUaRnGgdIThUIByiaMYLg0MIQHcaRkHQaITDiGYbiGI4aHAYY9CAZIME0NwgDEMBWDcYQ1CCVAwCCVwxCAOQuDMMwtDILg1kEL5Gj0PoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwMQ2hAcoTCIPg8C+A4FgeGhyGUYx0CAaBlGkZxoHSE4PCAcoLCKLR3GkZB0GiEw4hCMAzhCEoNDCGYbiGI4aHAYY2CAZIME0NwgDEMBWDcYQ1CCVAwCCVwxCAOQuDMMwtDILg1kEL5GjYPoBA",
         categories = "security",
         tags = "security",
         contributors = ""
@@ -9764,7 +9940,7 @@ pub enum LucideGlyph {
     UnlockKeyhole,
     #[cfg(feature = "unlock")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeA9CIMwiCAaBlGkZxoHSCQxDGDB5hSFggHcaRkHQaIUDiDByggIgyiOGImCIPg8C+A4FiwcBhh8IBkgkTQ3CCFRWDcYQ1CCPwwCCQgxCAOQuDkLYWiwL4yh8PoBA",
+        svg = "gAPByGUYx0CAch5D0IgyCIIB3GkZB0GiCgxDiDR4goM4NgkIgxDGDRoGUaRnGgdIUh+B4YgsIg+DwL4DgWLRwGGEggGSChNDcIIeFYNxhDUIJADAIJDDEIA5C4OQth+LQvjOEg+gEA",
         categories = "security",
         tags = "security",
         contributors = "colebemis,csandman,ericfennis"
@@ -9788,7 +9964,7 @@ pub enum LucideGlyph {
     UploadCloud,
     #[cfg(feature = "upload")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDUdg0GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGx2C0NAiD4PAvgOBYrHAbxsHkbBpG4ZQgjGNh0HOCQxDcIA4g6FAzCCQA4iqLIxjONY3iuTY4HgMo+DIIggHgMZUlYeZZCIM5blMIoPkkL5QD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQyDEIAxDUdg0GEMgghQMAghcMQthQMhIDWE4VhiIoaDKGx2C0NAiD4PAvgOBYrHAbxsHkbBpG4ZQgjGNh0HOCQxDcIA4g6FAzCCQA4iqLIxjONY3iuTY4HgMo+DIIggHkMYJDOVh5lMIoPlYeJZl+VYrC+UA+gEA",
         categories = "arrows,files",
         tags = "file",
         contributors = "colebemis,csandman,ericfennis"
@@ -9796,7 +9972,7 @@ pub enum LucideGlyph {
     Upload,
     #[cfg(feature = "usb")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CINwiCAcoMDGDxjHiEgwCIPg8C+A4FgeGodgaCIRCKE4JgsIgyhiCYWCINIZhuIYfDwcBhHQaAgGSDBNDQLg3CAMQ5C4M5ADkIA1jAL41jeGpLjiOgiG0MgxCAMwtkSVAyCAMhakmTpNjaT47kIMg2CANwuDYOJHkAMhslqSIakqYZgjeOYMG0MQwkANJsloMwuDWV6Bl6dI0mGd5RDGawxloMQtlSkaQkCXZyl+AQ",
+        svg = "gAPBjGkchjGwZQgGMeQ9CINwigkeIMDEMIPHKEgiD4PAvgOBYHhmHIGgiCoMDKFIQgwNIVheGYbgSIYZHAYR0GgIBkgwTQ0C4NwgDEOQuDOPA5CANYYhqMYzjCMo0jYIhtDIMQgDMLZAlAMggDIWpFC+RxokmM41jePgyDYIA3C4Ng4kOPAyGyVpEiyXJekuDBthOPA0mqVgzC4NZTnyWpxDyXJgk0MZpDGVgxC2UKMouPJZnCSg+gE",
         categories = "devices,multimedia,home",
         tags = "universal,serial,bus,controller,connector,interface",
         contributors = "karsa-mistmere,jguddas"
@@ -9804,7 +9980,7 @@ pub enum LucideGlyph {
     Usb,
     #[cfg(feature = "user_2")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIOAigkeIMDEMoPHKDA1CIPg8C+A4FgeGhwGEdBoCAZIME0MgwCAMgxGEOAgi+KgxCAMAtDENo0hmG4hiMPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwOIQHKDA1CIPg8C+A4FgeGhwGEdBoCAZIME0MgwCAMgxGEOAgi+KgxCAMAtDENo0hmG4hiMPoBA",
         categories = "account",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -9812,7 +9988,7 @@ pub enum LucideGlyph {
     User2,
     #[cfg(feature = "user_check_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeYJDkIggHKCQ0i8Yx4gkOIdh+JImiiHhwG8bB5GwaRuimP5EHQc4JDGEgxDGDg4g4MwgDKG4uh6IJAkKRBlD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeIJDgIggHKCQ0i8Yx5gkOYdh+JImiiHhwG8bB5GwaRuimP5EHQc4JDGEgxDGDg4g4MwgDKG44h6IJAkKRBlD6AQ",
         categories = "account",
         tags = "followed,subscribed,done,todo,tick,complete,task",
         contributors = "karsa-mistmere"
@@ -9828,7 +10004,7 @@ pub enum LucideGlyph {
     UserCheck,
     #[cfg(feature = "user_circle_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgIAyDAYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeIJhoIoqHmLQwi8coJDSHYfiSJooiOJYnimK4tDKLxjjEIouCCNZHjOHgvjqPw+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDgIAyDAYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeYJDEMAiCAcoJDSMBjHiLQyh2H4kiaKIjiWJ4pjIIoujWN5EjmKoskiOgvjyQQ+gEA",
         categories = "account,shapes",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -9836,7 +10012,7 @@ pub enum LucideGlyph {
     UserCircle2,
     #[cfg(feature = "user_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGodgaCIWCIM4QgqE4PhGF4ZhuIYfDwcBhHQaAgGSDBNDcIAyDALg2DYMhWDEORhDKOwgDCSAgDGOwtDIaA2kWR5JkmTJGDIdgxj6QItC+Mo0D6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bh6BoIhGGYPgoIgzhaGIMg6G4dgSI4bHAYR0GgIBkgsTQ3CAMgwC4Ng2DIVgxDkYQyj0IAwkoIAxj0LQyGgNpHkmS5Lk6SAyHYMZAkIIovjSNg+gE",
         categories = "account,shapes",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -9852,7 +10028,7 @@ pub enum LucideGlyph {
     UserCog2,
     #[cfg(feature = "user_cog")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQ1CKCR4gwMQ4hAcoMDMIg+DwL4DgWB4bh6BoIgqDA3haDA0hAY4SCIOYahyIogDwcBhHQaAgGSDBNDEMAgg4SA2GENAgkSPpHC2RA0HYMowC+NY3huUI4joIhtDIMQuDePw2C4NAtC4OZghmG5PjYaJSmeOYMG2DguDKPwzmGYJiC6ZIclOaY3muVgxl0No/DiWp2nSTp5jSapVm0OQuDGPwym+hJhoaZ56lSbAxoygIUlqYJfDGlJRoie6Kn4Lg4o+kqfqGaKjpefQ0naXAupunqspafJXDCWpxqeP62mWeYBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQ4CKCR5gwMQ1hAcoMDMIg+DwL4DgWB4bh6BoIhcIg0hCCoMDmKISCIN4ahyIogDwcBhHQaAgGSDBNDEMAghQSA2GENAgkSPpHC2RA0HYMowC+NY3huUI4joIhtDIMQuDePw2C4NAtC4OZghmG5PjYaJSmeOYMG2FAuDKPwzmGYJiC6ZIclOaY3muVgxl0No/DiWp2nSTp5jSapVm0OQuDGPwym+hJhoaZ56lSbAxoygIOlqYJfDGlJRoie6Kn4Lg4o+kqfqGaKjpefQ0naXAupunqspafJXDCWpxqeP62mWeYBA",
         categories = "account",
         tags = "settings,edit,cog,gear",
         contributors = "karsa-mistmere,ericfennis"
@@ -9860,7 +10036,7 @@ pub enum LucideGlyph {
     UserCog,
     #[cfg(feature = "user_minus_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeYJDkIggHKCQ0i8Yx4gkOIdh+JImiiHhsGkbopHkMoJDEMYvHiRAiDENovHkMZFkcIB4lAIgyDKOQvj+QQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeYJDkIoqHiCQ4i8coJDSHYfiSJooh4bBpG6KR4DKCQxDaLx4DGCQyDKLx5kkIgxDGTZDlCUoeC+PpAD6AQ",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe",
         contributors = "karsa-mistmere"
@@ -9868,7 +10044,7 @@ pub enum LucideGlyph {
     UserMinus2,
     #[cfg(feature = "user_minus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwiCAcoJDSPBjHiCQ5iqLIxjONYrGwaRujYeQxgkMQxjweJRCIMopCAeQylKVAgHiXQigyRgvkyTg+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwiCAcoJDSPBjHiCQ5iqLIxjONYrGwaRujYeAygmDI8HmUQiDEMZUDGUpZCAeJbCIMopisL5Mk4PoBA",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -9876,7 +10052,7 @@ pub enum LucideGlyph {
     UserMinus,
     #[cfg(feature = "user_plus_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeIJDgIggHKCQ0i8Yx5gkOYdh+JImiiHhsGkbopHgMoJg+Lx5kQIoMkcMYti8eJNkqOIeC+P5Bj6QIpHmUQxDGR5Jl2T5RDIMpPmANo5lWWQ+gEA",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeYJDkIggHKCQ0i8Yx4gkOIdh+JImiiHhsGkbopHkMoJgyLx4DGRYuCAeJECKD4vHmSQijiHgvj+QY+kCKZIgkMgykeTgxDaUZiDGUZTDGZ5WlgZQ+gE",
         categories = "account",
         tags = "new,add,create,follow,subscribe",
         contributors = "karsa-mistmere"
@@ -9884,7 +10060,7 @@ pub enum LucideGlyph {
     UserPlus2,
     #[cfg(feature = "user_plus")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwiCAcoJDSPBjHiCQ5iqLIxjONYrGwaRujYeAxgkMZFCAeQylKQJVlEIg4jweJXCKU5GC+TJOkuTZPlsMoplWYAxDGXpuDaPB5lub5jmUZQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAcoJDQIggGMeIJDmOxjHmCQ3iqLIxjONYrGwaRujYeQygkMY6CAeAxlKQJVlEIgxlkeZXCIOJGC+TJOkuTZPlsMQxjuVoJDKKQgl+UpslqUg2mOZRlD6AQA",
         categories = "account",
         tags = "new,add,create,follow,subscribe",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -9892,7 +10068,7 @@ pub enum LucideGlyph {
     UserPlus,
     #[cfg(feature = "user_square_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDgIAyDEYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeIJhoIoqHmLQxi8coJDSHYfiSJooh4chlGMdAgHcaRkgWLQ4i+LAiDONJKDKLxoGUaRnGgdJHi+MZLjgL4+kAPoB",
+        svg = "gAPBwGEdBoCAZA9CITQxDgIAyDEYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgGMeYJDEMQiioeItDKMBygkNIdh+JImiiHhyGUYx0CAaBlGkZxoHSLQ4jCMgiDONZNjQIB3GkZIFkqMIsk6OQvj+QQ+gEA",
         categories = "account,shapes",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -9900,7 +10076,7 @@ pub enum LucideGlyph {
     UserSquare2,
     #[cfg(feature = "user_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHmDQzhEch4g0MoRhgIoVCAaBlGkZxoHSDYPCIPg8C+A4FikYxpHIYxsGUIBjhwMYaCAcoUhEY4Tg4MIoiqL4xjOKRwGGCwgGSDRNDcIAyDEdgtDIYQylAIAwlkIAxlCVBoDaVpYlqWpdlcMh2hqKQvkiCw+gE",
+        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggHiDQzhEeYUhEcoTCIMoRGgZRpGcaB0g2DwiD4PAvgOBYoGMaRyGMbBlCAY4Xg4MIZhiNIbDGHYoC+LowjKKBwGGCwgGSDRNDcIAyDEdgtDIYQyk0IAwlYIAxk2URoDaU5VleV5alQMh2j6KZFgsPoB",
         categories = "account,shapes",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -9908,7 +10084,7 @@ pub enum LucideGlyph {
     UserSquare,
     #[cfg(feature = "user_x_2")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgHKCQ0CIIBjHmCQ5i4Yx4gkOIdh+JImiiHhsGkbopHkMoJDEM4uHgMZFDeSJECIMgyi4eZKCKOIeC+P5Bj6QIpHiTgxkwIJJgmUJSl+RwglON45liXA+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDQIAxDkYQ2CCEgwCCFQwC0MQyhYIg+DwL4DgWHhjGkchjGwZQgHKCQ0CIIBjHmCQ5i4Yx4gkOIdh+JImiiHhsGkbopHkMY3i4eJECIMQ3i4eQygkMQzkaTgiDIMo5C+P5Bj6QIpkeCZVlKT5LCCQ5FmSU5QleWRlD6AQ",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe,unavailable",
         contributors = "karsa-mistmere"
@@ -9916,7 +10092,7 @@ pub enum LucideGlyph {
     UserX2,
     #[cfg(feature = "user_x")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwijceIJDmPBygkNIqiyMYzjWKxsGkbo2HgMoJDKKQgHmUAiDEM48HkMYJDiPB4lyV47isL5Lk2SpMk6YZSlqVpYl+bo7lSYZemSZhlD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwiCAcoJDSPBjHiCQ5iqLIxjONYrGwaRujYeQygkMQzjweJRCIMopCAeQxgkOJVl0IgxjuKwvkyTpLk2Nh4mGWZVleY48lyXpynCVJlmcZQ+gE",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe,unavailable",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -9924,7 +10100,7 @@ pub enum LucideGlyph {
     UserX,
     #[cfg(feature = "user")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDkIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgOYUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwijceIJDGKQgHKCQ0iqLIxjONQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQxDkIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgOYUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx4gkMYpjceYJDcIggHKCQ0iqLIxjONQ+gE",
         categories = "account",
         tags = "person,account,contact",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -9940,7 +10116,7 @@ pub enum LucideGlyph {
     Users2,
     #[cfg(feature = "users")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwiCAcoJDSPBjHiCQ5iqLIxjONYri6BoIgoMgyg6EISiGF4kC0M5YC4OI7iuLYEGiS5ggeCYLg0MwuDEM5ViQIAxiMNwuDcNZGl+L4B",
+        svg = "gAPBwGEdBoCAZA9CITQxDYIAyDEdgtDIYQ0CCFQwCCGAwC0NIcEgNoUhaGYjhuFQ0HYMgiD4PAvgOBYrGMaRyGMbBlCAYx5gkNwijceIJDmPBygkNIqiyMYzjWK4ugaCIKDIMoOhCEohheJAtDOVwuDiO4ri2BBokqX4HgmC4NDMLgxDOVIkCAMYjDcLg3DWRZei+AQ",
         categories = "account",
         tags = "group,people",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -9972,7 +10148,7 @@ pub enum LucideGlyph {
     UtilityPole,
     #[cfg(feature = "variable")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMgxHMLQ0C0M4RC0OQghKF4ZCIPg8C+A4Fh2IIGgiCgxDYIAzHMNIphgIA5hGL4xDmHIeiOHRsGkbhlCAeQxgmNI9DKCQxDUIggHiPwikWRx4kMIo0h0L45juOI6jySZAk2T5Mj2SpBHmXJGlKVBlD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ4CAMgxHMLQ0C0M4RC0OQghKF4ZCIPg8C+A4Fh2IIGgiCgxDYIAzHMNIphgIA5hGL4xDmHIeiOHRsGkbhlCAeQygkMQ1CIIB4DGQJCkSPwijSPZGkuNQvjmO44jqPJFgmTB4kqQZDHmTpMj6R5QlIZQ+gE",
         categories = "development,maths",
         tags = "code,coding,programming,symbol,calculate,algebra,x,parentheses,parenthesis,brackets,parameter,(,)",
         contributors = "danielbayley,jguddas"
@@ -9996,7 +10172,7 @@ pub enum LucideGlyph {
     VenetianMask,
     #[cfg(feature = "vibrate_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQyCAOAggwMgthCD4PhKDwiD4PAvgOBYZhyBoIgoMoMDiFoThGJ4XhmG4EGiHotgeCRNg4OB2DEMBjDAIAuDUNQuDQNQgDGQpCGgNhjjyQY6DELY/kGTAxHaEoYhqH4vgWMQiE0MQ2kIMAuDMNBWkcMJNj2TZAC2UJqGgLQ0mANJUiyHQ8GwaRuGUIB5DKCYjCIIB4nwIp+noMZ9n8eKGoOcp2ngPoB",
+        svg = "gAPBwGEdBoCAZA9CIbQyCAOAggwMgthCD4PhKDwiD4PAvgOBYZhyBoIgoMoMDiFoThGJ4XhmG4EGiHotgeCRNg4OB2DEMBjDAIAuDUNQuDQNQgDGQpCGgNhjjyQY6DELY/kGTAxHaEoYhqH4vgWMQiE0MQ2kIMAuDMNBWkcMJNj2TZAC2UJqGgLQ0mANJUiyHQ8GwaRuGUIB5DKCYjCIIB4nwIp+oAMZ9n8eaGoOcp2ngPoB",
         categories = "devices,connectivity,account",
         tags = "smartphone,notification,rumble,haptic feedback,notifications,screen",
         contributors = "lscheibel,ericfennis"
@@ -10004,7 +10180,7 @@ pub enum LucideGlyph {
     VibrateOff,
     #[cfg(feature = "vibrate")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQyCAOAggwMgthCD4PhKDwiD4PAvgOBYZhyBoIgoMoMDiFoThGJ4XhmG4EGiGRyGUYx0CAeYJDUIggGgZRpGcaB0gkMQ0jgch4kCOB3GkZIFgkOI4kUIpNiuMIyD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQyCAOAggwMgthCD4PhKDwiD4PAvgOBYZhyBoIgoMoMDiFoThGJ4XhmG4EGiGRyGUYx0CAch4gkMQiCAaBlGkZxoHSNw0jkeYJDWOR3GkZIFgkOI5jYIpNiuMIyD6AQ",
         categories = "devices,connectivity,account,notifications",
         tags = "smartphone,notification,rumble,haptic feedback,screen",
         contributors = "ericfennis"
@@ -10012,7 +10188,7 @@ pub enum LucideGlyph {
     Vibrate,
     #[cfg(feature = "video_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQxDALg2DYIA2EgMQ0GEMgghcMAghoMYYhgdgyC4Mw0GyHQxEwMoXDgdg4CIPg8C+A4Fi+MoGgiCgxhCOYWh6GocC2FwyEiFZBhuRgxkCQBWDiPIZkeGJAGgMolhwMBai6MI1i8bBpG4ZQgHgMoJikIggHkMZjmUeZiCKZJgmibZYC+XJeD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQxDALg2DYIA2EgMQ0GEMgghcMAghoMYYhgdgyC4Mw0GyHQxEwMoXDgdg4CIPg8C+A4Fi+MoGgiCgxhCOYWh6GocC2FwyEiFZBhuRgxkCQBWDiPIZkeGJAGgMolhwMBai6MI1i8bBpG4ZQgHkMYJDIIggHiYgimSZgymOah5myaZki8L5cl4PoB",
         categories = "devices,communication,connectivity,photography",
         tags = "camera,movie,film",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -10020,7 +10196,7 @@ pub enum LucideGlyph {
     VideoOff,
     #[cfg(feature = "video")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQyDIIA4C0NggDQIIRDQVg4FoIg+DwL4DgWGxyGUYx0CAaBlGkZxoHSCQxDIIggHIeIJi4IIyCKNB3GkZIFiwNIvHmCQ2i8cpAjeGociGIw+gE",
+        svg = "gAPBwGEdBoCAZA9CIbQyDIIA4C0NggDQIIRDQVg4FoIg+DwL4DgWGxyGUYx0CAch4gkMgiCAaBlGkZxoHSCQxikIInCKNB3GkZIFjINIqHIeYoiqQQiDaGociGIw+gE",
         categories = "devices,communication,connectivity,photography",
         tags = "camera,movie,film,recording,motion picture,camcorder,reel",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -10028,7 +10204,7 @@ pub enum LucideGlyph {
     Video,
     #[cfg(feature = "videotape")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CINAiCAch4gkMoMGgZRpGcaB0gkMQ2gwdxpGQdBohAMIMg8IoRD4PAvgOBYoHAYYgCAZIJE0MggDgaAyiOKAvi6IIoGMaRyGMbBlg2EIMGOJQ4kiCAiDGC47kCQpEi2LxojGMw4CAMQyGiS47j0aI/kGQ5FkmGYbCAY5Nk+DBykeUZklSAQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIIJguDRoGUaRnGgdIKDENoNHcaRkHQaIKDIMINHmCg0CIPg8C+A4FikcBhh8IBkgoTQyCAOBoiKKIqi+H4pGMaRyGMbBlCAY4PDiDRjiUIgxieB4hjsL5AkKRIujAaIyjQOAgDEMhokmKQvj0aI/kGQ5FHKUZGg+GZKkyTpSlSaA+gEA",
         categories = "devices,communication,connectivity,photography,files",
         tags = "vhs,movie,film,recording,motion picture,showreel,cassette",
         contributors = ""
@@ -10044,7 +10220,7 @@ pub enum LucideGlyph {
     View,
     #[cfg(feature = "voicemail")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeQ9CIMQyCIIBygwNIQGMeIMDYIg+DwL4DgWB4bh6BoIhaDAxDiFYLg2D4RhOGociKIA8GwaRuggeAyiaKAgHgMYYhAeY+g2GQgHmOZDi8L40jYPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CINgiCAcoMDSDxjHmDAxDIIg+DwL4DgWB4bh6BoIgqFw4g+EQihOCYWCKGIahyIogDwbBpG6CB5DGF4OCAeQyjuDx4jqDZBj+LonhsL41jcPoBA",
         categories = "connectivity,devices,social",
         tags = "phone,cassette,tape,reel,recording,audio",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -10068,7 +10244,7 @@ pub enum LucideGlyph {
     Volume2,
     #[cfg(feature = "volume_x")]
     #[strum(props(
-        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgxDEIA1CANggDkIAyhiGggDGFYXh+HoTDGGYShQIg+DwL4DgWBxuiobIMGUIB4DKEAxDYIggHkMYQDmOx5jeEQ1jseI+CIMgyimK4yG4ZYxjOPJIkCNZIjmQZDh+RpDkqTAvk6UIBA",
+        svg = "gAPBwG8bB5GcbxuCCAxpG4dBzD0IgxDEIA1CANggDkIAyhiGggDGFYXh+HoTDGGYShQIg+DwL4DgWBxuiobIMGUIB4DGEAyDIIo1DKEAxDaOx5jcIg5kGPYRDWKYrjIbhljGM41kOP5Gj6SY8jiOggkKEJFioL5Mk6AQ",
         categories = "connectivity,communication,multimedia",
         tags = "music,sound,mute,speaker",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -10100,7 +10276,7 @@ pub enum LucideGlyph {
     Wallet2,
     #[cfg(feature = "wallet_cards")]
     #[strum(props(
-        svg = "gAPByGUYx0CAch4D0IgyCIIIJCIM4NHcaRkHQaIKDEOINHmCoRCAaBlGkZxoHSGIaD4PAvgOBYoHAYYWCAZIKE0MwgDkYQyCCOQwCCPAxjoLQyGgMQ0jiOo9kiP45gyKAvi6Foti8aIxjONQxDEaAzGMLg4kkLg2C6NQyC4MQuDkbJlmUORjmUNggm0IA0mSb5fCANQuDePZomQLZmlsNZ9DWdAzn0OY6nyZhIDIMQik2TxoD6AQ",
+        svg = "gAPByGUYx0CAch4D0IgyCIIB5goM4NHcaRkHQaIKDEOINGgZRpGcaB0hiGgggkIoRD4PAvgOBYoHAYYWCAZIKE0MwgDkYQyCCOQwCCPAxjoLQyGgMQ0jiOo9kiP45gyKAvi6Foti8aIxjONQxDEaAzGMLg4kkLg2C6NQyC4MQuDkbJlmUORjmUNggm0IA0mSb5fCANQuDePZomQLZmlsNZ9DWdAzn0OY6nyZhIDIMQik2TxoD6AQ",
         categories = "account,money",
         tags = "money,finance,pocket,credit,purchase,payment,shopping,retail,consumer,cc",
         contributors = "danielbayley"
@@ -10116,7 +10292,7 @@ pub enum LucideGlyph {
     Wallet,
     #[cfg(feature = "wallpaper")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDIIggGMeYLDmDhjHiCw4CIPg8C+A4FgeGhwGEdBoCAZILG0OQgDENwgDYLgxC2LgxGEMggjUMAgjgMY2C4OAxC4MAxEwMo1DENRWDWNI2jmTAwC0MpPEgNJKjeTZPjYdgxDCVJNkyNQyGgMQ2lyOJljaT4ZhuIYjiCIokiYIhNDiNgxGiGIaC+axom2I4lgsTQxkUNx2DSaZ5m4PoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIOAigkeYMDmDxygwMgiD4PAvgOBYHhkcBhHQaAgGSDBtDkIAxDcIA2C4MQti0MRhDIII0DAII3DGNQuDgMQuDAMRMDKNAxDUVg1jONY4ksMAtDKThIDSSY2kyTo1HYMQwlOTJLjQMhoDENpbjeZI1k6GIaiCIofiGI4lCITQ4jUMRog6GQvmoaJsiKJIME0MZEDcdg0mieJtD6AQA",
         categories = "account,devices",
         tags = "cover,lock screen",
         contributors = "karsa-mistmere,ericfennis"
@@ -10140,7 +10316,7 @@ pub enum LucideGlyph {
     Wand,
     #[cfg(feature = "warehouse")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQyDIIA4C4Mw1FYMgwGGDYNDAIIZDELYXEgNIWCCGIaCCHAyh0VoPhEQYXiSGwgDMLgyDYIA2C4NRsDgLYxDKIYji8MQuDQOIajmMIyiyIouiWIoNioNRaCIPg8C+A4FlOVoGgiCo0DEOBoDEMpSlSWZYgSWoJE2XQ0mCYpTlWZ5THIZRjHQIB3GkZIFgmYQiCAeIJDafhoGUaRnGgdJ8mIIB5nwMJjC+c51D6AQA",
+        svg = "gAPBwGEdBoCAZA9CITQyDIIA4C4Mw1FYMgwGGDYNDAIIZDELYXEgNIWCCGIaCCHAyh0VoPhEQYXiSGwgDMLgyDYIA2C4NRsDgLYxDKIYji8MQuDQOIajmMIyiyIouiWIoNioNRaCIPg8C+A4FlOVoGgiCo0DEOBoDEMpSlSWZYgSWoJE2XQ0mCYpTlWZ5THIZRjHQIB4gkNgiCAaBlGkZxoHSCZhnseaDDCex3GkZIFoObpUnOdQ+gE",
         categories = "buildings,maps",
         tags = "storage,logistics,building",
         contributors = "karsa-mistmere"
@@ -10148,7 +10324,7 @@ pub enum LucideGlyph {
     Warehouse,
     #[cfg(feature = "watch")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCIIBygwNoQGMeYMg4Ig+DwL4DgWB4bHAbxsHkbBpG6CIiicdBzhgMggDEMIwi+DowDONoahyIokiaKIhGEdBoCAZIMG0MQ2C4MY3DcLg2DYLQuDgMQtDQLgwDUYYvi+MpcC0MgtDGTQxGiXpNDiWQglsIJdjSYhslANw4CCVZXjkLxwkAaI/kGQ5FkwOJykcLgzkicg0miapcmmMJiGgMguDcMqImulIyl+YQ2DEbJRlOdA1naeJBD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKDA2CIPg8C+A4FgeGhwG8bB5GwaRugiIYmHQc4TDIIAxDCL4ug6LwzjWGYbiGI4lieIBhHQaAgGSDBtDENguDGNg3C4Ng2C0Lg4DELQ0C4MA1GGLoujGWwtDILQxkwMRol2TA4lgIJaCCXIzmEbJPDcOAglSVo4C8cI/GiPpAkKRJLDicZGC4M5HnENJnmmW5oi+YRoDILg3DKh5qpOMZemANgxGyUJSnMNZ1neQA+gE",
         categories = "time",
         tags = "clock,time",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -10164,7 +10340,7 @@ pub enum LucideGlyph {
     Waves,
     #[cfg(feature = "waypoints")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwNAuDWEBygwMoVCIPg8C+A4FgeHRwGEdBoCAZIMG0MQwC4MggDYLgzC0MwuDkII1DmHIeiSJodiCBoIgqE4bhGDIOheGYbh2H4EkGI4lieKQiE0Nwgg4aIsjsL49GiP5OgeCYLg0OZFGOEoNg8IIYCKGoWkyQIiDyXYoioMY1DiVw3C6Vo5jSNpbl2X4hkKaAxmWFpikeapsm6W5xGUPoBA",
+        svg = "gAPBjGkchjGwZQgHIPQiDILg1CIIBjHiCwxDKEBjHmCw0g4Ig+DwL4DgWB4eHAYR0GgIBkgsbQxDALgyCANguDMLQzC4OQgjYOYdh+JYnh6IYGgiCoMhyEYZCKFYXhMIobg+HoggSQokiaKIqCITQ3CCFRoi2PAvj4aJAlKB5HhSFoJguDYPhGTAxDmHJQkGIw8mGKYrDGNg4lsNwulqOo1jeX5hmOIpDmqRoSmeF5Im+cYfnMZQ+gE",
         categories = "security,account,maps,navigation,development,social",
         tags = "indirection,vpn,virtual private network,proxy,connections,bounce,reroute,path,journey,planner,stops,stations,shared,spread,viral",
         contributors = "danielbayley"
@@ -10172,7 +10348,7 @@ pub enum LucideGlyph {
     Waypoints,
     #[cfg(feature = "webcam")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDgIggGMeILDEMoOGMeYSDAIg+DwL4DgWB4bh6BoIhCEoUg+FwiDGGYJgsM4ahyIogDwcBhHQaAgGSCxNDcIAyDIaIrjAL41jeG5FjiOgiE2E4+DIdgtDSQ5ID6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDgIggGMeYLDEMIOGMeISDIIg+DwL4DgWB4bh6BoIgoIgzhWFwiDGGYPhGKoUhuHYEiOGxwGEdBoCAZILE0NwgDIMhohOGocjaOI1jeOY7CITYrj8Mh2C0NJEC+RhoD6AQA",
         categories = "connectivity,devices,communication",
         tags = "camera,security",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -10188,7 +10364,7 @@ pub enum LucideGlyph {
     Webhook,
     #[cfg(feature = "weight")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDEMoOGMeYLDUIg+DwL4DgWB4bHAYR0GgIBkgsTQ2C4NQgDgYQyCCMAwCCMwwC0MQuDkMIsjgNA2EwMguDEIAxDiKxBjCMo0ksNIxDEaAxDaL4xkuNZEjkMg1C2QQ1DQTAxDkLpNmENZIlSVozDEN5iDiLRahqHIiiQPoBA",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gwNYQHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0NguDUIA4GEMggi8MAgjIMAtDELg5DCK43DQNhMDILgxCAMQ4ioQYvjGM5KDSMAxGgMQ2i6MJKjSQ44DINQtkANQ0EwMQ5C6TJgDWR5TlWMgxDeYQ4iwWoZhuIYjD6AQ",
         categories = "maths",
         tags = "mass,heavy,lead,metal,measure,geometry,scales,balance",
         contributors = "danielbayley,karsa-mistmere"
@@ -10196,7 +10372,7 @@ pub enum LucideGlyph {
     Weight,
     #[cfg(feature = "wheat_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CIbQyCAMoMDEMAthAIg+DwL4DgWFYYgaCIKDENggDiEguDENwgDGJA3hSFobhqBIcgkTQzC4NImDEMguDUMwgDWJwxGyKI6ieOQzGGM49kcIAwkqJ5MDQLg5DQTI9DEORsiOOpYkWSZJkuSwxkoLZPlEWorheL4ugWB4JG0OIhC2RJEkaOQgl2TJeCCY5SDmJw1kCRJaGOOQ1nANQ1C4OIiigMqHDmipQiqFZnhmAovmsIhNhCUJgocMg2oIMaEC6nguDMNKFkENpwDcMxMDGOwzn+QpBludJ2l8IKjm6Tw2DKZotpWaodE0MpLDIaAyHYMhhDSeZ3ieYp5GgLQyFYNrMs6eJgqcNJlpKwIbpemYojWJw3jSNo7lWV60kOOpzkidLamKULNDCU4nlatJavCdbyky271kq3osmiwYwh6IIfoWR61vGPbznqShMnyoayDO/IzDSfMany2pDDkN5wo6v8GuGwwxDgLg3s2rwuDAOaCp6cKhjkMZwqbK8YjkNhMDKYAxj+WsZra/5evSvZwDIOMlpQbBpG4ZQgHkMoJg4ItTDHVtYHjWgir4IB41XX6+pLT9RD6AQ",
+        svg = "gAPBwGEdBoCAZA9CIbQyCAMoMDEMAthAIg+DwL4DgWFYYgaCIKDENggDiEguDENwgDGJA3hSFobhqBIcgkTQzC4NImDEMguDUMwgDWJwxGyKI6ieOQzGGM49kcIAwkqJ5MDQLg5DQTI9DEORsiOOpYkWSZJkuSwxkoLZPlEWorheL4ugWB4JG0OIhC2RJEkaOQgl2TJeCCY5SDmJw1kCRJaGOOQ1nANQ1C4OIiigMqHDmipQiqFZnhmAovmsIhNhCUJgocMg2oIMaEC6nguDMNKFkENpwDcMxMDGOwzn+QpBludJ2l8IKjm6Tw2DKZotpWaodE0MpLDIaAyHYMhhDSeZ3ieYp5GgLQyFYNrMs6eJgqcNJlpKwIbpemYojWJw3jSNo7lWV60kOOpzkidLamKULNDCU4nlatJavCdbyky271kq3osmiwYwh6IIfoWR61vGPbznqShMnyoayDO/IzDSfMany2pDDkN5wo6v8GuGwwxDgLg3s2rwuDAOaCp6cKhjkMZwqbK8YjkNhMDKYAxj+WsZra/5evSvZwDIOMlpQbBpG4ZQgHgMoJg4ItTDHVtYHnWgir4IB51XX6+pLT9RD6AQ",
         categories = "food-beverage",
         tags = "corn,cereal,grain,gluten free,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -10212,7 +10388,7 @@ pub enum LucideGlyph {
     Wheat,
     #[cfg(feature = "whole_word")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgHIPQiDMIggGMeILDeDhjHmCwxDIIg+DwL4DgWB4bHAYR0GgIBkgsTQxDAIA5HYNoahyIokhuHoGgiFYXhmCYLg2D4RCIMYThuHYEjaIYjiWJwiikNAgDcdg4jAL4yGiR4kiaKAyDIIJBHYMRjisLg1C2YpcC0MZcEgMxjmQNQgDCZ5tnEMR2meUpUD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CINwigkeYMDEMoPHKDAzCIPg8C+A4FgeGhwGEdBoCAZIME0MQwCAOR2DaGYbiGI4ah2BoIgqEoOhCEoUCCFgihiGocgSNYgiKJImCKKA0CANx2DiLwvjEaJFiOJYnDIMggDGTQxGOKguDULZgloLQxloSAzGOYg1CAMJlmubwxHaZZQlIPoB",
         categories = "text",
         tags = "text,selection,letters,characters,font,typography",
         contributors = "danielbayley"
@@ -10220,7 +10396,7 @@ pub enum LucideGlyph {
     WholeWord,
     #[cfg(feature = "wifi_off")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeQyD0IgyDIIggHiCYLg2BwxgqEx4hWCwiD4PAvgOBYcHAYR0GgIBkgoTQ4C4NQgDENorGGLIsDAII0DEIA3jWG4diKJIhiOJYnCITQyCCKg4DIYQxiyS41k6Nw0C4MQ3C0MguDYNY7C+PRoj+JImigMQwlcNggDUY5RDAMQtC4M5lioMZRDmLQxm0NAgDMLg3DaWpcl6QZhi8OJMnUMg1kqNo0oqLQglaDItlcOJ9kCf5gkOTAzoiLaLjaZguDINJVnqfIclulICgSBoYgoMYXhGrQumqDoIhYMKzhkMq2qWHxlD6AQ",
+        svg = "gAPBsGkbhlCAeQxD0IgyCKBwygoMoMCAeIPguEh4gmCwiD4PAvgOBYcHAYR0GgIBkgoTQ4C4NQgDENorGGLIsDAII0DEIA3jWG4diKJIhiOJYnCITQyCCKg4DIYQxiyS41k6Nw0C4MQ3C0MguDYNY7C+PRoj+JImigMQwlcNggDUY5RDAMQtC4M5lioMZRDmLQxm0NAgDMLg3DaWpcl6QZhi8OJMnUMg1kqNo0oqLQglaEYtlcOJ9kCf5gkOTAzoiLaLjaZguDINJVnqfIclulICgSBoIhAMINhSCgxlaaoNHmFQyq2E4ZrGWofGUPoB",
         categories = "connectivity,devices",
         tags = "disabled",
         contributors = "colebemis,ericfennis"
@@ -10228,7 +10404,7 @@ pub enum LucideGlyph {
     WifiOff,
     #[cfg(feature = "wifi")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ1CAMQzGEMQwg2EoUg2DQ0CAMAiD4PAvgOBYch+BoIgoOAugwMQ2icYYMgyFQxCAN4ZhuHYiiGBIjgkTQyCCJg4DKEIoi6GYWDKFI0h6OIcGwaRuGUIB4DKCQxDILgwDEIggHkMYJkaWR4lwIpUlkeZSCKXocC+TJOD6AQ",
+        svg = "gAPBwGEdBoCAZA9CITQ1CAMQzGEMQwg2EoUg2DQ0CAMAiD4PAvgOBYch+BoIgoOAugwMQ2icYYMgyFQxCAN4ZhuHYiiGBIjgkTQyCCJg4DKEIoi6GYWDKFI0h6OIcGwaRuGUIB5DGCZGCIIB4lIIgxDKVR5DKU4alaXpZDILgwDGSJMk4PoB",
         categories = "connectivity,devices",
         tags = "connection,signal,wireless",
         contributors = "colebemis,ericfennis"
@@ -10244,7 +10420,7 @@ pub enum LucideGlyph {
     Wind,
     #[cfg(feature = "wine_off")]
     #[strum(props(
-        svg = "gAPBwGEdBoCAZA9CITQ4CAMgyGgOAiD4PAvgOBYThaBoIgoNwgDEMBoDMbYdiALQxC4Mw0DOEoUhmGIEhqCRNDEMoeDUdg3iyFYwi+BYHjIN4oDCHZBDOQxBjSKAzh4MpKCAMJPlGHYfGENQglaUJZCCRQ5DEIA0iiXYLC4NgzgyTQ5DgMRDDgLg3laTQ2DaDJtDgN41k2KQgDmDRoDYY4nlYNINCANqEgyUAuDSQwtC4MA1C4OAwDmjQxDSVonDGaY6i4PBsGkbhlCAeAxgkMgiCAeQyqap6pqUIqtHiq6wqeEwvp+oQ+gE",
+        svg = "gAPBwGEdBoCAZA9CITQ4CAMgyGgOAiD4PAvgOBYThaBoIgoNwgDEMBoDMbYdiALQxC4Mw0DOEoUhmGIEhqCRNDEMoeDUdg3iyFYwi+BYHjIN4oDCHZBDOQxBjSKAzh4MpKCAMJPlGHYfGENQglaUJZCCRQ5DEIA0iiXYLC4NgzgyTQ5DgMRDDgLg3laTQ2DaDJtDgN41k2KQgDmDRoDYY4nlYNINCANqEgyUAuDSQwtC4MA1C4OAwDmjQxDSVonDGaY6i4PBsGkbhlCAeAygmDgiCAealCKp6jDGpqoHmr6sjqn6hD6AQA",
         categories = "food-beverage",
         tags = "alcohol,beverage,drink,glass,alcohol free,abstinence,abstaining,teetotalism,allergy,intolerance",
         contributors = "karsa-mistmere,ericfennis"
@@ -10260,7 +10436,7 @@ pub enum LucideGlyph {
     Wine,
     #[cfg(feature = "workflow")]
     #[strum(props(
-        svg = "gAPByGUYx0CAeQ9CIMwiCAdxpGQdBogkOIMHiCYLCAaBlGkZxoHSE4MHKFgiDIIg+DwL4DgWJxwGGEQgGSCRNDcIAxDEdg0GEMggjsMAgj6Po7DIaA0iaKIthGJ4qgaDoQhIIoUCCIwxhiGoch6IIHgmVIhiOJYnimBB0D6AQA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDgIggHmDgzhEdxpGQdBog6EAgHIeIODKEYgCKFQ+DwL4DgWJxwGGGggGSDhNDcIAxDEdg0GEMggjsMAgj6Po7DIaA0CKJwvi2GoniqBoXhmG4PhGCIKgyHIRhMIgxhUIIklqEYfiGRookwPoBA",
         categories = "development",
         tags = "action,continuous integration,ci,automation,devops,network,node,connection",
         contributors = "danielbayley,jguddas"
@@ -10268,7 +10444,7 @@ pub enum LucideGlyph {
     Workflow,
     #[cfg(feature = "wrap_text")]
     #[strum(props(
-        svg = "gAPBsGkbhlCAeAxD0IgzCKBwygoMgxg0eYJCINoTg+FgiD4PAvgOBYcHAYR0GgIBkgoTQzCAMQyGgMQ1GGKoqDCK41jQNhoC0NIbh2IokiEbxsHmH4GHAb4EHQc4KDENork0MQ0isOJOCAMgwjwL5GkKRIckSB4VgwIIUksOIYmSDR4hkMZXhyHoEGUPoBA",
+        svg = "gAPBsGkbhlCAeAyD0IgyDEIggHmCQiDaDh4DGCgzg4eYWhIIg+DwL4DgWHhwGEdBoCAZIKE0MwgDEMhoDENRhiyLAwi2N42DYaAtDSHYfiSJojG8bB5iGBhwG+BB0HOCgxDaLZPDENItDiUAgDIMI+C+SJEkaHpGg+EQxDiFIbhiD4bmOFJilmHoggQZQ+gE",
         categories = "text,arrows",
         tags = "words,lines,break,paragraph",
         contributors = "bduffany,ericfennis"
@@ -10284,7 +10460,7 @@ pub enum LucideGlyph {
     Wrench,
     #[cfg(feature = "x_circle")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQyCKCR5gyDoQHKEwwCIPg8C+A4FgeGhwGEdBoCAZIMG0MQ1CAOQtDYIA2hmG4hiOIIiiSJgiG0OYri+L4xC+MxoD6AQ",
+        svg = "gAPBjGkchjGwZQgHIPQiDEMAiCAYx4gsMQyg8Yx5hOFQ+DwL4DgWB4bHAYR0GgIBkgsbQxDUIA5C0NggDYIobC+IokiGI4licIhtDmLIwjCMocjUaA+gEA",
         categories = "maths,shapes,development",
         tags = "cancel,close,delete,remove,times,clear,error,incorrect,wrong,mistake,failure,linter,multiply,multiplication",
         contributors = "colebemis,ericfennis"
@@ -10300,7 +10476,7 @@ pub enum LucideGlyph {
     XOctagon,
     #[cfg(feature = "x_square")]
     #[strum(props(
-        svg = "gAPByGUYx0CAdxpGQdBoD0IgxDgIggGgZRpGcaB0g2D4RHiDQzhEeYdhEcocCIMoiiCJQiD4PAvgOBYrHAYYLCAZING0MQ1CAOQtDYIA2iqLIxguMIyGiNI2DmOo+j6QAvkIaA+gEA",
+        svg = "gAPByGUYx0CAaBlGkZxoHQPQiDEOAiCAch5g4MoSHiDgzhKFQihuE4ZCKFwgHcaRkHQaIOhAIg+DwL4DgWLRwGGKAgGSDhtDENQgDkLQ2CANosi6M4ojKNBojaOA5jyQJAkIL5EGgPoB",
         categories = "maths,shapes,notifications",
         tags = "cancel,close,delete,remove,times,clear,maths,multiply,multiplication",
         contributors = "colebemis,ericfennis"
@@ -10324,7 +10500,7 @@ pub enum LucideGlyph {
     Youtube,
     #[cfg(feature = "zap_off")]
     #[strum(props(
-        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDILg0DEIA2C4Nw1CAMQzCAMocDALg1DcIA0C4OQyCIPg8C+A4FgeCYsi+BoIgqDBug6EAxDiI4lhKKIWDKFgxDCHA1C4Ng2iGK4tjSMRljOBI1gmCxvg2DwiDgIJbh4MQ0hyIJfhyQpiksMQ2k2LpTlCLJQCAeQyhAMoqnAMZzCIIB4ncIp1Hicp9iqLAvm2AQ",
+        svg = "gAPBwG8bB5GwaRuGUIIDggdBzD0IgxDILg0DEIA2C4Nw1CAMQzCAMocDALg1DcIA0C4OQyCIPg8C+A4FgeCYsi+BoIgqDBug6EAxDiI4lhKKIWDKFgxDCHA1C4Ng2iGK4tjSMRljOBI1gmCxvg2DwiDgIJbh4MQ0hyIJfhyQpiksMQ2k2LpTlCLJQCAeQxhCKpwDKc50Hicginidp7iqLAvm2AQ",
         categories = "connectivity,devices,photography,weather",
         tags = "flash,camera,lightning",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -10340,7 +10516,7 @@ pub enum LucideGlyph {
     Zap,
     #[cfg(feature = "zoom_in")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQxCIIBygwOIQGMeYMg4Ig+DwL4DgWB4bGwaRuggeQyhgNguDYNYQHkMYMDKDwgHiJ4NimK4QHiLwijGGociKJIhiOJY7hSM47hkIImhgNI5jWGYbC+QBlkKJJHhOLZPjKNJMi2SIPlGUw+gE",
+        svg = "gAPBjGkchjGwZQgHIPQiDgIggGMeILDEMYOGMeYShQPg8C+A4FgeGhsGkboIHkMoSDYLg2DWDh4DGCwyhQIB5i4IowiyJgiDGKIqCKGgviGI4giKJI4DENI3hiDozguDQgi2SY+kAZZCiOTo0k2JZJjKNITkiOZHlGQw+gE",
         categories = "accessibility,layout,design,text,photography",
         tags = "magnifying glass,plus",
         contributors = "colebemis,ericfennis"
@@ -10348,7 +10524,7 @@ pub enum LucideGlyph {
     ZoomIn,
     #[cfg(feature = "zoom_out")]
     #[strum(props(
-        svg = "gAPBjGkchjGwZQgGMeA9CIMQxCKCR5gyDoQHKDA4CIPg8C+A4FgeGhsGkboIHgMoTDYLg2DWEB5iaDYoiqLAxgwMoPCAeIzCKNYZhuIYjiCIokjmGAgi2E42iWEw0jKR48C+PhlD6AQ",
+        svg = "gAPBjGkchjGwZQgGMeA9CIMQxCKCR5gyDoQHKDA4CIPg8C+A4FgeGhsGkboIHgMYMDKDwgHmJgiiiEB4DKEw2C4Ng1hAeYxg2M41hmG4hiOIIigiOITimMITDSL4shiKoshSGgvj8ZQ+gEA",
         categories = "accessibility,layout,design,text,photography",
         tags = "magnifying glass,plus",
         contributors = "colebemis,ericfennis"
