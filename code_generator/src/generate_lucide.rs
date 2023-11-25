@@ -192,6 +192,7 @@ fn format_code(file_path: &mut Path) {
 
 fn update_cargo_features(path: String, entries: &Vec<SvgEntry>) {
     let mut cargo = CargoToml::load(path.clone());
+    let prev_features = cargo.features.iter().count();
     cargo.features.clear();
     cargo.features.insert(
         "default".to_string(),
@@ -207,6 +208,10 @@ fn update_cargo_features(path: String, entries: &Vec<SvgEntry>) {
             .features
             .insert(entry.feature_name.clone(), toml::Value::Array(vec![]));
     });
+    println!(
+        ">>> New icons: {}",
+        cargo.features.iter().count() - prev_features
+    );
 
     cargo.store(path.clone());
 }
