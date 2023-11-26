@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 leptos = { version = "0.5.2", features = ["csr"] }
 leptos_meta ={ version = "0.5.2", features = ["csr"] }
+leptos_router= { version = "0.5.2", features = ["csr"] }
 strum = "0.25"
 strum_macros = "0.25.3"
 lepticons= { path = "./lepticons", features = ["default"] }
