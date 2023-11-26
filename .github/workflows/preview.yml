@@ -47,17 +47,17 @@ jobs:
   #     - name: Run tests
   #       run: cargo test
 
-  build:
+  build-and-preview-deploy:
     runs-on: ubuntu-latest
     name: Build and Preview Deploy
     # needs: [test]
-#    permissions:
-#      pull-requests: write
-#    environment:
-#      name: preview
-#      url: ${{ steps.deploy.outputs.preview-url }}
+    permissions:
+      pull-requests: write
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.preview-url }}
     steps:
-      - name: Git Checkout
+      - name: git-checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT }}
@@ -73,17 +73,7 @@ jobs:
       - uses: jetli/trunk-action@v0.4.0
       - name: Build
         run: |
-           trunk build --release
-  preview-deploy:
-    runs-on: ubuntu-latest
-    name: Preview Deploy
-    # needs: [test]
-    permissions:
-      pull-requests: write
-    environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.preview-url }}
-    steps:
+          trunk build --release
       - name: Preview Deploy
         id: deploy
         uses: amondnet/vercel-action@v25
@@ -92,5 +82,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-#          github-comment: true
+          github-comment: true
           working-directory: ./dist
