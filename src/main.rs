@@ -44,25 +44,32 @@ fn NotFoundView() -> impl IntoView {
 }
 
 #[component]
+fn CommonHeader() -> impl IntoView {
+    view! {
+        <div class="flex flex-row">
+            <img src="lepticons.png" class="w-48 pr-4 py-(-5)"/>
+            <MainMenu class="flex-auto justify-end text-primary"/>
+        </div>
+        <hr/>
+    }
+}
+
+#[component]
 fn LicenseView() -> impl IntoView {
     view! {
             <div class="flex flex-col h-screen w-screen py-5 px-10">
-                <div class="flex flex-row">
-                    <img src="lepticons.png" class="w-48 pr-4 py-(-5)"/>
-                    <MainMenu class="flex-auto justify-end text-primary"/>
-                </div>
-                <hr/>
+                <CommonHeader/>
                 <div class="mx-40">
 
                 <p class="my-10  p-25 text-2xl text-primary">MIT License</p>
                 <p class="text-primary py-5">
             Copyright (c) 2022-2023 Eugene Ryzhikov
-            </p>
-            <p class="text-primary py-1">
+                </p>
+                <p class="text-primary py-1">
     Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT).
     All other copyright (c) for Lucide are held by Lucide Contributors 2022.
-            </p>
-            <p class="text-primary py-1">
+                </p>
+                <p class="text-primary py-1">
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
     in the Software without restriction, including without limitation the rights
@@ -70,13 +77,12 @@ fn LicenseView() -> impl IntoView {
     copies of the Software, and to permit persons to whom the Software is
     furnished to do so, subject to the following conditions:
 
-            </p>
-            <p class="text-primary py-1">
+                </p>
+                <p class="text-primary py-1">
     The above copyright notice and this permission notice shall be included in all
     copies or substantial portions of the Software.
-
-            </p>
-            <p class="text-primary py-1">
+                </p>
+                <p class="text-primary py-1">
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -85,7 +91,7 @@ fn LicenseView() -> impl IntoView {
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
             </p>
-            </div>
-            </div>
-        }
+        </div>
+    </div>
+    }
 }
