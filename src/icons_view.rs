@@ -22,14 +22,20 @@ pub fn IconsView() -> impl IntoView {
         log!("Filter: {}", icon_filter.get_untracked());
     };
 
+    let icon_count: u16 = LucideGlyph::all_categories().values().sum();
+
     view! {
         // <Meta name="color-scheme" content="light"/>
         <div class="flex flex-row">
             <div class="w-64 flex-none bg-secondary h-screen overflow-y-auto">
 
                 <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
-                   //<div class="py-5 text-2xl font-medium">Lepticons</div>
-                   <img src="lepticons.png" class="py-5 w-48"/>
+                    <div class="flex flex-col items-center gap-0 cursor-pointer">
+                        <img src="lepticons.png" class="pt-5 w-48"/>
+                        <p class="text-primary text-[0.5rem] pb-2 self-end" on:click=clear_filter >
+                           {format!("{} icons", icon_count)}
+                        </p>
+                   </div>
                    <hr/>
                 </StickyTop>
 
