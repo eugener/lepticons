@@ -7,9 +7,13 @@ use leptos::{
 
 use lepticons::LucideGlyph;
 use lepticons::*;
+use strum::IntoEnumIterator;
 
 use crate::components::*;
 use crate::menu::*;
+use std::sync::OnceLock;
+
+static ICON_COUNT: OnceLock<usize> = OnceLock::new();
 
 #[component]
 pub fn IconsView() -> impl IntoView {
@@ -22,7 +26,7 @@ pub fn IconsView() -> impl IntoView {
         log!("Filter: {}", icon_filter.get_untracked());
     };
 
-    let icon_count: u16 = LucideGlyph::all_categories().values().sum();
+    let icon_count = ICON_COUNT.get_or_init(|| LucideGlyph::iter().count());
 
     view! {
         // <Meta name="color-scheme" content="light"/>
@@ -32,7 +36,7 @@ pub fn IconsView() -> impl IntoView {
                 <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
                     <div class="flex flex-col items-center gap-0 cursor-pointer">
                         <img src="lepticons.png" class="pt-5 w-48"/>
-                        <p class="text-primary text-[0.5rem] pb-2 self-end" on:click=clear_filter >
+                        <p class="text-primary text-[0.7rem] pb-2 self-end" on:click=clear_filter >
                            {format!("{} icons", icon_count)}
                         </p>
                    </div>
