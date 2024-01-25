@@ -50,9 +50,9 @@ pub fn IconsView() -> impl IntoView {
                              .map(|(title, count)| {
                                   let title_cloned = title.clone();
                                   view! {
-                                    <div class="flex flex-row gap-4 text-sm text-primary/70 cursor-pointer">
-                                       <div class="flex-auto"
-                                               on:click=move |_| set_icon_filter.set(title_cloned.to_string()) >
+                                    <div class="flex flex-row gap-4 text-sm text-primary/70 cursor-pointer"
+                                       on:click=move |_| set_icon_filter.set(title_cloned.to_string())>
+                                       <div class="flex-auto">
                                            {title}
                                        </div>
                                       <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
