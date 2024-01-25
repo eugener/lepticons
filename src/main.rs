@@ -1,4 +1,4 @@
-﻿use chrono::Datelike;
+use chrono::Datelike;
 use chrono::Utc;
 use leptos::*;
 use leptos_meta::*;
@@ -84,7 +84,7 @@ const COPYRIGHT: [&'static str; 4] = [
 #[component]
 fn LicenseView() -> impl IntoView {
     let year = Utc::now().year().to_string();
-    let copyright = format!("Copyright (c) 2022-{} Eugene Ryzhikov",year);
+    let copyright = format!("Copyright (c) 2022-{} Eugene Ryzhikov", year);
     // print!("{}", copyright);
 
     view! {
