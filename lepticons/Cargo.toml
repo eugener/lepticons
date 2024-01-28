@@ -15,16 +15,16 @@ version = "0.5.0"
 bench = false
 
 [dependencies]
-base64 = "0.21.7"
-cached = "0.47.0"
-convert_case = "0.6.0"
-strum = "0.25.0"
-strum_macros = "0.25.3"
-weezl = "0.1.7"
+base64 = "0.21"
+cached = "0.48"
+convert_case = "0.6"
+strum = "0.26"
+strum_macros = "0.26"
+weezl = "0.1"
 
 [dependencies.leptos]
 features = ["csr"]
-version = "0.6.3"
+version = "0.6"
 
 [features]
 a_arrow_down = []

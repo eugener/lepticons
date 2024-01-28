@@ -10,15 +10,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-leptos = { version = "0.6.3", features = ["csr"] }
-leptos_meta ={ version = "0.6.3", features = ["csr"] }
-leptos_router= { version = "0.6.3", features = ["csr"] }
-strum = "0.25"
-strum_macros = "0.25.3"
+leptos = { version = "0.6", features = ["csr"] }
+leptos_meta ={ version = "0.6", features = ["csr"] }
+leptos_router= { version = "0.6", features = ["csr"] }
+strum = "0.26"
+strum_macros = "0.26"
 lepticons= { path = "./lepticons", features = ["default"] }
-convert_case = "0.6.0"
-web-sys = { version = "0.3.67", features = ["Window", "Storage"] }
-chrono = { version = "0.4.32", features = [] }
+convert_case = "0.6"
+web-sys = { version = "0.3", features = ["Window", "Storage"] }
+chrono = { version = "0.4", features = [] }
 
 [package.metadata.leptos]
 name = "lucid-icons-demo"
