@@ -31,6 +31,7 @@ pub fn IconsView() -> impl IntoView {
     view! {
         // <Meta name="color-scheme" content="light"/>
         <div class="flex flex-row">
+            // icon group list
             <div class="w-64 flex-none bg-secondary h-screen overflow-y-auto">
 
                 <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
@@ -50,19 +51,16 @@ pub fn IconsView() -> impl IntoView {
                              .map(|(title, count)| {
                                   let title_cloned = title.clone();
                                   view! {
-                                    <div class="flex flex-row gap-4 text-sm text-primary/70 cursor-pointer"
-                                       on:click=move |_| set_icon_filter.set(title_cloned.to_string())>
-                                       <div class="flex-auto">
-                                           {title}
-                                       </div>
-                                      <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
-                                    </div>
+                                      <IconGroupLabel title=title.to_string() count=*count
+                                      on:click=move |_| set_icon_filter.set(title_cloned.to_string()) />
                                   }
                               }).collect::<Vec<_>>()
                    }
                 </div>
 
             </div>
+
+            // searchable icon table
             <div class="px-10 mt-5 flex flex-col gap-4 flex-auto h-screen overflow-y-auto">
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
@@ -78,9 +76,20 @@ pub fn IconsView() -> impl IntoView {
                     </div>
                 </StickyTop>
                 <IconTable icon_filter=icon_filter />
-
             </div>
         </div>
+    }
+}
+
+#[component]
+fn IconGroupLabel(title: String, count: u16) -> impl IntoView {
+    view! {
+      <div class="flex flex-row gap-4 text-sm text-primary/70 cursor-pointer">
+         <div class="flex-auto">
+             {title}
+         </div>
+        <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
+      </div>
     }
 }
 
@@ -89,7 +98,6 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
     let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
 
     view! {
-
         <div class="flex flex-row flex-wrap gap-2 justify-between">
         {
             move || filtered_icons().iter().map( |icon|
@@ -97,20 +105,19 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
             ).collect::<Vec<_>>()
         }
         </div>
-
     }
 }
 
-const ICON_CONTAINER: &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1";
-const TOOLTIP: &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
+const ICON_CONTAINER_STYLE: &'static str = "relative group p-3.5 bg-secondary rounded-lg hover:bg-primary/20 border-1 border-primary/0 hover:border-primary/100 hover:border-1";
+const TOOLTIP_STYLE: &'static str = "absolute left-1/2 -translate-x-1/2 translate-y-5 z-10 opacity-0 transition-opacity group-hover:opacity-100 p-1 px-2 text-xs font-light text-white bg-orange-700/90 border border-1 border-orange-750/90 rounded";
 
 #[component]
 fn IconCell(icon: LucideGlyph) -> impl IntoView {
     let glyph = icon.clone();
     view! {
-        <div class=ICON_CONTAINER>
+        <div class=ICON_CONTAINER_STYLE>
             <Icon<LucideGlyph> glyph= move || glyph.clone() /> // stroke_width={1.7} stroke="#645e5f"/>
-            <div class=TOOLTIP >
+            <div class=TOOLTIP_STYLE >
                {icon.name()}
             </div>
         </div>
