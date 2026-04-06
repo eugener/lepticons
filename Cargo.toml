@@ -17,7 +17,12 @@ strum = "0.26"
 strum_macros = "0.26"
 lepticons= { path = "./lepticons", features = ["default"] }
 convert_case = "0.6"
-web-sys = { version = "0.3", features = ["Window", "Storage"] }
+web-sys = { version = "0.3", features = [
+    "Window", "Storage", "Navigator", "Clipboard",
+    "Document", "HtmlElement", "HtmlAnchorElement", "HtmlCanvasElement",
+    "HtmlImageElement", "CanvasRenderingContext2d", "Blob", "BlobPropertyBag",
+    "Url",
+] }
 chrono = { version = "0.4", features = [] }
 
 [package.metadata.leptos]

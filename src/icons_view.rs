@@ -2,6 +2,9 @@ use convert_case::{Case, Casing};
 use leptos::ev::*;
 use leptos::logging::*;
 use leptos::prelude::*;
+use leptos::wasm_bindgen::JsCast;
+use web_sys::js_sys;
+use web_sys::wasm_bindgen;
 
 use lepticons::LucideGlyph;
 use lepticons::*;
@@ -145,6 +148,15 @@ fn IconDetail(
             let tags = icon.tags().into_iter().filter(|t| !t.is_empty()).collect::<Vec<_>>();
             let categories = icon.categories().into_iter().filter(|c| !c.is_empty()).collect::<Vec<_>>();
             let glyph = icon.clone();
+            let svg_content = icon.svg();
+            let full_svg = format!(
+                "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{}</svg>",
+                svg_content
+            );
+
+            let (menu_open, set_menu_open) = signal(false);
+            let (copied, set_copied) = signal(false);
+            let icon_name = name.clone();
 
             view! {
                 <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50">
@@ -183,6 +195,65 @@ fn IconDetail(
                         } else {
                             None
                         }}
+
+                        // actions
+                        <div class="flex flex-row gap-3 pt-1">
+                            <div class="relative">
+                                <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
+                                        on:click=move |_| set_menu_open.set(!menu_open.get())>
+                                    <Icon glyph=Signal::derive(move || {
+                                        if copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
+                                    }) size="16" />
+                                    {move || if copied.get() { "Copied!" } else { "Copy SVG" }}
+                                    <Icon glyph=Signal::derive(move || LucideGlyph::ChevronUp) size="14" />
+                                </button>
+                                {move || menu_open.get().then(|| {
+                                    let svg_for_copy = full_svg.clone();
+                                    let svg_for_data_url = full_svg.clone();
+                                    let svg_for_download = full_svg.clone();
+                                    let svg_for_png = full_svg.clone();
+                                    let name_for_svg = icon_name.clone();
+                                    let name_for_png = icon_name.clone();
+                                    view! {
+                                        <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[160px] z-50">
+                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                                    on:click=move |_| {
+                                                        copy_to_clipboard(&svg_for_copy);
+                                                        set_copied.set(true);
+                                                        set_menu_open.set(false);
+                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                    }>
+                                                "Copy SVG"
+                                            </button>
+                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                                    on:click=move |_| {
+                                                        let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(&svg_for_data_url));
+                                                        copy_to_clipboard(&data_url);
+                                                        set_copied.set(true);
+                                                        set_menu_open.set(false);
+                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                    }>
+                                                "Copy Data URL"
+                                            </button>
+                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                                    on:click=move |_| {
+                                                        download_blob(&svg_for_download, &format!("{}.svg", name_for_svg), "image/svg+xml");
+                                                        set_menu_open.set(false);
+                                                    }>
+                                                "Download SVG"
+                                            </button>
+                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                                    on:click=move |_| {
+                                                        download_png(&svg_for_png, &name_for_png);
+                                                        set_menu_open.set(false);
+                                                    }>
+                                                "Download PNG"
+                                            </button>
+                                        </div>
+                                    }
+                                })}
+                            </div>
+                        </div>
                     </div>
 
                     // close button
@@ -193,4 +264,67 @@ fn IconDetail(
             }
         })}
     }
+}
+
+fn copy_to_clipboard(text: &str) {
+    if let Some(w) = web_sys::window() {
+        let clipboard = w.navigator().clipboard();
+        let _ = clipboard.write_text(text);
+    }
+}
+
+fn download_blob(content: &str, filename: &str, mime: &str) {
+    let Some(document) = web_sys::window().and_then(|w| w.document()) else { return };
+    let parts = js_sys::Array::new();
+    parts.push(&wasm_bindgen::JsValue::from_str(content));
+    let opts = web_sys::BlobPropertyBag::new();
+    opts.set_type(mime);
+    let Ok(blob) = web_sys::Blob::new_with_str_sequence_and_options(&parts, &opts) else { return };
+    let Ok(url) = web_sys::Url::create_object_url_with_blob(&blob) else { return };
+    let Ok(el) = document.create_element("a") else { return };
+    let anchor: web_sys::HtmlAnchorElement = el.unchecked_into();
+    anchor.set_href(&url);
+    anchor.set_download(filename);
+    anchor.click();
+    let _ = web_sys::Url::revoke_object_url(&url);
+}
+
+fn download_png(svg_str: &str, name: &str) {
+    let Some(window) = web_sys::window() else { return };
+    let Some(document) = window.document() else { return };
+
+    let Ok(canvas_el) = document.create_element("canvas") else { return };
+    let canvas: web_sys::HtmlCanvasElement = canvas_el.unchecked_into();
+    let png_size = 256;
+    canvas.set_width(png_size);
+    canvas.set_height(png_size);
+
+    let Ok(ctx_val) = canvas.get_context("2d") else { return };
+    let Some(ctx_obj) = ctx_val else { return };
+    let ctx: web_sys::CanvasRenderingContext2d = ctx_obj.unchecked_into::<web_sys::CanvasRenderingContext2d>();
+
+    let img = web_sys::HtmlImageElement::new().unwrap();
+    let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(svg_str));
+
+    let filename = format!("{}.png", name);
+    let canvas_clone = canvas.clone();
+    let img_clone = img.clone();
+
+    let closure = wasm_bindgen::closure::Closure::once(move || {
+        ctx.draw_image_with_html_image_element_and_dw_and_dh(
+            &img_clone, 0.0, 0.0, png_size as f64, png_size as f64,
+        ).unwrap();
+        if let Ok(png_url) = canvas_clone.to_data_url_with_type("image/png") {
+            let Some(document) = web_sys::window().and_then(|w| w.document()) else { return };
+            let Ok(el) = document.create_element("a") else { return };
+            let anchor: web_sys::HtmlAnchorElement = el.unchecked_into();
+            anchor.set_href(&png_url);
+            anchor.set_download(&filename);
+            anchor.click();
+        }
+    });
+
+    img.set_onload(Some(closure.as_ref().unchecked_ref()));
+    img.set_src(&data_url);
+    closure.forget();
 }
