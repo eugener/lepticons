@@ -1,8 +1,9 @@
 use chrono::Datelike;
 use chrono::Utc;
-use leptos::*;
+use leptos::prelude::*;
 use leptos_meta::*;
-use leptos_router::*;
+use leptos_router::components::*;
+use leptos_router::path;
 
 use icons_view::*;
 
@@ -26,10 +27,9 @@ fn main() {
 fn App() -> impl IntoView {
     view! {
         <Router>
-            <Routes>
-                <Route path="/" view=IconsView/>
-                <Route path="/license" view=LicenseView/>
-                <Route path="/*any" view=NotFoundView/>
+            <Routes fallback=|| view! { <NotFoundView/> }>
+                <Route path=path!("/") view=IconsView/>
+                <Route path=path!("/license") view=LicenseView/>
             </Routes>
         </Router>
     }
@@ -85,7 +85,6 @@ const COPYRIGHT: [&'static str; 4] = [
 fn LicenseView() -> impl IntoView {
     let year = Utc::now().year().to_string();
     let copyright = format!("Copyright (c) 2022-{} Eugene Ryzhikov", year);
-    // print!("{}", copyright);
 
     view! {
             <div class="flex flex-col h-screen w-screen py-5 px-10">

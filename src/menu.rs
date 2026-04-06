@@ -1,4 +1,4 @@
-use leptos::*;
+use leptos::prelude::*;
 
 use lepticons::*;
 
@@ -16,8 +16,8 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}
                class="flex-none w-6 h-6  rounded-full bg-primary/100 text-secondary">
-                <Icon glyph= move || LucideGlyph::Github
-                      class="cursor-pointer p-[1px] pt-[3px] fill-secondary"/>
+                <Icon glyph=Signal::derive(move || LucideGlyph::Code)
+                      class="cursor-pointer p-[1px] pt-[3px]"/>
             </a>
         </div>
     }

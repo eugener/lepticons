@@ -1,9 +1,6 @@
 use leptos::ev::*;
 use leptos::logging::*;
-use leptos::*;
-use leptos::{
-    component, create_signal, event_target_value, IntoView, ReadSignal, SignalGet, SignalSet,
-};
+use leptos::prelude::*;
 
 use lepticons::LucideGlyph;
 use lepticons::*;
@@ -17,7 +14,7 @@ static ICON_COUNT: OnceLock<usize> = OnceLock::new();
 
 #[component]
 pub fn IconsView() -> impl IntoView {
-    let (icon_filter, set_icon_filter) = create_signal("".to_string());
+    let (icon_filter, set_icon_filter) = signal("".to_string());
 
     let clear_filter = move |_| set_icon_filter.set("".to_string());
 
@@ -65,14 +62,14 @@ pub fn IconsView() -> impl IntoView {
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                        <Icon glyph= move || LucideGlyph::Search/>
+                        <Icon glyph=Signal::derive(move || LucideGlyph::Search)/>
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
                                prop:placeholder="Search icons..."
                                prop:value={move || icon_filter.get()}
                                on:input=on_input
                         />
-                        <Icon glyph=move || LucideGlyph::X class="cursor-pointer" on:click=clear_filter />
+                        <Icon glyph=Signal::derive(move || LucideGlyph::X) class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
                 <IconTable icon_filter=icon_filter />
@@ -116,7 +113,7 @@ fn IconCell(icon: LucideGlyph) -> impl IntoView {
     let glyph = icon.clone();
     view! {
         <div class=ICON_CONTAINER_STYLE>
-            <Icon<LucideGlyph> glyph= move || glyph.clone() /> // stroke_width={1.7} stroke="#645e5f"/>
+            <Icon<LucideGlyph> glyph=Signal::derive(move || glyph.clone()) /> // stroke_width={1.7} stroke="#645e5f"/>
             <div class=TOOLTIP_STYLE >
                {icon.name()}
             </div>
