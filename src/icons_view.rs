@@ -95,7 +95,7 @@ fn IconTable(icon_filter: ReadSignal<String>) -> impl IntoView {
     let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
 
     view! {
-        <div class="flex flex-row flex-wrap gap-2 justify-between">
+        <div class="flex flex-row flex-wrap gap-2">
         {
             move || filtered_icons().iter().map( |icon|
                 view!{ <IconCell icon=icon.clone()/> }
