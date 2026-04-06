@@ -19,6 +19,8 @@ jobs:
     name: Build and Preview Deploy
     permissions:
       pull-requests: write
+      contents: read
+      deployments: write
     environment:
       name: preview
       url: ${{ steps.deploy.outputs.preview-url }}
@@ -46,5 +48,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          github-comment: true
+          github-comment: false
           working-directory: ./dist
