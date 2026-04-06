@@ -12,6 +12,7 @@ env:
   CARGO_TERM_COLOR: always
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-preview-deploy:
@@ -26,7 +27,7 @@ jobs:
       url: ${{ steps.deploy.outputs.preview-url }}
     steps:
       - name: git-checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: true
 
