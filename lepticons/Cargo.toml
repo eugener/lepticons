@@ -1,6 +1,6 @@
 [package]
 categories = ["graphics"]
-description = "A collection of 1000+ icons for use in your Rust projects."
+description = "A collection of 1600+ icons for use in your Rust projects."
 documentation = "https://docs.rs/lepticons"
 edition = "2021"
 homepage = "https://lepticons.vercel.app"
@@ -9,7 +9,7 @@ license = "MIT"
 name = "lepticons"
 readme = "README.md"
 repository = "https://github.com/eugener/lepticons"
-version = "0.5.0"
+version = "0.6.0"
 
 [lib]
 bench = false
