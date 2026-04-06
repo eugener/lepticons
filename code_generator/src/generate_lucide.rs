@@ -5,13 +5,11 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 use convert_case::{Case, Casing};
+use regex::Regex;
 use scraper::{ElementRef, Html, Selector};
 
-use cargo::CargoToml;
-use compress::compress_str;
-
 mod cargo;
-mod compress;
+use cargo::CargoToml;
 
 fn main() {
     let icon_path = Path::new("../lucide/icons");
@@ -36,7 +34,6 @@ fn main() {
         .create(true)
         .truncate(true)
         .write(true)
-        // .append(true)
         .open(dest_path.clone())
         .expect("open file for code generation");
 
@@ -57,6 +54,8 @@ fn main() {
     .expect("write enum annotation");
     writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");
 
+    let decimal_re = Regex::new(r"(\d+\.\d{2})\d+").unwrap();
+
     // write icon's enum entries and collect their names
     let entries: Vec<SvgEntry> = paths
         .iter()
@@ -64,6 +63,12 @@ fn main() {
             let entry = SvgEntry::new(path);
 
             println!("{:?}", path);
+
+            let svg_content = entry.content();
+            // Truncate decimals to 2 places
+            let svg_content = decimal_re.replace_all(&svg_content, "$1").to_string();
+            // Escape backslashes and double quotes for Rust string literal
+            let svg_escaped = svg_content.replace('\\', "\\\\").replace('"', "\\\"");
 
             // write feature annotation
             writeln!(file, r#"#[cfg(feature = "{}")]"#, entry.feature_name)
@@ -78,7 +83,7 @@ fn main() {
                 tags="{}",
                 contributors="{}"
             ))]"#,
-                compress_str(entry.content().as_str()).unwrap(),
+                svg_escaped,
                 entry.meta.categories.join(",").as_str(),
                 entry.meta.tags.join(",").as_str(),
                 entry.meta.contributors.join(",").as_str()
@@ -155,11 +160,7 @@ impl SvgEntry {
     }
 }
 
-/**
- * Extracts the children/operators of an svg element as a string
- * @param svg_content the svg content
- * @returns the children of the svg element as a string
- */
+/// Extracts the children of an svg element as a string.
 fn html_children_only(svg_content: String) -> String {
     let html = Html::parse_fragment(svg_content.as_str());
 
@@ -174,10 +175,7 @@ fn html_children_only(svg_content: String) -> String {
         .join("")
 }
 
-/**
- * Formats the code of a file using rustfmt
- * @param file_path the path to the file to format
- */
+/// Formats the code of a file using rustfmt.
 fn format_code(file_path: &mut Path) {
     let output = Command::new("rustfmt")
         .arg(file_path)
