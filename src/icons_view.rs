@@ -23,6 +23,12 @@ pub fn IconsView() -> impl IntoView {
 
     let clear_filter = move |_| set_icon_filter.set("".to_string());
 
+    // close detail panel when filter changes
+    Effect::new(move |_| {
+        icon_filter.get();
+        set_selected_icon.set(None);
+    });
+
     let on_input = move |ev: Event| {
         set_icon_filter.set(event_target_value(&ev));
         log!("Filter: {}", icon_filter.get_untracked());
