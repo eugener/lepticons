@@ -1,4 +1,4 @@
-use leptos::*;
+use leptos::prelude::*;
 use leptos_meta::*;
 
 use lepticons::*;
@@ -20,9 +20,9 @@ const DARK_MODE: &str = "dark-mode";
 // ThemeToggle is a component that toggles between light and dark mode.
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
-    let (dark_mode, set_dark_mode) = create_signal(LocalStorage::get(DARK_MODE).unwrap_or(false));
+    let (dark_mode, set_dark_mode) = signal(LocalStorage::get(DARK_MODE).unwrap_or(false));
 
-    create_effect(move |_| {
+    Effect::new(move |_| {
         LocalStorage::set(DARK_MODE, &dark_mode.get());
     });
 
@@ -51,11 +51,11 @@ pub fn ThemeToggle() -> impl IntoView {
     };
 
     view! {
-        <Html class=theme />
+        <Html {..} class=theme />
         <button class=pos_class
              on:click=toggle_theme >
             <div class="flex-none w-6 h-6 bg-primary/100 rounded-full">
-                <Icon<LucideGlyph> glyph=theme_glyph class="text-secondary p-1"/>
+                <Icon<LucideGlyph> glyph=Signal::derive(theme_glyph) class="text-secondary p-1"/>
             </div>
         </button>
     }

@@ -1,10 +1,12 @@
 name: Preview
 
 on:
+  push:
+    branches:
+      - develop
   pull_request:
-    branches: [ "develop" ]
-
-  workflow_dispatch:
+    branches:
+      - develop
 
 env:
   CARGO_TERM_COLOR: always
@@ -12,47 +14,13 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-  # fmt:
-    # name: Rustfmt
-    # runs-on: ubuntu-latest
-    # steps:
-    #   - uses: actions/checkout@v3
-    #   - uses: dtolnay/rust-toolchain@nightly
-    #     with:
-    #       submodules: true
-          # components: rustfmt
-      # - name: Enforce formatting
-      #   run: cargo fmt --check
-
-  # clippy:
-  #   name: Clippy
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: dtolnay/rust-toolchain@nightly
-  #       with:
-  #         components: clippy
-  #     - uses: Swatinem/rust-cache@v2
-  #     - name: Linting
-  #       run: cargo clippy -- -D warnings
-
-  # test:
-  #   name: Test
-  #   runs-on: ubuntu-latest
-  #   needs: [fmt, clippy]
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: dtolnay/rust-toolchain@nightly
-  #     - uses: Swatinem/rust-cache@v2
-  #     - name: Run tests
-  #       run: cargo test
-
   build-and-preview-deploy:
     runs-on: ubuntu-latest
     name: Build and Preview Deploy
-    # needs: [test]
     permissions:
       pull-requests: write
+      contents: read
+      deployments: write
     environment:
       name: preview
       url: ${{ steps.deploy.outputs.preview-url }}
@@ -60,27 +28,25 @@ jobs:
       - name: git-checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}
-      # - name: Submodules
-      #   run: |
-      #    cd lucide
-      #    cd git mull origin master
-      #    cd ..
+          submodules: true
+
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
-      - uses: jetli/trunk-action@v0.4.0
+      - uses: jetli/trunk-action@v0.5.1
+        with:
+          version: 'v0.17.5'
       - name: Build
-        run: |
-          trunk build --release
+        run: trunk build --release
+
       - name: Preview Deploy
         id: deploy
-        uses: amondnet/vercel-action@v25
+        uses: amondnet/vercel-action@v42.1.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          github-comment: true
+          github-comment: false
           working-directory: ./dist

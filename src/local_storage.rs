@@ -1,17 +1,17 @@
 use std::str::FromStr;
 
-use leptos::window;
+use web_sys::window;
 use web_sys::Storage;
 
-// LocalStorage is a wrapper around the browser's local storage.
+/// Wrapper around the browser's local storage.
 pub struct LocalStorage;
 
 impl LocalStorage {
     fn instance() -> Option<Storage> {
-        window().local_storage().ok()?
+        window()?.local_storage().ok()?
     }
 
-    // get returns the value for the key.
+    /// Returns the value for the key.
     pub fn get<T: FromStr>(key: &str) -> Option<T> {
         LocalStorage::instance()
             .map(|s| s.get_item(key).ok()?)
@@ -20,7 +20,7 @@ impl LocalStorage {
             .flatten()
     }
 
-    // set sets the value for the key.
+    /// Sets the value for the key.
     pub fn set<T: ToString>(key: &str, value: &T) -> Option<()> {
         LocalStorage::instance().and_then(|s| {
             let value = value.to_string();

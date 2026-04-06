@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - master
 env:
   CARGO_TERM_COLOR: always
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -15,15 +15,19 @@ jobs:
     environment: production
     steps:
       - name: git-checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: true
 
-      - uses: dtolnay/rust-toolchain@nightly
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
-      - uses: jetli/trunk-action@v0.4.0
+      - uses: jetli/trunk-action@v0.5.1
+        with:
+          version: 'v0.17.5'
       - name: Trunk Build
-        run: |
-          rustup target add wasm32-unknown-unknown
-          trunk build
+        run: trunk build --release
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
