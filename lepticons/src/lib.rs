@@ -26,7 +26,7 @@ pub fn Icon<T: Glyph + Send + Sync + 'static>(
           class=class
           width=size
           height=size
-          viewBox=format!("0 0 {} {}", size, size)
+          viewBox="0 0 24 24"
           fill=fill
           stroke=stroke
           stroke-width=stroke_width
