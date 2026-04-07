@@ -1,22 +1,70 @@
-# Leptions
+# Lepticons
 
-Add super popular Lucide icons to your Leptos projects with ease. 
-Every icon is packaged as it own Cargo feature, so you can import only the icons you need.
+Add 1694 [Lucide](https://lucide.dev) icons to your [Leptos](https://leptos.dev) projects.
+Every icon is packaged as its own Cargo feature, so you can import only the icons you need.
 
 ## Usage
 
 ```rust
-<Icon glyph= move || LucideGlyph::Search/>
-<Icon glyph=move || LucideGlyph::X 
-      class="cursor-pointer" 
-      on:click=clear_filter />
+use lepticons::*;
+
+// Basic usage
+<Icon<LucideGlyph> glyph=Signal::derive(move || LucideGlyph::Search) />
+
+// With attributes
+<Icon<LucideGlyph>
+    glyph=Signal::derive(move || LucideGlyph::Heart)
+    class="text-red-500"
+    size="32"
+    stroke_width="2"
+/>
+```
+
+## Installation
+
+Add to your `Cargo.toml`:
+
+```toml
+# All icons (default)
+lepticons = "0.6"
+
+# Only specific icons
+lepticons = { version = "0.6", default-features = false, features = ["heart", "search", "x"] }
+```
+
+## Icon Component Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `glyph` | `Signal<T>` | required | The icon to render |
+| `class` | `&'static str` | `""` | CSS class |
+| `size` | `&'static str` | `"24"` | Width and height in pixels |
+| `fill` | `&'static str` | `"none"` | SVG fill color |
+| `stroke` | `&'static str` | `"currentColor"` | SVG stroke color |
+| `stroke_width` | `&'static str` | `"1.5"` | SVG stroke width |
+
+## Search and Categories
+
+```rust
+// Find icons by name, tag, or category
+let results = LucideGlyph::find("arrow");
+
+// Get all categories with icon counts
+let categories = LucideGlyph::all_categories();
 ```
 
 ## Leptos Compatibility
 
-| Leptos Version | Lepticons Version|
-|----------------|------------------|
-| 0.5.0          | 0.5.0            |
+| Leptos | Lepticons |
+|--------|-----------|
+| 0.8.x  | 0.6.x     |
+| 0.6.x  | 0.5.x     |
+| 0.5.x  | 0.4.x     |
 
-   
-    
+## Demo
+
+[lepticons.vercel.app](https://lepticons.vercel.app)
+
+## License
+
+MIT
