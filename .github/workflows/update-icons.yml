@@ -1,0 +1,78 @@
+name: Update Icons
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # every Monday at 9am UTC
+  workflow_dispatch: # manual trigger
+
+env:
+  CARGO_TERM_COLOR: always
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update-icons:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: true
+          ref: develop
+
+      - name: Update lucide submodule
+        run: |
+          cd lucide
+          git fetch origin
+          git checkout origin/main
+          cd ..
+
+      - name: Check for changes
+        id: check
+        run: |
+          if git diff --quiet lucide; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No icon updates found"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Icon updates found"
+          fi
+
+      - name: Setup Rust
+        if: steps.check.outputs.changed == 'true'
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache
+        if: steps.check.outputs.changed == 'true'
+        uses: Swatinem/rust-cache@v2
+
+      - name: Generate icon code
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          cd code_generator
+          cargo run --bin generator
+          cd ..
+
+      - name: Count icons
+        if: steps.check.outputs.changed == 'true'
+        id: count
+        run: |
+          COUNT=$(grep -c '#\[cfg(feature' lepticons/src/lucide_icon_data.rs)
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Found $COUNT icons"
+
+      - name: Create pull request
+        if: steps.check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: update-lucide-icons
+          commit-message: "Update Lucide icons to latest (${{ steps.count.outputs.count }} icons)"
+          title: "Update Lucide icons to latest (${{ steps.count.outputs.count }} icons)"
+          body: |
+            Automated update of the Lucide icon submodule and regenerated icon data.
+
+            - Icons: ${{ steps.count.outputs.count }}
+          base: develop
+          delete-branch: true

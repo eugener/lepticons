@@ -68,7 +68,7 @@ pub fn IconsView() -> impl IntoView {
             </div>
 
             // searchable icon table
-            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto">
+            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden">
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
