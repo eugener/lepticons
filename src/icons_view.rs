@@ -1,6 +1,5 @@
 use convert_case::{Case, Casing};
 use leptos::ev::*;
-use leptos::logging::*;
 use leptos::prelude::*;
 use leptos::wasm_bindgen::JsCast;
 use web_sys::js_sys;
@@ -29,9 +28,15 @@ pub fn IconsView() -> impl IntoView {
         set_selected_icon.set(None);
     });
 
+    // close detail panel on Escape key
+    window_event_listener(keydown, move |ev: KeyboardEvent| {
+        if ev.key() == "Escape" {
+            set_selected_icon.set(None);
+        }
+    });
+
     let on_input = move |ev: Event| {
         set_icon_filter.set(event_target_value(&ev));
-        log!("Filter: {}", icon_filter.get_untracked());
     };
 
     let icon_count = ICON_COUNT.get_or_init(|| LucideGlyph::iter().count());
@@ -82,7 +87,7 @@ pub fn IconsView() -> impl IntoView {
                         <Icon glyph=Signal::derive(move || LucideGlyph::X) class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
-                <IconTable icon_filter=icon_filter set_selected_icon=set_selected_icon />
+                <IconTable icon_filter=icon_filter selected_icon=selected_icon set_selected_icon=set_selected_icon />
             </div>
         </div>
         <IconDetail selected_icon=selected_icon set_selected_icon=set_selected_icon />
@@ -104,6 +109,7 @@ fn IconGroupLabel(title: String, count: u16) -> impl IntoView {
 #[component]
 fn IconTable(
     icon_filter: ReadSignal<String>,
+    selected_icon: ReadSignal<Option<LucideGlyph>>,
     set_selected_icon: WriteSignal<Option<LucideGlyph>>,
 ) -> impl IntoView {
     let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
@@ -111,23 +117,29 @@ fn IconTable(
     view! {
         <div class="flex flex-row flex-wrap gap-2">
         {
+            // Only re-run when filter changes, not on selection change
             move || filtered_icons().iter().map( |icon| {
                 let icon_for_click = icon.clone();
-                view!{ <IconCell icon=icon.clone() on:click=move |_| set_selected_icon.set(Some(icon_for_click.clone())) /> }
+                let icon_for_sel = icon.clone();
+                // Per-cell derived signal: only the affected cells re-render on selection change
+                let is_selected = Signal::derive(move || selected_icon.get().as_ref() == Some(&icon_for_sel));
+                view!{ <IconCell icon=icon.clone() selected=is_selected on:click=move |_| set_selected_icon.set(Some(icon_for_click.clone())) /> }
             }).collect::<Vec<_>>()
         }
         </div>
     }
 }
 
-const ICON_CONTAINER_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 border border-primary/0 hover:border-primary/100 cursor-pointer";
+const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 border border-transparent cursor-pointer";
+const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-orange-700/80 cursor-pointer";
 const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-orange-700/90 border border-orange-750/90 rounded whitespace-nowrap";
 
 #[component]
-fn IconCell(icon: LucideGlyph) -> impl IntoView {
+fn IconCell(icon: LucideGlyph, selected: Signal<bool>) -> impl IntoView {
     let glyph = icon.clone();
+    let style = move || if selected.get() { ICON_STYLE_SELECTED } else { ICON_STYLE };
     view! {
-        <div class=ICON_CONTAINER_STYLE>
+        <div class=style>
             <Icon<LucideGlyph> glyph=Signal::derive(move || glyph.clone()) />
             <div class=TOOLTIP_STYLE >
                {icon.name()}
@@ -148,6 +160,19 @@ fn IconDetail(
 ) -> impl IntoView {
     let dismiss = move |_| set_selected_icon.set(None);
 
+    // Signals live at component scope, not inside the reactive closure
+    let (svg_menu_open, set_svg_menu_open) = signal(false);
+    let (jsx_menu_open, set_jsx_menu_open) = signal(false);
+    let (copied, set_copied) = signal(false);
+
+    // Reset menus when selected icon changes
+    Effect::new(move |_| {
+        selected_icon.get();
+        set_svg_menu_open.set(false);
+        set_jsx_menu_open.set(false);
+        set_copied.set(false);
+    });
+
     view! {
         {move || selected_icon.get().map(|icon| {
             let name = display_name(&icon);
@@ -160,14 +185,13 @@ fn IconDetail(
                 svg_content
             );
 
-            let (svg_menu_open, set_svg_menu_open) = signal(false);
-            let (jsx_menu_open, set_jsx_menu_open) = signal(false);
-            let (copied, set_copied) = signal(false);
             let icon_name = name.clone();
             let component_name = icon.name(); // PascalCase e.g. "ShieldBan"
+            let kebab_name = name.clone();
 
             view! {
-                <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50">
+                <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50"
+                     on:click=move |_| { set_svg_menu_open.set(false); set_jsx_menu_open.set(false); }>
                     // large icon preview with grid background
                     <div class="flex-none w-56 h-56 flex items-center justify-center rounded-xl"
                          style="background-image: linear-gradient(to right, rgba(128,128,128,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.15) 1px, transparent 1px); background-size: calc(200px / 24) calc(200px / 24); background-position: 12px 12px;">
@@ -208,7 +232,7 @@ fn IconDetail(
                         <div class="flex flex-row gap-3 pt-1">
                             <div class="relative">
                                 <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
-                                        on:click=move |_| { set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }>
+                                        on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }>
                                     <Icon glyph=Signal::derive(move || {
                                         if copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
                                     }) size="16" />
@@ -264,7 +288,7 @@ fn IconDetail(
                             // Copy JSX dropdown
                             <div class="relative">
                                 <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
-                                        on:click=move |_| { set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }>
+                                        on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }>
                                     {move || if copied.get() { "Copied!" } else { "Copy JSX" }}
                                     <Icon glyph=Signal::derive(move || LucideGlyph::ChevronUp) size="14" />
                                 </button>
@@ -272,10 +296,9 @@ fn IconDetail(
                                     let comp = component_name.clone();
                                     let comp2 = component_name.clone();
                                     let comp3 = component_name.clone();
-                                    let comp4 = component_name.clone();
                                     let comp5 = component_name.clone();
-                                    let kebab = name.clone();
-                                    let _kebab2 = name.clone();
+                                    let kebab = kebab_name.clone();
+                                    let kebab2 = kebab_name.clone();
                                     view! {
                                         <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[180px] z-50">
                                             <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
@@ -298,7 +321,7 @@ fn IconDetail(
                                             </button>
                                             <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<{} />", comp3));
+                                                        copy_to_clipboard(&format!("<{} />", kebab));
                                                         set_copied.set(true);
                                                         set_jsx_menu_open.set(false);
                                                         set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
@@ -307,7 +330,7 @@ fn IconDetail(
                                             </button>
                                             <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<{} />", comp4));
+                                                        copy_to_clipboard(&format!("<{} />", comp3));
                                                         set_copied.set(true);
                                                         set_jsx_menu_open.set(false);
                                                         set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
@@ -316,7 +339,7 @@ fn IconDetail(
                                             </button>
                                             <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<lucide-icon name=\"{}\" />", kebab));
+                                                        copy_to_clipboard(&format!("<lucide-angular name=\"{}\" />", kebab2));
                                                         set_copied.set(true);
                                                         set_jsx_menu_open.set(false);
                                                         set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
@@ -357,7 +380,9 @@ fn copy_to_clipboard(text: &str) {
 }
 
 fn download_blob(content: &str, filename: &str, mime: &str) {
-    let Some(document) = web_sys::window().and_then(|w| w.document()) else { return };
+    let Some(window) = web_sys::window() else { return };
+    let Some(document) = window.document() else { return };
+    let Some(body) = document.body() else { return };
     let parts = js_sys::Array::new();
     parts.push(&wasm_bindgen::JsValue::from_str(content));
     let opts = web_sys::BlobPropertyBag::new();
@@ -368,13 +393,16 @@ fn download_blob(content: &str, filename: &str, mime: &str) {
     let anchor: web_sys::HtmlAnchorElement = el.unchecked_into();
     anchor.set_href(&url);
     anchor.set_download(filename);
+    let _ = body.append_child(&anchor);
     anchor.click();
+    let _ = body.remove_child(&anchor);
     let _ = web_sys::Url::revoke_object_url(&url);
 }
 
 fn download_png(svg_str: &str, name: &str) {
     let Some(window) = web_sys::window() else { return };
     let Some(document) = window.document() else { return };
+    let Some(body) = document.body() else { return };
 
     let Ok(canvas_el) = document.create_element("canvas") else { return };
     let canvas: web_sys::HtmlCanvasElement = canvas_el.unchecked_into();
@@ -392,7 +420,9 @@ fn download_png(svg_str: &str, name: &str) {
     let filename = format!("{}.png", name);
     let canvas_clone = canvas.clone();
     let img_clone = img.clone();
+    let body_clone = body;
 
+    // Use Closure::once_into_js to avoid memory leak from closure.forget()
     let closure = wasm_bindgen::closure::Closure::once(move || {
         ctx.draw_image_with_html_image_element_and_dw_and_dh(
             &img_clone, 0.0, 0.0, png_size as f64, png_size as f64,
@@ -403,11 +433,13 @@ fn download_png(svg_str: &str, name: &str) {
             let anchor: web_sys::HtmlAnchorElement = el.unchecked_into();
             anchor.set_href(&png_url);
             anchor.set_download(&filename);
+            let _ = body_clone.append_child(&anchor);
             anchor.click();
+            let _ = body_clone.remove_child(&anchor);
         }
     });
 
-    img.set_onload(Some(closure.as_ref().unchecked_ref()));
+    let cb: js_sys::Function = closure.into_js_value().unchecked_into();
+    img.set_onload(Some(&cb));
     img.set_src(&data_url);
-    closure.forget();
 }

@@ -23,9 +23,7 @@ impl LocalStorage {
     /// Sets the value for the key.
     pub fn set<T: ToString>(key: &str, value: &T) -> Option<()> {
         LocalStorage::instance().and_then(|s| {
-            let value = value.to_string();
-            s.set_item(key, &value).ok()
-        });
-        Some(())
+            s.set_item(key, &value.to_string()).ok()
+        })
     }
 }
