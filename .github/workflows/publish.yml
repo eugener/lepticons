@@ -26,7 +26,7 @@ jobs:
       - name: Verify version matches tag
         run: |
           TAG="${GITHUB_REF#refs/tags/v}"
-          CARGO_VERSION=$(grep '^version' lepticons/Cargo.toml | head -1 | sed 's/.*"\(.*\)"/\1/')
+          CARGO_VERSION=$(cargo metadata --no-deps --format-version 1 | python3 -c "import sys,json; pkgs=json.load(sys.stdin)['packages']; print([p['version'] for p in pkgs if p['name']=='lepticons'][0])")
           if [ "$TAG" != "$CARGO_VERSION" ]; then
             echo "Tag v$TAG does not match Cargo.toml version $CARGO_VERSION"
             exit 1
