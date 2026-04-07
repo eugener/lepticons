@@ -1,7 +1,7 @@
 # Lepticons
 
 Add 1694 [Lucide](https://lucide.dev) icons to your [Leptos](https://leptos.dev) projects.
-Every icon is packaged as its own Cargo feature, so you can import only the icons you need.
+Icons are grouped into 42 category features, so you can include only what you need.
 
 ## Usage
 
@@ -28,9 +28,16 @@ Add to your `Cargo.toml`:
 # All icons (default)
 lepticons = "0.6"
 
-# Only specific icons
-lepticons = { version = "0.6", default-features = false, features = ["heart", "search", "x"] }
+# Only specific categories
+lepticons = { version = "0.6", default-features = false, features = ["arrows", "navigation", "design"] }
 ```
+
+Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
+`communication`, `connectivity`, `cursors`, `design`, `development`, `devices`, `emoji`, `files`,
+`finance`, `food_beverage`, `gaming`, `home`, `layout`, `mail`, `math`, `medical`, `multimedia`,
+`nature`, `navigation`, `notifications`, `people`, `photography`, `science`, `seasons`, `security`,
+`shapes`, `shopping`, `social`, `sports`, `sustainability`, `text`, `time`, `tools`,
+`transportation`, `travel`, `weather`.
 
 ## Icon Component Props
 

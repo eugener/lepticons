@@ -1,3 +1,4 @@
+use std::collections::BTreeSet;
 use std::fs;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
@@ -74,9 +75,29 @@ fn main() {
             // Escape backslashes and double quotes for Rust string literal
             let svg_escaped = escape(&svg_content);
 
-            // write feature annotation
-            writeln!(file, r#"#[cfg(feature = "{}")]"#, entry.feature_name)
-                .expect("write feature annotation");
+            // write feature annotation based on categories
+            let feature_cats: Vec<String> = entry
+                .meta
+                .categories
+                .iter()
+                .map(|c| c.to_case(Case::Snake))
+                .collect();
+
+            if feature_cats.is_empty() {
+                // Icons with no category are always included
+                writeln!(file, "// no category").expect("write comment");
+            } else if feature_cats.len() == 1 {
+                writeln!(file, r#"#[cfg(feature = "{}")]"#, feature_cats[0])
+                    .expect("write feature annotation");
+            } else {
+                let conditions: Vec<String> = feature_cats
+                    .iter()
+                    .map(|c| format!(r#"feature = "{}""#, c))
+                    .collect();
+                writeln!(file, "#[cfg(any({}))]", conditions.join(", "))
+                    .expect("write feature annotation");
+            }
+
             //write enum props
             writeln!(
                 file,
@@ -123,7 +144,6 @@ struct EntryMeta {
 struct SvgEntry {
     path: PathBuf,
     icon_name: String,
-    feature_name: String,
     meta: EntryMeta,
 }
 
@@ -149,8 +169,7 @@ impl SvgEntry {
 
         Self {
             path: path.to_path_buf(),
-            icon_name: icon_name.clone(),
-            feature_name: icon_name.to_case(Case::Snake),
+            icon_name,
             meta,
         }
     }
@@ -191,27 +210,41 @@ fn format_code(file_path: &Path) {
 }
 
 fn update_cargo_features(path: String, entries: &[SvgEntry]) {
+    // Collect all unique categories
+    let mut all_categories = BTreeSet::new();
+    for entry in entries {
+        for cat in &entry.meta.categories {
+            all_categories.insert(cat.to_case(Case::Snake));
+        }
+    }
+
     let mut cargo = CargoToml::load(path.clone());
     let features = cargo.features();
     let prev_count = features.keys().filter(|k| *k != "default").count();
     features.clear();
+
+    // default enables all categories
     features.insert(
         "default".to_string(),
         toml::Value::Array(
-            entries
+            all_categories
                 .iter()
-                .map(|entry| toml::Value::String(entry.feature_name.clone()))
-                .collect::<Vec<_>>(),
+                .map(|c| toml::Value::String(c.clone()))
+                .collect(),
         ),
     );
-    entries.iter().for_each(|entry| {
-        features.insert(entry.feature_name.clone(), toml::Value::Array(vec![]));
-    });
-    let new_count = entries.len();
+
+    // each category is an empty feature
+    for cat in &all_categories {
+        features.insert(cat.clone(), toml::Value::Array(vec![]));
+    }
+
+    let new_count = all_categories.len();
     println!(
-        ">>> Icons: {} (delta: {:+})",
+        ">>> Categories: {} (delta: {:+}), Icons: {}",
         new_count,
-        new_count as isize - prev_count as isize
+        new_count as isize - prev_count as isize,
+        entries.len(),
     );
 
     cargo.store(path);
