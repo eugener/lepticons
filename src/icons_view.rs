@@ -132,7 +132,7 @@ fn IconTable(
     }
 }
 
-const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 cursor-pointer";
+const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 border border-transparent cursor-pointer";
 const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-orange-700/80 cursor-pointer";
 const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-orange-700/90 border border-orange-750/90 rounded whitespace-nowrap";
 
