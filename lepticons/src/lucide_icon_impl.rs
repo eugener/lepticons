@@ -33,7 +33,7 @@ static CATEGORIES: OnceLock<BTreeMap<String, u16>> = OnceLock::new();
 fn build_search_index() -> Vec<SearchEntry> {
     LucideGlyph::iter()
         .map(|glyph| {
-            let name = format!("{:?}", glyph).to_lowercase();
+            let name = format!("{:?}", glyph).to_case(convert_case::Case::Lower);
             let tags = glyph.get_str("tags").unwrap_or("");
             let categories = glyph.get_str("categories").unwrap_or("");
             // Single concatenated string: "name,tag1,tag2,cat1,cat2"
