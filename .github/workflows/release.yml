@@ -6,16 +6,14 @@ on:
       - master
 env:
   CARGO_TERM_COLOR: always
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
-    environment: production
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    environment: Production
     steps:
       - name: git-checkout
         uses: actions/checkout@v6
@@ -35,7 +33,11 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production
+        env:
+          TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token="$TOKEN"
       - name: Deploy Project Artifacts to Vercel
+        env:
+          TOKEN: ${{ secrets.VERCEL_TOKEN }}
         working-directory: ./dist
-        run: vercel deploy --prod
+        run: vercel deploy --prod --token="$TOKEN"
