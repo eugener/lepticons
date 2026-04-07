@@ -61,7 +61,7 @@ pub enum LucideGlyph {
     Airplay,
     #[cfg(feature = "alarm_clock_check")]
     #[strum(props(
-        svg = "<circle cy=\"13\" r=\"8\" cx=\"12\"></circle><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path><path d=\"m9 13 2 2 4-4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"13\" r=\"8\"></circle><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path><path d=\"m9 13 2 2 4-4\"></path>",
         categories = "devices,notifications,time",
         tags = "done,todo,tick,complete,task",
         contributors = "mittalyashu,ericfennis,jguddas,karsa-mistmere"
@@ -69,7 +69,7 @@ pub enum LucideGlyph {
     AlarmClockCheck,
     #[cfg(feature = "alarm_clock_minus")]
     #[strum(props(
-        svg = "<circle cy=\"13\" r=\"8\" cx=\"12\"></circle><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path><path d=\"M9 13h6\"></path>",
+        svg = "<circle cx=\"12\" cy=\"13\" r=\"8\"></circle><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path><path d=\"M9 13h6\"></path>",
         categories = "devices,notifications,time",
         tags = "remove",
         contributors = "mittalyashu,ericfennis,jguddas,karsa-mistmere"
@@ -85,7 +85,7 @@ pub enum LucideGlyph {
     AlarmClockOff,
     #[cfg(feature = "alarm_clock_plus")]
     #[strum(props(
-        svg = "<circle r=\"8\" cx=\"12\" cy=\"13\"></circle><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path><path d=\"M12 10v6\"></path><path d=\"M9 13h6\"></path>",
+        svg = "<circle cx=\"12\" cy=\"13\" r=\"8\"></circle><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path><path d=\"M12 10v6\"></path><path d=\"M9 13h6\"></path>",
         categories = "devices,notifications,time",
         tags = "add",
         contributors = "mittalyashu,ericfennis,jguddas,karsa-mistmere"
@@ -93,7 +93,7 @@ pub enum LucideGlyph {
     AlarmClockPlus,
     #[cfg(feature = "alarm_clock")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"8\" cy=\"13\"></circle><path d=\"M12 9v4l2 2\"></path><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path>",
+        svg = "<circle cx=\"12\" cy=\"13\" r=\"8\"></circle><path d=\"M12 9v4l2 2\"></path><path d=\"M5 3 2 6\"></path><path d=\"m22 6-3-3\"></path><path d=\"M6.38 18.7 4 21\"></path><path d=\"M17.64 18.67 20 21\"></path>",
         categories = "devices,notifications,time",
         tags = "morning",
         contributors = "lscheibel,johnletey,ericfennis,jguddas,karsa-mistmere"
@@ -109,7 +109,7 @@ pub enum LucideGlyph {
     AlarmSmoke,
     #[cfg(feature = "album")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" x=\"3\" y=\"3\" width=\"18\" ry=\"2\"></rect><polyline points=\"11 3 11 11 14 8 17 11 17 3\"></polyline>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><polyline points=\"11 3 11 11 14 8 17 11 17 3\"></polyline>",
         categories = "photography,multimedia",
         tags = "photo,book",
         contributors = "ericfennis,csandman,mittalyashu"
@@ -133,7 +133,7 @@ pub enum LucideGlyph {
     AlignCenterVertical,
     #[cfg(feature = "align_end_horizontal")]
     #[strum(props(
-        svg = "<rect height=\"16\" y=\"2\" x=\"4\" rx=\"2\" width=\"6\"></rect><rect y=\"9\" height=\"9\" rx=\"2\" width=\"6\" x=\"14\"></rect><path d=\"M22 22H2\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"6\" x=\"4\" y=\"2\"></rect><rect height=\"9\" rx=\"2\" width=\"6\" x=\"14\" y=\"9\"></rect><path d=\"M22 22H2\"></path>",
         categories = "layout",
         tags = "items,bottom,flex,justify",
         contributors = "ericfennis"
@@ -141,7 +141,7 @@ pub enum LucideGlyph {
     AlignEndHorizontal,
     #[cfg(feature = "align_end_vertical")]
     #[strum(props(
-        svg = "<rect rx=\"2\" y=\"4\" height=\"6\" width=\"16\" x=\"2\"></rect><rect rx=\"2\" y=\"14\" width=\"9\" x=\"9\" height=\"6\"></rect><path d=\"M22 22V2\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"16\" x=\"2\" y=\"4\"></rect><rect height=\"6\" rx=\"2\" width=\"9\" x=\"9\" y=\"14\"></rect><path d=\"M22 22V2\"></path>",
         categories = "layout",
         tags = "items,right,flex,justify",
         contributors = "ericfennis"
@@ -149,7 +149,7 @@ pub enum LucideGlyph {
     AlignEndVertical,
     #[cfg(feature = "align_horizontal_distribute_center")]
     #[strum(props(
-        svg = "<rect y=\"5\" x=\"4\" width=\"6\" rx=\"2\" height=\"14\"></rect><rect height=\"10\" width=\"6\" x=\"14\" y=\"7\" rx=\"2\"></rect><path d=\"M17 22v-5\"></path><path d=\"M17 7V2\"></path><path d=\"M7 22v-3\"></path><path d=\"M7 5V2\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"4\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"14\" y=\"7\"></rect><path d=\"M17 22v-5\"></path><path d=\"M17 7V2\"></path><path d=\"M7 22v-3\"></path><path d=\"M7 5V2\"></path>",
         categories = "layout",
         tags = "items,flex,justify,space,evenly,around",
         contributors = "r4lv,ericfennis"
@@ -157,7 +157,7 @@ pub enum LucideGlyph {
     AlignHorizontalDistributeCenter,
     #[cfg(feature = "align_horizontal_distribute_end")]
     #[strum(props(
-        svg = "<rect rx=\"2\" x=\"4\" y=\"5\" width=\"6\" height=\"14\"></rect><rect x=\"14\" height=\"10\" rx=\"2\" width=\"6\" y=\"7\"></rect><path d=\"M10 2v20\"></path><path d=\"M20 2v20\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"4\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"14\" y=\"7\"></rect><path d=\"M10 2v20\"></path><path d=\"M20 2v20\"></path>",
         categories = "layout",
         tags = "right,items,flex,justify",
         contributors = "r4lv,ericfennis"
@@ -165,7 +165,7 @@ pub enum LucideGlyph {
     AlignHorizontalDistributeEnd,
     #[cfg(feature = "align_horizontal_distribute_start")]
     #[strum(props(
-        svg = "<rect height=\"14\" x=\"4\" rx=\"2\" y=\"5\" width=\"6\"></rect><rect x=\"14\" width=\"6\" height=\"10\" y=\"7\" rx=\"2\"></rect><path d=\"M4 2v20\"></path><path d=\"M14 2v20\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"4\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"14\" y=\"7\"></rect><path d=\"M4 2v20\"></path><path d=\"M14 2v20\"></path>",
         categories = "layout",
         tags = "left,items,flex,justify",
         contributors = "r4lv,ericfennis"
@@ -173,7 +173,7 @@ pub enum LucideGlyph {
     AlignHorizontalDistributeStart,
     #[cfg(feature = "align_horizontal_justify_center")]
     #[strum(props(
-        svg = "<rect y=\"5\" rx=\"2\" x=\"2\" width=\"6\" height=\"14\"></rect><rect rx=\"2\" width=\"6\" y=\"7\" height=\"10\" x=\"16\"></rect><path d=\"M12 2v20\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"2\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"16\" y=\"7\"></rect><path d=\"M12 2v20\"></path>",
         categories = "layout",
         tags = "center,items,flex,justify",
         contributors = "ericfennis"
@@ -181,7 +181,7 @@ pub enum LucideGlyph {
     AlignHorizontalJustifyCenter,
     #[cfg(feature = "align_horizontal_justify_end")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"14\" y=\"5\" x=\"2\" width=\"6\"></rect><rect x=\"12\" rx=\"2\" y=\"7\" height=\"10\" width=\"6\"></rect><path d=\"M22 2v20\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"2\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"12\" y=\"7\"></rect><path d=\"M22 2v20\"></path>",
         categories = "layout",
         tags = "right,items,flex,justify",
         contributors = "ericfennis"
@@ -189,7 +189,7 @@ pub enum LucideGlyph {
     AlignHorizontalJustifyEnd,
     #[cfg(feature = "align_horizontal_justify_start")]
     #[strum(props(
-        svg = "<rect width=\"6\" height=\"14\" x=\"6\" y=\"5\" rx=\"2\"></rect><rect x=\"16\" y=\"7\" rx=\"2\" width=\"6\" height=\"10\"></rect><path d=\"M2 2v20\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"6\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"16\" y=\"7\"></rect><path d=\"M2 2v20\"></path>",
         categories = "layout",
         tags = "left,items,flex,justify",
         contributors = "ericfennis"
@@ -197,7 +197,7 @@ pub enum LucideGlyph {
     AlignHorizontalJustifyStart,
     #[cfg(feature = "align_horizontal_space_around")]
     #[strum(props(
-        svg = "<rect width=\"6\" x=\"9\" y=\"7\" rx=\"2\" height=\"10\"></rect><path d=\"M4 22V2\"></path><path d=\"M20 22V2\"></path>",
+        svg = "<rect height=\"10\" rx=\"2\" width=\"6\" x=\"9\" y=\"7\"></rect><path d=\"M4 22V2\"></path><path d=\"M20 22V2\"></path>",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -205,7 +205,7 @@ pub enum LucideGlyph {
     AlignHorizontalSpaceAround,
     #[cfg(feature = "align_horizontal_space_between")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"5\" rx=\"2\" width=\"6\" height=\"14\"></rect><rect height=\"10\" x=\"15\" width=\"6\" rx=\"2\" y=\"7\"></rect><path d=\"M3 2v20\"></path><path d=\"M21 2v20\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"6\" x=\"3\" y=\"5\"></rect><rect height=\"10\" rx=\"2\" width=\"6\" x=\"15\" y=\"7\"></rect><path d=\"M3 2v20\"></path><path d=\"M21 2v20\"></path>",
         categories = "layout",
         tags = "around,items,bottom,flex,justify",
         contributors = "ericfennis"
@@ -213,7 +213,7 @@ pub enum LucideGlyph {
     AlignHorizontalSpaceBetween,
     #[cfg(feature = "align_start_horizontal")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"16\" x=\"4\" y=\"6\" width=\"6\"></rect><rect y=\"6\" width=\"6\" rx=\"2\" height=\"9\" x=\"14\"></rect><path d=\"M22 2H2\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"6\" x=\"4\" y=\"6\"></rect><rect height=\"9\" rx=\"2\" width=\"6\" x=\"14\" y=\"6\"></rect><path d=\"M22 2H2\"></path>",
         categories = "layout",
         tags = "top,items,flex,justify",
         contributors = "ericfennis"
@@ -221,7 +221,7 @@ pub enum LucideGlyph {
     AlignStartHorizontal,
     #[cfg(feature = "align_start_vertical")]
     #[strum(props(
-        svg = "<rect y=\"14\" width=\"9\" x=\"6\" rx=\"2\" height=\"6\"></rect><rect width=\"16\" x=\"6\" y=\"4\" rx=\"2\" height=\"6\"></rect><path d=\"M2 2v20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"9\" x=\"6\" y=\"14\"></rect><rect height=\"6\" rx=\"2\" width=\"16\" x=\"6\" y=\"4\"></rect><path d=\"M2 2v20\"></path>",
         categories = "layout",
         tags = "left,items,flex,justify",
         contributors = "ericfennis"
@@ -229,7 +229,7 @@ pub enum LucideGlyph {
     AlignStartVertical,
     #[cfg(feature = "align_vertical_distribute_center")]
     #[strum(props(
-        svg = "<path d=\"M22 17h-3\"></path><path d=\"M22 7h-5\"></path><path d=\"M5 17H2\"></path><path d=\"M7 7H2\"></path><rect x=\"5\" rx=\"2\" width=\"14\" y=\"14\" height=\"6\"></rect><rect y=\"4\" height=\"6\" rx=\"2\" x=\"7\" width=\"10\"></rect>",
+        svg = "<path d=\"M22 17h-3\"></path><path d=\"M22 7h-5\"></path><path d=\"M5 17H2\"></path><path d=\"M7 7H2\"></path><rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"14\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"4\"></rect>",
         categories = "layout",
         tags = "items,flex,justify,space,evenly,around",
         contributors = "ericfennis,jguddas"
@@ -237,7 +237,7 @@ pub enum LucideGlyph {
     AlignVerticalDistributeCenter,
     #[cfg(feature = "align_vertical_distribute_end")]
     #[strum(props(
-        svg = "<rect y=\"14\" rx=\"2\" height=\"6\" x=\"5\" width=\"14\"></rect><rect width=\"10\" y=\"4\" x=\"7\" rx=\"2\" height=\"6\"></rect><path d=\"M2 20h20\"></path><path d=\"M2 10h20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"14\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"4\"></rect><path d=\"M2 20h20\"></path><path d=\"M2 10h20\"></path>",
         categories = "layout",
         tags = "bottom,items,flex,justify",
         contributors = "ericfennis"
@@ -245,7 +245,7 @@ pub enum LucideGlyph {
     AlignVerticalDistributeEnd,
     #[cfg(feature = "align_vertical_distribute_start")]
     #[strum(props(
-        svg = "<rect width=\"14\" y=\"14\" rx=\"2\" height=\"6\" x=\"5\"></rect><rect y=\"4\" height=\"6\" rx=\"2\" width=\"10\" x=\"7\"></rect><path d=\"M2 14h20\"></path><path d=\"M2 4h20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"14\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"4\"></rect><path d=\"M2 14h20\"></path><path d=\"M2 4h20\"></path>",
         categories = "layout",
         tags = "top,items,flex,justify",
         contributors = "ericfennis"
@@ -253,7 +253,7 @@ pub enum LucideGlyph {
     AlignVerticalDistributeStart,
     #[cfg(feature = "align_vertical_justify_center")]
     #[strum(props(
-        svg = "<rect height=\"6\" x=\"5\" y=\"16\" width=\"14\" rx=\"2\"></rect><rect y=\"2\" width=\"10\" height=\"6\" x=\"7\" rx=\"2\"></rect><path d=\"M2 12h20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"16\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"2\"></rect><path d=\"M2 12h20\"></path>",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -261,7 +261,7 @@ pub enum LucideGlyph {
     AlignVerticalJustifyCenter,
     #[cfg(feature = "align_vertical_justify_end")]
     #[strum(props(
-        svg = "<rect x=\"5\" height=\"6\" y=\"12\" rx=\"2\" width=\"14\"></rect><rect width=\"10\" y=\"2\" x=\"7\" rx=\"2\" height=\"6\"></rect><path d=\"M2 22h20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"12\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"2\"></rect><path d=\"M2 22h20\"></path>",
         categories = "layout",
         tags = "bottom,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -269,7 +269,7 @@ pub enum LucideGlyph {
     AlignVerticalJustifyEnd,
     #[cfg(feature = "align_vertical_justify_start")]
     #[strum(props(
-        svg = "<rect width=\"14\" y=\"16\" height=\"6\" rx=\"2\" x=\"5\"></rect><rect x=\"7\" y=\"6\" rx=\"2\" height=\"6\" width=\"10\"></rect><path d=\"M2 2h20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"16\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"6\"></rect><path d=\"M2 2h20\"></path>",
         categories = "layout",
         tags = "top,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -277,7 +277,7 @@ pub enum LucideGlyph {
     AlignVerticalJustifyStart,
     #[cfg(feature = "align_vertical_space_around")]
     #[strum(props(
-        svg = "<rect width=\"10\" rx=\"2\" x=\"7\" height=\"6\" y=\"9\"></rect><path d=\"M22 20H2\"></path><path d=\"M22 4H2\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"9\"></rect><path d=\"M22 20H2\"></path><path d=\"M22 4H2\"></path>",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -285,7 +285,7 @@ pub enum LucideGlyph {
     AlignVerticalSpaceAround,
     #[cfg(feature = "align_vertical_space_between")]
     #[strum(props(
-        svg = "<rect width=\"14\" y=\"15\" x=\"5\" rx=\"2\" height=\"6\"></rect><rect width=\"10\" height=\"6\" x=\"7\" y=\"3\" rx=\"2\"></rect><path d=\"M2 21h20\"></path><path d=\"M2 3h20\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"14\" x=\"5\" y=\"15\"></rect><rect height=\"6\" rx=\"2\" width=\"10\" x=\"7\" y=\"3\"></rect><path d=\"M2 21h20\"></path><path d=\"M2 3h20\"></path>",
         categories = "layout",
         tags = "center,items,flex,justify,distribute,between",
         contributors = "ericfennis"
@@ -293,7 +293,7 @@ pub enum LucideGlyph {
     AlignVerticalSpaceBetween,
     #[cfg(feature = "ambulance")]
     #[strum(props(
-        svg = "<path d=\"M10 10H6\"></path><path d=\"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2\"></path><path d=\"M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.92-.641a1 1 0 0 1-.578-.502l-1.53-3.07A1 1 0 0 0 16.38 8H14\"></path><path d=\"M8 8v4\"></path><path d=\"M9 18h6\"></path><circle r=\"2\" cx=\"17\" cy=\"18\"></circle><circle r=\"2\" cx=\"7\" cy=\"18\"></circle>",
+        svg = "<path d=\"M10 10H6\"></path><path d=\"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2\"></path><path d=\"M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.92-.641a1 1 0 0 1-.578-.502l-1.53-3.07A1 1 0 0 0 16.38 8H14\"></path><path d=\"M8 8v4\"></path><path d=\"M9 18h6\"></path><circle cx=\"17\" cy=\"18\" r=\"2\"></circle><circle cx=\"7\" cy=\"18\" r=\"2\"></circle>",
         categories = "medical,transportation",
         tags = "ambulance,emergency,medical,vehicle,siren,healthcare,transportation,rescue,urgent,first aid",
         contributors = "jordan808,jguddas,colebemis,ahtohbi4,ericfennis,Andreto,csandman,karsa-mistmere,danielbayley"
@@ -325,7 +325,7 @@ pub enum LucideGlyph {
     Amphora,
     #[cfg(feature = "anchor")]
     #[strum(props(
-        svg = "<path d=\"M12 6v16\"></path><path d=\"m19 13 2-1a9 9 0 0 1-18 0l2 1\"></path><path d=\"M9 11h6\"></path><circle cy=\"4\" cx=\"12\" r=\"2\"></circle>",
+        svg = "<path d=\"M12 6v16\"></path><path d=\"m19 13 2-1a9 9 0 0 1-18 0l2 1\"></path><path d=\"M9 11h6\"></path><circle cx=\"12\" cy=\"4\" r=\"2\"></circle>",
         categories = "transportation,text",
         tags = "ship",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -333,7 +333,7 @@ pub enum LucideGlyph {
     Anchor,
     #[cfg(feature = "angry")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M16 16s-1.5-2-4-2-4 2-4 2\"></path><path d=\"M7.5 8 10 9\"></path><path d=\"m14 9 2.5-1\"></path><path d=\"M9 10h.01\"></path><path d=\"M15 10h.01\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M16 16s-1.5-2-4-2-4 2-4 2\"></path><path d=\"M7.5 8 10 9\"></path><path d=\"m14 9 2.5-1\"></path><path d=\"M9 10h.01\"></path><path d=\"M15 10h.01\"></path>",
         categories = "emoji",
         tags = "emoji,anger,face,emotion",
         contributors = "karsa-mistmere,ericfennis"
@@ -341,7 +341,7 @@ pub enum LucideGlyph {
     Angry,
     #[cfg(feature = "annoyed")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M8 15h8\"></path><path d=\"M8 9h2\"></path><path d=\"M14 9h2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 15h8\"></path><path d=\"M8 9h2\"></path><path d=\"M14 9h2\"></path>",
         categories = "emoji",
         tags = "emoji,nuisance,face,emotion",
         contributors = "karsa-mistmere"
@@ -365,7 +365,7 @@ pub enum LucideGlyph {
     Anvil,
     #[cfg(feature = "aperture")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"m14.31 8 5.74 9.94\"></path><path d=\"M9.69 8h11.48\"></path><path d=\"m7.38 12 5.74-9.94\"></path><path d=\"M9.69 16 3.95 6.06\"></path><path d=\"M14.31 16H2.83\"></path><path d=\"m16.62 12-5.74 9.94\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m14.31 8 5.74 9.94\"></path><path d=\"M9.69 8h11.48\"></path><path d=\"m7.38 12 5.74-9.94\"></path><path d=\"M9.69 16 3.95 6.06\"></path><path d=\"M14.31 16H2.83\"></path><path d=\"m16.62 12-5.74 9.94\"></path>",
         categories = "photography",
         tags = "camera,photo,pictures,shutter,exposure",
         contributors = "colebemis,ericfennis"
@@ -373,7 +373,7 @@ pub enum LucideGlyph {
     Aperture,
     #[cfg(feature = "app_window_mac")]
     #[strum(props(
-        svg = "<rect height=\"16\" width=\"20\" x=\"2\" rx=\"2\" y=\"4\"></rect><path d=\"M6 8h.01\"></path><path d=\"M10 8h.01\"></path><path d=\"M14 8h.01\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M6 8h.01\"></path><path d=\"M10 8h.01\"></path><path d=\"M14 8h.01\"></path>",
         categories = "layout,design,development,files",
         tags = "application,menu bar,pane,preferences,macos,osx,executable",
         contributors = "danielbayley"
@@ -381,7 +381,7 @@ pub enum LucideGlyph {
     AppWindowMac,
     #[cfg(feature = "app_window")]
     #[strum(props(
-        svg = "<rect y=\"4\" x=\"2\" height=\"16\" rx=\"2\" width=\"20\"></rect><path d=\"M10 4v4\"></path><path d=\"M2 8h20\"></path><path d=\"M6 4v4\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M10 4v4\"></path><path d=\"M2 8h20\"></path><path d=\"M6 4v4\"></path>",
         categories = "layout,design,development,files",
         tags = "application,menu bar,pane,executable",
         contributors = "danielbayley,karsa-mistmere"
@@ -397,7 +397,7 @@ pub enum LucideGlyph {
     Apple,
     #[cfg(feature = "archive_restore")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"20\" rx=\"1\" x=\"2\" height=\"5\"></rect><path d=\"M4 8v11a2 2 0 0 0 2 2h2\"></path><path d=\"M20 8v11a2 2 0 0 1-2 2h-2\"></path><path d=\"m9 15 3-3 3 3\"></path><path d=\"M12 12v9\"></path>",
+        svg = "<rect height=\"5\" rx=\"1\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M4 8v11a2 2 0 0 0 2 2h2\"></path><path d=\"M20 8v11a2 2 0 0 1-2 2h-2\"></path><path d=\"m9 15 3-3 3 3\"></path><path d=\"M12 12v9\"></path>",
         categories = "files,mail",
         tags = "unarchive,index,backup,box,storage,records",
         contributors = "karsa-mistmere,ericfennis,danielbayley"
@@ -413,7 +413,7 @@ pub enum LucideGlyph {
     ArchiveX,
     #[cfg(feature = "archive")]
     #[strum(props(
-        svg = "<rect rx=\"1\" y=\"3\" width=\"20\" height=\"5\" x=\"2\"></rect><path d=\"M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8\"></path><path d=\"M10 12h4\"></path>",
+        svg = "<rect height=\"5\" rx=\"1\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8\"></path><path d=\"M10 12h4\"></path>",
         categories = "files,mail",
         tags = "index,backup,box,storage,records",
         contributors = "colebemis,ericfennis,karsa-mistmere,danielbayley"
@@ -493,7 +493,7 @@ pub enum LucideGlyph {
     ArrowBigUp,
     #[cfg(feature = "arrow_down_01")]
     #[strum(props(
-        svg = "<path d=\"m3 16 4 4 4-4\"></path><path d=\"M7 20V4\"></path><rect y=\"4\" height=\"6\" width=\"4\" ry=\"2\" x=\"15\"></rect><path d=\"M17 20v-6h-2\"></path><path d=\"M15 20h4\"></path>",
+        svg = "<path d=\"m3 16 4 4 4-4\"></path><path d=\"M7 20V4\"></path><rect height=\"6\" ry=\"2\" width=\"4\" x=\"15\" y=\"4\"></rect><path d=\"M17 20v-6h-2\"></path><path d=\"M15 20h4\"></path>",
         categories = "text,layout,arrows",
         tags = "filter,sort,ascending,descending,increasing,decreasing,rising,falling,numerical",
         contributors = "karsa-mistmere,danielbayley"
@@ -501,7 +501,7 @@ pub enum LucideGlyph {
     ArrowDown01,
     #[cfg(feature = "arrow_down_10")]
     #[strum(props(
-        svg = "<path d=\"m3 16 4 4 4-4\"></path><path d=\"M7 20V4\"></path><path d=\"M17 10V4h-2\"></path><path d=\"M15 10h4\"></path><rect y=\"14\" height=\"6\" ry=\"2\" x=\"15\" width=\"4\"></rect>",
+        svg = "<path d=\"m3 16 4 4 4-4\"></path><path d=\"M7 20V4\"></path><path d=\"M17 10V4h-2\"></path><path d=\"M15 10h4\"></path><rect height=\"6\" ry=\"2\" width=\"4\" x=\"15\" y=\"14\"></rect>",
         categories = "text,layout,arrows",
         tags = "filter,sort,ascending,descending,increasing,decreasing,rising,falling,numerical",
         contributors = "karsa-mistmere,danielbayley"
@@ -549,7 +549,7 @@ pub enum LucideGlyph {
     ArrowDownRight,
     #[cfg(feature = "arrow_down_to_dot")]
     #[strum(props(
-        svg = "<path d=\"M12 2v14\"></path><path d=\"m19 9-7 7-7-7\"></path><circle cx=\"12\" r=\"1\" cy=\"21\"></circle>",
+        svg = "<path d=\"M12 2v14\"></path><path d=\"m19 9-7 7-7-7\"></path><circle cx=\"12\" cy=\"21\" r=\"1\"></circle>",
         categories = "arrows",
         tags = "direction,south,waypoint,location,step,into",
         contributors = "danielbayley"
@@ -661,7 +661,7 @@ pub enum LucideGlyph {
     ArrowRight,
     #[cfg(feature = "arrow_up_01")]
     #[strum(props(
-        svg = "<path d=\"m3 8 4-4 4 4\"></path><path d=\"M7 4v16\"></path><rect y=\"4\" width=\"4\" ry=\"2\" height=\"6\" x=\"15\"></rect><path d=\"M17 20v-6h-2\"></path><path d=\"M15 20h4\"></path>",
+        svg = "<path d=\"m3 8 4-4 4 4\"></path><path d=\"M7 4v16\"></path><rect height=\"6\" ry=\"2\" width=\"4\" x=\"15\" y=\"4\"></rect><path d=\"M17 20v-6h-2\"></path><path d=\"M15 20h4\"></path>",
         categories = "text,layout,arrows",
         tags = "filter,sort,ascending,descending,increasing,decreasing,rising,falling,numerical",
         contributors = "karsa-mistmere,danielbayley"
@@ -669,7 +669,7 @@ pub enum LucideGlyph {
     ArrowUp01,
     #[cfg(feature = "arrow_up_10")]
     #[strum(props(
-        svg = "<path d=\"m3 8 4-4 4 4\"></path><path d=\"M7 4v16\"></path><path d=\"M17 10V4h-2\"></path><path d=\"M15 10h4\"></path><rect width=\"4\" height=\"6\" ry=\"2\" y=\"14\" x=\"15\"></rect>",
+        svg = "<path d=\"m3 8 4-4 4 4\"></path><path d=\"M7 4v16\"></path><path d=\"M17 10V4h-2\"></path><path d=\"M15 10h4\"></path><rect height=\"6\" ry=\"2\" width=\"4\" x=\"15\" y=\"14\"></rect>",
         categories = "text,layout,arrows",
         tags = "filter,sort,ascending,descending,increasing,decreasing,rising,falling,numerical",
         contributors = "karsa-mistmere,danielbayley"
@@ -781,7 +781,7 @@ pub enum LucideGlyph {
     Asterisk,
     #[cfg(feature = "at_sign")]
     #[strum(props(
-        svg = "<circle r=\"4\" cx=\"12\" cy=\"12\"></circle><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8\"></path>",
         categories = "text,account",
         tags = "mention,at,email,message,@",
         contributors = "colebemis,csandman,ericfennis,danielbayley"
@@ -789,7 +789,7 @@ pub enum LucideGlyph {
     AtSign,
     #[cfg(feature = "atom")]
     #[strum(props(
-        svg = "<circle r=\"1\" cx=\"12\" cy=\"12\"></circle><path d=\"M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z\"></path><path d=\"M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"1\"></circle><path d=\"M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z\"></path><path d=\"M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z\"></path>",
         categories = "science",
         tags = "atomic,nuclear,physics,particle,element,molecule,electricity,energy,chemistry",
         contributors = "danielbayley,karsa-mistmere"
@@ -813,7 +813,7 @@ pub enum LucideGlyph {
     AudioWaveform,
     #[cfg(feature = "award")]
     #[strum(props(
-        svg = "<path d=\"m15.47 12.89 1.51 8.52a.5.5 0 0 1-.81.47l-3.58-2.68a1 1 0 0 0-1.19 0l-3.58 2.68a.5.5 0 0 1-.81-.469l1.51-8.52\"></path><circle cy=\"8\" r=\"6\" cx=\"12\"></circle>",
+        svg = "<path d=\"m15.47 12.89 1.51 8.52a.5.5 0 0 1-.81.47l-3.58-2.68a1 1 0 0 0-1.19 0l-3.58 2.68a.5.5 0 0 1-.81-.469l1.51-8.52\"></path><circle cx=\"12\" cy=\"8\" r=\"6\"></circle>",
         categories = "account,sports,gaming",
         tags = "achievement,badge,rosette,prize,winner",
         contributors = "colebemis,karsa-mistmere"
@@ -853,7 +853,7 @@ pub enum LucideGlyph {
     Backpack,
     #[cfg(feature = "badge_alert")]
     #[strum(props(
-        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" y2=\"12\" y1=\"8\" x2=\"12\"></line><line x2=\"12.01\" y2=\"16\" y1=\"16\" x1=\"12\"></line>",
+        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line>",
         categories = "account,social",
         tags = "check,verified,unverified,security,safety,issue",
         contributors = "karsa-mistmere,jguddas"
@@ -901,7 +901,7 @@ pub enum LucideGlyph {
     BadgeIndianRupee,
     #[cfg(feature = "badge_info")]
     #[strum(props(
-        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x2=\"12\" x1=\"12\" y1=\"16\" y2=\"12\"></line><line y1=\"8\" x1=\"12\" x2=\"12.01\" y2=\"8\"></line>",
+        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" x2=\"12\" y1=\"16\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"8\" y2=\"8\"></line>",
         categories = "account,accessibility,social",
         tags = "verified,unverified,help",
         contributors = "karsa-mistmere,jguddas"
@@ -933,7 +933,7 @@ pub enum LucideGlyph {
     BadgePercent,
     #[cfg(feature = "badge_plus")]
     #[strum(props(
-        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"16\"></line><line y1=\"12\" y2=\"12\" x2=\"16\" x1=\"8\"></line>",
+        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"16\"></line><line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\"></line>",
         categories = "social",
         tags = "verified,unverified,add,create,new",
         contributors = "karsa-mistmere,jguddas"
@@ -949,7 +949,7 @@ pub enum LucideGlyph {
     BadgePoundSterling,
     #[cfg(feature = "badge_question_mark")]
     #[strum(props(
-        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\"></path><line y1=\"17\" x2=\"12.01\" x1=\"12\" y2=\"17\"></line>",
+        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\"></path><line x1=\"12\" x2=\"12.01\" y1=\"17\" y2=\"17\"></line>",
         categories = "accessibility,social,shapes",
         tags = "verified,unverified,help",
         contributors = "karsa-mistmere,jguddas"
@@ -981,7 +981,7 @@ pub enum LucideGlyph {
     BadgeTurkishLira,
     #[cfg(feature = "badge_x")]
     #[strum(props(
-        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x2=\"9\" y1=\"9\" y2=\"15\" x1=\"15\"></line><line x2=\"15\" y1=\"9\" x1=\"9\" y2=\"15\"></line>",
+        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"15\" x2=\"9\" y1=\"9\" y2=\"15\"></line><line x1=\"9\" x2=\"15\" y1=\"9\" y2=\"15\"></line>",
         categories = "social",
         tags = "verified,unverified,lost,delete,remove",
         contributors = "karsa-mistmere,jguddas"
@@ -997,7 +997,7 @@ pub enum LucideGlyph {
     Badge,
     #[cfg(feature = "baggage_claim")]
     #[strum(props(
-        svg = "<path d=\"M22 18H6a2 2 0 0 1-2-2V7a2 2 0 0 0-2-2\"></path><path d=\"M17 14V4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v10\"></path><rect width=\"13\" height=\"8\" y=\"6\" rx=\"1\" x=\"8\"></rect><circle cy=\"20\" r=\"2\" cx=\"18\"></circle><circle r=\"2\" cx=\"9\" cy=\"20\"></circle>",
+        svg = "<path d=\"M22 18H6a2 2 0 0 1-2-2V7a2 2 0 0 0-2-2\"></path><path d=\"M17 14V4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v10\"></path><rect height=\"8\" rx=\"1\" width=\"13\" x=\"8\" y=\"6\"></rect><circle cx=\"18\" cy=\"20\" r=\"2\"></circle><circle cx=\"9\" cy=\"20\" r=\"2\"></circle>",
         categories = "transportation,travel",
         tags = "baggage,luggage,travel,cart,trolley,suitcase",
         contributors = "karsa-mistmere,ericfennis"
@@ -1013,7 +1013,7 @@ pub enum LucideGlyph {
     Balloon,
     #[cfg(feature = "ban")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M4.92 4.92 19.07 19.07\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M4.92 4.92 19.07 19.07\"></path>",
         categories = "account",
         tags = "cancel,no,stop,forbidden,prohibited,error,incorrect,mistake,wrong,failure,circle,slash,null,void",
         contributors = "colebemis"
@@ -1029,7 +1029,7 @@ pub enum LucideGlyph {
     Banana,
     #[cfg(feature = "bandage")]
     #[strum(props(
-        svg = "<path d=\"M10 10.01h.01\"></path><path d=\"M10 14.01h.01\"></path><path d=\"M14 10.01h.01\"></path><path d=\"M14 14.01h.01\"></path><path d=\"M18 6v12\"></path><path d=\"M6 6v12\"></path><rect rx=\"2\" width=\"20\" x=\"2\" y=\"6\" height=\"12\"></rect>",
+        svg = "<path d=\"M10 10.01h.01\"></path><path d=\"M10 14.01h.01\"></path><path d=\"M14 10.01h.01\"></path><path d=\"M14 14.01h.01\"></path><path d=\"M18 6v12\"></path><path d=\"M6 6v12\"></path><rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "medical",
         tags = "plaster,band-aid,first aid,medical,health,wound,injury,care,treatment,healing,protection,emergency,aid,safety,patch",
         contributors = "karsa-mistmere,jamiemlaw,jguddas"
@@ -1037,7 +1037,7 @@ pub enum LucideGlyph {
     Bandage,
     #[cfg(feature = "banknote_arrow_down")]
     #[strum(props(
-        svg = "<path d=\"M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"m16 19 3 3 3-3\"></path><path d=\"M18 12h.01\"></path><path d=\"M19 16v6\"></path><path d=\"M6 12h.01\"></path><circle cx=\"12\" r=\"2\" cy=\"12\"></circle>",
+        svg = "<path d=\"M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"m16 19 3 3 3-3\"></path><path d=\"M18 12h.01\"></path><path d=\"M19 16v6\"></path><path d=\"M6 12h.01\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "finance",
         tags = "bill,currency,money,payment,funds,transaction,cash,finance,withdraw,expense,out,payout,refund,debit,spending,decrease",
         contributors = "AnnaSasDev,joffx,ericfennis,mittalyashu"
@@ -1045,7 +1045,7 @@ pub enum LucideGlyph {
     BanknoteArrowDown,
     #[cfg(feature = "banknote_arrow_up")]
     #[strum(props(
-        svg = "<path d=\"M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"M18 12h.01\"></path><path d=\"M19 22v-6\"></path><path d=\"m22 19-3-3-3 3\"></path><path d=\"M6 12h.01\"></path><circle cy=\"12\" r=\"2\" cx=\"12\"></circle>",
+        svg = "<path d=\"M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"M18 12h.01\"></path><path d=\"M19 22v-6\"></path><path d=\"m22 19-3-3-3 3\"></path><path d=\"M6 12h.01\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "finance",
         tags = "bill,currency,money,payment,funds,transaction,cash,finance,deposit,earnings,income,in,credit,prepaid,growth,increase",
         contributors = "AnnaSasDev,joffx,ericfennis,mittalyashu"
@@ -1053,7 +1053,7 @@ pub enum LucideGlyph {
     BanknoteArrowUp,
     #[cfg(feature = "banknote_x")]
     #[strum(props(
-        svg = "<path d=\"M13 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"m17 17 5 5\"></path><path d=\"M18 12h.01\"></path><path d=\"m22 17-5 5\"></path><path d=\"M6 12h.01\"></path><circle r=\"2\" cy=\"12\" cx=\"12\"></circle>",
+        svg = "<path d=\"M13 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"m17 17 5 5\"></path><path d=\"M18 12h.01\"></path><path d=\"m22 17-5 5\"></path><path d=\"M6 12h.01\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "finance",
         tags = "bill,currency,money,payment,funds,transaction,cash,finance,error,failed,rejected,canceled,declined,lost,delete,remove",
         contributors = "AnnaSasDev,joffx,ericfennis,mittalyashu"
@@ -1061,7 +1061,7 @@ pub enum LucideGlyph {
     BanknoteX,
     #[cfg(feature = "banknote")]
     #[strum(props(
-        svg = "<rect width=\"20\" y=\"6\" rx=\"2\" height=\"12\" x=\"2\"></rect><circle cy=\"12\" r=\"2\" cx=\"12\"></circle><path d=\"M6 12h.01M18 12h.01\"></path>",
+        svg = "<rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><path d=\"M6 12h.01M18 12h.01\"></path>",
         categories = "finance",
         tags = "currency,money,payment",
         contributors = "ericfennis,mittalyashu"
@@ -1109,7 +1109,7 @@ pub enum LucideGlyph {
     BatteryCharging,
     #[cfg(feature = "battery_full")]
     #[strum(props(
-        svg = "<path d=\"M10 10v4\"></path><path d=\"M14 10v4\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 10v4\"></path><rect width=\"16\" y=\"6\" height=\"12\" rx=\"2\" x=\"2\"></rect>",
+        svg = "<path d=\"M10 10v4\"></path><path d=\"M14 10v4\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 10v4\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"2\" y=\"6\"></rect>",
         categories = "connectivity,devices",
         tags = "power,electricity,energy,accumulator,charge",
         contributors = "ericfennis,karsa-mistmere,johnletey,jguddas"
@@ -1117,7 +1117,7 @@ pub enum LucideGlyph {
     BatteryFull,
     #[cfg(feature = "battery_low")]
     #[strum(props(
-        svg = "<path d=\"M22 14v-4\"></path><path d=\"M6 14v-4\"></path><rect height=\"12\" rx=\"2\" x=\"2\" y=\"6\" width=\"16\"></rect>",
+        svg = "<path d=\"M22 14v-4\"></path><path d=\"M6 14v-4\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"2\" y=\"6\"></rect>",
         categories = "connectivity,devices",
         tags = "power,electricity,energy,accumulator,charge",
         contributors = "ericfennis,johnletey,karsa-mistmere,jguddas"
@@ -1125,7 +1125,7 @@ pub enum LucideGlyph {
     BatteryLow,
     #[cfg(feature = "battery_medium")]
     #[strum(props(
-        svg = "<path d=\"M10 14v-4\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 14v-4\"></path><rect y=\"6\" height=\"12\" width=\"16\" x=\"2\" rx=\"2\"></rect>",
+        svg = "<path d=\"M10 14v-4\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 14v-4\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"2\" y=\"6\"></rect>",
         categories = "connectivity,devices",
         tags = "power,electricity,energy,accumulator,charge",
         contributors = "ericfennis,johnletey,karsa-mistmere,jguddas"
@@ -1149,7 +1149,7 @@ pub enum LucideGlyph {
     BatteryWarning,
     #[cfg(feature = "battery")]
     #[strum(props(
-        svg = "<path d=\"M 22 14 L 22 10\"></path><rect x=\"2\" width=\"16\" height=\"12\" y=\"6\" rx=\"2\"></rect>",
+        svg = "<path d=\"M 22 14 L 22 10\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"2\" y=\"6\"></rect>",
         categories = "connectivity,devices",
         tags = "power,electricity,energy,accumulator,charge",
         contributors = "colebemis,ericfennis,johnletey,jguddas"
@@ -1165,7 +1165,7 @@ pub enum LucideGlyph {
     Beaker,
     #[cfg(feature = "bean_off")]
     #[strum(props(
-        svg = "<path d=\"M9 9c-.64.64-1.52.954-2.40 1.16A6 6 0 0 0 8 22a13.96 13.96 0 0 0 9.9-4.1\"></path><path d=\"M10.75 5.09A6 6 0 0 1 22 8c0 2.41-.61 4.68-1.68 6.66\"></path><path d=\"M5.34 10.62a4 4 0 0 0 6.48 1.20M10.62 5.34a4.01 4.01 0 0 1 2.03 2.04\"></path><line y2=\"22\" x2=\"22\" x1=\"2\" y1=\"2\"></line>",
+        svg = "<path d=\"M9 9c-.64.64-1.52.954-2.40 1.16A6 6 0 0 0 8 22a13.96 13.96 0 0 0 9.9-4.1\"></path><path d=\"M10.75 5.09A6 6 0 0 1 22 8c0 2.41-.61 4.68-1.68 6.66\"></path><path d=\"M5.34 10.62a4 4 0 0 0 6.48 1.20M10.62 5.34a4.01 4.01 0 0 1 2.03 2.04\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "food-beverage",
         tags = "soy free,legume,soy,food,seed,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -1237,7 +1237,7 @@ pub enum LucideGlyph {
     Beer,
     #[cfg(feature = "bell_dot")]
     #[strum(props(
-        svg = "<path d=\"M10.26 21a2 2 0 0 0 3.46 0\"></path><path d=\"M11.68 2.00A6 6 0 0 0 6 8c0 4.49-1.41 5.95-2.73 7.32A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67c-.824-.85-1.67-1.73-2.21-3.34\"></path><circle r=\"3\" cx=\"18\" cy=\"5\"></circle>",
+        svg = "<path d=\"M10.26 21a2 2 0 0 0 3.46 0\"></path><path d=\"M11.68 2.00A6 6 0 0 0 6 8c0 4.49-1.41 5.95-2.73 7.32A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67c-.824-.85-1.67-1.73-2.21-3.34\"></path><circle cx=\"18\" cy=\"5\" r=\"3\"></circle>",
         categories = "account,notifications",
         tags = "alarm,notification,sound,reminder,unread",
         contributors = "danielbayley,jguddas"
@@ -1245,7 +1245,7 @@ pub enum LucideGlyph {
     BellDot,
     #[cfg(feature = "bell_electric")]
     #[strum(props(
-        svg = "<path d=\"M18.51 17.34A7 7 0 0 1 14 19\"></path><path d=\"M18.8 4A11 11 0 0 1 20 9\"></path><path d=\"M9 9h.01\"></path><circle cx=\"20\" r=\"2\" cy=\"16\"></circle><circle cx=\"9\" cy=\"9\" r=\"7\"></circle><rect height=\"6\" y=\"16\" width=\"10\" x=\"4\" rx=\"2\"></rect>",
+        svg = "<path d=\"M18.51 17.34A7 7 0 0 1 14 19\"></path><path d=\"M18.8 4A11 11 0 0 1 20 9\"></path><path d=\"M9 9h.01\"></path><circle cx=\"20\" cy=\"16\" r=\"2\"></circle><circle cx=\"9\" cy=\"9\" r=\"7\"></circle><rect height=\"6\" rx=\"2\" width=\"10\" x=\"4\" y=\"16\"></rect>",
         categories = "devices,notifications,home",
         tags = "fire alarm,flames,smoke,firefighter,fireman,department,brigade,station,emergency,alert,safety,school bell,period break,recess,doorbell,entrance,entry,ring,reception",
         contributors = "danielbayley,jguddas"
@@ -1293,7 +1293,7 @@ pub enum LucideGlyph {
     Bell,
     #[cfg(feature = "between_horizontal_end")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"3\" height=\"7\" rx=\"1\" width=\"13\"></rect><path d=\"m22 15-3-3 3-3\"></path><rect height=\"7\" width=\"13\" rx=\"1\" x=\"3\" y=\"14\"></rect>",
+        svg = "<rect height=\"7\" rx=\"1\" width=\"13\" x=\"3\" y=\"3\"></rect><path d=\"m22 15-3-3 3-3\"></path><rect height=\"7\" rx=\"1\" width=\"13\" x=\"3\" y=\"14\"></rect>",
         categories = "layout,design,tools",
         tags = "insert,add,left,slot,squeeze,space,vertical,grid,table,rows,cells,excel,spreadsheet,accountancy,data,enter,entry,entries,blocks,rectangles,chevron",
         contributors = "danielbayley"
@@ -1301,7 +1301,7 @@ pub enum LucideGlyph {
     BetweenHorizontalEnd,
     #[cfg(feature = "between_horizontal_start")]
     #[strum(props(
-        svg = "<rect rx=\"1\" width=\"13\" height=\"7\" x=\"8\" y=\"3\"></rect><path d=\"m2 9 3 3-3 3\"></path><rect width=\"13\" height=\"7\" rx=\"1\" x=\"8\" y=\"14\"></rect>",
+        svg = "<rect height=\"7\" rx=\"1\" width=\"13\" x=\"8\" y=\"3\"></rect><path d=\"m2 9 3 3-3 3\"></path><rect height=\"7\" rx=\"1\" width=\"13\" x=\"8\" y=\"14\"></rect>",
         categories = "layout,design,tools",
         tags = "insert,add,right,slot,squeeze,space,vertical,grid,table,rows,cells,excel,spreadsheet,accountancy,data,enter,entry,entries,blocks,rectangles,chevron",
         contributors = "danielbayley"
@@ -1309,7 +1309,7 @@ pub enum LucideGlyph {
     BetweenHorizontalStart,
     #[cfg(feature = "between_vertical_end")]
     #[strum(props(
-        svg = "<rect rx=\"1\" width=\"7\" height=\"13\" x=\"3\" y=\"3\"></rect><path d=\"m9 22 3-3 3 3\"></path><rect y=\"3\" width=\"7\" height=\"13\" rx=\"1\" x=\"14\"></rect>",
+        svg = "<rect height=\"13\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><path d=\"m9 22 3-3 3 3\"></path><rect height=\"13\" rx=\"1\" width=\"7\" x=\"14\" y=\"3\"></rect>",
         categories = "layout,design,tools",
         tags = "insert,add,top,slot,squeeze,space,vertical,grid,table,columns,cells,data,enter,entry,entries,blocks,rectangles,chevron",
         contributors = "danielbayley"
@@ -1317,7 +1317,7 @@ pub enum LucideGlyph {
     BetweenVerticalEnd,
     #[cfg(feature = "between_vertical_start")]
     #[strum(props(
-        svg = "<rect height=\"13\" y=\"8\" rx=\"1\" x=\"3\" width=\"7\"></rect><path d=\"m15 2-3 3-3-3\"></path><rect rx=\"1\" y=\"8\" height=\"13\" width=\"7\" x=\"14\"></rect>",
+        svg = "<rect height=\"13\" rx=\"1\" width=\"7\" x=\"3\" y=\"8\"></rect><path d=\"m15 2-3 3-3-3\"></path><rect height=\"13\" rx=\"1\" width=\"7\" x=\"14\" y=\"8\"></rect>",
         categories = "layout,design,tools",
         tags = "insert,add,bottom,slot,squeeze,space,vertical,grid,table,columns,cells,data,enter,entry,entries,blocks,rectangles,chevron",
         contributors = "danielbayley"
@@ -1333,7 +1333,7 @@ pub enum LucideGlyph {
     BicepsFlexed,
     #[cfg(feature = "bike")]
     #[strum(props(
-        svg = "<circle r=\"3.5\" cx=\"18.5\" cy=\"17.5\"></circle><circle cx=\"5.5\" cy=\"17.5\" r=\"3.5\"></circle><circle cx=\"15\" cy=\"5\" r=\"1\"></circle><path d=\"M12 17.5V14l-3-3 4-3 2 3h2\"></path>",
+        svg = "<circle cx=\"18.5\" cy=\"17.5\" r=\"3.5\"></circle><circle cx=\"5.5\" cy=\"17.5\" r=\"3.5\"></circle><circle cx=\"15\" cy=\"5\" r=\"1\"></circle><path d=\"M12 17.5V14l-3-3 4-3 2 3h2\"></path>",
         categories = "transportation",
         tags = "bicycle,transport,trip",
         contributors = "ahtohbi4,ericfennis,Andreto,csandman,jguddas,karsa-mistmere"
@@ -1341,7 +1341,7 @@ pub enum LucideGlyph {
     Bike,
     #[cfg(feature = "binary")]
     #[strum(props(
-        svg = "<rect height=\"6\" y=\"14\" x=\"14\" width=\"4\" rx=\"2\"></rect><rect height=\"6\" y=\"4\" x=\"6\" width=\"4\" rx=\"2\"></rect><path d=\"M6 20h4\"></path><path d=\"M14 10h4\"></path><path d=\"M6 14h2v6\"></path><path d=\"M14 4h2v6\"></path>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"4\" x=\"14\" y=\"14\"></rect><rect height=\"6\" rx=\"2\" width=\"4\" x=\"6\" y=\"4\"></rect><path d=\"M6 20h4\"></path><path d=\"M14 10h4\"></path><path d=\"M6 14h2v6\"></path><path d=\"M14 4h2v6\"></path>",
         categories = "text,development",
         tags = "code,digits,computer,zero,one,boolean",
         contributors = "mittalyashu,karsa-mistmere,ericfennis"
@@ -1357,7 +1357,7 @@ pub enum LucideGlyph {
     Binoculars,
     #[cfg(feature = "biohazard")]
     #[strum(props(
-        svg = "<circle r=\"2\" cx=\"12\" cy=\"11.9\"></circle><path d=\"M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6\"></path><path d=\"m8.9 10.1 1.4.8\"></path><path d=\"M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5\"></path><path d=\"m15.1 10.1-1.4.8\"></path><path d=\"M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2\"></path><path d=\"M12 13.9v1.6\"></path><path d=\"M13.5 5.4c-1-.2-2-.2-3 0\"></path><path d=\"M17 16.4c.7-.7 1.2-1.6 1.5-2.5\"></path><path d=\"M5.5 13.9c.3.9.8 1.8 1.5 2.5\"></path>",
+        svg = "<circle cx=\"12\" cy=\"11.9\" r=\"2\"></circle><path d=\"M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6\"></path><path d=\"m8.9 10.1 1.4.8\"></path><path d=\"M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5\"></path><path d=\"m15.1 10.1-1.4.8\"></path><path d=\"M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2\"></path><path d=\"M12 13.9v1.6\"></path><path d=\"M13.5 5.4c-1-.2-2-.2-3 0\"></path><path d=\"M17 16.4c.7-.7 1.2-1.6 1.5-2.5\"></path><path d=\"M5.5 13.9c.3.9.8 1.8 1.5 2.5\"></path>",
         categories = "science",
         tags = "fallout,waste,biology,chemistry,chemical,element",
         contributors = "karsa-mistmere,danielbayley,ericfennis"
@@ -1373,7 +1373,7 @@ pub enum LucideGlyph {
     Bird,
     #[cfg(feature = "birdhouse")]
     #[strum(props(
-        svg = "<path d=\"M12 18v4\"></path><path d=\"m17 18 1.95-11.46\"></path><path d=\"m3 8 7.82-5.61a2 2 0 0 1 2.36 0L21 8\"></path><path d=\"M4 18h16\"></path><path d=\"M7 18 5.04 6.53\"></path><circle r=\"2\" cx=\"12\" cy=\"10\"></circle>",
+        svg = "<path d=\"M12 18v4\"></path><path d=\"m17 18 1.95-11.46\"></path><path d=\"m3 8 7.82-5.61a2 2 0 0 1 2.36 0L21 8\"></path><path d=\"M4 18h16\"></path><path d=\"M7 18 5.04 6.53\"></path><circle cx=\"12\" cy=\"10\" r=\"2\"></circle>",
         categories = "nature,animals,navigation,home",
         tags = "birdhouse,bird,garden,home,house,woodwork",
         contributors = "hieu-onefold,karsa-mistmere"
@@ -1389,7 +1389,7 @@ pub enum LucideGlyph {
     Bitcoin,
     #[cfg(feature = "blend")]
     #[strum(props(
-        svg = "<circle cy=\"9\" r=\"7\" cx=\"9\"></circle><circle r=\"7\" cy=\"15\" cx=\"15\"></circle>",
+        svg = "<circle cx=\"9\" cy=\"9\" r=\"7\"></circle><circle cx=\"15\" cy=\"15\" r=\"7\"></circle>",
         categories = "design,photography,tools,development",
         tags = "mode,overlay,multiply,screen,opacity,transparency,alpha,filters,lenses,mixed,shades,tints,hues,saturation,brightness,overlap,colors,colours",
         contributors = "danielbayley"
@@ -1405,7 +1405,7 @@ pub enum LucideGlyph {
     Blinds,
     #[cfg(feature = "blocks")]
     #[strum(props(
-        svg = "<path d=\"M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2\"></path><rect rx=\"1\" height=\"8\" width=\"8\" x=\"14\" y=\"2\"></rect>",
+        svg = "<path d=\"M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2\"></path><rect height=\"8\" rx=\"1\" width=\"8\" x=\"14\" y=\"2\"></rect>",
         categories = "development,layout,shapes",
         tags = "addon,plugin,integration,extension,package,build,stack,toys,kids,children,learning,squares,corner",
         contributors = "danielbayley,jguddas"
@@ -1413,7 +1413,7 @@ pub enum LucideGlyph {
     Blocks,
     #[cfg(feature = "bluetooth_connected")]
     #[strum(props(
-        svg = "<path d=\"m7 7 10 10-5 5V2l5 5L7 17\"></path><line y2=\"12\" y1=\"12\" x1=\"18\" x2=\"21\"></line><line x1=\"3\" y1=\"12\" x2=\"6\" y2=\"12\"></line>",
+        svg = "<path d=\"m7 7 10 10-5 5V2l5 5L7 17\"></path><line x1=\"18\" x2=\"21\" y1=\"12\" y2=\"12\"></line><line x1=\"3\" x2=\"6\" y1=\"12\" y2=\"12\"></line>",
         categories = "connectivity,devices",
         tags = "paired",
         contributors = "ericfennis,csandman"
@@ -1453,7 +1453,7 @@ pub enum LucideGlyph {
     Bold,
     #[cfg(feature = "bolt")]
     #[strum(props(
-        svg = "<path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path><circle r=\"4\" cy=\"12\" cx=\"12\"></circle>",
+        svg = "<path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path><circle cx=\"12\" cy=\"12\" r=\"4\"></circle>",
         categories = "tools,home",
         tags = "nut,screw,settings,preferences,configuration,controls,edit,diy,fixed,build,construction,parts",
         contributors = "danielbayley"
@@ -1533,7 +1533,7 @@ pub enum LucideGlyph {
     BookDown,
     #[cfg(feature = "book_headphones")]
     #[strum(props(
-        svg = "<path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><path d=\"M8 12v-2a4 4 0 0 1 8 0v2\"></path><circle r=\"1\" cx=\"15\" cy=\"12\"></circle><circle r=\"1\" cy=\"12\" cx=\"9\"></circle>",
+        svg = "<path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><path d=\"M8 12v-2a4 4 0 0 1 8 0v2\"></path><circle cx=\"15\" cy=\"12\" r=\"1\"></circle><circle cx=\"9\" cy=\"12\" r=\"1\"></circle>",
         categories = "multimedia,text",
         tags = "audiobook,reading,listening,sound,story,fiction,novel,information,knowledge,education,student,study,learning,research",
         contributors = "danielbayley"
@@ -1549,7 +1549,7 @@ pub enum LucideGlyph {
     BookHeart,
     #[cfg(feature = "book_image")]
     #[strum(props(
-        svg = "<path d=\"m20 13.7-2.1-2.1a2 2 0 0 0-2.8 0L9.7 17\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><circle r=\"2\" cy=\"8\" cx=\"10\"></circle>",
+        svg = "<path d=\"m20 13.7-2.1-2.1a2 2 0 0 0-2.8 0L9.7 17\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><circle cx=\"10\" cy=\"8\" r=\"2\"></circle>",
         categories = "photography,text,multimedia,files,social,shopping,travel",
         tags = "images,pictures,photos,album,collection,event,magazine,catalog,catalogue,brochure,browse,gallery",
         contributors = "danielbayley,jguddas"
@@ -1557,7 +1557,7 @@ pub enum LucideGlyph {
     BookImage,
     #[cfg(feature = "book_key")]
     #[strum(props(
-        svg = "<path d=\"M13 2H6.5A2.5 2.5 0 0 0 4 4.5v15\"></path><path d=\"M17 2v6\"></path><path d=\"M17 4h2\"></path><path d=\"M20 15.2V21a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><circle cx=\"17\" r=\"2\" cy=\"10\"></circle>",
+        svg = "<path d=\"M13 2H6.5A2.5 2.5 0 0 0 4 4.5v15\"></path><path d=\"M17 2v6\"></path><path d=\"M17 4h2\"></path><path d=\"M20 15.2V21a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><circle cx=\"17\" cy=\"10\" r=\"2\"></circle>",
         categories = "development,security,gaming",
         tags = "code,coding,version control,git,repository,private,public,secret,unlocked,hidden,revealed,knowledge,learning",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -1565,7 +1565,7 @@ pub enum LucideGlyph {
     BookKey,
     #[cfg(feature = "book_lock")]
     #[strum(props(
-        svg = "<path d=\"M18 6V4a2 2 0 1 0-4 0v2\"></path><path d=\"M20 15v6a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H10\"></path><rect width=\"8\" x=\"12\" y=\"6\" height=\"5\" rx=\"1\"></rect>",
+        svg = "<path d=\"M18 6V4a2 2 0 1 0-4 0v2\"></path><path d=\"M20 15v6a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H10\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"12\" y=\"6\"></rect>",
         categories = "development,security,gaming",
         tags = "code,coding,version control,git,repository,private,secret,hidden,knowledge",
         contributors = "danielbayley"
@@ -1621,7 +1621,7 @@ pub enum LucideGlyph {
     BookPlus,
     #[cfg(feature = "book_search")]
     #[strum(props(
-        svg = "<path d=\"M11 22H5.5a1 1 0 0 1 0-5h4.50\"></path><path d=\"m21 22-1.87-1.87\"></path><path d=\"M3 19.5v-15A2.5 2.5 0 0 1 5.5 2H18a1 1 0 0 1 1 1v8\"></path><circle r=\"3\" cx=\"17\" cy=\"18\"></circle>",
+        svg = "<path d=\"M11 22H5.5a1 1 0 0 1 0-5h4.50\"></path><path d=\"m21 22-1.87-1.87\"></path><path d=\"M3 19.5v-15A2.5 2.5 0 0 1 5.5 2H18a1 1 0 0 1 1 1v8\"></path><circle cx=\"17\" cy=\"18\" r=\"3\"></circle>",
         categories = "text,development,gaming",
         tags = "reading,library,study,education,research,knowledge,discover,browsing,lookup,finding,scanning",
         contributors = "karsa-mistmere,Muhammad-Aqib-Bashir"
@@ -1725,7 +1725,7 @@ pub enum LucideGlyph {
     Bookmark,
     #[cfg(feature = "boom_box")]
     #[strum(props(
-        svg = "<path d=\"M4 9V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4\"></path><path d=\"M8 8v1\"></path><path d=\"M12 8v1\"></path><path d=\"M16 8v1\"></path><rect rx=\"2\" y=\"9\" width=\"20\" height=\"12\" x=\"2\"></rect><circle r=\"2\" cy=\"15\" cx=\"8\"></circle><circle cx=\"16\" cy=\"15\" r=\"2\"></circle>",
+        svg = "<path d=\"M4 9V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4\"></path><path d=\"M8 8v1\"></path><path d=\"M12 8v1\"></path><path d=\"M16 8v1\"></path><rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"9\"></rect><circle cx=\"8\" cy=\"15\" r=\"2\"></circle><circle cx=\"16\" cy=\"15\" r=\"2\"></circle>",
         categories = "devices,multimedia,social",
         tags = "radio,speakers,audio,music,sound,broadcast,live,frequency",
         contributors = "danielbayley"
@@ -1749,7 +1749,7 @@ pub enum LucideGlyph {
     BotOff,
     #[cfg(feature = "bot")]
     #[strum(props(
-        svg = "<path d=\"M12 8V4H8\"></path><rect x=\"4\" width=\"16\" rx=\"2\" y=\"8\" height=\"12\"></rect><path d=\"M2 14h2\"></path><path d=\"M20 14h2\"></path><path d=\"M15 13v2\"></path><path d=\"M9 13v2\"></path>",
+        svg = "<path d=\"M12 8V4H8\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"4\" y=\"8\"></rect><path d=\"M2 14h2\"></path><path d=\"M20 14h2\"></path><path d=\"M15 13v2\"></path><path d=\"M9 13v2\"></path>",
         categories = "development,social",
         tags = "robot,ai,chat,assistant",
         contributors = "ericfennis"
@@ -1805,7 +1805,7 @@ pub enum LucideGlyph {
     Brackets,
     #[cfg(feature = "brain_circuit")]
     #[strum(props(
-        svg = "<path d=\"M12 5a3 3 0 1 0-5.99.125 4 4 0 0 0-2.52 5.77 4 4 0 0 0 .556 6.58A4 4 0 1 0 12 18Z\"></path><path d=\"M9 13a4.5 4.5 0 0 0 3-4\"></path><path d=\"M6.00 5.12A3 3 0 0 0 6.40 6.5\"></path><path d=\"M3.47 10.89a4 4 0 0 1 .585-.396\"></path><path d=\"M6 18a4 4 0 0 1-1.96-.516\"></path><path d=\"M12 13h4\"></path><path d=\"M12 18h6a2 2 0 0 1 2 2v1\"></path><path d=\"M12 8h8\"></path><path d=\"M16 8V5a2 2 0 0 1 2-2\"></path><circle cy=\"13\" r=\".5\" cx=\"16\"></circle><circle cy=\"3\" cx=\"18\" r=\".5\"></circle><circle cx=\"20\" cy=\"21\" r=\".5\"></circle><circle cx=\"20\" cy=\"8\" r=\".5\"></circle>",
+        svg = "<path d=\"M12 5a3 3 0 1 0-5.99.125 4 4 0 0 0-2.52 5.77 4 4 0 0 0 .556 6.58A4 4 0 1 0 12 18Z\"></path><path d=\"M9 13a4.5 4.5 0 0 0 3-4\"></path><path d=\"M6.00 5.12A3 3 0 0 0 6.40 6.5\"></path><path d=\"M3.47 10.89a4 4 0 0 1 .585-.396\"></path><path d=\"M6 18a4 4 0 0 1-1.96-.516\"></path><path d=\"M12 13h4\"></path><path d=\"M12 18h6a2 2 0 0 1 2 2v1\"></path><path d=\"M12 8h8\"></path><path d=\"M16 8V5a2 2 0 0 1 2-2\"></path><circle cx=\"16\" cy=\"13\" r=\".5\"></circle><circle cx=\"18\" cy=\"3\" r=\".5\"></circle><circle cx=\"20\" cy=\"21\" r=\".5\"></circle><circle cx=\"20\" cy=\"8\" r=\".5\"></circle>",
         categories = "science,development",
         tags = "mind,intellect,artificial intelligence,ai,deep learning,machine learning,computing",
         contributors = "karsa-mistmere,jguddas,it-is-not,ericfennis"
@@ -1813,7 +1813,7 @@ pub enum LucideGlyph {
     BrainCircuit,
     #[cfg(feature = "brain_cog")]
     #[strum(props(
-        svg = "<path d=\"m10.85 14.77-.383.92\"></path><path d=\"m10.85 9.22-.383-.923\"></path><path d=\"m13.14 14.77.382.92\"></path><path d=\"m13.53 8.30-.383.92\"></path><path d=\"m14.77 10.85.923-.383\"></path><path d=\"m14.77 13.14.923.38\"></path><path d=\"M17.59 6.5A3 3 0 1 0 12 5a3 3 0 0 0-5.63-1.44 3 3 0 0 0-.368 1.57 4 4 0 0 0-2.52 5.77\"></path><path d=\"M17.99 5.12a4 4 0 0 1 2.52 5.77\"></path><path d=\"M19.50 10.29a4 4 0 0 1-1.5 7.70\"></path><path d=\"M4.03 17.48A4 4 0 0 0 11.46 20c.18-.311.89-.311 1.07 0a4 4 0 0 0 7.43-2.51\"></path><path d=\"M4.5 10.29A4 4 0 0 0 6 18\"></path><path d=\"M6.00 5.12a3 3 0 0 0 .4 1.37\"></path><path d=\"m9.22 10.85-.923-.383\"></path><path d=\"m9.22 13.14-.923.38\"></path><circle cy=\"12\" r=\"3\" cx=\"12\"></circle>",
+        svg = "<path d=\"m10.85 14.77-.383.92\"></path><path d=\"m10.85 9.22-.383-.923\"></path><path d=\"m13.14 14.77.382.92\"></path><path d=\"m13.53 8.30-.383.92\"></path><path d=\"m14.77 10.85.923-.383\"></path><path d=\"m14.77 13.14.923.38\"></path><path d=\"M17.59 6.5A3 3 0 1 0 12 5a3 3 0 0 0-5.63-1.44 3 3 0 0 0-.368 1.57 4 4 0 0 0-2.52 5.77\"></path><path d=\"M17.99 5.12a4 4 0 0 1 2.52 5.77\"></path><path d=\"M19.50 10.29a4 4 0 0 1-1.5 7.70\"></path><path d=\"M4.03 17.48A4 4 0 0 0 11.46 20c.18-.311.89-.311 1.07 0a4 4 0 0 0 7.43-2.51\"></path><path d=\"M4.5 10.29A4 4 0 0 0 6 18\"></path><path d=\"M6.00 5.12a3 3 0 0 0 .4 1.37\"></path><path d=\"m9.22 10.85-.923-.383\"></path><path d=\"m9.22 13.14-.923.38\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
         categories = "science,development",
         tags = "mind,intellect,artificial intelligence,ai,deep learning,machine learning,computing",
         contributors = "karsa-mistmere,jguddas,it-is-not,UsamaKhan"
@@ -1845,7 +1845,7 @@ pub enum LucideGlyph {
     BrickWallShield,
     #[cfg(feature = "brick_wall")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" x=\"3\" rx=\"2\" y=\"3\"></rect><path d=\"M12 9v6\"></path><path d=\"M16 15v6\"></path><path d=\"M16 3v6\"></path><path d=\"M3 15h18\"></path><path d=\"M3 9h18\"></path><path d=\"M8 15v6\"></path><path d=\"M8 3v6\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 9v6\"></path><path d=\"M16 15v6\"></path><path d=\"M16 3v6\"></path><path d=\"M3 15h18\"></path><path d=\"M3 9h18\"></path><path d=\"M8 15v6\"></path><path d=\"M8 3v6\"></path>",
         categories = "buildings,home",
         tags = "bricks,mortar,cement,materials,construction,builder,labourer,quantity surveyor,blocks,stone",
         contributors = "karsa-mistmere,danielbayley"
@@ -1853,7 +1853,7 @@ pub enum LucideGlyph {
     BrickWall,
     #[cfg(feature = "briefcase_business")]
     #[strum(props(
-        svg = "<path d=\"M12 12h.01\"></path><path d=\"M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2\"></path><path d=\"M22 13a18.15 18.15 0 0 1-20 0\"></path><rect rx=\"2\" width=\"20\" x=\"2\" height=\"14\" y=\"6\"></rect>",
+        svg = "<path d=\"M12 12h.01\"></path><path d=\"M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2\"></path><path d=\"M22 13a18.15 18.15 0 0 1-20 0\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "transportation",
         tags = "work,bag,baggage,folder,portfolio",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -1861,7 +1861,7 @@ pub enum LucideGlyph {
     BriefcaseBusiness,
     #[cfg(feature = "briefcase_conveyor_belt")]
     #[strum(props(
-        svg = "<path d=\"M10 20v2\"></path><path d=\"M14 20v2\"></path><path d=\"M18 20v2\"></path><path d=\"M21 20H3\"></path><path d=\"M6 20v2\"></path><path d=\"M8 16V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v12\"></path><rect x=\"4\" y=\"6\" rx=\"2\" width=\"16\" height=\"10\"></rect>",
+        svg = "<path d=\"M10 20v2\"></path><path d=\"M14 20v2\"></path><path d=\"M18 20v2\"></path><path d=\"M21 20H3\"></path><path d=\"M6 20v2\"></path><path d=\"M8 16V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v12\"></path><rect height=\"10\" rx=\"2\" width=\"16\" x=\"4\" y=\"6\"></rect>",
         categories = "travel,transportation",
         tags = "baggage,luggage,travel,suitcase,conveyor,carousel",
         contributors = "karsa-mistmere,jguddas"
@@ -1869,7 +1869,7 @@ pub enum LucideGlyph {
     BriefcaseConveyorBelt,
     #[cfg(feature = "briefcase_medical")]
     #[strum(props(
-        svg = "<path d=\"M12 11v4\"></path><path d=\"M14 13h-4\"></path><path d=\"M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2\"></path><path d=\"M18 6v14\"></path><path d=\"M6 6v14\"></path><rect width=\"20\" x=\"2\" height=\"14\" y=\"6\" rx=\"2\"></rect>",
+        svg = "<path d=\"M12 11v4\"></path><path d=\"M14 13h-4\"></path><path d=\"M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2\"></path><path d=\"M18 6v14\"></path><path d=\"M6 6v14\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "medical,transportation",
         tags = "doctor,medicine,first aid",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -1877,7 +1877,7 @@ pub enum LucideGlyph {
     BriefcaseMedical,
     #[cfg(feature = "briefcase")]
     #[strum(props(
-        svg = "<path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"></path><rect y=\"6\" rx=\"2\" x=\"2\" width=\"20\" height=\"14\"></rect>",
+        svg = "<path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "transportation",
         tags = "work,bag,baggage,folder",
         contributors = "colebemis,csandman,ericfennis"
@@ -1885,7 +1885,7 @@ pub enum LucideGlyph {
     Briefcase,
     #[cfg(feature = "bring_to_front")]
     #[strum(props(
-        svg = "<rect width=\"8\" rx=\"2\" x=\"8\" height=\"8\" y=\"8\"></rect><path d=\"M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2\"></path><path d=\"M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2\"></path>",
+        svg = "<rect height=\"8\" rx=\"2\" width=\"8\" x=\"8\" y=\"8\"></rect><path d=\"M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2\"></path><path d=\"M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2\"></path>",
         categories = "design,layout",
         tags = "bring,send,move,over,forward,front,overlap,layer,order",
         contributors = "james-yeoman,jguddas"
@@ -1909,7 +1909,7 @@ pub enum LucideGlyph {
     Brush,
     #[cfg(feature = "bubbles")]
     #[strum(props(
-        svg = "<path d=\"M7.00 15.08A1.5 1.5 0 0 1 9 16.5\"></path><circle r=\"3.5\" cx=\"18.5\" cy=\"8.5\"></circle><circle cx=\"7.5\" cy=\"16.5\" r=\"5.5\"></circle><circle r=\"2.5\" cy=\"4.5\" cx=\"7.5\"></circle>",
+        svg = "<path d=\"M7.00 15.08A1.5 1.5 0 0 1 9 16.5\"></path><circle cx=\"18.5\" cy=\"8.5\" r=\"3.5\"></circle><circle cx=\"7.5\" cy=\"16.5\" r=\"5.5\"></circle><circle cx=\"7.5\" cy=\"4.5\" r=\"2.5\"></circle>",
         categories = "weather",
         tags = "water,cleaning,soap,bath,hygiene,freshness,wash,foam,cleanliness,shampoo,purity,splash,lightness,airy,relaxation,spa,bubbly,fluid,floating,drop",
         contributors = "vqh2602,jguddas,karsa-mistmere"
@@ -1949,7 +1949,7 @@ pub enum LucideGlyph {
     Building2,
     #[cfg(feature = "building")]
     #[strum(props(
-        svg = "<path d=\"M12 10h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M12 6h.01\"></path><path d=\"M16 10h.01\"></path><path d=\"M16 14h.01\"></path><path d=\"M16 6h.01\"></path><path d=\"M8 10h.01\"></path><path d=\"M8 14h.01\"></path><path d=\"M8 6h.01\"></path><path d=\"M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3\"></path><rect y=\"2\" height=\"20\" width=\"16\" rx=\"2\" x=\"4\"></rect>",
+        svg = "<path d=\"M12 10h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M12 6h.01\"></path><path d=\"M16 10h.01\"></path><path d=\"M16 14h.01\"></path><path d=\"M16 6h.01\"></path><path d=\"M8 10h.01\"></path><path d=\"M8 14h.01\"></path><path d=\"M8 6h.01\"></path><path d=\"M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3\"></path><rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect>",
         categories = "account,buildings",
         tags = "organisation,organization",
         contributors = "ericfennis"
@@ -1957,7 +1957,7 @@ pub enum LucideGlyph {
     Building,
     #[cfg(feature = "bus_front")]
     #[strum(props(
-        svg = "<path d=\"M4 6 2 7\"></path><path d=\"M10 6h4\"></path><path d=\"m22 7-2-1\"></path><rect rx=\"2\" height=\"16\" x=\"4\" y=\"3\" width=\"16\"></rect><path d=\"M4 11h16\"></path><path d=\"M8 15h.01\"></path><path d=\"M16 15h.01\"></path><path d=\"M6 19v2\"></path><path d=\"M18 21v-2\"></path>",
+        svg = "<path d=\"M4 6 2 7\"></path><path d=\"M10 6h4\"></path><path d=\"m22 7-2-1\"></path><rect height=\"16\" rx=\"2\" width=\"16\" x=\"4\" y=\"3\"></rect><path d=\"M4 11h16\"></path><path d=\"M8 15h.01\"></path><path d=\"M16 15h.01\"></path><path d=\"M6 19v2\"></path><path d=\"M18 21v-2\"></path>",
         categories = "transportation",
         tags = "coach,vehicle,trip,road",
         contributors = "danielbayley,karsa-mistmere"
@@ -1965,7 +1965,7 @@ pub enum LucideGlyph {
     BusFront,
     #[cfg(feature = "bus")]
     #[strum(props(
-        svg = "<path d=\"M8 6v6\"></path><path d=\"M15 6v6\"></path><path d=\"M2 12h19.6\"></path><path d=\"M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3\"></path><circle cx=\"7\" cy=\"18\" r=\"2\"></circle><path d=\"M9 18h5\"></path><circle cy=\"18\" r=\"2\" cx=\"16\"></circle>",
+        svg = "<path d=\"M8 6v6\"></path><path d=\"M15 6v6\"></path><path d=\"M2 12h19.6\"></path><path d=\"M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3\"></path><circle cx=\"7\" cy=\"18\" r=\"2\"></circle><path d=\"M9 18h5\"></path><circle cx=\"16\" cy=\"18\" r=\"2\"></circle>",
         categories = "transportation",
         tags = "bus,vehicle,transport,trip",
         contributors = "ahtohbi4,ericfennis,Andreto,karsa-mistmere"
@@ -1973,7 +1973,7 @@ pub enum LucideGlyph {
     Bus,
     #[cfg(feature = "cable_car")]
     #[strum(props(
-        svg = "<path d=\"M10 3h.01\"></path><path d=\"M14 2h.01\"></path><path d=\"m2 9 20-5\"></path><path d=\"M12 12V6.5\"></path><rect width=\"16\" x=\"4\" y=\"12\" height=\"10\" rx=\"3\"></rect><path d=\"M9 12v5\"></path><path d=\"M15 12v5\"></path><path d=\"M4 17h16\"></path>",
+        svg = "<path d=\"M10 3h.01\"></path><path d=\"M14 2h.01\"></path><path d=\"m2 9 20-5\"></path><path d=\"M12 12V6.5\"></path><rect height=\"10\" rx=\"3\" width=\"16\" x=\"4\" y=\"12\"></rect><path d=\"M9 12v5\"></path><path d=\"M15 12v5\"></path><path d=\"M4 17h16\"></path>",
         categories = "transportation,travel",
         tags = "ski lift,winter holiday,alpine,resort,mountains",
         contributors = "danielbayley"
@@ -1989,7 +1989,7 @@ pub enum LucideGlyph {
     Cable,
     #[cfg(feature = "cake_slice")]
     #[strum(props(
-        svg = "<path d=\"M16 13H3\"></path><path d=\"M16 17H3\"></path><path d=\"m7.2 7.9-3.38 2.5A2 2 0 0 0 3 12.01V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8.65c0-2-2.44-6.02-6.44-8.02a1 1 0 0 0-1.08.057L10.4 5.6\"></path><circle cx=\"9\" r=\"2\" cy=\"7\"></circle>",
+        svg = "<path d=\"M16 13H3\"></path><path d=\"M16 17H3\"></path><path d=\"m7.2 7.9-3.38 2.5A2 2 0 0 0 3 12.01V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8.65c0-2-2.44-6.02-6.44-8.02a1 1 0 0 0-1.08.057L10.4 5.6\"></path><circle cx=\"9\" cy=\"7\" r=\"2\"></circle>",
         categories = "food-beverage,social",
         tags = "birthday,birthdate,celebration,party,surprise,gateaux,dessert,candles,wish,fondant,icing sugar,sweet,baking",
         contributors = "danielbayley,jguddas"
@@ -2005,7 +2005,7 @@ pub enum LucideGlyph {
     Cake,
     #[cfg(feature = "calculator")]
     #[strum(props(
-        svg = "<rect width=\"16\" x=\"4\" height=\"20\" y=\"2\" rx=\"2\"></rect><line x2=\"16\" y1=\"6\" y2=\"6\" x1=\"8\"></line><line x2=\"16\" y1=\"14\" x1=\"16\" y2=\"18\"></line><path d=\"M16 10h.01\"></path><path d=\"M12 10h.01\"></path><path d=\"M8 10h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M8 14h.01\"></path><path d=\"M12 18h.01\"></path><path d=\"M8 18h.01\"></path>",
+        svg = "<rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><line x1=\"8\" x2=\"16\" y1=\"6\" y2=\"6\"></line><line x1=\"16\" x2=\"16\" y1=\"14\" y2=\"18\"></line><path d=\"M16 10h.01\"></path><path d=\"M12 10h.01\"></path><path d=\"M8 10h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M8 14h.01\"></path><path d=\"M12 18h.01\"></path><path d=\"M8 18h.01\"></path>",
         categories = "math,devices",
         tags = "count,calculating machine",
         contributors = "ericfennis,csandman"
@@ -2013,7 +2013,7 @@ pub enum LucideGlyph {
     Calculator,
     #[cfg(feature = "calendar_1")]
     #[strum(props(
-        svg = "<path d=\"M11 14h1v4\"></path><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><rect height=\"18\" rx=\"2\" x=\"3\" y=\"4\" width=\"18\"></rect>",
+        svg = "<path d=\"M11 14h1v4\"></path><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
         categories = "time",
         tags = "date,month,year,event,single,singular,once,1,first",
         contributors = "colebemis,ericfennis,peteruithoven"
@@ -2045,7 +2045,7 @@ pub enum LucideGlyph {
     CalendarCheck2,
     #[cfg(feature = "calendar_check")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect rx=\"2\" height=\"18\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"m9 16 2 2 4-4\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"m9 16 2 2 4-4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,confirm,subscribe,schedule,done,todo,tick,complete,task",
         contributors = "karsa-mistmere,ericfennis"
@@ -2053,7 +2053,7 @@ pub enum LucideGlyph {
     CalendarCheck,
     #[cfg(feature = "calendar_clock")]
     #[strum(props(
-        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M16 2v4\"></path><path d=\"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5\"></path><path d=\"M3 10h5\"></path><path d=\"M8 2v4\"></path><circle cy=\"16\" cx=\"16\" r=\"6\"></circle>",
+        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M16 2v4\"></path><path d=\"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5\"></path><path d=\"M3 10h5\"></path><path d=\"M8 2v4\"></path><circle cx=\"16\" cy=\"16\" r=\"6\"></circle>",
         categories = "time",
         tags = "date,day,month,year,event,clock,hour",
         contributors = "karsa-mistmere,ericfennis,jamiemlaw"
@@ -2061,7 +2061,7 @@ pub enum LucideGlyph {
     CalendarClock,
     #[cfg(feature = "calendar_cog")]
     #[strum(props(
-        svg = "<path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m15.22 19.14-.923.38\"></path><path d=\"M16 2v4\"></path><path d=\"m16.47 14.30.382.92\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><path d=\"M21 10.59V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><circle cy=\"18\" r=\"3\" cx=\"18\"></circle>",
+        svg = "<path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m15.22 19.14-.923.38\"></path><path d=\"M16 2v4\"></path><path d=\"m16.47 14.30.382.92\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><path d=\"M21 10.59V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "time",
         tags = "date,day,month,year,events,settings,gear,cog",
         contributors = "karsa-mistmere,ericfennis,AlexandrePhilibert,UsamaKhan,jguddas"
@@ -2069,7 +2069,7 @@ pub enum LucideGlyph {
     CalendarCog,
     #[cfg(feature = "calendar_days")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect y=\"4\" height=\"18\" width=\"18\" rx=\"2\" x=\"3\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 14h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M16 14h.01\"></path><path d=\"M8 18h.01\"></path><path d=\"M12 18h.01\"></path><path d=\"M16 18h.01\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 14h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M16 14h.01\"></path><path d=\"M8 18h.01\"></path><path d=\"M12 18h.01\"></path><path d=\"M16 18h.01\"></path>",
         categories = "time",
         tags = "date,month,year,event",
         contributors = "karsa-mistmere,ericfennis"
@@ -2093,7 +2093,7 @@ pub enum LucideGlyph {
     CalendarHeart,
     #[cfg(feature = "calendar_minus_2")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect y=\"4\" rx=\"2\" x=\"3\" width=\"18\" height=\"18\"></rect><path d=\"M3 10h18\"></path><path d=\"M10 16h4\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"M10 16h4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,delete,remove",
         contributors = "danielbayley"
@@ -2117,7 +2117,7 @@ pub enum LucideGlyph {
     CalendarOff,
     #[cfg(feature = "calendar_plus_2")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect width=\"18\" y=\"4\" x=\"3\" height=\"18\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"M10 16h4\"></path><path d=\"M12 14v4\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"M10 16h4\"></path><path d=\"M12 14v4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,add,subscribe,create,new",
         contributors = "danielbayley"
@@ -2133,7 +2133,7 @@ pub enum LucideGlyph {
     CalendarPlus,
     #[cfg(feature = "calendar_range")]
     #[strum(props(
-        svg = "<rect height=\"18\" y=\"4\" rx=\"2\" width=\"18\" x=\"3\"></rect><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><path d=\"M17 14h-6\"></path><path d=\"M13 18H7\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 18h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><path d=\"M17 14h-6\"></path><path d=\"M13 18H7\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 18h.01\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,range,period",
         contributors = "karsa-mistmere,ericfennis"
@@ -2165,7 +2165,7 @@ pub enum LucideGlyph {
     CalendarX2,
     #[cfg(feature = "calendar_x")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect width=\"18\" y=\"4\" x=\"3\" height=\"18\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"m14 14-4 4\"></path><path d=\"m10 14 4 4\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"m14 14-4 4\"></path><path d=\"m10 14 4 4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,remove,busy",
         contributors = "karsa-mistmere,ericfennis"
@@ -2173,7 +2173,7 @@ pub enum LucideGlyph {
     CalendarX,
     #[cfg(feature = "calendar")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect y=\"4\" x=\"3\" width=\"18\" rx=\"2\" height=\"18\"></rect><path d=\"M3 10h18\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path>",
         categories = "time",
         tags = "date,month,year,event,birthday,birthdate",
         contributors = "colebemis,ericfennis"
@@ -2181,7 +2181,7 @@ pub enum LucideGlyph {
     Calendar,
     #[cfg(feature = "calendars")]
     #[strum(props(
-        svg = "<path d=\"M12 2v2\"></path><path d=\"M15.72 21.01A2 2 0 0 1 14 22H4a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2\"></path><path d=\"M18 2v2\"></path><path d=\"M2 13h2\"></path><path d=\"M8 8h14\"></path><rect rx=\"2\" width=\"14\" height=\"14\" x=\"8\" y=\"3\"></rect>",
+        svg = "<path d=\"M12 2v2\"></path><path d=\"M15.72 21.01A2 2 0 0 1 14 22H4a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2\"></path><path d=\"M18 2v2\"></path><path d=\"M2 13h2\"></path><path d=\"M8 8h14\"></path><rect height=\"14\" rx=\"2\" width=\"14\" x=\"8\" y=\"3\"></rect>",
         categories = "time",
         tags = "date,month,year,event,dates,months,years,events",
         contributors = "colebemis,ericfennis,jguddas,karsa-mistmere"
@@ -2253,7 +2253,7 @@ pub enum LucideGlyph {
     CaptionsOff,
     #[cfg(feature = "captions")]
     #[strum(props(
-        svg = "<rect ry=\"2\" x=\"3\" width=\"18\" height=\"14\" y=\"5\" rx=\"2\"></rect><path d=\"M7 15h4M15 15h2M7 11h2M13 11h4\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"5\"></rect><path d=\"M7 15h4M15 15h2M7 11h2M13 11h4\"></path>",
         categories = "multimedia",
         tags = "closed captions,subtitles,subhead,transcription,transcribe,dialogue,accessibility",
         contributors = "DefaultLP"
@@ -2261,7 +2261,7 @@ pub enum LucideGlyph {
     Captions,
     #[cfg(feature = "car_front")]
     #[strum(props(
-        svg = "<path d=\"m21 8-2 2-1.5-3.7A2 2 0 0 0 15.64 5H8.4a2 2 0 0 0-1.90 1.25L5 10 3 8\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 14h.01\"></path><rect height=\"8\" x=\"3\" rx=\"2\" width=\"18\" y=\"10\"></rect><path d=\"M5 18v2\"></path><path d=\"M19 18v2\"></path>",
+        svg = "<path d=\"m21 8-2 2-1.5-3.7A2 2 0 0 0 15.64 5H8.4a2 2 0 0 0-1.90 1.25L5 10 3 8\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 14h.01\"></path><rect height=\"8\" rx=\"2\" width=\"18\" x=\"3\" y=\"10\"></rect><path d=\"M5 18v2\"></path><path d=\"M19 18v2\"></path>",
         categories = "transportation",
         tags = "vehicle,drive,trip,journey",
         contributors = "danielbayley,karsa-mistmere"
@@ -2269,7 +2269,7 @@ pub enum LucideGlyph {
     CarFront,
     #[cfg(feature = "car_taxi_front")]
     #[strum(props(
-        svg = "<path d=\"M10 2h4\"></path><path d=\"m21 8-2 2-1.5-3.7A2 2 0 0 0 15.64 5H8.4a2 2 0 0 0-1.90 1.25L5 10 3 8\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 14h.01\"></path><rect width=\"18\" height=\"8\" x=\"3\" y=\"10\" rx=\"2\"></rect><path d=\"M5 18v2\"></path><path d=\"M19 18v2\"></path>",
+        svg = "<path d=\"M10 2h4\"></path><path d=\"m21 8-2 2-1.5-3.7A2 2 0 0 0 15.64 5H8.4a2 2 0 0 0-1.90 1.25L5 10 3 8\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 14h.01\"></path><rect height=\"8\" rx=\"2\" width=\"18\" x=\"3\" y=\"10\"></rect><path d=\"M5 18v2\"></path><path d=\"M19 18v2\"></path>",
         categories = "transportation",
         tags = "cab,vehicle,drive,trip,journey",
         contributors = "danielbayley,karsa-mistmere"
@@ -2277,7 +2277,7 @@ pub enum LucideGlyph {
     CarTaxiFront,
     #[cfg(feature = "car")]
     #[strum(props(
-        svg = "<path d=\"M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2\"></path><circle cy=\"17\" r=\"2\" cx=\"7\"></circle><path d=\"M9 17h6\"></path><circle cx=\"17\" r=\"2\" cy=\"17\"></circle>",
+        svg = "<path d=\"M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2\"></path><circle cx=\"7\" cy=\"17\" r=\"2\"></circle><path d=\"M9 17h6\"></path><circle cx=\"17\" cy=\"17\" r=\"2\"></circle>",
         categories = "transportation",
         tags = "vehicle,drive,trip,journey",
         contributors = "ahtohbi4,ericfennis,Andreto"
@@ -2285,7 +2285,7 @@ pub enum LucideGlyph {
     Car,
     #[cfg(feature = "caravan")]
     #[strum(props(
-        svg = "<path d=\"M18 19V9a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h2\"></path><path d=\"M2 9h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2\"></path><path d=\"M22 17v1a1 1 0 0 1-1 1H10v-9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9\"></path><circle cx=\"8\" r=\"2\" cy=\"19\"></circle>",
+        svg = "<path d=\"M18 19V9a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h2\"></path><path d=\"M2 9h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2\"></path><path d=\"M22 17v1a1 1 0 0 1-1 1H10v-9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9\"></path><circle cx=\"8\" cy=\"19\" r=\"2\"></circle>",
         categories = "transportation,travel,nature",
         tags = "trailer,tow,camping,campsite,mobile home,holiday,nomadic,wilderness,outdoors",
         contributors = "danielbayley,jguddas"
@@ -2293,7 +2293,7 @@ pub enum LucideGlyph {
     Caravan,
     #[cfg(feature = "card_sim")]
     #[strum(props(
-        svg = "<path d=\"M12 14v4\"></path><path d=\"M14.17 2a2 2 0 0 1 1.41.586l3.82 3.82A2 2 0 0 1 20 7.82V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z\"></path><path d=\"M8 14h8\"></path><rect height=\"8\" x=\"8\" y=\"10\" width=\"8\" rx=\"1\"></rect>",
+        svg = "<path d=\"M12 14v4\"></path><path d=\"M14.17 2a2 2 0 0 1 1.41.586l3.82 3.82A2 2 0 0 1 20 7.82V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z\"></path><path d=\"M8 14h8\"></path><rect height=\"8\" rx=\"1\" width=\"8\" x=\"8\" y=\"10\"></rect>",
         categories = "connectivity,communication,multimedia,devices",
         tags = "cellphone,smartphone,mobile,network,cellular,service,provider,signal,coverage,disk,data,format,storage,flash,digital,contacts,phone book,contractual,circuit board,chip",
         contributors = "danielbayley,karsa-mistmere"
@@ -2309,7 +2309,7 @@ pub enum LucideGlyph {
     Carrot,
     #[cfg(feature = "case_lower")]
     #[strum(props(
-        svg = "<path d=\"M10 9v7\"></path><path d=\"M14 6v10\"></path><circle cx=\"17.5\" cy=\"12.5\" r=\"3.5\"></circle><circle cx=\"6.5\" r=\"3.5\" cy=\"12.5\"></circle>",
+        svg = "<path d=\"M10 9v7\"></path><path d=\"M14 6v10\"></path><circle cx=\"17.5\" cy=\"12.5\" r=\"3.5\"></circle><circle cx=\"6.5\" cy=\"12.5\" r=\"3.5\"></circle>",
         categories = "text,development",
         tags = "text,letters,characters,font,typography",
         contributors = "danielbayley,vichotech,karsa-mistmere"
@@ -2317,7 +2317,7 @@ pub enum LucideGlyph {
     CaseLower,
     #[cfg(feature = "case_sensitive")]
     #[strum(props(
-        svg = "<path d=\"m2 16 4.03-9.69a.5.5 0 0 1 .923 0L11 16\"></path><path d=\"M22 9v7\"></path><path d=\"M3.30 13h6.39\"></path><circle cy=\"12.5\" cx=\"18.5\" r=\"3.5\"></circle>",
+        svg = "<path d=\"m2 16 4.03-9.69a.5.5 0 0 1 .923 0L11 16\"></path><path d=\"M22 9v7\"></path><path d=\"M3.30 13h6.39\"></path><circle cx=\"18.5\" cy=\"12.5\" r=\"3.5\"></circle>",
         categories = "text",
         tags = "text,letters,characters,font,typography",
         contributors = "danielbayley,vichotech,karsa-mistmere"
@@ -2333,7 +2333,7 @@ pub enum LucideGlyph {
     CaseUpper,
     #[cfg(feature = "cassette_tape")]
     #[strum(props(
-        svg = "<rect y=\"4\" height=\"16\" width=\"20\" x=\"2\" rx=\"2\"></rect><circle cy=\"10\" cx=\"8\" r=\"2\"></circle><path d=\"M8 12h8\"></path><circle cx=\"16\" r=\"2\" cy=\"10\"></circle><path d=\"m6 20 .7-2.9A1.4 1.4 0 0 1 8.1 16h7.8a1.4 1.4 0 0 1 1.4 1l.7 3\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><circle cx=\"8\" cy=\"10\" r=\"2\"></circle><path d=\"M8 12h8\"></path><circle cx=\"16\" cy=\"10\" r=\"2\"></circle><path d=\"m6 20 .7-2.9A1.4 1.4 0 0 1 8.1 16h7.8a1.4 1.4 0 0 1 1.4 1l.7 3\"></path>",
         categories = "connectivity,devices,multimedia,communication,files",
         tags = "audio,music,recording,play",
         contributors = "danielbayley"
@@ -2341,7 +2341,7 @@ pub enum LucideGlyph {
     CassetteTape,
     #[cfg(feature = "cast")]
     #[strum(props(
-        svg = "<path d=\"M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"></path><path d=\"M2 12a9 9 0 0 1 8 8\"></path><path d=\"M2 16a5 5 0 0 1 4 4\"></path><line x2=\"2.01\" y2=\"20\" x1=\"2\" y1=\"20\"></line>",
+        svg = "<path d=\"M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"></path><path d=\"M2 12a9 9 0 0 1 8 8\"></path><path d=\"M2 16a5 5 0 0 1 4 4\"></path><line x1=\"2\" x2=\"2.01\" y1=\"20\" y2=\"20\"></line>",
         categories = "devices,connectivity",
         tags = "chromecast,airplay,screen",
         contributors = "colebemis,csandman,ericfennis"
@@ -2389,7 +2389,7 @@ pub enum LucideGlyph {
     ChartArea,
     #[cfg(feature = "chart_bar_big")]
     #[strum(props(
-        svg = "<path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect y=\"13\" x=\"7\" rx=\"1\" width=\"9\" height=\"4\"></rect><rect width=\"12\" rx=\"1\" x=\"7\" y=\"5\" height=\"4\"></rect>",
+        svg = "<path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect height=\"4\" rx=\"1\" width=\"9\" x=\"7\" y=\"13\"></rect><rect height=\"4\" rx=\"1\" width=\"12\" x=\"7\" y=\"5\"></rect>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph",
         contributors = "danielbayley,karsa-mistmere"
@@ -2413,7 +2413,7 @@ pub enum LucideGlyph {
     ChartBarIncreasing,
     #[cfg(feature = "chart_bar_stacked")]
     #[strum(props(
-        svg = "<path d=\"M11 13v4\"></path><path d=\"M15 5v4\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect x=\"7\" rx=\"1\" height=\"4\" y=\"13\" width=\"9\"></rect><rect y=\"5\" x=\"7\" width=\"12\" rx=\"1\" height=\"4\"></rect>",
+        svg = "<path d=\"M11 13v4\"></path><path d=\"M15 5v4\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect height=\"4\" rx=\"1\" width=\"9\" x=\"7\" y=\"13\"></rect><rect height=\"4\" rx=\"1\" width=\"12\" x=\"7\" y=\"5\"></rect>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph,multivariate,categorical,comparison",
         contributors = "karsa-mistmere,danielbayley"
@@ -2429,7 +2429,7 @@ pub enum LucideGlyph {
     ChartBar,
     #[cfg(feature = "chart_candlestick")]
     #[strum(props(
-        svg = "<path d=\"M9 5v4\"></path><rect width=\"4\" rx=\"1\" x=\"7\" y=\"9\" height=\"6\"></rect><path d=\"M9 15v2\"></path><path d=\"M17 3v2\"></path><rect rx=\"1\" height=\"8\" x=\"15\" y=\"5\" width=\"4\"></rect><path d=\"M17 13v3\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path>",
+        svg = "<path d=\"M9 5v4\"></path><rect height=\"6\" rx=\"1\" width=\"4\" x=\"7\" y=\"9\"></rect><path d=\"M9 15v2\"></path><path d=\"M17 3v2\"></path><rect height=\"8\" rx=\"1\" width=\"4\" x=\"15\" y=\"5\"></rect><path d=\"M17 13v3\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path>",
         categories = "charts,finance",
         tags = "trading,trader,financial,markets,portfolio,assets,prices,value,valuation,commodities,currencies,currency,stocks,exchange,hedge fund,statistics,analytics,diagram,graph",
         contributors = "danielbayley"
@@ -2437,7 +2437,7 @@ pub enum LucideGlyph {
     ChartCandlestick,
     #[cfg(feature = "chart_column_big")]
     #[strum(props(
-        svg = "<path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect height=\"12\" x=\"15\" rx=\"1\" width=\"4\" y=\"5\"></rect><rect rx=\"1\" width=\"4\" y=\"8\" x=\"7\" height=\"9\"></rect>",
+        svg = "<path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect height=\"12\" rx=\"1\" width=\"4\" x=\"15\" y=\"5\"></rect><rect height=\"9\" rx=\"1\" width=\"4\" x=\"7\" y=\"8\"></rect>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph",
         contributors = "danielbayley,karsa-mistmere"
@@ -2461,7 +2461,7 @@ pub enum LucideGlyph {
     ChartColumnIncreasing,
     #[cfg(feature = "chart_column_stacked")]
     #[strum(props(
-        svg = "<path d=\"M11 13H7\"></path><path d=\"M19 9h-4\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect y=\"5\" height=\"12\" x=\"15\" width=\"4\" rx=\"1\"></rect><rect rx=\"1\" x=\"7\" y=\"8\" width=\"4\" height=\"9\"></rect>",
+        svg = "<path d=\"M11 13H7\"></path><path d=\"M19 9h-4\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><rect height=\"12\" rx=\"1\" width=\"4\" x=\"15\" y=\"5\"></rect><rect height=\"9\" rx=\"1\" width=\"4\" x=\"7\" y=\"8\"></rect>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph,multivariate,categorical,comparison",
         contributors = "karsa-mistmere,danielbayley"
@@ -2493,7 +2493,7 @@ pub enum LucideGlyph {
     ChartLine,
     #[cfg(feature = "chart_network")]
     #[strum(props(
-        svg = "<path d=\"m13.11 7.66 1.78 2.67\"></path><path d=\"m14.16 12.78-3.32 1.42\"></path><path d=\"m20 4-6.06 1.51\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><circle cy=\"6\" cx=\"12\" r=\"2\"></circle><circle r=\"2\" cx=\"16\" cy=\"12\"></circle><circle cx=\"9\" r=\"2\" cy=\"15\"></circle>",
+        svg = "<path d=\"m13.11 7.66 1.78 2.67\"></path><path d=\"m14.16 12.78-3.32 1.42\"></path><path d=\"m20 4-6.06 1.51\"></path><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><circle cx=\"12\" cy=\"6\" r=\"2\"></circle><circle cx=\"16\" cy=\"12\" r=\"2\"></circle><circle cx=\"9\" cy=\"15\" r=\"2\"></circle>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph,topology,cluster,web,nodes,connections,edges",
         contributors = "karsa-mistmere"
@@ -2549,7 +2549,7 @@ pub enum LucideGlyph {
     ChartPie,
     #[cfg(feature = "chart_scatter")]
     #[strum(props(
-        svg = "<circle r=\".5\" cy=\"7.5\" fill=\"currentColor\" cx=\"7.5\"></circle><circle cy=\"5.5\" cx=\"18.5\" r=\".5\" fill=\"currentColor\"></circle><circle fill=\"currentColor\" r=\".5\" cx=\"11.5\" cy=\"11.5\"></circle><circle cy=\"16.5\" fill=\"currentColor\" r=\".5\" cx=\"7.5\"></circle><circle cx=\"17.5\" r=\".5\" cy=\"14.5\" fill=\"currentColor\"></circle><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path>",
+        svg = "<circle cx=\"7.5\" cy=\"7.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"18.5\" cy=\"5.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"11.5\" cy=\"11.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"7.5\" cy=\"16.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"17.5\" cy=\"14.5\" fill=\"currentColor\" r=\".5\"></circle><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph",
         contributors = "danielbayley,ericfennis"
@@ -2629,7 +2629,7 @@ pub enum LucideGlyph {
     ChessKnight,
     #[cfg(feature = "chess_pawn")]
     #[strum(props(
-        svg = "<path d=\"M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z\"></path><path d=\"m14.5 10 1.5 8\"></path><path d=\"M7 10h10\"></path><path d=\"m8 18 1.5-8\"></path><circle r=\"4\" cx=\"12\" cy=\"6\"></circle>",
+        svg = "<path d=\"M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z\"></path><path d=\"m14.5 10 1.5 8\"></path><path d=\"M7 10h10\"></path><path d=\"m8 18 1.5-8\"></path><circle cx=\"12\" cy=\"6\" r=\"4\"></circle>",
         categories = "gaming,emoji",
         tags = "piece,board game",
         contributors = "karsa-mistmere"
@@ -2637,7 +2637,7 @@ pub enum LucideGlyph {
     ChessPawn,
     #[cfg(feature = "chess_queen")]
     #[strum(props(
-        svg = "<path d=\"M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z\"></path><path d=\"m12.47 5.94 1.56 5.34a1 1 0 0 0 1.75.32l2.61-3.40\"></path><path d=\"m20 9-3 9\"></path><path d=\"m5.59 8.20 2.61 3.40a1 1 0 0 0 1.75-.329l1.56-5.34\"></path><path d=\"M7 18 4 9\"></path><circle r=\"2\" cy=\"4\" cx=\"12\"></circle><circle cy=\"7\" cx=\"20\" r=\"2\"></circle><circle cy=\"7\" r=\"2\" cx=\"4\"></circle>",
+        svg = "<path d=\"M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z\"></path><path d=\"m12.47 5.94 1.56 5.34a1 1 0 0 0 1.75.32l2.61-3.40\"></path><path d=\"m20 9-3 9\"></path><path d=\"m5.59 8.20 2.61 3.40a1 1 0 0 0 1.75-.329l1.56-5.34\"></path><path d=\"M7 18 4 9\"></path><circle cx=\"12\" cy=\"4\" r=\"2\"></circle><circle cx=\"20\" cy=\"7\" r=\"2\"></circle><circle cx=\"4\" cy=\"7\" r=\"2\"></circle>",
         categories = "gaming,emoji",
         tags = "ruler,crown,piece,board game,stalemate",
         contributors = "karsa-mistmere"
@@ -2797,7 +2797,7 @@ pub enum LucideGlyph {
     Cigarette,
     #[cfg(feature = "circle_alert")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line y2=\"12\" y1=\"8\" x2=\"12\" x1=\"12\"></line><line x2=\"12.01\" y1=\"16\" x1=\"12\" y2=\"16\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line>",
         categories = "notifications",
         tags = "warning,alert,danger,exclamation mark",
         contributors = "colebemis,ericfennis"
@@ -2805,7 +2805,7 @@ pub enum LucideGlyph {
     CircleAlert,
     #[cfg(feature = "circle_arrow_down")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M12 8v8\"></path><path d=\"m8 12 4 4 4-4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 8v8\"></path><path d=\"m8 12 4 4 4-4\"></path>",
         categories = "arrows,gaming",
         tags = "backwards,reverse,direction,south,sign,button",
         contributors = "colebemis,ericfennis"
@@ -2813,7 +2813,7 @@ pub enum LucideGlyph {
     CircleArrowDown,
     #[cfg(feature = "circle_arrow_left")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"m12 8-4 4 4 4\"></path><path d=\"M16 12H8\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m12 8-4 4 4 4\"></path><path d=\"M16 12H8\"></path>",
         categories = "arrows,gaming",
         tags = "previous,back,direction,west,sign,turn,button,<-",
         contributors = "colebemis,ericfennis"
@@ -2853,7 +2853,7 @@ pub enum LucideGlyph {
     CircleArrowOutUpRight,
     #[cfg(feature = "circle_arrow_right")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"m12 16 4-4-4-4\"></path><path d=\"M8 12h8\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m12 16 4-4-4-4\"></path><path d=\"M8 12h8\"></path>",
         categories = "arrows,gaming",
         tags = "next,forward,direction,east,sign,turn,button,->",
         contributors = "colebemis,ericfennis"
@@ -2885,7 +2885,7 @@ pub enum LucideGlyph {
     CircleCheck,
     #[cfg(feature = "circle_chevron_down")]
     #[strum(props(
-        svg = "<circle r=\"10\" cy=\"12\" cx=\"12\"></circle><path d=\"m16 10-4 4-4-4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m16 10-4 4-4-4\"></path>",
         categories = "arrows",
         tags = "back,menu",
         contributors = "danielbayley,ericfennis"
@@ -2925,7 +2925,7 @@ pub enum LucideGlyph {
     CircleDashed,
     #[cfg(feature = "circle_divide")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><line y2=\"12\" y1=\"12\" x2=\"16\" x1=\"8\"></line><line x1=\"12\" x2=\"12\" y2=\"16\" y1=\"16\"></line><line y1=\"8\" x1=\"12\" x2=\"12\" y2=\"8\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\"></line><line x1=\"12\" x2=\"12\" y1=\"16\" y2=\"16\"></line><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"8\"></line>",
         categories = "math",
         tags = "calculate,math,÷,/",
         contributors = "csandman,ericfennis"
@@ -2933,7 +2933,7 @@ pub enum LucideGlyph {
     CircleDivide,
     #[cfg(feature = "circle_dollar_sign")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8\"></path><path d=\"M12 18V6\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8\"></path><path d=\"M12 18V6\"></path>",
         categories = "finance",
         tags = "monetization,marketing,currency,money,payment",
         contributors = "karsa-mistmere,jguddas"
@@ -2941,7 +2941,7 @@ pub enum LucideGlyph {
     CircleDollarSign,
     #[cfg(feature = "circle_dot_dashed")]
     #[strum(props(
-        svg = "<path d=\"M10.1 2.18a9.93 9.93 0 0 1 3.8 0\"></path><path d=\"M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7\"></path><path d=\"M21.82 10.1a9.93 9.93 0 0 1 0 3.8\"></path><path d=\"M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69\"></path><path d=\"M13.9 21.82a9.94 9.94 0 0 1-3.8 0\"></path><path d=\"M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7\"></path><path d=\"M2.18 13.9a9.93 9.93 0 0 1 0-3.8\"></path><path d=\"M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69\"></path><circle r=\"1\" cy=\"12\" cx=\"12\"></circle>",
+        svg = "<path d=\"M10.1 2.18a9.93 9.93 0 0 1 3.8 0\"></path><path d=\"M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7\"></path><path d=\"M21.82 10.1a9.93 9.93 0 0 1 0 3.8\"></path><path d=\"M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69\"></path><path d=\"M13.9 21.82a9.94 9.94 0 0 1-3.8 0\"></path><path d=\"M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7\"></path><path d=\"M2.18 13.9a9.93 9.93 0 0 1 0-3.8\"></path><path d=\"M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69\"></path><circle cx=\"12\" cy=\"12\" r=\"1\"></circle>",
         categories = "development,shapes",
         tags = "pending,dot,progress,issue,draft,code,coding,version control",
         contributors = "danielbayley"
@@ -2949,7 +2949,7 @@ pub enum LucideGlyph {
     CircleDotDashed,
     #[cfg(feature = "circle_dot")]
     #[strum(props(
-        svg = "<circle r=\"10\" cy=\"12\" cx=\"12\"></circle><circle cx=\"12\" cy=\"12\" r=\"1\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"1\"></circle>",
         categories = "development,shapes",
         tags = "pending,dot,progress,issue,code,coding,version control,choices,multiple choice,choose",
         contributors = "karsa-mistmere"
@@ -2957,7 +2957,7 @@ pub enum LucideGlyph {
     CircleDot,
     #[cfg(feature = "circle_ellipsis")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M17 12h.01\"></path><path d=\"M12 12h.01\"></path><path d=\"M7 12h.01\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M17 12h.01\"></path><path d=\"M12 12h.01\"></path><path d=\"M7 12h.01\"></path>",
         categories = "layout,development",
         tags = "ellipsis,et cetera,etc,loader,loading,progress,pending,throbber,menu,options,operator,code,spread,rest,more,further,extra,overflow,dots,…,...",
         contributors = "karsa-mistmere,ericfennis"
@@ -2965,7 +2965,7 @@ pub enum LucideGlyph {
     CircleEllipsis,
     #[cfg(feature = "circle_equal")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"10\" cy=\"12\"></circle><path d=\"M7 10h10\"></path><path d=\"M7 14h10\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M7 10h10\"></path><path d=\"M7 14h10\"></path>",
         categories = "math",
         tags = "calculate,shape,=",
         contributors = "danielbayley"
@@ -2989,7 +2989,7 @@ pub enum LucideGlyph {
     CircleFadingPlus,
     #[cfg(feature = "circle_gauge")]
     #[strum(props(
-        svg = "<path d=\"M15.6 2.7a10 10 0 1 0 5.7 5.7\"></path><circle cy=\"12\" cx=\"12\" r=\"2\"></circle><path d=\"M13.4 10.6 19 5\"></path>",
+        svg = "<path d=\"M15.6 2.7a10 10 0 1 0 5.7 5.7\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><path d=\"M13.4 10.6 19 5\"></path>",
         categories = "transportation,sports,science",
         tags = "dashboard,dial,meter,speed,pressure,measure,level",
         contributors = "danielbayley"
@@ -2997,7 +2997,7 @@ pub enum LucideGlyph {
     CircleGauge,
     #[cfg(feature = "circle_minus")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M8 12h8\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 12h8\"></path>",
         categories = "math",
         tags = "subtract,remove,decrease,reduce,calculate,line,operator,code,coding,minimum,downgrade,-",
         contributors = "colebemis,ericfennis"
@@ -3029,7 +3029,7 @@ pub enum LucideGlyph {
     CircleParking,
     #[cfg(feature = "circle_pause")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><line y2=\"9\" x1=\"10\" x2=\"10\" y1=\"15\"></line><line x2=\"14\" y1=\"15\" y2=\"9\" x1=\"14\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"10\" x2=\"10\" y1=\"15\" y2=\"9\"></line><line x1=\"14\" x2=\"14\" y1=\"15\" y2=\"9\"></line>",
         categories = "multimedia",
         tags = "music,audio,stop",
         contributors = "colebemis,ericfennis"
@@ -3037,7 +3037,7 @@ pub enum LucideGlyph {
     CirclePause,
     #[cfg(feature = "circle_percent")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"m15 9-6 6\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 15h.01\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m15 9-6 6\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 15h.01\"></path>",
         categories = "social,finance,shopping,math",
         tags = "verified,unverified,sale,discount,offer,marketing,sticker,price tag",
         contributors = "danielbayley"
@@ -3045,7 +3045,7 @@ pub enum LucideGlyph {
     CirclePercent,
     #[cfg(feature = "circle_pile")]
     #[strum(props(
-        svg = "<circle cy=\"19\" r=\"2\" cx=\"12\"></circle><circle r=\"2\" cy=\"5\" cx=\"12\"></circle><circle cx=\"16\" cy=\"12\" r=\"2\"></circle><circle cx=\"20\" r=\"2\" cy=\"19\"></circle><circle cx=\"4\" cy=\"19\" r=\"2\"></circle><circle cy=\"12\" r=\"2\" cx=\"8\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"19\" r=\"2\"></circle><circle cx=\"12\" cy=\"5\" r=\"2\"></circle><circle cx=\"16\" cy=\"12\" r=\"2\"></circle><circle cx=\"20\" cy=\"19\" r=\"2\"></circle><circle cx=\"4\" cy=\"19\" r=\"2\"></circle><circle cx=\"8\" cy=\"12\" r=\"2\"></circle>",
         categories = "shapes",
         tags = "off,zero,record,shape,circle-pile,circle,pile,stack,layer,structure,form,group,collection,stock,inventory,materials,warehouse",
         contributors = "colebemis,nathan-de-pachtere"
@@ -3061,7 +3061,7 @@ pub enum LucideGlyph {
     CirclePlay,
     #[cfg(feature = "circle_plus")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M8 12h8\"></path><path d=\"M12 8v8\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 12h8\"></path><path d=\"M12 8v8\"></path>",
         categories = "math,development,cursors,gaming",
         tags = "add,new,increase,increment,positive,calculate,crosshair,aim,target,scope,sight,reticule,maximum,upgrade,extra,operator,join,concatenate,code,coding,+",
         contributors = "colebemis,ericfennis"
@@ -3077,7 +3077,7 @@ pub enum LucideGlyph {
     CirclePoundSterling,
     #[cfg(feature = "circle_power")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M12 7v4\"></path><path d=\"M7.99 9.00a5 5 0 1 0 8-.005\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 7v4\"></path><path d=\"M7.99 9.00a5 5 0 1 0 8-.005\"></path>",
         categories = "connectivity",
         tags = "on,off,device,switch,toggle,binary,boolean,reboot,restart,button,keyboard,troubleshoot",
         contributors = "danielbayley,jguddas"
@@ -3101,7 +3101,7 @@ pub enum LucideGlyph {
     CircleSlash2,
     #[cfg(feature = "circle_slash")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><line y1=\"15\" x1=\"9\" x2=\"15\" y2=\"9\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"9\" x2=\"15\" y1=\"15\" y2=\"9\"></line>",
         categories = "development,math",
         tags = "diameter,zero,Ø,nothing,null,void,cancel,ban,no,stop,forbidden,prohibited,error,incorrect,mistake,wrong,failure,divide,division,or,/",
         contributors = "danielbayley"
@@ -3109,7 +3109,7 @@ pub enum LucideGlyph {
     CircleSlash,
     #[cfg(feature = "circle_small")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"6\" cy=\"12\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"6\"></circle>",
         categories = "shapes,medical",
         tags = "shape,bullet,gender,genderless",
         contributors = "jamiemlaw"
@@ -3117,7 +3117,7 @@ pub enum LucideGlyph {
     CircleSmall,
     #[cfg(feature = "circle_star")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M11.05 7.61a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.867l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M11.05 7.61a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.867l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path>",
         categories = "sports,gaming",
         tags = "badge,medal,honour,decoration,order,pin,laurel,trophy,medallion,insignia,bronze,silver,gold",
         contributors = "karsa-mistmere"
@@ -3125,7 +3125,7 @@ pub enum LucideGlyph {
     CircleStar,
     #[cfg(feature = "circle_stop")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><rect width=\"6\" rx=\"1\" x=\"9\" height=\"6\" y=\"9\"></rect>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><rect height=\"6\" rx=\"1\" width=\"6\" x=\"9\" y=\"9\"></rect>",
         categories = "multimedia",
         tags = "media,music",
         contributors = "colebemis,ericfennis"
@@ -3133,7 +3133,7 @@ pub enum LucideGlyph {
     CircleStop,
     #[cfg(feature = "circle_user_round")]
     #[strum(props(
-        svg = "<path d=\"M17.92 20.05a6 6 0 0 0-11.85.001\"></path><circle cy=\"11\" r=\"4\" cx=\"12\"></circle><circle r=\"10\" cx=\"12\" cy=\"12\"></circle>",
+        svg = "<path d=\"M17.92 20.05a6 6 0 0 0-11.85.001\"></path><circle cx=\"12\" cy=\"11\" r=\"4\"></circle><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
         categories = "account",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -3141,7 +3141,7 @@ pub enum LucideGlyph {
     CircleUserRound,
     #[cfg(feature = "circle_user")]
     #[strum(props(
-        svg = "<circle r=\"10\" cy=\"12\" cx=\"12\"></circle><circle r=\"3\" cy=\"10\" cx=\"12\"></circle><path d=\"M7 20.66V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.66\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"M7 20.66V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.66\"></path>",
         categories = "account",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -3157,7 +3157,7 @@ pub enum LucideGlyph {
     CircleX,
     #[cfg(feature = "circle")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
         categories = "shapes",
         tags = "off,zero,record,shape",
         contributors = "colebemis"
@@ -3165,7 +3165,7 @@ pub enum LucideGlyph {
     Circle,
     #[cfg(feature = "circuit_board")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" y=\"3\" rx=\"2\" x=\"3\"></rect><path d=\"M11 9h4a2 2 0 0 0 2-2V3\"></path><circle cy=\"9\" cx=\"9\" r=\"2\"></circle><path d=\"M7 21v-4a2 2 0 0 1 2-2h4\"></path><circle cx=\"15\" cy=\"15\" r=\"2\"></circle>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M11 9h4a2 2 0 0 0 2-2V3\"></path><circle cx=\"9\" cy=\"9\" r=\"2\"></circle><path d=\"M7 21v-4a2 2 0 0 1 2-2h4\"></path><circle cx=\"15\" cy=\"15\" r=\"2\"></circle>",
         categories = "science,development",
         tags = "computing,electricity,electronics",
         contributors = "danielbayley,jguddas"
@@ -3189,7 +3189,7 @@ pub enum LucideGlyph {
     Clapperboard,
     #[cfg(feature = "clipboard_check")]
     #[strum(props(
-        svg = "<rect y=\"2\" rx=\"1\" height=\"4\" x=\"8\" ry=\"1\" width=\"8\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"m9 14 2 2 4-4\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"m9 14 2 2 4-4\"></path>",
         categories = "text",
         tags = "copied,pasted,done,todo,tick,complete,task",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -3197,7 +3197,7 @@ pub enum LucideGlyph {
     ClipboardCheck,
     #[cfg(feature = "clipboard_clock")]
     #[strum(props(
-        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M16 4h2a2 2 0 0 1 2 2v.832\"></path><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2\"></path><circle r=\"6\" cx=\"16\" cy=\"16\"></circle><rect height=\"4\" width=\"8\" x=\"8\" y=\"2\" rx=\"1\"></rect>",
+        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M16 4h2a2 2 0 0 1 2 2v.832\"></path><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2\"></path><circle cx=\"16\" cy=\"16\" r=\"6\"></circle><rect height=\"4\" rx=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect>",
         categories = "time,text",
         tags = "copy,paste,history,log,clock,time,watch,alarm,hour,minute,reminder,scheduled,deadline,pending,time tracking,timesheets,appointment,logbook",
         contributors = "beanduong,colebemis,csandman,ericfennis,karsa-mistmere,jamiemlaw"
@@ -3205,7 +3205,7 @@ pub enum LucideGlyph {
     ClipboardClock,
     #[cfg(feature = "clipboard_copy")]
     #[strum(props(
-        svg = "<rect height=\"4\" ry=\"1\" width=\"8\" y=\"2\" x=\"8\" rx=\"1\"></rect><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2\"></path><path d=\"M16 4h2a2 2 0 0 1 2 2v4\"></path><path d=\"M21 14H11\"></path><path d=\"m15 10-4 4 4 4\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2\"></path><path d=\"M16 4h2a2 2 0 0 1 2 2v4\"></path><path d=\"M21 14H11\"></path><path d=\"m15 10-4 4 4 4\"></path>",
         categories = "text,arrows",
         tags = "copy,paste",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -3213,7 +3213,7 @@ pub enum LucideGlyph {
     ClipboardCopy,
     #[cfg(feature = "clipboard_list")]
     #[strum(props(
-        svg = "<rect y=\"2\" ry=\"1\" height=\"4\" width=\"8\" x=\"8\" rx=\"1\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M12 11h4\"></path><path d=\"M12 16h4\"></path><path d=\"M8 11h.01\"></path><path d=\"M8 16h.01\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M12 11h4\"></path><path d=\"M12 16h4\"></path><path d=\"M8 11h.01\"></path><path d=\"M8 16h.01\"></path>",
         categories = "text",
         tags = "copy,paste,tasks",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -3221,7 +3221,7 @@ pub enum LucideGlyph {
     ClipboardList,
     #[cfg(feature = "clipboard_minus")]
     #[strum(props(
-        svg = "<rect y=\"2\" x=\"8\" rx=\"1\" height=\"4\" ry=\"1\" width=\"8\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M9 14h6\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M9 14h6\"></path>",
         categories = "text,medical",
         tags = "copy,delete,remove,erase,document,medical,report,doctor",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -3229,7 +3229,7 @@ pub enum LucideGlyph {
     ClipboardMinus,
     #[cfg(feature = "clipboard_paste")]
     #[strum(props(
-        svg = "<path d=\"M11 14h10\"></path><path d=\"M16 4h2a2 2 0 0 1 2 2v1.34\"></path><path d=\"m17 18 4-4-4-4\"></path><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.79-1.11\"></path><rect height=\"4\" width=\"8\" rx=\"1\" y=\"2\" x=\"8\"></rect>",
+        svg = "<path d=\"M11 14h10\"></path><path d=\"M16 4h2a2 2 0 0 1 2 2v1.34\"></path><path d=\"m17 18 4-4-4-4\"></path><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.79-1.11\"></path><rect height=\"4\" rx=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect>",
         categories = "text,arrows",
         tags = "copy,paste",
         contributors = "xnousnow,ericfennis,jguddas"
@@ -3237,7 +3237,7 @@ pub enum LucideGlyph {
     ClipboardPaste,
     #[cfg(feature = "clipboard_pen_line")]
     #[strum(props(
-        svg = "<rect rx=\"1\" width=\"8\" height=\"4\" y=\"2\" x=\"8\"></rect><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.5\"></path><path d=\"M16 4h2a2 2 0 0 1 1.73 1\"></path><path d=\"M8 18h1\"></path><path d=\"M21.37 12.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.5\"></path><path d=\"M16 4h2a2 2 0 0 1 1.73 1\"></path><path d=\"M8 18h1\"></path><path d=\"M21.37 12.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path>",
         categories = "text",
         tags = "paste",
         contributors = "karsa-mistmere,ericfennis"
@@ -3245,7 +3245,7 @@ pub enum LucideGlyph {
     ClipboardPenLine,
     #[cfg(feature = "clipboard_pen")]
     #[strum(props(
-        svg = "<path d=\"M16 4h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21.34 15.66a1 1 0 1 0-3.00-3.00l-5.01 5.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><path d=\"M8 22H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><rect rx=\"1\" y=\"2\" height=\"4\" width=\"8\" x=\"8\"></rect>",
+        svg = "<path d=\"M16 4h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21.34 15.66a1 1 0 1 0-3.00-3.00l-5.01 5.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><path d=\"M8 22H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><rect height=\"4\" rx=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect>",
         categories = "text",
         tags = "paste,signature",
         contributors = "karsa-mistmere,ericfennis,Spleefies"
@@ -3253,7 +3253,7 @@ pub enum LucideGlyph {
     ClipboardPen,
     #[cfg(feature = "clipboard_plus")]
     #[strum(props(
-        svg = "<rect width=\"8\" ry=\"1\" x=\"8\" height=\"4\" y=\"2\" rx=\"1\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M9 14h6\"></path><path d=\"M12 17v-6\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M9 14h6\"></path><path d=\"M12 17v-6\"></path>",
         categories = "text,medical",
         tags = "copy,paste,add,create,new,document,medical,report,doctor",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -3261,7 +3261,7 @@ pub enum LucideGlyph {
     ClipboardPlus,
     #[cfg(feature = "clipboard_type")]
     #[strum(props(
-        svg = "<rect x=\"8\" height=\"4\" width=\"8\" y=\"2\" rx=\"1\" ry=\"1\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M9 12v-1h6v1\"></path><path d=\"M11 17h2\"></path><path d=\"M12 11v6\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"M9 12v-1h6v1\"></path><path d=\"M11 17h2\"></path><path d=\"M12 11v6\"></path>",
         categories = "text",
         tags = "paste,format,text",
         contributors = "karsa-mistmere,ericfennis"
@@ -3269,7 +3269,7 @@ pub enum LucideGlyph {
     ClipboardType,
     #[cfg(feature = "clipboard_x")]
     #[strum(props(
-        svg = "<rect ry=\"1\" width=\"8\" height=\"4\" x=\"8\" rx=\"1\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"m15 11-6 6\"></path><path d=\"m9 11 6 6\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path><path d=\"m15 11-6 6\"></path><path d=\"m9 11 6 6\"></path>",
         categories = "text",
         tags = "copy,paste,discard,remove",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -3277,7 +3277,7 @@ pub enum LucideGlyph {
     ClipboardX,
     #[cfg(feature = "clipboard")]
     #[strum(props(
-        svg = "<rect x=\"8\" rx=\"1\" ry=\"1\" y=\"2\" width=\"8\" height=\"4\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path>",
+        svg = "<rect height=\"4\" rx=\"1\" ry=\"1\" width=\"8\" x=\"8\" y=\"2\"></rect><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"></path>",
         categories = "text",
         tags = "copy,paste",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -3285,7 +3285,7 @@ pub enum LucideGlyph {
     Clipboard,
     #[cfg(feature = "clock_1")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M12 6v6l2-4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l2-4\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3301,7 +3301,7 @@ pub enum LucideGlyph {
     Clock10,
     #[cfg(feature = "clock_11")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"M12 6v6l-2-4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l-2-4\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3317,7 +3317,7 @@ pub enum LucideGlyph {
     Clock12,
     #[cfg(feature = "clock_2")]
     #[strum(props(
-        svg = "<circle r=\"10\" cy=\"12\" cx=\"12\"></circle><path d=\"M12 6v6l4-2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l4-2\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -3325,7 +3325,7 @@ pub enum LucideGlyph {
     Clock2,
     #[cfg(feature = "clock_3")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M12 6v6h4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6h4\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3341,7 +3341,7 @@ pub enum LucideGlyph {
     Clock4,
     #[cfg(feature = "clock_5")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M12 6v6l2 4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l2 4\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3349,7 +3349,7 @@ pub enum LucideGlyph {
     Clock5,
     #[cfg(feature = "clock_6")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"10\" cy=\"12\"></circle><path d=\"M12 6v10\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v10\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3357,7 +3357,7 @@ pub enum LucideGlyph {
     Clock6,
     #[cfg(feature = "clock_7")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M12 6v6l-2 4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l-2 4\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3365,7 +3365,7 @@ pub enum LucideGlyph {
     Clock7,
     #[cfg(feature = "clock_8")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"M12 6v6l-4 2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l-4 2\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley"
@@ -3373,7 +3373,7 @@ pub enum LucideGlyph {
     Clock8,
     #[cfg(feature = "clock_9")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><path d=\"M12 6v6H8\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6H8\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "wojtekmaj,ericfennis,danielbayley,jamiemlaw"
@@ -3429,7 +3429,7 @@ pub enum LucideGlyph {
     ClockPlus,
     #[cfg(feature = "clock")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M12 6v6l4 2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l4 2\"></path>",
         categories = "time",
         tags = "time,watch,alarm",
         contributors = "colebemis"
@@ -3437,7 +3437,7 @@ pub enum LucideGlyph {
     Clock,
     #[cfg(feature = "closed_caption")]
     #[strum(props(
-        svg = "<path d=\"M10 9.17a3 3 0 1 0 0 5.66\"></path><path d=\"M17 9.17a3 3 0 1 0 0 5.66\"></path><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"></rect>",
+        svg = "<path d=\"M10 9.17a3 3 0 1 0 0 5.66\"></path><path d=\"M17 9.17a3 3 0 1 0 0 5.66\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"5\"></rect>",
         categories = "accessibility,multimedia",
         tags = "tv,movie,video,closed captions,subtitles,subhead,transcription,transcribe,dialogue,accessibility",
         contributors = "ericfennis,UsamaKhan"
@@ -3653,7 +3653,7 @@ pub enum LucideGlyph {
     Coffee,
     #[cfg(feature = "cog")]
     #[strum(props(
-        svg = "<path d=\"M11 10.27 7 3.34\"></path><path d=\"m11 13.73-4 6.93\"></path><path d=\"M12 22v-2\"></path><path d=\"M12 2v2\"></path><path d=\"M14 12h8\"></path><path d=\"m17 20.66-1-1.73\"></path><path d=\"m17 3.34-1 1.73\"></path><path d=\"M2 12h2\"></path><path d=\"m20.66 17-1.73-1\"></path><path d=\"m20.66 7-1.73 1\"></path><path d=\"m3.34 17 1.73-1\"></path><path d=\"m3.34 7 1.73 1\"></path><circle r=\"2\" cx=\"12\" cy=\"12\"></circle><circle cy=\"12\" cx=\"12\" r=\"8\"></circle>",
+        svg = "<path d=\"M11 10.27 7 3.34\"></path><path d=\"m11 13.73-4 6.93\"></path><path d=\"M12 22v-2\"></path><path d=\"M12 2v2\"></path><path d=\"M14 12h8\"></path><path d=\"m17 20.66-1-1.73\"></path><path d=\"m17 3.34-1 1.73\"></path><path d=\"M2 12h2\"></path><path d=\"m20.66 17-1.73-1\"></path><path d=\"m20.66 7-1.73 1\"></path><path d=\"m3.34 17 1.73-1\"></path><path d=\"m3.34 7 1.73 1\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><circle cx=\"12\" cy=\"12\" r=\"8\"></circle>",
         categories = "account",
         tags = "computing,settings,cog,edit,gear,preferences,controls,configuration,fixed,build,construction,parts",
         contributors = "colebemis,karsa-mistmere"
@@ -3669,7 +3669,7 @@ pub enum LucideGlyph {
     Coins,
     #[cfg(feature = "columns_2")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" y=\"3\" x=\"3\" rx=\"2\"></rect><path d=\"M12 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 3v18\"></path>",
         categories = "layout,design,text",
         tags = "lines,list,queue,preview,panel,parallel,series,split,vertical,horizontal,half,center,middle,even,sidebar,drawer,gutter,fold,reflow,typography,pagination,pages",
         contributors = "zenoamaro,ericfennis,csandman,mittalyashu"
@@ -3685,7 +3685,7 @@ pub enum LucideGlyph {
     Columns3Cog,
     #[cfg(feature = "columns_3")]
     #[strum(props(
-        svg = "<rect width=\"18\" rx=\"2\" y=\"3\" height=\"18\" x=\"3\"></rect><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path>",
         categories = "layout,design,text",
         tags = "lines,list,queue,preview,parallel,series,split,vertical,horizontal,thirds,triple,center,middle,alignment,even,sidebars,drawers,gutters,fold,reflow,typography,pagination,pages",
         contributors = "danielbayley"
@@ -3693,7 +3693,7 @@ pub enum LucideGlyph {
     Columns3,
     #[cfg(feature = "columns_4")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"18\" rx=\"2\" x=\"3\" height=\"18\"></rect><path d=\"M7.5 3v18\"></path><path d=\"M12 3v18\"></path><path d=\"M16.5 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7.5 3v18\"></path><path d=\"M12 3v18\"></path><path d=\"M16.5 3v18\"></path>",
         categories = "layout,design,text,security",
         tags = "lines,list,queue,preview,parallel,series,split,vertical,horizontal,thirds,triple,center,middle,alignment,even,sidebars,drawers,gutters,fold,reflow,typography,pagination,pages,prison,jail,bars,sentence,police,cops,cell,crime,criminal,justice,law,enforcement,grill",
         contributors = "danielbayley"
@@ -3701,7 +3701,7 @@ pub enum LucideGlyph {
     Columns4,
     #[cfg(feature = "combine")]
     #[strum(props(
-        svg = "<path d=\"M14 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"M19 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"m7 15 3 3\"></path><path d=\"m7 21 3-3H5a2 2 0 0 1-2-2v-2\"></path><rect y=\"14\" x=\"14\" rx=\"1\" width=\"7\" height=\"7\"></rect><rect height=\"7\" x=\"3\" y=\"3\" rx=\"1\" width=\"7\"></rect>",
+        svg = "<path d=\"M14 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"M19 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"m7 15 3 3\"></path><path d=\"m7 21 3-3H5a2 2 0 0 1-2-2v-2\"></path><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"14\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect>",
         categories = "development,files",
         tags = "cubes,packages,parts,units,collection,cluster,combine,gather,merge",
         contributors = "danielbayley,ericfennis,jguddas"
@@ -3717,7 +3717,7 @@ pub enum LucideGlyph {
     Command,
     #[cfg(feature = "compass")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"m16.24 7.76-1.80 5.41a2 2 0 0 1-1.26 1.26L7.76 16.24l1.80-5.41a2 2 0 0 1 1.26-1.26z\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m16.24 7.76-1.80 5.41a2 2 0 0 1-1.26 1.26L7.76 16.24l1.80-5.41a2 2 0 0 1 1.26-1.26z\"></path>",
         categories = "navigation,travel",
         tags = "direction,north,east,south,west,safari,browser",
         contributors = "colebemis,jguddas"
@@ -3733,7 +3733,7 @@ pub enum LucideGlyph {
     Component,
     #[cfg(feature = "computer")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"14\" x=\"5\" y=\"2\" height=\"8\"></rect><rect height=\"8\" width=\"20\" y=\"14\" rx=\"2\" x=\"2\"></rect><path d=\"M6 18h2\"></path><path d=\"M12 18h6\"></path>",
+        svg = "<rect height=\"8\" rx=\"2\" width=\"14\" x=\"5\" y=\"2\"></rect><rect height=\"8\" rx=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect><path d=\"M6 18h2\"></path><path d=\"M12 18h6\"></path>",
         categories = "devices,development,gaming",
         tags = "pc,chassis,codespaces,github",
         contributors = "danielbayley"
@@ -3749,7 +3749,7 @@ pub enum LucideGlyph {
     ConciergeBell,
     #[cfg(feature = "cone")]
     #[strum(props(
-        svg = "<path d=\"m20.9 18.55-8-15.98a1 1 0 0 0-1.8 0l-8 15.98\"></path><ellipse rx=\"9\" cy=\"19\" cx=\"12\" ry=\"3\"></ellipse>",
+        svg = "<path d=\"m20.9 18.55-8-15.98a1 1 0 0 0-1.8 0l-8 15.98\"></path><ellipse cx=\"12\" cy=\"19\" rx=\"9\" ry=\"3\"></ellipse>",
         categories = "shapes,math",
         tags = "conical,triangle,triangular,geometry,filter,funnel,hopper,spotlight,searchlight",
         contributors = "danielbayley,karsa-mistmere"
@@ -3757,7 +3757,7 @@ pub enum LucideGlyph {
     Cone,
     #[cfg(feature = "construction")]
     #[strum(props(
-        svg = "<rect y=\"6\" width=\"20\" x=\"2\" height=\"8\" rx=\"1\"></rect><path d=\"M17 14v7\"></path><path d=\"M7 14v7\"></path><path d=\"M17 3v3\"></path><path d=\"M7 3v3\"></path><path d=\"M10 14 2.3 6.3\"></path><path d=\"m14 6 7.7 7.7\"></path><path d=\"m8 6 8 8\"></path>",
+        svg = "<rect height=\"8\" rx=\"1\" width=\"20\" x=\"2\" y=\"6\"></rect><path d=\"M17 14v7\"></path><path d=\"M7 14v7\"></path><path d=\"M17 3v3\"></path><path d=\"M7 3v3\"></path><path d=\"M10 14 2.3 6.3\"></path><path d=\"m14 6 7.7 7.7\"></path><path d=\"m8 6 8 8\"></path>",
         categories = "development",
         tags = "roadwork,maintenance,blockade,barricade",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -3765,7 +3765,7 @@ pub enum LucideGlyph {
     Construction,
     #[cfg(feature = "contact_round")]
     #[strum(props(
-        svg = "<path d=\"M16 2v2\"></path><path d=\"M17.91 22a6 6 0 0 0-12 0\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><rect x=\"3\" y=\"4\" height=\"18\" rx=\"2\" width=\"18\"></rect>",
+        svg = "<path d=\"M16 2v2\"></path><path d=\"M17.91 22a6 6 0 0 0-12 0\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
         categories = "account,connectivity,communication,social",
         tags = "user,person,family,friend,acquaintance,listing,networking",
         contributors = "karsa-mistmere,jguddas"
@@ -3773,7 +3773,7 @@ pub enum LucideGlyph {
     ContactRound,
     #[cfg(feature = "contact")]
     #[strum(props(
-        svg = "<path d=\"M16 2v2\"></path><path d=\"M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"11\" r=\"3\"></circle><rect height=\"18\" rx=\"2\" x=\"3\" y=\"4\" width=\"18\"></rect>",
+        svg = "<path d=\"M16 2v2\"></path><path d=\"M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"11\" r=\"3\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
         categories = "account,connectivity,communication,social",
         tags = "user,person,family,friend,acquaintance,listing,networking",
         contributors = "lscheibel,karsa-mistmere,FPDK,ericfennis,jguddas"
@@ -3813,7 +3813,7 @@ pub enum LucideGlyph {
     CookingPot,
     #[cfg(feature = "copy_check")]
     #[strum(props(
-        svg = "<path d=\"m12 15 2 2 4-4\"></path><rect ry=\"2\" x=\"8\" width=\"14\" height=\"14\" y=\"8\" rx=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
+        svg = "<path d=\"m12 15 2 2 4-4\"></path><rect height=\"14\" rx=\"2\" ry=\"2\" width=\"14\" x=\"8\" y=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
         categories = "text,notifications",
         tags = "clone,duplicate,done,multiple",
         contributors = "danielbayley,jguddas"
@@ -3821,7 +3821,7 @@ pub enum LucideGlyph {
     CopyCheck,
     #[cfg(feature = "copy_minus")]
     #[strum(props(
-        svg = "<line x2=\"18\" x1=\"12\" y1=\"15\" y2=\"15\"></line><rect x=\"8\" ry=\"2\" rx=\"2\" height=\"14\" y=\"8\" width=\"14\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
+        svg = "<line x1=\"12\" x2=\"18\" y1=\"15\" y2=\"15\"></line><rect height=\"14\" rx=\"2\" ry=\"2\" width=\"14\" x=\"8\" y=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
         categories = "text,math",
         tags = "clone,duplicate,remove,delete,collapse,subtract,multiple,-",
         contributors = "danielbayley,jguddas"
@@ -3829,7 +3829,7 @@ pub enum LucideGlyph {
     CopyMinus,
     #[cfg(feature = "copy_plus")]
     #[strum(props(
-        svg = "<line x2=\"15\" y2=\"18\" x1=\"15\" y1=\"12\"></line><line y1=\"15\" y2=\"15\" x2=\"18\" x1=\"12\"></line><rect y=\"8\" rx=\"2\" height=\"14\" width=\"14\" ry=\"2\" x=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
+        svg = "<line x1=\"15\" x2=\"15\" y1=\"12\" y2=\"18\"></line><line x1=\"12\" x2=\"18\" y1=\"15\" y2=\"15\"></line><rect height=\"14\" rx=\"2\" ry=\"2\" width=\"14\" x=\"8\" y=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
         categories = "text,math",
         tags = "clone,duplicate,add,multiple,expand,+",
         contributors = "danielbayley,jguddas"
@@ -3837,7 +3837,7 @@ pub enum LucideGlyph {
     CopyPlus,
     #[cfg(feature = "copy_slash")]
     #[strum(props(
-        svg = "<line x2=\"18\" y2=\"12\" x1=\"12\" y1=\"18\"></line><rect height=\"14\" rx=\"2\" width=\"14\" x=\"8\" y=\"8\" ry=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
+        svg = "<line x1=\"12\" x2=\"18\" y1=\"18\" y2=\"12\"></line><rect height=\"14\" rx=\"2\" ry=\"2\" width=\"14\" x=\"8\" y=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
         categories = "text,development,math",
         tags = "clone,duplicate,cancel,ban,no,stop,forbidden,prohibited,error,multiple,divide,division,split,or,/",
         contributors = "danielbayley,jguddas"
@@ -3845,7 +3845,7 @@ pub enum LucideGlyph {
     CopySlash,
     #[cfg(feature = "copy_x")]
     #[strum(props(
-        svg = "<line y1=\"12\" x1=\"12\" y2=\"18\" x2=\"18\"></line><line x2=\"18\" x1=\"12\" y1=\"18\" y2=\"12\"></line><rect width=\"14\" x=\"8\" height=\"14\" y=\"8\" ry=\"2\" rx=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
+        svg = "<line x1=\"12\" x2=\"18\" y1=\"12\" y2=\"18\"></line><line x1=\"12\" x2=\"18\" y1=\"18\" y2=\"12\"></line><rect height=\"14\" rx=\"2\" ry=\"2\" width=\"14\" x=\"8\" y=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
         categories = "notifications,math",
         tags = "cancel,close,delete,remove,clear,multiple,multiply,multiplication,times",
         contributors = "danielbayley,jguddas"
@@ -3853,7 +3853,7 @@ pub enum LucideGlyph {
     CopyX,
     #[cfg(feature = "copy")]
     #[strum(props(
-        svg = "<rect rx=\"2\" y=\"8\" height=\"14\" ry=\"2\" width=\"14\" x=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" ry=\"2\" width=\"14\" x=\"8\" y=\"8\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path>",
         categories = "text",
         tags = "clone,duplicate,multiple",
         contributors = "colebemis,csandman,ericfennis,danielbayley,jguddas"
@@ -3861,7 +3861,7 @@ pub enum LucideGlyph {
     Copy,
     #[cfg(feature = "copyleft")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"M9.17 14.83a4 4 0 1 0 0-5.66\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M9.17 14.83a4 4 0 1 0 0-5.66\"></path>",
         categories = "text",
         tags = "licence",
         contributors = "ericfennis,johnletey,csandman"
@@ -3869,7 +3869,7 @@ pub enum LucideGlyph {
     Copyleft,
     #[cfg(feature = "copyright")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M14.83 14.83a4 4 0 1 1 0-5.66\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M14.83 14.83a4 4 0 1 1 0-5.66\"></path>",
         categories = "text",
         tags = "licence,license",
         contributors = "ericfennis,johnletey,csandman"
@@ -3941,7 +3941,7 @@ pub enum LucideGlyph {
     CornerUpRight,
     #[cfg(feature = "cpu")]
     #[strum(props(
-        svg = "<path d=\"M12 20v2\"></path><path d=\"M12 2v2\"></path><path d=\"M17 20v2\"></path><path d=\"M17 2v2\"></path><path d=\"M2 12h2\"></path><path d=\"M2 17h2\"></path><path d=\"M2 7h2\"></path><path d=\"M20 12h2\"></path><path d=\"M20 17h2\"></path><path d=\"M20 7h2\"></path><path d=\"M7 20v2\"></path><path d=\"M7 2v2\"></path><rect x=\"4\" width=\"16\" y=\"4\" rx=\"2\" height=\"16\"></rect><rect width=\"8\" x=\"8\" height=\"8\" rx=\"1\" y=\"8\"></rect>",
+        svg = "<path d=\"M12 20v2\"></path><path d=\"M12 2v2\"></path><path d=\"M17 20v2\"></path><path d=\"M17 2v2\"></path><path d=\"M2 12h2\"></path><path d=\"M2 17h2\"></path><path d=\"M2 7h2\"></path><path d=\"M20 12h2\"></path><path d=\"M20 17h2\"></path><path d=\"M20 7h2\"></path><path d=\"M7 20v2\"></path><path d=\"M7 2v2\"></path><rect height=\"16\" rx=\"2\" width=\"16\" x=\"4\" y=\"4\"></rect><rect height=\"8\" rx=\"1\" width=\"8\" x=\"8\" y=\"8\"></rect>",
         categories = "devices",
         tags = "processor,cores,technology,computer,chip,circuit,memory,ram,specs,gigahertz,ghz",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -3957,7 +3957,7 @@ pub enum LucideGlyph {
     CreativeCommons,
     #[cfg(feature = "credit_card")]
     #[strum(props(
-        svg = "<rect width=\"20\" x=\"2\" y=\"5\" rx=\"2\" height=\"14\"></rect><line y2=\"10\" x2=\"22\" y1=\"10\" x1=\"2\"></line>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"5\"></rect><line x1=\"2\" x2=\"22\" y1=\"10\" y2=\"10\"></line>",
         categories = "account,finance",
         tags = "bank,purchase,payment,cc",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -3989,7 +3989,7 @@ pub enum LucideGlyph {
     Cross,
     #[cfg(feature = "crosshair")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"10\" cy=\"12\"></circle><line x2=\"18\" y1=\"12\" x1=\"22\" y2=\"12\"></line><line y2=\"12\" y1=\"12\" x1=\"6\" x2=\"2\"></line><line x1=\"12\" y2=\"2\" x2=\"12\" y1=\"6\"></line><line x2=\"12\" y1=\"22\" y2=\"18\" x1=\"12\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"22\" x2=\"18\" y1=\"12\" y2=\"12\"></line><line x1=\"6\" x2=\"2\" y1=\"12\" y2=\"12\"></line><line x1=\"12\" x2=\"12\" y1=\"6\" y2=\"2\"></line><line x1=\"12\" x2=\"12\" y1=\"22\" y2=\"18\"></line>",
         categories = "photography",
         tags = "aim,target",
         contributors = "colebemis,ericfennis"
@@ -4021,7 +4021,7 @@ pub enum LucideGlyph {
     CupSoda,
     #[cfg(feature = "currency")]
     #[strum(props(
-        svg = "<circle r=\"8\" cx=\"12\" cy=\"12\"></circle><line y1=\"3\" x1=\"3\" x2=\"6\" y2=\"6\"></line><line y1=\"3\" x1=\"21\" x2=\"18\" y2=\"6\"></line><line y1=\"21\" x1=\"3\" x2=\"6\" y2=\"18\"></line><line y2=\"18\" y1=\"21\" x1=\"21\" x2=\"18\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"8\"></circle><line x1=\"3\" x2=\"6\" y1=\"3\" y2=\"6\"></line><line x1=\"21\" x2=\"18\" y1=\"3\" y2=\"6\"></line><line x1=\"3\" x2=\"6\" y1=\"21\" y2=\"18\"></line><line x1=\"21\" x2=\"18\" y1=\"21\" y2=\"18\"></line>",
         categories = "finance",
         tags = "finance,money",
         contributors = "connium,ericfennis"
@@ -4029,7 +4029,7 @@ pub enum LucideGlyph {
     Currency,
     #[cfg(feature = "cylinder")]
     #[strum(props(
-        svg = "<ellipse cy=\"5\" ry=\"3\" rx=\"9\" cx=\"12\"></ellipse><path d=\"M3 5v14a9 3 0 0 0 18 0V5\"></path>",
+        svg = "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5v14a9 3 0 0 0 18 0V5\"></path>",
         categories = "shapes,design,math",
         tags = "shape,elliptical,geometry,container,storage,tin,pot",
         contributors = "danielbayley"
@@ -4045,7 +4045,7 @@ pub enum LucideGlyph {
     Dam,
     #[cfg(feature = "database_backup")]
     #[strum(props(
-        svg = "<ellipse rx=\"9\" ry=\"3\" cy=\"5\" cx=\"12\"></ellipse><path d=\"M3 12a9 3 0 0 0 5 2.69\"></path><path d=\"M21 9.3V5\"></path><path d=\"M3 5v14a9 3 0 0 0 6.47 2.88\"></path><path d=\"M12 12v4h4\"></path><path d=\"M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16\"></path>",
+        svg = "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 12a9 3 0 0 0 5 2.69\"></path><path d=\"M21 9.3V5\"></path><path d=\"M3 5v14a9 3 0 0 0 6.47 2.88\"></path><path d=\"M12 12v4h4\"></path><path d=\"M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16\"></path>",
         categories = "devices,arrows,design,development,photography",
         tags = "storage,memory,bytes,servers,backup,timemachine,rotate,arrow,left",
         contributors = "ericfennis,jguddas,danielbayley,karsa-mistmere"
@@ -4053,7 +4053,7 @@ pub enum LucideGlyph {
     DatabaseBackup,
     #[cfg(feature = "database_search")]
     #[strum(props(
-        svg = "<path d=\"M21 11.69V5\"></path><path d=\"m22 22-1.87-1.87\"></path><path d=\"M3 12a9 3 0 0 0 8.69 2.99\"></path><path d=\"M3 5v14a9 3 0 0 0 9.28 2.99\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><ellipse cy=\"5\" rx=\"9\" ry=\"3\" cx=\"12\"></ellipse>",
+        svg = "<path d=\"M21 11.69V5\"></path><path d=\"m22 22-1.87-1.87\"></path><path d=\"M3 12a9 3 0 0 0 8.69 2.99\"></path><path d=\"M3 5v14a9 3 0 0 0 9.28 2.99\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
         categories = "devices,development",
         tags = "storage,memory,container,tin,pot,bytes,servers",
         contributors = "colebemis,jguddas,Spleefies"
@@ -4061,7 +4061,7 @@ pub enum LucideGlyph {
     DatabaseSearch,
     #[cfg(feature = "database_zap")]
     #[strum(props(
-        svg = "<ellipse rx=\"9\" ry=\"3\" cx=\"12\" cy=\"5\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 15 21.84\"></path><path d=\"M21 5V8\"></path><path d=\"M21 12L18 17H22L19 22\"></path><path d=\"M3 12A9 3 0 0 0 14.59 14.87\"></path>",
+        svg = "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 15 21.84\"></path><path d=\"M21 5V8\"></path><path d=\"M21 12L18 17H22L19 22\"></path><path d=\"M3 12A9 3 0 0 0 14.59 14.87\"></path>",
         categories = "devices,development",
         tags = "cache busting,storage,memory,bytes,servers,power,crash",
         contributors = "danielbayley"
@@ -4069,7 +4069,7 @@ pub enum LucideGlyph {
     DatabaseZap,
     #[cfg(feature = "database")]
     #[strum(props(
-        svg = "<ellipse cy=\"5\" cx=\"12\" ry=\"3\" rx=\"9\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path>",
+        svg = "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 21 19V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path>",
         categories = "devices,development",
         tags = "storage,memory,container,tin,pot,bytes,servers",
         contributors = "colebemis,jguddas"
@@ -4077,7 +4077,7 @@ pub enum LucideGlyph {
     Database,
     #[cfg(feature = "decimals_arrow_left")]
     #[strum(props(
-        svg = "<path d=\"m13 21-3-3 3-3\"></path><path d=\"M20 18H10\"></path><path d=\"M3 11h.01\"></path><rect rx=\"2.5\" y=\"3\" width=\"5\" height=\"8\" x=\"6\"></rect>",
+        svg = "<path d=\"m13 21-3-3 3-3\"></path><path d=\"M20 18H10\"></path><path d=\"M3 11h.01\"></path><rect height=\"8\" rx=\"2.5\" width=\"5\" x=\"6\" y=\"3\"></rect>",
         categories = "design,text,arrows,math",
         tags = "numerical,decimal,decrease,less,fewer,precision,rounding,digits,fraction,float,number",
         contributors = "AnnaSasDev,karsa-mistmere"
@@ -4085,7 +4085,7 @@ pub enum LucideGlyph {
     DecimalsArrowLeft,
     #[cfg(feature = "decimals_arrow_right")]
     #[strum(props(
-        svg = "<path d=\"M10 18h10\"></path><path d=\"m17 21 3-3-3-3\"></path><path d=\"M3 11h.01\"></path><rect x=\"15\" y=\"3\" width=\"5\" rx=\"2.5\" height=\"8\"></rect><rect width=\"5\" y=\"3\" x=\"6\" height=\"8\" rx=\"2.5\"></rect>",
+        svg = "<path d=\"M10 18h10\"></path><path d=\"m17 21 3-3-3-3\"></path><path d=\"M3 11h.01\"></path><rect height=\"8\" rx=\"2.5\" width=\"5\" x=\"15\" y=\"3\"></rect><rect height=\"8\" rx=\"2.5\" width=\"5\" x=\"6\" y=\"3\"></rect>",
         categories = "design,text,arrows,math",
         tags = "numerical,decimal,increase,more,precision,rounding,digits,fraction,float,number",
         contributors = "AnnaSasDev,karsa-mistmere"
@@ -4101,7 +4101,7 @@ pub enum LucideGlyph {
     Delete,
     #[cfg(feature = "dessert")]
     #[strum(props(
-        svg = "<path d=\"M10.16 3.16A10 10 0 0 0 2 13a2 2 0 0 0 4 0v-1a2 2 0 0 1 4 0v4a2 2 0 0 0 4 0v-4a2 2 0 0 1 4 0v1a2 2 0 0 0 4-.006 10 10 0 0 0-8.16-9.82\"></path><path d=\"M20.80 14.86a9 9 0 0 1-17.60 0\"></path><circle r=\"2\" cx=\"12\" cy=\"4\"></circle>",
+        svg = "<path d=\"M10.16 3.16A10 10 0 0 0 2 13a2 2 0 0 0 4 0v-1a2 2 0 0 1 4 0v4a2 2 0 0 0 4 0v-4a2 2 0 0 1 4 0v1a2 2 0 0 0 4-.006 10 10 0 0 0-8.16-9.82\"></path><path d=\"M20.80 14.86a9 9 0 0 1-17.60 0\"></path><circle cx=\"12\" cy=\"4\" r=\"2\"></circle>",
         categories = "food-beverage",
         tags = "pudding,christmas,xmas,custard,iced bun,icing,fondant,cake,ice cream,gelato,sundae,scoop,dollop,sugar,food,sweet",
         contributors = "danielbayley,jguddas"
@@ -4109,7 +4109,7 @@ pub enum LucideGlyph {
     Dessert,
     #[cfg(feature = "diameter")]
     #[strum(props(
-        svg = "<circle cy=\"19\" r=\"2\" cx=\"19\"></circle><circle r=\"2\" cx=\"5\" cy=\"5\"></circle><path d=\"M6.48 3.66a10 10 0 0 1 13.86 13.86\"></path><path d=\"m6.41 6.41 11.18 11.18\"></path><path d=\"M3.66 6.48a10 10 0 0 0 13.86 13.86\"></path>",
+        svg = "<circle cx=\"19\" cy=\"19\" r=\"2\"></circle><circle cx=\"5\" cy=\"5\" r=\"2\"></circle><path d=\"M6.48 3.66a10 10 0 0 1 13.86 13.86\"></path><path d=\"m6.41 6.41 11.18 11.18\"></path><path d=\"M3.66 6.48a10 10 0 0 0 13.86 13.86\"></path>",
         categories = "shapes,math,design,tools",
         tags = "shape,circle,geometry,trigonometry,width,height,size,calculate,measure",
         contributors = "danielbayley,karsa-mistmere"
@@ -4149,7 +4149,7 @@ pub enum LucideGlyph {
     Diamond,
     #[cfg(feature = "dice_1")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" ry=\"2\" rx=\"2\" x=\"3\" y=\"3\"></rect><path d=\"M12 12h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 12h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,1,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -4157,7 +4157,7 @@ pub enum LucideGlyph {
     Dice1,
     #[cfg(feature = "dice_2")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"18\" height=\"18\" ry=\"2\" x=\"3\" rx=\"2\"></rect><path d=\"M15 9h.01\"></path><path d=\"M9 15h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M15 9h.01\"></path><path d=\"M9 15h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,2,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -4165,7 +4165,7 @@ pub enum LucideGlyph {
     Dice2,
     #[cfg(feature = "dice_3")]
     #[strum(props(
-        svg = "<rect width=\"18\" x=\"3\" ry=\"2\" y=\"3\" height=\"18\" rx=\"2\"></rect><path d=\"M16 8h.01\"></path><path d=\"M12 12h.01\"></path><path d=\"M8 16h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M16 8h.01\"></path><path d=\"M12 12h.01\"></path><path d=\"M8 16h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,3,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -4173,7 +4173,7 @@ pub enum LucideGlyph {
     Dice3,
     #[cfg(feature = "dice_4")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" x=\"3\" y=\"3\" ry=\"2\" width=\"18\"></rect><path d=\"M16 8h.01\"></path><path d=\"M8 8h.01\"></path><path d=\"M8 16h.01\"></path><path d=\"M16 16h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M16 8h.01\"></path><path d=\"M8 8h.01\"></path><path d=\"M8 16h.01\"></path><path d=\"M16 16h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,4,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -4181,7 +4181,7 @@ pub enum LucideGlyph {
     Dice4,
     #[cfg(feature = "dice_5")]
     #[strum(props(
-        svg = "<rect width=\"18\" x=\"3\" y=\"3\" height=\"18\" rx=\"2\" ry=\"2\"></rect><path d=\"M16 8h.01\"></path><path d=\"M8 8h.01\"></path><path d=\"M8 16h.01\"></path><path d=\"M16 16h.01\"></path><path d=\"M12 12h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M16 8h.01\"></path><path d=\"M8 8h.01\"></path><path d=\"M8 16h.01\"></path><path d=\"M16 16h.01\"></path><path d=\"M12 12h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,5,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -4189,7 +4189,7 @@ pub enum LucideGlyph {
     Dice5,
     #[cfg(feature = "dice_6")]
     #[strum(props(
-        svg = "<rect width=\"18\" x=\"3\" height=\"18\" rx=\"2\" y=\"3\" ry=\"2\"></rect><path d=\"M16 8h.01\"></path><path d=\"M16 12h.01\"></path><path d=\"M16 16h.01\"></path><path d=\"M8 8h.01\"></path><path d=\"M8 12h.01\"></path><path d=\"M8 16h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M16 8h.01\"></path><path d=\"M16 12h.01\"></path><path d=\"M16 16h.01\"></path><path d=\"M8 8h.01\"></path><path d=\"M8 12h.01\"></path><path d=\"M8 16h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,6,board,game",
         contributors = "mittalyashu,ericfennis"
@@ -4197,7 +4197,7 @@ pub enum LucideGlyph {
     Dice6,
     #[cfg(feature = "dices")]
     #[strum(props(
-        svg = "<rect x=\"2\" height=\"12\" y=\"10\" rx=\"2\" ry=\"2\" width=\"12\"></rect><path d=\"m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6\"></path><path d=\"M6 18h.01\"></path><path d=\"M10 14h.01\"></path><path d=\"M15 6h.01\"></path><path d=\"M18 9h.01\"></path>",
+        svg = "<rect height=\"12\" rx=\"2\" ry=\"2\" width=\"12\" x=\"2\" y=\"10\"></rect><path d=\"m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6\"></path><path d=\"M6 18h.01\"></path><path d=\"M10 14h.01\"></path><path d=\"M15 6h.01\"></path><path d=\"M18 9h.01\"></path>",
         categories = "gaming",
         tags = "dice,random,tabletop,board,game",
         contributors = "karsa-mistmere,ericfennis"
@@ -4213,7 +4213,7 @@ pub enum LucideGlyph {
     Diff,
     #[cfg(feature = "disc_2")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"10\" cy=\"12\"></circle><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 12h.01\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 12h.01\"></path>",
         categories = "devices,multimedia",
         tags = "album,music,vinyl,record,cd,dvd,format,dj,spin,rotate,rpm",
         contributors = "danielbayley,jguddas,ericfennis"
@@ -4221,7 +4221,7 @@ pub enum LucideGlyph {
     Disc2,
     #[cfg(feature = "disc_3")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M6 12c0-1.7.7-3.2 1.8-4.2\"></path><circle cx=\"12\" r=\"2\" cy=\"12\"></circle><path d=\"M18 12c0 1.7-.7 3.2-1.8 4.2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M6 12c0-1.7.7-3.2 1.8-4.2\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><path d=\"M18 12c0 1.7-.7 3.2-1.8 4.2\"></path>",
         categories = "devices,multimedia",
         tags = "album,music,vinyl,record,cd,dvd,format,dj,spin,rotate,rpm",
         contributors = "danielbayley"
@@ -4229,7 +4229,7 @@ pub enum LucideGlyph {
     Disc3,
     #[cfg(feature = "disc_album")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"18\" rx=\"2\" height=\"18\" x=\"3\"></rect><circle cx=\"12\" cy=\"12\" r=\"5\"></circle><path d=\"M12 12h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"12\" cy=\"12\" r=\"5\"></circle><path d=\"M12 12h.01\"></path>",
         categories = "devices,multimedia",
         tags = "album,music,songs,format,cd,dvd,vinyl,sleeve,cover,platinum,compilation,ep,recording,playback,spin,rotate,rpm,dj",
         contributors = "danielbayley"
@@ -4237,7 +4237,7 @@ pub enum LucideGlyph {
     DiscAlbum,
     #[cfg(feature = "disc")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "devices,multimedia",
         tags = "album,music,songs,format,cd,dvd,vinyl,sleeve,cover,platinum,compilation,ep,recording,playback,spin,rotate,rpm,dj",
         contributors = "colebemis,danielbayley,jguddas,ericfennis"
@@ -4245,7 +4245,7 @@ pub enum LucideGlyph {
     Disc,
     #[cfg(feature = "divide")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"6\" r=\"1\"></circle><line x2=\"19\" x1=\"5\" y2=\"12\" y1=\"12\"></line><circle cy=\"18\" cx=\"12\" r=\"1\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"6\" r=\"1\"></circle><line x1=\"5\" x2=\"19\" y1=\"12\" y2=\"12\"></line><circle cx=\"12\" cy=\"18\" r=\"1\"></circle>",
         categories = "math,development",
         tags = "calculate,math,division,operator,code,÷,/",
         contributors = "csandman,ericfennis"
@@ -4269,7 +4269,7 @@ pub enum LucideGlyph {
     Dna,
     #[cfg(feature = "dock")]
     #[strum(props(
-        svg = "<path d=\"M2 8h20\"></path><rect width=\"20\" height=\"16\" y=\"4\" x=\"2\" rx=\"2\"></rect><path d=\"M6 16h12\"></path>",
+        svg = "<path d=\"M2 8h20\"></path><rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M6 16h12\"></path>",
         categories = "layout,design,development,files",
         tags = "desktop,applications,launch,home,menu bar,bottom,line,macos,osx",
         contributors = "danielbayley"
@@ -4285,7 +4285,7 @@ pub enum LucideGlyph {
     Dog,
     #[cfg(feature = "dollar_sign")]
     #[strum(props(
-        svg = "<line x2=\"12\" y1=\"2\" y2=\"22\" x1=\"12\"></line><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path>",
+        svg = "<line x1=\"12\" x2=\"12\" y1=\"2\" y2=\"22\"></line><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path>",
         categories = "finance",
         tags = "currency,money,payment",
         contributors = "colebemis,csandman,ericfennis"
@@ -4293,7 +4293,7 @@ pub enum LucideGlyph {
     DollarSign,
     #[cfg(feature = "donut")]
     #[strum(props(
-        svg = "<path d=\"M20.5 10a2.5 2.5 0 0 1-2.4-3H18a2.95 2.95 0 0 1-2.6-4.4 10 10 0 1 0 6.3 7.1c-.3.2-.8.3-1.2.3\"></path><circle r=\"3\" cy=\"12\" cx=\"12\"></circle>",
+        svg = "<path d=\"M20.5 10a2.5 2.5 0 0 1-2.4-3H18a2.95 2.95 0 0 1-2.6-4.4 10 10 0 1 0 6.3 7.1c-.3.2-.8.3-1.2.3\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
         categories = "food-beverage",
         tags = "doughnut,sprinkles,topping,fast food,junk food,snack,treat,sweet,sugar,dessert,hollow,ring",
         contributors = "danielbayley"
@@ -4301,7 +4301,7 @@ pub enum LucideGlyph {
     Donut,
     #[cfg(feature = "door_closed_locked")]
     #[strum(props(
-        svg = "<path d=\"M10 12h.01\"></path><path d=\"M18 9V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14\"></path><path d=\"M2 20h8\"></path><path d=\"M20 17v-2a2 2 0 1 0-4 0v2\"></path><rect x=\"14\" rx=\"1\" height=\"5\" y=\"17\" width=\"8\"></rect>",
+        svg = "<path d=\"M10 12h.01\"></path><path d=\"M18 9V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14\"></path><path d=\"M2 20h8\"></path><path d=\"M20 17v-2a2 2 0 1 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"17\"></rect>",
         categories = "home,travel,security",
         tags = "entrance,entry,exit,ingress,egress,gate,gateway,emergency exit,lock",
         contributors = "karsa-mistmere,lukedukeus"
@@ -4325,7 +4325,7 @@ pub enum LucideGlyph {
     DoorOpen,
     #[cfg(feature = "dot")]
     #[strum(props(
-        svg = "<circle cy=\"12.1\" cx=\"12.1\" r=\"1\"></circle>",
+        svg = "<circle cx=\"12.1\" cy=\"12.1\" r=\"1\"></circle>",
         categories = "shapes,text",
         tags = "interpunct,interpoint,middot,step,punctuation,period,full stop,end,finish,final,characters,font,typography,type,center,.",
         contributors = "danielbayley"
@@ -4341,7 +4341,7 @@ pub enum LucideGlyph {
     Download,
     #[cfg(feature = "drafting_compass")]
     #[strum(props(
-        svg = "<path d=\"m12.99 6.74 1.93 3.44\"></path><path d=\"M19.13 12a10 10 0 0 1-14.27 0\"></path><path d=\"m21 21-2.16-3.84\"></path><path d=\"m3 21 8.02-14.26\"></path><circle cx=\"12\" r=\"2\" cy=\"5\"></circle>",
+        svg = "<path d=\"m12.99 6.74 1.93 3.44\"></path><path d=\"M19.13 12a10 10 0 0 1-14.27 0\"></path><path d=\"m21 21-2.16-3.84\"></path><path d=\"m3 21 8.02-14.26\"></path><circle cx=\"12\" cy=\"5\" r=\"2\"></circle>",
         categories = "math,design,tools",
         tags = "geometry,trigonometry,radius,diameter,circumference,calculate,measure,arc,curve,draw,sketch",
         contributors = "danielbayley,karsa-mistmere,jguddas"
@@ -4365,7 +4365,7 @@ pub enum LucideGlyph {
     Drill,
     #[cfg(feature = "drone")]
     #[strum(props(
-        svg = "<path d=\"M10 10 7 7\"></path><path d=\"m10 14-3 3\"></path><path d=\"m14 10 3-3\"></path><path d=\"m14 14 3 3\"></path><path d=\"M14.20 4.13a4 4 0 1 1 5.43 5.86\"></path><path d=\"M19.63 14a4 4 0 1 1-5.43 5.86\"></path><path d=\"M4.36 10a4 4 0 1 1 5.43-5.86\"></path><path d=\"M9.79 19.86a4 4 0 1 1-5.42-5.87\"></path><rect width=\"4\" height=\"8\" y=\"8\" rx=\"1\" x=\"10\"></rect>",
+        svg = "<path d=\"M10 10 7 7\"></path><path d=\"m10 14-3 3\"></path><path d=\"m14 10 3-3\"></path><path d=\"m14 14 3 3\"></path><path d=\"M14.20 4.13a4 4 0 1 1 5.43 5.86\"></path><path d=\"M19.63 14a4 4 0 1 1-5.43 5.86\"></path><path d=\"M4.36 10a4 4 0 1 1 5.43-5.86\"></path><path d=\"M9.79 19.86a4 4 0 1 1-5.42-5.87\"></path><rect height=\"8\" rx=\"1\" width=\"4\" x=\"10\" y=\"8\"></rect>",
         categories = "transportation,devices",
         tags = "quadcopter,uav,aerial,flight,flying,technology,airborne,robotics",
         contributors = "bernatfortet,shopped,karsa-mistmere,jguddas"
@@ -4397,7 +4397,7 @@ pub enum LucideGlyph {
     Droplets,
     #[cfg(feature = "drum")]
     #[strum(props(
-        svg = "<path d=\"m2 2 8 8\"></path><path d=\"m22 2-8 8\"></path><ellipse cy=\"9\" ry=\"5\" cx=\"12\" rx=\"10\"></ellipse><path d=\"M7 13.4v7.9\"></path><path d=\"M12 14v8\"></path><path d=\"M17 13.4v7.9\"></path><path d=\"M2 9v8a10 5 0 0 0 20 0V9\"></path>",
+        svg = "<path d=\"m2 2 8 8\"></path><path d=\"m22 2-8 8\"></path><ellipse cx=\"12\" cy=\"9\" rx=\"10\" ry=\"5\"></ellipse><path d=\"M7 13.4v7.9\"></path><path d=\"M12 14v8\"></path><path d=\"M17 13.4v7.9\"></path><path d=\"M2 9v8a10 5 0 0 0 20 0V9\"></path>",
         categories = "multimedia,devices",
         tags = "drummer,kit,sticks,instrument,beat,bang,bass,backing track,band,play,performance,concert,march,music,audio,sound,noise,loud",
         contributors = "danielbayley"
@@ -4421,7 +4421,7 @@ pub enum LucideGlyph {
     Dumbbell,
     #[cfg(feature = "ear_off")]
     #[strum(props(
-        svg = "<path d=\"M6 18.5a3.5 3.5 0 1 0 7 0c0-1.57.92-2.52 2.04-3.46\"></path><path d=\"M6 8.5c0-.75.13-1.47.36-2.14\"></path><path d=\"M8.8 3.15A6.5 6.5 0 0 1 19 8.5c0 1.63-.44 2.81-1.09 3.76\"></path><path d=\"M12.5 6A2.5 2.5 0 0 1 15 8.5M10 13a2 2 0 0 0 1.82-1.18\"></path><line y2=\"22\" x1=\"2\" y1=\"2\" x2=\"22\"></line>",
+        svg = "<path d=\"M6 18.5a3.5 3.5 0 1 0 7 0c0-1.57.92-2.52 2.04-3.46\"></path><path d=\"M6 8.5c0-.75.13-1.47.36-2.14\"></path><path d=\"M8.8 3.15A6.5 6.5 0 0 1 19 8.5c0 1.63-.44 2.81-1.09 3.76\"></path><path d=\"M12.5 6A2.5 2.5 0 0 1 15 8.5M10 13a2 2 0 0 0 1.82-1.18\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "medical,accessibility",
         tags = "hearing,hard of hearing,hearing loss,deafness,noise,silence,audio,accessibility",
         contributors = "karsa-mistmere,ericfennis"
@@ -4437,7 +4437,7 @@ pub enum LucideGlyph {
     Ear,
     #[cfg(feature = "earth_lock")]
     #[strum(props(
-        svg = "<path d=\"M7 3.34V5a3 3 0 0 0 3 3\"></path><path d=\"M11 21.95V18a2 2 0 0 0-2-2 2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05\"></path><path d=\"M21.54 15H17a2 2 0 0 0-2 2v4.54\"></path><path d=\"M12 2a10 10 0 1 0 9.54 13\"></path><path d=\"M20 6V4a2 2 0 1 0-4 0v2\"></path><rect x=\"14\" width=\"8\" rx=\"1\" height=\"5\" y=\"6\"></rect>",
+        svg = "<path d=\"M7 3.34V5a3 3 0 0 0 3 3\"></path><path d=\"M11 21.95V18a2 2 0 0 0-2-2 2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05\"></path><path d=\"M21.54 15H17a2 2 0 0 0-2 2v4.54\"></path><path d=\"M12 2a10 10 0 1 0 9.54 13\"></path><path d=\"M20 6V4a2 2 0 1 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"6\"></rect>",
         categories = "security,development,devices",
         tags = "vpn,private,privacy,network,world,browser,security,encryption,protection,connection",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -4453,7 +4453,7 @@ pub enum LucideGlyph {
     Earth,
     #[cfg(feature = "eclipse")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"M12 2a7 7 0 1 0 10 10\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 2a7 7 0 1 0 10 10\"></path>",
         categories = "science,design,development,accessibility,photography",
         tags = "lunar,solar,crescent moon,sun,earth,day,night,planet,space,mode,dark,light,toggle,switch,color,css,styles,display,accessibility,contrast,brightness,blend,shade",
         contributors = "danielbayley"
@@ -4485,7 +4485,7 @@ pub enum LucideGlyph {
     Egg,
     #[cfg(feature = "ellipse")]
     #[strum(props(
-        svg = "<ellipse rx=\"10\" ry=\"6\" cy=\"12\" cx=\"12\"></ellipse>",
+        svg = "<ellipse cx=\"12\" cy=\"12\" rx=\"10\" ry=\"6\"></ellipse>",
         categories = "shapes",
         tags = "shape,geometry,rounded,smooth,outline,form,boundary,curve,shapes,ellipse,oval",
         contributors = "KISHORE-KUMAR-S"
@@ -4493,7 +4493,7 @@ pub enum LucideGlyph {
     Ellipse,
     #[cfg(feature = "ellipsis_vertical")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle r=\"1\" cx=\"12\" cy=\"5\"></circle><circle r=\"1\" cy=\"19\" cx=\"12\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle>",
         categories = "layout",
         tags = "menu,options,spread,more,further,extra,overflow,dots,…,...",
         contributors = "colebemis"
@@ -4501,7 +4501,7 @@ pub enum LucideGlyph {
     EllipsisVertical,
     #[cfg(feature = "ellipsis")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"1\"></circle><circle cy=\"12\" r=\"1\" cx=\"19\"></circle><circle cx=\"5\" r=\"1\" cy=\"12\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"19\" cy=\"12\" r=\"1\"></circle><circle cx=\"5\" cy=\"12\" r=\"1\"></circle>",
         categories = "layout,development",
         tags = "et cetera,etc,loader,loading,progress,pending,throbber,menu,options,operator,code,coding,spread,rest,more,further,extra,overflow,dots,…,...",
         contributors = "colebemis"
@@ -4517,7 +4517,7 @@ pub enum LucideGlyph {
     EqualApproximately,
     #[cfg(feature = "equal_not")]
     #[strum(props(
-        svg = "<line x2=\"19\" y1=\"9\" y2=\"9\" x1=\"5\"></line><line y1=\"15\" x1=\"5\" y2=\"15\" x2=\"19\"></line><line x2=\"5\" x1=\"19\" y1=\"5\" y2=\"19\"></line>",
+        svg = "<line x1=\"5\" x2=\"19\" y1=\"9\" y2=\"9\"></line><line x1=\"5\" x2=\"19\" y1=\"15\" y2=\"15\"></line><line x1=\"19\" x2=\"5\" y1=\"5\" y2=\"19\"></line>",
         categories = "math,development",
         tags = "calculate,off,math,operator,code,≠",
         contributors = "ericfennis"
@@ -4525,7 +4525,7 @@ pub enum LucideGlyph {
     EqualNot,
     #[cfg(feature = "equal")]
     #[strum(props(
-        svg = "<line x1=\"5\" y1=\"9\" x2=\"19\" y2=\"9\"></line><line y1=\"15\" x1=\"5\" y2=\"15\" x2=\"19\"></line>",
+        svg = "<line x1=\"5\" x2=\"19\" y1=\"9\" y2=\"9\"></line><line x1=\"5\" x2=\"19\" y1=\"15\" y2=\"15\"></line>",
         categories = "math,development",
         tags = "calculate,math,operator,assignment,code,=",
         contributors = "ericfennis"
@@ -4597,7 +4597,7 @@ pub enum LucideGlyph {
     EyeOff,
     #[cfg(feature = "eye")]
     #[strum(props(
-        svg = "<path d=\"M2.06 12.34a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.87 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.87 0\"></path><circle r=\"3\" cx=\"12\" cy=\"12\"></circle>",
+        svg = "<path d=\"M2.06 12.34a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.87 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.87 0\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
         categories = "accessibility,photography,design,security",
         tags = "view,watch,see,show,expose,reveal,display,visible,visibility,vision,preview,read",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -4645,7 +4645,7 @@ pub enum LucideGlyph {
     Fence,
     #[cfg(feature = "ferris_wheel")]
     #[strum(props(
-        svg = "<circle r=\"2\" cy=\"12\" cx=\"12\"></circle><path d=\"M12 2v4\"></path><path d=\"m6.8 15-3.5 2\"></path><path d=\"m20.7 7-3.5 2\"></path><path d=\"M6.8 9 3.3 7\"></path><path d=\"m20.7 17-3.5-2\"></path><path d=\"m9 22 3-8 3 8\"></path><path d=\"M8 22h8\"></path><path d=\"M18 18.7a9 9 0 1 0-12 0\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"2\"></circle><path d=\"M12 2v4\"></path><path d=\"m6.8 15-3.5 2\"></path><path d=\"m20.7 7-3.5 2\"></path><path d=\"M6.8 9 3.3 7\"></path><path d=\"m20.7 17-3.5-2\"></path><path d=\"m9 22 3-8 3 8\"></path><path d=\"M8 22h8\"></path><path d=\"M18 18.7a9 9 0 1 0-12 0\"></path>",
         categories = "navigation",
         tags = "big wheel,daisy wheel,observation,attraction,entertainment,amusement park,theme park,funfair",
         contributors = "karsa-mistmere"
@@ -4653,7 +4653,7 @@ pub enum LucideGlyph {
     FerrisWheel,
     #[cfg(feature = "file_archive")]
     #[strum(props(
-        svg = "<path d=\"M13.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M8 12v-1\"></path><path d=\"M8 18v-2\"></path><path d=\"M8 7V6\"></path><circle cx=\"8\" r=\"2\" cy=\"20\"></circle>",
+        svg = "<path d=\"M13.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M8 12v-1\"></path><path d=\"M8 18v-2\"></path><path d=\"M8 7V6\"></path><circle cx=\"8\" cy=\"20\" r=\"2\"></circle>",
         categories = "files",
         tags = "zip,package,archive",
         contributors = "karsa-mistmere,danielbayley,jguddas"
@@ -4669,7 +4669,7 @@ pub enum LucideGlyph {
     FileAxis3D,
     #[cfg(feature = "file_badge")]
     #[strum(props(
-        svg = "<path d=\"M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m7.69 16.47 1.29 4.88a.5.5 0 0 1-.698.59l-1.84-.849a1 1 0 0 0-.879.00l-1.84.85a.5.5 0 0 1-.692-.593l1.29-4.88\"></path><circle cy=\"14\" r=\"3\" cx=\"6\"></circle>",
+        svg = "<path d=\"M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m7.69 16.47 1.29 4.88a.5.5 0 0 1-.698.59l-1.84-.849a1 1 0 0 0-.879.00l-1.84.85a.5.5 0 0 1-.692-.593l1.29-4.88\"></path><circle cx=\"6\" cy=\"14\" r=\"3\"></circle>",
         categories = "files",
         tags = "award,achievement,badge,rosette,prize,winner",
         contributors = "karsa-mistmere,danielbayley"
@@ -4773,7 +4773,7 @@ pub enum LucideGlyph {
     FileCode,
     #[cfg(feature = "file_cog")]
     #[strum(props(
-        svg = "<path d=\"M15 8a1 1 0 0 1-1-1V2a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8z\"></path><path d=\"M20 8v12a2 2 0 0 1-2 2h-4.18\"></path><path d=\"m3.30 19.53.92-.382\"></path><path d=\"M4 10.59V4a2 2 0 0 1 2-2h8\"></path><path d=\"m4.22 16.85-.924-.383\"></path><path d=\"m5.85 15.22-.383-.923\"></path><path d=\"m5.85 20.77-.383.92\"></path><path d=\"m8.14 15.22.383-.923\"></path><path d=\"m8.53 21.69-.382-.924\"></path><path d=\"m9.77 16.85.922-.383\"></path><path d=\"m9.77 19.14.922.38\"></path><circle cy=\"18\" r=\"3\" cx=\"7\"></circle>",
+        svg = "<path d=\"M15 8a1 1 0 0 1-1-1V2a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8z\"></path><path d=\"M20 8v12a2 2 0 0 1-2 2h-4.18\"></path><path d=\"m3.30 19.53.92-.382\"></path><path d=\"M4 10.59V4a2 2 0 0 1 2-2h8\"></path><path d=\"m4.22 16.85-.924-.383\"></path><path d=\"m5.85 15.22-.383-.923\"></path><path d=\"m5.85 20.77-.383.92\"></path><path d=\"m8.14 15.22.383-.923\"></path><path d=\"m8.53 21.69-.382-.924\"></path><path d=\"m9.77 16.85.922-.383\"></path><path d=\"m9.77 19.14.922.38\"></path><circle cx=\"7\" cy=\"18\" r=\"3\"></circle>",
         categories = "files",
         tags = "executable,settings,cog,edit,gear",
         contributors = "karsa-mistmere,danielbayley,jguddas,UsamaKhan"
@@ -4789,7 +4789,7 @@ pub enum LucideGlyph {
     FileDiff,
     #[cfg(feature = "file_digit")]
     #[strum(props(
-        svg = "<path d=\"M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M10 16h2v6\"></path><path d=\"M10 22h4\"></path><rect y=\"16\" x=\"2\" height=\"6\" rx=\"2\" width=\"4\"></rect>",
+        svg = "<path d=\"M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M10 16h2v6\"></path><path d=\"M10 22h4\"></path><rect height=\"6\" rx=\"2\" width=\"4\" x=\"2\" y=\"16\"></rect>",
         categories = "files,development",
         tags = "number,document",
         contributors = "ericfennis,karsa-mistmere,danielbayley"
@@ -4845,7 +4845,7 @@ pub enum LucideGlyph {
     FileInput,
     #[cfg(feature = "file_key")]
     #[strum(props(
-        svg = "<path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M4 12v6\"></path><path d=\"M4 14h2\"></path><path d=\"M9.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v4\"></path><circle cy=\"20\" cx=\"4\" r=\"2\"></circle>",
+        svg = "<path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M4 12v6\"></path><path d=\"M4 14h2\"></path><path d=\"M9.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle>",
         categories = "files,security",
         tags = "key,private,public,security",
         contributors = "karsa-mistmere,danielbayley"
@@ -4853,7 +4853,7 @@ pub enum LucideGlyph {
     FileKey,
     #[cfg(feature = "file_lock")]
     #[strum(props(
-        svg = "<path d=\"M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M9 17v-2a2 2 0 0 0-4 0v2\"></path><rect width=\"8\" y=\"17\" rx=\"1\" x=\"3\" height=\"5\"></rect>",
+        svg = "<path d=\"M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M9 17v-2a2 2 0 0 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"3\" y=\"17\"></rect>",
         categories = "files,security",
         tags = "lock,password,security",
         contributors = "karsa-mistmere,ericfennis,danielbayley"
@@ -4877,7 +4877,7 @@ pub enum LucideGlyph {
     FileMinus,
     #[cfg(feature = "file_music")]
     #[strum(props(
-        svg = "<path d=\"M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M8 20v-7l3 1.47\"></path><circle r=\"2\" cx=\"6\" cy=\"20\"></circle>",
+        svg = "<path d=\"M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M8 20v-7l3 1.47\"></path><circle cx=\"6\" cy=\"20\" r=\"2\"></circle>",
         categories = "files,multimedia",
         tags = "audio,sound,noise,track,digital,recording,playback,piano,keyboard,keys,notes,chord,midi,octave",
         contributors = "danielbayley,jguddas"
@@ -4949,7 +4949,7 @@ pub enum LucideGlyph {
     FileScan,
     #[cfg(feature = "file_search_corner")]
     #[strum(props(
-        svg = "<path d=\"M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v3.25\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m21 22-2.88-2.88\"></path><circle cy=\"17\" cx=\"16\" r=\"3\"></circle>",
+        svg = "<path d=\"M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v3.25\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m21 22-2.88-2.88\"></path><circle cx=\"16\" cy=\"17\" r=\"3\"></circle>",
         categories = "files",
         tags = "lost,document,find,browser,lens",
         contributors = "karsa-mistmere,danielbayley"
@@ -4957,7 +4957,7 @@ pub enum LucideGlyph {
     FileSearchCorner,
     #[cfg(feature = "file_search")]
     #[strum(props(
-        svg = "<path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><circle cy=\"14.5\" cx=\"11.5\" r=\"2.5\"></circle><path d=\"M13.3 16.3 15 18\"></path>",
+        svg = "<path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><circle cx=\"11.5\" cy=\"14.5\" r=\"2.5\"></circle><path d=\"M13.3 16.3 15 18\"></path>",
         categories = "files",
         tags = "lost,document,find,browser,lens",
         contributors = "ericfennis,karsa-mistmere,danielbayley,jguddas"
@@ -5053,7 +5053,7 @@ pub enum LucideGlyph {
     FileUser,
     #[cfg(feature = "file_video_camera")]
     #[strum(props(
-        svg = "<path d=\"M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m10 17.84 3.03-1.75a.64.64 0 0 1 .967.56v4.70a.65.65 0 0 1-.967.56L10 20.15\"></path><rect rx=\"1\" height=\"6\" x=\"3\" y=\"16\" width=\"7\"></rect>",
+        svg = "<path d=\"M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m10 17.84 3.03-1.75a.64.64 0 0 1 .967.56v4.70a.65.65 0 0 1-.967.56L10 20.15\"></path><rect height=\"6\" rx=\"1\" width=\"7\" x=\"3\" y=\"16\"></rect>",
         categories = "files",
         tags = "movie,video,film",
         contributors = "karsa-mistmere,ericfennis,danielbayley"
@@ -5101,7 +5101,7 @@ pub enum LucideGlyph {
     Files,
     #[cfg(feature = "film")]
     #[strum(props(
-        svg = "<rect y=\"3\" height=\"18\" rx=\"2\" width=\"18\" x=\"3\"></rect><path d=\"M7 3v18\"></path><path d=\"M3 7.5h4\"></path><path d=\"M3 12h18\"></path><path d=\"M3 16.5h4\"></path><path d=\"M17 3v18\"></path><path d=\"M17 7.5h4\"></path><path d=\"M17 16.5h4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 3v18\"></path><path d=\"M3 7.5h4\"></path><path d=\"M3 12h18\"></path><path d=\"M3 16.5h4\"></path><path d=\"M17 3v18\"></path><path d=\"M17 7.5h4\"></path><path d=\"M17 16.5h4\"></path>",
         categories = "photography,multimedia",
         tags = "movie,video,reel,camera,cinema,entertainment",
         contributors = "colebemis,ericfennis,danielbayley"
@@ -5149,7 +5149,7 @@ pub enum LucideGlyph {
     Fish,
     #[cfg(feature = "fishing_hook")]
     #[strum(props(
-        svg = "<path d=\"m17.58 11.41-5.93 5.93a1 1 0 0 1-8-8l3.13-3.13a.707.70 0 0 1 1.20.5V10\"></path><path d=\"M20.41 8.58 22 7\"></path><circle r=\"2\" cx=\"19\" cy=\"10\"></circle>",
+        svg = "<path d=\"m17.58 11.41-5.93 5.93a1 1 0 0 1-8-8l3.13-3.13a.707.70 0 0 1 1.20.5V10\"></path><path d=\"M20.41 8.58 22 7\"></path><circle cx=\"19\" cy=\"10\" r=\"2\"></circle>",
         categories = "sports,travel",
         tags = "sea,boating,angler,bait,reel,tackle,marine,outdoors,fish,fishing,hook,sports,travel",
         contributors = "7ender,jguddas,karsa-mistmere,jamiemlaw"
@@ -5157,7 +5157,7 @@ pub enum LucideGlyph {
     FishingHook,
     #[cfg(feature = "fishing_rod")]
     #[strum(props(
-        svg = "<path d=\"M4 11h1\"></path><path d=\"M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4\"></path><circle r=\"2\" cx=\"18\" cy=\"18\"></circle>",
+        svg = "<path d=\"M4 11h1\"></path><path d=\"M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4\"></path><circle cx=\"18\" cy=\"18\" r=\"2\"></circle>",
         categories = "sports,travel",
         tags = "fishing,rod,hobby,equipment,reel",
         contributors = "7ender,jguddas,karsa-mistmere"
@@ -5285,7 +5285,7 @@ pub enum LucideGlyph {
     Flower,
     #[cfg(feature = "focus")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"12\" cy=\"12\"></circle><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path>",
         categories = "photography",
         tags = "camera,lens,photo,dashed",
         contributors = "karsa-mistmere,danielbayley,jguddas,ericfennis"
@@ -5325,7 +5325,7 @@ pub enum LucideGlyph {
     FolderCheck,
     #[cfg(feature = "folder_clock")]
     #[strum(props(
-        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2\"></path><circle cx=\"16\" r=\"6\" cy=\"16\"></circle>",
+        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2\"></path><circle cx=\"16\" cy=\"16\" r=\"6\"></circle>",
         categories = "files,time",
         tags = "history,directory,clock",
         contributors = "karsa-mistmere,jguddas,jamiemlaw"
@@ -5349,7 +5349,7 @@ pub enum LucideGlyph {
     FolderCode,
     #[cfg(feature = "folder_cog")]
     #[strum(props(
-        svg = "<path d=\"M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3\"></path><path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><circle cy=\"18\" r=\"3\" cx=\"18\"></circle>",
+        svg = "<path d=\"M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3\"></path><path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "files",
         tags = "directory,settings,control,preferences,cog,edit,gear",
         contributors = "karsa-mistmere,UsamaKhan"
@@ -5357,7 +5357,7 @@ pub enum LucideGlyph {
     FolderCog,
     #[cfg(feature = "folder_dot")]
     #[strum(props(
-        svg = "<path d=\"M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z\"></path><circle cy=\"13\" r=\"1\" cx=\"12\"></circle>",
+        svg = "<path d=\"M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z\"></path><circle cx=\"12\" cy=\"13\" r=\"1\"></circle>",
         categories = "files,development",
         tags = "directory,root,project,pinned,active,current,cogged,gear,mechanical,machinery,configuration,controls,preferences,settings,system,admin,edit",
         contributors = "danielbayley"
@@ -5373,7 +5373,7 @@ pub enum LucideGlyph {
     FolderDown,
     #[cfg(feature = "folder_git_2")]
     #[strum(props(
-        svg = "<path d=\"M18 19a5 5 0 0 1-5-5v8\"></path><path d=\"M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5\"></path><circle cy=\"12\" cx=\"13\" r=\"2\"></circle><circle cx=\"20\" cy=\"19\" r=\"2\"></circle>",
+        svg = "<path d=\"M18 19a5 5 0 0 1-5-5v8\"></path><path d=\"M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5\"></path><circle cx=\"13\" cy=\"12\" r=\"2\"></circle><circle cx=\"20\" cy=\"19\" r=\"2\"></circle>",
         categories = "files",
         tags = "directory,root,project,git,repo",
         contributors = "danielbayley,karsa-mistmere,ericfennis,jguddas"
@@ -5413,7 +5413,7 @@ pub enum LucideGlyph {
     FolderKanban,
     #[cfg(feature = "folder_key")]
     #[strum(props(
-        svg = "<path d=\"M13 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v1.36\"></path><path d=\"M19 12v6\"></path><path d=\"M19 14h2\"></path><circle r=\"2\" cy=\"20\" cx=\"19\"></circle>",
+        svg = "<path d=\"M13 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v1.36\"></path><path d=\"M19 12v6\"></path><path d=\"M19 14h2\"></path><circle cx=\"19\" cy=\"20\" r=\"2\"></circle>",
         categories = "files,security",
         tags = "directory,key,private,security,protected",
         contributors = "karsa-mistmere"
@@ -5421,7 +5421,7 @@ pub enum LucideGlyph {
     FolderKey,
     #[cfg(feature = "folder_lock")]
     #[strum(props(
-        svg = "<rect y=\"17\" x=\"14\" rx=\"1\" height=\"5\" width=\"8\"></rect><path d=\"M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5\"></path><path d=\"M20 17v-2a2 2 0 1 0-4 0v2\"></path>",
+        svg = "<rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"17\"></rect><path d=\"M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5\"></path><path d=\"M20 17v-2a2 2 0 1 0-4 0v2\"></path>",
         categories = "files,security",
         tags = "directory,lock,private,security,protected",
         contributors = "karsa-mistmere,ericfennis"
@@ -5437,7 +5437,7 @@ pub enum LucideGlyph {
     FolderMinus,
     #[cfg(feature = "folder_open_dot")]
     #[strum(props(
-        svg = "<path d=\"m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2\"></path><circle cy=\"15\" cx=\"14\" r=\"1\"></circle>",
+        svg = "<path d=\"m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2\"></path><circle cx=\"14\" cy=\"15\" r=\"1\"></circle>",
         categories = "files,development",
         tags = "directory,root,project,active,current,pinned",
         contributors = "danielbayley"
@@ -5477,7 +5477,7 @@ pub enum LucideGlyph {
     FolderPlus,
     #[cfg(feature = "folder_root")]
     #[strum(props(
-        svg = "<path d=\"M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z\"></path><circle cy=\"13\" r=\"2\" cx=\"12\"></circle><path d=\"M12 15v5\"></path>",
+        svg = "<path d=\"M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z\"></path><circle cx=\"12\" cy=\"13\" r=\"2\"></circle><path d=\"M12 15v5\"></path>",
         categories = "files,development",
         tags = "directory,root,project,git,repo",
         contributors = "danielbayley"
@@ -5485,7 +5485,7 @@ pub enum LucideGlyph {
     FolderRoot,
     #[cfg(feature = "folder_search_2")]
     #[strum(props(
-        svg = "<circle r=\"2.5\" cy=\"12.5\" cx=\"11.5\"></circle><path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\"></path><path d=\"M13.3 14.3 15 16\"></path>",
+        svg = "<circle cx=\"11.5\" cy=\"12.5\" r=\"2.5\"></circle><path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\"></path><path d=\"M13.3 14.3 15 16\"></path>",
         categories = "files",
         tags = "directory,search,find,lost,browser,lens",
         contributors = "karsa-mistmere"
@@ -5493,7 +5493,7 @@ pub enum LucideGlyph {
     FolderSearch2,
     #[cfg(feature = "folder_search")]
     #[strum(props(
-        svg = "<path d=\"M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1\"></path><path d=\"m21 21-1.9-1.9\"></path><circle cx=\"17\" r=\"3\" cy=\"17\"></circle>",
+        svg = "<path d=\"M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1\"></path><path d=\"m21 21-1.9-1.9\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle>",
         categories = "files",
         tags = "directory,search,find,lost,browser,lens",
         contributors = "karsa-mistmere,jguddas"
@@ -5565,7 +5565,7 @@ pub enum LucideGlyph {
     Footprints,
     #[cfg(feature = "forklift")]
     #[strum(props(
-        svg = "<path d=\"M12 12H5a2 2 0 0 0-2 2v5\"></path><path d=\"M15 19h7\"></path><path d=\"M16 19V2\"></path><path d=\"M6 12V7a2 2 0 0 1 2-2h2.17a2 2 0 0 1 1.41.586l3.82 3.82A2 2 0 0 1 16 10.82\"></path><path d=\"M7 19h4\"></path><circle r=\"2\" cx=\"13\" cy=\"19\"></circle><circle cy=\"19\" r=\"2\" cx=\"5\"></circle>",
+        svg = "<path d=\"M12 12H5a2 2 0 0 0-2 2v5\"></path><path d=\"M15 19h7\"></path><path d=\"M16 19V2\"></path><path d=\"M6 12V7a2 2 0 0 1 2-2h2.17a2 2 0 0 1 1.41.586l3.82 3.82A2 2 0 0 1 16 10.82\"></path><path d=\"M7 19h4\"></path><circle cx=\"13\" cy=\"19\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle>",
         categories = "transportation",
         tags = "machinery,industrial,warehouse,lifting,storage,equipment,heavy-duty,moving,vehicle,transport,logistics",
         contributors = "ericfennis,jguddas"
@@ -5573,7 +5573,7 @@ pub enum LucideGlyph {
     Forklift,
     #[cfg(feature = "form")]
     #[strum(props(
-        svg = "<path d=\"M4 14h6\"></path><path d=\"M4 2h10\"></path><rect height=\"4\" y=\"18\" width=\"16\" x=\"4\" rx=\"1\"></rect><rect height=\"4\" rx=\"1\" x=\"4\" y=\"6\" width=\"16\"></rect>",
+        svg = "<path d=\"M4 14h6\"></path><path d=\"M4 2h10\"></path><rect height=\"4\" rx=\"1\" width=\"16\" x=\"4\" y=\"18\"></rect><rect height=\"4\" rx=\"1\" width=\"16\" x=\"4\" y=\"6\"></rect>",
         categories = "development",
         tags = "document,page,file,layout,paper,stub,formality,structure,template,inputs,design,components",
         contributors = "jguddas,karsa-mistmere"
@@ -5589,7 +5589,7 @@ pub enum LucideGlyph {
     Forward,
     #[cfg(feature = "frame")]
     #[strum(props(
-        svg = "<line x1=\"22\" y1=\"6\" x2=\"2\" y2=\"6\"></line><line y1=\"18\" x1=\"22\" y2=\"18\" x2=\"2\"></line><line x1=\"6\" y1=\"2\" x2=\"6\" y2=\"22\"></line><line y2=\"22\" x2=\"18\" y1=\"2\" x1=\"18\"></line>",
+        svg = "<line x1=\"22\" x2=\"2\" y1=\"6\" y2=\"6\"></line><line x1=\"22\" x2=\"2\" y1=\"18\" y2=\"18\"></line><line x1=\"6\" x2=\"6\" y1=\"2\" y2=\"22\"></line><line x1=\"18\" x2=\"18\" y1=\"2\" y2=\"22\"></line>",
         categories = "design,photography",
         tags = "logo,design,tool",
         contributors = "Bowero,ericfennis"
@@ -5597,7 +5597,7 @@ pub enum LucideGlyph {
     Frame,
     #[cfg(feature = "frown")]
     #[strum(props(
-        svg = "<circle r=\"10\" cy=\"12\" cx=\"12\"></circle><path d=\"M16 16s-1.5-2-4-2-4 2-4 2\"></path><line y1=\"9\" y2=\"9\" x1=\"9\" x2=\"9.01\"></line><line y1=\"9\" x1=\"15\" x2=\"15.01\" y2=\"9\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M16 16s-1.5-2-4-2-4 2-4 2\"></path><line x1=\"9\" x2=\"9.01\" y1=\"9\" y2=\"9\"></line><line x1=\"15\" x2=\"15.01\" y1=\"9\" y2=\"9\"></line>",
         categories = "emoji,account",
         tags = "emoji,face,bad,sad,emotion",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -5613,7 +5613,7 @@ pub enum LucideGlyph {
     Fuel,
     #[cfg(feature = "fullscreen")]
     #[strum(props(
-        svg = "<path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><rect width=\"10\" height=\"8\" rx=\"1\" y=\"8\" x=\"7\"></rect>",
+        svg = "<path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><rect height=\"8\" rx=\"1\" width=\"10\" x=\"7\" y=\"8\"></rect>",
         categories = "layout,multimedia,design,photography",
         tags = "expand,zoom,preview,focus,camera,lens,image",
         contributors = "danielbayley"
@@ -5645,7 +5645,7 @@ pub enum LucideGlyph {
     Funnel,
     #[cfg(feature = "gallery_horizontal_end")]
     #[strum(props(
-        svg = "<path d=\"M2 7v10\"></path><path d=\"M6 5v14\"></path><rect x=\"10\" rx=\"2\" height=\"18\" y=\"3\" width=\"12\"></rect>",
+        svg = "<path d=\"M2 7v10\"></path><path d=\"M6 5v14\"></path><rect height=\"18\" rx=\"2\" width=\"12\" x=\"10\" y=\"3\"></rect>",
         categories = "layout,design,development,photography,multimedia,files",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio,history,versions,backup,time machine",
         contributors = "danielbayley"
@@ -5653,7 +5653,7 @@ pub enum LucideGlyph {
     GalleryHorizontalEnd,
     #[cfg(feature = "gallery_horizontal")]
     #[strum(props(
-        svg = "<path d=\"M2 3v18\"></path><rect x=\"6\" rx=\"2\" height=\"18\" y=\"3\" width=\"12\"></rect><path d=\"M22 3v18\"></path>",
+        svg = "<path d=\"M2 3v18\"></path><rect height=\"18\" rx=\"2\" width=\"12\" x=\"6\" y=\"3\"></rect><path d=\"M22 3v18\"></path>",
         categories = "layout,design,development,photography,multimedia",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio",
         contributors = "danielbayley"
@@ -5661,7 +5661,7 @@ pub enum LucideGlyph {
     GalleryHorizontal,
     #[cfg(feature = "gallery_thumbnails")]
     #[strum(props(
-        svg = "<rect y=\"3\" rx=\"2\" height=\"14\" width=\"18\" x=\"3\"></rect><path d=\"M4 21h1\"></path><path d=\"M9 21h1\"></path><path d=\"M14 21h1\"></path><path d=\"M19 21h1\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M4 21h1\"></path><path d=\"M9 21h1\"></path><path d=\"M14 21h1\"></path><path d=\"M19 21h1\"></path>",
         categories = "layout,design,development,photography,multimedia",
         tags = "carousel,pictures,images,album,portfolio,preview",
         contributors = "danielbayley"
@@ -5669,7 +5669,7 @@ pub enum LucideGlyph {
     GalleryThumbnails,
     #[cfg(feature = "gallery_vertical_end")]
     #[strum(props(
-        svg = "<path d=\"M7 2h10\"></path><path d=\"M5 6h14\"></path><rect rx=\"2\" width=\"18\" height=\"12\" x=\"3\" y=\"10\"></rect>",
+        svg = "<path d=\"M7 2h10\"></path><path d=\"M5 6h14\"></path><rect height=\"12\" rx=\"2\" width=\"18\" x=\"3\" y=\"10\"></rect>",
         categories = "layout,design,development,photography,multimedia,files",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio,history,versions,backup,time machine",
         contributors = "danielbayley"
@@ -5677,7 +5677,7 @@ pub enum LucideGlyph {
     GalleryVerticalEnd,
     #[cfg(feature = "gallery_vertical")]
     #[strum(props(
-        svg = "<path d=\"M3 2h18\"></path><rect width=\"18\" rx=\"2\" height=\"12\" y=\"6\" x=\"3\"></rect><path d=\"M3 22h18\"></path>",
+        svg = "<path d=\"M3 2h18\"></path><rect height=\"12\" rx=\"2\" width=\"18\" x=\"3\" y=\"6\"></rect><path d=\"M3 22h18\"></path>",
         categories = "layout,design,development,photography,multimedia",
         tags = "carousel,pictures,images,scroll,swipe,album,portfolio",
         contributors = "danielbayley"
@@ -5685,7 +5685,7 @@ pub enum LucideGlyph {
     GalleryVertical,
     #[cfg(feature = "gamepad_2")]
     #[strum(props(
-        svg = "<line y2=\"11\" x1=\"6\" x2=\"10\" y1=\"11\"></line><line y2=\"13\" x2=\"8\" x1=\"8\" y1=\"9\"></line><line y2=\"12\" x1=\"15\" y1=\"12\" x2=\"15.01\"></line><line x2=\"18.01\" y1=\"10\" y2=\"10\" x1=\"18\"></line><path d=\"M17.32 5H6.68a4 4 0 0 0-3.97 3.59c-.006.05-.01.10-.017.15C2.60 9.41 2 14.45 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.82 16h4.34a2 2 0 0 1 1.41.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.54-.604-6.58-.685-7.25-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z\"></path>",
+        svg = "<line x1=\"6\" x2=\"10\" y1=\"11\" y2=\"11\"></line><line x1=\"8\" x2=\"8\" y1=\"9\" y2=\"13\"></line><line x1=\"15\" x2=\"15.01\" y1=\"12\" y2=\"12\"></line><line x1=\"18\" x2=\"18.01\" y1=\"10\" y2=\"10\"></line><path d=\"M17.32 5H6.68a4 4 0 0 0-3.97 3.59c-.006.05-.01.10-.017.15C2.60 9.41 2 14.45 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.82 16h4.34a2 2 0 0 1 1.41.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.54-.604-6.58-.685-7.25-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z\"></path>",
         categories = "gaming,devices",
         tags = "console",
         contributors = "ericfennis,csandman,johnletey"
@@ -5701,7 +5701,7 @@ pub enum LucideGlyph {
     GamepadDirectional,
     #[cfg(feature = "gamepad")]
     #[strum(props(
-        svg = "<line x1=\"6\" x2=\"10\" y2=\"12\" y1=\"12\"></line><line x2=\"8\" y1=\"10\" y2=\"14\" x1=\"8\"></line><line x1=\"15\" x2=\"15.01\" y2=\"13\" y1=\"13\"></line><line x2=\"18.01\" x1=\"18\" y2=\"11\" y1=\"11\"></line><rect x=\"2\" rx=\"2\" height=\"12\" y=\"6\" width=\"20\"></rect>",
+        svg = "<line x1=\"6\" x2=\"10\" y1=\"12\" y2=\"12\"></line><line x1=\"8\" x2=\"8\" y1=\"10\" y2=\"14\"></line><line x1=\"15\" x2=\"15.01\" y1=\"13\" y2=\"13\"></line><line x1=\"18\" x2=\"18.01\" y1=\"11\" y2=\"11\"></line><rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "gaming,devices",
         tags = "console",
         contributors = "ericfennis,johnletey"
@@ -5749,7 +5749,7 @@ pub enum LucideGlyph {
     Ghost,
     #[cfg(feature = "gift")]
     #[strum(props(
-        svg = "<path d=\"M12 7v14\"></path><path d=\"M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8\"></path><path d=\"M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5\"></path><rect width=\"18\" y=\"7\" rx=\"1\" height=\"4\" x=\"3\"></rect>",
+        svg = "<path d=\"M12 7v14\"></path><path d=\"M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8\"></path><path d=\"M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5\"></path><rect height=\"4\" rx=\"1\" width=\"18\" x=\"3\" y=\"7\"></rect>",
         categories = "gaming,account",
         tags = "present,box,birthday,party",
         contributors = "colebemis,csandman,ericfennis,jguddas,karsa-mistmere"
@@ -5757,7 +5757,7 @@ pub enum LucideGlyph {
     Gift,
     #[cfg(feature = "git_branch_minus")]
     #[strum(props(
-        svg = "<path d=\"M15 6a9 9 0 0 0-9 9V3\"></path><path d=\"M21 18h-6\"></path><circle cx=\"18\" cy=\"6\" r=\"3\"></circle><circle r=\"3\" cx=\"6\" cy=\"18\"></circle>",
+        svg = "<path d=\"M15 6a9 9 0 0 0-9 9V3\"></path><path d=\"M21 18h-6\"></path><circle cx=\"18\" cy=\"6\" r=\"3\"></circle><circle cx=\"6\" cy=\"18\" r=\"3\"></circle>",
         categories = "development",
         tags = "code,version control,vcs,repository,delete,remove,-",
         contributors = "joris-gallot"
@@ -5773,7 +5773,7 @@ pub enum LucideGlyph {
     GitBranchPlus,
     #[cfg(feature = "git_branch")]
     #[strum(props(
-        svg = "<path d=\"M15 6a9 9 0 0 0-9 9V3\"></path><circle cx=\"18\" cy=\"6\" r=\"3\"></circle><circle r=\"3\" cy=\"18\" cx=\"6\"></circle>",
+        svg = "<path d=\"M15 6a9 9 0 0 0-9 9V3\"></path><circle cx=\"18\" cy=\"6\" r=\"3\"></circle><circle cx=\"6\" cy=\"18\" r=\"3\"></circle>",
         categories = "development",
         tags = "code,version control,vcs,repository",
         contributors = "colebemis,csandman,ericfennis,jguddas"
@@ -5781,7 +5781,7 @@ pub enum LucideGlyph {
     GitBranch,
     #[cfg(feature = "git_commit_horizontal")]
     #[strum(props(
-        svg = "<circle r=\"3\" cy=\"12\" cx=\"12\"></circle><line x1=\"3\" x2=\"9\" y1=\"12\" y2=\"12\"></line><line x2=\"21\" y2=\"12\" y1=\"12\" x1=\"15\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"3\"></circle><line x1=\"3\" x2=\"9\" y1=\"12\" y2=\"12\"></line><line x1=\"15\" x2=\"21\" y1=\"12\" y2=\"12\"></line>",
         categories = "development,navigation",
         tags = "code,version control,waypoint,stop,station",
         contributors = "colebemis,ericfennis,johnletey"
@@ -5789,7 +5789,7 @@ pub enum LucideGlyph {
     GitCommitHorizontal,
     #[cfg(feature = "git_commit_vertical")]
     #[strum(props(
-        svg = "<path d=\"M12 3v6\"></path><circle r=\"3\" cx=\"12\" cy=\"12\"></circle><path d=\"M12 15v6\"></path>",
+        svg = "<path d=\"M12 3v6\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M12 15v6\"></path>",
         categories = "development,navigation",
         tags = "code,version control,waypoint,stop,station",
         contributors = "danielbayley"
@@ -5805,7 +5805,7 @@ pub enum LucideGlyph {
     GitCompareArrows,
     #[cfg(feature = "git_compare")]
     #[strum(props(
-        svg = "<circle cy=\"18\" cx=\"18\" r=\"3\"></circle><circle r=\"3\" cx=\"6\" cy=\"6\"></circle><path d=\"M13 6h3a2 2 0 0 1 2 2v7\"></path><path d=\"M11 18H8a2 2 0 0 1-2-2V9\"></path>",
+        svg = "<circle cx=\"18\" cy=\"18\" r=\"3\"></circle><circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M13 6h3a2 2 0 0 1 2 2v7\"></path><path d=\"M11 18H8a2 2 0 0 1-2-2V9\"></path>",
         categories = "development",
         tags = "code,version control,diff",
         contributors = "karsa-mistmere,ericfennis"
@@ -5813,7 +5813,7 @@ pub enum LucideGlyph {
     GitCompare,
     #[cfg(feature = "git_fork")]
     #[strum(props(
-        svg = "<circle cy=\"18\" r=\"3\" cx=\"12\"></circle><circle cx=\"6\" cy=\"6\" r=\"3\"></circle><circle cx=\"18\" cy=\"6\" r=\"3\"></circle><path d=\"M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9\"></path><path d=\"M12 12v3\"></path>",
+        svg = "<circle cx=\"12\" cy=\"18\" r=\"3\"></circle><circle cx=\"6\" cy=\"6\" r=\"3\"></circle><circle cx=\"18\" cy=\"6\" r=\"3\"></circle><path d=\"M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9\"></path><path d=\"M12 12v3\"></path>",
         categories = "development",
         tags = "code,version control",
         contributors = "ericfennis,danielbayley"
@@ -5821,7 +5821,7 @@ pub enum LucideGlyph {
     GitFork,
     #[cfg(feature = "git_graph")]
     #[strum(props(
-        svg = "<circle cy=\"6\" r=\"3\" cx=\"5\"></circle><path d=\"M5 9v6\"></path><circle cy=\"18\" cx=\"5\" r=\"3\"></circle><path d=\"M12 3v18\"></path><circle r=\"3\" cx=\"19\" cy=\"6\"></circle><path d=\"M16 15.7A9 9 0 0 0 19 9\"></path>",
+        svg = "<circle cx=\"5\" cy=\"6\" r=\"3\"></circle><path d=\"M5 9v6\"></path><circle cx=\"5\" cy=\"18\" r=\"3\"></circle><path d=\"M12 3v18\"></path><circle cx=\"19\" cy=\"6\" r=\"3\"></circle><path d=\"M16 15.7A9 9 0 0 0 19 9\"></path>",
         categories = "development",
         tags = "code,version control,commit graph,commits,gitlens",
         contributors = "danielbayley"
@@ -5837,7 +5837,7 @@ pub enum LucideGlyph {
     GitMergeConflict,
     #[cfg(feature = "git_merge")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"18\" cy=\"18\"></circle><circle cy=\"6\" r=\"3\" cx=\"6\"></circle><path d=\"M6 21V9a9 9 0 0 0 9 9\"></path>",
+        svg = "<circle cx=\"18\" cy=\"18\" r=\"3\"></circle><circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M6 21V9a9 9 0 0 0 9 9\"></path>",
         categories = "development",
         tags = "code,version control",
         contributors = "colebemis,csandman,ericfennis"
@@ -5845,7 +5845,7 @@ pub enum LucideGlyph {
     GitMerge,
     #[cfg(feature = "git_pull_request_arrow")]
     #[strum(props(
-        svg = "<circle cy=\"6\" cx=\"5\" r=\"3\"></circle><path d=\"M5 9v12\"></path><circle cx=\"19\" cy=\"18\" r=\"3\"></circle><path d=\"m15 9-3-3 3-3\"></path><path d=\"M12 6h5a2 2 0 0 1 2 2v7\"></path>",
+        svg = "<circle cx=\"5\" cy=\"6\" r=\"3\"></circle><path d=\"M5 9v12\"></path><circle cx=\"19\" cy=\"18\" r=\"3\"></circle><path d=\"m15 9-3-3 3-3\"></path><path d=\"M12 6h5a2 2 0 0 1 2 2v7\"></path>",
         categories = "development,arrows",
         tags = "code,version control,open",
         contributors = "danielbayley"
@@ -5853,7 +5853,7 @@ pub enum LucideGlyph {
     GitPullRequestArrow,
     #[cfg(feature = "git_pull_request_closed")]
     #[strum(props(
-        svg = "<circle cy=\"6\" cx=\"6\" r=\"3\"></circle><path d=\"M6 9v12\"></path><path d=\"m21 3-6 6\"></path><path d=\"m21 9-6-6\"></path><path d=\"M18 11.5V15\"></path><circle cy=\"18\" r=\"3\" cx=\"18\"></circle>",
+        svg = "<circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M6 9v12\"></path><path d=\"m21 3-6 6\"></path><path d=\"m21 9-6-6\"></path><path d=\"M18 11.5V15\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "development",
         tags = "code,version control,rejected,closed,cancelled,x",
         contributors = "karsa-mistmere,ericfennis"
@@ -5861,7 +5861,7 @@ pub enum LucideGlyph {
     GitPullRequestClosed,
     #[cfg(feature = "git_pull_request_create_arrow")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"5\" cy=\"6\"></circle><path d=\"M5 9v12\"></path><path d=\"m15 9-3-3 3-3\"></path><path d=\"M12 6h5a2 2 0 0 1 2 2v3\"></path><path d=\"M19 15v6\"></path><path d=\"M22 18h-6\"></path>",
+        svg = "<circle cx=\"5\" cy=\"6\" r=\"3\"></circle><path d=\"M5 9v12\"></path><path d=\"m15 9-3-3 3-3\"></path><path d=\"M12 6h5a2 2 0 0 1 2 2v3\"></path><path d=\"M19 15v6\"></path><path d=\"M22 18h-6\"></path>",
         categories = "development,arrows",
         tags = "code,version control,open,plus,add,+",
         contributors = "danielbayley"
@@ -5869,7 +5869,7 @@ pub enum LucideGlyph {
     GitPullRequestCreateArrow,
     #[cfg(feature = "git_pull_request_create")]
     #[strum(props(
-        svg = "<circle cx=\"6\" r=\"3\" cy=\"6\"></circle><path d=\"M6 9v12\"></path><path d=\"M13 6h3a2 2 0 0 1 2 2v3\"></path><path d=\"M18 15v6\"></path><path d=\"M21 18h-6\"></path>",
+        svg = "<circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M6 9v12\"></path><path d=\"M13 6h3a2 2 0 0 1 2 2v3\"></path><path d=\"M18 15v6\"></path><path d=\"M21 18h-6\"></path>",
         categories = "development",
         tags = "code,version control,open,plus,add,+",
         contributors = "danielbayley"
@@ -5877,7 +5877,7 @@ pub enum LucideGlyph {
     GitPullRequestCreate,
     #[cfg(feature = "git_pull_request_draft")]
     #[strum(props(
-        svg = "<circle r=\"3\" cy=\"18\" cx=\"18\"></circle><circle r=\"3\" cy=\"6\" cx=\"6\"></circle><path d=\"M18 6V5\"></path><path d=\"M18 11v-1\"></path><line x1=\"6\" y1=\"9\" y2=\"21\" x2=\"6\"></line>",
+        svg = "<circle cx=\"18\" cy=\"18\" r=\"3\"></circle><circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M18 6V5\"></path><path d=\"M18 11v-1\"></path><line x1=\"6\" x2=\"6\" y1=\"9\" y2=\"21\"></line>",
         categories = "development",
         tags = "code,version control,open,draft,dashed",
         contributors = "karsa-mistmere,ericfennis"
@@ -5885,7 +5885,7 @@ pub enum LucideGlyph {
     GitPullRequestDraft,
     #[cfg(feature = "git_pull_request")]
     #[strum(props(
-        svg = "<circle cy=\"18\" r=\"3\" cx=\"18\"></circle><circle r=\"3\" cy=\"6\" cx=\"6\"></circle><path d=\"M13 6h3a2 2 0 0 1 2 2v7\"></path><line y1=\"9\" x1=\"6\" y2=\"21\" x2=\"6\"></line>",
+        svg = "<circle cx=\"18\" cy=\"18\" r=\"3\"></circle><circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M13 6h3a2 2 0 0 1 2 2v7\"></path><line x1=\"6\" x2=\"6\" y1=\"9\" y2=\"21\"></line>",
         categories = "development",
         tags = "code,version control,open",
         contributors = "colebemis,csandman,ericfennis"
@@ -5901,7 +5901,7 @@ pub enum LucideGlyph {
     GlassWater,
     #[cfg(feature = "glasses")]
     #[strum(props(
-        svg = "<circle cy=\"15\" cx=\"6\" r=\"4\"></circle><circle cy=\"15\" r=\"4\" cx=\"18\"></circle><path d=\"M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2\"></path><path d=\"M2.5 13 5 7c.7-1.3 1.4-2 3-2\"></path><path d=\"M21.5 13 19 7c-.7-1.3-1.5-2-3-2\"></path>",
+        svg = "<circle cx=\"6\" cy=\"15\" r=\"4\"></circle><circle cx=\"18\" cy=\"15\" r=\"4\"></circle><path d=\"M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2\"></path><path d=\"M2.5 13 5 7c.7-1.3 1.4-2 3-2\"></path><path d=\"M21.5 13 19 7c-.7-1.3-1.5-2-3-2\"></path>",
         categories = "accessibility",
         tags = "glasses,spectacles",
         contributors = "ahtohbi4,ericfennis"
@@ -5909,7 +5909,7 @@ pub enum LucideGlyph {
     Glasses,
     #[cfg(feature = "globe_lock")]
     #[strum(props(
-        svg = "<path d=\"M15.68 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.54 13\"></path><path d=\"M2 12h8.5\"></path><path d=\"M20 6V4a2 2 0 1 0-4 0v2\"></path><rect x=\"14\" y=\"6\" rx=\"1\" width=\"8\" height=\"5\"></rect>",
+        svg = "<path d=\"M15.68 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.54 13\"></path><path d=\"M2 12h8.5\"></path><path d=\"M20 6V4a2 2 0 1 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"6\"></rect>",
         categories = "security,development,devices",
         tags = "vpn,private,privacy,network,world,browser,security,encryption,protection,connection",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -5933,7 +5933,7 @@ pub enum LucideGlyph {
     GlobeX,
     #[cfg(feature = "globe")]
     #[strum(props(
-        svg = "<circle r=\"10\" cx=\"12\" cy=\"12\"></circle><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"></path><path d=\"M2 12h20\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"></path><path d=\"M2 12h20\"></path>",
         categories = "navigation",
         tags = "world,browser,language,translate",
         contributors = "colebemis,csandman,ericfennis"
@@ -5949,7 +5949,7 @@ pub enum LucideGlyph {
     Goal,
     #[cfg(feature = "gpu")]
     #[strum(props(
-        svg = "<path d=\"M2 17h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H2\"></path><path d=\"M2 21V3\"></path><path d=\"M7 17v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3\"></path><circle cy=\"11\" r=\"2\" cx=\"16\"></circle><circle cx=\"8\" r=\"2\" cy=\"11\"></circle>",
+        svg = "<path d=\"M2 17h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H2\"></path><path d=\"M2 21V3\"></path><path d=\"M7 17v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3\"></path><circle cx=\"16\" cy=\"11\" r=\"2\"></circle><circle cx=\"8\" cy=\"11\" r=\"2\"></circle>",
         categories = "devices,gaming",
         tags = "processor,cores,technology,computer,chip,circuit,specs,graphics processing unit,video card,display adapter,gddr,rendering,digital image processing,crypto mining",
         contributors = "xandykati98,karsa-mistmere"
@@ -5965,7 +5965,7 @@ pub enum LucideGlyph {
     GraduationCap,
     #[cfg(feature = "grape")]
     #[strum(props(
-        svg = "<path d=\"M22 5V2l-5.89 5.89\"></path><circle r=\"3\" cx=\"16.6\" cy=\"15.89\"></circle><circle r=\"3\" cx=\"8.11\" cy=\"7.4\"></circle><circle cx=\"12.35\" cy=\"11.65\" r=\"3\"></circle><circle r=\"3\" cy=\"5.85\" cx=\"13.91\"></circle><circle cy=\"10.09\" r=\"3\" cx=\"18.15\"></circle><circle r=\"3\" cy=\"13.2\" cx=\"6.56\"></circle><circle r=\"3\" cy=\"17.44\" cx=\"10.8\"></circle><circle r=\"3\" cx=\"5\" cy=\"19\"></circle>",
+        svg = "<path d=\"M22 5V2l-5.89 5.89\"></path><circle cx=\"16.6\" cy=\"15.89\" r=\"3\"></circle><circle cx=\"8.11\" cy=\"7.4\" r=\"3\"></circle><circle cx=\"12.35\" cy=\"11.65\" r=\"3\"></circle><circle cx=\"13.91\" cy=\"5.85\" r=\"3\"></circle><circle cx=\"18.15\" cy=\"10.09\" r=\"3\"></circle><circle cx=\"6.56\" cy=\"13.2\" r=\"3\"></circle><circle cx=\"10.8\" cy=\"17.44\" r=\"3\"></circle><circle cx=\"5\" cy=\"19\" r=\"3\"></circle>",
         categories = "food-beverage",
         tags = "fruit,wine,food",
         contributors = "karsa-mistmere"
@@ -5997,7 +5997,7 @@ pub enum LucideGlyph {
     Grid2X2X,
     #[cfg(feature = "grid_2_x_2")]
     #[strum(props(
-        svg = "<path d=\"M12 3v18\"></path><path d=\"M3 12h18\"></path><rect x=\"3\" rx=\"2\" height=\"18\" width=\"18\" y=\"3\"></rect>",
+        svg = "<path d=\"M12 3v18\"></path><path d=\"M3 12h18\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "text,layout,design,math",
         tags = "table,rows,columns,blocks,plot,land,geometry,measure,size,width,height,distance,surface area,square meter,acre,window,skylight",
         contributors = "danielbayley"
@@ -6005,7 +6005,7 @@ pub enum LucideGlyph {
     Grid2X2,
     #[cfg(feature = "grid_3_x_2")]
     #[strum(props(
-        svg = "<path d=\"M15 3v18\"></path><path d=\"M3 12h18\"></path><path d=\"M9 3v18\"></path><rect y=\"3\" width=\"18\" rx=\"2\" x=\"3\" height=\"18\"></rect>",
+        svg = "<path d=\"M15 3v18\"></path><path d=\"M3 12h18\"></path><path d=\"M9 3v18\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "text,math,layout,design",
         tags = "table,rows,columns,blocks,plot,land,geometry,measure,size,width,height,distance,surface area,square meter,acre,window",
         contributors = "qubrat"
@@ -6013,7 +6013,7 @@ pub enum LucideGlyph {
     Grid3X2,
     #[cfg(feature = "grid_3_x_3")]
     #[strum(props(
-        svg = "<rect rx=\"2\" y=\"3\" width=\"18\" height=\"18\" x=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path>",
         categories = "text,layout,design",
         tags = "table,rows,columns",
         contributors = "colebemis,zenoamaro,ericfennis,csandman,mittalyashu"
@@ -6021,7 +6021,7 @@ pub enum LucideGlyph {
     Grid3X3,
     #[cfg(feature = "grip_horizontal")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"9\" r=\"1\"></circle><circle cy=\"9\" r=\"1\" cx=\"19\"></circle><circle cy=\"9\" cx=\"5\" r=\"1\"></circle><circle r=\"1\" cx=\"12\" cy=\"15\"></circle><circle cx=\"19\" r=\"1\" cy=\"15\"></circle><circle cy=\"15\" r=\"1\" cx=\"5\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"9\" r=\"1\"></circle><circle cx=\"19\" cy=\"9\" r=\"1\"></circle><circle cx=\"5\" cy=\"9\" r=\"1\"></circle><circle cx=\"12\" cy=\"15\" r=\"1\"></circle><circle cx=\"19\" cy=\"15\" r=\"1\"></circle><circle cx=\"5\" cy=\"15\" r=\"1\"></circle>",
         categories = "layout",
         tags = "grab,dots,handle,move,drag",
         contributors = "ericfennis"
@@ -6029,7 +6029,7 @@ pub enum LucideGlyph {
     GripHorizontal,
     #[cfg(feature = "grip_vertical")]
     #[strum(props(
-        svg = "<circle cx=\"9\" r=\"1\" cy=\"12\"></circle><circle r=\"1\" cx=\"9\" cy=\"5\"></circle><circle cx=\"9\" cy=\"19\" r=\"1\"></circle><circle r=\"1\" cx=\"15\" cy=\"12\"></circle><circle cy=\"5\" r=\"1\" cx=\"15\"></circle><circle cy=\"19\" r=\"1\" cx=\"15\"></circle>",
+        svg = "<circle cx=\"9\" cy=\"12\" r=\"1\"></circle><circle cx=\"9\" cy=\"5\" r=\"1\"></circle><circle cx=\"9\" cy=\"19\" r=\"1\"></circle><circle cx=\"15\" cy=\"12\" r=\"1\"></circle><circle cx=\"15\" cy=\"5\" r=\"1\"></circle><circle cx=\"15\" cy=\"19\" r=\"1\"></circle>",
         categories = "layout",
         tags = "grab,dots,handle,move,drag",
         contributors = "ericfennis,johnletey"
@@ -6037,7 +6037,7 @@ pub enum LucideGlyph {
     GripVertical,
     #[cfg(feature = "grip")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cy=\"5\" cx=\"19\" r=\"1\"></circle><circle cx=\"5\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cy=\"12\" r=\"1\" cx=\"19\"></circle><circle r=\"1\" cx=\"5\" cy=\"12\"></circle><circle cy=\"19\" cx=\"12\" r=\"1\"></circle><circle cx=\"19\" cy=\"19\" r=\"1\"></circle><circle cy=\"19\" cx=\"5\" r=\"1\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"19\" cy=\"5\" r=\"1\"></circle><circle cx=\"5\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"19\" cy=\"12\" r=\"1\"></circle><circle cx=\"5\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle><circle cx=\"19\" cy=\"19\" r=\"1\"></circle><circle cx=\"5\" cy=\"19\" r=\"1\"></circle>",
         categories = "layout",
         tags = "grab,dots,handle,move,drag",
         contributors = "koole,ericfennis"
@@ -6045,7 +6045,7 @@ pub enum LucideGlyph {
     Grip,
     #[cfg(feature = "group")]
     #[strum(props(
-        svg = "<path d=\"M3 7V5c0-1.1.9-2 2-2h2\"></path><path d=\"M17 3h2c1.1 0 2 .9 2 2v2\"></path><path d=\"M21 17v2c0 1.1-.9 2-2 2h-2\"></path><path d=\"M7 21H5c-1.1 0-2-.9-2-2v-2\"></path><rect y=\"7\" rx=\"1\" width=\"7\" height=\"5\" x=\"7\"></rect><rect rx=\"1\" height=\"5\" x=\"10\" y=\"12\" width=\"7\"></rect>",
+        svg = "<path d=\"M3 7V5c0-1.1.9-2 2-2h2\"></path><path d=\"M17 3h2c1.1 0 2 .9 2 2v2\"></path><path d=\"M21 17v2c0 1.1-.9 2-2 2h-2\"></path><path d=\"M7 21H5c-1.1 0-2-.9-2-2v-2\"></path><rect height=\"5\" rx=\"1\" width=\"7\" x=\"7\" y=\"7\"></rect><rect height=\"5\" rx=\"1\" width=\"7\" x=\"10\" y=\"12\"></rect>",
         categories = "files",
         tags = "cubes,packages,parts,units,collection,cluster,gather,dashed",
         contributors = "danielbayley"
@@ -6085,7 +6085,7 @@ pub enum LucideGlyph {
     Hammer,
     #[cfg(feature = "hand_coins")]
     #[strum(props(
-        svg = "<path d=\"M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17\"></path><path d=\"m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9\"></path><path d=\"m2 16 6 6\"></path><circle cy=\"9\" cx=\"16\" r=\"2.9\"></circle><circle r=\"3\" cy=\"5\" cx=\"6\"></circle>",
+        svg = "<path d=\"M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17\"></path><path d=\"m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9\"></path><path d=\"m2 16 6 6\"></path><circle cx=\"16\" cy=\"9\" r=\"2.9\"></circle><circle cx=\"6\" cy=\"5\" r=\"3\"></circle>",
         categories = "finance,account",
         tags = "savings,banking,money,finance,offers,mortgage,payment,received,wage,payroll,allowance,pocket money,handout,pennies",
         contributors = "danielbayley,kayleyhill"
@@ -6165,7 +6165,7 @@ pub enum LucideGlyph {
     Handshake,
     #[cfg(feature = "hard_drive_download")]
     #[strum(props(
-        svg = "<path d=\"M12 2v8\"></path><path d=\"m16 6-4 4-4-4\"></path><rect width=\"20\" height=\"8\" x=\"2\" y=\"14\" rx=\"2\"></rect><path d=\"M6 18h.01\"></path><path d=\"M10 18h.01\"></path>",
+        svg = "<path d=\"M12 2v8\"></path><path d=\"m16 6-4 4-4-4\"></path><rect height=\"8\" rx=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect><path d=\"M6 18h.01\"></path><path d=\"M10 18h.01\"></path>",
         categories = "development,devices,arrows,files",
         tags = "computer,server,memory,data,ssd,disk,hard disk,save",
         contributors = "danielbayley"
@@ -6173,7 +6173,7 @@ pub enum LucideGlyph {
     HardDriveDownload,
     #[cfg(feature = "hard_drive_upload")]
     #[strum(props(
-        svg = "<path d=\"m16 6-4-4-4 4\"></path><path d=\"M12 2v8\"></path><rect y=\"14\" width=\"20\" rx=\"2\" height=\"8\" x=\"2\"></rect><path d=\"M6 18h.01\"></path><path d=\"M10 18h.01\"></path>",
+        svg = "<path d=\"m16 6-4-4-4 4\"></path><path d=\"M12 2v8\"></path><rect height=\"8\" rx=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect><path d=\"M6 18h.01\"></path><path d=\"M10 18h.01\"></path>",
         categories = "development,devices,arrows,files",
         tags = "computer,server,memory,data,ssd,disk,hard disk,save",
         contributors = "danielbayley"
@@ -6189,7 +6189,7 @@ pub enum LucideGlyph {
     HardDrive,
     #[cfg(feature = "hard_hat")]
     #[strum(props(
-        svg = "<path d=\"M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5\"></path><path d=\"M14 6a6 6 0 0 1 6 6v3\"></path><path d=\"M4 15v-3a6 6 0 0 1 6-6\"></path><rect y=\"15\" x=\"2\" width=\"20\" height=\"4\" rx=\"1\"></rect>",
+        svg = "<path d=\"M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5\"></path><path d=\"M14 6a6 6 0 0 1 6 6v3\"></path><path d=\"M4 15v-3a6 6 0 0 1 6-6\"></path><rect height=\"4\" rx=\"1\" width=\"20\" x=\"2\" y=\"15\"></rect>",
         categories = "tools",
         tags = "helmet,construction,safety,savety",
         contributors = "Andreto,ericfennis"
@@ -6197,7 +6197,7 @@ pub enum LucideGlyph {
     HardHat,
     #[cfg(feature = "hash")]
     #[strum(props(
-        svg = "<line x2=\"20\" y1=\"9\" y2=\"9\" x1=\"4\"></line><line x2=\"20\" y1=\"15\" y2=\"15\" x1=\"4\"></line><line y1=\"3\" x2=\"8\" y2=\"21\" x1=\"10\"></line><line x1=\"16\" y1=\"3\" x2=\"14\" y2=\"21\"></line>",
+        svg = "<line x1=\"4\" x2=\"20\" y1=\"9\" y2=\"9\"></line><line x1=\"4\" x2=\"20\" y1=\"15\" y2=\"15\"></line><line x1=\"10\" x2=\"8\" y1=\"3\" y2=\"21\"></line><line x1=\"16\" x2=\"14\" y1=\"3\" y2=\"21\"></line>",
         categories = "text,social",
         tags = "hashtag,number,pound",
         contributors = "colebemis,ericfennis"
@@ -6205,7 +6205,7 @@ pub enum LucideGlyph {
     Hash,
     #[cfg(feature = "hat_glasses")]
     #[strum(props(
-        svg = "<path d=\"M14 18a2 2 0 0 0-4 0\"></path><path d=\"m19 11-2.11-6.65a2 2 0 0 0-2.75-1.14l-1.27.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.92 1.45L5 11\"></path><path d=\"M2 11h20\"></path><circle r=\"3\" cy=\"18\" cx=\"17\"></circle><circle cx=\"7\" r=\"3\" cy=\"18\"></circle>",
+        svg = "<path d=\"M14 18a2 2 0 0 0-4 0\"></path><path d=\"m19 11-2.11-6.65a2 2 0 0 0-2.75-1.14l-1.27.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.92 1.45L5 11\"></path><path d=\"M2 11h20\"></path><circle cx=\"17\" cy=\"18\" r=\"3\"></circle><circle cx=\"7\" cy=\"18\" r=\"3\"></circle>",
         categories = "social,account,security",
         tags = "incognito,disguise,costume,masked,anonymous,anonymity,privacy,private browsing,stealth,hidden,undercover,cloak,invisible,ghost,spy,agent,detective,identity,cap,fedora,spectacles,shades,sunglasses,eyewear",
         contributors = "karsa-mistmere"
@@ -6221,7 +6221,7 @@ pub enum LucideGlyph {
     Haze,
     #[cfg(feature = "hd")]
     #[strum(props(
-        svg = "<path d=\"M10 12H6\"></path><path d=\"M10 15V9\"></path><path d=\"M14 14.5a.5.5 0 0 0 .5.5h1a2.5 2.5 0 0 0 2.5-2.5v-1A2.5 2.5 0 0 0 15.5 9h-1a.5.5 0 0 0-.5.5z\"></path><path d=\"M6 15V9\"></path><rect width=\"20\" x=\"2\" rx=\"2\" height=\"14\" y=\"5\"></rect>",
+        svg = "<path d=\"M10 12H6\"></path><path d=\"M10 15V9\"></path><path d=\"M14 14.5a.5.5 0 0 0 .5.5h1a2.5 2.5 0 0 0 2.5-2.5v-1A2.5 2.5 0 0 0 15.5 9h-1a.5.5 0 0 0-.5.5z\"></path><path d=\"M6 15V9\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"5\"></rect>",
         categories = "devices,multimedia",
         tags = "tv,resolution,video,high definition,720p,1080p",
         contributors = "ahtohbi4,jamiemlaw,karsa-mistmere,jguddas"
@@ -6277,7 +6277,7 @@ pub enum LucideGlyph {
     Heading5,
     #[cfg(feature = "heading_6")]
     #[strum(props(
-        svg = "<path d=\"M4 12h8\"></path><path d=\"M4 18V6\"></path><path d=\"M12 18V6\"></path><circle r=\"2\" cy=\"16\" cx=\"19\"></circle><path d=\"M20 10c-2 2-3 3.5-3 6\"></path>",
+        svg = "<path d=\"M4 12h8\"></path><path d=\"M4 18V6\"></path><path d=\"M12 18V6\"></path><circle cx=\"19\" cy=\"16\" r=\"2\"></circle><path d=\"M20 10c-2 2-3 3.5-3 6\"></path>",
         categories = "text",
         tags = "h6,html,markup,markdown",
         contributors = "ericfennis"
@@ -6437,7 +6437,7 @@ pub enum LucideGlyph {
     Hospital,
     #[cfg(feature = "hotel")]
     #[strum(props(
-        svg = "<path d=\"M10 22v-6.57\"></path><path d=\"M12 11h.01\"></path><path d=\"M12 7h.01\"></path><path d=\"M14 15.43V22\"></path><path d=\"M15 16a5 5 0 0 0-6 0\"></path><path d=\"M16 11h.01\"></path><path d=\"M16 7h.01\"></path><path d=\"M8 11h.01\"></path><path d=\"M8 7h.01\"></path><rect height=\"20\" x=\"4\" rx=\"2\" y=\"2\" width=\"16\"></rect>",
+        svg = "<path d=\"M10 22v-6.57\"></path><path d=\"M12 11h.01\"></path><path d=\"M12 7h.01\"></path><path d=\"M14 15.43V22\"></path><path d=\"M15 16a5 5 0 0 0-6 0\"></path><path d=\"M16 11h.01\"></path><path d=\"M16 7h.01\"></path><path d=\"M8 11h.01\"></path><path d=\"M8 7h.01\"></path><rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect>",
         categories = "buildings,navigation,travel",
         tags = "building,hostel,motel,inn",
         contributors = "karsa-mistmere,jguddas"
@@ -6517,7 +6517,7 @@ pub enum LucideGlyph {
     IdCardLanyard,
     #[cfg(feature = "id_card")]
     #[strum(props(
-        svg = "<path d=\"M16 10h2\"></path><path d=\"M16 14h2\"></path><path d=\"M6.17 15a3 3 0 0 1 5.66 0\"></path><circle cx=\"9\" cy=\"11\" r=\"2\"></circle><rect x=\"2\" height=\"14\" y=\"5\" width=\"20\" rx=\"2\"></rect>",
+        svg = "<path d=\"M16 10h2\"></path><path d=\"M16 14h2\"></path><path d=\"M6.17 15a3 3 0 0 1 5.66 0\"></path><circle cx=\"9\" cy=\"11\" r=\"2\"></circle><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"5\"></rect>",
         categories = "security,account",
         tags = "card,badge,identity,authentication,secure",
         contributors = "jguddas,karsa-mistmere"
@@ -6533,7 +6533,7 @@ pub enum LucideGlyph {
     ImageDown,
     #[cfg(feature = "image_minus")]
     #[strum(props(
-        svg = "<path d=\"M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7\"></path><line x2=\"22\" x1=\"16\" y1=\"5\" y2=\"5\"></line><circle r=\"2\" cy=\"9\" cx=\"9\"></circle><path d=\"m21 15-3.08-3.08a2 2 0 0 0-2.82 0L6 21\"></path>",
+        svg = "<path d=\"M21 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7\"></path><line x1=\"16\" x2=\"22\" y1=\"5\" y2=\"5\"></line><circle cx=\"9\" cy=\"9\" r=\"2\"></circle><path d=\"m21 15-3.08-3.08a2 2 0 0 0-2.82 0L6 21\"></path>",
         categories = "photography,multimedia,files",
         tags = "remove,delete",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -6541,7 +6541,7 @@ pub enum LucideGlyph {
     ImageMinus,
     #[cfg(feature = "image_off")]
     #[strum(props(
-        svg = "<line y2=\"22\" x1=\"2\" x2=\"22\" y1=\"2\"></line><path d=\"M10.41 10.41a2 2 0 1 1-2.83-2.83\"></path><line x1=\"13.5\" x2=\"6\" y1=\"13.5\" y2=\"21\"></line><line y2=\"15\" x1=\"18\" y1=\"12\" x2=\"21\"></line><path d=\"M3.59 3.59A1.99 1.99 0 0 0 3 5v14a2 2 0 0 0 2 2h14c.55 0 1.05-.22 1.41-.59\"></path><path d=\"M21 15V5a2 2 0 0 0-2-2H9\"></path>",
+        svg = "<line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line><path d=\"M10.41 10.41a2 2 0 1 1-2.83-2.83\"></path><line x1=\"13.5\" x2=\"6\" y1=\"13.5\" y2=\"21\"></line><line x1=\"18\" x2=\"21\" y1=\"12\" y2=\"15\"></line><path d=\"M3.59 3.59A1.99 1.99 0 0 0 3 5v14a2 2 0 0 0 2 2h14c.55 0 1.05-.22 1.41-.59\"></path><path d=\"M21 15V5a2 2 0 0 0-2-2H9\"></path>",
         categories = "photography,multimedia,files",
         tags = "picture,photo",
         contributors = "ericfennis,karsa-mistmere"
@@ -6549,7 +6549,7 @@ pub enum LucideGlyph {
     ImageOff,
     #[cfg(feature = "image_play")]
     #[strum(props(
-        svg = "<path d=\"M15 15.00a1 1 0 0 1 1.51-.859l4.99 2.99a1 1 0 0 1 0 1.71l-4.99 2.99a1 1 0 0 1-1.51-.86z\"></path><path d=\"M21 12.17V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\"></path><path d=\"m6 21 5-5\"></path><circle r=\"2\" cy=\"9\" cx=\"9\"></circle>",
+        svg = "<path d=\"M15 15.00a1 1 0 0 1 1.51-.859l4.99 2.99a1 1 0 0 1 0 1.71l-4.99 2.99a1 1 0 0 1-1.51-.86z\"></path><path d=\"M21 12.17V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\"></path><path d=\"m6 21 5-5\"></path><circle cx=\"9\" cy=\"9\" r=\"2\"></circle>",
         categories = "photography,text,multimedia,files",
         tags = "picture,gif,photo",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -6557,7 +6557,7 @@ pub enum LucideGlyph {
     ImagePlay,
     #[cfg(feature = "image_plus")]
     #[strum(props(
-        svg = "<path d=\"M16 5h6\"></path><path d=\"M19 2v6\"></path><path d=\"M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5\"></path><path d=\"m21 15-3.08-3.08a2 2 0 0 0-2.82 0L6 21\"></path><circle cy=\"9\" cx=\"9\" r=\"2\"></circle>",
+        svg = "<path d=\"M16 5h6\"></path><path d=\"M19 2v6\"></path><path d=\"M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5\"></path><path d=\"m21 15-3.08-3.08a2 2 0 0 0-2.82 0L6 21\"></path><circle cx=\"9\" cy=\"9\" r=\"2\"></circle>",
         categories = "photography,multimedia,files",
         tags = "add,create,picture",
         contributors = "mittalyashu,ericfennis,karsa-mistmere,jguddas"
@@ -6565,7 +6565,7 @@ pub enum LucideGlyph {
     ImagePlus,
     #[cfg(feature = "image_up")]
     #[strum(props(
-        svg = "<path d=\"M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10l-3.1-3.1a2 2 0 0 0-2.81.014L6 21\"></path><path d=\"m14 19.5 3-3 3 3\"></path><path d=\"M17 22v-5.5\"></path><circle cy=\"9\" r=\"2\" cx=\"9\"></circle>",
+        svg = "<path d=\"M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10l-3.1-3.1a2 2 0 0 0-2.81.014L6 21\"></path><path d=\"m14 19.5 3-3 3 3\"></path><path d=\"M17 22v-5.5\"></path><circle cx=\"9\" cy=\"9\" r=\"2\"></circle>",
         categories = "photography,text,multimedia,files",
         tags = "picture,photo,upload,import",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -6573,7 +6573,7 @@ pub enum LucideGlyph {
     ImageUp,
     #[cfg(feature = "image_upscale")]
     #[strum(props(
-        svg = "<path d=\"M16 3h5v5\"></path><path d=\"M17 21h2a2 2 0 0 0 2-2\"></path><path d=\"M21 12v3\"></path><path d=\"m21 3-5 5\"></path><path d=\"M3 7V5a2 2 0 0 1 2-2\"></path><path d=\"m5 21 4.14-4.14a1.21 1.21 0 0 1 1.71 0L13 19\"></path><path d=\"M9 3h3\"></path><rect width=\"10\" y=\"11\" height=\"10\" rx=\"1\" x=\"3\"></rect>",
+        svg = "<path d=\"M16 3h5v5\"></path><path d=\"M17 21h2a2 2 0 0 0 2-2\"></path><path d=\"M21 12v3\"></path><path d=\"m21 3-5 5\"></path><path d=\"M3 7V5a2 2 0 0 1 2-2\"></path><path d=\"m5 21 4.14-4.14a1.21 1.21 0 0 1 1.71 0L13 19\"></path><path d=\"M9 3h3\"></path><rect height=\"10\" rx=\"1\" width=\"10\" x=\"3\" y=\"11\"></rect>",
         categories = "photography,multimedia",
         tags = "resize,picture,sharpen,increase",
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,jguddas"
@@ -6581,7 +6581,7 @@ pub enum LucideGlyph {
     ImageUpscale,
     #[cfg(feature = "image")]
     #[strum(props(
-        svg = "<rect ry=\"2\" y=\"3\" rx=\"2\" height=\"18\" width=\"18\" x=\"3\"></rect><circle cy=\"9\" r=\"2\" cx=\"9\"></circle><path d=\"m21 15-3.08-3.08a2 2 0 0 0-2.82 0L6 21\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"9\" cy=\"9\" r=\"2\"></circle><path d=\"m21 15-3.08-3.08a2 2 0 0 0-2.82 0L6 21\"></path>",
         categories = "photography,text,multimedia,files",
         tags = "picture,photo",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -6589,7 +6589,7 @@ pub enum LucideGlyph {
     Image,
     #[cfg(feature = "images")]
     #[strum(props(
-        svg = "<path d=\"m22 11-1.29-1.29a2.4 2.4 0 0 0-3.40 0L11 16\"></path><path d=\"M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2\"></path><circle fill=\"currentColor\" r=\"1\" cx=\"13\" cy=\"7\"></circle><rect y=\"2\" width=\"14\" height=\"14\" rx=\"2\" x=\"8\"></rect>",
+        svg = "<path d=\"m22 11-1.29-1.29a2.4 2.4 0 0 0-3.40 0L11 16\"></path><path d=\"M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2\"></path><circle cx=\"13\" cy=\"7\" fill=\"currentColor\" r=\"1\"></circle><rect height=\"14\" rx=\"2\" width=\"14\" x=\"8\" y=\"2\"></rect>",
         categories = "photography,text,multimedia,files",
         tags = "picture,photo,multiple,copy,gallery,album,collection,slideshow,showcase",
         contributors = "karsa-mistmere"
@@ -6629,7 +6629,7 @@ pub enum LucideGlyph {
     Infinity,
     #[cfg(feature = "info")]
     #[strum(props(
-        svg = "<circle cx=\"12\" r=\"10\" cy=\"12\"></circle><path d=\"M12 16v-4\"></path><path d=\"M12 8h.01\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 16v-4\"></path><path d=\"M12 8h.01\"></path>",
         categories = "accessibility,notifications",
         tags = "about,advice,clue,details,help,hint,indicator,information,knowledge,notice,status,support,tooltip",
         contributors = "colebemis,ericfennis,danielbayley"
@@ -6637,7 +6637,7 @@ pub enum LucideGlyph {
     Info,
     #[cfg(feature = "inspection_panel")]
     #[strum(props(
-        svg = "<rect y=\"3\" height=\"18\" x=\"3\" width=\"18\" rx=\"2\"></rect><path d=\"M7 7h.01\"></path><path d=\"M17 7h.01\"></path><path d=\"M7 17h.01\"></path><path d=\"M17 17h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 7h.01\"></path><path d=\"M17 7h.01\"></path><path d=\"M7 17h.01\"></path><path d=\"M17 17h.01\"></path>",
         categories = "tools",
         tags = "access,cover,tile,metal,materials,screws",
         contributors = "danielbayley"
@@ -6645,7 +6645,7 @@ pub enum LucideGlyph {
     InspectionPanel,
     #[cfg(feature = "italic")]
     #[strum(props(
-        svg = "<line y1=\"4\" x1=\"19\" x2=\"10\" y2=\"4\"></line><line x2=\"5\" y1=\"20\" y2=\"20\" x1=\"14\"></line><line x2=\"9\" y1=\"4\" x1=\"15\" y2=\"20\"></line>",
+        svg = "<line x1=\"19\" x2=\"10\" y1=\"4\" y2=\"4\"></line><line x1=\"14\" x2=\"5\" y1=\"20\" y2=\"20\"></line><line x1=\"15\" x2=\"9\" y1=\"4\" y2=\"20\"></line>",
         categories = "text",
         tags = "oblique,text,format",
         contributors = "colebemis,ericfennis"
@@ -6677,7 +6677,7 @@ pub enum LucideGlyph {
     JapaneseYen,
     #[cfg(feature = "joystick")]
     #[strum(props(
-        svg = "<path d=\"M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2Z\"></path><path d=\"M6 15v-2\"></path><path d=\"M12 15V9\"></path><circle cx=\"12\" r=\"3\" cy=\"6\"></circle>",
+        svg = "<path d=\"M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2Z\"></path><path d=\"M6 15v-2\"></path><path d=\"M12 15V9\"></path><circle cx=\"12\" cy=\"6\" r=\"3\"></circle>",
         categories = "gaming,devices",
         tags = "game,console,control stick",
         contributors = "mittalyashu,karsa-mistmere,ericfennis"
@@ -6701,7 +6701,7 @@ pub enum LucideGlyph {
     Kayak,
     #[cfg(feature = "key_round")]
     #[strum(props(
-        svg = "<path d=\"M2.58 17.41A2 2 0 0 0 2 18.82V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.41-.586l.814-.814a6.5 6.5 0 1 0-4-4z\"></path><circle cy=\"7.5\" fill=\"currentColor\" cx=\"16.5\" r=\".5\"></circle>",
+        svg = "<path d=\"M2.58 17.41A2 2 0 0 0 2 18.82V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.41-.586l.814-.814a6.5 6.5 0 1 0-4-4z\"></path><circle cx=\"16.5\" cy=\"7.5\" fill=\"currentColor\" r=\".5\"></circle>",
         categories = "security,account",
         tags = "password,login,authentication,secure,unlock",
         contributors = "danielbayley,jguddas"
@@ -6717,7 +6717,7 @@ pub enum LucideGlyph {
     KeySquare,
     #[cfg(feature = "key")]
     #[strum(props(
-        svg = "<path d=\"m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4\"></path><path d=\"m21 2-9.6 9.6\"></path><circle r=\"5.5\" cx=\"7.5\" cy=\"15.5\"></circle>",
+        svg = "<path d=\"m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4\"></path><path d=\"m21 2-9.6 9.6\"></path><circle cx=\"7.5\" cy=\"15.5\" r=\"5.5\"></circle>",
         categories = "security,account",
         tags = "password,login,authentication,secure,unlock,keychain,key ring,fob",
         contributors = "ashygee,csandman,mittalyashu,ericfennis"
@@ -6725,7 +6725,7 @@ pub enum LucideGlyph {
     Key,
     #[cfg(feature = "keyboard_music")]
     #[strum(props(
-        svg = "<rect height=\"16\" width=\"20\" y=\"4\" rx=\"2\" x=\"2\"></rect><path d=\"M6 8h4\"></path><path d=\"M14 8h.01\"></path><path d=\"M18 8h.01\"></path><path d=\"M2 12h20\"></path><path d=\"M6 12v4\"></path><path d=\"M10 12v4\"></path><path d=\"M14 12v4\"></path><path d=\"M18 12v4\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M6 8h4\"></path><path d=\"M14 8h.01\"></path><path d=\"M18 8h.01\"></path><path d=\"M2 12h20\"></path><path d=\"M6 12v4\"></path><path d=\"M10 12v4\"></path><path d=\"M14 12v4\"></path><path d=\"M18 12v4\"></path>",
         categories = "multimedia,devices",
         tags = "music,audio,sound,noise,notes,keys,chord,octave,midi,controller,instrument,electric,signal,digital,studio,production,producer,pianist,piano,play,performance,concert",
         contributors = "danielbayley,karsa-mistmere"
@@ -6741,7 +6741,7 @@ pub enum LucideGlyph {
     KeyboardOff,
     #[cfg(feature = "keyboard")]
     #[strum(props(
-        svg = "<path d=\"M10 8h.01\"></path><path d=\"M12 12h.01\"></path><path d=\"M14 8h.01\"></path><path d=\"M16 12h.01\"></path><path d=\"M18 8h.01\"></path><path d=\"M6 8h.01\"></path><path d=\"M7 16h10\"></path><path d=\"M8 12h.01\"></path><rect width=\"20\" height=\"16\" rx=\"2\" y=\"4\" x=\"2\"></rect>",
+        svg = "<path d=\"M10 8h.01\"></path><path d=\"M12 12h.01\"></path><path d=\"M14 8h.01\"></path><path d=\"M16 12h.01\"></path><path d=\"M18 8h.01\"></path><path d=\"M6 8h.01\"></path><path d=\"M7 16h10\"></path><path d=\"M8 12h.01\"></path><rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect>",
         categories = "text,devices,development",
         tags = "layout,spell,settings,mouse",
         contributors = "it-is-not,ericfennis"
@@ -6821,7 +6821,7 @@ pub enum LucideGlyph {
     Languages,
     #[cfg(feature = "laptop_minimal_check")]
     #[strum(props(
-        svg = "<path d=\"M2 20h20\"></path><path d=\"m9 10 2 2 4-4\"></path><rect rx=\"2\" width=\"18\" y=\"4\" x=\"3\" height=\"12\"></rect>",
+        svg = "<path d=\"M2 20h20\"></path><path d=\"m9 10 2 2 4-4\"></path><rect height=\"12\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
         categories = "devices,notifications",
         tags = "computer,screen,remote,success,done,todo,tick,complete,task",
         contributors = "ericfennis,jguddas"
@@ -6829,7 +6829,7 @@ pub enum LucideGlyph {
     LaptopMinimalCheck,
     #[cfg(feature = "laptop_minimal")]
     #[strum(props(
-        svg = "<rect rx=\"2\" ry=\"2\" x=\"3\" width=\"18\" y=\"4\" height=\"12\"></rect><line y1=\"20\" x2=\"22\" y2=\"20\" x1=\"2\"></line>",
+        svg = "<rect height=\"12\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><line x1=\"2\" x2=\"22\" y1=\"20\" y2=\"20\"></line>",
         categories = "devices",
         tags = "computer,screen,remote",
         contributors = "ericfennis"
@@ -6853,7 +6853,7 @@ pub enum LucideGlyph {
     LassoSelect,
     #[cfg(feature = "lasso")]
     #[strum(props(
-        svg = "<path d=\"M3.70 14.46a10 8 0 1 1 3.11 2.37\"></path><path d=\"M7 22a5 5 0 0 1-2-3.99\"></path><circle cy=\"16\" r=\"2\" cx=\"5\"></circle>",
+        svg = "<path d=\"M3.70 14.46a10 8 0 1 1 3.11 2.37\"></path><path d=\"M7 22a5 5 0 0 1-2-3.99\"></path><circle cx=\"5\" cy=\"16\" r=\"2\"></circle>",
         categories = "design,cursors",
         tags = "select,cursor",
         contributors = "mishkaio,ericfennis,csandman,jguddas"
@@ -6861,7 +6861,7 @@ pub enum LucideGlyph {
     Lasso,
     #[cfg(feature = "laugh")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z\"></path><line x2=\"9.01\" y1=\"9\" y2=\"9\" x1=\"9\"></line><line y2=\"9\" x2=\"15.01\" x1=\"15\" y1=\"9\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z\"></path><line x1=\"9\" x2=\"9.01\" y1=\"9\" y2=\"9\"></line><line x1=\"15\" x2=\"15.01\" y1=\"9\" y2=\"9\"></line>",
         categories = "emoji",
         tags = "emoji,face,happy,good,emotion",
         contributors = "karsa-mistmere,ericfennis"
@@ -6893,7 +6893,7 @@ pub enum LucideGlyph {
     Layers,
     #[cfg(feature = "layout_dashboard")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"7\" height=\"9\" x=\"3\" rx=\"1\"></rect><rect width=\"7\" rx=\"1\" height=\"5\" x=\"14\" y=\"3\"></rect><rect y=\"12\" rx=\"1\" height=\"9\" x=\"14\" width=\"7\"></rect><rect width=\"7\" height=\"5\" y=\"16\" rx=\"1\" x=\"3\"></rect>",
+        svg = "<rect height=\"9\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><rect height=\"5\" rx=\"1\" width=\"7\" x=\"14\" y=\"3\"></rect><rect height=\"9\" rx=\"1\" width=\"7\" x=\"14\" y=\"12\"></rect><rect height=\"5\" rx=\"1\" width=\"7\" x=\"3\" y=\"16\"></rect>",
         categories = "design,layout",
         tags = "masonry,brick",
         contributors = "ericfennis,danielbayley"
@@ -6901,7 +6901,7 @@ pub enum LucideGlyph {
     LayoutDashboard,
     #[cfg(feature = "layout_grid")]
     #[strum(props(
-        svg = "<rect height=\"7\" y=\"3\" rx=\"1\" width=\"7\" x=\"3\"></rect><rect height=\"7\" x=\"14\" width=\"7\" y=\"3\" rx=\"1\"></rect><rect height=\"7\" x=\"14\" width=\"7\" y=\"14\" rx=\"1\"></rect><rect y=\"14\" x=\"3\" height=\"7\" width=\"7\" rx=\"1\"></rect>",
+        svg = "<rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"14\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect>",
         categories = "design,layout",
         tags = "app,home,start",
         contributors = "zenoamaro,ericfennis,csandman,mittalyashu,danielbayley"
@@ -6909,7 +6909,7 @@ pub enum LucideGlyph {
     LayoutGrid,
     #[cfg(feature = "layout_list")]
     #[strum(props(
-        svg = "<rect rx=\"1\" height=\"7\" x=\"3\" width=\"7\" y=\"3\"></rect><rect x=\"3\" y=\"14\" height=\"7\" rx=\"1\" width=\"7\"></rect><path d=\"M14 4h7\"></path><path d=\"M14 9h7\"></path><path d=\"M14 15h7\"></path><path d=\"M14 20h7\"></path>",
+        svg = "<rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect><path d=\"M14 4h7\"></path><path d=\"M14 9h7\"></path><path d=\"M14 15h7\"></path><path d=\"M14 20h7\"></path>",
         categories = "design,layout,photography,text",
         tags = "todo,tasks,items,pending,image,photo",
         contributors = "ericfennis,danielbayley"
@@ -6917,7 +6917,7 @@ pub enum LucideGlyph {
     LayoutList,
     #[cfg(feature = "layout_panel_left")]
     #[strum(props(
-        svg = "<rect width=\"7\" x=\"3\" rx=\"1\" y=\"3\" height=\"18\"></rect><rect width=\"7\" rx=\"1\" y=\"3\" height=\"7\" x=\"14\"></rect><rect rx=\"1\" height=\"7\" x=\"14\" y=\"14\" width=\"7\"></rect>",
+        svg = "<rect height=\"18\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"14\"></rect>",
         categories = "design,layout",
         tags = "app,home,start,grid",
         contributors = "danielbayley"
@@ -6925,7 +6925,7 @@ pub enum LucideGlyph {
     LayoutPanelLeft,
     #[cfg(feature = "layout_panel_top")]
     #[strum(props(
-        svg = "<rect rx=\"1\" width=\"18\" x=\"3\" height=\"7\" y=\"3\"></rect><rect rx=\"1\" height=\"7\" x=\"3\" y=\"14\" width=\"7\"></rect><rect width=\"7\" x=\"14\" height=\"7\" rx=\"1\" y=\"14\"></rect>",
+        svg = "<rect height=\"7\" rx=\"1\" width=\"18\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"14\"></rect>",
         categories = "layout",
         tags = "window,webpage,block,section,grid,template,structure",
         contributors = "danielbayley"
@@ -6933,7 +6933,7 @@ pub enum LucideGlyph {
     LayoutPanelTop,
     #[cfg(feature = "layout_template")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"></rect><rect x=\"3\" y=\"14\" width=\"9\" height=\"7\" rx=\"1\"></rect><rect width=\"5\" height=\"7\" x=\"16\" rx=\"1\" y=\"14\"></rect>",
+        svg = "<rect height=\"7\" rx=\"1\" width=\"18\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"9\" x=\"3\" y=\"14\"></rect><rect height=\"7\" rx=\"1\" width=\"5\" x=\"16\" y=\"14\"></rect>",
         categories = "layout",
         tags = "window,webpage,block,section",
         contributors = "mittalyashu,danielbayley"
@@ -6957,7 +6957,7 @@ pub enum LucideGlyph {
     LeafyGreen,
     #[cfg(feature = "lectern")]
     #[strum(props(
-        svg = "<path d=\"M16 12h3a2 2 0 0 0 1.90-1.38l1.05-3.33A1 1 0 0 0 21 6H3a1 1 0 0 0-.958 1.28l1.05 3.33A2 2 0 0 0 5 12h3\"></path><path d=\"M18 6V3a1 1 0 0 0-1-1h-3\"></path><rect x=\"8\" rx=\"1\" y=\"10\" width=\"8\" height=\"12\"></rect>",
+        svg = "<path d=\"M16 12h3a2 2 0 0 0 1.90-1.38l1.05-3.33A1 1 0 0 0 21 6H3a1 1 0 0 0-.958 1.28l1.05 3.33A2 2 0 0 0 5 12h3\"></path><path d=\"M18 6V3a1 1 0 0 0-1-1h-3\"></path><rect height=\"12\" rx=\"1\" width=\"8\" x=\"8\" y=\"10\"></rect>",
         categories = "communication,multimedia",
         tags = "pulpit,podium,stand",
         contributors = "gurtt,karsa-mistmere"
@@ -6981,7 +6981,7 @@ pub enum LucideGlyph {
     LensConvex,
     #[cfg(feature = "library_big")]
     #[strum(props(
-        svg = "<rect width=\"8\" x=\"3\" y=\"3\" rx=\"1\" height=\"18\"></rect><path d=\"M7 3v18\"></path><path d=\"M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z\"></path>",
+        svg = "<rect height=\"18\" rx=\"1\" width=\"8\" x=\"3\" y=\"3\"></rect><path d=\"M7 3v18\"></path><path d=\"M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z\"></path>",
         categories = "text,photography,multimedia,navigation,development",
         tags = "books,reading,written,authors,stories,fiction,novels,information,knowledge,education,high school,university,college,academy,learning,study,research,collection,vinyl,records,albums,music,package",
         contributors = "danielbayley"
@@ -6997,7 +6997,7 @@ pub enum LucideGlyph {
     Library,
     #[cfg(feature = "life_buoy")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"m4.93 4.93 4.24 4.24\"></path><path d=\"m14.83 9.17 4.24-4.24\"></path><path d=\"m14.83 14.83 4.24 4.24\"></path><path d=\"m9.17 14.83-4.24 4.24\"></path><circle cy=\"12\" r=\"4\" cx=\"12\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m4.93 4.93 4.24 4.24\"></path><path d=\"m14.83 9.17 4.24-4.24\"></path><path d=\"m14.83 14.83 4.24 4.24\"></path><path d=\"m9.17 14.83-4.24 4.24\"></path><circle cx=\"12\" cy=\"12\" r=\"4\"></circle>",
         categories = "accessibility,medical",
         tags = "preserver,life belt,lifesaver,help,rescue,ship,ring,raft,inflatable,wheel,donut",
         contributors = "colebemis,ericfennis,danielbayley,karsa-mistmere"
@@ -7029,7 +7029,7 @@ pub enum LucideGlyph {
     Lightbulb,
     #[cfg(feature = "line_dot_right_horizontal")]
     #[strum(props(
-        svg = "<path d=\"M 3 12 L 15 12\"></path><circle r=\"3\" cx=\"18\" cy=\"12\"></circle>",
+        svg = "<path d=\"M 3 12 L 15 12\"></path><circle cx=\"18\" cy=\"12\" r=\"3\"></circle>",
         categories = "development,navigation",
         tags = "code,version control,waypoint,stop,station,last,end",
         contributors = "colebemis,ericfennis,johnletey,nathan-de-pachtere"
@@ -7053,7 +7053,7 @@ pub enum LucideGlyph {
     LineStyle,
     #[cfg(feature = "link_2_off")]
     #[strum(props(
-        svg = "<path d=\"M9 17H7A5 5 0 0 1 7 7\"></path><path d=\"M15 7h2a5 5 0 0 1 4 8\"></path><line y1=\"12\" x1=\"8\" x2=\"12\" y2=\"12\"></line><line x2=\"22\" y2=\"22\" y1=\"2\" x1=\"2\"></line>",
+        svg = "<path d=\"M9 17H7A5 5 0 0 1 7 7\"></path><path d=\"M15 7h2a5 5 0 0 1 4 8\"></path><line x1=\"8\" x2=\"12\" y1=\"12\" y2=\"12\"></line><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "text",
         tags = "unchain,chain",
         contributors = "ericfennis,csandman,karsa-mistmere"
@@ -7061,7 +7061,7 @@ pub enum LucideGlyph {
     Link2Off,
     #[cfg(feature = "link_2")]
     #[strum(props(
-        svg = "<path d=\"M9 17H7A5 5 0 0 1 7 7h2\"></path><path d=\"M15 7h2a5 5 0 1 1 0 10h-2\"></path><line y2=\"12\" x2=\"16\" y1=\"12\" x1=\"8\"></line>",
+        svg = "<path d=\"M9 17H7A5 5 0 0 1 7 7h2\"></path><path d=\"M15 7h2a5 5 0 1 1 0 10h-2\"></path><line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\"></line>",
         categories = "text,account",
         tags = "chain,url",
         contributors = "colebemis,ericfennis,csandman,karsa-mistmere,johnletey"
@@ -7205,7 +7205,7 @@ pub enum LucideGlyph {
     ListStart,
     #[cfg(feature = "list_todo")]
     #[strum(props(
-        svg = "<path d=\"M13 5h8\"></path><path d=\"M13 12h8\"></path><path d=\"M13 19h8\"></path><path d=\"m3 17 2 2 4-4\"></path><rect y=\"4\" height=\"6\" width=\"6\" rx=\"1\" x=\"3\"></rect>",
+        svg = "<path d=\"M13 5h8\"></path><path d=\"M13 12h8\"></path><path d=\"M13 19h8\"></path><path d=\"m3 17 2 2 4-4\"></path><rect height=\"6\" rx=\"1\" width=\"6\" x=\"3\" y=\"4\"></rect>",
         categories = "text",
         tags = "todo,done,check,tick,complete,tasks,items,pending",
         contributors = "karsa-mistmere,danielbayley"
@@ -7253,7 +7253,7 @@ pub enum LucideGlyph {
     LoaderCircle,
     #[cfg(feature = "loader_pinwheel")]
     #[strum(props(
-        svg = "<path d=\"M22 12a1 1 0 0 1-10 0 1 1 0 0 0-10 0\"></path><path d=\"M7 20.7a1 1 0 1 1 5-8.7 1 1 0 1 0 5-8.6\"></path><path d=\"M7 3.3a1 1 0 1 1 5 8.6 1 1 0 1 0 5 8.6\"></path><circle cx=\"12\" r=\"10\" cy=\"12\"></circle>",
+        svg = "<path d=\"M22 12a1 1 0 0 1-10 0 1 1 0 0 0-10 0\"></path><path d=\"M7 20.7a1 1 0 1 1 5-8.7 1 1 0 1 0 5-8.6\"></path><path d=\"M7 3.3a1 1 0 1 1 5 8.6 1 1 0 1 0 5 8.6\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
         categories = "cursors,design",
         tags = "loading,wait,busy,progress,throbber,spinner,spinning,beach ball,frozen,freeze",
         contributors = "danielbayley,jguddas"
@@ -7269,7 +7269,7 @@ pub enum LucideGlyph {
     Loader,
     #[cfg(feature = "locate_fixed")]
     #[strum(props(
-        svg = "<line x1=\"2\" y2=\"12\" x2=\"5\" y1=\"12\"></line><line y1=\"12\" x2=\"22\" x1=\"19\" y2=\"12\"></line><line x2=\"12\" x1=\"12\" y2=\"5\" y1=\"2\"></line><line y1=\"19\" x1=\"12\" y2=\"22\" x2=\"12\"></line><circle cy=\"12\" r=\"7\" cx=\"12\"></circle><circle cy=\"12\" r=\"3\" cx=\"12\"></circle>",
+        svg = "<line x1=\"2\" x2=\"5\" y1=\"12\" y2=\"12\"></line><line x1=\"19\" x2=\"22\" y1=\"12\" y2=\"12\"></line><line x1=\"12\" x2=\"12\" y1=\"2\" y2=\"5\"></line><line x1=\"12\" x2=\"12\" y1=\"19\" y2=\"22\"></line><circle cx=\"12\" cy=\"12\" r=\"7\"></circle><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
         categories = "navigation",
         tags = "map,gps,location,cross",
         contributors = "csandman,danielbayley,jguddas,ericfennis"
@@ -7285,7 +7285,7 @@ pub enum LucideGlyph {
     LocateOff,
     #[cfg(feature = "locate")]
     #[strum(props(
-        svg = "<line x1=\"2\" x2=\"5\" y1=\"12\" y2=\"12\"></line><line x1=\"19\" y1=\"12\" x2=\"22\" y2=\"12\"></line><line x2=\"12\" y2=\"5\" y1=\"2\" x1=\"12\"></line><line y1=\"19\" x2=\"12\" y2=\"22\" x1=\"12\"></line><circle r=\"7\" cx=\"12\" cy=\"12\"></circle>",
+        svg = "<line x1=\"2\" x2=\"5\" y1=\"12\" y2=\"12\"></line><line x1=\"19\" x2=\"22\" y1=\"12\" y2=\"12\"></line><line x1=\"12\" x2=\"12\" y1=\"2\" y2=\"5\"></line><line x1=\"12\" x2=\"12\" y1=\"19\" y2=\"22\"></line><circle cx=\"12\" cy=\"12\" r=\"7\"></circle>",
         categories = "navigation",
         tags = "map,gps,location,cross",
         contributors = "csandman,ericfennis,karsa-mistmere"
@@ -7293,7 +7293,7 @@ pub enum LucideGlyph {
     Locate,
     #[cfg(feature = "lock_keyhole_open")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"16\" r=\"1\"></circle><rect rx=\"2\" height=\"12\" width=\"18\" y=\"10\" x=\"3\"></rect><path d=\"M7 10V7a5 5 0 0 1 9.33-2.5\"></path>",
+        svg = "<circle cx=\"12\" cy=\"16\" r=\"1\"></circle><rect height=\"12\" rx=\"2\" width=\"18\" x=\"3\" y=\"10\"></rect><path d=\"M7 10V7a5 5 0 0 1 9.33-2.5\"></path>",
         categories = "security",
         tags = "security",
         contributors = "colebemis,csandman,ericfennis,cd16b,danielbayley,karsa-mistmere"
@@ -7301,7 +7301,7 @@ pub enum LucideGlyph {
     LockKeyholeOpen,
     #[cfg(feature = "lock_keyhole")]
     #[strum(props(
-        svg = "<circle r=\"1\" cy=\"16\" cx=\"12\"></circle><rect x=\"3\" width=\"18\" height=\"12\" y=\"10\" rx=\"2\"></rect><path d=\"M7 10V7a5 5 0 0 1 10 0v3\"></path>",
+        svg = "<circle cx=\"12\" cy=\"16\" r=\"1\"></circle><rect height=\"12\" rx=\"2\" width=\"18\" x=\"3\" y=\"10\"></rect><path d=\"M7 10V7a5 5 0 0 1 10 0v3\"></path>",
         categories = "security",
         tags = "security,password,secure,admin",
         contributors = "colebemis,csandman,ericfennis,cd16b,danielbayley,karsa-mistmere"
@@ -7309,7 +7309,7 @@ pub enum LucideGlyph {
     LockKeyhole,
     #[cfg(feature = "lock_open")]
     #[strum(props(
-        svg = "<rect rx=\"2\" ry=\"2\" x=\"3\" width=\"18\" y=\"11\" height=\"11\"></rect><path d=\"M7 11V7a5 5 0 0 1 9.9-1\"></path>",
+        svg = "<rect height=\"11\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"11\"></rect><path d=\"M7 11V7a5 5 0 0 1 9.9-1\"></path>",
         categories = "security",
         tags = "security",
         contributors = "colebemis,csandman,ericfennis"
@@ -7317,7 +7317,7 @@ pub enum LucideGlyph {
     LockOpen,
     #[cfg(feature = "lock")]
     #[strum(props(
-        svg = "<rect y=\"11\" width=\"18\" ry=\"2\" x=\"3\" height=\"11\" rx=\"2\"></rect><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"></path>",
+        svg = "<rect height=\"11\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"11\"></rect><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"></path>",
         categories = "security",
         tags = "security,password,secure,admin",
         contributors = "colebemis,csandman,ericfennis"
@@ -7349,7 +7349,7 @@ pub enum LucideGlyph {
     Logs,
     #[cfg(feature = "lollipop")]
     #[strum(props(
-        svg = "<circle r=\"8\" cx=\"11\" cy=\"11\"></circle><path d=\"m21 21-4.3-4.3\"></path><path d=\"M11 11a2 2 0 0 0 4 0 4 4 0 0 0-8 0 6 6 0 0 0 12 0\"></path>",
+        svg = "<circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path><path d=\"M11 11a2 2 0 0 0 4 0 4 4 0 0 0-8 0 6 6 0 0 0 12 0\"></path>",
         categories = "food-beverage",
         tags = "lolly,candy,sugar,food,sweet,dessert,spiral",
         contributors = "danielbayley"
@@ -7413,7 +7413,7 @@ pub enum LucideGlyph {
     MailQuestionMark,
     #[cfg(feature = "mail_search")]
     #[strum(props(
-        svg = "<path d=\"M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5\"></path><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path><path d=\"M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z\"></path><circle r=\"3\" cx=\"18\" cy=\"18\"></circle><path d=\"m22 22-1.5-1.5\"></path>",
+        svg = "<path d=\"M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5\"></path><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path><path d=\"M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><path d=\"m22 22-1.5-1.5\"></path>",
         categories = "mail",
         tags = "email,message,letter,search,lens",
         contributors = "karsa-mistmere"
@@ -7437,7 +7437,7 @@ pub enum LucideGlyph {
     MailX,
     #[cfg(feature = "mail")]
     #[strum(props(
-        svg = "<path d=\"m22 7-8.99 5.72a2 2 0 0 1-2.00 0L2 7\"></path><rect height=\"16\" x=\"2\" y=\"4\" width=\"20\" rx=\"2\"></rect>",
+        svg = "<path d=\"m22 7-8.99 5.72a2 2 0 0 1-2.00 0L2 7\"></path><rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect>",
         categories = "text,account,mail",
         tags = "email,message,letter,unread",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -7445,7 +7445,7 @@ pub enum LucideGlyph {
     Mail,
     #[cfg(feature = "mailbox")]
     #[strum(props(
-        svg = "<path d=\"M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z\"></path><polyline points=\"15,9 18,9 18,11\"></polyline><path d=\"M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2\"></path><line x2=\"7\" y2=\"10\" y1=\"10\" x1=\"6\"></line>",
+        svg = "<path d=\"M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z\"></path><polyline points=\"15,9 18,9 18,11\"></polyline><path d=\"M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2\"></path><line x1=\"6\" x2=\"7\" y1=\"10\" y2=\"10\"></line>",
         categories = "mail",
         tags = "emails,messages,letters,mailing list,newsletter",
         contributors = "danielbayley,karsa-mistmere,ericfennis"
@@ -7453,7 +7453,7 @@ pub enum LucideGlyph {
     Mailbox,
     #[cfg(feature = "mails")]
     #[strum(props(
-        svg = "<path d=\"M17 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 1-1.73\"></path><path d=\"m22 5.5-6.41 4.17a2 2 0 0 1-2.16 0L7 5.5\"></path><rect height=\"12\" y=\"3\" x=\"7\" width=\"15\" rx=\"2\"></rect>",
+        svg = "<path d=\"M17 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 1-1.73\"></path><path d=\"m22 5.5-6.41 4.17a2 2 0 0 1-2.16 0L7 5.5\"></path><rect height=\"12\" rx=\"2\" width=\"15\" x=\"7\" y=\"3\"></rect>",
         categories = "mail",
         tags = "emails,messages,letters,multiple,mailing list,newsletter,copy",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -7477,7 +7477,7 @@ pub enum LucideGlyph {
     MapPinCheckInside,
     #[cfg(feature = "map_pin_check")]
     #[strum(props(
-        svg = "<path d=\"M19.43 12.93c.357-.967.57-1.95.57-2.93a8 8 0 0 0-16 0c0 4.99 5.53 10.19 7.39 11.79a1 1 0 0 0 1.20 0 32.19 32.19 0 0 0 .813-.728\"></path><circle r=\"3\" cx=\"12\" cy=\"10\"></circle><path d=\"m16 18 2 2 4-4\"></path>",
+        svg = "<path d=\"M19.43 12.93c.357-.967.57-1.95.57-2.93a8 8 0 0 0-16 0c0 4.99 5.53 10.19 7.39 11.79a1 1 0 0 0 1.20 0 32.19 32.19 0 0 0 .813-.728\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"m16 18 2 2 4-4\"></path>",
         categories = "navigation,travel,account",
         tags = "location,waypoint,marker,drop,done,tick,complete,task,added",
         contributors = "karsa-mistmere,colebemis,csandman,ericfennis"
@@ -7501,7 +7501,7 @@ pub enum LucideGlyph {
     MapPinMinusInside,
     #[cfg(feature = "map_pin_minus")]
     #[strum(props(
-        svg = "<path d=\"M18.97 14C19.6 12.70 20 11.34 20 10a8 8 0 0 0-16 0c0 4.99 5.53 10.19 7.39 11.79a1 1 0 0 0 1.20 0 32 32 0 0 0 .824-.738\"></path><circle r=\"3\" cy=\"10\" cx=\"12\"></circle><path d=\"M16 18h6\"></path>",
+        svg = "<path d=\"M18.97 14C19.6 12.70 20 11.34 20 10a8 8 0 0 0-16 0c0 4.99 5.53 10.19 7.39 11.79a1 1 0 0 0 1.20 0 32 32 0 0 0 .824-.738\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"M16 18h6\"></path>",
         categories = "navigation,travel,account",
         tags = "location,waypoint,marker,drop,delete,remove,erase",
         contributors = "karsa-mistmere,colebemis,csandman,ericfennis"
@@ -7517,7 +7517,7 @@ pub enum LucideGlyph {
     MapPinOff,
     #[cfg(feature = "map_pin_pen")]
     #[strum(props(
-        svg = "<path d=\"M17.97 9.30A8 8 0 0 0 2 10c0 4.69 4.88 9.56 7.02 11.46\"></path><path d=\"M21.37 16.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><circle r=\"3\" cy=\"10\" cx=\"10\"></circle>",
+        svg = "<path d=\"M17.97 9.30A8 8 0 0 0 2 10c0 4.69 4.88 9.56 7.02 11.46\"></path><path d=\"M21.37 16.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><circle cx=\"10\" cy=\"10\" r=\"3\"></circle>",
         categories = "navigation,travel,account",
         tags = "location,waypoint,marker,drop,edit",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,sachinkr7368"
@@ -7541,7 +7541,7 @@ pub enum LucideGlyph {
     MapPinPlus,
     #[cfg(feature = "map_pin_search")]
     #[strum(props(
-        svg = "<path d=\"M 12.24 21.96 a 1 1 0 0 1 -0.84 -0.17 C 9.53 20.19 4 14.99 4 10 a 8 8 0 0 1 16 0 C 20 10.42 19.96 10.84 19.88 11.26\"></path><path d=\"m22 22-1.88-1.88\"></path><circle cy=\"10\" cx=\"12\" r=\"3\"></circle><circle cy=\"18\" r=\"3\" cx=\"18\"></circle>",
+        svg = "<path d=\"M 12.24 21.96 a 1 1 0 0 1 -0.84 -0.17 C 9.53 20.19 4 14.99 4 10 a 8 8 0 0 1 16 0 C 20 10.42 19.96 10.84 19.88 11.26\"></path><path d=\"m22 22-1.88-1.88\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "text,navigation,travel,account",
         tags = "location,navigation,travel,waypoint,marker,drop",
         contributors = "colebemis,karsa-mistmere,ericfennis,csandman,TonySullivan"
@@ -7557,7 +7557,7 @@ pub enum LucideGlyph {
     MapPinXInside,
     #[cfg(feature = "map_pin_x")]
     #[strum(props(
-        svg = "<path d=\"M19.75 11.90A7.78 7.78 0 0 0 20 10a8 8 0 0 0-16 0c0 4.99 5.53 10.19 7.39 11.79a1 1 0 0 0 1.20 0 19 19 0 0 0 .09-.077\"></path><circle cy=\"10\" r=\"3\" cx=\"12\"></circle><path d=\"m21.5 15.5-5 5\"></path><path d=\"m21.5 20.5-5-5\"></path>",
+        svg = "<path d=\"M19.75 11.90A7.78 7.78 0 0 0 20 10a8 8 0 0 0-16 0c0 4.99 5.53 10.19 7.39 11.79a1 1 0 0 0 1.20 0 19 19 0 0 0 .09-.077\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"m21.5 15.5-5 5\"></path><path d=\"m21.5 20.5-5-5\"></path>",
         categories = "navigation,travel,account",
         tags = "location,waypoint,marker,drop,delete,remove,erase",
         contributors = "karsa-mistmere,colebemis,csandman,ericfennis"
@@ -7565,7 +7565,7 @@ pub enum LucideGlyph {
     MapPinX,
     #[cfg(feature = "map_pin")]
     #[strum(props(
-        svg = "<path d=\"M20 10c0 4.99-5.53 10.19-7.39 11.79a1 1 0 0 1-1.20 0C9.53 20.19 4 14.99 4 10a8 8 0 0 1 16 0\"></path><circle cy=\"10\" cx=\"12\" r=\"3\"></circle>",
+        svg = "<path d=\"M20 10c0 4.99-5.53 10.19-7.39 11.79a1 1 0 0 1-1.20 0C9.53 20.19 4 14.99 4 10a8 8 0 0 1 16 0\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle>",
         categories = "navigation,travel,account",
         tags = "location,waypoint,marker,drop",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -7637,7 +7637,7 @@ pub enum LucideGlyph {
     Maximize,
     #[cfg(feature = "medal")]
     #[strum(props(
-        svg = "<path d=\"M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15\"></path><path d=\"M11 12 5.12 2.2\"></path><path d=\"m13 12 5.88-9.8\"></path><path d=\"M8 7h8\"></path><circle cy=\"17\" r=\"5\" cx=\"12\"></circle><path d=\"M12 18v-2h-.5\"></path>",
+        svg = "<path d=\"M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15\"></path><path d=\"M11 12 5.12 2.2\"></path><path d=\"m13 12 5.88-9.8\"></path><path d=\"M8 7h8\"></path><circle cx=\"12\" cy=\"17\" r=\"5\"></circle><path d=\"M12 18v-2h-.5\"></path>",
         categories = "sports,gaming",
         tags = "prize,sports,winner,trophy,award,achievement",
         contributors = "karsa-mistmere"
@@ -7661,7 +7661,7 @@ pub enum LucideGlyph {
     Megaphone,
     #[cfg(feature = "meh")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"8\" x2=\"16\" y2=\"15\" y1=\"15\"></line><line x1=\"9\" y1=\"9\" y2=\"9\" x2=\"9.01\"></line><line x1=\"15\" y1=\"9\" y2=\"9\" x2=\"15.01\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"8\" x2=\"16\" y1=\"15\" y2=\"15\"></line><line x1=\"9\" x2=\"9.01\" y1=\"9\" y2=\"9\"></line><line x1=\"15\" x2=\"15.01\" y1=\"9\" y2=\"9\"></line>",
         categories = "emoji",
         tags = "emoji,face,neutral,emotion",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -7669,7 +7669,7 @@ pub enum LucideGlyph {
     Meh,
     #[cfg(feature = "memory_stick")]
     #[strum(props(
-        svg = "<path d=\"M12 12v-2\"></path><path d=\"M12 18v-2\"></path><path d=\"M16 12v-2\"></path><path d=\"M16 18v-2\"></path><path d=\"M2 11h1.5\"></path><path d=\"M20 18v-2\"></path><path d=\"M20.5 11H22\"></path><path d=\"M4 18v-2\"></path><path d=\"M8 12v-2\"></path><path d=\"M8 18v-2\"></path><rect height=\"10\" rx=\"2\" x=\"2\" y=\"6\" width=\"20\"></rect>",
+        svg = "<path d=\"M12 12v-2\"></path><path d=\"M12 18v-2\"></path><path d=\"M16 12v-2\"></path><path d=\"M16 18v-2\"></path><path d=\"M2 11h1.5\"></path><path d=\"M20 18v-2\"></path><path d=\"M20.5 11H22\"></path><path d=\"M4 18v-2\"></path><path d=\"M8 12v-2\"></path><path d=\"M8 18v-2\"></path><rect height=\"10\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "devices,gaming",
         tags = "ram,random access,technology,computer,chip,circuit,specs,capacity,gigabytes,gb",
         contributors = "karsa-mistmere,ericfennis"
@@ -7821,7 +7821,7 @@ pub enum LucideGlyph {
     MessageSquareDiff,
     #[cfg(feature = "message_square_dot")]
     #[strum(props(
-        svg = "<path d=\"M12.7 3H4a2 2 0 0 0-2 2v16.28a.71.71 0 0 0 1.21.502l2.20-2.20A2 2 0 0 1 6.82 19H20a2 2 0 0 0 2-2v-4.7\"></path><circle cy=\"6\" cx=\"19\" r=\"3\"></circle>",
+        svg = "<path d=\"M12.7 3H4a2 2 0 0 0-2 2v16.28a.71.71 0 0 0 1.21.502l2.20-2.20A2 2 0 0 1 6.82 19H20a2 2 0 0 0 2-2v-4.7\"></path><circle cx=\"19\" cy=\"6\" r=\"3\"></circle>",
         categories = "social,notifications",
         tags = "unread,unresolved,comment,chat,conversation,dialog,feedback,speech bubble",
         contributors = "danielbayley,karsa-mistmere"
@@ -7837,7 +7837,7 @@ pub enum LucideGlyph {
     MessageSquareHeart,
     #[cfg(feature = "message_square_lock")]
     #[strum(props(
-        svg = "<path d=\"M22 8.5V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16.28a.71.71 0 0 0 1.21.502l2.20-2.20A2 2 0 0 1 6.82 19H10\"></path><path d=\"M20 15v-2a2 2 0 0 0-4 0v2\"></path><rect y=\"15\" width=\"8\" height=\"5\" rx=\"1\" x=\"14\"></rect>",
+        svg = "<path d=\"M22 8.5V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16.28a.71.71 0 0 0 1.21.502l2.20-2.20A2 2 0 0 1 6.82 19H10\"></path><path d=\"M20 15v-2a2 2 0 0 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"15\"></rect>",
         categories = "social",
         tags = "comment,chat,conversation,dialog,feedback,speech bubble,secure,encrypted",
         contributors = "colebemis,csandman,ericfennis,jguddas,karsa-mistmere"
@@ -7949,7 +7949,7 @@ pub enum LucideGlyph {
     MicOff,
     #[cfg(feature = "mic_vocal")]
     #[strum(props(
-        svg = "<path d=\"m11 7.60-5.99 8.19a1 1 0 0 0 .1 1.29l.817.81a1 1 0 0 0 1.31.087L15.09 12\"></path><path d=\"M16.5 21.17C15.5 20.5 14.37 20 13 20c-2.05 0-3.92 2.35-6 2-2.07-.356-2.77-3.36-1.5-4.5\"></path><circle cy=\"7\" r=\"5\" cx=\"16\"></circle>",
+        svg = "<path d=\"m11 7.60-5.99 8.19a1 1 0 0 0 .1 1.29l.817.81a1 1 0 0 0 1.31.087L15.09 12\"></path><path d=\"M16.5 21.17C15.5 20.5 14.37 20 13 20c-2.05 0-3.92 2.35-6 2-2.07-.356-2.77-3.36-1.5-4.5\"></path><circle cx=\"16\" cy=\"7\" r=\"5\"></circle>",
         categories = "devices,multimedia",
         tags = "lyrics,voice,listen,sound,music,radio,podcast,karaoke,singing,microphone",
         contributors = "jguddas"
@@ -7957,7 +7957,7 @@ pub enum LucideGlyph {
     MicVocal,
     #[cfg(feature = "mic")]
     #[strum(props(
-        svg = "<path d=\"M12 19v3\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><rect width=\"6\" x=\"9\" y=\"2\" height=\"13\" rx=\"3\"></rect>",
+        svg = "<path d=\"M12 19v3\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><rect height=\"13\" rx=\"3\" width=\"6\" x=\"9\" y=\"2\"></rect>",
         categories = "devices,communication,connectivity,multimedia",
         tags = "record,sound,listen,radio,podcast,microphone",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -7965,7 +7965,7 @@ pub enum LucideGlyph {
     Mic,
     #[cfg(feature = "microchip")]
     #[strum(props(
-        svg = "<path d=\"M10 12h4\"></path><path d=\"M10 17h4\"></path><path d=\"M10 7h4\"></path><path d=\"M18 12h2\"></path><path d=\"M18 18h2\"></path><path d=\"M18 6h2\"></path><path d=\"M4 12h2\"></path><path d=\"M4 18h2\"></path><path d=\"M4 6h2\"></path><rect rx=\"2\" y=\"2\" x=\"6\" height=\"20\" width=\"12\"></rect>",
+        svg = "<path d=\"M10 12h4\"></path><path d=\"M10 17h4\"></path><path d=\"M10 7h4\"></path><path d=\"M18 12h2\"></path><path d=\"M18 18h2\"></path><path d=\"M18 6h2\"></path><path d=\"M4 12h2\"></path><path d=\"M4 18h2\"></path><path d=\"M4 6h2\"></path><rect height=\"20\" rx=\"2\" width=\"12\" x=\"6\" y=\"2\"></rect>",
         categories = "devices",
         tags = "processor,cores,technology,computer,chip,integrated circuit,memory,ram,specs,gpu,gigahertz,ghz",
         contributors = "karsa-mistmere,colebemis,ericfennis"
@@ -7981,7 +7981,7 @@ pub enum LucideGlyph {
     Microscope,
     #[cfg(feature = "microwave")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"20\" x=\"2\" height=\"15\" y=\"4\"></rect><rect width=\"8\" height=\"7\" x=\"6\" rx=\"1\" y=\"8\"></rect><path d=\"M18 8v7\"></path><path d=\"M6 19v2\"></path><path d=\"M18 19v2\"></path>",
+        svg = "<rect height=\"15\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><rect height=\"7\" rx=\"1\" width=\"8\" x=\"6\" y=\"8\"></rect><path d=\"M18 8v7\"></path><path d=\"M6 19v2\"></path><path d=\"M18 19v2\"></path>",
         categories = "food-beverage,home",
         tags = "oven,cooker,toaster oven,bake",
         contributors = "karsa-mistmere,ericfennis"
@@ -7997,7 +7997,7 @@ pub enum LucideGlyph {
     Milestone,
     #[cfg(feature = "milk_off")]
     #[strum(props(
-        svg = "<path d=\"M8 2h8\"></path><path d=\"M9 2v1.34M15 2v2.78a4 4 0 0 0 .672 2.21l.656.98a4 4 0 0 1 .672 2.22v1.13M7.8 7.8l-.128.19A4 4 0 0 0 7 10.21V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3\"></path><path d=\"M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 3.43.435\"></path><line y1=\"2\" x1=\"2\" x2=\"22\" y2=\"22\"></line>",
+        svg = "<path d=\"M8 2h8\"></path><path d=\"M9 2v1.34M15 2v2.78a4 4 0 0 0 .672 2.21l.656.98a4 4 0 0 1 .672 2.22v1.13M7.8 7.8l-.128.19A4 4 0 0 0 7 10.21V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3\"></path><path d=\"M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 3.43.435\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "food-beverage",
         tags = "lactose free,bottle,beverage,drink,water,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -8037,7 +8037,7 @@ pub enum LucideGlyph {
     Minus,
     #[cfg(feature = "mirror_rectangular")]
     #[strum(props(
-        svg = "<path d=\"M11 6 8 9\"></path><path d=\"m16 7-8 8\"></path><rect height=\"20\" rx=\"2\" y=\"2\" x=\"4\" width=\"16\"></rect>",
+        svg = "<path d=\"M11 6 8 9\"></path><path d=\"m16 7-8 8\"></path><rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect>",
         categories = "science,home,tools",
         tags = "reflection,optics,glass,surface,image,physics,science,bathroom,decor,cosmetic,shiny,periscope,vanity",
         contributors = "Muhammad-Aqib-Bashir,jamiemlaw,karsa-mistmere"
@@ -8045,7 +8045,7 @@ pub enum LucideGlyph {
     MirrorRectangular,
     #[cfg(feature = "mirror_round")]
     #[strum(props(
-        svg = "<path d=\"M10 6.6 8.6 8\"></path><path d=\"M12 18v4\"></path><path d=\"M15 7.5 9.5 13\"></path><path d=\"M7 22h10\"></path><circle cy=\"10\" cx=\"12\" r=\"8\"></circle>",
+        svg = "<path d=\"M10 6.6 8.6 8\"></path><path d=\"M12 18v4\"></path><path d=\"M15 7.5 9.5 13\"></path><path d=\"M7 22h10\"></path><circle cx=\"12\" cy=\"10\" r=\"8\"></circle>",
         categories = "science,home,tools",
         tags = "reflection,optics,glass,surface,image,physics,science,bathroom,vanity,makeup,decor,cosmetic,shiny,periscope",
         contributors = "Muhammad-Aqib-Bashir,jamiemlaw,karsa-mistmere"
@@ -8053,7 +8053,7 @@ pub enum LucideGlyph {
     MirrorRound,
     #[cfg(feature = "monitor_check")]
     #[strum(props(
-        svg = "<path d=\"m9 10 2 2 4-4\"></path><rect x=\"2\" y=\"3\" rx=\"2\" width=\"20\" height=\"14\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
+        svg = "<path d=\"m9 10 2 2 4-4\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,desktop,running,active,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8061,7 +8061,7 @@ pub enum LucideGlyph {
     MonitorCheck,
     #[cfg(feature = "monitor_cloud")]
     #[strum(props(
-        svg = "<path d=\"M11 13a3 3 0 1 1 2.83-4H14a2 2 0 0 1 0 4z\"></path><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><rect y=\"3\" width=\"20\" x=\"2\" rx=\"2\" height=\"14\"></rect>",
+        svg = "<path d=\"M11 13a3 3 0 1 1 2.83-4H14a2 2 0 0 1 0 4z\"></path><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect>",
         categories = "connectivity,devices,development",
         tags = "virtual machine,virtual desktop,vm,vdi,computing,remote work,monitoring,infrastructure,software as a service,saas,workstation,environment,tv,screen,display",
         contributors = "colebemis,ericfennis,danielbayley,jguddas,karsa-mistmere"
@@ -8069,7 +8069,7 @@ pub enum LucideGlyph {
     MonitorCloud,
     #[cfg(feature = "monitor_cog")]
     #[strum(props(
-        svg = "<path d=\"M12 17v4\"></path><path d=\"m14.30 7.53.92-.382\"></path><path d=\"m15.22 4.85-.923-.383\"></path><path d=\"m16.85 3.22-.383-.924\"></path><path d=\"m16.85 8.77-.383.92\"></path><path d=\"m19.14 3.22.383-.924\"></path><path d=\"m19.53 9.69-.382-.924\"></path><path d=\"m20.77 4.85.924-.383\"></path><path d=\"m20.77 7.14.924.38\"></path><path d=\"M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7\"></path><path d=\"M8 21h8\"></path><circle r=\"3\" cx=\"18\" cy=\"6\"></circle>",
+        svg = "<path d=\"M12 17v4\"></path><path d=\"m14.30 7.53.92-.382\"></path><path d=\"m15.22 4.85-.923-.383\"></path><path d=\"m16.85 3.22-.383-.924\"></path><path d=\"m16.85 8.77-.383.92\"></path><path d=\"m19.14 3.22.383-.924\"></path><path d=\"m19.53 9.69-.382-.924\"></path><path d=\"m20.77 4.85.924-.383\"></path><path d=\"m20.77 7.14.924.38\"></path><path d=\"M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7\"></path><path d=\"M8 21h8\"></path><circle cx=\"18\" cy=\"6\" r=\"3\"></circle>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,virtual machine,vm,executable,settings,cog,edit,gear,configuration,preferences,system,control panel,network,computing",
         contributors = "karsa-mistmere,colebemis,UsamaKhan"
@@ -8077,7 +8077,7 @@ pub enum LucideGlyph {
     MonitorCog,
     #[cfg(feature = "monitor_dot")]
     #[strum(props(
-        svg = "<path d=\"M12 17v4\"></path><path d=\"M22 12.30V15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8.69\"></path><path d=\"M8 21h8\"></path><circle cy=\"6\" r=\"3\" cx=\"19\"></circle>",
+        svg = "<path d=\"M12 17v4\"></path><path d=\"M22 12.30V15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8.69\"></path><path d=\"M8 21h8\"></path><circle cx=\"19\" cy=\"6\" r=\"3\"></circle>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,desktop,running,active,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8085,7 +8085,7 @@ pub enum LucideGlyph {
     MonitorDot,
     #[cfg(feature = "monitor_down")]
     #[strum(props(
-        svg = "<path d=\"M12 13V7\"></path><path d=\"m15 10-3 3-3-3\"></path><rect height=\"14\" width=\"20\" y=\"3\" rx=\"2\" x=\"2\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
+        svg = "<path d=\"M12 13V7\"></path><path d=\"m15 10-3 3-3-3\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,desktop,download",
         contributors = "danielbayley,karsa-mistmere,jguddas"
@@ -8101,7 +8101,7 @@ pub enum LucideGlyph {
     MonitorOff,
     #[cfg(feature = "monitor_pause")]
     #[strum(props(
-        svg = "<path d=\"M10 13V7\"></path><path d=\"M14 13V7\"></path><rect width=\"20\" x=\"2\" rx=\"2\" y=\"3\" height=\"14\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
+        svg = "<path d=\"M10 13V7\"></path><path d=\"M14 13V7\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
         categories = "connectivity,devices,multimedia",
         tags = "tv,screen,display,desktop,video,movie,film,suspend,hibernate,boot,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8109,7 +8109,7 @@ pub enum LucideGlyph {
     MonitorPause,
     #[cfg(feature = "monitor_play")]
     #[strum(props(
-        svg = "<path d=\"M15.03 9.44a.647.64 0 0 1 0 1.12l-4.06 2.35a.645.64 0 0 1-.968-.56V7.64a.645.64 0 0 1 .967-.56z\"></path><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><rect width=\"20\" x=\"2\" height=\"14\" y=\"3\" rx=\"2\"></rect>",
+        svg = "<path d=\"M15.03 9.44a.647.64 0 0 1 0 1.12l-4.06 2.35a.645.64 0 0 1-.968-.56V7.64a.645.64 0 0 1 .967-.56z\"></path><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect>",
         categories = "connectivity,devices,multimedia",
         tags = "tv,screen,display,desktop,video,movie,film,running,start,boot,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8117,7 +8117,7 @@ pub enum LucideGlyph {
     MonitorPlay,
     #[cfg(feature = "monitor_smartphone")]
     #[strum(props(
-        svg = "<path d=\"M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8\"></path><path d=\"M10 19v-3.96 3.15\"></path><path d=\"M7 19h5\"></path><rect y=\"12\" width=\"6\" height=\"10\" rx=\"2\" x=\"16\"></rect>",
+        svg = "<path d=\"M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8\"></path><path d=\"M10 19v-3.96 3.15\"></path><path d=\"M7 19h5\"></path><rect height=\"10\" rx=\"2\" width=\"6\" x=\"16\" y=\"12\"></rect>",
         categories = "connectivity,devices",
         tags = "smartphone,phone,cellphone,device,mobile,desktop,monitor,responsive,screens",
         contributors = "badraxas,karsa-mistmere,jguddas,ericfennis"
@@ -8125,7 +8125,7 @@ pub enum LucideGlyph {
     MonitorSmartphone,
     #[cfg(feature = "monitor_speaker")]
     #[strum(props(
-        svg = "<path d=\"M5.5 20H8\"></path><path d=\"M17 9h.01\"></path><rect rx=\"2\" width=\"10\" height=\"16\" x=\"12\" y=\"4\"></rect><path d=\"M8 6H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4\"></path><circle cx=\"17\" cy=\"15\" r=\"1\"></circle>",
+        svg = "<path d=\"M5.5 20H8\"></path><path d=\"M17 9h.01\"></path><rect height=\"16\" rx=\"2\" width=\"10\" x=\"12\" y=\"4\"></rect><path d=\"M8 6H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4\"></path><circle cx=\"17\" cy=\"15\" r=\"1\"></circle>",
         categories = "connectivity,devices",
         tags = "devices,connect,cast",
         contributors = "mittalyashu,ericfennis"
@@ -8133,7 +8133,7 @@ pub enum LucideGlyph {
     MonitorSpeaker,
     #[cfg(feature = "monitor_stop")]
     #[strum(props(
-        svg = "<path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><rect x=\"2\" rx=\"2\" y=\"3\" width=\"20\" height=\"14\"></rect><rect width=\"6\" rx=\"1\" y=\"7\" x=\"9\" height=\"6\"></rect>",
+        svg = "<path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"9\" y=\"7\"></rect>",
         categories = "connectivity,devices,multimedia",
         tags = "tv,screen,display,desktop,video,movie,film,stop,shutdown,virtual machine,vm",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8141,7 +8141,7 @@ pub enum LucideGlyph {
     MonitorStop,
     #[cfg(feature = "monitor_up")]
     #[strum(props(
-        svg = "<path d=\"m9 10 3-3 3 3\"></path><path d=\"M12 13V7\"></path><rect rx=\"2\" width=\"20\" height=\"14\" x=\"2\" y=\"3\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
+        svg = "<path d=\"m9 10 3-3 3 3\"></path><path d=\"M12 13V7\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,upload,connect,remote,screen share",
         contributors = "danielbayley,karsa-mistmere,jguddas"
@@ -8149,7 +8149,7 @@ pub enum LucideGlyph {
     MonitorUp,
     #[cfg(feature = "monitor_x")]
     #[strum(props(
-        svg = "<path d=\"m14.5 12.5-5-5\"></path><path d=\"m9.5 12.5 5-5\"></path><rect rx=\"2\" y=\"3\" height=\"14\" width=\"20\" x=\"2\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
+        svg = "<path d=\"m14.5 12.5-5-5\"></path><path d=\"m9.5 12.5 5-5\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,desktop,virtual machine,vm,close,stop,suspend,remove,delete",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8157,7 +8157,7 @@ pub enum LucideGlyph {
     MonitorX,
     #[cfg(feature = "monitor")]
     #[strum(props(
-        svg = "<rect y=\"3\" rx=\"2\" width=\"20\" x=\"2\" height=\"14\"></rect><line x1=\"8\" y2=\"21\" x2=\"16\" y1=\"21\"></line><line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\"></line>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect><line x1=\"8\" x2=\"16\" y1=\"21\" y2=\"21\"></line><line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\"></line>",
         categories = "connectivity,devices",
         tags = "tv,screen,display,virtual machine,vm",
         contributors = "colebemis,ericfennis,danielbayley,jguddas,karsa-mistmere"
@@ -8181,7 +8181,7 @@ pub enum LucideGlyph {
     Moon,
     #[cfg(feature = "motorbike")]
     #[strum(props(
-        svg = "<path d=\"m18 14-1-3\"></path><path d=\"m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81\"></path><path d=\"M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5\"></path><circle r=\"3\" cx=\"19\" cy=\"17\"></circle><circle r=\"3\" cy=\"17\" cx=\"5\"></circle>",
+        svg = "<path d=\"m18 14-1-3\"></path><path d=\"m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81\"></path><path d=\"M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5\"></path><circle cx=\"19\" cy=\"17\" r=\"3\"></circle><circle cx=\"5\" cy=\"17\" r=\"3\"></circle>",
         categories = "transportation",
         tags = "moto,motorcycle,transport,vehicle,drive,ride,trip,race,racing,journey,delivery",
         contributors = "jamiemlaw"
@@ -8205,7 +8205,7 @@ pub enum LucideGlyph {
     Mountain,
     #[cfg(feature = "mouse_left")]
     #[strum(props(
-        svg = "<path d=\"M12 7.31V10\"></path><path d=\"M5 10v5a7 7 0 0 0 14 0V9c0-3.52-2.60-6.51-6-7\"></path><circle cx=\"7\" r=\"2\" cy=\"4\"></circle>",
+        svg = "<path d=\"M12 7.31V10\"></path><path d=\"M5 10v5a7 7 0 0 0 14 0V9c0-3.52-2.60-6.51-6-7\"></path><circle cx=\"7\" cy=\"4\" r=\"2\"></circle>",
         categories = "devices",
         tags = "device,scroll,click",
         contributors = "mittalyashu,ericfennis,karsa-mistmere,marvfash"
@@ -8237,7 +8237,7 @@ pub enum LucideGlyph {
     MousePointer2,
     #[cfg(feature = "mouse_pointer_ban")]
     #[strum(props(
-        svg = "<path d=\"M2.03 2.68a.498.49 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.94L8.20 7.54a1 1 0 0 0-.66.66l-1.06 3.44a.5.5 0 0 1-.944.03z\"></path><circle r=\"6\" cy=\"16\" cx=\"16\"></circle><path d=\"m11.8 11.8 8.4 8.4\"></path>",
+        svg = "<path d=\"M2.03 2.68a.498.49 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.94L8.20 7.54a1 1 0 0 0-.66.66l-1.06 3.44a.5.5 0 0 1-.944.03z\"></path><circle cx=\"16\" cy=\"16\" r=\"6\"></circle><path d=\"m11.8 11.8 8.4 8.4\"></path>",
         categories = "arrows,cursors",
         tags = "wait,busy,loading,blocked,frozen,freeze",
         contributors = "danielbayley"
@@ -8261,7 +8261,7 @@ pub enum LucideGlyph {
     MousePointer,
     #[cfg(feature = "mouse_right")]
     #[strum(props(
-        svg = "<path d=\"M12 7.31V10\"></path><path d=\"M19 10v5a7 7 0 0 1-14 0V9c0-3.52 2.60-6.51 6-7\"></path><circle cy=\"4\" cx=\"17\" r=\"2\"></circle>",
+        svg = "<path d=\"M12 7.31V10\"></path><path d=\"M19 10v5a7 7 0 0 1-14 0V9c0-3.52 2.60-6.51 6-7\"></path><circle cx=\"17\" cy=\"4\" r=\"2\"></circle>",
         categories = "devices",
         tags = "device,scroll,click",
         contributors = "mittalyashu,ericfennis,karsa-mistmere,marvfash"
@@ -8269,7 +8269,7 @@ pub enum LucideGlyph {
     MouseRight,
     #[cfg(feature = "mouse")]
     #[strum(props(
-        svg = "<rect width=\"14\" x=\"5\" height=\"20\" rx=\"7\" y=\"2\"></rect><path d=\"M12 6v4\"></path>",
+        svg = "<rect height=\"20\" rx=\"7\" width=\"14\" x=\"5\" y=\"2\"></rect><path d=\"M12 6v4\"></path>",
         categories = "devices",
         tags = "device,scroll,click",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -8389,7 +8389,7 @@ pub enum LucideGlyph {
     Move,
     #[cfg(feature = "music_2")]
     #[strum(props(
-        svg = "<circle cy=\"18\" cx=\"8\" r=\"4\"></circle><path d=\"M12 18V2l7 4\"></path>",
+        svg = "<circle cx=\"8\" cy=\"18\" r=\"4\"></circle><path d=\"M12 18V2l7 4\"></path>",
         categories = "multimedia,files",
         tags = "quaver,eighth note,note",
         contributors = "it-is-not,danielbayley,karsa-mistmere"
@@ -8397,7 +8397,7 @@ pub enum LucideGlyph {
     Music2,
     #[cfg(feature = "music_3")]
     #[strum(props(
-        svg = "<circle cy=\"18\" r=\"4\" cx=\"12\"></circle><path d=\"M16 18V2\"></path>",
+        svg = "<circle cx=\"12\" cy=\"18\" r=\"4\"></circle><path d=\"M16 18V2\"></path>",
         categories = "multimedia,files",
         tags = "crotchet,minim,quarter note,half note,note",
         contributors = "it-is-not,danielbayley,karsa-mistmere"
@@ -8413,7 +8413,7 @@ pub enum LucideGlyph {
     Music4,
     #[cfg(feature = "music")]
     #[strum(props(
-        svg = "<path d=\"M9 18V5l12-2v13\"></path><circle cy=\"18\" cx=\"6\" r=\"3\"></circle><circle cy=\"16\" r=\"3\" cx=\"18\"></circle>",
+        svg = "<path d=\"M9 18V5l12-2v13\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><circle cx=\"18\" cy=\"16\" r=\"3\"></circle>",
         categories = "multimedia,files",
         tags = "note,quaver,eighth note",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -8421,7 +8421,7 @@ pub enum LucideGlyph {
     Music,
     #[cfg(feature = "navigation_2_off")]
     #[strum(props(
-        svg = "<path d=\"M9.31 9.31 5 21l7-4 7 4-1.17-3.17\"></path><path d=\"M14.53 8.88 12 2l-1.17 3.17\"></path><line y1=\"2\" x2=\"22\" y2=\"22\" x1=\"2\"></line>",
+        svg = "<path d=\"M9.31 9.31 5 21l7-4 7 4-1.17-3.17\"></path><path d=\"M14.53 8.88 12 2l-1.17 3.17\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "navigation",
         tags = "location,travel",
         contributors = "karsa-mistmere,ericfennis"
@@ -8437,7 +8437,7 @@ pub enum LucideGlyph {
     Navigation2,
     #[cfg(feature = "navigation_off")]
     #[strum(props(
-        svg = "<path d=\"M8.43 8.43 3 11l8 2 2 8 2.57-5.43\"></path><path d=\"M17.39 11.73 22 2l-9.73 4.61\"></path><line y1=\"2\" x2=\"22\" y2=\"22\" x1=\"2\"></line>",
+        svg = "<path d=\"M8.43 8.43 3 11l8 2 2 8 2.57-5.43\"></path><path d=\"M17.39 11.73 22 2l-9.73 4.61\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "navigation",
         tags = "location,travel",
         contributors = "karsa-mistmere,ericfennis"
@@ -8453,7 +8453,7 @@ pub enum LucideGlyph {
     Navigation,
     #[cfg(feature = "network")]
     #[strum(props(
-        svg = "<rect x=\"16\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"></rect><rect y=\"16\" x=\"2\" width=\"6\" rx=\"1\" height=\"6\"></rect><rect y=\"2\" rx=\"1\" x=\"9\" width=\"6\" height=\"6\"></rect><path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3\"></path><path d=\"M12 12V8\"></path>",
+        svg = "<rect height=\"6\" rx=\"1\" width=\"6\" x=\"16\" y=\"16\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"2\" y=\"16\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"9\" y=\"2\"></rect><path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3\"></path><path d=\"M12 12V8\"></path>",
         categories = "development",
         tags = "tree",
         contributors = "ericfennis,johnletey,csandman,karsa-mistmere"
@@ -8461,7 +8461,7 @@ pub enum LucideGlyph {
     Network,
     #[cfg(feature = "newspaper")]
     #[strum(props(
-        svg = "<path d=\"M15 18h-5\"></path><path d=\"M18 14h-8\"></path><path d=\"M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2\"></path><rect y=\"6\" rx=\"1\" width=\"8\" height=\"4\" x=\"10\"></rect>",
+        svg = "<path d=\"M15 18h-5\"></path><path d=\"M18 14h-8\"></path><path d=\"M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2\"></path><rect height=\"4\" rx=\"1\" width=\"8\" x=\"10\" y=\"6\"></rect>",
         categories = "multimedia,communication",
         tags = "news,feed,home,magazine,article,headline",
         contributors = "ericfennis,jguddas,karsa-mistmere"
@@ -8477,7 +8477,7 @@ pub enum LucideGlyph {
     Nfc,
     #[cfg(feature = "non_binary")]
     #[strum(props(
-        svg = "<path d=\"M12 2v10\"></path><path d=\"m8.5 4 7 4\"></path><path d=\"m8.5 8 7-4\"></path><circle cy=\"17\" r=\"5\" cx=\"12\"></circle>",
+        svg = "<path d=\"M12 2v10\"></path><path d=\"m8.5 4 7 4\"></path><path d=\"m8.5 8 7-4\"></path><circle cx=\"12\" cy=\"17\" r=\"5\"></circle>",
         categories = "medical",
         tags = "gender,nonbinary,enby",
         contributors = "jamiemlaw"
@@ -8493,7 +8493,7 @@ pub enum LucideGlyph {
     NotebookPen,
     #[cfg(feature = "notebook_tabs")]
     #[strum(props(
-        svg = "<path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><rect height=\"20\" width=\"16\" x=\"4\" rx=\"2\" y=\"2\"></rect><path d=\"M15 2v20\"></path><path d=\"M15 7h5\"></path><path d=\"M15 12h5\"></path><path d=\"M15 17h5\"></path>",
+        svg = "<path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><path d=\"M15 2v20\"></path><path d=\"M15 7h5\"></path><path d=\"M15 12h5\"></path><path d=\"M15 17h5\"></path>",
         categories = "account,communication,social",
         tags = "notepad,notes,people,family,friends,acquaintances,contacts,details,addresses,phone numbers,directory,listing,networking,alphabetical,a-z,organizer,organiser,planner,diary,stationery",
         contributors = "danielbayley"
@@ -8501,7 +8501,7 @@ pub enum LucideGlyph {
     NotebookTabs,
     #[cfg(feature = "notebook_text")]
     #[strum(props(
-        svg = "<path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><rect height=\"20\" x=\"4\" y=\"2\" rx=\"2\" width=\"16\"></rect><path d=\"M9.5 8h5\"></path><path d=\"M9.5 12H16\"></path><path d=\"M9.5 16H14\"></path>",
+        svg = "<path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><path d=\"M9.5 8h5\"></path><path d=\"M9.5 12H16\"></path><path d=\"M9.5 16H14\"></path>",
         categories = "text,social",
         tags = "notepad,notes,pages,paper,stationery,sketchbook,organizer,organiser,planner,diary,journal,writing,write,written,reading,high school,university,college,academy,student,study,research,homework,lines,opened",
         contributors = "danielbayley"
@@ -8509,7 +8509,7 @@ pub enum LucideGlyph {
     NotebookText,
     #[cfg(feature = "notebook")]
     #[strum(props(
-        svg = "<path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><rect x=\"4\" width=\"16\" height=\"20\" y=\"2\" rx=\"2\"></rect><path d=\"M16 2v20\"></path>",
+        svg = "<path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><path d=\"M16 2v20\"></path>",
         categories = "text,communication,social,design",
         tags = "notepad,notes,stationery,sketchbook,moleskine,closure,strap,band,elastic,organizer,organiser,planner,diary,journal,writing,written,writer,reading,high school,university,college,academy,student,study,homework,research",
         contributors = "danielbayley"
@@ -8525,7 +8525,7 @@ pub enum LucideGlyph {
     NotepadTextDashed,
     #[cfg(feature = "notepad_text")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M12 2v4\"></path><path d=\"M16 2v4\"></path><rect x=\"4\" rx=\"2\" y=\"4\" height=\"18\" width=\"16\"></rect><path d=\"M8 10h6\"></path><path d=\"M8 14h8\"></path><path d=\"M8 18h5\"></path>",
+        svg = "<path d=\"M8 2v4\"></path><path d=\"M12 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"16\" x=\"4\" y=\"4\"></rect><path d=\"M8 10h6\"></path><path d=\"M8 14h8\"></path><path d=\"M8 18h5\"></path>",
         categories = "text,social",
         tags = "notebook,notes,pages,paper,stationery,sketchbook,organizer,organiser,planner,diary,journal,writing,write,written,reading,high school,university,college,academy,student,study,homework,research,lines,opened",
         contributors = "danielbayley"
@@ -8533,7 +8533,7 @@ pub enum LucideGlyph {
     NotepadText,
     #[cfg(feature = "nut_off")]
     #[strum(props(
-        svg = "<path d=\"M12 4V2\"></path><path d=\"M5 10v4a7.00 7.00 0 0 0 5.27 6.78c.412.10.802.29 1.10.592L12 22l.621-.621c.3-.3.69-.488 1.10-.592a7.01 7.01 0 0 0 4.12-2.93\"></path><path d=\"M19 10v3.34\"></path><path d=\"M12 12c-1.34-.573-1.90-1.00-2.5-2-.546.90-1.04 1.35-2.5 2-1.01-.644-1.46-1.08-2-2-1.02.71-1.69.91-3 1 1.08-1.04 1.75-2.03 2-3 .194-.776.84-1.55 1.79-2.21m11.65 5.99c.887-.457 1.28-.891 1.55-1.78 1.03.916 1.68 1.15 3 1-1.29-1.03-1.75-2.03-2-3-.5-2-4-4-8-4-.74 0-1.46.068-2.15.19\"></path><line y1=\"2\" y2=\"22\" x1=\"2\" x2=\"22\"></line>",
+        svg = "<path d=\"M12 4V2\"></path><path d=\"M5 10v4a7.00 7.00 0 0 0 5.27 6.78c.412.10.802.29 1.10.592L12 22l.621-.621c.3-.3.69-.488 1.10-.592a7.01 7.01 0 0 0 4.12-2.93\"></path><path d=\"M19 10v3.34\"></path><path d=\"M12 12c-1.34-.573-1.90-1.00-2.5-2-.546.90-1.04 1.35-2.5 2-1.01-.644-1.46-1.08-2-2-1.02.71-1.69.91-3 1 1.08-1.04 1.75-2.03 2-3 .194-.776.84-1.55 1.79-2.21m11.65 5.99c.887-.457 1.28-.891 1.55-1.78 1.03.916 1.68 1.15 3 1-1.29-1.03-1.75-2.03-2-3-.5-2-4-4-8-4-.74 0-1.46.068-2.15.19\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "food-beverage",
         tags = "hazelnut,acorn,food,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -8605,7 +8605,7 @@ pub enum LucideGlyph {
     Option,
     #[cfg(feature = "orbit")]
     #[strum(props(
-        svg = "<path d=\"M20.34 6.48A10 10 0 0 1 10.26 21.85\"></path><path d=\"M3.65 17.51A10 10 0 0 1 13.74 2.15\"></path><circle cx=\"12\" r=\"3\" cy=\"12\"></circle><circle cy=\"5\" r=\"2\" cx=\"19\"></circle><circle cy=\"19\" r=\"2\" cx=\"5\"></circle>",
+        svg = "<path d=\"M20.34 6.48A10 10 0 0 1 10.26 21.85\"></path><path d=\"M3.65 17.51A10 10 0 0 1 13.74 2.15\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><circle cx=\"19\" cy=\"5\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle>",
         categories = "science",
         tags = "planet,space,physics,satellites,moons",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -8693,7 +8693,7 @@ pub enum LucideGlyph {
     PaintBucket,
     #[cfg(feature = "paint_roller")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"16\" height=\"6\" x=\"2\" y=\"2\"></rect><path d=\"M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2\"></path><rect height=\"6\" width=\"4\" rx=\"1\" y=\"16\" x=\"8\"></rect>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"16\" x=\"2\" y=\"2\"></rect><path d=\"M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2\"></path><rect height=\"6\" rx=\"1\" width=\"4\" x=\"8\" y=\"16\"></rect>",
         categories = "text,design,home,tools",
         tags = "brush,color,colour,decoration,diy",
         contributors = "danielbayley,karsa-mistmere"
@@ -8717,7 +8717,7 @@ pub enum LucideGlyph {
     Paintbrush,
     #[cfg(feature = "palette")]
     #[strum(props(
-        svg = "<path d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\"></path><circle r=\".5\" cy=\"6.5\" fill=\"currentColor\" cx=\"13.5\"></circle><circle r=\".5\" fill=\"currentColor\" cy=\"10.5\" cx=\"17.5\"></circle><circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"8.5\" fill=\"currentColor\" cy=\"7.5\" r=\".5\"></circle>",
+        svg = "<path d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\"></path><circle cx=\"13.5\" cy=\"6.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"17.5\" cy=\"10.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"6.5\" cy=\"12.5\" fill=\"currentColor\" r=\".5\"></circle><circle cx=\"8.5\" cy=\"7.5\" fill=\"currentColor\" r=\".5\"></circle>",
         categories = "text,design,photography",
         tags = "colors,colours,theme,scheme,paint,watercolor,watercolour,artist",
         contributors = "ericfennis,csandman,karsa-mistmere,jamiemlaw"
@@ -8733,7 +8733,7 @@ pub enum LucideGlyph {
     Panda,
     #[cfg(feature = "panel_bottom_close")]
     #[strum(props(
-        svg = "<rect width=\"18\" y=\"3\" x=\"3\" rx=\"2\" height=\"18\"></rect><path d=\"M3 15h18\"></path><path d=\"m15 8-3 3-3-3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 15h18\"></path><path d=\"m15 8-3 3-3-3\"></path>",
         categories = "layout,arrows",
         tags = "drawer,dock,hide,chevron,down",
         contributors = "danielbayley,ericfennis"
@@ -8741,7 +8741,7 @@ pub enum LucideGlyph {
     PanelBottomClose,
     #[cfg(feature = "panel_bottom_dashed")]
     #[strum(props(
-        svg = "<rect width=\"18\" rx=\"2\" x=\"3\" y=\"3\" height=\"18\"></rect><path d=\"M14 15h1\"></path><path d=\"M19 15h2\"></path><path d=\"M3 15h2\"></path><path d=\"M9 15h1\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M14 15h1\"></path><path d=\"M19 15h2\"></path><path d=\"M3 15h2\"></path><path d=\"M9 15h1\"></path>",
         categories = "layout",
         tags = "drawer,dock,show,reveal,padding,margin,guide,layout,bleed",
         contributors = "danielbayley,ericfennis,irvineacosta"
@@ -8749,7 +8749,7 @@ pub enum LucideGlyph {
     PanelBottomDashed,
     #[cfg(feature = "panel_bottom_open")]
     #[strum(props(
-        svg = "<rect y=\"3\" rx=\"2\" height=\"18\" x=\"3\" width=\"18\"></rect><path d=\"M3 15h18\"></path><path d=\"m9 10 3-3 3 3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 15h18\"></path><path d=\"m9 10 3-3 3 3\"></path>",
         categories = "layout,arrows",
         tags = "drawer,dock,show,reveal,chevron,up",
         contributors = "danielbayley,ericfennis"
@@ -8757,7 +8757,7 @@ pub enum LucideGlyph {
     PanelBottomOpen,
     #[cfg(feature = "panel_bottom")]
     #[strum(props(
-        svg = "<rect x=\"3\" height=\"18\" rx=\"2\" y=\"3\" width=\"18\"></rect><path d=\"M3 15h18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 15h18\"></path>",
         categories = "layout",
         tags = "drawer,dock",
         contributors = "danielbayley,ericfennis"
@@ -8765,7 +8765,7 @@ pub enum LucideGlyph {
     PanelBottom,
     #[cfg(feature = "panel_left_close")]
     #[strum(props(
-        svg = "<rect y=\"3\" x=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect><path d=\"M9 3v18\"></path><path d=\"m16 15-3-3 3-3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 3v18\"></path><path d=\"m16 15-3-3 3-3\"></path>",
         categories = "layout,arrows",
         tags = "primary,drawer,hide,chevron,<",
         contributors = "mittalyashu,danielbayley,ericfennis"
@@ -8773,7 +8773,7 @@ pub enum LucideGlyph {
     PanelLeftClose,
     #[cfg(feature = "panel_left_dashed")]
     #[strum(props(
-        svg = "<rect y=\"3\" x=\"3\" rx=\"2\" height=\"18\" width=\"18\"></rect><path d=\"M9 14v1\"></path><path d=\"M9 19v2\"></path><path d=\"M9 3v2\"></path><path d=\"M9 9v1\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 14v1\"></path><path d=\"M9 19v2\"></path><path d=\"M9 3v2\"></path><path d=\"M9 9v1\"></path>",
         categories = "layout",
         tags = "sidebar,primary,drawer,show,reveal,padding,margin,guide,layout,bleed",
         contributors = "danielbayley,ericfennis,irvineacosta"
@@ -8781,7 +8781,7 @@ pub enum LucideGlyph {
     PanelLeftDashed,
     #[cfg(feature = "panel_left_open")]
     #[strum(props(
-        svg = "<rect width=\"18\" x=\"3\" height=\"18\" y=\"3\" rx=\"2\"></rect><path d=\"M9 3v18\"></path><path d=\"m14 9 3 3-3 3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 3v18\"></path><path d=\"m14 9 3 3-3 3\"></path>",
         categories = "layout,arrows",
         tags = "primary,drawer,show,reveal,chevron,right,>",
         contributors = "mittalyashu,danielbayley,ericfennis"
@@ -8789,7 +8789,7 @@ pub enum LucideGlyph {
     PanelLeftOpen,
     #[cfg(feature = "panel_left_right_dashed")]
     #[strum(props(
-        svg = "<path d=\"M15 10V9\"></path><path d=\"M15 15v-1\"></path><path d=\"M15 21v-2\"></path><path d=\"M15 5V3\"></path><path d=\"M9 10V9\"></path><path d=\"M9 15v-1\"></path><path d=\"M9 21v-2\"></path><path d=\"M9 5V3\"></path><rect rx=\"2\" height=\"18\" x=\"3\" width=\"18\" y=\"3\"></rect>",
+        svg = "<path d=\"M15 10V9\"></path><path d=\"M15 15v-1\"></path><path d=\"M15 21v-2\"></path><path d=\"M15 5V3\"></path><path d=\"M9 10V9\"></path><path d=\"M9 15v-1\"></path><path d=\"M9 21v-2\"></path><path d=\"M9 5V3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "layout",
         tags = "sidebar,primary,drawer,show,reveal,padding,margin,guide,layout,vertical,bleed",
         contributors = "danielbayley,ericfennis,irvineacosta,jguddas"
@@ -8797,7 +8797,7 @@ pub enum LucideGlyph {
     PanelLeftRightDashed,
     #[cfg(feature = "panel_left")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"3\" rx=\"2\" height=\"18\" width=\"18\"></rect><path d=\"M9 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 3v18\"></path>",
         categories = "layout",
         tags = "primary,drawer",
         contributors = "colebemis,danielbayley,ericfennis"
@@ -8805,7 +8805,7 @@ pub enum LucideGlyph {
     PanelLeft,
     #[cfg(feature = "panel_right_close")]
     #[strum(props(
-        svg = "<rect height=\"18\" x=\"3\" y=\"3\" rx=\"2\" width=\"18\"></rect><path d=\"M15 3v18\"></path><path d=\"m8 9 3 3-3 3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M15 3v18\"></path><path d=\"m8 9 3 3-3 3\"></path>",
         categories = "layout,arrows",
         tags = "sidebar,secondary,drawer,hide,chevron,>",
         contributors = "danielbayley,ericfennis"
@@ -8813,7 +8813,7 @@ pub enum LucideGlyph {
     PanelRightClose,
     #[cfg(feature = "panel_right_dashed")]
     #[strum(props(
-        svg = "<rect rx=\"2\" y=\"3\" width=\"18\" height=\"18\" x=\"3\"></rect><path d=\"M15 14v1\"></path><path d=\"M15 19v2\"></path><path d=\"M15 3v2\"></path><path d=\"M15 9v1\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M15 14v1\"></path><path d=\"M15 19v2\"></path><path d=\"M15 3v2\"></path><path d=\"M15 9v1\"></path>",
         categories = "layout",
         tags = "sidebar,secondary,drawer,show,reveal,padding,margin,guide,layout,bleed",
         contributors = "danielbayley,ericfennis,irvineacosta"
@@ -8821,7 +8821,7 @@ pub enum LucideGlyph {
     PanelRightDashed,
     #[cfg(feature = "panel_right_open")]
     #[strum(props(
-        svg = "<rect x=\"3\" width=\"18\" y=\"3\" rx=\"2\" height=\"18\"></rect><path d=\"M15 3v18\"></path><path d=\"m10 15-3-3 3-3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M15 3v18\"></path><path d=\"m10 15-3-3 3-3\"></path>",
         categories = "layout,arrows",
         tags = "sidebar,secondary,drawer,show,reveal,chevron,left,<",
         contributors = "danielbayley,ericfennis"
@@ -8829,7 +8829,7 @@ pub enum LucideGlyph {
     PanelRightOpen,
     #[cfg(feature = "panel_right")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"18\" height=\"18\" y=\"3\" x=\"3\"></rect><path d=\"M15 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M15 3v18\"></path>",
         categories = "layout",
         tags = "sidebar,secondary,drawer",
         contributors = "danielbayley,ericfennis"
@@ -8837,7 +8837,7 @@ pub enum LucideGlyph {
     PanelRight,
     #[cfg(feature = "panel_top_bottom_dashed")]
     #[strum(props(
-        svg = "<path d=\"M14 15h1\"></path><path d=\"M14 9h1\"></path><path d=\"M19 15h2\"></path><path d=\"M19 9h2\"></path><path d=\"M3 15h2\"></path><path d=\"M3 9h2\"></path><path d=\"M9 15h1\"></path><path d=\"M9 9h1\"></path><rect y=\"3\" width=\"18\" height=\"18\" x=\"3\" rx=\"2\"></rect>",
+        svg = "<path d=\"M14 15h1\"></path><path d=\"M14 9h1\"></path><path d=\"M19 15h2\"></path><path d=\"M19 9h2\"></path><path d=\"M3 15h2\"></path><path d=\"M3 9h2\"></path><path d=\"M9 15h1\"></path><path d=\"M9 9h1\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "layout",
         tags = "sidebar,primary,drawer,show,reveal,padding,margin,guide,layout,horizontal,bleed",
         contributors = "danielbayley,ericfennis,irvineacosta,jguddas"
@@ -8845,7 +8845,7 @@ pub enum LucideGlyph {
     PanelTopBottomDashed,
     #[cfg(feature = "panel_top_close")]
     #[strum(props(
-        svg = "<rect y=\"3\" x=\"3\" rx=\"2\" height=\"18\" width=\"18\"></rect><path d=\"M3 9h18\"></path><path d=\"m9 16 3-3 3 3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"m9 16 3-3 3 3\"></path>",
         categories = "layout,arrows",
         tags = "menu bar,drawer,hide,chevron,up",
         contributors = "danielbayley,ericfennis"
@@ -8853,7 +8853,7 @@ pub enum LucideGlyph {
     PanelTopClose,
     #[cfg(feature = "panel_top_dashed")]
     #[strum(props(
-        svg = "<rect height=\"18\" rx=\"2\" x=\"3\" y=\"3\" width=\"18\"></rect><path d=\"M14 9h1\"></path><path d=\"M19 9h2\"></path><path d=\"M3 9h2\"></path><path d=\"M9 9h1\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M14 9h1\"></path><path d=\"M19 9h2\"></path><path d=\"M3 9h2\"></path><path d=\"M9 9h1\"></path>",
         categories = "layout",
         tags = "menu bar,drawer,show,reveal,padding,margin,guide,layout,bleed",
         contributors = "danielbayley,ericfennis,irvineacosta"
@@ -8861,7 +8861,7 @@ pub enum LucideGlyph {
     PanelTopDashed,
     #[cfg(feature = "panel_top_open")]
     #[strum(props(
-        svg = "<rect y=\"3\" x=\"3\" rx=\"2\" height=\"18\" width=\"18\"></rect><path d=\"M3 9h18\"></path><path d=\"m15 14-3 3-3-3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"m15 14-3 3-3-3\"></path>",
         categories = "layout,arrows",
         tags = "menu bar,drawer,show,reveal,chevron,down",
         contributors = "danielbayley,ericfennis"
@@ -8869,7 +8869,7 @@ pub enum LucideGlyph {
     PanelTopOpen,
     #[cfg(feature = "panel_top")]
     #[strum(props(
-        svg = "<rect y=\"3\" rx=\"2\" width=\"18\" height=\"18\" x=\"3\"></rect><path d=\"M3 9h18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path>",
         categories = "layout,design,development",
         tags = "drawer,browser,webpage",
         contributors = "danielbayley,ericfennis"
@@ -8877,7 +8877,7 @@ pub enum LucideGlyph {
     PanelTop,
     #[cfg(feature = "panels_left_bottom")]
     #[strum(props(
-        svg = "<rect x=\"3\" rx=\"2\" height=\"18\" width=\"18\" y=\"3\"></rect><path d=\"M9 3v18\"></path><path d=\"M9 15h12\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 3v18\"></path><path d=\"M9 15h12\"></path>",
         categories = "layout",
         tags = "drawers,sidebar,primary",
         contributors = "danielbayley"
@@ -8885,7 +8885,7 @@ pub enum LucideGlyph {
     PanelsLeftBottom,
     #[cfg(feature = "panels_right_bottom")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" x=\"3\" width=\"18\" y=\"3\"></rect><path d=\"M3 15h12\"></path><path d=\"M15 3v18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 15h12\"></path><path d=\"M15 3v18\"></path>",
         categories = "layout",
         tags = "drawers,sidebar,secondary",
         contributors = "danielbayley"
@@ -8893,7 +8893,7 @@ pub enum LucideGlyph {
     PanelsRightBottom,
     #[cfg(feature = "panels_top_left")]
     #[strum(props(
-        svg = "<rect y=\"3\" x=\"3\" rx=\"2\" width=\"18\" height=\"18\"></rect><path d=\"M3 9h18\"></path><path d=\"M9 21V9\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M9 21V9\"></path>",
         categories = "layout,design,development",
         tags = "menu bar,sidebar,primary,drawers,window,webpage,projects,overview",
         contributors = "colebemis,ericfennis"
@@ -8933,7 +8933,7 @@ pub enum LucideGlyph {
     PartyPopper,
     #[cfg(feature = "pause")]
     #[strum(props(
-        svg = "<rect rx=\"1\" x=\"14\" y=\"3\" height=\"18\" width=\"5\"></rect><rect x=\"5\" y=\"3\" rx=\"1\" width=\"5\" height=\"18\"></rect>",
+        svg = "<rect height=\"18\" rx=\"1\" width=\"5\" x=\"14\" y=\"3\"></rect><rect height=\"18\" rx=\"1\" width=\"5\" x=\"5\" y=\"3\"></rect>",
         categories = "multimedia",
         tags = "music,stop",
         contributors = "colebemis,ericfennis,jguddas,karsa-mistmere"
@@ -8941,7 +8941,7 @@ pub enum LucideGlyph {
     Pause,
     #[cfg(feature = "paw_print")]
     #[strum(props(
-        svg = "<circle r=\"2\" cx=\"11\" cy=\"4\"></circle><circle cx=\"18\" cy=\"8\" r=\"2\"></circle><circle cy=\"16\" cx=\"20\" r=\"2\"></circle><path d=\"M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.04Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z\"></path>",
+        svg = "<circle cx=\"11\" cy=\"4\" r=\"2\"></circle><circle cx=\"18\" cy=\"8\" r=\"2\"></circle><circle cx=\"20\" cy=\"16\" r=\"2\"></circle><path d=\"M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.04Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z\"></path>",
         categories = "animals",
         tags = "pets,vets,veterinarian,domesticated,cat,dog,bear",
         contributors = "danielbayley"
@@ -8949,7 +8949,7 @@ pub enum LucideGlyph {
     PawPrint,
     #[cfg(feature = "pc_case")]
     #[strum(props(
-        svg = "<rect x=\"5\" width=\"14\" height=\"20\" rx=\"2\" y=\"2\"></rect><path d=\"M15 14h.01\"></path><path d=\"M9 6h6\"></path><path d=\"M9 10h6\"></path>",
+        svg = "<rect height=\"20\" rx=\"2\" width=\"14\" x=\"5\" y=\"2\"></rect><path d=\"M15 14h.01\"></path><path d=\"M9 6h6\"></path><path d=\"M9 10h6\"></path>",
         categories = "devices,gaming",
         tags = "computer,chassis",
         contributors = "karsa-mistmere,ericfennis"
@@ -9029,7 +9029,7 @@ pub enum LucideGlyph {
     Pentagon,
     #[cfg(feature = "percent")]
     #[strum(props(
-        svg = "<line x2=\"5\" y2=\"19\" x1=\"19\" y1=\"5\"></line><circle cy=\"6.5\" r=\"2.5\" cx=\"6.5\"></circle><circle cx=\"17.5\" r=\"2.5\" cy=\"17.5\"></circle>",
+        svg = "<line x1=\"19\" x2=\"5\" y1=\"5\" y2=\"19\"></line><circle cx=\"6.5\" cy=\"6.5\" r=\"2.5\"></circle><circle cx=\"17.5\" cy=\"17.5\" r=\"2.5\"></circle>",
         categories = "math,development,finance,shopping",
         tags = "percentage,modulo,modulus,remainder,%,sale,discount,offer,marketing",
         contributors = "colebemis,ericfennis"
@@ -9037,7 +9037,7 @@ pub enum LucideGlyph {
     Percent,
     #[cfg(feature = "person_standing")]
     #[strum(props(
-        svg = "<circle cy=\"5\" cx=\"12\" r=\"1\"></circle><path d=\"m9 20 3-6 3 6\"></path><path d=\"m6 8 6 2 6-2\"></path><path d=\"M12 10v4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"5\" r=\"1\"></circle><path d=\"m9 20 3-6 3 6\"></path><path d=\"m6 8 6 2 6-2\"></path><path d=\"M12 10v4\"></path>",
         categories = "accessibility,people",
         tags = "people,human,accessibility,stick figure",
         contributors = "mittalyashu,ericfennis"
@@ -9109,7 +9109,7 @@ pub enum LucideGlyph {
     Phone,
     #[cfg(feature = "pi")]
     #[strum(props(
-        svg = "<line y2=\"20\" x1=\"9\" x2=\"9\" y1=\"4\"></line><path d=\"M4 7c0-1.7 1.3-3 3-3h13\"></path><path d=\"M18 20c-1.7 0-3-1.3-3-3V4\"></path>",
+        svg = "<line x1=\"9\" x2=\"9\" y1=\"4\" y2=\"20\"></line><path d=\"M4 7c0-1.7 1.3-3 3-3h13\"></path><path d=\"M18 20c-1.7 0-3-1.3-3-3V4\"></path>",
         categories = "development,math",
         tags = "constant,code,coding,programming,symbol,trigonometry,geometry,formula",
         contributors = "danielbayley,jguddas"
@@ -9133,7 +9133,7 @@ pub enum LucideGlyph {
     Pickaxe,
     #[cfg(feature = "picture_in_picture_2")]
     #[strum(props(
-        svg = "<path d=\"M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4\"></path><rect y=\"13\" width=\"10\" rx=\"2\" x=\"12\" height=\"7\"></rect>",
+        svg = "<path d=\"M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4\"></path><rect height=\"7\" rx=\"2\" width=\"10\" x=\"12\" y=\"13\"></rect>",
         categories = "multimedia",
         tags = "display,play,video,pop out,always on top,window,inset,multitask",
         contributors = "cd16b,ericfennis"
@@ -9141,7 +9141,7 @@ pub enum LucideGlyph {
     PictureInPicture2,
     #[cfg(feature = "picture_in_picture")]
     #[strum(props(
-        svg = "<path d=\"M2 10h6V4\"></path><path d=\"m2 4 6 6\"></path><path d=\"M21 10V7a2 2 0 0 0-2-2h-7\"></path><path d=\"M3 14v2a2 2 0 0 0 2 2h3\"></path><rect width=\"10\" x=\"12\" y=\"14\" height=\"7\" rx=\"1\"></rect>",
+        svg = "<path d=\"M2 10h6V4\"></path><path d=\"m2 4 6 6\"></path><path d=\"M21 10V7a2 2 0 0 0-2-2h-7\"></path><path d=\"M3 14v2a2 2 0 0 0 2 2h3\"></path><rect height=\"7\" rx=\"1\" width=\"10\" x=\"12\" y=\"14\"></rect>",
         categories = "multimedia",
         tags = "display,play,video,pop out,always on top,window,inset,multitask",
         contributors = "cd16b,ericfennis,jguddas,karsa-mistmere"
@@ -9181,7 +9181,7 @@ pub enum LucideGlyph {
     Pilcrow,
     #[cfg(feature = "pill_bottle")]
     #[strum(props(
-        svg = "<path d=\"M18 11h-4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4\"></path><path d=\"M6 7v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7\"></path><rect rx=\"1\" width=\"16\" y=\"2\" x=\"4\" height=\"5\"></rect>",
+        svg = "<path d=\"M18 11h-4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4\"></path><path d=\"M6 7v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7\"></path><rect height=\"5\" rx=\"1\" width=\"16\" x=\"4\" y=\"2\"></rect>",
         categories = "medical",
         tags = "medicine,medication,prescription,drug,supplement,vitamin,capsule,jar,container,healthcare,pharmaceutical,tablet",
         contributors = "karsa-mistmere"
@@ -9389,7 +9389,7 @@ pub enum LucideGlyph {
     PrinterX,
     #[cfg(feature = "printer")]
     #[strum(props(
-        svg = "<path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path><path d=\"M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6\"></path><rect y=\"14\" width=\"12\" rx=\"1\" x=\"6\" height=\"8\"></rect>",
+        svg = "<path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"></path><path d=\"M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6\"></path><rect height=\"8\" rx=\"1\" width=\"12\" x=\"6\" y=\"14\"></rect>",
         categories = "devices",
         tags = "fax,office,device",
         contributors = "colebemis,csandman,ericfennis"
@@ -9405,7 +9405,7 @@ pub enum LucideGlyph {
     Projector,
     #[cfg(feature = "proportions")]
     #[strum(props(
-        svg = "<rect rx=\"2\" y=\"4\" x=\"2\" width=\"20\" height=\"16\"></rect><path d=\"M12 9v11\"></path><path d=\"M2 9h13a2 2 0 0 1 2 2v9\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M12 9v11\"></path><path d=\"M2 9h13a2 2 0 0 1 2 2v9\"></path>",
         categories = "layout,design,photography,devices",
         tags = "screens,sizes,rotate,rotation,adjust,aspect ratio,16:9,widescreen,4:3,resolution,responsive,mobile,desktop,dimensions,monitor,orientation,portrait,landscape",
         contributors = "danielbayley"
@@ -9429,7 +9429,7 @@ pub enum LucideGlyph {
     Pyramid,
     #[cfg(feature = "qr_code")]
     #[strum(props(
-        svg = "<rect y=\"3\" height=\"5\" width=\"5\" rx=\"1\" x=\"3\"></rect><rect width=\"5\" y=\"3\" rx=\"1\" x=\"16\" height=\"5\"></rect><rect width=\"5\" rx=\"1\" height=\"5\" x=\"3\" y=\"16\"></rect><path d=\"M21 16h-3a2 2 0 0 0-2 2v3\"></path><path d=\"M21 21v.01\"></path><path d=\"M12 7v3a2 2 0 0 1-2 2H7\"></path><path d=\"M3 12h.01\"></path><path d=\"M12 3h.01\"></path><path d=\"M12 16v.01\"></path><path d=\"M16 12h1\"></path><path d=\"M21 12v.01\"></path><path d=\"M12 21v-1\"></path>",
+        svg = "<rect height=\"5\" rx=\"1\" width=\"5\" x=\"3\" y=\"3\"></rect><rect height=\"5\" rx=\"1\" width=\"5\" x=\"16\" y=\"3\"></rect><rect height=\"5\" rx=\"1\" width=\"5\" x=\"3\" y=\"16\"></rect><path d=\"M21 16h-3a2 2 0 0 0-2 2v3\"></path><path d=\"M21 21v.01\"></path><path d=\"M12 7v3a2 2 0 0 1-2 2H7\"></path><path d=\"M3 12h.01\"></path><path d=\"M12 3h.01\"></path><path d=\"M12 16v.01\"></path><path d=\"M16 12h1\"></path><path d=\"M21 12v.01\"></path><path d=\"M12 21v-1\"></path>",
         categories = "development,social",
         tags = "barcode,scan,link,url,information,digital",
         contributors = "ericfennis,csandman,karsa-mistmere"
@@ -9453,7 +9453,7 @@ pub enum LucideGlyph {
     Rabbit,
     #[cfg(feature = "radar")]
     #[strum(props(
-        svg = "<path d=\"M19.07 4.93A10 10 0 0 0 6.99 3.34\"></path><path d=\"M4 6h.01\"></path><path d=\"M2.29 9.62A10 10 0 1 0 21.31 8.35\"></path><path d=\"M16.24 7.76A6 6 0 1 0 8.23 16.67\"></path><path d=\"M12 18h.01\"></path><path d=\"M17.99 11.66A6 6 0 0 1 15.77 16.67\"></path><circle r=\"2\" cx=\"12\" cy=\"12\"></circle><path d=\"m13.41 10.59 5.66-5.66\"></path>",
+        svg = "<path d=\"M19.07 4.93A10 10 0 0 0 6.99 3.34\"></path><path d=\"M4 6h.01\"></path><path d=\"M2.29 9.62A10 10 0 1 0 21.31 8.35\"></path><path d=\"M16.24 7.76A6 6 0 1 0 8.23 16.67\"></path><path d=\"M12 18h.01\"></path><path d=\"M17.99 11.66A6 6 0 0 1 15.77 16.67\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><path d=\"m13.41 10.59 5.66-5.66\"></path>",
         categories = "navigation,security,communication",
         tags = "scan,sonar,detect,find,locate",
         contributors = "danielbayley,karsa-mistmere"
@@ -9485,7 +9485,7 @@ pub enum LucideGlyph {
     RadioOff,
     #[cfg(feature = "radio_receiver")]
     #[strum(props(
-        svg = "<path d=\"M5 16v2\"></path><path d=\"M19 16v2\"></path><rect height=\"8\" rx=\"2\" width=\"20\" y=\"8\" x=\"2\"></rect><path d=\"M18 12h.01\"></path>",
+        svg = "<path d=\"M5 16v2\"></path><path d=\"M19 16v2\"></path><rect height=\"8\" rx=\"2\" width=\"20\" x=\"2\" y=\"8\"></rect><path d=\"M18 12h.01\"></path>",
         categories = "devices",
         tags = "device,music,connect",
         contributors = "ericfennis"
@@ -9493,7 +9493,7 @@ pub enum LucideGlyph {
     RadioReceiver,
     #[cfg(feature = "radio_tower")]
     #[strum(props(
-        svg = "<path d=\"M4.9 16.1C1 12.2 1 5.8 4.9 1.9\"></path><path d=\"M7.8 4.7a6.14 6.14 0 0 0-.8 7.5\"></path><circle r=\"2\" cy=\"9\" cx=\"12\"></circle><path d=\"M16.2 4.8c2 2 2.26 5.11.8 7.47\"></path><path d=\"M19.1 1.9a9.96 9.96 0 0 1 0 14.1\"></path><path d=\"M9.5 18h5\"></path><path d=\"m8 22 4-11 4 11\"></path>",
+        svg = "<path d=\"M4.9 16.1C1 12.2 1 5.8 4.9 1.9\"></path><path d=\"M7.8 4.7a6.14 6.14 0 0 0-.8 7.5\"></path><circle cx=\"12\" cy=\"9\" r=\"2\"></circle><path d=\"M16.2 4.8c2 2 2.26 5.11.8 7.47\"></path><path d=\"M19.1 1.9a9.96 9.96 0 0 1 0 14.1\"></path><path d=\"M9.5 18h5\"></path><path d=\"m8 22 4-11 4 11\"></path>",
         categories = "devices,multimedia,social",
         tags = "signal,broadcast,connectivity,live,frequency",
         contributors = "danielbayley,karsa-mistmere"
@@ -9501,7 +9501,7 @@ pub enum LucideGlyph {
     RadioTower,
     #[cfg(feature = "radio")]
     #[strum(props(
-        svg = "<path d=\"M16.24 7.76a6 6 0 0 1 0 8.47\"></path><path d=\"M19.07 4.93a10 10 0 0 1 0 14.13\"></path><path d=\"M4.92 19.06a10 10 0 0 1 0-14.13\"></path><path d=\"M7.75 16.23a6 6 0 0 1 0-8.47\"></path><circle r=\"2\" cy=\"12\" cx=\"12\"></circle>",
+        svg = "<path d=\"M16.24 7.76a6 6 0 0 1 0 8.47\"></path><path d=\"M19.07 4.93a10 10 0 0 1 0 14.13\"></path><path d=\"M4.92 19.06a10 10 0 0 1 0-14.13\"></path><path d=\"M7.75 16.23a6 6 0 0 1 0-8.47\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "devices,multimedia,social",
         tags = "signal,broadcast,connectivity,live,frequency",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,danielbayley,jguddas"
@@ -9509,7 +9509,7 @@ pub enum LucideGlyph {
     Radio,
     #[cfg(feature = "radius")]
     #[strum(props(
-        svg = "<path d=\"M20.34 17.52a10 10 0 1 0-2.82 2.82\"></path><circle cy=\"19\" cx=\"19\" r=\"2\"></circle><path d=\"m13.41 13.41 4.18 4.18\"></path><circle r=\"2\" cx=\"12\" cy=\"12\"></circle>",
+        svg = "<path d=\"M20.34 17.52a10 10 0 1 0-2.82 2.82\"></path><circle cx=\"19\" cy=\"19\" r=\"2\"></circle><path d=\"m13.41 13.41 4.18 4.18\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "shapes,math,design,tools",
         tags = "shape,circle,geometry,trigonometry,radii,calculate,measure,size",
         contributors = "danielbayley,karsa-mistmere"
@@ -9533,7 +9533,7 @@ pub enum LucideGlyph {
     Rat,
     #[cfg(feature = "ratio")]
     #[strum(props(
-        svg = "<rect x=\"6\" height=\"20\" width=\"12\" y=\"2\" rx=\"2\"></rect><rect x=\"2\" y=\"6\" rx=\"2\" height=\"12\" width=\"20\"></rect>",
+        svg = "<rect height=\"20\" rx=\"2\" width=\"12\" x=\"6\" y=\"2\"></rect><rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "layout,design,photography",
         tags = "screens,sizes,rotate,rotation,adjust,aspect ratio,proportions,16:9,widescreen,4:3,resolution,responsive,mobile,desktop,dimensions,monitor,orientation,portrait,landscape",
         contributors = "danielbayley"
@@ -9629,7 +9629,7 @@ pub enum LucideGlyph {
     RectangleCircle,
     #[cfg(feature = "rectangle_ellipsis")]
     #[strum(props(
-        svg = "<rect y=\"6\" rx=\"2\" x=\"2\" height=\"12\" width=\"20\"></rect><path d=\"M12 12h.01\"></path><path d=\"M17 12h.01\"></path><path d=\"M7 12h.01\"></path>",
+        svg = "<rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect><path d=\"M12 12h.01\"></path><path d=\"M17 12h.01\"></path><path d=\"M7 12h.01\"></path>",
         categories = "text,development",
         tags = "login,password,authenticate,2fa,field,fill,ellipsis,et cetera,etc,loader,loading,progress,pending,throbber,menu,options,operator,code,spread,rest,more,further,extra,overflow,dots,…,...",
         contributors = "mittalyashu,ericfennis"
@@ -9645,7 +9645,7 @@ pub enum LucideGlyph {
     RectangleGoggles,
     #[cfg(feature = "rectangle_horizontal")]
     #[strum(props(
-        svg = "<rect height=\"12\" y=\"6\" width=\"20\" x=\"2\" rx=\"2\"></rect>",
+        svg = "<rect height=\"12\" rx=\"2\" width=\"20\" x=\"2\" y=\"6\"></rect>",
         categories = "shapes,design",
         tags = "rectangle,aspect ratio,16:9,horizontal,shape",
         contributors = "colebemis,Reund0,danielbayley,karsa-mistmere,ericfennis"
@@ -9653,7 +9653,7 @@ pub enum LucideGlyph {
     RectangleHorizontal,
     #[cfg(feature = "rectangle_vertical")]
     #[strum(props(
-        svg = "<rect width=\"12\" rx=\"2\" height=\"20\" x=\"6\" y=\"2\"></rect>",
+        svg = "<rect height=\"20\" rx=\"2\" width=\"12\" x=\"6\" y=\"2\"></rect>",
         categories = "shapes,design",
         tags = "rectangle,aspect ratio,9:16,vertical,shape",
         contributors = "colebemis,Reund0,danielbayley,karsa-mistmere,ericfennis"
@@ -9677,7 +9677,7 @@ pub enum LucideGlyph {
     Redo2,
     #[cfg(feature = "redo_dot")]
     #[strum(props(
-        svg = "<circle r=\"1\" cx=\"12\" cy=\"17\"></circle><path d=\"M21 7v6h-6\"></path><path d=\"M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7\"></path>",
+        svg = "<circle cx=\"12\" cy=\"17\" r=\"1\"></circle><path d=\"M21 7v6h-6\"></path><path d=\"M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7\"></path>",
         categories = "text,arrows",
         tags = "redo,history,step,over,forward",
         contributors = "danielbayley,karsa-mistmere"
@@ -9693,7 +9693,7 @@ pub enum LucideGlyph {
     Redo,
     #[cfg(feature = "refresh_ccw_dot")]
     #[strum(props(
-        svg = "<path d=\"M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><path d=\"M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16\"></path><path d=\"M16 16h5v5\"></path><circle r=\"1\" cx=\"12\" cy=\"12\"></circle>",
+        svg = "<path d=\"M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><path d=\"M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16\"></path><path d=\"M16 16h5v5\"></path><circle cx=\"12\" cy=\"12\" r=\"1\"></circle>",
         categories = "arrows,development",
         tags = "arrows,rotate,reload,synchronise,synchronize,circular,cycle,issue,code,coding,version control",
         contributors = "csandman,ericfennis,danielbayley,jamiemlaw"
@@ -9773,7 +9773,7 @@ pub enum LucideGlyph {
     Repeat,
     #[cfg(feature = "replace_all")]
     #[strum(props(
-        svg = "<path d=\"M14 14a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"M14 4a1 1 0 0 1 1-1\"></path><path d=\"M15 10a1 1 0 0 1-1-1\"></path><path d=\"M19 14a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"M21 4a1 1 0 0 0-1-1\"></path><path d=\"M21 9a1 1 0 0 1-1 1\"></path><path d=\"m3 7 3 3 3-3\"></path><path d=\"M6 10V5a2 2 0 0 1 2-2h2\"></path><rect width=\"7\" x=\"3\" rx=\"1\" y=\"14\" height=\"7\"></rect>",
+        svg = "<path d=\"M14 14a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"M14 4a1 1 0 0 1 1-1\"></path><path d=\"M15 10a1 1 0 0 1-1-1\"></path><path d=\"M19 14a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1\"></path><path d=\"M21 4a1 1 0 0 0-1-1\"></path><path d=\"M21 9a1 1 0 0 1-1 1\"></path><path d=\"m3 7 3 3 3-3\"></path><path d=\"M6 10V5a2 2 0 0 1 2-2h2\"></path><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect>",
         categories = "text",
         tags = "search,substitute,swap,change",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -9781,7 +9781,7 @@ pub enum LucideGlyph {
     ReplaceAll,
     #[cfg(feature = "replace")]
     #[strum(props(
-        svg = "<path d=\"M14 4a1 1 0 0 1 1-1\"></path><path d=\"M15 10a1 1 0 0 1-1-1\"></path><path d=\"M21 4a1 1 0 0 0-1-1\"></path><path d=\"M21 9a1 1 0 0 1-1 1\"></path><path d=\"m3 7 3 3 3-3\"></path><path d=\"M6 10V5a2 2 0 0 1 2-2h2\"></path><rect height=\"7\" width=\"7\" x=\"3\" rx=\"1\" y=\"14\"></rect>",
+        svg = "<path d=\"M14 4a1 1 0 0 1 1-1\"></path><path d=\"M15 10a1 1 0 0 1-1-1\"></path><path d=\"M21 4a1 1 0 0 0-1-1\"></path><path d=\"M21 9a1 1 0 0 1-1 1\"></path><path d=\"m3 7 3 3 3-3\"></path><path d=\"M6 10V5a2 2 0 0 1 2-2h2\"></path><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect>",
         categories = "text",
         tags = "search,substitute,swap,change",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -9869,7 +9869,7 @@ pub enum LucideGlyph {
     Rotate3D,
     #[cfg(feature = "rotate_ccw_key")]
     #[strum(props(
-        svg = "<path d=\"M12 7v6\"></path><path d=\"M12 9h2\"></path><path d=\"M3 12a9 9 0 1 0 9-9 9.74 9.74 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><circle r=\"2\" cx=\"12\" cy=\"15\"></circle>",
+        svg = "<path d=\"M12 7v6\"></path><path d=\"M12 9h2\"></path><path d=\"M3 12a9 9 0 1 0 9-9 9.74 9.74 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><circle cx=\"12\" cy=\"15\" r=\"2\"></circle>",
         categories = "security,account",
         tags = "password,key,refresh,change",
         contributors = "karsa-mistmere,pgbradbury,jguddas"
@@ -9909,7 +9909,7 @@ pub enum LucideGlyph {
     RotateCw,
     #[cfg(feature = "route_off")]
     #[strum(props(
-        svg = "<circle r=\"3\" cy=\"19\" cx=\"6\"></circle><path d=\"M9 19h8.5c.4 0 .9-.1 1.3-.2\"></path><path d=\"M5.2 5.2A3.5 3.53 0 0 0 6.5 12H12\"></path><path d=\"m2 2 20 20\"></path><path d=\"M21 15.3a3.5 3.5 0 0 0-3.3-3.3\"></path><path d=\"M15 5h-4.3\"></path><circle cx=\"18\" cy=\"5\" r=\"3\"></circle>",
+        svg = "<circle cx=\"6\" cy=\"19\" r=\"3\"></circle><path d=\"M9 19h8.5c.4 0 .9-.1 1.3-.2\"></path><path d=\"M5.2 5.2A3.5 3.53 0 0 0 6.5 12H12\"></path><path d=\"m2 2 20 20\"></path><path d=\"M21 15.3a3.5 3.5 0 0 0-3.3-3.3\"></path><path d=\"M15 5h-4.3\"></path><circle cx=\"18\" cy=\"5\" r=\"3\"></circle>",
         categories = "navigation",
         tags = "path,journey,planner,points,stops,stations,reset,clear,cancelled,closed,blocked",
         contributors = "danielbayley"
@@ -9917,7 +9917,7 @@ pub enum LucideGlyph {
     RouteOff,
     #[cfg(feature = "route")]
     #[strum(props(
-        svg = "<circle cy=\"19\" r=\"3\" cx=\"6\"></circle><path d=\"M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15\"></path><circle cy=\"5\" cx=\"18\" r=\"3\"></circle>",
+        svg = "<circle cx=\"6\" cy=\"19\" r=\"3\"></circle><path d=\"M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15\"></path><circle cx=\"18\" cy=\"5\" r=\"3\"></circle>",
         categories = "navigation",
         tags = "path,journey,planner,points,stops,stations",
         contributors = "danielbayley"
@@ -9933,7 +9933,7 @@ pub enum LucideGlyph {
     Router,
     #[cfg(feature = "rows_2")]
     #[strum(props(
-        svg = "<rect x=\"3\" rx=\"2\" width=\"18\" y=\"3\" height=\"18\"></rect><path d=\"M3 12h18\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 12h18\"></path>",
         categories = "layout,design,text",
         tags = "lines,list,queue,preview,panel,paragraphs,parallel,series,split,vertical,horizontal,half,center,middle,even,drawer",
         contributors = "danielbayley"
@@ -9941,7 +9941,7 @@ pub enum LucideGlyph {
     Rows2,
     #[cfg(feature = "rows_3")]
     #[strum(props(
-        svg = "<rect width=\"18\" y=\"3\" rx=\"2\" x=\"3\" height=\"18\"></rect><path d=\"M21 9H3\"></path><path d=\"M21 15H3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M21 9H3\"></path><path d=\"M21 15H3\"></path>",
         categories = "layout,design,text",
         tags = "lines,list,queue,preview,paragraphs,parallel,series,split,vertical,horizontal,half,center,middle,even,drawers",
         contributors = "danielbayley"
@@ -9949,7 +9949,7 @@ pub enum LucideGlyph {
     Rows3,
     #[cfg(feature = "rows_4")]
     #[strum(props(
-        svg = "<rect x=\"3\" rx=\"2\" width=\"18\" height=\"18\" y=\"3\"></rect><path d=\"M21 7.5H3\"></path><path d=\"M21 12H3\"></path><path d=\"M21 16.5H3\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M21 7.5H3\"></path><path d=\"M21 12H3\"></path><path d=\"M21 16.5H3\"></path>",
         categories = "layout,design,text",
         tags = "lines,list,queue,preview,paragraphs,parallel,series,split,vertical,horizontal,half,center,middle,even,drawers,grill",
         contributors = "danielbayley"
@@ -9965,7 +9965,7 @@ pub enum LucideGlyph {
     Rss,
     #[cfg(feature = "ruler_dimension_line")]
     #[strum(props(
-        svg = "<path d=\"M10 15v-3\"></path><path d=\"M14 15v-3\"></path><path d=\"M18 15v-3\"></path><path d=\"M2 8V4\"></path><path d=\"M22 6H2\"></path><path d=\"M22 8V4\"></path><path d=\"M6 15v-3\"></path><rect rx=\"2\" x=\"2\" y=\"12\" width=\"20\" height=\"8\"></rect>",
+        svg = "<path d=\"M10 15v-3\"></path><path d=\"M14 15v-3\"></path><path d=\"M18 15v-3\"></path><path d=\"M2 8V4\"></path><path d=\"M22 6H2\"></path><path d=\"M22 8V4\"></path><path d=\"M6 15v-3\"></path><rect height=\"8\" rx=\"2\" width=\"20\" x=\"2\" y=\"12\"></rect>",
         categories = "tools,design,layout",
         tags = "measurements,centimeters,cm,millimeters,mm,metre,foot,feet,inches,units,size,length,width,height,dimensions,depth,breadth,extent,stationery",
         contributors = "jguddas,karsa-mistmere"
@@ -10005,7 +10005,7 @@ pub enum LucideGlyph {
     Salad,
     #[cfg(feature = "sandwich")]
     #[strum(props(
-        svg = "<path d=\"m2.37 11.22 8.37-6.77a2 2 0 0 1 2.51 0l8.37 6.77\"></path><path d=\"M21 15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-5.25\"></path><path d=\"M3 15a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h9\"></path><path d=\"m6.67 15 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2\"></path><rect width=\"20\" x=\"2\" y=\"11\" rx=\"1\" height=\"4\"></rect>",
+        svg = "<path d=\"m2.37 11.22 8.37-6.77a2 2 0 0 1 2.51 0l8.37 6.77\"></path><path d=\"M21 15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-5.25\"></path><path d=\"M3 15a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h9\"></path><path d=\"m6.67 15 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2\"></path><rect height=\"4\" rx=\"1\" width=\"20\" x=\"2\" y=\"11\"></rect>",
         categories = "food-beverage",
         tags = "food,snack,dish,restaurant,lunch,meal",
         contributors = "kemie,jamiemlaw"
@@ -10061,7 +10061,7 @@ pub enum LucideGlyph {
     Save,
     #[cfg(feature = "scale_3_d")]
     #[strum(props(
-        svg = "<path d=\"M5 7v11a1 1 0 0 0 1 1h11\"></path><path d=\"M5.29 18.70 11 13\"></path><circle cy=\"19\" r=\"2\" cx=\"19\"></circle><circle r=\"2\" cx=\"5\" cy=\"5\"></circle>",
+        svg = "<path d=\"M5 7v11a1 1 0 0 0 1 1h11\"></path><path d=\"M5.29 18.70 11 13\"></path><circle cx=\"19\" cy=\"19\" r=\"2\"></circle><circle cx=\"5\" cy=\"5\" r=\"2\"></circle>",
         categories = "design",
         tags = "gizmo,transform,size,axis",
         contributors = "lscheibel,ericfennis,jguddas"
@@ -10125,7 +10125,7 @@ pub enum LucideGlyph {
     ScanLine,
     #[cfg(feature = "scan_qr_code")]
     #[strum(props(
-        svg = "<path d=\"M17 12v4a1 1 0 0 1-1 1h-4\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M17 8V7\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M7 17h.01\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><rect x=\"7\" y=\"7\" height=\"5\" width=\"5\" rx=\"1\"></rect>",
+        svg = "<path d=\"M17 12v4a1 1 0 0 1-1 1h-4\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M17 8V7\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M7 17h.01\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><rect height=\"5\" rx=\"1\" width=\"5\" x=\"7\" y=\"7\"></rect>",
         categories = "account,shopping,devices,security",
         tags = "barcode,scan,qrcode,url,information,digital,scanner",
         contributors = "jguddas,vexkiddy"
@@ -10157,7 +10157,7 @@ pub enum LucideGlyph {
     Scan,
     #[cfg(feature = "school")]
     #[strum(props(
-        svg = "<path d=\"M14 21v-3a2 2 0 0 0-4 0v3\"></path><path d=\"M18 4.93V21\"></path><path d=\"m4 6 7.10-3.79a2 2 0 0 1 1.78 0L20 6\"></path><path d=\"m6 11-3.52 2.14a1 1 0 0 0-.48.85V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a1 1 0 0 0-.48-.853L18 11\"></path><path d=\"M6 4.93V21\"></path><circle r=\"2\" cx=\"12\" cy=\"9\"></circle>",
+        svg = "<path d=\"M14 21v-3a2 2 0 0 0-4 0v3\"></path><path d=\"M18 4.93V21\"></path><path d=\"m4 6 7.10-3.79a2 2 0 0 1 1.78 0L20 6\"></path><path d=\"m6 11-3.52 2.14a1 1 0 0 0-.48.85V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a1 1 0 0 0-.48-.853L18 11\"></path><path d=\"M6 4.93V21\"></path><circle cx=\"12\" cy=\"9\" r=\"2\"></circle>",
         categories = "buildings,navigation",
         tags = "building,education,childhood,university,learning,campus,scholar,student,lecture,degree,course,academia,study,knowledge,classroom,research,diploma,graduation,professor,tutorial,homework,assignment,exam",
         contributors = "karsa-mistmere"
@@ -10165,7 +10165,7 @@ pub enum LucideGlyph {
     School,
     #[cfg(feature = "scissors_line_dashed")]
     #[strum(props(
-        svg = "<path d=\"M5.42 9.42 8 12\"></path><circle r=\"2\" cx=\"4\" cy=\"8\"></circle><path d=\"m14 6-8.58 8.58\"></path><circle cy=\"16\" r=\"2\" cx=\"4\"></circle><path d=\"M10.8 14.8 14 18\"></path><path d=\"M16 12h-2\"></path><path d=\"M22 12h-2\"></path>",
+        svg = "<path d=\"M5.42 9.42 8 12\"></path><circle cx=\"4\" cy=\"8\" r=\"2\"></circle><path d=\"m14 6-8.58 8.58\"></path><circle cx=\"4\" cy=\"16\" r=\"2\"></circle><path d=\"M10.8 14.8 14 18\"></path><path d=\"M16 12h-2\"></path><path d=\"M22 12h-2\"></path>",
         categories = "design,tools",
         tags = "cut here,along,snip,chop,stationery,crafts,instructions,diagram",
         contributors = "danielbayley"
@@ -10173,7 +10173,7 @@ pub enum LucideGlyph {
     ScissorsLineDashed,
     #[cfg(feature = "scissors")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"6\" cy=\"6\"></circle><path d=\"M8.12 8.12 12 12\"></path><path d=\"M20 4 8.12 15.88\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><path d=\"M14.8 14.8 20 20\"></path>",
+        svg = "<circle cx=\"6\" cy=\"6\" r=\"3\"></circle><path d=\"M8.12 8.12 12 12\"></path><path d=\"M20 4 8.12 15.88\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><path d=\"M14.8 14.8 20 20\"></path>",
         categories = "text,design,tools",
         tags = "cut,snip,chop,stationery,crafts",
         contributors = "colebemis,ericfennis"
@@ -10229,7 +10229,7 @@ pub enum LucideGlyph {
     SearchAlert,
     #[cfg(feature = "search_check")]
     #[strum(props(
-        svg = "<path d=\"m8 11 2 2 4-4\"></path><circle r=\"8\" cy=\"11\" cx=\"11\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
+        svg = "<path d=\"m8 11 2 2 4-4\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
         categories = "text,social",
         tags = "find,scan,magnifier,magnifying glass,found,correct,complete,tick,lens",
         contributors = "danielbayley"
@@ -10237,7 +10237,7 @@ pub enum LucideGlyph {
     SearchCheck,
     #[cfg(feature = "search_code")]
     #[strum(props(
-        svg = "<path d=\"m13 13.5 2-2.5-2-2.5\"></path><path d=\"m21 21-4.3-4.3\"></path><path d=\"M9 8.5 7 11l2 2.5\"></path><circle cx=\"11\" r=\"8\" cy=\"11\"></circle>",
+        svg = "<path d=\"m13 13.5 2-2.5-2-2.5\"></path><path d=\"m21 21-4.3-4.3\"></path><path d=\"M9 8.5 7 11l2 2.5\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle>",
         categories = "text,social,development",
         tags = "find,scan,magnifier,magnifying glass,grep,chevrons,<>,lens",
         contributors = "danielbayley,jguddas"
@@ -10253,7 +10253,7 @@ pub enum LucideGlyph {
     SearchSlash,
     #[cfg(feature = "search_x")]
     #[strum(props(
-        svg = "<path d=\"m13.5 8.5-5 5\"></path><path d=\"m8.5 8.5 5 5\"></path><circle cx=\"11\" r=\"8\" cy=\"11\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
+        svg = "<path d=\"m13.5 8.5-5 5\"></path><path d=\"m8.5 8.5 5 5\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
         categories = "text,social",
         tags = "find,scan,magnifier,magnifying glass,stop,clear,cancel,abort,lens",
         contributors = "danielbayley"
@@ -10261,7 +10261,7 @@ pub enum LucideGlyph {
     SearchX,
     #[cfg(feature = "search")]
     #[strum(props(
-        svg = "<path d=\"m21 21-4.34-4.34\"></path><circle cy=\"11\" r=\"8\" cx=\"11\"></circle>",
+        svg = "<path d=\"m21 21-4.34-4.34\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle>",
         categories = "text,social",
         tags = "find,scan,magnifier,magnifying glass,lens",
         contributors = "colebemis,ericfennis,jguddas"
@@ -10285,7 +10285,7 @@ pub enum LucideGlyph {
     SendHorizontal,
     #[cfg(feature = "send_to_back")]
     #[strum(props(
-        svg = "<rect height=\"8\" x=\"14\" rx=\"2\" width=\"8\" y=\"14\"></rect><rect height=\"8\" width=\"8\" y=\"2\" rx=\"2\" x=\"2\"></rect><path d=\"M7 14v1a2 2 0 0 0 2 2h1\"></path><path d=\"M14 7h1a2 2 0 0 1 2 2v1\"></path>",
+        svg = "<rect height=\"8\" rx=\"2\" width=\"8\" x=\"14\" y=\"14\"></rect><rect height=\"8\" rx=\"2\" width=\"8\" x=\"2\" y=\"2\"></rect><path d=\"M7 14v1a2 2 0 0 0 2 2h1\"></path><path d=\"M14 7h1a2 2 0 0 1 2 2v1\"></path>",
         categories = "design,layout",
         tags = "bring,send,move,under,back,backwards,overlap,layer,order",
         contributors = "james-yeoman,jguddas"
@@ -10341,7 +10341,7 @@ pub enum LucideGlyph {
     ServerOff,
     #[cfg(feature = "server")]
     #[strum(props(
-        svg = "<rect ry=\"2\" width=\"20\" height=\"8\" rx=\"2\" x=\"2\" y=\"2\"></rect><rect x=\"2\" rx=\"2\" height=\"8\" width=\"20\" ry=\"2\" y=\"14\"></rect><line x2=\"6.01\" y1=\"6\" x1=\"6\" y2=\"6\"></line><line x1=\"6\" x2=\"6.01\" y1=\"18\" y2=\"18\"></line>",
+        svg = "<rect height=\"8\" rx=\"2\" ry=\"2\" width=\"20\" x=\"2\" y=\"2\"></rect><rect height=\"8\" rx=\"2\" ry=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect><line x1=\"6\" x2=\"6.01\" y1=\"6\" y2=\"6\"></line><line x1=\"6\" x2=\"6.01\" y1=\"18\" y2=\"18\"></line>",
         categories = "development,devices",
         tags = "cloud,storage",
         contributors = "colebemis,ericfennis"
@@ -10349,7 +10349,7 @@ pub enum LucideGlyph {
     Server,
     #[cfg(feature = "settings_2")]
     #[strum(props(
-        svg = "<path d=\"M14 17H5\"></path><path d=\"M19 7h-9\"></path><circle r=\"3\" cx=\"17\" cy=\"17\"></circle><circle cx=\"7\" cy=\"7\" r=\"3\"></circle>",
+        svg = "<path d=\"M14 17H5\"></path><path d=\"M19 7h-9\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle><circle cx=\"7\" cy=\"7\" r=\"3\"></circle>",
         categories = "account",
         tags = "cog,edit,gear,preferences,slider",
         contributors = "mittalyashu,ericfennis,jguddas"
@@ -10357,7 +10357,7 @@ pub enum LucideGlyph {
     Settings2,
     #[cfg(feature = "settings")]
     #[strum(props(
-        svg = "<path d=\"M9.67 4.13a2.34 2.34 0 0 1 4.65 0 2.34 2.34 0 0 0 3.31 1.91 2.34 2.34 0 0 1 2.33 4.03 2.34 2.34 0 0 0 0 3.83 2.34 2.34 0 0 1-2.33 4.03 2.34 2.34 0 0 0-3.31 1.91 2.34 2.34 0 0 1-4.65 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.03 2.34 2.34 0 0 0 0-3.83A2.34 2.34 0 0 1 6.35 6.05a2.34 2.34 0 0 0 3.31-1.91\"></path><circle cy=\"12\" r=\"3\" cx=\"12\"></circle>",
+        svg = "<path d=\"M9.67 4.13a2.34 2.34 0 0 1 4.65 0 2.34 2.34 0 0 0 3.31 1.91 2.34 2.34 0 0 1 2.33 4.03 2.34 2.34 0 0 0 0 3.83 2.34 2.34 0 0 1-2.33 4.03 2.34 2.34 0 0 0-3.31 1.91 2.34 2.34 0 0 1-4.65 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.03 2.34 2.34 0 0 0 0-3.83A2.34 2.34 0 0 1 6.35 6.05a2.34 2.34 0 0 0 3.31-1.91\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
         categories = "account",
         tags = "cog,edit,gear,preferences",
         contributors = "colebemis,csandman,mittalyashu,ericfennis,karsa-mistmere"
@@ -10365,7 +10365,7 @@ pub enum LucideGlyph {
     Settings,
     #[cfg(feature = "shapes")]
     #[strum(props(
-        svg = "<path d=\"M8.3 10a.7.7 0 0 1-.626-1.07L11.4 3a.7.7 0 0 1 1.19-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z\"></path><rect x=\"3\" width=\"7\" height=\"7\" y=\"14\" rx=\"1\"></rect><circle cx=\"17.5\" r=\"3.5\" cy=\"17.5\"></circle>",
+        svg = "<path d=\"M8.3 10a.7.7 0 0 1-.626-1.07L11.4 3a.7.7 0 0 1 1.19-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z\"></path><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect><circle cx=\"17.5\" cy=\"17.5\" r=\"3.5\"></circle>",
         categories = "shapes,gaming",
         tags = "triangle,equilateral,square,circle,classification,different,collection,toy,blocks,learning",
         contributors = "danielbayley"
@@ -10373,7 +10373,7 @@ pub enum LucideGlyph {
     Shapes,
     #[cfg(feature = "share_2")]
     #[strum(props(
-        svg = "<circle cy=\"5\" r=\"3\" cx=\"18\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cy=\"19\" r=\"3\" cx=\"18\"></circle><line y1=\"13.51\" x2=\"15.42\" x1=\"8.59\" y2=\"17.49\"></line><line x1=\"15.41\" x2=\"8.59\" y2=\"10.49\" y1=\"6.51\"></line>",
+        svg = "<circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><line x1=\"8.59\" x2=\"15.42\" y1=\"13.51\" y2=\"17.49\"></line><line x1=\"15.41\" x2=\"8.59\" y1=\"6.51\" y2=\"10.49\"></line>",
         categories = "account,social",
         tags = "network,connections",
         contributors = "colebemis,ericfennis"
@@ -10389,7 +10389,7 @@ pub enum LucideGlyph {
     Share,
     #[cfg(feature = "sheet")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" ry=\"2\" y=\"3\" width=\"18\" x=\"3\"></rect><line y2=\"9\" x1=\"3\" x2=\"21\" y1=\"9\"></line><line x1=\"3\" y2=\"15\" y1=\"15\" x2=\"21\"></line><line x2=\"9\" y2=\"21\" x1=\"9\" y1=\"9\"></line><line x2=\"15\" y2=\"21\" y1=\"9\" x1=\"15\"></line>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><line x1=\"3\" x2=\"21\" y1=\"9\" y2=\"9\"></line><line x1=\"3\" x2=\"21\" y1=\"15\" y2=\"15\"></line><line x1=\"9\" x2=\"9\" y1=\"9\" y2=\"21\"></line><line x1=\"15\" x2=\"15\" y1=\"9\" y2=\"21\"></line>",
         categories = "text,files",
         tags = "spreadsheets,table,excel",
         contributors = "zenoamaro,ericfennis,csandman,mittalyashu"
@@ -10437,7 +10437,7 @@ pub enum LucideGlyph {
     ShieldCheck,
     #[cfg(feature = "shield_cog_corner")]
     #[strum(props(
-        svg = "<path d=\"M11 22c-3.80-1.45-7-3.96-7-9V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1v4\"></path><path d=\"M14.92 16.54 14 16.16\"></path><path d=\"m14.92 18.84-.923.38\"></path><path d=\"M16.54 14.92 16.16 14\"></path><path d=\"m16.54 20.46-.383.92\"></path><path d=\"m18.84 14.92.383-.923\"></path><path d=\"m19.22 21.39-.382-.924\"></path><path d=\"m20.46 16.54.923-.383\"></path><path d=\"m20.46 18.84.923.38\"></path><circle cx=\"17.69\" r=\"3\" cy=\"17.69\"></circle>",
+        svg = "<path d=\"M11 22c-3.80-1.45-7-3.96-7-9V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1v4\"></path><path d=\"M14.92 16.54 14 16.16\"></path><path d=\"m14.92 18.84-.923.38\"></path><path d=\"M16.54 14.92 16.16 14\"></path><path d=\"m16.54 20.46-.383.92\"></path><path d=\"m18.84 14.92.383-.923\"></path><path d=\"m19.22 21.39-.382-.924\"></path><path d=\"m20.46 16.54.923-.383\"></path><path d=\"m20.46 18.84.923.38\"></path><circle cx=\"17.69\" cy=\"17.69\" r=\"3\"></circle>",
         categories = "account,security,development,gaming,shapes",
         tags = "cybersecurity,secure,safety,protection,guardian,armored,armoured,defense,defence,defender,block,threat,prevention,antivirus,vigilance,vigilant,detection,scan,find,strength,strong,tough,invincible,invincibility,invulnerable,undamaged,audit,admin,verification,crest,shieldcog,bravery,knight,foot soldier,infantry,trooper,pawn,battle,war,military,army,cadet,scout",
         contributors = "colebemis,karsa-mistmere,RajnishKMehta"
@@ -10445,7 +10445,7 @@ pub enum LucideGlyph {
     ShieldCogCorner,
     #[cfg(feature = "shield_cog")]
     #[strum(props(
-        svg = "<path d=\"m10.92 14.46-.383.92\"></path><path d=\"M10.92 8.92 10.54 8\"></path><path d=\"M13.22 8.92 13.60 8\"></path><path d=\"m13.60 15.39-.382-.924\"></path><path d=\"m14.84 10.54.923-.383\"></path><path d=\"m14.84 12.84.923.38\"></path><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"></path><path d=\"m9.30 10.54-.923-.383\"></path><path d=\"m9.30 12.84-.923.38\"></path><circle cy=\"11.69\" cx=\"12.07\" r=\"3\"></circle>",
+        svg = "<path d=\"m10.92 14.46-.383.92\"></path><path d=\"M10.92 8.92 10.54 8\"></path><path d=\"M13.22 8.92 13.60 8\"></path><path d=\"m13.60 15.39-.382-.924\"></path><path d=\"m14.84 10.54.923-.383\"></path><path d=\"m14.84 12.84.923.38\"></path><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"></path><path d=\"m9.30 10.54-.923-.383\"></path><path d=\"m9.30 12.84-.923.38\"></path><circle cx=\"12.07\" cy=\"11.69\" r=\"3\"></circle>",
         categories = "account,security,development,gaming,shapes",
         tags = "cybersecurity,secure,safety,protection,guardian,armored,armoured,defense,defence,defender,block,threat,prevention,antivirus,vigilance,vigilant,detection,scan,find,strength,strong,tough,invincible,invincibility,invulnerable,undamaged,audit,admin,verification,crest,bravery,knight,foot soldier,infantry,trooper,pawn,battle,war,military,army,cadet,scout",
         contributors = "colebemis,karsa-mistmere,RajnishKMehta"
@@ -10525,7 +10525,7 @@ pub enum LucideGlyph {
     Shield,
     #[cfg(feature = "ship_wheel")]
     #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"8\"></circle><path d=\"M12 2v7.5\"></path><path d=\"m19 5-5.23 5.23\"></path><path d=\"M22 12h-7.5\"></path><path d=\"m19 19-5.23-5.23\"></path><path d=\"M12 14.5V22\"></path><path d=\"M10.23 13.77 5 19\"></path><path d=\"M9.5 12H2\"></path><path d=\"M10.23 10.23 5 5\"></path><circle cy=\"12\" cx=\"12\" r=\"2.5\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"8\"></circle><path d=\"M12 2v7.5\"></path><path d=\"m19 5-5.23 5.23\"></path><path d=\"M22 12h-7.5\"></path><path d=\"m19 19-5.23-5.23\"></path><path d=\"M12 14.5V22\"></path><path d=\"M10.23 13.77 5 19\"></path><path d=\"M9.5 12H2\"></path><path d=\"M10.23 10.23 5 5\"></path><circle cx=\"12\" cy=\"12\" r=\"2.5\"></circle>",
         categories = "transportation,navigation,travel",
         tags = "steering,rudder,boat,knots,nautical mile,maritime,sailing,yacht,cruise,ocean liner,tanker,vessel,navy,trip",
         contributors = "danielbayley"
@@ -10565,7 +10565,7 @@ pub enum LucideGlyph {
     ShoppingBasket,
     #[cfg(feature = "shopping_cart")]
     #[strum(props(
-        svg = "<circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" r=\"1\" cy=\"21\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path>",
+        svg = "<circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path>",
         categories = "shopping",
         tags = "trolley,cart,basket,e-commerce,store,purchase,products,items,ingredients",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -10725,7 +10725,7 @@ pub enum LucideGlyph {
     SkipForward,
     #[cfg(feature = "skull")]
     #[strum(props(
-        svg = "<path d=\"m12.5 17-.5-1-.5 1h1z\"></path><path d=\"M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z\"></path><circle cy=\"12\" r=\"1\" cx=\"15\"></circle><circle r=\"1\" cx=\"9\" cy=\"12\"></circle>",
+        svg = "<path d=\"m12.5 17-.5-1-.5 1h1z\"></path><path d=\"M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z\"></path><circle cx=\"15\" cy=\"12\" r=\"1\"></circle><circle cx=\"9\" cy=\"12\" r=\"1\"></circle>",
         categories = "gaming",
         tags = "death,danger,bone",
         contributors = "ericfennis"
@@ -10765,7 +10765,7 @@ pub enum LucideGlyph {
     SlidersVertical,
     #[cfg(feature = "smartphone_charging")]
     #[strum(props(
-        svg = "<rect rx=\"2\" x=\"5\" height=\"20\" ry=\"2\" y=\"2\" width=\"14\"></rect><path d=\"M12.66 8 10 12h4l-2.66 4\"></path>",
+        svg = "<rect height=\"20\" rx=\"2\" ry=\"2\" width=\"14\" x=\"5\" y=\"2\"></rect><path d=\"M12.66 8 10 12h4l-2.66 4\"></path>",
         categories = "connectivity,devices",
         tags = "phone,cellphone,device,power,screen",
         contributors = "mittalyashu,ericfennis"
@@ -10773,7 +10773,7 @@ pub enum LucideGlyph {
     SmartphoneCharging,
     #[cfg(feature = "smartphone_nfc")]
     #[strum(props(
-        svg = "<rect height=\"12\" width=\"7\" x=\"2\" rx=\"1\" y=\"6\"></rect><path d=\"M13 8.32a7.43 7.43 0 0 1 0 7.36\"></path><path d=\"M16.46 6.21a11.76 11.76 0 0 1 0 11.58\"></path><path d=\"M19.91 4.1a15.91 15.91 0 0 1 .01 15.8\"></path>",
+        svg = "<rect height=\"12\" rx=\"1\" width=\"7\" x=\"2\" y=\"6\"></rect><path d=\"M13 8.32a7.43 7.43 0 0 1 0 7.36\"></path><path d=\"M16.46 6.21a11.76 11.76 0 0 1 0 11.58\"></path><path d=\"M19.91 4.1a15.91 15.91 0 0 1 .01 15.8\"></path>",
         categories = "communication,finance,devices",
         tags = "contactless,payment,near-field communication,screen",
         contributors = "karsa-mistmere,jguddas,ericfennis"
@@ -10781,7 +10781,7 @@ pub enum LucideGlyph {
     SmartphoneNfc,
     #[cfg(feature = "smartphone")]
     #[strum(props(
-        svg = "<rect y=\"2\" height=\"20\" ry=\"2\" x=\"5\" width=\"14\" rx=\"2\"></rect><path d=\"M12 18h.01\"></path>",
+        svg = "<rect height=\"20\" rx=\"2\" ry=\"2\" width=\"14\" x=\"5\" y=\"2\"></rect><path d=\"M12 18h.01\"></path>",
         categories = "connectivity,devices",
         tags = "phone,cellphone,device,screen",
         contributors = "colebemis,mittalyashu,ericfennis"
@@ -10789,7 +10789,7 @@ pub enum LucideGlyph {
     Smartphone,
     #[cfg(feature = "smile_plus")]
     #[strum(props(
-        svg = "<path d=\"M22 11v1a10 10 0 1 1-9-10\"></path><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x2=\"9.01\" y2=\"9\" y1=\"9\" x1=\"9\"></line><line x2=\"15.01\" y2=\"9\" y1=\"9\" x1=\"15\"></line><path d=\"M16 5h6\"></path><path d=\"M19 2v6\"></path>",
+        svg = "<path d=\"M22 11v1a10 10 0 1 1-9-10\"></path><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" x2=\"9.01\" y1=\"9\" y2=\"9\"></line><line x1=\"15\" x2=\"15.01\" y1=\"9\" y2=\"9\"></line><path d=\"M16 5h6\"></path><path d=\"M19 2v6\"></path>",
         categories = "emoji,social,notifications,communication",
         tags = "emoji,face,happy,good,emotion,react,reaction,add",
         contributors = "karsa-mistmere,ericfennis"
@@ -10797,7 +10797,7 @@ pub enum LucideGlyph {
     SmilePlus,
     #[cfg(feature = "smile")]
     #[strum(props(
-        svg = "<circle cy=\"12\" cx=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x2=\"9.01\" x1=\"9\" y2=\"9\" y1=\"9\"></line><line y2=\"9\" x1=\"15\" x2=\"15.01\" y1=\"9\"></line>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" x2=\"9.01\" y1=\"9\" y2=\"9\"></line><line x1=\"15\" x2=\"15.01\" y1=\"9\" y2=\"9\"></line>",
         categories = "emoji,account",
         tags = "emoji,face,happy,good,emotion",
         contributors = "colebemis,csandman,mittalyashu,ericfennis"
@@ -10805,7 +10805,7 @@ pub enum LucideGlyph {
     Smile,
     #[cfg(feature = "snail")]
     #[strum(props(
-        svg = "<path d=\"M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0\"></path><circle cy=\"13\" r=\"8\" cx=\"10\"></circle><path d=\"M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6\"></path><path d=\"M18 3 19.1 5.2\"></path><path d=\"M22 3 20.9 5.2\"></path>",
+        svg = "<path d=\"M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0\"></path><circle cx=\"10\" cy=\"13\" r=\"8\"></circle><path d=\"M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6\"></path><path d=\"M18 3 19.1 5.2\"></path><path d=\"M22 3 20.9 5.2\"></path>",
         categories = "animals,food-beverage",
         tags = "animal,insect,slow,speed,delicacy,spiral",
         contributors = "danielbayley,karsa-mistmere"
@@ -10877,7 +10877,7 @@ pub enum LucideGlyph {
     Sparkle,
     #[cfg(feature = "sparkles")]
     #[strum(props(
-        svg = "<path d=\"M11.01 2.81a1 1 0 0 1 1.96 0l1.05 5.55a2 2 0 0 0 1.59 1.59l5.55 1.05a1 1 0 0 1 0 1.96l-5.55 1.05a2 2 0 0 0-1.59 1.59l-1.05 5.55a1 1 0 0 1-1.96 0l-1.05-5.55a2 2 0 0 0-1.59-1.59l-5.55-1.05a1 1 0 0 1 0-1.96l5.55-1.05a2 2 0 0 0 1.59-1.59z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" r=\"2\" cy=\"20\"></circle>",
+        svg = "<path d=\"M11.01 2.81a1 1 0 0 1 1.96 0l1.05 5.55a2 2 0 0 0 1.59 1.59l5.55 1.05a1 1 0 0 1 0 1.96l-5.55 1.05a2 2 0 0 0-1.59 1.59l-1.05 5.55a1 1 0 0 1-1.96 0l-1.05-5.55a2 2 0 0 0-1.59-1.59l-5.55-1.05a1 1 0 0 1 0-1.96l5.55-1.05a2 2 0 0 0 1.59-1.59z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle>",
         categories = "cursors,multimedia,gaming,weather",
         tags = "stars,effect,filter,night,magic",
         contributors = "karsa-mistmere"
@@ -10885,7 +10885,7 @@ pub enum LucideGlyph {
     Sparkles,
     #[cfg(feature = "speaker")]
     #[strum(props(
-        svg = "<rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><path d=\"M12 6h.01\"></path><circle cy=\"14\" cx=\"12\" r=\"4\"></circle><path d=\"M12 14h.01\"></path>",
+        svg = "<rect height=\"20\" rx=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><path d=\"M12 6h.01\"></path><circle cx=\"12\" cy=\"14\" r=\"4\"></circle><path d=\"M12 14h.01\"></path>",
         categories = "multimedia,devices",
         tags = "sound,audio,music,tweeter,subwoofer,bass,production,producer,dj",
         contributors = "colebemis,ericfennis,danielbayley"
@@ -10917,7 +10917,7 @@ pub enum LucideGlyph {
     SpellCheck,
     #[cfg(feature = "spline_pointer")]
     #[strum(props(
-        svg = "<path d=\"M12.03 12.68a.498.49 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.94l-3.44 1.06a1 1 0 0 0-.66.66l-1.06 3.44a.5.5 0 0 1-.943.03z\"></path><path d=\"M5 17A12 12 0 0 1 17 5\"></path><circle cy=\"5\" cx=\"19\" r=\"2\"></circle><circle cx=\"5\" r=\"2\" cy=\"19\"></circle>",
+        svg = "<path d=\"M12.03 12.68a.498.49 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.94l-3.44 1.06a1 1 0 0 0-.66.66l-1.06 3.44a.5.5 0 0 1-.943.03z\"></path><path d=\"M5 17A12 12 0 0 1 17 5\"></path><circle cx=\"19\" cy=\"5\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle>",
         categories = "arrows,cursors,design,tools",
         tags = "path,tool,curve,node,click,pointer,target,vector",
         contributors = "kaleidosium,mittalyashu,ericfennis,jguddas,karsa-mistmere"
@@ -10965,7 +10965,7 @@ pub enum LucideGlyph {
     Spotlight,
     #[cfg(feature = "spray_can")]
     #[strum(props(
-        svg = "<path d=\"M3 3h.01\"></path><path d=\"M7 5h.01\"></path><path d=\"M11 7h.01\"></path><path d=\"M3 7h.01\"></path><path d=\"M7 9h.01\"></path><path d=\"M3 11h.01\"></path><rect y=\"5\" height=\"4\" width=\"4\" x=\"15\"></rect><path d=\"m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2\"></path><path d=\"m13 14 8-2\"></path><path d=\"m13 19 8-2\"></path>",
+        svg = "<path d=\"M3 3h.01\"></path><path d=\"M7 5h.01\"></path><path d=\"M11 7h.01\"></path><path d=\"M3 7h.01\"></path><path d=\"M7 9h.01\"></path><path d=\"M3 11h.01\"></path><rect height=\"4\" width=\"4\" x=\"15\" y=\"5\"></rect><path d=\"m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2\"></path><path d=\"m13 14 8-2\"></path><path d=\"m13 19 8-2\"></path>",
         categories = "design,tools",
         tags = "paint,color,graffiti,decoration,aerosol,deodorant,shaving foam,air freshener",
         contributors = "danielbayley,karsa-mistmere"
@@ -10981,7 +10981,7 @@ pub enum LucideGlyph {
     Sprout,
     #[cfg(feature = "square_activity")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" y=\"3\" x=\"3\" rx=\"2\"></rect><path d=\"M17 12h-2l-2 5-2-10-2 5H7\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M17 12h-2l-2 5-2-10-2 5H7\"></path>",
         categories = "medical,social,science,multimedia",
         tags = "pulse,action,motion,movement,exercise,fitness,healthcare,heart rate monitor,vital signs,vitals,emergency room,er,intensive care,hospital,defibrillator,earthquake,siesmic,magnitude,richter scale,aftershock,tremor,shockwave,audio,waveform,synthesizer,synthesiser,music",
         contributors = "danielbayley"
@@ -10989,7 +10989,7 @@ pub enum LucideGlyph {
     SquareActivity,
     #[cfg(feature = "square_arrow_down_left")]
     #[strum(props(
-        svg = "<rect x=\"3\" width=\"18\" height=\"18\" y=\"3\" rx=\"2\"></rect><path d=\"m16 8-8 8\"></path><path d=\"M16 16H8V8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m16 8-8 8\"></path><path d=\"M16 16H8V8\"></path>",
         categories = "arrows,gaming",
         tags = "direction,south-west,diagonal,sign,turn,keyboard,button",
         contributors = "danielbayley"
@@ -10997,7 +10997,7 @@ pub enum LucideGlyph {
     SquareArrowDownLeft,
     #[cfg(feature = "square_arrow_down_right")]
     #[strum(props(
-        svg = "<rect x=\"3\" rx=\"2\" y=\"3\" width=\"18\" height=\"18\"></rect><path d=\"m8 8 8 8\"></path><path d=\"M16 8v8H8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m8 8 8 8\"></path><path d=\"M16 8v8H8\"></path>",
         categories = "arrows,gaming",
         tags = "direction,south-east,diagonal,sign,turn,keyboard,button",
         contributors = "danielbayley"
@@ -11005,7 +11005,7 @@ pub enum LucideGlyph {
     SquareArrowDownRight,
     #[cfg(feature = "square_arrow_down")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" y=\"3\" width=\"18\" x=\"3\"></rect><path d=\"M12 8v8\"></path><path d=\"m8 12 4 4 4-4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 8v8\"></path><path d=\"m8 12 4 4 4-4\"></path>",
         categories = "arrows,gaming",
         tags = "backwards,reverse,direction,south,sign,keyboard,button",
         contributors = "danielbayley,ericfennis"
@@ -11013,7 +11013,7 @@ pub enum LucideGlyph {
     SquareArrowDown,
     #[cfg(feature = "square_arrow_left")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"18\" height=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m12 8-4 4 4 4\"></path><path d=\"M16 12H8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m12 8-4 4 4 4\"></path><path d=\"M16 12H8\"></path>",
         categories = "arrows",
         tags = "previous,back,direction,west,sign,keyboard,button,<-",
         contributors = "danielbayley,ericfennis"
@@ -11069,7 +11069,7 @@ pub enum LucideGlyph {
     SquareArrowRightExit,
     #[cfg(feature = "square_arrow_right")]
     #[strum(props(
-        svg = "<rect x=\"3\" height=\"18\" y=\"3\" width=\"18\" rx=\"2\"></rect><path d=\"M8 12h8\"></path><path d=\"m12 16 4-4-4-4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M8 12h8\"></path><path d=\"m12 16 4-4-4-4\"></path>",
         categories = "arrows",
         tags = "next,forward,direction,west,sign,keyboard,button,->",
         contributors = "danielbayley,ericfennis"
@@ -11077,7 +11077,7 @@ pub enum LucideGlyph {
     SquareArrowRight,
     #[cfg(feature = "square_arrow_up_left")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" width=\"18\" y=\"3\" x=\"3\"></rect><path d=\"M8 16V8h8\"></path><path d=\"M16 16 8 8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M8 16V8h8\"></path><path d=\"M16 16 8 8\"></path>",
         categories = "arrows",
         tags = "direction,north-west,diagonal,sign,keyboard,button",
         contributors = "danielbayley"
@@ -11085,7 +11085,7 @@ pub enum LucideGlyph {
     SquareArrowUpLeft,
     #[cfg(feature = "square_arrow_up_right")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"18\" height=\"18\" x=\"3\" rx=\"2\"></rect><path d=\"M8 8h8v8\"></path><path d=\"m8 16 8-8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M8 8h8v8\"></path><path d=\"m8 16 8-8\"></path>",
         categories = "arrows,social",
         tags = "direction,north-east,diagonal,sign,keyboard,button,share",
         contributors = "danielbayley"
@@ -11093,7 +11093,7 @@ pub enum LucideGlyph {
     SquareArrowUpRight,
     #[cfg(feature = "square_arrow_up")]
     #[strum(props(
-        svg = "<rect height=\"18\" rx=\"2\" x=\"3\" y=\"3\" width=\"18\"></rect><path d=\"m16 12-4-4-4 4\"></path><path d=\"M12 16V8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m16 12-4-4-4 4\"></path><path d=\"M12 16V8\"></path>",
         categories = "arrows",
         tags = "forward,direction,north,sign,keyboard,button",
         contributors = "danielbayley,ericfennis"
@@ -11101,7 +11101,7 @@ pub enum LucideGlyph {
     SquareArrowUp,
     #[cfg(feature = "square_asterisk")]
     #[strum(props(
-        svg = "<rect width=\"18\" y=\"3\" x=\"3\" height=\"18\" rx=\"2\"></rect><path d=\"M12 8v8\"></path><path d=\"m8.5 14 7-4\"></path><path d=\"m8.5 10 7 4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 8v8\"></path><path d=\"m8.5 14 7-4\"></path><path d=\"m8.5 10 7 4\"></path>",
         categories = "text,security,math,development",
         tags = "password,secret,access,key,multiply,multiplication,glob pattern,wildcard,*",
         contributors = "danielbayley"
@@ -11109,7 +11109,7 @@ pub enum LucideGlyph {
     SquareAsterisk,
     #[cfg(feature = "square_bottom_dashed_scissors")]
     #[strum(props(
-        svg = "<line y2=\"3\" y1=\"3\" x2=\"19\" x1=\"5\"></line><line x2=\"3\" y2=\"19\" y1=\"5\" x1=\"3\"></line><line x1=\"21\" x2=\"21\" y1=\"5\" y2=\"19\"></line><line y2=\"21\" y1=\"21\" x2=\"10\" x1=\"9\"></line><line y2=\"21\" x2=\"15\" x1=\"14\" y1=\"21\"></line><path d=\"M 3 5 A2 2 0 0 1 5 3\"></path><path d=\"M 19 3 A2 2 0 0 1 21 5\"></path><path d=\"M 5 21 A2 2 0 0 1 3 19\"></path><path d=\"M 21 19 A2 2 0 0 1 19 21\"></path><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle><line x2=\"12\" y2=\"12\" y1=\"9.56\" x1=\"9.56\"></line><line y1=\"17\" x1=\"17\" x2=\"14.82\" y2=\"14.82\"></line><circle cy=\"15.5\" r=\"1.5\" cx=\"8.5\"></circle><line x2=\"17\" y2=\"7\" y1=\"14.43\" x1=\"9.56\"></line>",
+        svg = "<line x1=\"5\" x2=\"19\" y1=\"3\" y2=\"3\"></line><line x1=\"3\" x2=\"3\" y1=\"5\" y2=\"19\"></line><line x1=\"21\" x2=\"21\" y1=\"5\" y2=\"19\"></line><line x1=\"9\" x2=\"10\" y1=\"21\" y2=\"21\"></line><line x1=\"14\" x2=\"15\" y1=\"21\" y2=\"21\"></line><path d=\"M 3 5 A2 2 0 0 1 5 3\"></path><path d=\"M 19 3 A2 2 0 0 1 21 5\"></path><path d=\"M 5 21 A2 2 0 0 1 3 19\"></path><path d=\"M 21 19 A2 2 0 0 1 19 21\"></path><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"12\" y1=\"9.56\" y2=\"12\"></line><line x1=\"17\" x2=\"14.82\" y1=\"17\" y2=\"14.82\"></line><circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"17\" y1=\"14.43\" y2=\"7\"></line>",
         categories = "text,design,tools,files,development",
         tags = "cut,snippet,chop,stationery,crafts",
         contributors = "danielbayley,eden881"
@@ -11133,7 +11133,7 @@ pub enum LucideGlyph {
     SquareCenterlineDashedVertical,
     #[cfg(feature = "square_chart_gantt")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" width=\"18\" y=\"3\" x=\"3\"></rect><path d=\"M9 8h7\"></path><path d=\"M8 12h6\"></path><path d=\"M11 16h5\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 8h7\"></path><path d=\"M8 12h6\"></path><path d=\"M11 16h5\"></path>",
         categories = "charts,time,development,design",
         tags = "projects,manage,overview,roadmap,plan,intentions,timeline,deadline,date,event,range,period,productivity,work,agile,code,coding,toolbar,button",
         contributors = "danielbayley"
@@ -11149,7 +11149,7 @@ pub enum LucideGlyph {
     SquareCheckBig,
     #[cfg(feature = "square_check")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"m9 12 2 2 4-4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m9 12 2 2 4-4\"></path>",
         categories = "notifications",
         tags = "done,todo,tick,complete,task",
         contributors = "danielbayley"
@@ -11157,7 +11157,7 @@ pub enum LucideGlyph {
     SquareCheck,
     #[cfg(feature = "square_chevron_down")]
     #[strum(props(
-        svg = "<rect height=\"18\" y=\"3\" width=\"18\" x=\"3\" rx=\"2\"></rect><path d=\"m16 10-4 4-4-4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m16 10-4 4-4-4\"></path>",
         categories = "arrows,navigation",
         tags = "back,menu,panel",
         contributors = "danielbayley,ericfennis"
@@ -11165,7 +11165,7 @@ pub enum LucideGlyph {
     SquareChevronDown,
     #[cfg(feature = "square_chevron_left")]
     #[strum(props(
-        svg = "<rect width=\"18\" x=\"3\" y=\"3\" rx=\"2\" height=\"18\"></rect><path d=\"m14 16-4-4 4-4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m14 16-4-4 4-4\"></path>",
         categories = "arrows,navigation",
         tags = "back,previous,less than,fewer,menu,panel,button,keyboard,<",
         contributors = "danielbayley,ericfennis"
@@ -11173,7 +11173,7 @@ pub enum LucideGlyph {
     SquareChevronLeft,
     #[cfg(feature = "square_chevron_right")]
     #[strum(props(
-        svg = "<rect width=\"18\" rx=\"2\" height=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m10 8 4 4-4 4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m10 8 4 4-4 4\"></path>",
         categories = "arrows,navigation,development",
         tags = "forward,next,more than,greater,menu,panel,code,coding,command line,terminal,prompt,shell,console,>",
         contributors = "danielbayley,ericfennis"
@@ -11181,7 +11181,7 @@ pub enum LucideGlyph {
     SquareChevronRight,
     #[cfg(feature = "square_chevron_up")]
     #[strum(props(
-        svg = "<rect x=\"3\" width=\"18\" y=\"3\" rx=\"2\" height=\"18\"></rect><path d=\"m8 14 4-4 4 4\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m8 14 4-4 4 4\"></path>",
         categories = "arrows,navigation,math",
         tags = "caret,keyboard,button,mac,control,ctrl,superscript,exponential,power,ahead,menu,panel,^",
         contributors = "danielbayley,ericfennis"
@@ -11189,7 +11189,7 @@ pub enum LucideGlyph {
     SquareChevronUp,
     #[cfg(feature = "square_code")]
     #[strum(props(
-        svg = "<path d=\"m10 9-3 3 3 3\"></path><path d=\"m14 15 3-3-3-3\"></path><rect width=\"18\" y=\"3\" rx=\"2\" height=\"18\" x=\"3\"></rect>",
+        svg = "<path d=\"m10 9-3 3 3 3\"></path><path d=\"m14 15 3-3-3-3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "text,development",
         tags = "gist,source,programming,html,xml,coding",
         contributors = "danielbayley,jguddas,karsa-mistmere,ericfennis"
@@ -11253,7 +11253,7 @@ pub enum LucideGlyph {
     SquareDashed,
     #[cfg(feature = "square_divide")]
     #[strum(props(
-        svg = "<rect width=\"18\" y=\"3\" x=\"3\" rx=\"2\" height=\"18\" ry=\"2\"></rect><line x2=\"16\" y2=\"12\" x1=\"8\" y1=\"12\"></line><line x2=\"12\" y2=\"16\" y1=\"16\" x1=\"12\"></line><line y2=\"8\" x1=\"12\" x2=\"12\" y1=\"8\"></line>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\"></line><line x1=\"12\" x2=\"12\" y1=\"16\" y2=\"16\"></line><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"8\"></line>",
         categories = "math",
         tags = "calculate,math,÷,/",
         contributors = "csandman,ericfennis"
@@ -11261,7 +11261,7 @@ pub enum LucideGlyph {
     SquareDivide,
     #[cfg(feature = "square_dot")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" y=\"3\" width=\"18\" x=\"3\"></rect><circle cy=\"12\" r=\"1\" cx=\"12\"></circle>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"12\" cy=\"12\" r=\"1\"></circle>",
         categories = "development",
         tags = "git,diff,modified,.",
         contributors = "danielbayley,ericfennis"
@@ -11269,7 +11269,7 @@ pub enum LucideGlyph {
     SquareDot,
     #[cfg(feature = "square_equal")]
     #[strum(props(
-        svg = "<rect x=\"3\" rx=\"2\" width=\"18\" y=\"3\" height=\"18\"></rect><path d=\"M7 10h10\"></path><path d=\"M7 14h10\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 10h10\"></path><path d=\"M7 14h10\"></path>",
         categories = "math",
         tags = "calculate,=",
         contributors = "danielbayley,ericfennis"
@@ -11277,7 +11277,7 @@ pub enum LucideGlyph {
     SquareEqual,
     #[cfg(feature = "square_function")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"3\" rx=\"2\" height=\"18\" ry=\"2\" width=\"18\"></rect><path d=\"M9 17c2 0 2.8-1 2.8-2.8V10c0-2 1-3.3 3.2-3\"></path><path d=\"M9 11.2h5.7\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 17c2 0 2.8-1 2.8-2.8V10c0-2 1-3.3 3.2-3\"></path><path d=\"M9 11.2h5.7\"></path>",
         categories = "development,math",
         tags = "programming,code,automation,math",
         contributors = "mittalyashu,ericfennis"
@@ -11285,7 +11285,7 @@ pub enum LucideGlyph {
     SquareFunction,
     #[cfg(feature = "square_kanban")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect><path d=\"M8 7v7\"></path><path d=\"M12 7v4\"></path><path d=\"M16 7v9\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M8 7v7\"></path><path d=\"M12 7v4\"></path><path d=\"M16 7v9\"></path>",
         categories = "charts,development,design",
         tags = "projects,manage,overview,board,tickets,issues,roadmap,plan,intentions,productivity,work,agile,code,coding,toolbar,button",
         contributors = "danielbayley"
@@ -11293,7 +11293,7 @@ pub enum LucideGlyph {
     SquareKanban,
     #[cfg(feature = "square_library")]
     #[strum(props(
-        svg = "<rect height=\"18\" y=\"3\" x=\"3\" rx=\"2\" width=\"18\"></rect><path d=\"M7 7v10\"></path><path d=\"M11 7v10\"></path><path d=\"m15 7 2 10\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 7v10\"></path><path d=\"M11 7v10\"></path><path d=\"m15 7 2 10\"></path>",
         categories = "text,photography,multimedia,navigation,development",
         tags = "books,reading,written,authors,stories,fiction,novels,information,knowledge,education,high school,university,college,academy,learning,study,research,collection,vinyl,records,albums,music,package",
         contributors = "danielbayley"
@@ -11301,7 +11301,7 @@ pub enum LucideGlyph {
     SquareLibrary,
     #[cfg(feature = "square_m")]
     #[strum(props(
-        svg = "<path d=\"M8 16V8.5a.5.5 0 0 1 .9-.3l2.7 3.59a.5.5 0 0 0 .8 0l2.7-3.6a.5.5 0 0 1 .9.3V16\"></path><rect y=\"3\" height=\"18\" rx=\"2\" x=\"3\" width=\"18\"></rect>",
+        svg = "<path d=\"M8 16V8.5a.5.5 0 0 1 .9-.3l2.7 3.59a.5.5 0 0 0 .8 0l2.7-3.6a.5.5 0 0 1 .9.3V16\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "transportation,navigation",
         tags = "metro,subway,underground,track,line",
         contributors = "danielbayley,jguddas,karsa-mistmere"
@@ -11309,7 +11309,7 @@ pub enum LucideGlyph {
     SquareM,
     #[cfg(feature = "square_menu")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" x=\"3\" y=\"3\" width=\"18\"></rect><path d=\"M7 8h10\"></path><path d=\"M7 12h10\"></path><path d=\"M7 16h10\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 8h10\"></path><path d=\"M7 12h10\"></path><path d=\"M7 16h10\"></path>",
         categories = "layout",
         tags = "bars,navigation,hamburger,options,menu bar,panel",
         contributors = "danielbayley"
@@ -11317,7 +11317,7 @@ pub enum LucideGlyph {
     SquareMenu,
     #[cfg(feature = "square_minus")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"18\" x=\"3\" y=\"3\" height=\"18\"></rect><path d=\"M8 12h8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M8 12h8\"></path>",
         categories = "math,development,text,tools,devices",
         tags = "subtract,remove,decrease,reduce,calculator,button,keyboard,line,divider,separator,horizontal rule,hr,html,markup,markdown,---,toolbar,operator,code,coding,minimum,downgrade",
         contributors = "colebemis,ericfennis"
@@ -11341,7 +11341,7 @@ pub enum LucideGlyph {
     SquareParkingOff,
     #[cfg(feature = "square_parking")]
     #[strum(props(
-        svg = "<rect y=\"3\" rx=\"2\" width=\"18\" height=\"18\" x=\"3\"></rect><path d=\"M9 17V7h4a3 3 0 0 1 0 6H9\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 17V7h4a3 3 0 0 1 0 6H9\"></path>",
         categories = "transportation,navigation",
         tags = "parking lot,car park",
         contributors = "karsa-mistmere,jguddas,danielbayley"
@@ -11349,7 +11349,7 @@ pub enum LucideGlyph {
     SquareParking,
     #[cfg(feature = "square_pause")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"3\" width=\"18\" rx=\"2\" height=\"18\"></rect><line x2=\"10\" y1=\"15\" y2=\"9\" x1=\"10\"></line><line y1=\"15\" x1=\"14\" x2=\"14\" y2=\"9\"></line>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><line x1=\"10\" x2=\"10\" y1=\"15\" y2=\"9\"></line><line x1=\"14\" x2=\"14\" y1=\"15\" y2=\"9\"></line>",
         categories = "multimedia",
         tags = "music,audio,stop",
         contributors = "colebemis,ericfennis,karsa-mistmere"
@@ -11365,7 +11365,7 @@ pub enum LucideGlyph {
     SquarePen,
     #[cfg(feature = "square_percent")]
     #[strum(props(
-        svg = "<rect x=\"3\" height=\"18\" width=\"18\" rx=\"2\" y=\"3\"></rect><path d=\"m15 9-6 6\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 15h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m15 9-6 6\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 15h.01\"></path>",
         categories = "social,finance,shopping,math",
         tags = "verified,unverified,sale,discount,offer,marketing,sticker,price tag",
         contributors = "danielbayley"
@@ -11373,7 +11373,7 @@ pub enum LucideGlyph {
     SquarePercent,
     #[cfg(feature = "square_pi")]
     #[strum(props(
-        svg = "<rect rx=\"2\" width=\"18\" y=\"3\" height=\"18\" x=\"3\"></rect><path d=\"M7 7h10\"></path><path d=\"M10 7v10\"></path><path d=\"M16 17a2 2 0 0 1-2-2V7\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 7h10\"></path><path d=\"M10 7v10\"></path><path d=\"M16 17a2 2 0 0 1-2-2V7\"></path>",
         categories = "development,math",
         tags = "constant,code,coding,programming,symbol,trigonometry,geometry,formula",
         contributors = "danielbayley"
@@ -11381,7 +11381,7 @@ pub enum LucideGlyph {
     SquarePi,
     #[cfg(feature = "square_pilcrow")]
     #[strum(props(
-        svg = "<rect x=\"3\" height=\"18\" y=\"3\" rx=\"2\" width=\"18\"></rect><path d=\"M12 12H9.5a2.5 2.5 0 0 1 0-5H17\"></path><path d=\"M12 7v10\"></path><path d=\"M16 7v10\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 12H9.5a2.5 2.5 0 0 1 0-5H17\"></path><path d=\"M12 7v10\"></path><path d=\"M16 7v10\"></path>",
         categories = "text",
         tags = "paragraph,mark,paraph,blind,typography,type,text,prose,symbol",
         contributors = "danielbayley"
@@ -11389,7 +11389,7 @@ pub enum LucideGlyph {
     SquarePilcrow,
     #[cfg(feature = "square_play")]
     #[strum(props(
-        svg = "<rect height=\"18\" x=\"3\" rx=\"2\" width=\"18\" y=\"3\"></rect><path d=\"M9 9.00a1 1 0 0 1 1.51-.859l4.99 2.99a1 1 0 0 1 0 1.71l-4.99 2.99A1 1 0 0 1 9 14.99z\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M9 9.00a1 1 0 0 1 1.51-.859l4.99 2.99a1 1 0 0 1 0 1.71l-4.99 2.99A1 1 0 0 1 9 14.99z\"></path>",
         categories = "arrows,multimedia",
         tags = "music,audio,video,start,run",
         contributors = "danielbayley,karsa-mistmere"
@@ -11397,7 +11397,7 @@ pub enum LucideGlyph {
     SquarePlay,
     #[cfg(feature = "square_plus")]
     #[strum(props(
-        svg = "<rect height=\"18\" y=\"3\" rx=\"2\" width=\"18\" x=\"3\"></rect><path d=\"M8 12h8\"></path><path d=\"M12 8v8\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M8 12h8\"></path><path d=\"M12 8v8\"></path>",
         categories = "math,tools,development,text",
         tags = "add,new,increase,increment,positive,calculate,calculator,button,keyboard,toolbar,maximum,upgrade,extra,operator,join,concatenate,code,coding,+",
         contributors = "colebemis,ericfennis"
@@ -11405,7 +11405,7 @@ pub enum LucideGlyph {
     SquarePlus,
     #[cfg(feature = "square_power")]
     #[strum(props(
-        svg = "<path d=\"M12 7v4\"></path><path d=\"M7.99 9.00a5 5 0 1 0 8-.005\"></path><rect height=\"18\" width=\"18\" rx=\"2\" x=\"3\" y=\"3\"></rect>",
+        svg = "<path d=\"M12 7v4\"></path><path d=\"M7.99 9.00a5 5 0 1 0 8-.005\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "connectivity",
         tags = "on,off,device,switch,toggle,binary,boolean,reboot,restart,button,keyboard,troubleshoot",
         contributors = "danielbayley,jguddas"
@@ -11413,7 +11413,7 @@ pub enum LucideGlyph {
     SquarePower,
     #[cfg(feature = "square_radical")]
     #[strum(props(
-        svg = "<path d=\"M7 12h2l2 5 2-10h4\"></path><rect height=\"18\" x=\"3\" width=\"18\" y=\"3\" rx=\"2\"></rect>",
+        svg = "<path d=\"M7 12h2l2 5 2-10h4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "development,math",
         tags = "calculate,formula,math,operator,root,square,symbol",
         contributors = "smnandre"
@@ -11429,7 +11429,7 @@ pub enum LucideGlyph {
     SquareRoundCorner,
     #[cfg(feature = "square_scissors")]
     #[strum(props(
-        svg = "<rect height=\"18\" width=\"18\" y=\"3\" rx=\"2\" x=\"3\"></rect><circle r=\"1.5\" cx=\"8.5\" cy=\"8.5\"></circle><line y1=\"9.56\" x2=\"12\" x1=\"9.56\" y2=\"12\"></line><line y1=\"17\" x2=\"14.82\" y2=\"14.82\" x1=\"17\"></line><circle cx=\"8.5\" r=\"1.5\" cy=\"15.5\"></circle><line y1=\"14.43\" x2=\"17\" y2=\"7\" x1=\"9.56\"></line>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"12\" y1=\"9.56\" y2=\"12\"></line><line x1=\"17\" x2=\"14.82\" y1=\"17\" y2=\"14.82\"></line><circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"17\" y1=\"14.43\" y2=\"7\"></line>",
         categories = "text,design,tools,files,development",
         tags = "cut,snippet,chop,stationery,crafts,toolbar,button",
         contributors = "danielbayley,eden881"
@@ -11437,7 +11437,7 @@ pub enum LucideGlyph {
     SquareScissors,
     #[cfg(feature = "square_sigma")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M16 8.9V7H8l4 5-4 5h8v-1.9\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M16 8.9V7H8l4 5-4 5h8v-1.9\"></path>",
         categories = "text,math",
         tags = "sum,calculate,formula,math,enumeration,enumerate",
         contributors = "danielbayley"
@@ -11445,7 +11445,7 @@ pub enum LucideGlyph {
     SquareSigma,
     #[cfg(feature = "square_slash")]
     #[strum(props(
-        svg = "<rect x=\"3\" height=\"18\" y=\"3\" rx=\"2\" width=\"18\"></rect><line y2=\"9\" x1=\"9\" x2=\"15\" y1=\"15\"></line>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><line x1=\"9\" x2=\"15\" y1=\"15\" y2=\"9\"></line>",
         categories = "development,math",
         tags = "git,diff,ignored,divide,division,shortcut,or,/",
         contributors = "danielbayley,ericfennis"
@@ -11453,7 +11453,7 @@ pub enum LucideGlyph {
     SquareSlash,
     #[cfg(feature = "square_split_horizontal")]
     #[strum(props(
-        svg = "<path d=\"M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3\"></path><path d=\"M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3\"></path><line y1=\"4\" y2=\"20\" x1=\"12\" x2=\"12\"></line>",
+        svg = "<path d=\"M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3\"></path><path d=\"M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3\"></path><line x1=\"12\" x2=\"12\" y1=\"4\" y2=\"20\"></line>",
         categories = "layout",
         tags = "split,divide",
         contributors = "Patchethium,ericfennis"
@@ -11461,7 +11461,7 @@ pub enum LucideGlyph {
     SquareSplitHorizontal,
     #[cfg(feature = "square_split_vertical")]
     #[strum(props(
-        svg = "<path d=\"M5 8V5c0-1 1-2 2-2h10c1 0 2 1 2 2v3\"></path><path d=\"M19 16v3c0 1-1 2-2 2H7c-1 0-2-1-2-2v-3\"></path><line x1=\"4\" y1=\"12\" x2=\"20\" y2=\"12\"></line>",
+        svg = "<path d=\"M5 8V5c0-1 1-2 2-2h10c1 0 2 1 2 2v3\"></path><path d=\"M19 16v3c0 1-1 2-2 2H7c-1 0-2-1-2-2v-3\"></path><line x1=\"4\" x2=\"20\" y1=\"12\" y2=\"12\"></line>",
         categories = "layout",
         tags = "split,divide",
         contributors = "Patchethium,ericfennis"
@@ -11469,7 +11469,7 @@ pub enum LucideGlyph {
     SquareSplitVertical,
     #[cfg(feature = "square_square")]
     #[strum(props(
-        svg = "<rect y=\"3\" width=\"18\" height=\"18\" rx=\"2\" x=\"3\"></rect><rect x=\"8\" height=\"8\" width=\"8\" rx=\"1\" y=\"8\"></rect>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><rect height=\"8\" rx=\"1\" width=\"8\" x=\"8\" y=\"8\"></rect>",
         categories = "layout",
         tags = "float,center,rectangle",
         contributors = "colebemis,ericfennis,jguddas"
@@ -11477,7 +11477,7 @@ pub enum LucideGlyph {
     SquareSquare,
     #[cfg(feature = "square_stack")]
     #[strum(props(
-        svg = "<path d=\"M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2\"></path><path d=\"M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2\"></path><rect x=\"14\" height=\"8\" rx=\"2\" width=\"8\" y=\"14\"></rect>",
+        svg = "<path d=\"M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2\"></path><path d=\"M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2\"></path><rect height=\"8\" rx=\"2\" width=\"8\" x=\"14\" y=\"14\"></rect>",
         categories = "text,files,development",
         tags = "versions,clone,copy,duplicate,multiple,revisions,version control,backup,history",
         contributors = "danielbayley"
@@ -11485,7 +11485,7 @@ pub enum LucideGlyph {
     SquareStack,
     #[cfg(feature = "square_star")]
     #[strum(props(
-        svg = "<path d=\"M11.03 7.69a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.866l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path><rect rx=\"2\" y=\"3\" width=\"18\" height=\"18\" x=\"3\"></rect>",
+        svg = "<path d=\"M11.03 7.69a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.866l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "sports,gaming",
         tags = "badge,medal,honour,decoration,order,pin,laurel,trophy,medallion,insignia,bronze,silver,gold",
         contributors = "karsa-mistmere"
@@ -11493,7 +11493,7 @@ pub enum LucideGlyph {
     SquareStar,
     #[cfg(feature = "square_stop")]
     #[strum(props(
-        svg = "<rect x=\"3\" y=\"3\" rx=\"2\" height=\"18\" width=\"18\"></rect><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\" rx=\"1\"></rect>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"9\" y=\"9\"></rect>",
         categories = "multimedia",
         tags = "media,music",
         contributors = "colebemis,ericfennis,karsa-mistmere"
@@ -11501,7 +11501,7 @@ pub enum LucideGlyph {
     SquareStop,
     #[cfg(feature = "square_terminal")]
     #[strum(props(
-        svg = "<path d=\"m7 11 2-2-2-2\"></path><path d=\"M11 13h4\"></path><rect ry=\"2\" height=\"18\" x=\"3\" rx=\"2\" width=\"18\" y=\"3\"></rect>",
+        svg = "<path d=\"m7 11 2-2-2-2\"></path><path d=\"M11 13h4\"></path><rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "development",
         tags = "code,command line,prompt,shell",
         contributors = "mittalyashu,ericfennis"
@@ -11509,7 +11509,7 @@ pub enum LucideGlyph {
     SquareTerminal,
     #[cfg(feature = "square_user_round")]
     #[strum(props(
-        svg = "<path d=\"M18 21a6 6 0 0 0-12 0\"></path><circle cx=\"12\" r=\"4\" cy=\"11\"></circle><rect rx=\"2\" height=\"18\" y=\"3\" width=\"18\" x=\"3\"></rect>",
+        svg = "<path d=\"M18 21a6 6 0 0 0-12 0\"></path><circle cx=\"12\" cy=\"11\" r=\"4\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "account",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -11517,7 +11517,7 @@ pub enum LucideGlyph {
     SquareUserRound,
     #[cfg(feature = "square_user")]
     #[strum(props(
-        svg = "<rect height=\"18\" y=\"3\" x=\"3\" width=\"18\" rx=\"2\"></rect><circle cy=\"10\" cx=\"12\" r=\"3\"></circle><path d=\"M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\"></path>",
         categories = "account",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -11525,7 +11525,7 @@ pub enum LucideGlyph {
     SquareUser,
     #[cfg(feature = "square_x")]
     #[strum(props(
-        svg = "<rect width=\"18\" y=\"3\" ry=\"2\" x=\"3\" height=\"18\" rx=\"2\"></rect><path d=\"m15 9-6 6\"></path><path d=\"m9 9 6 6\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"m15 9-6 6\"></path><path d=\"m9 9 6 6\"></path>",
         categories = "math,notifications",
         tags = "cancel,close,delete,remove,times,clear,math,multiply,multiplication",
         contributors = "colebemis,ericfennis"
@@ -11533,7 +11533,7 @@ pub enum LucideGlyph {
     SquareX,
     #[cfg(feature = "square")]
     #[strum(props(
-        svg = "<rect height=\"18\" x=\"3\" rx=\"2\" width=\"18\" y=\"3\"></rect>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "shapes,multimedia",
         tags = "stop,playback,music,audio,video,rectangle,aspect ratio,1:1,shape",
         contributors = "colebemis,ericfennis"
@@ -11645,7 +11645,7 @@ pub enum LucideGlyph {
     StepForward,
     #[cfg(feature = "stethoscope")]
     #[strum(props(
-        svg = "<path d=\"M11 2v2\"></path><path d=\"M5 2v2\"></path><path d=\"M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1\"></path><path d=\"M8 15a6 6 0 0 0 12 0v-3\"></path><circle r=\"2\" cx=\"20\" cy=\"10\"></circle>",
+        svg = "<path d=\"M11 2v2\"></path><path d=\"M5 2v2\"></path><path d=\"M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1\"></path><path d=\"M8 15a6 6 0 0 0 12 0v-3\"></path><circle cx=\"20\" cy=\"10\" r=\"2\"></circle>",
         categories = "science,medical",
         tags = "phonendoscope,medical,heart,lungs,sound",
         contributors = "karsa-mistmere"
@@ -11685,7 +11685,7 @@ pub enum LucideGlyph {
     Store,
     #[cfg(feature = "stretch_horizontal")]
     #[strum(props(
-        svg = "<rect y=\"4\" width=\"20\" height=\"6\" rx=\"2\" x=\"2\"></rect><rect height=\"6\" width=\"20\" y=\"14\" x=\"2\" rx=\"2\"></rect>",
+        svg = "<rect height=\"6\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><rect height=\"6\" rx=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect>",
         categories = "layout",
         tags = "items,flex,justify,distribute",
         contributors = "ericfennis"
@@ -11693,7 +11693,7 @@ pub enum LucideGlyph {
     StretchHorizontal,
     #[cfg(feature = "stretch_vertical")]
     #[strum(props(
-        svg = "<rect y=\"2\" width=\"6\" x=\"4\" rx=\"2\" height=\"20\"></rect><rect width=\"6\" x=\"14\" y=\"2\" height=\"20\" rx=\"2\"></rect>",
+        svg = "<rect height=\"20\" rx=\"2\" width=\"6\" x=\"4\" y=\"2\"></rect><rect height=\"20\" rx=\"2\" width=\"6\" x=\"14\" y=\"2\"></rect>",
         categories = "layout",
         tags = "items,flex,justify,distribute",
         contributors = "ericfennis"
@@ -11701,7 +11701,7 @@ pub enum LucideGlyph {
     StretchVertical,
     #[cfg(feature = "strikethrough")]
     #[strum(props(
-        svg = "<path d=\"M16 4H9a3 3 0 0 0-2.83 4\"></path><path d=\"M14 12a4 4 0 0 1 0 8H6\"></path><line y1=\"12\" x1=\"4\" y2=\"12\" x2=\"20\"></line>",
+        svg = "<path d=\"M16 4H9a3 3 0 0 0-2.83 4\"></path><path d=\"M14 12a4 4 0 0 1 0 8H6\"></path><line x1=\"4\" x2=\"20\" y1=\"12\" y2=\"12\"></line>",
         categories = "text",
         tags = "cross out,delete,remove,format",
         contributors = "ericfennis,johnletey,csandman"
@@ -11717,7 +11717,7 @@ pub enum LucideGlyph {
     Subscript,
     #[cfg(feature = "sun_dim")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"4\" cx=\"12\"></circle><path d=\"M12 4h.01\"></path><path d=\"M20 12h.01\"></path><path d=\"M12 20h.01\"></path><path d=\"M4 12h.01\"></path><path d=\"M17.65 6.34h.01\"></path><path d=\"M17.65 17.65h.01\"></path><path d=\"M6.34 17.65h.01\"></path><path d=\"M6.34 6.34h.01\"></path>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 4h.01\"></path><path d=\"M20 12h.01\"></path><path d=\"M12 20h.01\"></path><path d=\"M4 12h.01\"></path><path d=\"M17.65 6.34h.01\"></path><path d=\"M17.65 17.65h.01\"></path><path d=\"M6.34 17.65h.01\"></path><path d=\"M6.34 6.34h.01\"></path>",
         categories = "accessibility,weather",
         tags = "brightness,dim,low,brightness low",
         contributors = "mittalyashu,bduffany,karsa-mistmere"
@@ -11797,7 +11797,7 @@ pub enum LucideGlyph {
     SwissFranc,
     #[cfg(feature = "switch_camera")]
     #[strum(props(
-        svg = "<path d=\"M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5\"></path><path d=\"M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5\"></path><circle cy=\"12\" r=\"3\" cx=\"12\"></circle><path d=\"m18 22-3-3 3-3\"></path><path d=\"m6 2 3 3-3 3\"></path>",
+        svg = "<path d=\"M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5\"></path><path d=\"M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"m18 22-3-3 3-3\"></path><path d=\"m6 2 3 3-3 3\"></path>",
         categories = "communication,devices",
         tags = "photo,selfie,front,back",
         contributors = "lscheibel,csandman,ericfennis"
@@ -11813,7 +11813,7 @@ pub enum LucideGlyph {
     Sword,
     #[cfg(feature = "swords")]
     #[strum(props(
-        svg = "<polyline points=\"14.5 17.5 3 6 3 3 6 3 17.5 14.5\"></polyline><line y2=\"13\" x1=\"13\" x2=\"19\" y1=\"19\"></line><line y2=\"20\" x1=\"16\" y1=\"16\" x2=\"20\"></line><line x1=\"19\" y2=\"19\" x2=\"21\" y1=\"21\"></line><polyline points=\"14.5 6.5 18 3 21 3 21 6 17.5 9.5\"></polyline><line x1=\"5\" x2=\"9\" y1=\"14\" y2=\"18\"></line><line y2=\"20\" x2=\"4\" x1=\"7\" y1=\"17\"></line><line y2=\"21\" x1=\"3\" x2=\"5\" y1=\"19\"></line>",
+        svg = "<polyline points=\"14.5 17.5 3 6 3 3 6 3 17.5 14.5\"></polyline><line x1=\"13\" x2=\"19\" y1=\"19\" y2=\"13\"></line><line x1=\"16\" x2=\"20\" y1=\"16\" y2=\"20\"></line><line x1=\"19\" x2=\"21\" y1=\"21\" y2=\"19\"></line><polyline points=\"14.5 6.5 18 3 21 3 21 6 17.5 9.5\"></polyline><line x1=\"5\" x2=\"9\" y1=\"14\" y2=\"18\"></line><line x1=\"7\" x2=\"4\" y1=\"17\" y2=\"20\"></line><line x1=\"3\" x2=\"5\" y1=\"19\" y2=\"21\"></line>",
         categories = "gaming,tools",
         tags = "battle,challenge,game,war,weapon",
         contributors = "karsa-mistmere,ericfennis"
@@ -11837,7 +11837,7 @@ pub enum LucideGlyph {
     Table2,
     #[cfg(feature = "table_cells_merge")]
     #[strum(props(
-        svg = "<path d=\"M12 21v-6\"></path><path d=\"M12 9V3\"></path><path d=\"M3 15h18\"></path><path d=\"M3 9h18\"></path><rect rx=\"2\" width=\"18\" x=\"3\" height=\"18\" y=\"3\"></rect>",
+        svg = "<path d=\"M12 21v-6\"></path><path d=\"M12 9V3\"></path><path d=\"M3 15h18\"></path><path d=\"M3 9h18\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "text,files",
         tags = "spreadsheet,grid,row",
         contributors = "chessurisme"
@@ -11845,7 +11845,7 @@ pub enum LucideGlyph {
     TableCellsMerge,
     #[cfg(feature = "table_cells_split")]
     #[strum(props(
-        svg = "<path d=\"M12 15V9\"></path><path d=\"M3 15h18\"></path><path d=\"M3 9h18\"></path><rect height=\"18\" x=\"3\" y=\"3\" rx=\"2\" width=\"18\"></rect>",
+        svg = "<path d=\"M12 15V9\"></path><path d=\"M3 15h18\"></path><path d=\"M3 9h18\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "text,files",
         tags = "spreadsheet,grid,row",
         contributors = "chessurisme"
@@ -11869,7 +11869,7 @@ pub enum LucideGlyph {
     TableOfContents,
     #[cfg(feature = "table_properties")]
     #[strum(props(
-        svg = "<path d=\"M15 3v18\"></path><rect height=\"18\" y=\"3\" rx=\"2\" width=\"18\" x=\"3\"></rect><path d=\"M21 9H3\"></path><path d=\"M21 15H3\"></path>",
+        svg = "<path d=\"M15 3v18\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M21 9H3\"></path><path d=\"M21 15H3\"></path>",
         categories = "text,development,files",
         tags = "property list,plist,spreadsheet,grid,dictionary,object,hash",
         contributors = "danielbayley"
@@ -11885,7 +11885,7 @@ pub enum LucideGlyph {
     TableRowsSplit,
     #[cfg(feature = "table")]
     #[strum(props(
-        svg = "<path d=\"M12 3v18\"></path><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path>",
+        svg = "<path d=\"M12 3v18\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path>",
         categories = "text,files",
         tags = "spreadsheet,grid",
         contributors = "colebemis,zenoamaro,ericfennis,csandman,mittalyashu"
@@ -11893,7 +11893,7 @@ pub enum LucideGlyph {
     Table,
     #[cfg(feature = "tablet_smartphone")]
     #[strum(props(
-        svg = "<rect width=\"10\" height=\"14\" x=\"3\" y=\"8\" rx=\"2\"></rect><path d=\"M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4\"></path><path d=\"M8 18h.01\"></path>",
+        svg = "<rect height=\"14\" rx=\"2\" width=\"10\" x=\"3\" y=\"8\"></rect><path d=\"M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4\"></path><path d=\"M8 18h.01\"></path>",
         categories = "devices,design,development,tools",
         tags = "responsive,screens,browser,testing,mobile",
         contributors = "danielbayley"
@@ -11901,7 +11901,7 @@ pub enum LucideGlyph {
     TabletSmartphone,
     #[cfg(feature = "tablet")]
     #[strum(props(
-        svg = "<rect y=\"2\" ry=\"2\" rx=\"2\" x=\"4\" width=\"16\" height=\"20\"></rect><line y1=\"18\" x2=\"12.01\" y2=\"18\" x1=\"12\"></line>",
+        svg = "<rect height=\"20\" rx=\"2\" ry=\"2\" width=\"16\" x=\"4\" y=\"2\"></rect><line x1=\"12\" x2=\"12.01\" y1=\"18\" y2=\"18\"></line>",
         categories = "devices",
         tags = "device",
         contributors = "colebemis,ericfennis"
@@ -11909,7 +11909,7 @@ pub enum LucideGlyph {
     Tablet,
     #[cfg(feature = "tablets")]
     #[strum(props(
-        svg = "<circle cx=\"7\" r=\"5\" cy=\"7\"></circle><circle cy=\"17\" r=\"5\" cx=\"17\"></circle><path d=\"M12 17h10\"></path><path d=\"m3.46 10.54 7.08-7.08\"></path>",
+        svg = "<circle cx=\"7\" cy=\"7\" r=\"5\"></circle><circle cx=\"17\" cy=\"17\" r=\"5\"></circle><path d=\"M12 17h10\"></path><path d=\"m3.46 10.54 7.08-7.08\"></path>",
         categories = "medical",
         tags = "medicine,medication,drug,prescription,pills,pharmacy",
         contributors = "karsa-mistmere,it-is-not,ericfennis"
@@ -11917,7 +11917,7 @@ pub enum LucideGlyph {
     Tablets,
     #[cfg(feature = "tag")]
     #[strum(props(
-        svg = "<path d=\"M12.58 2.58A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .586 1.41l8.70 8.70a2.42 2.42 0 0 0 3.42 0l6.58-6.58a2.42 2.42 0 0 0 0-3.42z\"></path><circle r=\".5\" cy=\"7.5\" cx=\"7.5\" fill=\"currentColor\"></circle>",
+        svg = "<path d=\"M12.58 2.58A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .586 1.41l8.70 8.70a2.42 2.42 0 0 0 3.42 0l6.58-6.58a2.42 2.42 0 0 0 0-3.42z\"></path><circle cx=\"7.5\" cy=\"7.5\" fill=\"currentColor\" r=\".5\"></circle>",
         categories = "account",
         tags = "label,badge,ticket,mark",
         contributors = "colebemis,csandman,aaofyi,ericfennis,karsa-mistmere"
@@ -11925,7 +11925,7 @@ pub enum LucideGlyph {
     Tag,
     #[cfg(feature = "tags")]
     #[strum(props(
-        svg = "<path d=\"M13.17 2a2 2 0 0 1 1.41.586l6.71 6.71a2.4 2.4 0 0 1 0 3.40l-4.59 4.59a2.4 2.4 0 0 1-3.40 0l-6.71-6.71A2 2 0 0 1 6 9.17V3a1 1 0 0 1 1-1z\"></path><path d=\"M2 7v6.17a2 2 0 0 0 .586 1.41l6.71 6.71a2.4 2.4 0 0 0 3.19.193\"></path><circle fill=\"currentColor\" cx=\"10.5\" r=\".5\" cy=\"6.5\"></circle>",
+        svg = "<path d=\"M13.17 2a2 2 0 0 1 1.41.586l6.71 6.71a2.4 2.4 0 0 1 0 3.40l-4.59 4.59a2.4 2.4 0 0 1-3.40 0l-6.71-6.71A2 2 0 0 1 6 9.17V3a1 1 0 0 1 1-1z\"></path><path d=\"M2 7v6.17a2 2 0 0 0 .586 1.41l6.71 6.71a2.4 2.4 0 0 0 3.19.193\"></path><circle cx=\"10.5\" cy=\"6.5\" fill=\"currentColor\" r=\".5\"></circle>",
         categories = "account",
         tags = "labels,badges,tickets,marks,copy,multiple",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -11973,7 +11973,7 @@ pub enum LucideGlyph {
     Tally5,
     #[cfg(feature = "tangent")]
     #[strum(props(
-        svg = "<circle cy=\"4\" r=\"2\" cx=\"17\"></circle><path d=\"M15.59 5.41 5.41 15.59\"></path><circle cy=\"17\" r=\"2\" cx=\"4\"></circle><path d=\"M12 22s-4-9-1.5-11.5S22 12 22 12\"></path>",
+        svg = "<circle cx=\"17\" cy=\"4\" r=\"2\"></circle><path d=\"M15.59 5.41 5.41 15.59\"></path><circle cx=\"4\" cy=\"17\" r=\"2\"></circle><path d=\"M12 22s-4-9-1.5-11.5S22 12 22 12\"></path>",
         categories = "shapes,math,design,tools",
         tags = "tangential,shape,circle,geometry,trigonometry,bezier curve",
         contributors = "danielbayley,karsa-mistmere"
@@ -11981,7 +11981,7 @@ pub enum LucideGlyph {
     Tangent,
     #[cfg(feature = "target")]
     #[strum(props(
-        svg = "<circle cy=\"12\" r=\"10\" cx=\"12\"></circle><circle cx=\"12\" r=\"6\" cy=\"12\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "gaming",
         tags = "logo,bullseye,deadline,projects,overview,work,productivity",
         contributors = "colebemis"
@@ -11997,7 +11997,7 @@ pub enum LucideGlyph {
     Telescope,
     #[cfg(feature = "tent_tree")]
     #[strum(props(
-        svg = "<circle r=\"2\" cx=\"4\" cy=\"4\"></circle><path d=\"m14 5 3-3 3 3\"></path><path d=\"m14 10 3-3 3 3\"></path><path d=\"M17 14V2\"></path><path d=\"M17 14H7l-5 8h20Z\"></path><path d=\"M8 14v8\"></path><path d=\"m9 14 5 8\"></path>",
+        svg = "<circle cx=\"4\" cy=\"4\" r=\"2\"></circle><path d=\"m14 5 3-3 3 3\"></path><path d=\"m14 10 3-3 3 3\"></path><path d=\"M17 14V2\"></path><path d=\"M17 14H7l-5 8h20Z\"></path><path d=\"M8 14v8\"></path><path d=\"m9 14 5 8\"></path>",
         categories = "travel,nature",
         tags = "camping,campsite,holiday,retreat,nomadic,wilderness,outdoors",
         contributors = "danielbayley"
@@ -12109,7 +12109,7 @@ pub enum LucideGlyph {
     TextQuote,
     #[cfg(feature = "text_search")]
     #[strum(props(
-        svg = "<path d=\"M21 5H3\"></path><path d=\"M10 12H3\"></path><path d=\"M10 19H3\"></path><circle cy=\"15\" cx=\"17\" r=\"3\"></circle><path d=\"m21 19-1.9-1.9\"></path>",
+        svg = "<path d=\"M21 5H3\"></path><path d=\"M10 12H3\"></path><path d=\"M10 19H3\"></path><circle cx=\"17\" cy=\"15\" r=\"3\"></circle><path d=\"m21 19-1.9-1.9\"></path>",
         categories = "text",
         tags = "find,data,copy,txt,pdf,document,scan,magnifier,magnifying glass,lens",
         contributors = "danielbayley,karsa-mistmere"
@@ -12229,7 +12229,7 @@ pub enum LucideGlyph {
     Ticket,
     #[cfg(feature = "tickets_plane")]
     #[strum(props(
-        svg = "<path d=\"M10.5 17h1.22a2 2 0 0 0 1.34-.52L18 12\"></path><path d=\"m12 13.5 3.79.506\"></path><path d=\"m3.17 8.18 11-5a2 2 0 0 1 2.64.993L18.56 8\"></path><path d=\"M6 10V8\"></path><path d=\"M6 14v1\"></path><path d=\"M6 19v2\"></path><rect y=\"8\" height=\"13\" rx=\"2\" x=\"2\" width=\"20\"></rect>",
+        svg = "<path d=\"M10.5 17h1.22a2 2 0 0 0 1.34-.52L18 12\"></path><path d=\"m12 13.5 3.79.506\"></path><path d=\"m3.17 8.18 11-5a2 2 0 0 1 2.64.993L18.56 8\"></path><path d=\"M6 10V8\"></path><path d=\"M6 14v1\"></path><path d=\"M6 19v2\"></path><rect height=\"13\" rx=\"2\" width=\"20\" x=\"2\" y=\"8\"></rect>",
         categories = "transportation,travel",
         tags = "plane,trip,airplane,flight,travel,fly,takeoff,vacation,passenger,pass,check-in,airport",
         contributors = "jguddas,karsa-mistmere"
@@ -12237,7 +12237,7 @@ pub enum LucideGlyph {
     TicketsPlane,
     #[cfg(feature = "tickets")]
     #[strum(props(
-        svg = "<path d=\"m3.17 8.18 11-5a2 2 0 0 1 2.64.993L18.56 8\"></path><path d=\"M6 10V8\"></path><path d=\"M6 14v1\"></path><path d=\"M6 19v2\"></path><rect height=\"13\" x=\"2\" rx=\"2\" y=\"8\" width=\"20\"></rect>",
+        svg = "<path d=\"m3.17 8.18 11-5a2 2 0 0 1 2.64.993L18.56 8\"></path><path d=\"M6 10V8\"></path><path d=\"M6 14v1\"></path><path d=\"M6 19v2\"></path><rect height=\"13\" rx=\"2\" width=\"20\" x=\"2\" y=\"8\"></rect>",
         categories = "travel,account,transportation",
         tags = "trip,travel,pass,entry,voucher,event,concert,show,perforated,dashed",
         contributors = "jguddas,karsa-mistmere"
@@ -12261,7 +12261,7 @@ pub enum LucideGlyph {
     TimerReset,
     #[cfg(feature = "timer")]
     #[strum(props(
-        svg = "<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\"></line><line y1=\"14\" y2=\"11\" x2=\"15\" x1=\"12\"></line><circle cy=\"14\" r=\"8\" cx=\"12\"></circle>",
+        svg = "<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\"></line><line x1=\"12\" x2=\"15\" y1=\"14\" y2=\"11\"></line><circle cx=\"12\" cy=\"14\" r=\"8\"></circle>",
         categories = "time",
         tags = "time,timer,stopwatch",
         contributors = "ahtohbi4,ericfennis"
@@ -12269,7 +12269,7 @@ pub enum LucideGlyph {
     Timer,
     #[cfg(feature = "toggle_left")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"9\" cy=\"12\"></circle><rect rx=\"7\" width=\"20\" height=\"14\" x=\"2\" y=\"5\"></rect>",
+        svg = "<circle cx=\"9\" cy=\"12\" r=\"3\"></circle><rect height=\"14\" rx=\"7\" width=\"20\" x=\"2\" y=\"5\"></rect>",
         categories = "layout,account,development",
         tags = "on,off,switch,boolean",
         contributors = "colebemis,karsa-mistmere,ericfennis,jamiemlaw"
@@ -12277,7 +12277,7 @@ pub enum LucideGlyph {
     ToggleLeft,
     #[cfg(feature = "toggle_right")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"15\" cy=\"12\"></circle><rect x=\"2\" y=\"5\" rx=\"7\" width=\"20\" height=\"14\"></rect>",
+        svg = "<circle cx=\"15\" cy=\"12\" r=\"3\"></circle><rect height=\"14\" rx=\"7\" width=\"20\" x=\"2\" y=\"5\"></rect>",
         categories = "layout,account,development",
         tags = "on,off,switch,boolean",
         contributors = "colebemis,karsa-mistmere,ericfennis,jamiemlaw"
@@ -12317,7 +12317,7 @@ pub enum LucideGlyph {
     Tornado,
     #[cfg(feature = "torus")]
     #[strum(props(
-        svg = "<ellipse rx=\"3\" ry=\"2\" cy=\"11\" cx=\"12\"></ellipse><ellipse cx=\"12\" ry=\"8.5\" cy=\"12.5\" rx=\"10\"></ellipse>",
+        svg = "<ellipse cx=\"12\" cy=\"11\" rx=\"3\" ry=\"2\"></ellipse><ellipse cx=\"12\" cy=\"12.5\" rx=\"10\" ry=\"8.5\"></ellipse>",
         categories = "shapes,design,tools,food-beverage",
         tags = "donut,doughnut,ring,hollow,3d,fast food,junk food,snack,treat,sweet,sugar,dessert",
         contributors = "danielbayley,jguddas"
@@ -12333,7 +12333,7 @@ pub enum LucideGlyph {
     TouchpadOff,
     #[cfg(feature = "touchpad")]
     #[strum(props(
-        svg = "<rect width=\"20\" rx=\"2\" x=\"2\" height=\"16\" y=\"4\"></rect><path d=\"M2 14h20\"></path><path d=\"M12 20v-6\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M2 14h20\"></path><path d=\"M12 20v-6\"></path>",
         categories = "devices",
         tags = "trackpad,cursor",
         contributors = "karsa-mistmere,ericfennis"
@@ -12357,7 +12357,7 @@ pub enum LucideGlyph {
     TowerControl,
     #[cfg(feature = "toy_brick")]
     #[strum(props(
-        svg = "<rect width=\"18\" height=\"12\" y=\"8\" rx=\"1\" x=\"3\"></rect><path d=\"M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3\"></path><path d=\"M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3\"></path>",
+        svg = "<rect height=\"12\" rx=\"1\" width=\"18\" x=\"3\" y=\"8\"></rect><path d=\"M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3\"></path><path d=\"M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3\"></path>",
         categories = "gaming,development",
         tags = "lego,block,addon,plugin,integration",
         contributors = "ericfennis,jguddas,karsa-mistmere"
@@ -12365,7 +12365,7 @@ pub enum LucideGlyph {
     ToyBrick,
     #[cfg(feature = "tractor")]
     #[strum(props(
-        svg = "<path d=\"m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.15a1 1 0 0 1-.988.84H20\"></path><path d=\"M16 18h-5\"></path><path d=\"M18 5a1 1 0 0 0-1 1v5.57\"></path><path d=\"M3 4h8.12a1 1 0 0 1 .99.86L13 11.24\"></path><path d=\"M4 11V4\"></path><path d=\"M7 15h.01\"></path><path d=\"M8 10.1V4\"></path><circle cy=\"18\" cx=\"18\" r=\"2\"></circle><circle cy=\"15\" cx=\"7\" r=\"5\"></circle>",
+        svg = "<path d=\"m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.15a1 1 0 0 1-.988.84H20\"></path><path d=\"M16 18h-5\"></path><path d=\"M18 5a1 1 0 0 0-1 1v5.57\"></path><path d=\"M3 4h8.12a1 1 0 0 1 .99.86L13 11.24\"></path><path d=\"M4 11V4\"></path><path d=\"M7 15h.01\"></path><path d=\"M8 10.1V4\"></path><circle cx=\"18\" cy=\"18\" r=\"2\"></circle><circle cx=\"7\" cy=\"15\" r=\"5\"></circle>",
         categories = "transportation,sustainability,food-beverage",
         tags = "farming,farmer,ranch,harvest,equipment,vehicle",
         contributors = "danielbayley,jguddas"
@@ -12405,7 +12405,7 @@ pub enum LucideGlyph {
     TrainTrack,
     #[cfg(feature = "tram_front")]
     #[strum(props(
-        svg = "<rect y=\"3\" rx=\"2\" width=\"16\" height=\"16\" x=\"4\"></rect><path d=\"M4 11h16\"></path><path d=\"M12 3v8\"></path><path d=\"m8 19-2 3\"></path><path d=\"m18 22-2-3\"></path><path d=\"M8 15h.01\"></path><path d=\"M16 15h.01\"></path>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"16\" x=\"4\" y=\"3\"></rect><path d=\"M4 11h16\"></path><path d=\"M12 3v8\"></path><path d=\"m8 19-2 3\"></path><path d=\"m18 22-2-3\"></path><path d=\"M8 15h.01\"></path><path d=\"M16 15h.01\"></path>",
         categories = "transportation",
         tags = "railway,metro,subway,underground,track,line,tourism",
         contributors = "ericfennis,karsa-mistmere"
@@ -12413,7 +12413,7 @@ pub enum LucideGlyph {
     TramFront,
     #[cfg(feature = "transgender")]
     #[strum(props(
-        svg = "<path d=\"M12 16v6\"></path><path d=\"M14 20h-4\"></path><path d=\"M18 2h4v4\"></path><path d=\"m2 2 7.17 7.17\"></path><path d=\"M2 5.35V2h3.35\"></path><path d=\"m22 2-7.17 7.17\"></path><path d=\"M8 5 5 8\"></path><circle cy=\"12\" r=\"4\" cx=\"12\"></circle>",
+        svg = "<path d=\"M12 16v6\"></path><path d=\"M14 20h-4\"></path><path d=\"M18 2h4v4\"></path><path d=\"m2 2 7.17 7.17\"></path><path d=\"M2 5.35V2h3.35\"></path><path d=\"m22 2-7.17 7.17\"></path><path d=\"M8 5 5 8\"></path><circle cx=\"12\" cy=\"12\" r=\"4\"></circle>",
         categories = "medical,accessibility",
         tags = "gender,inclusive",
         contributors = "jamiemlaw"
@@ -12533,7 +12533,7 @@ pub enum LucideGlyph {
     Trophy,
     #[cfg(feature = "truck_electric")]
     #[strum(props(
-        svg = "<path d=\"M14 19V7a2 2 0 0 0-2-2H9\"></path><path d=\"M15 19H9\"></path><path d=\"M19 19h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62L18.3 9.38a1 1 0 0 0-.78-.38H14\"></path><path d=\"M2 13v5a1 1 0 0 0 1 1h2\"></path><path d=\"M4 3 2.15 5.15a.495.49 0 0 0 .35.86h2.15a.47.47 0 0 1 .35.86L3 9.02\"></path><circle cx=\"17\" r=\"2\" cy=\"19\"></circle><circle r=\"2\" cx=\"7\" cy=\"19\"></circle>",
+        svg = "<path d=\"M14 19V7a2 2 0 0 0-2-2H9\"></path><path d=\"M15 19H9\"></path><path d=\"M19 19h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62L18.3 9.38a1 1 0 0 0-.78-.38H14\"></path><path d=\"M2 13v5a1 1 0 0 0 1 1h2\"></path><path d=\"M4 3 2.15 5.15a.495.49 0 0 0 .35.86h2.15a.47.47 0 0 1 .35.86L3 9.02\"></path><circle cx=\"17\" cy=\"19\" r=\"2\"></circle><circle cx=\"7\" cy=\"19\" r=\"2\"></circle>",
         categories = "transportation",
         tags = "delivery,van,shipping,haulage,lorry,electric",
         contributors = "colebemis,ahtohbi4,ericfennis,Andreto,csandman,karsa-mistmere,danielbayley,jordan808,LienMaas,jguddas,AnnaSasDev"
@@ -12541,7 +12541,7 @@ pub enum LucideGlyph {
     TruckElectric,
     #[cfg(feature = "truck")]
     #[strum(props(
-        svg = "<path d=\"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2\"></path><path d=\"M15 18H9\"></path><path d=\"M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14\"></path><circle r=\"2\" cy=\"18\" cx=\"17\"></circle><circle cx=\"7\" r=\"2\" cy=\"18\"></circle>",
+        svg = "<path d=\"M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2\"></path><path d=\"M15 18H9\"></path><path d=\"M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14\"></path><circle cx=\"17\" cy=\"18\" r=\"2\"></circle><circle cx=\"7\" cy=\"18\" r=\"2\"></circle>",
         categories = "transportation",
         tags = "delivery,van,shipping,haulage,lorry",
         contributors = "colebemis,ahtohbi4,ericfennis,Andreto,csandman,karsa-mistmere,danielbayley,jordan808"
@@ -12557,7 +12557,7 @@ pub enum LucideGlyph {
     TurkishLira,
     #[cfg(feature = "turntable")]
     #[strum(props(
-        svg = "<path d=\"M10 12.01h.01\"></path><path d=\"M18 8v4a8 8 0 0 1-1.07 4\"></path><circle r=\"4\" cx=\"10\" cy=\"12\"></circle><rect y=\"4\" rx=\"2\" x=\"2\" width=\"20\" height=\"16\"></rect>",
+        svg = "<path d=\"M10 12.01h.01\"></path><path d=\"M18 8v4a8 8 0 0 1-1.07 4\"></path><circle cx=\"10\" cy=\"12\" r=\"4\"></circle><rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect>",
         categories = "multimedia,home",
         tags = "record player,gramophone,stereo,phonograph,vinyl,lp,disc,platter,cut,music,analog,retro,dj deck,disc jockey,scratch,spinning",
         contributors = "karsa-mistmere"
@@ -12573,7 +12573,7 @@ pub enum LucideGlyph {
     Turtle,
     #[cfg(feature = "tv_minimal_play")]
     #[strum(props(
-        svg = "<path d=\"M15.03 9.44a.647.64 0 0 1 0 1.12l-4.06 2.35a.645.64 0 0 1-.968-.56V7.64a.645.64 0 0 1 .967-.56z\"></path><path d=\"M7 21h10\"></path><rect y=\"3\" width=\"20\" x=\"2\" height=\"14\" rx=\"2\"></rect>",
+        svg = "<path d=\"M15.03 9.44a.647.64 0 0 1 0 1.12l-4.06 2.35a.645.64 0 0 1-.968-.56V7.64a.645.64 0 0 1 .967-.56z\"></path><path d=\"M7 21h10\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect>",
         categories = "devices,multimedia",
         tags = "flatscreen,television,stream,display,widescreen,high-definition,hd,1080p,4k,8k,smart,digital,video,movie,live,ott,running,start,film,home cinema,entertainment,showtime,channels,catchup",
         contributors = "karsa-mistmere,jguddas,ericfennis"
@@ -12581,7 +12581,7 @@ pub enum LucideGlyph {
     TvMinimalPlay,
     #[cfg(feature = "tv_minimal")]
     #[strum(props(
-        svg = "<path d=\"M7 21h10\"></path><rect rx=\"2\" x=\"2\" y=\"3\" width=\"20\" height=\"14\"></rect>",
+        svg = "<path d=\"M7 21h10\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect>",
         categories = "devices,multimedia",
         tags = "flatscreen,television,stream,display,widescreen,high-definition,hd,1080p,4k,8k,smart,digital,video,home cinema,entertainment,showtime,channels,catchup",
         contributors = "ericfennis"
@@ -12589,7 +12589,7 @@ pub enum LucideGlyph {
     TvMinimal,
     #[cfg(feature = "tv")]
     #[strum(props(
-        svg = "<path d=\"m17 2-5 5-5-5\"></path><rect y=\"7\" rx=\"2\" width=\"20\" height=\"15\" x=\"2\"></rect>",
+        svg = "<path d=\"m17 2-5 5-5-5\"></path><rect height=\"15\" rx=\"2\" width=\"20\" x=\"2\" y=\"7\"></rect>",
         categories = "devices,multimedia,communication",
         tags = "television,stream,display,widescreen,high-definition,hd,1080p,4k,8k,smart,digital,video,entertainment,showtime,channels,terrestrial,satellite,cable,broadcast,live,frequency,tune,scan,aerial,receiver,transmission,signal,connection,connectivity",
         contributors = "colebemis,ericfennis"
@@ -12629,7 +12629,7 @@ pub enum LucideGlyph {
     Umbrella,
     #[cfg(feature = "underline")]
     #[strum(props(
-        svg = "<path d=\"M6 4v6a6 6 0 0 0 12 0V4\"></path><line x1=\"4\" y2=\"20\" x2=\"20\" y1=\"20\"></line>",
+        svg = "<path d=\"M6 4v6a6 6 0 0 0 12 0V4\"></path><line x1=\"4\" x2=\"20\" y1=\"20\" y2=\"20\"></line>",
         categories = "text",
         tags = "text,format",
         contributors = "colebemis,ericfennis,csandman,johnletey"
@@ -12677,7 +12677,7 @@ pub enum LucideGlyph {
     UnfoldVertical,
     #[cfg(feature = "ungroup")]
     #[strum(props(
-        svg = "<rect height=\"6\" y=\"4\" rx=\"1\" x=\"5\" width=\"8\"></rect><rect width=\"8\" x=\"11\" height=\"6\" y=\"14\" rx=\"1\"></rect>",
+        svg = "<rect height=\"6\" rx=\"1\" width=\"8\" x=\"5\" y=\"4\"></rect><rect height=\"6\" rx=\"1\" width=\"8\" x=\"11\" y=\"14\"></rect>",
         categories = "shapes,files",
         tags = "cubes,packages,parts,units,collection,cluster,separate",
         contributors = "danielbayley"
@@ -12685,7 +12685,7 @@ pub enum LucideGlyph {
     Ungroup,
     #[cfg(feature = "university")]
     #[strum(props(
-        svg = "<path d=\"M14 21v-3a2 2 0 0 0-4 0v3\"></path><path d=\"M18 12h.01\"></path><path d=\"M18 16h.01\"></path><path d=\"M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.14-.359L13.14 2.36a2 2 0 0 0-2.28-.001L6.14 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z\"></path><path d=\"M6 12h.01\"></path><path d=\"M6 16h.01\"></path><circle cy=\"10\" r=\"2\" cx=\"12\"></circle>",
+        svg = "<path d=\"M14 21v-3a2 2 0 0 0-4 0v3\"></path><path d=\"M18 12h.01\"></path><path d=\"M18 16h.01\"></path><path d=\"M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.14-.359L13.14 2.36a2 2 0 0 0-2.28-.001L6.14 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z\"></path><path d=\"M6 12h.01\"></path><path d=\"M6 16h.01\"></path><circle cx=\"12\" cy=\"10\" r=\"2\"></circle>",
         categories = "buildings,navigation",
         tags = "building,education,childhood,school,college,academy,institute",
         contributors = "karsa-mistmere"
@@ -12701,7 +12701,7 @@ pub enum LucideGlyph {
     Unlink2,
     #[cfg(feature = "unlink")]
     #[strum(props(
-        svg = "<path d=\"m18.84 12.25 1.72-1.71h-.02a5.00 5.00 0 0 0-.12-7.07 5.00 5.00 0 0 0-6.95 0l-1.72 1.71\"></path><path d=\"m5.17 11.75-1.71 1.71a5.00 5.00 0 0 0 .12 7.07 5.00 5.00 0 0 0 6.95 0l1.71-1.71\"></path><line x2=\"8\" y1=\"2\" x1=\"8\" y2=\"5\"></line><line x1=\"2\" x2=\"5\" y1=\"8\" y2=\"8\"></line><line x1=\"16\" x2=\"16\" y1=\"19\" y2=\"22\"></line><line x1=\"19\" y1=\"16\" x2=\"22\" y2=\"16\"></line>",
+        svg = "<path d=\"m18.84 12.25 1.72-1.71h-.02a5.00 5.00 0 0 0-.12-7.07 5.00 5.00 0 0 0-6.95 0l-1.72 1.71\"></path><path d=\"m5.17 11.75-1.71 1.71a5.00 5.00 0 0 0 .12 7.07 5.00 5.00 0 0 0 6.95 0l1.71-1.71\"></path><line x1=\"8\" x2=\"8\" y1=\"2\" y2=\"5\"></line><line x1=\"2\" x2=\"5\" y1=\"8\" y2=\"8\"></line><line x1=\"16\" x2=\"16\" y1=\"19\" y2=\"22\"></line><line x1=\"19\" x2=\"22\" y1=\"16\" y2=\"16\"></line>",
         categories = "text",
         tags = "url,unchain",
         contributors = "ericfennis,csandman"
@@ -12725,7 +12725,7 @@ pub enum LucideGlyph {
     Upload,
     #[cfg(feature = "usb")]
     #[strum(props(
-        svg = "<circle cx=\"10\" cy=\"7\" r=\"1\"></circle><circle cy=\"20\" r=\"1\" cx=\"4\"></circle><path d=\"M4.7 19.3 19 5\"></path><path d=\"m21 3-3 1 2 2Z\"></path><path d=\"M9.26 7.68 5 12l2 5\"></path><path d=\"m10 14 5 2 3.5-3.5\"></path><path d=\"m18 12 1-1 1 1-1 1Z\"></path>",
+        svg = "<circle cx=\"10\" cy=\"7\" r=\"1\"></circle><circle cx=\"4\" cy=\"20\" r=\"1\"></circle><path d=\"M4.7 19.3 19 5\"></path><path d=\"m21 3-3 1 2 2Z\"></path><path d=\"M9.26 7.68 5 12l2 5\"></path><path d=\"m10 14 5 2 3.5-3.5\"></path><path d=\"m18 12 1-1 1 1-1 1Z\"></path>",
         categories = "devices,multimedia,home",
         tags = "universal,serial,bus,controller,connector,interface",
         contributors = "karsa-mistmere,jguddas"
@@ -12741,7 +12741,7 @@ pub enum LucideGlyph {
     UserCheck,
     #[cfg(feature = "user_cog")]
     #[strum(props(
-        svg = "<path d=\"M10 15H6a4 4 0 0 0-4 4v2\"></path><path d=\"m14.30 16.53.92-.382\"></path><path d=\"m15.22 13.85-.923-.383\"></path><path d=\"m16.85 12.22-.383-.923\"></path><path d=\"m16.85 17.77-.383.92\"></path><path d=\"m19.14 12.22.383-.923\"></path><path d=\"m19.53 18.69-.382-.924\"></path><path d=\"m20.77 13.85.924-.383\"></path><path d=\"m20.77 16.14.924.38\"></path><circle cy=\"15\" cx=\"18\" r=\"3\"></circle><circle cx=\"9\" cy=\"7\" r=\"4\"></circle>",
+        svg = "<path d=\"M10 15H6a4 4 0 0 0-4 4v2\"></path><path d=\"m14.30 16.53.92-.382\"></path><path d=\"m15.22 13.85-.923-.383\"></path><path d=\"m16.85 12.22-.383-.923\"></path><path d=\"m16.85 17.77-.383.92\"></path><path d=\"m19.14 12.22.383-.923\"></path><path d=\"m19.53 18.69-.382-.924\"></path><path d=\"m20.77 13.85.924-.383\"></path><path d=\"m20.77 16.14.924.38\"></path><circle cx=\"18\" cy=\"15\" r=\"3\"></circle><circle cx=\"9\" cy=\"7\" r=\"4\"></circle>",
         categories = "account",
         tags = "settings,edit,cog,gear",
         contributors = "karsa-mistmere,ericfennis,UsamaKhan"
@@ -12749,7 +12749,7 @@ pub enum LucideGlyph {
     UserCog,
     #[cfg(feature = "user_key")]
     #[strum(props(
-        svg = "<path d=\"M20 11v6\"></path><path d=\"M20 13h2\"></path><path d=\"M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.07.578\"></path><circle cx=\"10\" r=\"4\" cy=\"7\"></circle><circle cy=\"19\" r=\"2\" cx=\"20\"></circle>",
+        svg = "<path d=\"M20 11v6\"></path><path d=\"M20 13h2\"></path><path d=\"M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.07.578\"></path><circle cx=\"10\" cy=\"7\" r=\"4\"></circle><circle cx=\"20\" cy=\"19\" r=\"2\"></circle>",
         categories = "account",
         tags = "passkey,password,login,authentication,authorization,roles,permissions,private,public,security,person,account,contact",
         contributors = "colebemis,csandman,ericfennis,mittalyashu,karsa-mistmere"
@@ -12757,7 +12757,7 @@ pub enum LucideGlyph {
     UserKey,
     #[cfg(feature = "user_lock")]
     #[strum(props(
-        svg = "<path d=\"M19 16v-2a2 2 0 0 0-4 0v2\"></path><path d=\"M9.5 15H7a4 4 0 0 0-4 4v2\"></path><circle cy=\"7\" r=\"4\" cx=\"10\"></circle><rect rx=\".899\" height=\"5\" y=\"16\" x=\"13\" width=\"8\"></rect>",
+        svg = "<path d=\"M19 16v-2a2 2 0 0 0-4 0v2\"></path><path d=\"M9.5 15H7a4 4 0 0 0-4 4v2\"></path><circle cx=\"10\" cy=\"7\" r=\"4\"></circle><rect height=\"5\" rx=\".899\" width=\"8\" x=\"13\" y=\"16\"></rect>",
         categories = "account,security",
         tags = "person,lock,locked,account,secure",
         contributors = "anthony-mariotti,jguddas"
@@ -12765,7 +12765,7 @@ pub enum LucideGlyph {
     UserLock,
     #[cfg(feature = "user_minus")]
     #[strum(props(
-        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cy=\"7\" r=\"4\" cx=\"9\"></circle><line y1=\"11\" y2=\"11\" x1=\"22\" x2=\"16\"></line>",
+        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><line x1=\"22\" x2=\"16\" y1=\"11\" y2=\"11\"></line>",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -12773,7 +12773,7 @@ pub enum LucideGlyph {
     UserMinus,
     #[cfg(feature = "user_pen")]
     #[strum(props(
-        svg = "<path d=\"M11.5 15H7a4 4 0 0 0-4 4v2\"></path><path d=\"M21.37 16.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><circle r=\"4\" cx=\"10\" cy=\"7\"></circle>",
+        svg = "<path d=\"M11.5 15H7a4 4 0 0 0-4 4v2\"></path><path d=\"M21.37 16.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><circle cx=\"10\" cy=\"7\" r=\"4\"></circle>",
         categories = "account",
         tags = "person,account,contact,profile,edit,change",
         contributors = "karsa-mistmere,colebemis,csandman,ericfennis"
@@ -12781,7 +12781,7 @@ pub enum LucideGlyph {
     UserPen,
     #[cfg(feature = "user_plus")]
     #[strum(props(
-        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" r=\"4\" cy=\"7\"></circle><line y2=\"14\" y1=\"8\" x2=\"19\" x1=\"19\"></line><line x2=\"16\" y1=\"11\" y2=\"11\" x1=\"22\"></line>",
+        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><line x1=\"19\" x2=\"19\" y1=\"8\" y2=\"14\"></line><line x1=\"22\" x2=\"16\" y1=\"11\" y2=\"11\"></line>",
         categories = "account",
         tags = "new,add,create,follow,subscribe",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -12789,7 +12789,7 @@ pub enum LucideGlyph {
     UserPlus,
     #[cfg(feature = "user_round_check")]
     #[strum(props(
-        svg = "<path d=\"M2 21a8 8 0 0 1 13.29-6\"></path><circle r=\"5\" cx=\"10\" cy=\"8\"></circle><path d=\"m16 19 2 2 4-4\"></path>",
+        svg = "<path d=\"M2 21a8 8 0 0 1 13.29-6\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"m16 19 2 2 4-4\"></path>",
         categories = "account",
         tags = "followed,subscribed,done,todo,tick,complete,task",
         contributors = "karsa-mistmere"
@@ -12797,7 +12797,7 @@ pub enum LucideGlyph {
     UserRoundCheck,
     #[cfg(feature = "user_round_cog")]
     #[strum(props(
-        svg = "<path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"M2 21a8 8 0 0 1 10.43-7.62\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><circle r=\"5\" cx=\"10\" cy=\"8\"></circle><circle cx=\"18\" r=\"3\" cy=\"18\"></circle>",
+        svg = "<path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"M2 21a8 8 0 0 1 10.43-7.62\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "account",
         tags = "settings,edit,cog,gear",
         contributors = "karsa-mistmere,UsamaKhan"
@@ -12805,7 +12805,7 @@ pub enum LucideGlyph {
     UserRoundCog,
     #[cfg(feature = "user_round_key")]
     #[strum(props(
-        svg = "<path d=\"M19 11v6\"></path><path d=\"M19 13h2\"></path><path d=\"M2 21a8 8 0 0 1 12.86-6.34\"></path><circle r=\"5\" cx=\"10\" cy=\"8\"></circle><circle r=\"2\" cx=\"19\" cy=\"19\"></circle>",
+        svg = "<path d=\"M19 11v6\"></path><path d=\"M19 13h2\"></path><path d=\"M2 21a8 8 0 0 1 12.86-6.34\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><circle cx=\"19\" cy=\"19\" r=\"2\"></circle>",
         categories = "account",
         tags = "passkey,password,login,authentication,authorization,roles,permissions,private,public,security,person,account,contact",
         contributors = "colebemis,csandman,ericfennis,mittalyashu,karsa-mistmere"
@@ -12813,7 +12813,7 @@ pub enum LucideGlyph {
     UserRoundKey,
     #[cfg(feature = "user_round_minus")]
     #[strum(props(
-        svg = "<path d=\"M2 21a8 8 0 0 1 13.29-6\"></path><circle r=\"5\" cx=\"10\" cy=\"8\"></circle><path d=\"M22 19h-6\"></path>",
+        svg = "<path d=\"M2 21a8 8 0 0 1 13.29-6\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"M22 19h-6\"></path>",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe",
         contributors = "karsa-mistmere"
@@ -12821,7 +12821,7 @@ pub enum LucideGlyph {
     UserRoundMinus,
     #[cfg(feature = "user_round_pen")]
     #[strum(props(
-        svg = "<path d=\"M2 21a8 8 0 0 1 10.82-7.48\"></path><path d=\"M21.37 16.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><circle cx=\"10\" r=\"5\" cy=\"8\"></circle>",
+        svg = "<path d=\"M2 21a8 8 0 0 1 10.82-7.48\"></path><path d=\"M21.37 16.62a1 1 0 0 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle>",
         categories = "account",
         tags = "person,account,contact,profile,edit,change",
         contributors = "karsa-mistmere,colebemis,csandman,ericfennis"
@@ -12829,7 +12829,7 @@ pub enum LucideGlyph {
     UserRoundPen,
     #[cfg(feature = "user_round_plus")]
     #[strum(props(
-        svg = "<path d=\"M2 21a8 8 0 0 1 13.29-6\"></path><circle cy=\"8\" r=\"5\" cx=\"10\"></circle><path d=\"M19 16v6\"></path><path d=\"M22 19h-6\"></path>",
+        svg = "<path d=\"M2 21a8 8 0 0 1 13.29-6\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"M19 16v6\"></path><path d=\"M22 19h-6\"></path>",
         categories = "account",
         tags = "new,add,create,follow,subscribe",
         contributors = "karsa-mistmere"
@@ -12837,7 +12837,7 @@ pub enum LucideGlyph {
     UserRoundPlus,
     #[cfg(feature = "user_round_search")]
     #[strum(props(
-        svg = "<circle r=\"5\" cx=\"10\" cy=\"8\"></circle><path d=\"M2 21a8 8 0 0 1 10.43-7.62\"></path><circle r=\"3\" cy=\"18\" cx=\"18\"></circle><path d=\"m22 22-1.9-1.9\"></path>",
+        svg = "<circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"M2 21a8 8 0 0 1 10.43-7.62\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><path d=\"m22 22-1.9-1.9\"></path>",
         categories = "account,social",
         tags = "person,account,contact,find,scan,magnifier,magnifying glass,lens",
         contributors = "jmsv,karsa-mistmere"
@@ -12845,7 +12845,7 @@ pub enum LucideGlyph {
     UserRoundSearch,
     #[cfg(feature = "user_round_x")]
     #[strum(props(
-        svg = "<path d=\"M2 21a8 8 0 0 1 11.87-7\"></path><circle cy=\"8\" r=\"5\" cx=\"10\"></circle><path d=\"m17 17 5 5\"></path><path d=\"m22 17-5 5\"></path>",
+        svg = "<path d=\"M2 21a8 8 0 0 1 11.87-7\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"m17 17 5 5\"></path><path d=\"m22 17-5 5\"></path>",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe,unavailable",
         contributors = "karsa-mistmere"
@@ -12853,7 +12853,7 @@ pub enum LucideGlyph {
     UserRoundX,
     #[cfg(feature = "user_round")]
     #[strum(props(
-        svg = "<circle cy=\"8\" r=\"5\" cx=\"12\"></circle><path d=\"M20 21a8 8 0 0 0-16 0\"></path>",
+        svg = "<circle cx=\"12\" cy=\"8\" r=\"5\"></circle><path d=\"M20 21a8 8 0 0 0-16 0\"></path>",
         categories = "account",
         tags = "person,account,contact",
         contributors = "karsa-mistmere"
@@ -12861,7 +12861,7 @@ pub enum LucideGlyph {
     UserRound,
     #[cfg(feature = "user_search")]
     #[strum(props(
-        svg = "<circle r=\"4\" cy=\"7\" cx=\"10\"></circle><path d=\"M10.3 15H7a4 4 0 0 0-4 4v2\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle><path d=\"m21 21-1.9-1.9\"></path>",
+        svg = "<circle cx=\"10\" cy=\"7\" r=\"4\"></circle><path d=\"M10.3 15H7a4 4 0 0 0-4 4v2\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle><path d=\"m21 21-1.9-1.9\"></path>",
         categories = "account,social",
         tags = "person,account,contact,find,scan,magnifier,magnifying glass,lens",
         contributors = "jmsv,jguddas,colebemis,csandman,ericfennis,karsa-mistmere"
@@ -12869,7 +12869,7 @@ pub enum LucideGlyph {
     UserSearch,
     #[cfg(feature = "user_star")]
     #[strum(props(
-        svg = "<path d=\"M16.05 12.61a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.866l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path><path d=\"M8 15H7a4 4 0 0 0-4 4v2\"></path><circle cy=\"7\" r=\"4\" cx=\"10\"></circle>",
+        svg = "<path d=\"M16.05 12.61a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.866l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path><path d=\"M8 15H7a4 4 0 0 0-4 4v2\"></path><circle cx=\"10\" cy=\"7\" r=\"4\"></circle>",
         categories = "account",
         tags = "person,account,favorite,contact,like,review,rating,admin",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,jguddas,MArtytraM99"
@@ -12877,7 +12877,7 @@ pub enum LucideGlyph {
     UserStar,
     #[cfg(feature = "user_x")]
     #[strum(props(
-        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><line y2=\"13\" y1=\"8\" x1=\"17\" x2=\"22\"></line><line y2=\"13\" x1=\"22\" x2=\"17\" y1=\"8\"></line>",
+        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><line x1=\"17\" x2=\"22\" y1=\"8\" y2=\"13\"></line><line x1=\"22\" x2=\"17\" y1=\"8\" y2=\"13\"></line>",
         categories = "account",
         tags = "delete,remove,unfollow,unsubscribe,unavailable",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -12885,7 +12885,7 @@ pub enum LucideGlyph {
     UserX,
     #[cfg(feature = "user")]
     #[strum(props(
-        svg = "<path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"></path><circle r=\"4\" cx=\"12\" cy=\"7\"></circle>",
+        svg = "<path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle>",
         categories = "account",
         tags = "person,account,contact",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
@@ -12893,7 +12893,7 @@ pub enum LucideGlyph {
     User,
     #[cfg(feature = "users_round")]
     #[strum(props(
-        svg = "<path d=\"M18 21a8 8 0 0 0-16 0\"></path><circle cx=\"10\" r=\"5\" cy=\"8\"></circle><path d=\"M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3\"></path>",
+        svg = "<path d=\"M18 21a8 8 0 0 0-16 0\"></path><circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3\"></path>",
         categories = "account",
         tags = "group,people",
         contributors = "karsa-mistmere"
@@ -12901,7 +12901,7 @@ pub enum LucideGlyph {
     UsersRound,
     #[cfg(feature = "users")]
     #[strum(props(
-        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><path d=\"M16 3.12a4 4 0 0 1 0 7.74\"></path><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><circle r=\"4\" cy=\"7\" cx=\"9\"></circle>",
+        svg = "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><path d=\"M16 3.12a4 4 0 0 1 0 7.74\"></path><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle>",
         categories = "account",
         tags = "group,people",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,jguddas"
@@ -12933,7 +12933,7 @@ pub enum LucideGlyph {
     UtilityPole,
     #[cfg(feature = "van")]
     #[strum(props(
-        svg = "<path d=\"M13 6v5a1 1 0 0 0 1 1h6.10a1 1 0 0 1 .712.29l.898.91a1 1 0 0 1 .288.70V17a1 1 0 0 1-1 1h-3\"></path><path d=\"M5 18H3a1 1 0 0 1-1-1V8a2 2 0 0 1 2-2h12c1.1 0 2.1.8 2.4 1.8l1.17 4.2\"></path><path d=\"M9 18h5\"></path><circle cy=\"18\" cx=\"16\" r=\"2\"></circle><circle cy=\"18\" cx=\"7\" r=\"2\"></circle>",
+        svg = "<path d=\"M13 6v5a1 1 0 0 0 1 1h6.10a1 1 0 0 1 .712.29l.898.91a1 1 0 0 1 .288.70V17a1 1 0 0 1-1 1h-3\"></path><path d=\"M5 18H3a1 1 0 0 1-1-1V8a2 2 0 0 1 2-2h12c1.1 0 2.1.8 2.4 1.8l1.17 4.2\"></path><path d=\"M9 18h5\"></path><circle cx=\"16\" cy=\"18\" r=\"2\"></circle><circle cx=\"7\" cy=\"18\" r=\"2\"></circle>",
         categories = "transportation",
         tags = "minivan,cart,wagon,truck,lorry,trailer,camper,vehicle,drive,trip,journey,van,transport,carriage,delivery,travel",
         contributors = "Ahmed-Dghaies,karsa-mistmere"
@@ -12941,7 +12941,7 @@ pub enum LucideGlyph {
     Van,
     #[cfg(feature = "variable")]
     #[strum(props(
-        svg = "<path d=\"M8 21s-4-3-4-9 4-9 4-9\"></path><path d=\"M16 3s4 3 4 9-4 9-4 9\"></path><line x2=\"9\" y2=\"15\" y1=\"9\" x1=\"15\"></line><line y1=\"9\" y2=\"15\" x1=\"9\" x2=\"15\"></line>",
+        svg = "<path d=\"M8 21s-4-3-4-9 4-9 4-9\"></path><path d=\"M16 3s4 3 4 9-4 9-4 9\"></path><line x1=\"15\" x2=\"9\" y1=\"9\" y2=\"15\"></line><line x1=\"9\" x2=\"15\" y1=\"9\" y2=\"15\"></line>",
         categories = "development,math",
         tags = "code,coding,programming,symbol,calculate,algebra,x,parentheses,parenthesis,brackets,parameter,(,)",
         contributors = "danielbayley,jguddas"
@@ -12949,7 +12949,7 @@ pub enum LucideGlyph {
     Variable,
     #[cfg(feature = "vault")]
     #[strum(props(
-        svg = "<rect width=\"18\" x=\"3\" y=\"3\" height=\"18\" rx=\"2\"></rect><circle cy=\"7.5\" fill=\"currentColor\" r=\".5\" cx=\"7.5\"></circle><path d=\"m7.9 7.9 2.7 2.7\"></path><circle r=\".5\" cx=\"16.5\" cy=\"7.5\" fill=\"currentColor\"></circle><path d=\"m13.4 10.6 2.7-2.7\"></path><circle cx=\"7.5\" cy=\"16.5\" fill=\"currentColor\" r=\".5\"></circle><path d=\"m7.9 16.1 2.7-2.7\"></path><circle r=\".5\" cx=\"16.5\" fill=\"currentColor\" cy=\"16.5\"></circle><path d=\"m13.4 13.4 2.7 2.7\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"7.5\" cy=\"7.5\" fill=\"currentColor\" r=\".5\"></circle><path d=\"m7.9 7.9 2.7 2.7\"></path><circle cx=\"16.5\" cy=\"7.5\" fill=\"currentColor\" r=\".5\"></circle><path d=\"m13.4 10.6 2.7-2.7\"></path><circle cx=\"7.5\" cy=\"16.5\" fill=\"currentColor\" r=\".5\"></circle><path d=\"m7.9 16.1 2.7-2.7\"></path><circle cx=\"16.5\" cy=\"16.5\" fill=\"currentColor\" r=\".5\"></circle><path d=\"m13.4 13.4 2.7 2.7\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
         categories = "security,travel,home",
         tags = "safe,lockbox,deposit,locker,coffer,strongbox,safety,secure,storage,valuables,bank",
         contributors = "danielbayley"
@@ -12957,7 +12957,7 @@ pub enum LucideGlyph {
     Vault,
     #[cfg(feature = "vector_square")]
     #[strum(props(
-        svg = "<path d=\"M19.5 7a24 24 0 0 1 0 10\"></path><path d=\"M4.5 7a24 24 0 0 0 0 10\"></path><path d=\"M7 19.5a24 24 0 0 0 10 0\"></path><path d=\"M7 4.5a24 24 0 0 1 10 0\"></path><rect height=\"5\" x=\"17\" rx=\"1\" width=\"5\" y=\"17\"></rect><rect y=\"2\" width=\"5\" x=\"17\" rx=\"1\" height=\"5\"></rect><rect height=\"5\" rx=\"1\" x=\"2\" width=\"5\" y=\"17\"></rect><rect height=\"5\" rx=\"1\" width=\"5\" y=\"2\" x=\"2\"></rect>",
+        svg = "<path d=\"M19.5 7a24 24 0 0 1 0 10\"></path><path d=\"M4.5 7a24 24 0 0 0 0 10\"></path><path d=\"M7 19.5a24 24 0 0 0 10 0\"></path><path d=\"M7 4.5a24 24 0 0 1 10 0\"></path><rect height=\"5\" rx=\"1\" width=\"5\" x=\"17\" y=\"17\"></rect><rect height=\"5\" rx=\"1\" width=\"5\" x=\"17\" y=\"2\"></rect><rect height=\"5\" rx=\"1\" width=\"5\" x=\"2\" y=\"17\"></rect><rect height=\"5\" rx=\"1\" width=\"5\" x=\"2\" y=\"2\"></rect>",
         categories = "shapes,math,design,tools",
         tags = "shape,geometry,art,width,height,size,calculate,measure,select,graphics,box",
         contributors = "chessurisme,jguddas"
@@ -12989,7 +12989,7 @@ pub enum LucideGlyph {
     VenusAndMars,
     #[cfg(feature = "venus")]
     #[strum(props(
-        svg = "<path d=\"M12 15v7\"></path><path d=\"M9 19h6\"></path><circle r=\"6\" cx=\"12\" cy=\"9\"></circle>",
+        svg = "<path d=\"M12 15v7\"></path><path d=\"M9 19h6\"></path><circle cx=\"12\" cy=\"9\" r=\"6\"></circle>",
         categories = "medical",
         tags = "gender,sex,female,feminine,woman,girl",
         contributors = "jguddas,jamiemlaw"
@@ -12997,7 +12997,7 @@ pub enum LucideGlyph {
     Venus,
     #[cfg(feature = "vibrate_off")]
     #[strum(props(
-        svg = "<path d=\"m2 8 2 2-2 2 2 2-2 2\"></path><path d=\"m22 8-2 2 2 2-2 2 2 2\"></path><path d=\"M8 8v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2\"></path><path d=\"M16 10.34V6c0-.55-.45-1-1-1h-4.34\"></path><line y1=\"2\" y2=\"22\" x2=\"22\" x1=\"2\"></line>",
+        svg = "<path d=\"m2 8 2 2-2 2 2 2-2 2\"></path><path d=\"m22 8-2 2 2 2-2 2 2 2\"></path><path d=\"M8 8v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2\"></path><path d=\"M16 10.34V6c0-.55-.45-1-1-1h-4.34\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "devices,connectivity,account",
         tags = "smartphone,notification,rumble,haptic feedback,notifications,screen",
         contributors = "lscheibel,ericfennis"
@@ -13005,7 +13005,7 @@ pub enum LucideGlyph {
     VibrateOff,
     #[cfg(feature = "vibrate")]
     #[strum(props(
-        svg = "<path d=\"m2 8 2 2-2 2 2 2-2 2\"></path><path d=\"m22 8-2 2 2 2-2 2 2 2\"></path><rect rx=\"1\" width=\"8\" height=\"14\" x=\"8\" y=\"5\"></rect>",
+        svg = "<path d=\"m2 8 2 2-2 2 2 2-2 2\"></path><path d=\"m22 8-2 2 2 2-2 2 2 2\"></path><rect height=\"14\" rx=\"1\" width=\"8\" x=\"8\" y=\"5\"></rect>",
         categories = "devices,connectivity,account,notifications",
         tags = "smartphone,notification,rumble,haptic feedback,screen",
         contributors = "ericfennis"
@@ -13021,7 +13021,7 @@ pub enum LucideGlyph {
     VideoOff,
     #[cfg(feature = "video")]
     #[strum(props(
-        svg = "<path d=\"m16 13 5.22 3.48a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5\"></path><rect height=\"12\" width=\"14\" y=\"6\" x=\"2\" rx=\"2\"></rect>",
+        svg = "<path d=\"m16 13 5.22 3.48a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5\"></path><rect height=\"12\" rx=\"2\" width=\"14\" x=\"2\" y=\"6\"></rect>",
         categories = "devices,communication,connectivity,photography",
         tags = "camera,movie,film,recording,motion picture,camcorder,reel",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas"
@@ -13029,7 +13029,7 @@ pub enum LucideGlyph {
     Video,
     #[cfg(feature = "videotape")]
     #[strum(props(
-        svg = "<rect x=\"2\" width=\"20\" height=\"16\" y=\"4\" rx=\"2\"></rect><path d=\"M2 8h20\"></path><circle cx=\"8\" cy=\"14\" r=\"2\"></circle><path d=\"M8 12h8\"></path><circle cy=\"14\" r=\"2\" cx=\"16\"></circle>",
+        svg = "<rect height=\"16\" rx=\"2\" width=\"20\" x=\"2\" y=\"4\"></rect><path d=\"M2 8h20\"></path><circle cx=\"8\" cy=\"14\" r=\"2\"></circle><path d=\"M8 12h8\"></path><circle cx=\"16\" cy=\"14\" r=\"2\"></circle>",
         categories = "devices,communication,connectivity,photography,files",
         tags = "vhs,movie,film,recording,motion picture,showreel,cassette",
         contributors = "danielbayley"
@@ -13045,7 +13045,7 @@ pub enum LucideGlyph {
     View,
     #[cfg(feature = "voicemail")]
     #[strum(props(
-        svg = "<circle r=\"4\" cx=\"6\" cy=\"12\"></circle><circle cy=\"12\" r=\"4\" cx=\"18\"></circle><line y2=\"16\" x2=\"18\" y1=\"16\" x1=\"6\"></line>",
+        svg = "<circle cx=\"6\" cy=\"12\" r=\"4\"></circle><circle cx=\"18\" cy=\"12\" r=\"4\"></circle><line x1=\"6\" x2=\"18\" y1=\"16\" y2=\"16\"></line>",
         categories = "connectivity,devices,social",
         tags = "phone,cassette,tape,reel,recording,audio",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -13053,7 +13053,7 @@ pub enum LucideGlyph {
     Voicemail,
     #[cfg(feature = "volleyball")]
     #[strum(props(
-        svg = "<path d=\"M11.1 7.1a16.55 16.55 0 0 1 10.9 4\"></path><path d=\"M12 12a12.6 12.6 0 0 1-8.7 5\"></path><path d=\"M16.8 13.6a16.55 16.55 0 0 1-9 7.5\"></path><path d=\"M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10\"></path><path d=\"M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5\"></path><circle r=\"10\" cx=\"12\" cy=\"12\"></circle>",
+        svg = "<path d=\"M11.1 7.1a16.55 16.55 0 0 1 10.9 4\"></path><path d=\"M12 12a12.6 12.6 0 0 1-8.7 5\"></path><path d=\"M16.8 13.6a16.55 16.55 0 0 1-9 7.5\"></path><path d=\"M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10\"></path><path d=\"M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
         categories = "sports,gaming,travel",
         tags = "beach,sand,net,holiday,vacation,summer,soccer,football,futbol,kick,pitch,goal,score,bounce,leather,wool,yarn,knitting,sewing,thread,embroidery,textile",
         contributors = "danielbayley,jguddas"
@@ -13085,7 +13085,7 @@ pub enum LucideGlyph {
     VolumeOff,
     #[cfg(feature = "volume_x")]
     #[strum(props(
-        svg = "<path d=\"M11 4.70a.705.70 0 0 0-1.20-.498L6.41 7.58A1.4 1.4 0 0 1 5.41 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.41a1.4 1.4 0 0 1 .997.41l3.38 3.38A.705.70 0 0 0 11 19.29z\"></path><line x1=\"22\" x2=\"16\" y2=\"15\" y1=\"9\"></line><line y1=\"9\" x1=\"16\" x2=\"22\" y2=\"15\"></line>",
+        svg = "<path d=\"M11 4.70a.705.70 0 0 0-1.20-.498L6.41 7.58A1.4 1.4 0 0 1 5.41 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.41a1.4 1.4 0 0 1 .997.41l3.38 3.38A.705.70 0 0 0 11 19.29z\"></path><line x1=\"22\" x2=\"16\" y1=\"9\" y2=\"15\"></line><line x1=\"16\" x2=\"22\" y1=\"9\" y2=\"15\"></line>",
         categories = "connectivity,communication,multimedia",
         tags = "music,sound,mute,speaker",
         contributors = "colebemis,karsa-mistmere,ericfennis"
@@ -13109,7 +13109,7 @@ pub enum LucideGlyph {
     Vote,
     #[cfg(feature = "wallet_cards")]
     #[strum(props(
-        svg = "<rect rx=\"2\" height=\"18\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2\"></path><path d=\"M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2\"></path><path d=\"M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21\"></path>",
         categories = "account,finance",
         tags = "money,finance,pocket,credit,purchase,payment,shopping,retail,consumer,cc",
         contributors = "danielbayley"
@@ -13133,7 +13133,7 @@ pub enum LucideGlyph {
     Wallet,
     #[cfg(feature = "wallpaper")]
     #[strum(props(
-        svg = "<path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><path d=\"m9 17 6.1-6.1a2 2 0 0 1 2.81.01L22 15\"></path><circle cx=\"8\" cy=\"9\" r=\"2\"></circle><rect width=\"20\" x=\"2\" height=\"14\" y=\"3\" rx=\"2\"></rect>",
+        svg = "<path d=\"M12 17v4\"></path><path d=\"M8 21h8\"></path><path d=\"m9 17 6.1-6.1a2 2 0 0 1 2.81.01L22 15\"></path><circle cx=\"8\" cy=\"9\" r=\"2\"></circle><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"3\"></rect>",
         categories = "account,devices",
         tags = "background,texture,image,art,design,visual,decor,pattern,screen,cover,lock screen",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -13165,7 +13165,7 @@ pub enum LucideGlyph {
     Warehouse,
     #[cfg(feature = "washing_machine")]
     #[strum(props(
-        svg = "<path d=\"M3 6h3\"></path><path d=\"M17 6h.01\"></path><rect height=\"20\" x=\"3\" width=\"18\" rx=\"2\" y=\"2\"></rect><circle r=\"5\" cx=\"12\" cy=\"13\"></circle><path d=\"M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5\"></path>",
+        svg = "<path d=\"M3 6h3\"></path><path d=\"M17 6h.01\"></path><rect height=\"20\" rx=\"2\" width=\"18\" x=\"3\" y=\"2\"></rect><circle cx=\"12\" cy=\"13\" r=\"5\"></circle><path d=\"M12 18a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5\"></path>",
         categories = "home,devices,travel",
         tags = "tumble dryer,amenities,electronics,cycle,clothes,rinse,spin,drum",
         contributors = "danielbayley"
@@ -13213,7 +13213,7 @@ pub enum LucideGlyph {
     Waves,
     #[cfg(feature = "waypoints")]
     #[strum(props(
-        svg = "<path d=\"m10.58 5.41-5.17 5.17\"></path><path d=\"m18.58 13.41-5.17 5.17\"></path><path d=\"M6 12h12\"></path><circle cx=\"12\" r=\"2\" cy=\"20\"></circle><circle r=\"2\" cy=\"4\" cx=\"12\"></circle><circle cy=\"12\" cx=\"20\" r=\"2\"></circle><circle cy=\"12\" cx=\"4\" r=\"2\"></circle>",
+        svg = "<path d=\"m10.58 5.41-5.17 5.17\"></path><path d=\"m18.58 13.41-5.17 5.17\"></path><path d=\"M6 12h12\"></path><circle cx=\"12\" cy=\"20\" r=\"2\"></circle><circle cx=\"12\" cy=\"4\" r=\"2\"></circle><circle cx=\"20\" cy=\"12\" r=\"2\"></circle><circle cx=\"4\" cy=\"12\" r=\"2\"></circle>",
         categories = "security,account,navigation,development,social",
         tags = "indirection,vpn,virtual private network,proxy,connections,bounce,reroute,path,journey,planner,stops,stations,shared,spread,viral",
         contributors = "danielbayley,karsa-mistmere"
@@ -13221,7 +13221,7 @@ pub enum LucideGlyph {
     Waypoints,
     #[cfg(feature = "webcam")]
     #[strum(props(
-        svg = "<circle r=\"8\" cx=\"12\" cy=\"10\"></circle><circle cx=\"12\" r=\"3\" cy=\"10\"></circle><path d=\"M7 22h10\"></path><path d=\"M12 22v-4\"></path>",
+        svg = "<circle cx=\"12\" cy=\"10\" r=\"8\"></circle><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"M7 22h10\"></path><path d=\"M12 22v-4\"></path>",
         categories = "connectivity,devices,communication",
         tags = "camera,security",
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
@@ -13245,7 +13245,7 @@ pub enum LucideGlyph {
     Webhook,
     #[cfg(feature = "weight_tilde")]
     #[strum(props(
-        svg = "<path d=\"M6.5 8a2 2 0 0 0-1.90 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.92-2.54L19.4 9.5A2 2 0 0 0 17.48 8z\"></path><path d=\"M7.99 15a2.5 2.5 0 0 1 4 0 2.5 2.5 0 0 0 4 0\"></path><circle r=\"3\" cx=\"12\" cy=\"5\"></circle>",
+        svg = "<path d=\"M6.5 8a2 2 0 0 0-1.90 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.92-2.54L19.4 9.5A2 2 0 0 0 17.48 8z\"></path><path d=\"M7.99 15a2.5 2.5 0 0 1 4 0 2.5 2.5 0 0 0 4 0\"></path><circle cx=\"12\" cy=\"5\" r=\"3\"></circle>",
         categories = "math",
         tags = "measure,scale,estimate,load,balance,size,measurement,quantity,mass",
         contributors = "nathan-de-pachtere"
@@ -13253,7 +13253,7 @@ pub enum LucideGlyph {
     WeightTilde,
     #[cfg(feature = "weight")]
     #[strum(props(
-        svg = "<circle r=\"3\" cx=\"12\" cy=\"5\"></circle><path d=\"M6.5 8a2 2 0 0 0-1.90 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.92-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z\"></path>",
+        svg = "<circle cx=\"12\" cy=\"5\" r=\"3\"></circle><path d=\"M6.5 8a2 2 0 0 0-1.90 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.92-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z\"></path>",
         categories = "math",
         tags = "mass,heavy,lead,metal,measure,geometry,scales,balance",
         contributors = "danielbayley,karsa-mistmere"
@@ -13261,7 +13261,7 @@ pub enum LucideGlyph {
     Weight,
     #[cfg(feature = "wheat_off")]
     #[strum(props(
-        svg = "<path d=\"m2 22 10-10\"></path><path d=\"m16 8-1.17 1.17\"></path><path d=\"M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z\"></path><path d=\"m8 8-.53.53a3.5 3.5 0 0 0 0 4.94L9 15l1.53-1.53c.55-.55.88-1.25.98-1.97\"></path><path d=\"M10.91 5.26c.15-.26.34-.51.56-.73L13 3l1.53 1.53a3.5 3.5 0 0 1 .28 4.62\"></path><path d=\"M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z\"></path><path d=\"M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z\"></path><path d=\"m16 16-.53.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.49 3.49 0 0 1 1.97-.98\"></path><path d=\"M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28\"></path><line x2=\"22\" y2=\"22\" x1=\"2\" y1=\"2\"></line>",
+        svg = "<path d=\"m2 22 10-10\"></path><path d=\"m16 8-1.17 1.17\"></path><path d=\"M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z\"></path><path d=\"m8 8-.53.53a3.5 3.5 0 0 0 0 4.94L9 15l1.53-1.53c.55-.55.88-1.25.98-1.97\"></path><path d=\"M10.91 5.26c.15-.26.34-.51.56-.73L13 3l1.53 1.53a3.5 3.5 0 0 1 .28 4.62\"></path><path d=\"M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z\"></path><path d=\"M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z\"></path><path d=\"m16 16-.53.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.49 3.49 0 0 1 1.97-.98\"></path><path d=\"M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "food-beverage",
         tags = "corn,cereal,grain,gluten free,allergy,intolerance,diet",
         contributors = "karsa-mistmere,ericfennis"
@@ -13277,7 +13277,7 @@ pub enum LucideGlyph {
     Wheat,
     #[cfg(feature = "whole_word")]
     #[strum(props(
-        svg = "<circle cx=\"7\" cy=\"12\" r=\"3\"></circle><path d=\"M10 9v6\"></path><circle cx=\"17\" r=\"3\" cy=\"12\"></circle><path d=\"M14 7v8\"></path><path d=\"M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1\"></path>",
+        svg = "<circle cx=\"7\" cy=\"12\" r=\"3\"></circle><path d=\"M10 9v6\"></path><circle cx=\"17\" cy=\"12\" r=\"3\"></circle><path d=\"M14 7v8\"></path><path d=\"M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1\"></path>",
         categories = "text",
         tags = "text,selection,letters,characters,font,typography",
         contributors = "danielbayley"
@@ -13285,7 +13285,7 @@ pub enum LucideGlyph {
     WholeWord,
     #[cfg(feature = "wifi_cog")]
     #[strum(props(
-        svg = "<path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"M2 7.82a15 15 0 0 1 20 0\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><path d=\"M5 11.85a10 10 0 0 1 11.5-1.78\"></path><path d=\"M8.5 15.42a5 5 0 0 1 2.41-1.31\"></path><circle cx=\"18\" r=\"3\" cy=\"18\"></circle>",
+        svg = "<path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"M2 7.82a15 15 0 0 1 20 0\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><path d=\"M5 11.85a10 10 0 0 1 11.5-1.78\"></path><path d=\"M8.5 15.42a5 5 0 0 1 2.41-1.31\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "connectivity,devices,files",
         tags = "connection,signal,wireless,directory,settings,control,preferences,cog,edit,gear",
         contributors = "colebemis,ericfennis,jguddas,karsa-mistmere,luisdlopera"
@@ -13365,7 +13365,7 @@ pub enum LucideGlyph {
     Wind,
     #[cfg(feature = "wine_off")]
     #[strum(props(
-        svg = "<path d=\"M8 22h8\"></path><path d=\"M7 10h3m7 0h-1.34\"></path><path d=\"M12 15v7\"></path><path d=\"M7.30 7.30A12.33 12.33 0 0 0 7 10a5 5 0 0 0 7.39 4.39M8.63 2.98C8.75 2.66 8.87 2.34 9 2h6c1.5 4 2 6 2 8 0 .407-.05.80-.145 1.19\"></path><line y1=\"2\" y2=\"22\" x1=\"2\" x2=\"22\"></line>",
+        svg = "<path d=\"M8 22h8\"></path><path d=\"M7 10h3m7 0h-1.34\"></path><path d=\"M12 15v7\"></path><path d=\"M7.30 7.30A12.33 12.33 0 0 0 7 10a5 5 0 0 0 7.39 4.39M8.63 2.98C8.75 2.66 8.87 2.34 9 2h6c1.5 4 2 6 2 8 0 .407-.05.80-.145 1.19\"></path><line x1=\"2\" x2=\"22\" y1=\"2\" y2=\"22\"></line>",
         categories = "food-beverage",
         tags = "alcohol,beverage,drink,glass,alcohol free,abstinence,abstaining,teetotalism,allergy,intolerance",
         contributors = "karsa-mistmere,ericfennis"
@@ -13381,7 +13381,7 @@ pub enum LucideGlyph {
     Wine,
     #[cfg(feature = "workflow")]
     #[strum(props(
-        svg = "<rect y=\"3\" height=\"8\" width=\"8\" x=\"3\" rx=\"2\"></rect><path d=\"M7 11v4a2 2 0 0 0 2 2h4\"></path><rect x=\"13\" y=\"13\" rx=\"2\" width=\"8\" height=\"8\"></rect>",
+        svg = "<rect height=\"8\" rx=\"2\" width=\"8\" x=\"3\" y=\"3\"></rect><path d=\"M7 11v4a2 2 0 0 0 2 2h4\"></path><rect height=\"8\" rx=\"2\" width=\"8\" x=\"13\" y=\"13\"></rect>",
         categories = "development",
         tags = "action,continuous integration,ci,automation,devops,network,node,connection",
         contributors = "danielbayley,jguddas"
@@ -13453,7 +13453,7 @@ pub enum LucideGlyph {
     ZodiacAries,
     #[cfg(feature = "zodiac_cancer")]
     #[strum(props(
-        svg = "<path d=\"M21 14.5A9 6.5 0 0 1 5.5 19\"></path><path d=\"M3 9.5A9 6.5 0 0 1 18.5 5\"></path><circle cy=\"14.5\" cx=\"17.5\" r=\"3.5\"></circle><circle cx=\"6.5\" cy=\"9.5\" r=\"3.5\"></circle>",
+        svg = "<path d=\"M21 14.5A9 6.5 0 0 1 5.5 19\"></path><path d=\"M3 9.5A9 6.5 0 0 1 18.5 5\"></path><circle cx=\"17.5\" cy=\"14.5\" r=\"3.5\"></circle><circle cx=\"6.5\" cy=\"9.5\" r=\"3.5\"></circle>",
         categories = "social,emoji",
         tags = "crab,shell,protection,water,intuition,astrology,star sign,horoscope,constellation,celestial",
         contributors = "karsa-mistmere,jguddas"
@@ -13461,7 +13461,7 @@ pub enum LucideGlyph {
     ZodiacCancer,
     #[cfg(feature = "zodiac_capricorn")]
     #[strum(props(
-        svg = "<path d=\"M11 21a3 3 0 0 0 3-3V6.5a1 1 0 0 0-7 0\"></path><path d=\"M7 19V6a3 3 0 0 0-3-3h0\"></path><circle r=\"3\" cx=\"17\" cy=\"17\"></circle>",
+        svg = "<path d=\"M11 21a3 3 0 0 0 3-3V6.5a1 1 0 0 0-7 0\"></path><path d=\"M7 19V6a3 3 0 0 0-3-3h0\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle>",
         categories = "social,emoji",
         tags = "goat,mountain,ambition,earth,discipline,astrology,star sign,horoscope,constellation,celestial",
         contributors = "karsa-mistmere,jguddas"
@@ -13477,7 +13477,7 @@ pub enum LucideGlyph {
     ZodiacGemini,
     #[cfg(feature = "zodiac_leo")]
     #[strum(props(
-        svg = "<path d=\"M10 16c0-4-3-4.5-3-8a5 5 0 0 1 10 0c0 3.46-3 6.19-3 10a3 3 0 0 0 6 0\"></path><circle r=\"3\" cx=\"7\" cy=\"16\"></circle>",
+        svg = "<path d=\"M10 16c0-4-3-4.5-3-8a5 5 0 0 1 10 0c0 3.46-3 6.19-3 10a3 3 0 0 0 6 0\"></path><circle cx=\"7\" cy=\"16\" r=\"3\"></circle>",
         categories = "social,emoji",
         tags = "lion,crown,leadership,fire,confidence,astrology,star sign,horoscope,constellation,celestial",
         contributors = "karsa-mistmere"
@@ -13541,7 +13541,7 @@ pub enum LucideGlyph {
     ZodiacVirgo,
     #[cfg(feature = "zoom_in")]
     #[strum(props(
-        svg = "<circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x2=\"16.65\" y2=\"16.65\" x1=\"21\" y1=\"21\"></line><line x1=\"11\" x2=\"11\" y1=\"8\" y2=\"14\"></line><line x1=\"8\" y1=\"11\" x2=\"14\" y2=\"11\"></line>",
+        svg = "<circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" x2=\"16.65\" y1=\"21\" y2=\"16.65\"></line><line x1=\"11\" x2=\"11\" y1=\"8\" y2=\"14\"></line><line x1=\"8\" x2=\"14\" y1=\"11\" y2=\"11\"></line>",
         categories = "accessibility,layout,design,text,photography",
         tags = "magnifying glass,plus",
         contributors = "colebemis,ericfennis"
@@ -13549,7 +13549,7 @@ pub enum LucideGlyph {
     ZoomIn,
     #[cfg(feature = "zoom_out")]
     #[strum(props(
-        svg = "<circle cy=\"11\" cx=\"11\" r=\"8\"></circle><line x2=\"16.65\" y1=\"21\" y2=\"16.65\" x1=\"21\"></line><line x2=\"14\" y2=\"11\" y1=\"11\" x1=\"8\"></line>",
+        svg = "<circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" x2=\"16.65\" y1=\"21\" y2=\"16.65\"></line><line x1=\"8\" x2=\"14\" y1=\"11\" y2=\"11\"></line>",
         categories = "accessibility,layout,design,text,photography",
         tags = "magnifying glass,plus",
         contributors = "colebemis,ericfennis"

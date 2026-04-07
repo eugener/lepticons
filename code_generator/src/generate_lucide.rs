@@ -23,7 +23,10 @@ fn main() {
         .filter_map(|entry| {
             entry
                 .ok()
-                .filter(|e| e.path().is_file() && e.path().extension().unwrap() == "svg")
+                .filter(|e| {
+                    e.path().is_file()
+                        && e.path().extension().map_or(false, |ext| ext == "svg")
+                })
                 .map(|e| e.path())
         })
         .collect::<Vec<_>>();
@@ -55,6 +58,7 @@ fn main() {
     writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");
 
     let decimal_re = Regex::new(r"(\d+\.\d{2})\d+").unwrap();
+    let escape = |s: &str| s.replace('\\', "\\\\").replace('"', "\\\"");
 
     // write icon's enum entries and collect their names
     let entries: Vec<SvgEntry> = paths
@@ -68,7 +72,7 @@ fn main() {
             // Truncate decimals to 2 places
             let svg_content = decimal_re.replace_all(&svg_content, "$1").to_string();
             // Escape backslashes and double quotes for Rust string literal
-            let svg_escaped = svg_content.replace('\\', "\\\\").replace('"', "\\\"");
+            let svg_escaped = escape(&svg_content);
 
             // write feature annotation
             writeln!(file, r#"#[cfg(feature = "{}")]"#, entry.feature_name)
@@ -84,9 +88,9 @@ fn main() {
                 contributors="{}"
             ))]"#,
                 svg_escaped,
-                entry.meta.categories.join(",").as_str(),
-                entry.meta.tags.join(",").as_str(),
-                entry.meta.contributors.join(",").as_str()
+                escape(&entry.meta.categories.join(",")),
+                escape(&entry.meta.tags.join(",")),
+                escape(&entry.meta.contributors.join(",")),
             )
             .expect("write icon metadata");
 
@@ -100,7 +104,7 @@ fn main() {
     // close enum
     writeln!(file, "}}").expect("write enum footer");
 
-    format_code(&mut dest_path.clone());
+    format_code(&dest_path);
 
     // update Cargo.toml in lucid_icons
     update_cargo_features(cargo_path.display().to_string(), &entries);
@@ -124,7 +128,7 @@ struct SvgEntry {
 }
 
 impl SvgEntry {
-    fn new(path: &PathBuf) -> Self {
+    fn new(path: &Path) -> Self {
         let icon_name: String = path
             .file_stem()
             .iter()
@@ -132,12 +136,11 @@ impl SvgEntry {
             .map(|s| s.to_case(Case::UpperCamel))
             .collect();
 
-        println!("{:?}", path.with_extension("json"));
-
         let meta: EntryMeta = serde_json::from_reader(
-            fs::File::open(path.with_extension("json")).expect("open json"),
+            fs::File::open(path.with_extension("json"))
+                .unwrap_or_else(|_| panic!("open json for {:?}", path)),
         )
-        .expect("read json file");
+        .unwrap_or_else(|_| panic!("parse json for {:?}", path));
 
         // check for empty categories
         if meta.categories.is_empty() {
@@ -145,7 +148,7 @@ impl SvgEntry {
         }
 
         Self {
-            path: path.clone(),
+            path: path.to_path_buf(),
             icon_name: icon_name.clone(),
             feature_name: icon_name.to_case(Case::Snake),
             meta,
@@ -153,21 +156,20 @@ impl SvgEntry {
     }
 
     fn content(&self) -> String {
-        fs::read_to_string(&self.path)
-            .iter()
-            .map(|s| html_children_only(s.to_string()).replace("\n", ""))
-            .collect()
+        let raw = fs::read_to_string(&self.path)
+            .unwrap_or_else(|_| panic!("read svg file {:?}", self.path));
+        html_children_only(raw, &self.path).replace('\n', "")
     }
 }
 
 /// Extracts the children of an svg element as a string.
-fn html_children_only(svg_content: String) -> String {
+fn html_children_only(svg_content: String, path: &Path) -> String {
     let html = Html::parse_fragment(svg_content.as_str());
 
     let svg = html
         .select(&Selector::parse("svg").unwrap())
         .next()
-        .unwrap();
+        .unwrap_or_else(|| panic!("no <svg> element in {:?}", path));
     svg.children()
         .filter_map(|node| ElementRef::wrap(node))
         .map(|el| el.html())
@@ -176,7 +178,7 @@ fn html_children_only(svg_content: String) -> String {
 }
 
 /// Formats the code of a file using rustfmt.
-fn format_code(file_path: &mut Path) {
+fn format_code(file_path: &Path) {
     let output = Command::new("rustfmt")
         .arg(file_path)
         .output()
@@ -188,11 +190,12 @@ fn format_code(file_path: &mut Path) {
     }
 }
 
-fn update_cargo_features(path: String, entries: &Vec<SvgEntry>) {
+fn update_cargo_features(path: String, entries: &[SvgEntry]) {
     let mut cargo = CargoToml::load(path.clone());
-    let prev_features = cargo.features.iter().count();
-    cargo.features.clear();
-    cargo.features.insert(
+    let features = cargo.features();
+    let prev_count = features.keys().filter(|k| *k != "default").count();
+    features.clear();
+    features.insert(
         "default".to_string(),
         toml::Value::Array(
             entries
@@ -202,14 +205,14 @@ fn update_cargo_features(path: String, entries: &Vec<SvgEntry>) {
         ),
     );
     entries.iter().for_each(|entry| {
-        cargo
-            .features
-            .insert(entry.feature_name.clone(), toml::Value::Array(vec![]));
+        features.insert(entry.feature_name.clone(), toml::Value::Array(vec![]));
     });
+    let new_count = entries.len();
     println!(
-        ">>> New icons: {}",
-        cargo.features.iter().count() - prev_features
+        ">>> Icons: {} (delta: {:+})",
+        new_count,
+        new_count as isize - prev_count as isize
     );
 
-    cargo.store(path.clone());
+    cargo.store(path);
 }

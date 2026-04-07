@@ -23,7 +23,7 @@ web-sys = { version = "0.3", features = [
     "HtmlImageElement", "CanvasRenderingContext2d", "Blob", "BlobPropertyBag",
     "Url",
 ] }
-chrono = { version = "0.4", features = [] }
+chrono = { version = "0.4", default-features = false, features = ["wasmbind", "clock"] }
 
 [package.metadata.leptos]
 name = "lucid-icons-demo"

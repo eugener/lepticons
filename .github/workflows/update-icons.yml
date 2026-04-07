@@ -75,4 +75,7 @@ jobs:
 
             - Icons: ${{ steps.count.outputs.count }}
           base: develop
+          draft: true
+          labels: automated
+          reviewers: eugener
           delete-branch: true

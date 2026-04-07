@@ -1,29 +1,25 @@
-use std::path::PathBuf;
-use serde::{Deserialize, Serialize};
-use toml::*;
-
-#[derive(Serialize, Deserialize, Debug)]
+/// Round-trip safe Cargo.toml manipulation.
+/// Only mutates the [features] table, preserving all other sections.
 pub struct CargoToml {
-    pub package: Table,
-    pub lib: Table,
-    pub dependencies: Table,
-    pub features: Table,
+    doc: toml::Value,
 }
 
 impl CargoToml {
-
     pub fn load(path: String) -> Self {
-
-        let cargo_str = std::fs::read_to_string(&PathBuf::from(path)).expect("read config.toml");
-        // println!("{}", cargo_str);
-        let cfg: CargoToml = toml::from_str(&cargo_str).expect("parse config.toml");
-        // println!("{}", cfg.features.get("default").unwrap());
-        cfg
+        let content = std::fs::read_to_string(&path).expect("read Cargo.toml");
+        let doc: toml::Value = toml::from_str(&content).expect("parse Cargo.toml");
+        Self { doc }
     }
 
-    pub fn store(&self,path: String)  {
-        let cargo_str = toml::to_string(&self).unwrap();
-        std::fs::write(&PathBuf::from(path), cargo_str).expect("write Cargo.toml");
+    pub fn features(&mut self) -> &mut toml::value::Table {
+        self.doc
+            .get_mut("features")
+            .and_then(|v| v.as_table_mut())
+            .expect("[features] table in Cargo.toml")
+    }
+
+    pub fn store(&self, path: String) {
+        let content = toml::to_string_pretty(&self.doc).unwrap();
+        std::fs::write(&path, content).expect("write Cargo.toml");
     }
 }
-
