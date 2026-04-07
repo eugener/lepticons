@@ -6,3 +6,4 @@
 .vercel
 lepticons/Cargo.lock
 code_generator/Cargo.lock
+.claude/
