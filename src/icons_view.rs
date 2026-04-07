@@ -29,6 +29,13 @@ pub fn IconsView() -> impl IntoView {
         set_selected_icon.set(None);
     });
 
+    // close detail panel on Escape key
+    window_event_listener(keydown, move |ev: KeyboardEvent| {
+        if ev.key() == "Escape" {
+            set_selected_icon.set(None);
+        }
+    });
+
     let on_input = move |ev: Event| {
         set_icon_filter.set(event_target_value(&ev));
         log!("Filter: {}", icon_filter.get_untracked());
@@ -82,7 +89,7 @@ pub fn IconsView() -> impl IntoView {
                         <Icon glyph=Signal::derive(move || LucideGlyph::X) class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
-                <IconTable icon_filter=icon_filter set_selected_icon=set_selected_icon />
+                <IconTable icon_filter=icon_filter selected_icon=selected_icon set_selected_icon=set_selected_icon />
             </div>
         </div>
         <IconDetail selected_icon=selected_icon set_selected_icon=set_selected_icon />
@@ -104,6 +111,7 @@ fn IconGroupLabel(title: String, count: u16) -> impl IntoView {
 #[component]
 fn IconTable(
     icon_filter: ReadSignal<String>,
+    selected_icon: ReadSignal<Option<LucideGlyph>>,
     set_selected_icon: WriteSignal<Option<LucideGlyph>>,
 ) -> impl IntoView {
     let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
@@ -111,23 +119,29 @@ fn IconTable(
     view! {
         <div class="flex flex-row flex-wrap gap-2">
         {
-            move || filtered_icons().iter().map( |icon| {
-                let icon_for_click = icon.clone();
-                view!{ <IconCell icon=icon.clone() on:click=move |_| set_selected_icon.set(Some(icon_for_click.clone())) /> }
-            }).collect::<Vec<_>>()
+            move || {
+                let selected = selected_icon.get();
+                filtered_icons().iter().map( |icon| {
+                    let icon_for_click = icon.clone();
+                    let is_selected = selected.as_ref() == Some(icon);
+                    view!{ <IconCell icon=icon.clone() selected=is_selected on:click=move |_| set_selected_icon.set(Some(icon_for_click.clone())) /> }
+                }).collect::<Vec<_>>()
+            }
         }
         </div>
     }
 }
 
-const ICON_CONTAINER_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 border border-primary/0 hover:border-primary/100 cursor-pointer";
+const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 cursor-pointer";
+const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-orange-700/80 cursor-pointer";
 const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-orange-700/90 border border-orange-750/90 rounded whitespace-nowrap";
 
 #[component]
-fn IconCell(icon: LucideGlyph) -> impl IntoView {
+fn IconCell(icon: LucideGlyph, selected: bool) -> impl IntoView {
     let glyph = icon.clone();
+    let style = if selected { ICON_STYLE_SELECTED } else { ICON_STYLE };
     view! {
-        <div class=ICON_CONTAINER_STYLE>
+        <div class=style>
             <Icon<LucideGlyph> glyph=Signal::derive(move || glyph.clone()) />
             <div class=TOOLTIP_STYLE >
                {icon.name()}
@@ -167,7 +181,8 @@ fn IconDetail(
             let component_name = icon.name(); // PascalCase e.g. "ShieldBan"
 
             view! {
-                <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50">
+                <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50"
+                     on:click=move |_| { set_svg_menu_open.set(false); set_jsx_menu_open.set(false); }>
                     // large icon preview with grid background
                     <div class="flex-none w-56 h-56 flex items-center justify-center rounded-xl"
                          style="background-image: linear-gradient(to right, rgba(128,128,128,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.15) 1px, transparent 1px); background-size: calc(200px / 24) calc(200px / 24); background-position: 12px 12px;">
@@ -208,7 +223,7 @@ fn IconDetail(
                         <div class="flex flex-row gap-3 pt-1">
                             <div class="relative">
                                 <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
-                                        on:click=move |_| { set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }>
+                                        on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }>
                                     <Icon glyph=Signal::derive(move || {
                                         if copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
                                     }) size="16" />
@@ -264,7 +279,7 @@ fn IconDetail(
                             // Copy JSX dropdown
                             <div class="relative">
                                 <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
-                                        on:click=move |_| { set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }>
+                                        on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }>
                                     {move || if copied.get() { "Copied!" } else { "Copy JSX" }}
                                     <Icon glyph=Signal::derive(move || LucideGlyph::ChevronUp) size="14" />
                                 </button>
@@ -275,7 +290,6 @@ fn IconDetail(
                                     let comp4 = component_name.clone();
                                     let comp5 = component_name.clone();
                                     let kebab = name.clone();
-                                    let _kebab2 = name.clone();
                                     view! {
                                         <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[180px] z-50">
                                             <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
