@@ -26,7 +26,7 @@ fn main() {
                 .ok()
                 .filter(|e| {
                     e.path().is_file()
-                        && e.path().extension().map_or(false, |ext| ext == "svg")
+                        && e.path().extension().is_some_and(|ext| ext == "svg")
                 })
                 .map(|e| e.path())
         })
@@ -190,7 +190,7 @@ fn html_children_only(svg_content: String, path: &Path) -> String {
         .next()
         .unwrap_or_else(|| panic!("no <svg> element in {:?}", path));
     svg.children()
-        .filter_map(|node| ElementRef::wrap(node))
+        .filter_map(ElementRef::wrap)
         .map(|el| el.html())
         .collect::<Vec<_>>()
         .join("")

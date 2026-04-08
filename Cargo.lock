@@ -572,20 +572,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "generator"
-version = "0.1.0"
-dependencies = [
- "convert_case 0.11.0",
- "regex",
- "scraper",
- "serde",
- "serde_json",
- "strum",
- "strum_macros",
- "toml",
-]
-
-[[package]]
 name = "generic-array"
 version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -915,6 +901,20 @@ dependencies = [
  "leptos",
  "strum",
  "strum_macros",
+]
+
+[[package]]
+name = "lepticons-codegen"
+version = "0.1.0"
+dependencies = [
+ "convert_case 0.11.0",
+ "regex",
+ "scraper",
+ "serde",
+ "serde_json",
+ "strum",
+ "strum_macros",
+ "toml",
 ]
 
 [[package]]

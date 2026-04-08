@@ -28,6 +28,7 @@ jobs:
         with:
           version: 'v0.17.5'
       - name: Trunk Build
+        working-directory: demo
         run: trunk build --release
 
       - name: Install Vercel CLI
@@ -39,5 +40,5 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./dist
+        working-directory: ./demo/dist
         run: vercel deploy --prod --token="$TOKEN"

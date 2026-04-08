@@ -1,14 +1,11 @@
 [package]
-name = "generator"
+name = "lepticons-codegen"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [[bin]]
-name = "generator"
+name = "lepticons-codegen"
 path = "src/generate_lucide.rs"
-#path = "src/compress.rs"
 
 [dependencies]
 # leptos not used by the generator

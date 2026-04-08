@@ -36,7 +36,6 @@ pub fn ThemeToggle() -> impl IntoView {
             } else {
                 "justify-end"
             }
-            .to_string()
         )
     };
 
