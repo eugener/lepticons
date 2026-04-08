@@ -12,9 +12,9 @@ path = "src/generate_lucide.rs"
 
 [dependencies]
 # leptos not used by the generator
-strum = "0.28"
-strum_macros = "0.28"
-convert_case = "0.11"
+strum = { workspace = true }
+strum_macros = { workspace = true }
+convert_case = { workspace = true }
 regex = "1"
 scraper = "0.26"
 serde = { version = "1.0", features = ["derive"] }

@@ -35,9 +35,29 @@ pub fn IconsView() -> impl IntoView {
         }
     });
 
+    // Debounced filter: updates 150ms after last keystroke
+    let (debounced_filter, set_debounced_filter) = signal("".to_string());
     let on_input = move |ev: Event| {
-        set_icon_filter.set(event_target_value(&ev));
+        let value = event_target_value(&ev);
+        set_icon_filter.set(value.clone());
+        set_timeout(
+            move || {
+                if icon_filter.get_untracked() == value {
+                    set_debounced_filter.set(icon_filter.get_untracked());
+                }
+            },
+            std::time::Duration::from_millis(150),
+        );
     };
+
+    // Sync debounced filter on programmatic changes (category click, clear)
+    Effect::new(move |prev: Option<String>| {
+        let current = icon_filter.get();
+        if prev.as_ref() != Some(&current) {
+            set_debounced_filter.set(current.clone());
+        }
+        current
+    });
 
     let icon_count = ICON_COUNT.get_or_init(|| LucideGlyph::iter().count());
 
@@ -73,21 +93,21 @@ pub fn IconsView() -> impl IntoView {
             </div>
 
             // searchable icon table
-            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden">
+            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden scroll-pb-72">
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
                     <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
-                        <Icon glyph=Signal::derive(move || LucideGlyph::Search)/>
+                        <Icon glyph=LucideGlyph::Search />
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
                                prop:placeholder="Search icons..."
                                prop:value={move || icon_filter.get()}
                                on:input=on_input
                         />
-                        <Icon glyph=Signal::derive(move || LucideGlyph::X) class="cursor-pointer" on:click=clear_filter />
+                        <Icon glyph=LucideGlyph::X class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
-                <IconTable icon_filter=icon_filter selected_icon=selected_icon set_selected_icon=set_selected_icon />
+                <IconTable icon_filter=debounced_filter selected_icon=selected_icon set_selected_icon=set_selected_icon />
             </div>
         </div>
         <IconDetail selected_icon=selected_icon set_selected_icon=set_selected_icon />
@@ -117,13 +137,20 @@ fn IconTable(
     view! {
         <div class="flex flex-row flex-wrap gap-2">
         {
-            // Only re-run when filter changes, not on selection change
             move || filtered_icons().iter().map( |icon| {
-                let icon_for_click = icon.clone();
-                let icon_for_sel = icon.clone();
-                // Per-cell derived signal: only the affected cells re-render on selection change
-                let is_selected = Signal::derive(move || selected_icon.get().as_ref() == Some(&icon_for_sel));
-                view!{ <IconCell icon=icon.clone() selected=is_selected on:click=move |_| set_selected_icon.set(Some(icon_for_click.clone())) /> }
+                let ic = *icon;
+                let is_selected = Signal::derive(move || selected_icon.get() == Some(ic));
+                view!{ <IconCell icon=ic selected=is_selected on:click=move |ev: web_sys::MouseEvent| {
+                    set_selected_icon.set(Some(ic));
+                    if let Some(target) = ev.current_target() {
+                        if let Ok(el) = target.dyn_into::<web_sys::Element>() {
+                            let opts = web_sys::ScrollIntoViewOptions::new();
+                            opts.set_behavior(web_sys::ScrollBehavior::Smooth);
+                            opts.set_block(web_sys::ScrollLogicalPosition::Center);
+                            el.scroll_into_view_with_scroll_into_view_options(&opts);
+                        }
+                    }
+                } /> }
             }).collect::<Vec<_>>()
         }
         </div>
@@ -136,11 +163,10 @@ const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 o
 
 #[component]
 fn IconCell(icon: LucideGlyph, selected: Signal<bool>) -> impl IntoView {
-    let glyph = icon.clone();
     let style = move || if selected.get() { ICON_STYLE_SELECTED } else { ICON_STYLE };
     view! {
         <div class=style>
-            <Icon<LucideGlyph> glyph=Signal::derive(move || glyph.clone()) />
+            <Icon glyph=icon />
             <div class=TOOLTIP_STYLE >
                {icon.name()}
             </div>
@@ -160,25 +186,25 @@ fn IconDetail(
 ) -> impl IntoView {
     let dismiss = move |_| set_selected_icon.set(None);
 
-    // Signals live at component scope, not inside the reactive closure
     let (svg_menu_open, set_svg_menu_open) = signal(false);
     let (jsx_menu_open, set_jsx_menu_open) = signal(false);
-    let (copied, set_copied) = signal(false);
+    let (svg_copied, set_svg_copied) = signal(false);
+    let (jsx_copied, set_jsx_copied) = signal(false);
 
     // Reset menus when selected icon changes
     Effect::new(move |_| {
         selected_icon.get();
         set_svg_menu_open.set(false);
         set_jsx_menu_open.set(false);
-        set_copied.set(false);
+        set_svg_copied.set(false);
+        set_jsx_copied.set(false);
     });
 
     view! {
         {move || selected_icon.get().map(|icon| {
             let name = display_name(&icon);
-            let tags = icon.tags().into_iter().filter(|t| !t.is_empty()).collect::<Vec<_>>();
-            let categories = icon.categories().into_iter().filter(|c| !c.is_empty()).collect::<Vec<_>>();
-            let glyph = icon.clone();
+            let tags: Vec<&str> = icon.tags().collect();
+            let categories: Vec<&str> = icon.categories().collect();
             let svg_content = icon.svg();
             let full_svg = format!(
                 "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{}</svg>",
@@ -186,7 +212,7 @@ fn IconDetail(
             );
 
             let icon_name = name.clone();
-            let component_name = icon.name(); // PascalCase e.g. "ShieldBan"
+            let component_name = icon.name();
             let kebab_name = name.clone();
 
             view! {
@@ -196,7 +222,7 @@ fn IconDetail(
                     <div class="flex-none w-56 h-56 flex items-center justify-center rounded-xl"
                          style="background-image: linear-gradient(to right, rgba(128,128,128,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.15) 1px, transparent 1px); background-size: calc(200px / 24) calc(200px / 24); background-position: 12px 12px;">
                         <div class="text-primary">
-                            <Icon<LucideGlyph> glyph=Signal::derive(move || glyph.clone()) size="200" stroke_width="2" />
+                            <Icon glyph=icon size="200" stroke_width="2" />
                         </div>
                     </div>
 
@@ -230,14 +256,19 @@ fn IconDetail(
 
                         // actions
                         <div class="flex flex-row gap-3 pt-1">
+                            // Copy SVG dropdown
                             <div class="relative">
-                                <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
-                                        on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }>
+                                <button
+                                    class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
+                                    aria-haspopup="menu"
+                                    aria-expanded=move || svg_menu_open.get().to_string()
+                                    on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }
+                                >
                                     <Icon glyph=Signal::derive(move || {
-                                        if copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
+                                        if svg_copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
                                     }) size="16" />
-                                    {move || if copied.get() { "Copied!" } else { "Copy SVG" }}
-                                    <Icon glyph=Signal::derive(move || LucideGlyph::ChevronUp) size="14" />
+                                    {move || if svg_copied.get() { "Copied!" } else { "Copy SVG" }}
+                                    <Icon glyph=LucideGlyph::ChevronUp size="14" />
                                 </button>
                                 {move || svg_menu_open.get().then(|| {
                                     let svg_for_copy = full_svg.clone();
@@ -247,34 +278,34 @@ fn IconDetail(
                                     let name_for_svg = icon_name.clone();
                                     let name_for_png = icon_name.clone();
                                     view! {
-                                        <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[160px] z-50">
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                        <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[160px] z-50" role="menu">
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         copy_to_clipboard(&svg_for_copy);
-                                                        set_copied.set(true);
+                                                        set_svg_copied.set(true);
                                                         set_svg_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_svg_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy SVG"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(&svg_for_data_url));
                                                         copy_to_clipboard(&data_url);
-                                                        set_copied.set(true);
+                                                        set_svg_copied.set(true);
                                                         set_svg_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_svg_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy Data URL"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         download_blob(&svg_for_download, &format!("{}.svg", name_for_svg), "image/svg+xml");
                                                         set_svg_menu_open.set(false);
                                                     }>
                                                 "Download SVG"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         download_png(&svg_for_png, &name_for_png);
                                                         set_svg_menu_open.set(false);
@@ -287,10 +318,14 @@ fn IconDetail(
                             </div>
                             // Copy JSX dropdown
                             <div class="relative">
-                                <button class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
-                                        on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }>
-                                    {move || if copied.get() { "Copied!" } else { "Copy JSX" }}
-                                    <Icon glyph=Signal::derive(move || LucideGlyph::ChevronUp) size="14" />
+                                <button
+                                    class="px-4 py-1.5 text-sm rounded-lg border border-primary/20 text-primary/70 hover:bg-primary/10 flex items-center gap-2"
+                                    aria-haspopup="menu"
+                                    aria-expanded=move || jsx_menu_open.get().to_string()
+                                    on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }
+                                >
+                                    {move || if jsx_copied.get() { "Copied!" } else { "Copy JSX" }}
+                                    <Icon glyph=LucideGlyph::ChevronUp size="14" />
                                 </button>
                                 {move || jsx_menu_open.get().then(|| {
                                     let comp = component_name.clone();
@@ -300,58 +335,58 @@ fn IconDetail(
                                     let kebab = kebab_name.clone();
                                     let kebab2 = kebab_name.clone();
                                     view! {
-                                        <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[180px] z-50">
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                        <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[180px] z-50" role="menu">
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         copy_to_clipboard(&format!("<{} />", comp));
-                                                        set_copied.set(true);
+                                                        set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy JSX"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         copy_to_clipboard(&comp2);
-                                                        set_copied.set(true);
+                                                        set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy Component Name"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         copy_to_clipboard(&format!("<{} />", kebab));
-                                                        set_copied.set(true);
+                                                        set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy Vue"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         copy_to_clipboard(&format!("<{} />", comp3));
-                                                        set_copied.set(true);
+                                                        set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy Svelte"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         copy_to_clipboard(&format!("<lucide-angular name=\"{}\" />", kebab2));
-                                                        set_copied.set(true);
+                                                        set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy Angular"
                                             </button>
-                                            <button class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
+                                            <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<Icon<LucideGlyph> glyph=Signal::derive(move || LucideGlyph::{}) />", comp5));
-                                                        set_copied.set(true);
+                                                        copy_to_clipboard(&format!("<Icon glyph=LucideGlyph::{} />", comp5));
+                                                        set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
                                                     }>
                                                 "Copy Leptos"
                                             </button>
@@ -364,7 +399,7 @@ fn IconDetail(
 
                     // close button
                     <button class="flex-none p-1 text-primary/50 hover:text-primary" on:click=dismiss>
-                        <Icon glyph=Signal::derive(move || LucideGlyph::X) />
+                        <Icon glyph=LucideGlyph::X />
                     </button>
                 </div>
             }
@@ -414,7 +449,7 @@ fn download_png(svg_str: &str, name: &str) {
     let Some(ctx_obj) = ctx_val else { return };
     let ctx: web_sys::CanvasRenderingContext2d = ctx_obj.unchecked_into::<web_sys::CanvasRenderingContext2d>();
 
-    let img = web_sys::HtmlImageElement::new().unwrap();
+    let Ok(img) = web_sys::HtmlImageElement::new() else { return };
     let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(svg_str));
 
     let filename = format!("{}.png", name);
@@ -422,7 +457,6 @@ fn download_png(svg_str: &str, name: &str) {
     let img_clone = img.clone();
     let body_clone = body;
 
-    // Use Closure::once_into_js to avoid memory leak from closure.forget()
     let closure = wasm_bindgen::closure::Closure::once(move || {
         ctx.draw_image_with_html_image_element_and_dw_and_dh(
             &img_clone, 0.0, 0.0, png_size as f64, png_size as f64,

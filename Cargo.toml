@@ -2,26 +2,29 @@
 members=["lepticons", "code_generator"]
 exclude=["lucide"]
 
+[workspace.dependencies]
+strum = "0.28"
+strum_macros = "0.28"
+convert_case = "0.11"
+
 [package]
 name = "lucide-icons-demo"
 version = "0.6.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 leptos = { version = "0.8", features = ["csr"] }
 leptos_meta = "0.8"
 leptos_router = "0.8"
-strum = "0.28"
-strum_macros = "0.28"
-lepticons= { path = "./lepticons", features = ["default"] }
-convert_case = "0.11"
+strum = { workspace = true }
+strum_macros = { workspace = true }
+lepticons = { path = "./lepticons", features = ["default"] }
+convert_case = { workspace = true }
 web-sys = { version = "0.3", features = [
     "Window", "Storage", "Navigator", "Clipboard",
     "Document", "HtmlElement", "HtmlAnchorElement", "HtmlCanvasElement",
     "HtmlImageElement", "CanvasRenderingContext2d", "Blob", "BlobPropertyBag",
-    "Url",
+    "Url", "ScrollIntoViewOptions", "ScrollBehavior", "ScrollLogicalPosition",
 ] }
 chrono = { version = "0.4", default-features = false, features = ["wasmbind", "clock"] }
 

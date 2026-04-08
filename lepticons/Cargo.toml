@@ -1,10 +1,9 @@
 [dependencies]
-convert_case = "0.11"
-strum = "0.28"
-strum_macros = "0.28"
+convert_case = { workspace = true }
+strum = { workspace = true }
+strum_macros = { workspace = true }
 
 [dependencies.leptos]
-features = ["csr"]
 version = "0.8"
 
 [features]
@@ -100,7 +99,7 @@ bench = false
 
 [package]
 categories = ["graphics"]
-description = "A collection of 1600+ icons for use in your Rust projects."
+description = "Lucide icons as a Leptos component with category-based features."
 documentation = "https://docs.rs/lepticons"
 edition = "2021"
 homepage = "https://lepticons.vercel.app"
@@ -113,4 +112,4 @@ license = "MIT"
 name = "lepticons"
 readme = "README.md"
 repository = "https://github.com/eugener/lepticons"
-version = "0.7.0"
+version = "0.8.0"

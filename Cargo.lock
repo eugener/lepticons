@@ -909,7 +909,7 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "lepticons"
-version = "0.7.0"
+version = "0.8.0"
 dependencies = [
  "convert_case 0.11.0",
  "leptos",

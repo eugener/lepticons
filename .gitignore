@@ -6,4 +6,5 @@
 .vercel
 lepticons/Cargo.lock
 code_generator/Cargo.lock
+style/output.css
 .claude/

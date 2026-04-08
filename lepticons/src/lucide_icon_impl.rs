@@ -8,13 +8,15 @@ use strum::{EnumProperty, IntoEnumIterator};
 
 use crate::lucide_icon_data;
 
-pub trait Glyph: Clone {
-    fn svg(&self) -> String;
+/// Trait for types that provide SVG content for rendering.
+pub trait Glyph: Copy {
+    /// Returns the inner SVG content as a static string.
+    fn svg(&self) -> &'static str;
 }
 
 impl Glyph for LucideGlyph {
-    fn svg(&self) -> String {
-        self.get_str("svg").expect("get svg").to_string()
+    fn svg(&self) -> &'static str {
+        self.get_str("svg").unwrap_or("")
     }
 }
 
@@ -36,7 +38,6 @@ fn build_search_index() -> Vec<SearchEntry> {
             let name = format!("{:?}", glyph).to_case(convert_case::Case::Lower);
             let tags = glyph.get_str("tags").unwrap_or("");
             let categories = glyph.get_str("categories").unwrap_or("");
-            // Single concatenated string: "name,tag1,tag2,cat1,cat2"
             let text = format!("{},{},{}", name, tags, categories);
             SearchEntry { glyph, text }
         })
@@ -61,32 +62,44 @@ fn build_categories() -> BTreeMap<String, u16> {
 }
 
 impl LucideGlyph {
+    /// Returns the variant name (e.g. "AArrowDown").
     pub fn name(&self) -> String {
         format!("{:?}", self)
     }
 
-    pub fn categories(&self) -> Vec<String> {
-        self.get_str("categories")
-            .unwrap_or("")
-            .split(',')
-            .map(|s| s.trim().to_string())
-            .collect()
+    /// Returns the raw categories string from the icon metadata.
+    pub fn categories_str(&self) -> &'static str {
+        self.get_str("categories").unwrap_or("")
     }
 
-    pub fn tags(&self) -> Vec<String> {
-        self.get_str("tags")
-            .unwrap_or("")
-            .split(',')
-            .map(|s| s.trim().to_string())
-            .collect()
+    /// Returns the raw tags string from the icon metadata.
+    pub fn tags_str(&self) -> &'static str {
+        self.get_str("tags").unwrap_or("")
     }
 
-    pub fn contributors(&self) -> Vec<String> {
+    /// Returns categories as an iterator of string slices.
+    pub fn categories(&self) -> impl Iterator<Item = &'static str> {
+        self.categories_str()
+            .split(',')
+            .map(|s| s.trim())
+            .filter(|s| !s.is_empty())
+    }
+
+    /// Returns tags as an iterator of string slices.
+    pub fn tags(&self) -> impl Iterator<Item = &'static str> {
+        self.tags_str()
+            .split(',')
+            .map(|s| s.trim())
+            .filter(|s| !s.is_empty())
+    }
+
+    /// Returns contributors as an iterator of string slices.
+    pub fn contributors(&self) -> impl Iterator<Item = &'static str> {
         self.get_str("contributors")
             .unwrap_or("")
             .split(',')
-            .map(|s| s.trim().to_string())
-            .collect()
+            .map(|s| s.trim())
+            .filter(|s| !s.is_empty())
     }
 
     /// Returns a sorted map of all categories and their icon count.
@@ -112,7 +125,7 @@ impl LucideGlyph {
                     .iter()
                     .any(|term| entry.text.contains(term))
             })
-            .map(|entry| entry.glyph.clone())
+            .map(|entry| entry.glyph)
             .collect()
     }
 }

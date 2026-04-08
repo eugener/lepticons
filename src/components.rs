@@ -55,7 +55,7 @@ pub fn ThemeToggle() -> impl IntoView {
         <button class=pos_class
              on:click=toggle_theme >
             <div class="flex-none w-6 h-6 bg-primary/100 rounded-full">
-                <Icon<LucideGlyph> glyph=Signal::derive(theme_glyph) class="text-secondary p-1"/>
+                <Icon glyph=Signal::derive(theme_glyph) class="text-secondary p-1"/>
             </div>
         </button>
     }

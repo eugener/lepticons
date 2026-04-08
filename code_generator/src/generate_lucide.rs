@@ -53,7 +53,7 @@ fn main() {
     // write the icons enum header
     writeln!(
         file,
-        "#[derive(EnumIter, EnumProperty, PartialEq, Eq, Debug, Clone )]"
+        "#[derive(EnumIter, EnumProperty, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Clone, Copy)]"
     )
     .expect("write enum annotation");
     writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");
