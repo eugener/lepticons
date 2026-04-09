@@ -45,7 +45,7 @@ fn main() {
     writeln!(
         file,
         r#"
-    use strum_macros::{{EnumProperty,EnumIter}};
+    use strum_macros::{{EnumProperty,EnumIter,EnumString}};
     "#
     )
     .expect("write imports");
@@ -53,7 +53,7 @@ fn main() {
     // write the icons enum header
     writeln!(
         file,
-        "#[derive(EnumIter, EnumProperty, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Clone, Copy)]"
+        "#[derive(EnumIter, EnumProperty, EnumString, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Clone, Copy)]"
     )
     .expect("write enum annotation");
     writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");

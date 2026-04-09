@@ -7,18 +7,22 @@ use web_sys::wasm_bindgen;
 
 use lepticons::LucideGlyph;
 use lepticons::*;
-use strum::IntoEnumIterator;
-
 use crate::components::*;
 use crate::menu::*;
-use std::sync::OnceLock;
 
-static ICON_COUNT: OnceLock<usize> = OnceLock::new();
+const DEFAULT_STROKE_WIDTH: f64 = 2.0;
+const DEFAULT_SIZE: f64 = 24.0;
 
 #[component]
 pub fn IconsView() -> impl IntoView {
     let (icon_filter, set_icon_filter) = signal("".to_string());
     let (selected_icon, set_selected_icon) = signal(None::<LucideGlyph>);
+
+    // Customizer state (None = use currentColor, adapts to theme)
+    let (icon_color, set_icon_color) = signal(None::<String>);
+    let (icon_stroke_width, set_icon_stroke_width) = signal(DEFAULT_STROKE_WIDTH);
+    let (icon_size, set_icon_size) = signal(DEFAULT_SIZE);
+    let (absolute_stroke, set_absolute_stroke) = signal(false);
 
     let clear_filter = move |_| set_icon_filter.set("".to_string());
 
@@ -59,7 +63,7 @@ pub fn IconsView() -> impl IntoView {
         current
     });
 
-    let icon_count = ICON_COUNT.get_or_init(|| LucideGlyph::iter().count());
+    let icon_count = LucideGlyph::count();
 
     view! {
         <div class="flex flex-row">
@@ -75,6 +79,19 @@ pub fn IconsView() -> impl IntoView {
                    </div>
                    <hr/>
                 </StickyTop>
+
+                <Customizer
+                    color=icon_color
+                    set_color=set_icon_color
+                    stroke_width=icon_stroke_width
+                    set_stroke_width=set_icon_stroke_width
+                    size=icon_size
+                    set_size=set_icon_size
+                    absolute_stroke=absolute_stroke
+                    set_absolute_stroke=set_absolute_stroke
+                />
+
+                <hr class="mx-10"/>
 
                 <div class="px-10 pt-5 flex flex-col gap-2">
                    {
@@ -96,7 +113,7 @@ pub fn IconsView() -> impl IntoView {
             <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden scroll-pb-72">
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
-                    <div class = "flex flex-row overflow-y-auto items-center w-full focus:border-orange-700/50 p-2 px-4 my-6 bg-secondary rounded-lg">
+                    <div class = "flex flex-row overflow-y-auto items-center w-full p-2 px-4 my-6 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors">
                         <Icon glyph=LucideGlyph::Search />
                         <input type="text"
                                class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
@@ -107,10 +124,137 @@ pub fn IconsView() -> impl IntoView {
                         <Icon glyph=LucideGlyph::X class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
-                <IconTable icon_filter=debounced_filter selected_icon=selected_icon set_selected_icon=set_selected_icon />
+                <IconTable
+                    icon_filter=debounced_filter
+                    selected_icon=selected_icon
+                    set_selected_icon=set_selected_icon
+                    icon_color=icon_color
+                    icon_stroke_width=icon_stroke_width
+                    icon_size=icon_size
+                    absolute_stroke=absolute_stroke
+                />
             </div>
         </div>
         <IconDetail selected_icon=selected_icon set_selected_icon=set_selected_icon />
+    }
+}
+
+#[component]
+fn Customizer(
+    color: ReadSignal<Option<String>>,
+    set_color: WriteSignal<Option<String>>,
+    stroke_width: ReadSignal<f64>,
+    set_stroke_width: WriteSignal<f64>,
+    size: ReadSignal<f64>,
+    set_size: WriteSignal<f64>,
+    absolute_stroke: ReadSignal<bool>,
+    set_absolute_stroke: WriteSignal<bool>,
+) -> impl IntoView {
+    let reset_defaults = move |_| {
+        set_color.set(None);
+        set_stroke_width.set(DEFAULT_STROKE_WIDTH);
+        set_size.set(DEFAULT_SIZE);
+        set_absolute_stroke.set(false);
+    };
+
+    view! {
+        <div class="mx-6 mt-5 p-4 flex flex-col gap-4 bg-primary/5 rounded-lg border border-primary/10">
+            <div class="flex flex-row items-center justify-between">
+                <span class="text-sm font-semibold text-primary">"Customizer"</span>
+                <button
+                    class="p-1 text-primary/50 hover:text-primary rounded"
+                    title="Reset to defaults"
+                    on:click=reset_defaults
+                >
+                    <Icon glyph=LucideGlyph::RotateCcw size="14" />
+                </button>
+            </div>
+
+            // Color
+            <div class="flex flex-col gap-1">
+                <label class="text-xs text-primary/60">"Color"</label>
+                <div class="flex flex-row items-center gap-2">
+                    {
+                        let dark_mode = use_context::<crate::components::DarkMode>().map(|d| d.read);
+                        let resolved_color = move || {
+                            // Touch dark_mode to re-run when theme changes
+                            if let Some(dm) = dark_mode { dm.get(); }
+                            color.get().unwrap_or_else(current_text_color_hex)
+                        };
+                        let resolved_color2 = resolved_color;
+                        view! {
+                            <input type="color"
+                                class="w-8 h-8 rounded cursor-pointer border-none bg-transparent p-0"
+                                prop:value=resolved_color
+                                on:input=move |ev| set_color.set(Some(event_target_value(&ev)))
+                            />
+                            <span class="text-xs text-primary/70 font-mono">
+                                {resolved_color2}
+                            </span>
+                        }
+                    }
+                </div>
+            </div>
+
+            // Stroke width
+            <div class="flex flex-col gap-1">
+                <div class="flex flex-row justify-between">
+                    <label class="text-xs text-primary/60">"Stroke width"</label>
+                    <span class="text-xs text-primary/70">{move || format!("{}px", stroke_width.get())}</span>
+                </div>
+                <input type="range"
+                    class="w-full"
+                    min="0.5" max="3" step="0.25"
+                    prop:value=move || stroke_width.get().to_string()
+                    on:input=move |ev| {
+                        if let Ok(v) = event_target_value(&ev).parse::<f64>() {
+                            set_stroke_width.set(v);
+                        }
+                    }
+                />
+            </div>
+
+            // Size
+            <div class="flex flex-col gap-1">
+                <div class="flex flex-row justify-between">
+                    <label class="text-xs text-primary/60">"Size"</label>
+                    <span class="text-xs text-primary/70">{move || format!("{}px", size.get() as u32)}</span>
+                </div>
+                <input type="range"
+                    class="w-full"
+                    min="14" max="48" step="1"
+                    prop:value=move || (size.get() as u32).to_string()
+                    on:input=move |ev| {
+                        if let Ok(v) = event_target_value(&ev).parse::<f64>() {
+                            set_size.set(v);
+                        }
+                    }
+                />
+            </div>
+
+            // Absolute stroke width toggle
+            <div class="flex flex-row items-center justify-between">
+                <label class="text-xs text-primary/60 leading-tight">"Absolute stroke"<br/>"width"</label>
+                <button
+                    class=move || {
+                        if absolute_stroke.get() {
+                            "w-10 h-5 rounded-full bg-highlight relative transition-colors"
+                        } else {
+                            "w-10 h-5 rounded-full bg-primary/20 relative transition-colors"
+                        }
+                    }
+                    on:click=move |_| set_absolute_stroke.set(!absolute_stroke.get())
+                >
+                    <span class=move || {
+                        if absolute_stroke.get() {
+                            "absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white transition-all"
+                        } else {
+                            "absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-all"
+                        }
+                    }/>
+                </button>
+            </div>
+        </div>
     }
 }
 
@@ -131,6 +275,10 @@ fn IconTable(
     icon_filter: ReadSignal<String>,
     selected_icon: ReadSignal<Option<LucideGlyph>>,
     set_selected_icon: WriteSignal<Option<LucideGlyph>>,
+    icon_color: ReadSignal<Option<String>>,
+    icon_stroke_width: ReadSignal<f64>,
+    icon_size: ReadSignal<f64>,
+    absolute_stroke: ReadSignal<bool>,
 ) -> impl IntoView {
     let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
 
@@ -140,7 +288,12 @@ fn IconTable(
             move || filtered_icons().iter().map( |icon| {
                 let ic = *icon;
                 let is_selected = Signal::derive(move || selected_icon.get() == Some(ic));
-                view!{ <IconCell icon=ic selected=is_selected on:click=move |ev: web_sys::MouseEvent| {
+                view!{ <IconCell icon=ic selected=is_selected
+                    icon_color=icon_color
+                    icon_stroke_width=icon_stroke_width
+                    icon_size=icon_size
+                    absolute_stroke=absolute_stroke
+                    on:click=move |ev: web_sys::MouseEvent| {
                     set_selected_icon.set(Some(ic));
                     if let Some(target) = ev.current_target() {
                         if let Ok(el) = target.dyn_into::<web_sys::Element>() {
@@ -158,15 +311,37 @@ fn IconTable(
 }
 
 const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 border border-transparent cursor-pointer";
-const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-orange-700/80 cursor-pointer";
-const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-orange-700/90 border border-orange-750/90 rounded whitespace-nowrap";
+const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-highlight/80 cursor-pointer";
+const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-highlight/90 border border-highlight/90 rounded whitespace-nowrap";
 
 #[component]
-fn IconCell(icon: LucideGlyph, selected: Signal<bool>) -> impl IntoView {
+fn IconCell(
+    icon: LucideGlyph,
+    selected: Signal<bool>,
+    icon_color: ReadSignal<Option<String>>,
+    icon_stroke_width: ReadSignal<f64>,
+    icon_size: ReadSignal<f64>,
+    absolute_stroke: ReadSignal<bool>,
+) -> impl IntoView {
     let style = move || if selected.get() { ICON_STYLE_SELECTED } else { ICON_STYLE };
+    let stroke_w = move || {
+        let sw = icon_stroke_width.get();
+        if absolute_stroke.get() {
+            let size = icon_size.get();
+            format!("{:.2}", sw * 24.0 / size)
+        } else {
+            format!("{:.2}", sw)
+        }
+    };
+    let size_str = move || format!("{}", icon_size.get() as u32);
+    let color = move || icon_color.get().unwrap_or_else(|| "currentColor".to_string());
     view! {
         <div class=style>
-            <Icon glyph=icon />
+            <Icon glyph=icon
+                size=size_str
+                stroke=color
+                stroke_width=stroke_w
+            />
             <div class=TOOLTIP_STYLE >
                {icon.name()}
             </div>
@@ -405,6 +580,29 @@ fn IconDetail(
             }
         })}
     }
+}
+
+/// Returns the computed text color of <body> as a hex string (e.g. "#1a1a2e").
+fn current_text_color_hex() -> String {
+    let fallback = "#000000".to_string();
+    let Some(window) = web_sys::window() else { return fallback };
+    let Some(document) = window.document() else { return fallback };
+    let Some(body) = document.body() else { return fallback };
+    let Ok(computed) = window.get_computed_style(&body) else { return fallback };
+    let Some(style) = computed else { return fallback };
+    let Ok(rgb) = style.get_property_value("color") else { return fallback };
+    rgb_to_hex(&rgb).unwrap_or(fallback)
+}
+
+/// Converts "rgb(r, g, b)" or "rgba(r, g, b, a)" to "#rrggbb".
+fn rgb_to_hex(rgb: &str) -> Option<String> {
+    let inner = rgb.trim().strip_prefix("rgb")?.trim_start_matches('a').strip_prefix('(')?.strip_suffix(')')?;
+    let parts: Vec<&str> = inner.split(',').collect();
+    if parts.len() < 3 { return None; }
+    let r: u8 = parts[0].trim().parse().ok()?;
+    let g: u8 = parts[1].trim().parse().ok()?;
+    let b: u8 = parts[2].trim().parse().ok()?;
+    Some(format!("#{:02x}{:02x}{:02x}", r, g, b))
 }
 
 fn copy_to_clipboard(text: &str) {

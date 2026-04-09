@@ -1,4 +1,5 @@
 use std::collections::BTreeMap;
+use std::str::FromStr;
 use std::sync::OnceLock;
 
 use convert_case::Case::Title;
@@ -31,6 +32,9 @@ static SEARCH_INDEX: OnceLock<Vec<SearchEntry>> = OnceLock::new();
 
 /// Global categories cache, built once on first use.
 static CATEGORIES: OnceLock<BTreeMap<String, u16>> = OnceLock::new();
+
+/// Cached icon count, computed once on first use.
+static COUNT: OnceLock<usize> = OnceLock::new();
 
 fn build_search_index() -> Vec<SearchEntry> {
     LucideGlyph::iter()
@@ -65,6 +69,17 @@ impl LucideGlyph {
     /// Returns the variant name (e.g. "AArrowDown").
     pub fn name(&self) -> String {
         format!("{:?}", self)
+    }
+
+    /// Looks up an icon by its variant name (e.g. "Activity", "ArrowRight").
+    /// Returns `None` if the name doesn't match or the icon's category feature is disabled.
+    pub fn by_name(name: &str) -> Option<LucideGlyph> {
+        LucideGlyph::from_str(name).ok()
+    }
+
+    /// Returns the total number of available icon variants.
+    pub fn count() -> usize {
+        *COUNT.get_or_init(|| LucideGlyph::iter().count())
     }
 
     /// Returns the raw categories string from the icon metadata.

@@ -17,10 +17,29 @@ pub fn StickyTop(#[prop(default = "")] class: &'static str, children: Children) 
 
 const DARK_MODE: &str = "dark-mode";
 
+/// Shared dark mode signal, provided via context.
+#[derive(Clone, Copy)]
+pub struct DarkMode {
+    pub read: ReadSignal<bool>,
+    pub write: WriteSignal<bool>,
+}
+
+impl DarkMode {
+    /// Creates and provides the dark mode signal via context.
+    pub fn provide() -> Self {
+        let (read, write) = signal(LocalStorage::get(DARK_MODE).unwrap_or(false));
+        let dm = Self { read, write };
+        provide_context(dm);
+        dm
+    }
+}
+
 // ThemeToggle is a component that toggles between light and dark mode.
 #[component]
 pub fn ThemeToggle() -> impl IntoView {
-    let (dark_mode, set_dark_mode) = signal(LocalStorage::get(DARK_MODE).unwrap_or(false));
+    let dm = use_context::<DarkMode>().expect("DarkMode context");
+    let dark_mode = dm.read;
+    let set_dark_mode = dm.write;
 
     Effect::new(move |_| {
         LocalStorage::set(DARK_MODE, &dark_mode.get());
