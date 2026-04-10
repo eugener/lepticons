@@ -76,8 +76,8 @@ pub fn CategoryFilter(
                     view! {
                         <div class=row_class style=row_style
                              on:click=move |_| on_select.run(title_for_click.clone())>
-                            <span>{title_owned}</span>
-                            <span style="font-size:0.75rem;opacity:0.5">{*count}</span>
+                            <span style="flex:1">{title_owned}</span>
+                            <span style="font-size:0.75rem;opacity:0.5;flex-shrink:0">{*count}</span>
                         </div>
                     }
                 }).collect::<Vec<_>>()

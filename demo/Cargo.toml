@@ -10,6 +10,7 @@ leptos_router = "0.8"
 strum = { workspace = true }
 strum_macros = { workspace = true }
 lepticons = { path = "../lepticons", features = ["default"] }
+lepticons-picker = { path = "../lepticons-picker" }
 convert_case = { workspace = true }
 web-sys = { version = "0.3", features = [
     "Window", "Storage", "Navigator", "Clipboard",

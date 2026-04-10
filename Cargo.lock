@@ -1142,6 +1142,7 @@ dependencies = [
  "chrono",
  "convert_case 0.11.0",
  "lepticons",
+ "lepticons-picker",
  "leptos",
  "leptos_meta",
  "leptos_router",

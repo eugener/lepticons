@@ -5,8 +5,10 @@ use leptos::wasm_bindgen::JsCast;
 use web_sys::js_sys;
 use web_sys::wasm_bindgen;
 
+use leptos_router::hooks::use_params_map;
 use lepticons::LucideGlyph;
 use lepticons::*;
+use lepticons_picker::CategoryFilter;
 use crate::components::*;
 use crate::menu::*;
 
@@ -73,7 +75,7 @@ pub fn IconsView() -> impl IntoView {
                 <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
                     <div class="flex flex-col items-center gap-0 cursor-pointer">
                         <img src="lepticons.png" class="pt-5 w-48"/>
-                        <p class="text-primary text-[0.7rem] pb-2 self-end" on:click=clear_filter >
+                        <p class="text-primary text-xs pb-2 self-end" on:click=clear_filter >
                            {format!("{} icons", icon_count)}
                         </p>
                    </div>
@@ -93,19 +95,12 @@ pub fn IconsView() -> impl IntoView {
 
                 <hr class="mx-10"/>
 
-                <div class="px-10 pt-5 flex flex-col gap-2">
-                   {
-                       move || LucideGlyph::all_categories().iter()
-                             .filter(|(k, _)| !k.is_empty())
-                             .map(|(title, count)| {
-                                  let title_cloned = title.clone();
-                                  view! {
-                                      <IconGroupLabel title=title.to_string() count=*count
-                                      on:click=move |_| set_icon_filter.set(title_cloned.to_string()) />
-                                  }
-                              }).collect::<Vec<_>>()
-                   }
-                </div>
+                <CategoryFilter
+                    on_select=Callback::new(move |cat: String| set_icon_filter.set(cat))
+                    item_class="flex flex-row justify-between text-sm text-primary/70 cursor-pointer"
+                    item_active_class="flex flex-row justify-between text-sm text-highlight font-medium cursor-pointer"
+                    class="px-10 pt-5 flex flex-col gap-2"
+                />
 
             </div>
 
@@ -136,6 +131,82 @@ pub fn IconsView() -> impl IntoView {
             </div>
         </div>
         <IconDetail selected_icon=selected_icon set_selected_icon=set_selected_icon />
+    }
+}
+
+/// Permalink view for a single icon at `/icons/:name`.
+/// Supports PascalCase (`/icons/ArrowRight`) and kebab-case (`/icons/arrow-right`).
+#[component]
+pub fn IconPermalinkView() -> impl IntoView {
+    let params = use_params_map();
+
+    let icon = move || {
+        let p = params.get();
+        let name = p.get("name")?;
+        LucideGlyph::by_name(&name)
+            .or_else(|| LucideGlyph::by_name(&name.to_case(Case::UpperCamel)))
+    };
+
+    view! {
+        {move || match icon() {
+            Some(glyph) => {
+                let name = display_name(&glyph);
+                let tags: Vec<&str> = glyph.tags().collect();
+                let categories: Vec<&str> = glyph.categories().collect();
+                let component_name = glyph.name();
+                let first_cat = glyph.categories().next().map(|c| c.to_case(Case::Snake));
+
+                view! {
+                    <div class="flex flex-col items-center justify-center min-h-screen p-10 gap-6">
+                        <div class="text-primary">
+                            <Icon glyph=glyph size="128" stroke_width="1.5" />
+                        </div>
+                        <h1 class="text-3xl font-medium text-primary">{name}</h1>
+
+                        {if !tags.is_empty() {
+                            let tag_str = tags.join(" \u{2022} ");
+                            Some(view! { <p class="text-sm text-primary/60">{tag_str}</p> })
+                        } else {
+                            None
+                        }}
+
+                        {if !categories.is_empty() {
+                            Some(view! {
+                                <div class="flex flex-row gap-2 flex-wrap justify-center">
+                                    {categories.iter().map(|cat| {
+                                        let cat = cat.to_case(Case::Title);
+                                        view! {
+                                            <span class="px-3 py-1 text-xs rounded-full border border-primary/20 text-primary/70">{cat}</span>
+                                        }
+                                    }).collect::<Vec<_>>()}
+                                </div>
+                            })
+                        } else {
+                            None
+                        }}
+
+                        // Usage snippet
+                        <div class="mt-4 bg-secondary rounded-lg p-4 text-sm font-mono text-primary/80 max-w-lg w-full">
+                            {first_cat.map(|cat| view! {
+                                <p class="text-primary/50 text-xs mb-2">
+                                    {format!("// lepticons = {{ version = \"0.9\", default-features = false, features = [\"{}\"] }}", cat)}
+                                </p>
+                            })}
+                            <p>{format!("<Icon glyph=LucideGlyph::{} />", component_name)}</p>
+                        </div>
+
+                        <a href="/" class="mt-4 text-sm text-highlight hover:underline">"Browse all icons"</a>
+                    </div>
+                }.into_any()
+            }
+            None => view! {
+                <div class="flex flex-col items-center justify-center h-screen">
+                    <div class="text-4xl font-medium text-primary">"404"</div>
+                    <div class="text-2xl font-medium text-primary/70">"Icon not found"</div>
+                    <a href="/" class="mt-4 text-sm text-highlight hover:underline">"Browse all icons"</a>
+                </div>
+            }.into_any(),
+        }}
     }
 }
 
@@ -259,18 +330,6 @@ fn Customizer(
 }
 
 #[component]
-fn IconGroupLabel(title: String, count: u16) -> impl IntoView {
-    view! {
-      <div class="flex flex-row gap-4 text-sm text-primary/70 cursor-pointer">
-         <div class="flex-auto">
-             {title}
-         </div>
-        <div class="flex-none text-primary/50 text-xs">{format!("{}", count)}</div>
-      </div>
-    }
-}
-
-#[component]
 fn IconTable(
     icon_filter: ReadSignal<String>,
     selected_icon: ReadSignal<Option<LucideGlyph>>,
@@ -389,6 +448,9 @@ fn IconDetail(
             let icon_name = name.clone();
             let component_name = icon.name();
             let kebab_name = name.clone();
+            let first_feature = StoredValue::new(
+                icon.categories().next().map(|c| c.to_case(Case::Snake))
+            );
 
             view! {
                 <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50"
@@ -558,7 +620,17 @@ fn IconDetail(
                                             </button>
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<Icon glyph=LucideGlyph::{} />", comp5));
+                                                        let snippet = if let Some(ref feat) = first_feature.get_value() {
+                                                            format!(
+                                                                "// lepticons = {{ version = \"0.9\", default-features = false, features = [\"{}\"] }}\n\
+                                                                 use lepticons::{{Icon, LucideGlyph}};\n\n\
+                                                                 view! {{ <Icon glyph=LucideGlyph::{} /> }}",
+                                                                feat, comp5
+                                                            )
+                                                        } else {
+                                                            format!("<Icon glyph=LucideGlyph::{} />", comp5)
+                                                        };
+                                                        copy_to_clipboard(&snippet);
                                                         set_jsx_copied.set(true);
                                                         set_jsx_menu_open.set(false);
                                                         set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
