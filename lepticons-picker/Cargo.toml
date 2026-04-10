@@ -1,0 +1,23 @@
+[package]
+name = "lepticons-picker"
+version = "0.1.0"
+edition = "2021"
+description = "Embeddable icon picker component for Leptos, powered by Lucide icons."
+license = "MIT"
+repository = "https://github.com/eugener/lepticons"
+homepage = "https://lepticons.vercel.app"
+documentation = "https://docs.rs/lepticons-picker"
+keywords = ["icons", "picker", "leptos", "component"]
+categories = ["gui", "web-programming"]
+readme = "README.md"
+
+[dependencies]
+leptos = "0.8"
+lepticons = { version = "0.9", path = "../lepticons" }
+convert_case = { workspace = true }
+web-sys = { version = "0.3", features = [
+    "ScrollIntoViewOptions", "ScrollBehavior", "ScrollLogicalPosition",
+] }
+
+[lib]
+bench = false
