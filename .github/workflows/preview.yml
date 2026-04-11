@@ -35,9 +35,8 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
-      - uses: jetli/trunk-action@v0.5.1
-        with:
-          version: 'v0.17.5'
+      - name: Install Trunk
+        run: cargo install trunk --version 0.21.14 --locked
       - name: Build
         working-directory: demo
         run: trunk build --release
