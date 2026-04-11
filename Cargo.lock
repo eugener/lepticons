@@ -572,20 +572,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "generator"
-version = "0.1.0"
-dependencies = [
- "convert_case 0.11.0",
- "regex",
- "scraper",
- "serde",
- "serde_json",
- "strum",
- "strum_macros",
- "toml",
-]
-
-[[package]]
 name = "generic-array"
 version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -909,12 +895,46 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "lepticons"
-version = "0.8.0"
+version = "0.9.0"
 dependencies = [
  "convert_case 0.11.0",
  "leptos",
  "strum",
  "strum_macros",
+]
+
+[[package]]
+name = "lepticons-animate"
+version = "0.1.0"
+dependencies = [
+ "lepticons",
+ "leptos",
+ "wasm-bindgen",
+ "web-sys",
+]
+
+[[package]]
+name = "lepticons-codegen"
+version = "0.1.0"
+dependencies = [
+ "convert_case 0.11.0",
+ "regex",
+ "scraper",
+ "serde",
+ "serde_json",
+ "strum",
+ "strum_macros",
+ "toml",
+]
+
+[[package]]
+name = "lepticons-picker"
+version = "0.1.0"
+dependencies = [
+ "convert_case 0.11.0",
+ "lepticons",
+ "leptos",
+ "web-sys",
 ]
 
 [[package]]
@@ -1132,6 +1152,8 @@ dependencies = [
  "chrono",
  "convert_case 0.11.0",
  "lepticons",
+ "lepticons-animate",
+ "lepticons-picker",
  "leptos",
  "leptos_meta",
  "leptos_router",

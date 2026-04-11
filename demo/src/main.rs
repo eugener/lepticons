@@ -7,16 +7,13 @@ use leptos_router::path;
 
 use icons_view::*;
 
+use crate::components::DarkMode;
 use crate::menu::*;
 
 mod components;
 mod icons_view;
 mod local_storage;
 mod menu;
-
-//TODO show and select icon attributes
-//     show and select categories
-//     main menu
 
 fn main() {
     provide_meta_context();
@@ -25,11 +22,14 @@ fn main() {
 
 #[component]
 fn App() -> impl IntoView {
+    DarkMode::provide();
+
     view! {
         <Router>
             <Routes fallback=|| view! { <NotFoundView/> }>
                 <Route path=path!("/") view=IconsView/>
-                <Route path=path!("/license") view=LicenseView/>
+                <Route path=path!("/icons/:name") view=IconPermalinkView/>
+<Route path=path!("/license") view=LicenseView/>
             </Routes>
         </Router>
     }
@@ -56,7 +56,7 @@ fn CommonHeader() -> impl IntoView {
     }
 }
 
-const COPYRIGHT: [&'static str; 4] = [
+const COPYRIGHT: [&str; 4] = [
 
     "Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT).
     All other copyright (c) for Lucide are held by Lucide Contributors 2022.",

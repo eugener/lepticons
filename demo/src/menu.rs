@@ -8,10 +8,8 @@ const GITHUB_SVG: &str = r#"<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.4
 pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
     view! {
         <div class={format!("flex flex-row gap-4 items-center {}", class)}>
-            <a href="/">Icons</a>
-            // <a href="/guide">Guide</a>
-            // <a href="/packages">Packages</a>
-            <a href="/license">License</a>
+            <a href="/">"Icons"</a>
+            <a href="/license">"License"</a>
             <ThemeToggle/>
             <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}

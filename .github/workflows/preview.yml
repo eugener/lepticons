@@ -10,6 +10,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  TRUNK_VERSION: "0.21.14"
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -22,9 +23,6 @@ jobs:
       pull-requests: write
       contents: read
       deployments: write
-    environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.preview-url }}
     steps:
       - name: git-checkout
         uses: actions/checkout@v6
@@ -35,19 +33,21 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
-      - uses: jetli/trunk-action@v0.5.1
-        with:
-          version: 'v0.17.5'
+      - name: Install Trunk
+        run: |
+          curl -fsSL "https://github.com/trunk-rs/trunk/releases/download/v${TRUNK_VERSION}/trunk-x86_64-unknown-linux-gnu.tar.gz" | tar xzf - -C /usr/local/bin
       - name: Build
+        working-directory: demo
         run: trunk build --release
 
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        env:
+          TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=preview --token="$TOKEN"
       - name: Preview Deploy
-        id: deploy
-        uses: amondnet/vercel-action@v42.1.0
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          github-comment: false
-          working-directory: ./dist
+        env:
+          TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        working-directory: demo/dist
+        run: vercel deploy --token="$TOKEN"

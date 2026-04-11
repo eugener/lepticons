@@ -1,89 +1,53 @@
 # Lepticons
 
-Add [Lucide](https://lucide.dev) icons to your [Leptos](https://leptos.dev) projects.
-Icons are grouped into 42 category features, so you can include only what you need.
+Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons.
 
-## Usage
+Browse and search all icons at [lepticons.vercel.app](https://lepticons.vercel.app).
+
+## Crates
+
+| Crate | Description |
+|-------|-------------|
+| [`lepticons`](lepticons/) | Core library -- Icon component, search, metadata, category features ([crates.io](https://crates.io/crates/lepticons), [docs.rs](https://docs.rs/lepticons)) |
+| [`lepticons-picker`](lepticons-picker/) | Embeddable icon picker -- search, grid, category filter, popover ([crates.io](https://crates.io/crates/lepticons-picker), [docs.rs](https://docs.rs/lepticons-picker)) |
+| [`lepticons-animate`](lepticons-animate/) | Icon animations -- stroke draw-in, spin, pulse, bounce, ping ([crates.io](https://crates.io/crates/lepticons-animate), [docs.rs](https://docs.rs/lepticons-animate)) |
+| [`demo`](demo/) | Demo app deployed to [lepticons.vercel.app](https://lepticons.vercel.app) |
+| [`codegen`](codegen/) | Code generator that reads Lucide SVGs and produces `lucide_icon_data.rs` |
+
+## Quick start
 
 ```rust
 use lepticons::{Icon, LucideGlyph};
 
-// Basic usage
+// Render an icon
 <Icon glyph=LucideGlyph::Search />
 
-// With attributes
-<Icon glyph=LucideGlyph::Heart class="text-red-500" size="32" stroke_width="2" />
-
-// Reactive (icon changes based on state)
-<Icon glyph=Signal::derive(move || {
-    if dark_mode.get() { LucideGlyph::Moon } else { LucideGlyph::Sun }
-}) />
+// With props
+<Icon glyph=LucideGlyph::Heart class="text-red-500" size="32" />
 ```
 
-## Installation
+See each crate's README for full API docs.
 
-Add to your `Cargo.toml`:
+## Building
 
-```toml
-# All icons (default)
-lepticons = "0.8"
+```sh
+# Library
+cargo clippy -p lepticons --all-targets -- -D warnings && cargo test -p lepticons
 
-# Only specific categories
-lepticons = { version = "0.7", default-features = false, features = ["arrows", "navigation", "design"] }
+# Demo (requires wasm32-unknown-unknown target)
+cd demo && trunk serve
+
+# Code generator (regenerates lepticons/src/lucide_icon_data.rs)
+cd codegen && cargo run --bin lepticons-codegen
 ```
 
-Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
-`communication`, `connectivity`, `cursors`, `design`, `development`, `devices`, `emoji`, `files`,
-`finance`, `food_beverage`, `gaming`, `home`, `layout`, `mail`, `math`, `medical`, `multimedia`,
-`nature`, `navigation`, `notifications`, `people`, `photography`, `science`, `seasons`, `security`,
-`shapes`, `shopping`, `social`, `sports`, `sustainability`, `text`, `time`, `tools`,
-`transportation`, `travel`, `weather`.
+## Lucide submodule
 
-## Icon Component Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `glyph` | `impl Into<Signal<LucideGlyph>>` | required | The icon to render |
-| `class` | `&'static str` | `""` | CSS class |
-| `size` | `&'static str` | `"24"` | Width and height in pixels |
-| `fill` | `&'static str` | `"none"` | SVG fill color |
-| `stroke` | `&'static str` | `"currentColor"` | SVG stroke color |
-| `stroke_width` | `&'static str` | `"1.5"` | SVG stroke width |
-
-The `glyph` prop accepts a `LucideGlyph` value directly (for static icons) or a
-`Signal<LucideGlyph>` (for reactive icons that change based on state).
-
-## Search and Categories
-
-```rust
-// Find icons by name, tag, or category
-let results = LucideGlyph::find("arrow");
-
-// Get all categories with icon counts
-let categories = LucideGlyph::all_categories();
-
-// Access icon metadata (zero-allocation, returns &'static str)
-let svg = icon.svg();
-let tags = icon.tags(); // returns iterator
-let cats = icon.categories(); // returns iterator
+```sh
+git clone --recurse-submodules https://github.com/eugener/lepticons.git
+# or after clone:
+git submodule update --init
 ```
-
-## LucideGlyph
-
-The `LucideGlyph` enum derives `Copy`, `Clone`, `Hash`, `Eq`, `Ord`, and `Debug`,
-so it can be used as a HashMap key, in BTreeSets, and passed around without cloning.
-
-## Leptos Compatibility
-
-| Leptos | Lepticons |
-|--------|-----------|
-| 0.8.x  | 0.8.x     |
-| 0.6.x  | 0.5.x     |
-| 0.5.x  | 0.4.x     |
-
-## Demo
-
-[lepticons.vercel.app](https://lepticons.vercel.app)
 
 ## License
 

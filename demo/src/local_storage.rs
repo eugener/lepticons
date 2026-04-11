@@ -14,10 +14,8 @@ impl LocalStorage {
     /// Returns the value for the key.
     pub fn get<T: FromStr>(key: &str) -> Option<T> {
         LocalStorage::instance()
-            .map(|s| s.get_item(key).ok()?)
-            .flatten()
-            .map(|v| v.parse::<T>().ok())
-            .flatten()
+            .and_then(|s| s.get_item(key).ok()?)
+            .and_then(|v| v.parse::<T>().ok())
     }
 
     /// Sets the value for the key.

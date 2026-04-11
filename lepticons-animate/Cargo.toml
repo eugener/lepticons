@@ -1,0 +1,25 @@
+[package]
+name = "lepticons-animate"
+version = "0.1.0"
+edition = "2021"
+description = "Icon animations for Leptos -- stroke draw-in, spin, pulse, bounce."
+license = "MIT"
+repository = "https://github.com/eugener/lepticons"
+homepage = "https://lepticons.vercel.app"
+documentation = "https://docs.rs/lepticons-animate"
+keywords = ["icons", "animation", "lucide", "leptos", "svg"]
+categories = ["gui", "web-programming"]
+readme = "README.md"
+
+[dependencies]
+leptos = "0.8"
+lepticons = { version = "0.9", path = "../lepticons" }
+web-sys = { version = "0.3", features = [
+    "SvgElement", "SvgPathElement", "SvgGeometryElement",
+    "SvgCircleElement", "SvgLineElement", "SvgPolylineElement",
+    "HtmlCollection", "Element", "NodeList", "CssStyleDeclaration",
+] }
+wasm-bindgen = "0.2"
+
+[lib]
+bench = false

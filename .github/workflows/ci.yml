@@ -29,3 +29,6 @@ jobs:
 
       - name: Test
         run: cargo test --workspace
+
+      - name: WASM Build
+        run: cargo build --target wasm32-unknown-unknown -p lucide-icons-demo

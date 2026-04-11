@@ -51,8 +51,8 @@ jobs:
       - name: Generate icon code
         if: steps.check.outputs.changed == 'true'
         run: |
-          cd code_generator
-          cargo run --bin generator
+          cd codegen
+          cargo run --bin lepticons-codegen
           cd ..
 
       - name: Count icons

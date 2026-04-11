@@ -6,6 +6,7 @@ on:
       - master
 env:
   CARGO_TERM_COLOR: always
+  TRUNK_VERSION: "0.21.14"
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -24,10 +25,18 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
-      - uses: jetli/trunk-action@v0.5.1
-        with:
-          version: 'v0.17.5'
+
+      - name: Clippy
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Test
+        run: cargo test --workspace
+
+      - name: Install Trunk
+        run: |
+          curl -fsSL "https://github.com/trunk-rs/trunk/releases/download/v${TRUNK_VERSION}/trunk-x86_64-unknown-linux-gnu.tar.gz" | tar xzf - -C /usr/local/bin
       - name: Trunk Build
+        working-directory: demo
         run: trunk build --release
 
       - name: Install Vercel CLI
@@ -39,5 +48,5 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./dist
+        working-directory: ${{ github.workspace }}/demo/dist
         run: vercel deploy --prod --token="$TOKEN"

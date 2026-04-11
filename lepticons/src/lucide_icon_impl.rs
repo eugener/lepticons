@@ -1,4 +1,5 @@
 use std::collections::BTreeMap;
+use std::str::FromStr;
 use std::sync::OnceLock;
 
 use convert_case::Case::Title;
@@ -31,6 +32,9 @@ static SEARCH_INDEX: OnceLock<Vec<SearchEntry>> = OnceLock::new();
 
 /// Global categories cache, built once on first use.
 static CATEGORIES: OnceLock<BTreeMap<String, u16>> = OnceLock::new();
+
+/// Cached icon count, computed once on first use.
+static COUNT: OnceLock<usize> = OnceLock::new();
 
 fn build_search_index() -> Vec<SearchEntry> {
     LucideGlyph::iter()
@@ -65,6 +69,17 @@ impl LucideGlyph {
     /// Returns the variant name (e.g. "AArrowDown").
     pub fn name(&self) -> String {
         format!("{:?}", self)
+    }
+
+    /// Looks up an icon by its variant name (e.g. "Activity", "ArrowRight").
+    /// Returns `None` if the name doesn't match or the icon's category feature is disabled.
+    pub fn by_name(name: &str) -> Option<LucideGlyph> {
+        LucideGlyph::from_str(name).ok()
+    }
+
+    /// Returns the total number of available icon variants.
+    pub fn count() -> usize {
+        *COUNT.get_or_init(|| LucideGlyph::iter().count())
     }
 
     /// Returns the raw categories string from the icon metadata.
@@ -109,6 +124,7 @@ impl LucideGlyph {
     }
 
     /// Finds icons matching the filter string.
+    /// Case-insensitive. Multiple words use AND logic (all must match).
     /// Uses a pre-built flat index for zero per-call allocations.
     pub fn find(filter: &str) -> Vec<LucideGlyph> {
         if filter.is_empty() {
@@ -116,14 +132,15 @@ impl LucideGlyph {
         }
 
         let index = SEARCH_INDEX.get_or_init(build_search_index);
-        let terms: Vec<&str> = filter.split_whitespace().collect();
+        let filter_lower = filter.to_lowercase();
+        let terms: Vec<&str> = filter_lower.split_whitespace().collect();
 
         index
             .iter()
             .filter(|entry| {
                 terms
                     .iter()
-                    .any(|term| entry.text.contains(term))
+                    .all(|term| entry.text.contains(term))
             })
             .map(|entry| entry.glyph)
             .collect()

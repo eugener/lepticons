@@ -1,10 +1,11 @@
 **/target
+.DS_Store
 /.idea
-/dist
+dist/
 /node_modules
 /.vscode
 .vercel
 lepticons/Cargo.lock
-code_generator/Cargo.lock
-style/output.css
+codegen/Cargo.lock
+**/output.css
 .claude/

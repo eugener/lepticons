@@ -26,7 +26,7 @@ fn main() {
                 .ok()
                 .filter(|e| {
                     e.path().is_file()
-                        && e.path().extension().map_or(false, |ext| ext == "svg")
+                        && e.path().extension().is_some_and(|ext| ext == "svg")
                 })
                 .map(|e| e.path())
         })
@@ -45,7 +45,7 @@ fn main() {
     writeln!(
         file,
         r#"
-    use strum_macros::{{EnumProperty,EnumIter}};
+    use strum_macros::{{EnumProperty,EnumIter,EnumString}};
     "#
     )
     .expect("write imports");
@@ -53,7 +53,7 @@ fn main() {
     // write the icons enum header
     writeln!(
         file,
-        "#[derive(EnumIter, EnumProperty, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Clone, Copy)]"
+        "#[derive(EnumIter, EnumProperty, EnumString, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Clone, Copy)]"
     )
     .expect("write enum annotation");
     writeln!(file, "pub enum LucideGlyph {{").expect("write enum header");
@@ -190,7 +190,7 @@ fn html_children_only(svg_content: String, path: &Path) -> String {
         .next()
         .unwrap_or_else(|| panic!("no <svg> element in {:?}", path));
     svg.children()
-        .filter_map(|node| ElementRef::wrap(node))
+        .filter_map(ElementRef::wrap)
         .map(|el| el.html())
         .collect::<Vec<_>>()
         .join("")
