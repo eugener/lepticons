@@ -1,8 +1,19 @@
 
-use strum_macros::{EnumIter, EnumProperty, EnumString};
+use strum_macros::{EnumIter, EnumProperty, EnumString, IntoStaticStr};
 
 #[derive(
-    EnumIter, EnumProperty, EnumString, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Clone, Copy,
+    EnumIter,
+    EnumProperty,
+    EnumString,
+    IntoStaticStr,
+    PartialEq,
+    Eq,
+    PartialOrd,
+    Ord,
+    Hash,
+    Debug,
+    Clone,
+    Copy,
 )]
 pub enum LucideGlyph {
     #[cfg(any(feature = "text", feature = "design"))]

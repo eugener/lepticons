@@ -58,7 +58,7 @@ pub fn IconGrid(
              style=move || if has_class { "" } else { grid_style }>
         {
             move || {
-                let filtered = LucideGlyph::find(filter.get().to_lowercase().as_str());
+                let filtered = LucideGlyph::find(&filter.get());
                 filtered.into_iter().map(|icon| {
                     let is_selected = Signal::derive(move || selected.get() == Some(icon));
                     let size = icon_size.clone();

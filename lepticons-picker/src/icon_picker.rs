@@ -61,7 +61,7 @@ pub fn IconPicker(
              style=container_style>
             {show_search.then(|| view! {
                 <div style="padding:0.5rem">
-                    <IconSearch value=Signal::derive(move || filter.get()) on_change=set_filter />
+                    <IconSearch value=filter on_change=Callback::new(move |v| set_filter.set(v)) />
                 </div>
             })}
             <div style="display:flex;flex:1;overflow:hidden">
@@ -71,13 +71,13 @@ pub fn IconPicker(
                                 border-right:1px solid var(--lp-border,#e5e5e5)">
                         <CategoryFilter
                             on_select=on_category
-                            active=Signal::derive(move || filter.get())
+                            active=filter
                         />
                     </div>
                 })}
                 <div style="flex:1;overflow-y:auto;padding:0.5rem">
                     <IconGrid
-                        filter=Signal::derive(move || filter.get())
+                        filter=filter
                         selected=selected
                         on_select=on_select
                     />
