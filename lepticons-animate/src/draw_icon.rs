@@ -3,6 +3,8 @@ use leptos::text_prop::TextProp;
 use lepticons::{Glyph, LucideGlyph};
 use wasm_bindgen::JsCast;
 
+use crate::Easing;
+
 /// Renders an icon with a stroke draw-in animation.
 ///
 /// The icon's paths animate from invisible to fully drawn over `duration_ms`.
@@ -10,22 +12,29 @@ use wasm_bindgen::JsCast;
 /// # Example
 ///
 /// ```rust,ignore
-/// <DrawIcon glyph=LucideGlyph::Check duration_ms=500 />
+/// use lepticons_animate::{DrawIcon, Easing};
+/// use lepticons::LucideGlyph;
+///
+/// // Default easing (ease-in-out, 600ms)
+/// <DrawIcon glyph=LucideGlyph::Check />
+///
+/// // Custom duration and easing
+/// <DrawIcon glyph=LucideGlyph::Heart duration_ms=800 easing=Easing::EaseOut />
 /// ```
 #[component]
 pub fn DrawIcon(
     /// The icon to render.
     #[prop(into)]
     glyph: Signal<LucideGlyph>,
-    /// Animation duration in milliseconds.
+    /// Animation duration in milliseconds (default: 600).
     #[prop(default = 600)]
     duration_ms: u32,
-    /// Delay before animation starts in milliseconds.
+    /// Delay before animation starts in milliseconds (default: 0).
     #[prop(default = 0)]
     delay_ms: u32,
-    /// CSS easing function.
-    #[prop(into, optional)]
-    easing: Option<TextProp>,
+    /// Transition timing function (default: `Easing::EaseInOut`).
+    #[prop(default = Easing::EaseInOut)]
+    easing: Easing,
     /// CSS class for the outer wrapper.
     #[prop(into, optional)]
     class: Option<TextProp>,
@@ -47,9 +56,7 @@ pub fn DrawIcon(
     let fill = fill.unwrap_or_else(|| "none".into());
     let stroke = stroke.unwrap_or_else(|| "currentColor".into());
     let stroke_width = stroke_width.unwrap_or_else(|| "1.5".into());
-    let easing_stored = StoredValue::new(
-        easing.unwrap_or_else(|| "ease-in-out".into()),
-    );
+    let easing_css = easing.as_css();
 
     let wrapper_ref = NodeRef::<leptos::html::Div>::new();
 
@@ -88,8 +95,6 @@ pub fn DrawIcon(
                 let _ = s.set_property("stroke-dashoffset", &len_str);
                 let _ = s.set_property("transition", "none");
 
-                let easing_val = easing_stored.with_value(|e| e.get().to_string());
-
                 // Second frame: enable transition and animate to visible
                 let s_clone = s.clone();
                 request_animation_frame(move || {
@@ -97,7 +102,7 @@ pub fn DrawIcon(
                         "transition",
                         &format!(
                             "stroke-dashoffset {}ms {} {}ms",
-                            duration_ms, easing_val, delay_ms
+                            duration_ms, easing_css, delay_ms
                         ),
                     );
                     let _ = s_clone.set_property("stroke-dashoffset", "0");

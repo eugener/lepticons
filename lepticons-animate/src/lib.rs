@@ -17,6 +17,8 @@
 
 mod draw_icon;
 mod css_animations;
+mod easing;
 
 pub use draw_icon::DrawIcon;
 pub use css_animations::AnimationStyles;
+pub use easing::Easing;
