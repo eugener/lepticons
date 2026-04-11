@@ -15,7 +15,7 @@ use lepticons_animate::DrawIcon;
 <DrawIcon glyph=LucideGlyph::Check duration_ms=500 />
 
 // With delay and custom easing
-<DrawIcon glyph=LucideGlyph::Heart duration_ms=800 delay_ms=200 easing="ease-out" />
+<DrawIcon glyph=LucideGlyph::Heart duration_ms=800 delay_ms=200 easing=Easing::EaseOut />
 ```
 
 Props: `glyph`, `duration_ms` (default 600), `delay_ms` (default 0), `easing` (default "ease-in-out"), `class`, `size`, `fill`, `stroke`, `stroke_width`.

@@ -34,22 +34,29 @@ pub fn IconSearch(
     show_clear: bool,
 ) -> impl IntoView {
     let placeholder = placeholder.unwrap_or_else(|| "Search icons...".into());
+    let pending_handle: StoredValue<Option<TimeoutHandle>> = StoredValue::new(None);
 
     let on_input = move |ev: leptos::ev::Event| {
         let new_value = event_target_value(&ev);
-        on_change.set(new_value.clone());
-        let timeout_value = new_value;
-        set_timeout(
-            move || {
-                if value.get_untracked() == timeout_value {
-                    on_change.set(value.get_untracked());
-                }
-            },
+        // Cancel any pending debounce
+        if let Some(handle) = pending_handle.get_value() {
+            handle.clear();
+        }
+        // Schedule debounced emit
+        let handle = set_timeout_with_handle(
+            move || on_change.set(new_value),
             std::time::Duration::from_millis(debounce_ms),
-        );
+        )
+        .ok();
+        pending_handle.set_value(handle);
     };
 
-    let clear = move |_| on_change.set(String::new());
+    let clear = move |_| {
+        if let Some(handle) = pending_handle.get_value() {
+            handle.clear();
+        }
+        on_change.set(String::new());
+    };
 
     let container_style = "display:flex;align-items:center;gap:0.5rem;\
         padding:0.5rem 1rem;\

@@ -825,10 +825,10 @@ fn download_png(svg_str: &str, name: &str) {
     let img_clone = img.clone();
     let body_clone = body;
 
-    let closure = wasm_bindgen::closure::Closure::once(move || {
-        ctx.draw_image_with_html_image_element_and_dw_and_dh(
+    let cb = wasm_bindgen::closure::Closure::once_into_js(move || {
+        let Ok(()) = ctx.draw_image_with_html_image_element_and_dw_and_dh(
             &img_clone, 0.0, 0.0, png_size as f64, png_size as f64,
-        ).unwrap();
+        ) else { return };
         if let Ok(png_url) = canvas_clone.to_data_url_with_type("image/png") {
             let Some(document) = web_sys::window().and_then(|w| w.document()) else { return };
             let Ok(el) = document.create_element("a") else { return };
@@ -840,8 +840,6 @@ fn download_png(svg_str: &str, name: &str) {
             let _ = body_clone.remove_child(&anchor);
         }
     });
-
-    let cb: js_sys::Function = closure.into_js_value().unchecked_into();
-    img.set_onload(Some(&cb));
+    img.set_onload(Some(cb.as_ref().unchecked_ref()));
     img.set_src(&data_url);
 }

@@ -43,24 +43,32 @@ pub fn IconPickerPopover(
     let height = height.unwrap_or_else(|| "400px".into());
     let (open, set_open) = signal(false);
 
-    let toggle_open = move |_| set_open.set(!open.get());
+    let toggle_open = move |ev: web_sys::MouseEvent| {
+        ev.stop_propagation();
+        set_open.set(!open.get());
+    };
 
     // Close on Escape
-    window_event_listener(leptos::ev::keydown, move |ev: leptos::ev::KeyboardEvent| {
-        if ev.key() == "Escape" {
-            set_open.set(false);
-        }
-    });
-
-    // Close on outside click
-    window_event_listener(
-        leptos::ev::click,
-        move |_| {
-            if open.get_untracked() {
+    let keydown_handle = window_event_listener(
+        leptos::ev::keydown,
+        move |ev: leptos::ev::KeyboardEvent| {
+            if ev.key() == "Escape" {
                 set_open.set(false);
             }
         },
     );
+
+    // Close on outside click
+    let click_handle = window_event_listener(leptos::ev::click, move |_| {
+        if open.get_untracked() {
+            set_open.set(false);
+        }
+    });
+
+    on_cleanup(move || {
+        keydown_handle.remove();
+        click_handle.remove();
+    });
 
     let wrapped_on_select = Callback::new(move |glyph: LucideGlyph| {
         on_select.run(glyph);

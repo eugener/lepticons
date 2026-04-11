@@ -14,9 +14,20 @@ fn find_empty_returns_all() {
 }
 
 #[test]
-fn find_multi_word() {
-    let results = LucideGlyph::find("arrow right");
-    assert!(!results.is_empty());
+fn find_case_insensitive() {
+    let lower = LucideGlyph::find("arrow");
+    let upper = LucideGlyph::find("Arrow");
+    let mixed = LucideGlyph::find("ARROW");
+    assert_eq!(lower.len(), upper.len());
+    assert_eq!(lower.len(), mixed.len());
+}
+
+#[test]
+fn find_multi_word_is_conjunctive() {
+    let arrow = LucideGlyph::find("arrow");
+    let arrow_right = LucideGlyph::find("arrow right");
+    assert!(!arrow_right.is_empty());
+    assert!(arrow_right.len() < arrow.len());
 }
 
 #[test]
