@@ -191,7 +191,7 @@ pub fn IconPermalinkView() -> impl IntoView {
                         <div class="mt-4 bg-secondary rounded-lg p-4 text-sm font-mono text-primary/80 max-w-lg w-full">
                             {first_cat.map(|cat| view! {
                                 <p class="text-primary/50 text-xs mb-2">
-                                    {format!("// lepticons = {{ version = \"0.9\", default-features = false, features = [\"{}\"] }}", cat)}
+                                    {format!("// lepticons = {{ version = \"0.10\", default-features = false, features = [\"{}\"] }}", cat)}
                                 </p>
                             })}
                             <p>{format!("<Icon glyph=LucideGlyph::{} />", component_name)}</p>
@@ -629,7 +629,7 @@ fn IconDetail(
                                                     on:click=move |_| {
                                                         let snippet = if let Some(ref feat) = first_feature.get_value() {
                                                             format!(
-                                                                "// lepticons = {{ version = \"0.9\", default-features = false, features = [\"{}\"] }}\n\
+                                                                "// lepticons = {{ version = \"0.10\", default-features = false, features = [\"{}\"] }}\n\
                                                                  use lepticons::{{Icon, LucideGlyph}};\n\n\
                                                                  view! {{ <Icon glyph=LucideGlyph::{} /> }}",
                                                                 feat, comp

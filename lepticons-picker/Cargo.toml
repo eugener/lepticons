@@ -1,6 +1,6 @@
 [package]
 name = "lepticons-picker"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "Embeddable icon picker component for Leptos, powered by Lucide icons."
 license = "MIT"
@@ -13,7 +13,7 @@ readme = "README.md"
 
 [dependencies]
 leptos = "0.8"
-lepticons = { version = "0.9", path = "../lepticons" }
+lepticons = { version = "0.10", path = "../lepticons" }
 convert_case = { workspace = true }
 web-sys = { version = "0.3", features = [
     "ScrollIntoViewOptions", "ScrollBehavior", "ScrollLogicalPosition",
