@@ -428,6 +428,8 @@ fn IconDetail(
     let (jsx_copied, set_jsx_copied) = signal(false);
     let (anim_type, set_anim_type) = signal(0usize);
     let (replay_key, set_replay_key) = signal(0u32);
+    let (draw_duration, set_draw_duration) = signal(600u32);
+    let (draw_delay, set_draw_delay) = signal(0u32);
 
     const ANIM_TYPES: [(&str, &str); 6] = [
         ("None", ""),
@@ -480,7 +482,11 @@ fn IconDetail(
                             {move || {
                                 replay_key.get();
                                 if anim_type.get() == 1 {
-                                    view! { <DrawIcon glyph=icon size="200" stroke_width="2" duration_ms=400 /> }.into_any()
+                                    {
+                                        let d = draw_duration.get();
+                                        let dl = draw_delay.get();
+                                        view! { <DrawIcon glyph=icon size="200" stroke_width="2" duration_ms=d delay_ms=dl /> }.into_any()
+                                    }
                                 } else {
                                     view! { <Icon glyph=icon size="200" stroke_width="2" /> }.into_any()
                                 }
@@ -703,6 +709,37 @@ fn IconDetail(
                                 </button>
                             })}
                         </div>
+                        // Draw-In controls
+                        {move || (anim_type.get() == 1).then(|| view! {
+                            <div class="flex flex-row gap-4 items-center">
+                                <div class="flex flex-row items-center gap-2 flex-1">
+                                    <label class="text-xs text-primary/40 whitespace-nowrap">"Duration"</label>
+                                    <input type="range" class="w-full" min="100" max="2000" step="100"
+                                        prop:value=move || draw_duration.get().to_string()
+                                        on:input=move |ev| {
+                                            if let Ok(v) = event_target_value(&ev).parse::<u32>() {
+                                                set_draw_duration.set(v);
+                                                set_replay_key.update(|k| *k += 1);
+                                            }
+                                        }
+                                    />
+                                    <span class="text-xs text-primary/50 w-12 text-right">{move || format!("{}ms", draw_duration.get())}</span>
+                                </div>
+                                <div class="flex flex-row items-center gap-2 flex-1">
+                                    <label class="text-xs text-primary/40 whitespace-nowrap">"Delay"</label>
+                                    <input type="range" class="w-full" min="0" max="1000" step="100"
+                                        prop:value=move || draw_delay.get().to_string()
+                                        on:input=move |ev| {
+                                            if let Ok(v) = event_target_value(&ev).parse::<u32>() {
+                                                set_draw_delay.set(v);
+                                                set_replay_key.update(|k| *k += 1);
+                                            }
+                                        }
+                                    />
+                                    <span class="text-xs text-primary/50 w-12 text-right">{move || format!("{}ms", draw_delay.get())}</span>
+                                </div>
+                            </div>
+                        })}
                     </div>
 
                     // close button
