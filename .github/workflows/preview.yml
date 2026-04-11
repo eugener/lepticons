@@ -10,6 +10,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  TRUNK_VERSION: "0.21.14"
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -36,7 +37,7 @@ jobs:
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
       - name: Install Trunk
-        run: cargo install trunk --version 0.21.14 --locked
+        run: cargo install trunk --version "$TRUNK_VERSION" --locked
       - name: Build
         working-directory: demo
         run: trunk build --release
