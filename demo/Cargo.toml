@@ -11,6 +11,7 @@ strum = { workspace = true }
 strum_macros = { workspace = true }
 lepticons = { path = "../lepticons", features = ["default"] }
 lepticons-picker = { path = "../lepticons-picker" }
+lepticons-animate = { path = "../lepticons-animate" }
 convert_case = { workspace = true }
 web-sys = { version = "0.3", features = [
     "Window", "Storage", "Navigator", "Clipboard",

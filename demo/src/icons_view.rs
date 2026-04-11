@@ -8,6 +8,7 @@ use web_sys::wasm_bindgen;
 use leptos_router::hooks::use_params_map;
 use lepticons::LucideGlyph;
 use lepticons::*;
+use lepticons_animate::{AnimationStyles, DrawIcon};
 use lepticons_picker::CategoryFilter;
 use crate::components::*;
 use crate::menu::*;
@@ -130,6 +131,7 @@ pub fn IconsView() -> impl IntoView {
                 />
             </div>
         </div>
+        <AnimationStyles />
         <IconDetail selected_icon=selected_icon set_selected_icon=set_selected_icon />
     }
 }
@@ -159,7 +161,7 @@ pub fn IconPermalinkView() -> impl IntoView {
                 view! {
                     <div class="flex flex-col items-center justify-center min-h-screen p-10 gap-6">
                         <div class="text-primary">
-                            <Icon glyph=glyph size="128" stroke_width="1.5" />
+                            <DrawIcon glyph=glyph size="128" stroke_width="1.5" duration_ms=600 />
                         </div>
                         <h1 class="text-3xl font-medium text-primary">{name}</h1>
 
@@ -424,14 +426,27 @@ fn IconDetail(
     let (jsx_menu_open, set_jsx_menu_open) = signal(false);
     let (svg_copied, set_svg_copied) = signal(false);
     let (jsx_copied, set_jsx_copied) = signal(false);
+    let (anim_type, set_anim_type) = signal(0usize);
+    let (replay_key, set_replay_key) = signal(0u32);
 
-    // Reset menus when selected icon changes
+    const ANIM_TYPES: [(&str, &str); 6] = [
+        ("None", ""),
+        ("Draw-In", ""),
+        ("Spin", "lepticons-spin"),
+        ("Pulse", "lepticons-pulse"),
+        ("Bounce", "lepticons-bounce"),
+        ("Ping", "lepticons-ping"),
+    ];
+
+    // Reset menus and animation when selected icon changes
     Effect::new(move |_| {
         selected_icon.get();
         set_svg_menu_open.set(false);
         set_jsx_menu_open.set(false);
         set_svg_copied.set(false);
         set_jsx_copied.set(false);
+        set_anim_type.set(0);
+        set_replay_key.update(|k| *k += 1);
     });
 
     view! {
@@ -455,11 +470,21 @@ fn IconDetail(
             view! {
                 <div class="fixed bottom-0 left-64 right-0 bg-secondary border-t border-primary/20 p-6 flex flex-row gap-8 items-start z-50"
                      on:click=move |_| { set_svg_menu_open.set(false); set_jsx_menu_open.set(false); }>
-                    // large icon preview with grid background
+                    // large icon preview
                     <div class="flex-none w-56 h-56 flex items-center justify-center rounded-xl"
                          style="background-image: linear-gradient(to right, rgba(128,128,128,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.15) 1px, transparent 1px); background-size: calc(200px / 24) calc(200px / 24); background-position: 12px 12px;">
-                        <div class="text-primary">
-                            <Icon glyph=icon size="200" stroke_width="2" />
+                        <div class=move || {
+                            let idx = anim_type.get();
+                            if idx >= 2 { format!("text-primary {}", ANIM_TYPES[idx].1) } else { "text-primary".to_string() }
+                        }>
+                            {move || {
+                                replay_key.get();
+                                if anim_type.get() == 1 {
+                                    view! { <DrawIcon glyph=icon size="200" stroke_width="2" duration_ms=400 /> }.into_any()
+                                } else {
+                                    view! { <Icon glyph=icon size="200" stroke_width="2" /> }.into_any()
+                                }
+                            }}
                         </div>
                     </div>
 
@@ -641,6 +666,41 @@ fn IconDetail(
                                     }
                                 })}
                             </div>
+                        </div>
+                        // animation type pills
+                        <div class="flex flex-row flex-wrap gap-1 pt-1 items-center">
+                            <span class="text-xs text-primary/40 mr-1">"Animate:"</span>
+                            {ANIM_TYPES.iter().enumerate().map(|(i, (label, _))| {
+                                let is_sel = move || anim_type.get() == i;
+                                view! {
+                                    <button
+                                        class=move || if is_sel() {
+                                            "px-2 py-0.5 text-xs rounded-full border border-highlight/80 bg-highlight/10 text-highlight font-medium cursor-pointer"
+                                        } else {
+                                            "px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/50 hover:bg-primary/10 cursor-pointer"
+                                        }
+                                        on:click=move |ev: web_sys::MouseEvent| {
+                                            ev.stop_propagation();
+                                            set_anim_type.set(i);
+                                            if i == 1 { set_replay_key.update(|k| *k += 1); }
+                                        }
+                                    >
+                                        {*label}
+                                    </button>
+                                }
+                            }).collect::<Vec<_>>()}
+                            {move || (anim_type.get() == 1).then(|| view! {
+                                <button
+                                    class="px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/50 hover:bg-primary/10 flex items-center gap-1 cursor-pointer"
+                                    on:click=move |ev: web_sys::MouseEvent| {
+                                        ev.stop_propagation();
+                                        set_replay_key.update(|k| *k += 1);
+                                    }
+                                >
+                                    <Icon glyph=LucideGlyph::RotateCcw size="10" />
+                                    "Replay"
+                                </button>
+                            })}
                         </div>
                     </div>
 

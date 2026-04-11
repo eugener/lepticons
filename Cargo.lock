@@ -904,6 +904,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "lepticons-animate"
+version = "0.1.0"
+dependencies = [
+ "lepticons",
+ "leptos",
+ "wasm-bindgen",
+ "web-sys",
+]
+
+[[package]]
 name = "lepticons-codegen"
 version = "0.1.0"
 dependencies = [
@@ -1142,6 +1152,7 @@ dependencies = [
  "chrono",
  "convert_case 0.11.0",
  "lepticons",
+ "lepticons-animate",
  "lepticons-picker",
  "leptos",
  "leptos_meta",

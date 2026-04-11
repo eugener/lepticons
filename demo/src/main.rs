@@ -29,7 +29,7 @@ fn App() -> impl IntoView {
             <Routes fallback=|| view! { <NotFoundView/> }>
                 <Route path=path!("/") view=IconsView/>
                 <Route path=path!("/icons/:name") view=IconPermalinkView/>
-                <Route path=path!("/license") view=LicenseView/>
+<Route path=path!("/license") view=LicenseView/>
             </Routes>
         </Router>
     }
