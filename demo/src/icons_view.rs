@@ -668,6 +668,7 @@ fn IconDetail(
                             </div>
                         </div>
                         // animation type pills
+                        <hr class="border-primary/10"/>
                         <div class="flex flex-row flex-wrap gap-1 pt-1 items-center">
                             <span class="text-xs text-primary/40 mr-1">"Animate:"</span>
                             {ANIM_TYPES.iter().enumerate().map(|(i, (label, _))| {
