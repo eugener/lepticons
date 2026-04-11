@@ -1,7 +1,9 @@
-# Lepticons
+# lepticons
 
-Add [Lucide](https://lucide.dev) icons to your [Leptos](https://leptos.dev) projects.
-Icons are grouped into 42 category features, so you can include only what you need.
+[Lucide](https://lucide.dev) icons for [Leptos](https://leptos.dev) applications.
+Icons are grouped into 42 category features for selective compilation.
+
+Part of the [Lepticons](https://github.com/eugener/lepticons) toolkit.
 
 ## Usage
 
@@ -21,8 +23,6 @@ use lepticons::{Icon, LucideGlyph};
 ```
 
 ## Installation
-
-Add to your `Cargo.toml`:
 
 ```toml
 # All icons (default)
@@ -83,6 +83,11 @@ so it can be used as a HashMap key, in BTreeSets, and passed around without clon
 
 Lepticons works with all Leptos rendering modes (CSR, SSR, hydration).
 No additional feature flags needed -- the library is rendering-mode agnostic.
+
+## Related Crates
+
+- [lepticons-picker](https://crates.io/crates/lepticons-picker) -- embeddable icon picker with search, grid, and category filter
+- [lepticons-animate](https://crates.io/crates/lepticons-animate) -- stroke draw-in and CSS utility animations
 
 ## Leptos Compatibility
 

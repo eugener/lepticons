@@ -2,6 +2,8 @@
 
 Embeddable icon picker for [Leptos](https://leptos.dev) applications, powered by [Lucide](https://lucide.dev) icons.
 
+Part of the [Lepticons](https://github.com/eugener/lepticons) toolkit.
+
 ## Quick Start
 
 ```rust
@@ -72,10 +74,19 @@ All components accept `class` props for full CSS override. Default styling uses 
 
 Tailwind users: pass classes via `class`, `cell_class`, etc. props. Inline style fallbacks have lower specificity and won't conflict.
 
+## Related Crates
+
+- [lepticons](https://crates.io/crates/lepticons) -- core icon library (required dependency)
+- [lepticons-animate](https://crates.io/crates/lepticons-animate) -- stroke draw-in and CSS utility animations
+
 ## Requirements
 
 - Leptos 0.8.x
 - lepticons 0.9.x
+
+## Demo
+
+[lepticons.vercel.app](https://lepticons.vercel.app)
 
 ## License
 

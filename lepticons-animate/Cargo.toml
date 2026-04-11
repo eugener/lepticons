@@ -7,7 +7,7 @@ license = "MIT"
 repository = "https://github.com/eugener/lepticons"
 homepage = "https://lepticons.vercel.app"
 documentation = "https://docs.rs/lepticons-animate"
-keywords = ["icons", "animation", "leptos", "svg"]
+keywords = ["icons", "animation", "lucide", "leptos", "svg"]
 categories = ["gui", "web-programming"]
 readme = "README.md"
 

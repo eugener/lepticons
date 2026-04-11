@@ -109,8 +109,10 @@ edition = "2021"
 homepage = "https://lepticons.vercel.app"
 keywords = [
     "icons",
-    "svg",
+    "lucide",
     "leptos",
+    "svg",
+    "wasm",
 ]
 license = "MIT"
 name = "lepticons"

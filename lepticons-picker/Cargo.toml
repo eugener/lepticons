@@ -7,7 +7,7 @@ license = "MIT"
 repository = "https://github.com/eugener/lepticons"
 homepage = "https://lepticons.vercel.app"
 documentation = "https://docs.rs/lepticons-picker"
-keywords = ["icons", "picker", "leptos", "component"]
+keywords = ["icons", "icon-picker", "lucide", "leptos", "wasm"]
 categories = ["gui", "web-programming"]
 readme = "README.md"
 

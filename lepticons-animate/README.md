@@ -2,6 +2,8 @@
 
 Icon animations for [Leptos](https://leptos.dev) -- stroke draw-in, spin, pulse, bounce.
 
+Part of the [Lepticons](https://github.com/eugener/lepticons) toolkit.
+
 ## DrawIcon
 
 Stroke draw-in animation. The icon's paths animate from invisible to fully drawn.
@@ -42,10 +44,19 @@ view! {
 | `lepticons-bounce` | Vertical bounce, 1s ease infinite |
 | `lepticons-ping` | Scale up and fade out, 1s infinite |
 
+## Related Crates
+
+- [lepticons](https://crates.io/crates/lepticons) -- core icon library (required dependency)
+- [lepticons-picker](https://crates.io/crates/lepticons-picker) -- embeddable icon picker with search, grid, and category filter
+
 ## Requirements
 
 - Leptos 0.8.x
 - lepticons 0.9.x
+
+## Demo
+
+[lepticons.vercel.app](https://lepticons.vercel.app)
 
 ## License
 
