@@ -55,6 +55,10 @@ jobs:
           cargo run --bin lepticons-codegen
           cd ..
 
+      - name: Verify generated code
+        if: steps.check.outputs.changed == 'true'
+        run: cargo clippy -p lepticons --all-targets -- -D warnings
+
       - name: Count icons
         if: steps.check.outputs.changed == 'true'
         id: count
