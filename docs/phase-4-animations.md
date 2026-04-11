@@ -1,8 +1,6 @@
-# Phase 4: Animations (lepticons-animate 0.1.0)
+# Phase 4: Animations -- COMPLETE
 
-Goal: CSS/SVG animation utilities for icon transitions. Lightweight crate, mostly CSS + a thin Leptos wrapper.
-
-Status: Future -- ship after Phases 1-3 and gather feedback.
+Shipped in v0.1.0, updated in v0.1.1. DrawIcon (stroke draw-in), AnimationStyles (CSS utilities), Easing enum. Icon morph deferred to v0.2.
 
 ## Crate Setup
 
