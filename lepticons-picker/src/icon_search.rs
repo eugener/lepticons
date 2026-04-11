@@ -19,7 +19,7 @@ pub fn IconSearch(
     #[prop(into)]
     value: Signal<String>,
     /// Called with the new filter value after debounce.
-    on_change: WriteSignal<String>,
+    on_change: Callback<String>,
     /// Debounce delay in milliseconds.
     #[prop(default = 150)]
     debounce_ms: u64,
@@ -44,7 +44,7 @@ pub fn IconSearch(
         }
         // Schedule debounced emit
         let handle = set_timeout_with_handle(
-            move || on_change.set(new_value),
+            move || on_change.run(new_value),
             std::time::Duration::from_millis(debounce_ms),
         )
         .ok();
@@ -55,7 +55,7 @@ pub fn IconSearch(
         if let Some(handle) = pending_handle.get_value() {
             handle.clear();
         }
-        on_change.set(String::new());
+        on_change.run(String::new());
     };
 
     let container_style = "display:flex;align-items:center;gap:0.5rem;\
@@ -71,17 +71,17 @@ pub fn IconSearch(
         <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
              style=container_style>
             <Icon glyph=LucideGlyph::Search size="18"
-                  stroke=move || "var(--lp-text-muted,#999)".to_string() />
+                  stroke="var(--lp-text-muted,#999)" />
             <input type="text"
                    style=input_style
                    prop:placeholder=move || placeholder.get()
                    prop:value=move || value.get()
                    on:input=on_input
             />
-            {show_clear.then(|| view! {
+            {move || (show_clear && !value.get().is_empty()).then(|| view! {
                 <span style="cursor:pointer;display:flex" on:click=clear>
                     <Icon glyph=LucideGlyph::X size="16"
-                          stroke=move || "var(--lp-text-muted,#999)".to_string() />
+                          stroke="var(--lp-text-muted,#999)" />
                 </span>
             })}
         </div>

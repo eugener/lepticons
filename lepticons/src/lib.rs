@@ -24,10 +24,14 @@ pub use lucide_icon_impl::Glyph;
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 
-const DEFAULT_SIZE: &str = "24";
-const DEFAULT_FILL: &str = "none";
-const DEFAULT_STROKE: &str = "currentColor";
-const DEFAULT_STROKE_WIDTH: &str = "1.5";
+/// Default icon size in pixels.
+pub const DEFAULT_SIZE: &str = "24";
+/// Default SVG fill color.
+pub const DEFAULT_FILL: &str = "none";
+/// Default SVG stroke color.
+pub const DEFAULT_STROKE: &str = "currentColor";
+/// Default SVG stroke width.
+pub const DEFAULT_STROKE_WIDTH: &str = "1.5";
 
 /// Renders an SVG icon.
 ///

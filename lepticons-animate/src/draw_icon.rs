@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
-use lepticons::{Glyph, LucideGlyph};
+use lepticons::{Glyph, LucideGlyph, DEFAULT_SIZE, DEFAULT_FILL, DEFAULT_STROKE, DEFAULT_STROKE_WIDTH};
 use wasm_bindgen::JsCast;
 
 use crate::Easing;
@@ -51,11 +51,11 @@ pub fn DrawIcon(
     #[prop(into, optional)]
     stroke_width: Option<TextProp>,
 ) -> impl IntoView {
-    let size = size.unwrap_or_else(|| "24".into());
+    let size = size.unwrap_or_else(|| DEFAULT_SIZE.into());
     let size2 = size.clone();
-    let fill = fill.unwrap_or_else(|| "none".into());
-    let stroke = stroke.unwrap_or_else(|| "currentColor".into());
-    let stroke_width = stroke_width.unwrap_or_else(|| "1.5".into());
+    let fill = fill.unwrap_or_else(|| DEFAULT_FILL.into());
+    let stroke = stroke.unwrap_or_else(|| DEFAULT_STROKE.into());
+    let stroke_width = stroke_width.unwrap_or_else(|| DEFAULT_STROKE_WIDTH.into());
     let easing_css = easing.as_css();
 
     let wrapper_ref = NodeRef::<leptos::html::Div>::new();

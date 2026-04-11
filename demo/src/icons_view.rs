@@ -191,7 +191,7 @@ pub fn IconPermalinkView() -> impl IntoView {
                         <div class="mt-4 bg-secondary rounded-lg p-4 text-sm font-mono text-primary/80 max-w-lg w-full">
                             {first_cat.map(|cat| view! {
                                 <p class="text-primary/50 text-xs mb-2">
-                                    {format!("// lepticons = {{ version = \"0.9\", default-features = false, features = [\"{}\"] }}", cat)}
+                                    {format!("// lepticons = {{ version = \"0.10\", default-features = false, features = [\"{}\"] }}", cat)}
                                 </p>
                             })}
                             <p>{format!("<Icon glyph=LucideGlyph::{} />", component_name)}</p>
@@ -341,7 +341,7 @@ fn IconTable(
     icon_size: ReadSignal<f64>,
     absolute_stroke: ReadSignal<bool>,
 ) -> impl IntoView {
-    let filtered_icons = move || LucideGlyph::find(icon_filter.get().to_lowercase().as_str());
+    let filtered_icons = move || LucideGlyph::find(&icon_filter.get());
 
     view! {
         <div class="flex flex-row flex-wrap gap-2">
@@ -412,7 +412,7 @@ fn IconCell(
 
 /// Formats an enum name like "BatteryCharging" to kebab-case "battery-charging".
 fn display_name(icon: &LucideGlyph) -> String {
-    icon.name().to_case(Case::Kebab)
+    icon.kebab_name()
 }
 
 #[component]
@@ -549,20 +549,14 @@ fn IconDetail(
                                         <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[160px] z-50" role="menu">
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&svg_for_copy);
-                                                        set_svg_copied.set(true);
-                                                        set_svg_menu_open.set(false);
-                                                        set_timeout(move || set_svg_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&svg_for_copy, set_svg_copied, set_svg_menu_open);
                                                     }>
                                                 "Copy SVG"
                                             </button>
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
                                                         let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(&svg_for_data_url));
-                                                        copy_to_clipboard(&data_url);
-                                                        set_svg_copied.set(true);
-                                                        set_svg_menu_open.set(false);
-                                                        set_timeout(move || set_svg_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&data_url, set_svg_copied, set_svg_menu_open);
                                                     }>
                                                 "Copy Data URL"
                                             </button>
@@ -596,56 +590,38 @@ fn IconDetail(
                                     <Icon glyph=LucideGlyph::ChevronUp size="14" />
                                 </button>
                                 {move || jsx_menu_open.get().then(|| {
-                                    let comp = component_name.clone();
-                                    let comp2 = component_name.clone();
-                                    let comp3 = component_name.clone();
-                                    let comp5 = component_name.clone();
+                                    let comp = component_name;
                                     let kebab = kebab_name.clone();
                                     let kebab2 = kebab_name.clone();
                                     view! {
                                         <div class="absolute bottom-full left-0 mb-1 bg-background border border-primary/20 rounded-lg shadow-lg py-1 min-w-[180px] z-50" role="menu">
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<{} />", comp));
-                                                        set_jsx_copied.set(true);
-                                                        set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&format!("<{} />", comp), set_jsx_copied, set_jsx_menu_open);
                                                     }>
                                                 "Copy JSX"
                                             </button>
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&comp2);
-                                                        set_jsx_copied.set(true);
-                                                        set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(comp, set_jsx_copied, set_jsx_menu_open);
                                                     }>
                                                 "Copy Component Name"
                                             </button>
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<{} />", kebab));
-                                                        set_jsx_copied.set(true);
-                                                        set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&format!("<{} />", kebab), set_jsx_copied, set_jsx_menu_open);
                                                     }>
                                                 "Copy Vue"
                                             </button>
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<{} />", comp3));
-                                                        set_jsx_copied.set(true);
-                                                        set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&format!("<{} />", comp), set_jsx_copied, set_jsx_menu_open);
                                                     }>
                                                 "Copy Svelte"
                                             </button>
                                             <button role="menuitem" class="w-full text-left px-4 py-2 text-sm text-primary hover:bg-primary/10"
                                                     on:click=move |_| {
-                                                        copy_to_clipboard(&format!("<lucide-angular name=\"{}\" />", kebab2));
-                                                        set_jsx_copied.set(true);
-                                                        set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&format!("<lucide-angular name=\"{}\" />", kebab2), set_jsx_copied, set_jsx_menu_open);
                                                     }>
                                                 "Copy Angular"
                                             </button>
@@ -653,18 +629,15 @@ fn IconDetail(
                                                     on:click=move |_| {
                                                         let snippet = if let Some(ref feat) = first_feature.get_value() {
                                                             format!(
-                                                                "// lepticons = {{ version = \"0.9\", default-features = false, features = [\"{}\"] }}\n\
+                                                                "// lepticons = {{ version = \"0.10\", default-features = false, features = [\"{}\"] }}\n\
                                                                  use lepticons::{{Icon, LucideGlyph}};\n\n\
                                                                  view! {{ <Icon glyph=LucideGlyph::{} /> }}",
-                                                                feat, comp5
+                                                                feat, comp
                                                             )
                                                         } else {
-                                                            format!("<Icon glyph=LucideGlyph::{} />", comp5)
+                                                            format!("<Icon glyph=LucideGlyph::{} />", comp)
                                                         };
-                                                        copy_to_clipboard(&snippet);
-                                                        set_jsx_copied.set(true);
-                                                        set_jsx_menu_open.set(false);
-                                                        set_timeout(move || set_jsx_copied.set(false), std::time::Duration::from_secs(2));
+                                                        copy_and_flash(&snippet, set_jsx_copied, set_jsx_menu_open);
                                                     }>
                                                 "Copy Leptos"
                                             </button>
@@ -780,6 +753,18 @@ fn copy_to_clipboard(text: &str) {
         let clipboard = w.navigator().clipboard();
         let _ = clipboard.write_text(text);
     }
+}
+
+/// Copies text to clipboard, flashes a "copied" signal for 2 seconds, and closes a menu.
+fn copy_and_flash(
+    text: &str,
+    set_copied: WriteSignal<bool>,
+    set_menu_open: WriteSignal<bool>,
+) {
+    copy_to_clipboard(text);
+    set_copied.set(true);
+    set_menu_open.set(false);
+    set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
 }
 
 fn download_blob(content: &str, filename: &str, mime: &str) {

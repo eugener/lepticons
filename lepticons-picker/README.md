@@ -82,7 +82,7 @@ Tailwind users: pass classes via `class`, `cell_class`, etc. props. Inline style
 ## Requirements
 
 - Leptos 0.8.x
-- lepticons 0.9.x
+- lepticons 0.10.x
 
 ## Demo
 

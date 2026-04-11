@@ -26,10 +26,10 @@ use lepticons::{Icon, LucideGlyph};
 
 ```toml
 # All icons (default)
-lepticons = "0.9"
+lepticons = "0.10"
 
 # Only specific categories
-lepticons = { version = "0.9", default-features = false, features = ["arrows", "navigation", "design"] }
+lepticons = { version = "0.10", default-features = false, features = ["arrows", "navigation", "design"] }
 ```
 
 Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
@@ -93,7 +93,7 @@ No additional feature flags needed -- the library is rendering-mode agnostic.
 
 | Leptos | Lepticons |
 |--------|-----------|
-| 0.8.x  | 0.8.x, 0.9.x |
+| 0.8.x  | 0.8.x -- 0.10.x |
 | 0.6.x  | 0.5.x     |
 | 0.5.x  | 0.4.x     |
 

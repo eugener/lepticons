@@ -2,8 +2,7 @@ use std::collections::BTreeMap;
 use std::str::FromStr;
 use std::sync::OnceLock;
 
-use convert_case::Case::Title;
-use convert_case::Casing;
+use convert_case::{Case, Casing};
 use lucide_icon_data::LucideGlyph;
 use strum::{EnumProperty, IntoEnumIterator};
 
@@ -39,10 +38,11 @@ static COUNT: OnceLock<usize> = OnceLock::new();
 fn build_search_index() -> Vec<SearchEntry> {
     LucideGlyph::iter()
         .map(|glyph| {
-            let name = format!("{:?}", glyph).to_case(convert_case::Case::Lower);
-            let tags = glyph.get_str("tags").unwrap_or("");
-            let categories = glyph.get_str("categories").unwrap_or("");
-            let text = format!("{},{},{}", name, tags, categories);
+            let name: &'static str = glyph.into();
+            let name_lower = name.to_lowercase();
+            let tags = glyph.get_str("tags").unwrap_or("").to_lowercase();
+            let categories = glyph.get_str("categories").unwrap_or("").to_lowercase();
+            let text = format!("{},{},{}", name_lower, tags, categories);
             SearchEntry { glyph, text }
         })
         .collect()
@@ -56,7 +56,7 @@ fn build_categories() -> BTreeMap<String, u16> {
             let cat = cat.trim();
             if !cat.is_empty() {
                 let count = categories
-                    .entry(cat.to_case(Title).to_string())
+                    .entry(cat.to_case(Case::Title).to_string())
                     .or_insert(0);
                 *count += 1;
             }
@@ -66,9 +66,15 @@ fn build_categories() -> BTreeMap<String, u16> {
 }
 
 impl LucideGlyph {
-    /// Returns the variant name (e.g. "AArrowDown").
-    pub fn name(&self) -> String {
-        format!("{:?}", self)
+    /// Returns the variant name as a static string (e.g. "AArrowDown").
+    /// Zero-allocation.
+    pub fn name(&self) -> &'static str {
+        (*self).into()
+    }
+
+    /// Returns the kebab-case display name (e.g. "a-arrow-down").
+    pub fn kebab_name(&self) -> String {
+        self.name().to_case(Case::Kebab)
     }
 
     /// Looks up an icon by its variant name (e.g. "Activity", "ArrowRight").
