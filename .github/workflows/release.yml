@@ -47,5 +47,5 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./demo/dist
+        working-directory: ${{ github.workspace }}/demo/dist
         run: vercel deploy --prod --token="$TOKEN"
