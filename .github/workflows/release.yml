@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 env:
   CARGO_TERM_COLOR: always
   TRUNK_VERSION: "0.21.14"
@@ -48,5 +52,5 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        working-directory: ${{ github.workspace }}/demo/dist
+        working-directory: demo/dist
         run: vercel deploy --prod --token="$TOKEN"

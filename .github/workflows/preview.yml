@@ -4,9 +4,19 @@ on:
   push:
     branches:
       - develop
+    paths:
+      - 'lepticons/**'
+      - 'lepticons-picker/**'
+      - 'lepticons-animate/**'
+      - 'demo/**'
+      - 'Cargo.*'
   pull_request:
     branches:
       - develop
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   CARGO_TERM_COLOR: always
