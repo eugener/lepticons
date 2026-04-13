@@ -1775,6 +1775,14 @@ pub enum LucideGlyph {
     BookmarkMinus,
     #[cfg(feature = "account")]
     #[strum(props(
+        svg = "<path d=\"M19 19v1a1 1 0 0 1-1.49.868l-4.51-2.57a2 2 0 0 0-1.98 0l-4.51 2.57A1 1 0 0 1 5 20V5\"></path><path d=\"m2 2 20 20\"></path><path d=\"M8.65 3H17a2 2 0 0 1 2 2v8.34\"></path>",
+        categories = "account",
+        tags = "unsaved,unfavorite,unmarked,unlabel,disabled,removed,unpin,unread,unclip,marker,untag",
+        contributors = "colebemis,csandman,siarie,ericfennis,jguddas,ZeenatLawal,swastik7805,karsa-mistmere"
+    ))]
+    BookmarkOff,
+    #[cfg(feature = "account")]
+    #[strum(props(
         svg = "<path d=\"M12 7v6\"></path><path d=\"M15 10H9\"></path><path d=\"M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.49.868l-4.51-2.57a2 2 0 0 0-1.98 0l-4.51 2.57A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z\"></path>",
         categories = "account",
         tags = "add",
