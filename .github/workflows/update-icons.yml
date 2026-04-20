@@ -71,27 +71,73 @@ jobs:
           NEW_SHA: ${{ steps.update.outputs.new_sha }}
         run: |
           cd lucide
-          # Diff SVG files between old and new submodule SHAs
           DIFF=$(git diff --name-status "$OLD_SHA" "$NEW_SHA" -- 'icons/*.svg' || true)
-          ADDED=$(echo "$DIFF" | grep -c '^A' || true)
-          MODIFIED=$(echo "$DIFF" | grep -c '^M' || true)
-          REMOVED=$(echo "$DIFF" | grep -c '^D' || true)
+
+          # Extract icon names (strip path and extension)
+          icon_name() { basename "$1" .svg; }
+
+          ADDED_LIST=$(echo "$DIFF" | grep '^A' | awk '{print $2}' || true)
+          MODIFIED_LIST=$(echo "$DIFF" | grep '^M' | awk '{print $2}' || true)
+          REMOVED_LIST=$(echo "$DIFF" | grep '^D' | awk '{print $2}' || true)
+
+          ADDED_COUNT=$(echo "$ADDED_LIST" | grep -c . || true)
+          MODIFIED_COUNT=$(echo "$MODIFIED_LIST" | grep -c . || true)
+          REMOVED_COUNT=$(echo "$REMOVED_LIST" | grep -c . || true)
           TOTAL=$(grep -c '#\[cfg(feature' ../lepticons/src/lucide_icon_data.rs)
 
-          # Validate all values are numeric to prevent injection
-          for name in ADDED MODIFIED REMOVED TOTAL; do
+          # Validate counts are numeric
+          for name in ADDED_COUNT MODIFIED_COUNT REMOVED_COUNT TOTAL; do
             val="${!name}"
             if ! [[ "$val" =~ ^[0-9]+$ ]]; then
-              echo "Non-numeric $name: $val"
-              exit 1
+              echo "Non-numeric $name: $val" && exit 1
             fi
           done
 
-          echo "added=$ADDED" >> "$GITHUB_OUTPUT"
-          echo "modified=$MODIFIED" >> "$GITHUB_OUTPUT"
-          echo "removed=$REMOVED" >> "$GITHUB_OUTPUT"
+          # Build icon lists as markdown (sanitize to alphanumeric/hyphen only)
+          format_list() {
+            while IFS= read -r line; do
+              [ -z "$line" ] && continue
+              name=$(icon_name "$line" | tr -cd 'a-zA-Z0-9-')
+              echo "  - \`$name\`"
+            done
+          }
+
+          ADDED_MD=$(echo "$ADDED_LIST" | format_list)
+          MODIFIED_MD=$(echo "$MODIFIED_LIST" | format_list)
+          REMOVED_MD=$(echo "$REMOVED_LIST" | format_list)
+
+          # Write outputs
+          echo "added=$ADDED_COUNT" >> "$GITHUB_OUTPUT"
+          echo "modified=$MODIFIED_COUNT" >> "$GITHUB_OUTPUT"
+          echo "removed=$REMOVED_COUNT" >> "$GITHUB_OUTPUT"
           echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
-          echo "Added: $ADDED, Modified: $MODIFIED, Removed: $REMOVED, Total: $TOTAL"
+
+          # Multi-line body via delimiter
+          {
+            echo "body<<DIFF_EOF"
+            echo "Automated update of the Lucide icon submodule and regenerated icon data."
+            echo ""
+            echo "**Total icons: $TOTAL**"
+            echo ""
+            if [ "$ADDED_COUNT" -gt 0 ]; then
+              echo "**Added ($ADDED_COUNT):**"
+              echo "$ADDED_MD"
+              echo ""
+            fi
+            if [ "$MODIFIED_COUNT" -gt 0 ]; then
+              echo "**Modified ($MODIFIED_COUNT):**"
+              echo "$MODIFIED_MD"
+              echo ""
+            fi
+            if [ "$REMOVED_COUNT" -gt 0 ]; then
+              echo "**Removed ($REMOVED_COUNT):**"
+              echo "$REMOVED_MD"
+              echo ""
+            fi
+            echo "DIFF_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "Added: $ADDED_COUNT, Modified: $MODIFIED_COUNT, Removed: $REMOVED_COUNT, Total: $TOTAL"
 
       - name: Create pull request
         if: steps.check.outputs.changed == 'true'
@@ -100,14 +146,7 @@ jobs:
           branch: update-lucide-icons
           commit-message: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
           title: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
-          body: |
-            Automated update of the Lucide icon submodule and regenerated icon data.
-
-            **Changes:**
-            - Added: ${{ steps.diff.outputs.added }}
-            - Modified: ${{ steps.diff.outputs.modified }}
-            - Removed: ${{ steps.diff.outputs.removed }}
-            - Total icons: ${{ steps.diff.outputs.total }}
+          body: ${{ steps.diff.outputs.body }}
           base: develop
           draft: true
           labels: automated
