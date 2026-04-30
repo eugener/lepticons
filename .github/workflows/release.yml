@@ -19,6 +19,8 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     environment: Production
+    permissions:
+      contents: read
     steps:
       - name: git-checkout
         uses: actions/checkout@v6

@@ -1,6 +1,6 @@
-# Phase 3: Demo App Refactor
+# Phase 3: Demo App Refactor -- COMPLETE
 
-Goal: Refactor the demo app to consume `lepticons-picker`, add deep-linked icon pages, and improve the reference site quality.
+Shipped. Demo consumes picker's CategoryFilter, has permalink routes, customizer panel, animation preview, improved Copy Leptos with feature flags.
 
 ## 3a. Consume lepticons-picker Components
 

@@ -23,11 +23,15 @@ jobs:
           ref: develop
 
       - name: Update lucide submodule
+        id: update
         run: |
           cd lucide
+          OLD_SHA=$(git rev-parse HEAD)
           git fetch origin
           git checkout origin/main
-          cd ..
+          NEW_SHA=$(git rev-parse HEAD)
+          echo "old_sha=$OLD_SHA" >> "$GITHUB_OUTPUT"
+          echo "new_sha=$NEW_SHA" >> "$GITHUB_OUTPUT"
 
       - name: Check for changes
         id: check
@@ -59,25 +63,90 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: cargo clippy -p lepticons --all-targets -- -D warnings
 
-      - name: Count icons
+      - name: Compute icon diff
         if: steps.check.outputs.changed == 'true'
-        id: count
+        id: diff
+        env:
+          OLD_SHA: ${{ steps.update.outputs.old_sha }}
+          NEW_SHA: ${{ steps.update.outputs.new_sha }}
         run: |
-          COUNT=$(grep -c '#\[cfg(feature' lepticons/src/lucide_icon_data.rs)
-          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
-          echo "Found $COUNT icons"
+          cd lucide
+          DIFF=$(git diff --name-status "$OLD_SHA" "$NEW_SHA" -- 'icons/*.svg' || true)
+
+          # Extract icon names (strip path and extension)
+          icon_name() { basename "$1" .svg; }
+
+          ADDED_LIST=$(echo "$DIFF" | grep '^A' | awk '{print $2}' || true)
+          MODIFIED_LIST=$(echo "$DIFF" | grep '^M' | awk '{print $2}' || true)
+          REMOVED_LIST=$(echo "$DIFF" | grep '^D' | awk '{print $2}' || true)
+
+          ADDED_COUNT=$(echo "$ADDED_LIST" | grep -c . || true)
+          MODIFIED_COUNT=$(echo "$MODIFIED_LIST" | grep -c . || true)
+          REMOVED_COUNT=$(echo "$REMOVED_LIST" | grep -c . || true)
+          TOTAL=$(grep -c '#\[cfg(feature' ../lepticons/src/lucide_icon_data.rs)
+
+          # Validate counts are numeric
+          for name in ADDED_COUNT MODIFIED_COUNT REMOVED_COUNT TOTAL; do
+            val="${!name}"
+            if ! [[ "$val" =~ ^[0-9]+$ ]]; then
+              echo "Non-numeric $name: $val" && exit 1
+            fi
+          done
+
+          # Build icon lists as markdown (sanitize to alphanumeric/hyphen only)
+          format_list() {
+            while IFS= read -r line; do
+              [ -z "$line" ] && continue
+              name=$(icon_name "$line" | tr -cd 'a-zA-Z0-9-')
+              echo "  - \`$name\`"
+            done
+          }
+
+          ADDED_MD=$(echo "$ADDED_LIST" | format_list)
+          MODIFIED_MD=$(echo "$MODIFIED_LIST" | format_list)
+          REMOVED_MD=$(echo "$REMOVED_LIST" | format_list)
+
+          # Write outputs
+          echo "added=$ADDED_COUNT" >> "$GITHUB_OUTPUT"
+          echo "modified=$MODIFIED_COUNT" >> "$GITHUB_OUTPUT"
+          echo "removed=$REMOVED_COUNT" >> "$GITHUB_OUTPUT"
+          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+
+          # Multi-line body via delimiter
+          {
+            echo "body<<DIFF_EOF"
+            echo "Automated update of the Lucide icon submodule and regenerated icon data."
+            echo ""
+            echo "**Total icons: $TOTAL**"
+            echo ""
+            if [ "$ADDED_COUNT" -gt 0 ]; then
+              echo "**Added ($ADDED_COUNT):**"
+              echo "$ADDED_MD"
+              echo ""
+            fi
+            if [ "$MODIFIED_COUNT" -gt 0 ]; then
+              echo "**Modified ($MODIFIED_COUNT):**"
+              echo "$MODIFIED_MD"
+              echo ""
+            fi
+            if [ "$REMOVED_COUNT" -gt 0 ]; then
+              echo "**Removed ($REMOVED_COUNT):**"
+              echo "$REMOVED_MD"
+              echo ""
+            fi
+            echo "DIFF_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "Added: $ADDED_COUNT, Modified: $MODIFIED_COUNT, Removed: $REMOVED_COUNT, Total: $TOTAL"
 
       - name: Create pull request
         if: steps.check.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v8
         with:
           branch: update-lucide-icons
-          commit-message: "Update Lucide icons to latest (${{ steps.count.outputs.count }} icons)"
-          title: "Update Lucide icons to latest (${{ steps.count.outputs.count }} icons)"
-          body: |
-            Automated update of the Lucide icon submodule and regenerated icon data.
-
-            - Icons: ${{ steps.count.outputs.count }}
+          commit-message: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
+          title: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
+          body: ${{ steps.diff.outputs.body }}
           base: develop
           draft: true
           labels: automated

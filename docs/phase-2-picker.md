@@ -1,6 +1,6 @@
-# Phase 2: IconPicker Crate (lepticons-picker 0.1.0)
+# Phase 2: IconPicker Crate -- COMPLETE
 
-Goal: Ship an embeddable, searchable icon selector for forms, editors, and dashboards. Nothing like it exists in the Leptos ecosystem.
+Shipped in v0.1.0, updated in v0.2.0. Five components: IconSearch, IconGrid, CategoryFilter, IconPicker, IconPickerPopover.
 
 ## Crate Setup
 

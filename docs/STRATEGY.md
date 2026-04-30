@@ -28,19 +28,18 @@ Stop competing on "render an SVG." Reposition as an icon toolkit for Leptos apps
 
 See individual phase documents:
 
-- [Phase 1: Core Library Improvements](phase-1-core.md) -- reactive props, by_name lookup, SSR, tests
-- [Phase 2: IconPicker Crate](phase-2-picker.md) -- embeddable icon picker components
-- [Phase 3: Demo App Refactor](phase-3-demo.md) -- consume picker, deep links, SEO
-- [Phase 4: Animations](phase-4-animations.md) -- stroke draw-in, morph, utility classes
+- [Phase 1: Core Library Improvements](phase-1-core.md) -- COMPLETE
+- [Phase 2: IconPicker Crate](phase-2-picker.md) -- COMPLETE
+- [Phase 3: Demo App Refactor](phase-3-demo.md) -- COMPLETE
+- [Phase 4: Animations](phase-4-animations.md) -- COMPLETE
 
-## Release Sequence
+## Current Versions
 
-| Step | Crate | Version | Depends on |
-|------|-------|---------|------------|
-| 1 | `lepticons` | 0.9.0 | -- |
-| 2 | `lepticons-picker` | 0.1.0 | lepticons 0.9.0 |
-| 3 | Demo app refactor | n/a | lepticons-picker 0.1.0 |
-| 4 | `lepticons-animate` | 0.1.0 | lepticons 0.9.0 |
+| Crate | Version |
+|-------|---------|
+| `lepticons` | 0.10.0 |
+| `lepticons-picker` | 0.2.0 |
+| `lepticons-animate` | 0.1.1 |
 
 ## Discoverability
 

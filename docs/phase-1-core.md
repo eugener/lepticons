@@ -1,6 +1,6 @@
-# Phase 1: Core Library Improvements (lepticons 0.9.0)
+# Phase 1: Core Library Improvements -- COMPLETE
 
-Goal: Make lepticons production-ready with reactive props, name-based lookup, SSR verification, and tests.
+Shipped in v0.9.0, updated in v0.10.0. Reactive props, name-based lookup, SSR verification, tests, `IntoStaticStr`.
 
 Breaking changes: None. All existing usage patterns continue to work.
 

@@ -86,7 +86,7 @@ Tailwind users: pass classes via `class`, `cell_class`, etc. props. Inline style
 
 ## Demo
 
-[lepticons.vercel.app](https://lepticons.vercel.app)
+[lepticons.9bits.cc](https://lepticons.9bits.cc)
 
 ## License
 
