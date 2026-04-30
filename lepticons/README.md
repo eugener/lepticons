@@ -99,7 +99,7 @@ No additional feature flags needed -- the library is rendering-mode agnostic.
 
 ## Demo
 
-[lepticons.vercel.app](https://lepticons.vercel.app)
+[lepticons.9bits.cc](https://lepticons.9bits.cc)
 
 ## License
 

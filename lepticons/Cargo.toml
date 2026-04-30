@@ -106,7 +106,7 @@ categories = ["graphics"]
 description = "Lucide icons as a Leptos component with category-based features."
 documentation = "https://docs.rs/lepticons"
 edition = "2021"
-homepage = "https://lepticons.vercel.app"
+homepage = "https://lepticons.9bits.cc"
 keywords = [
     "icons",
     "lucide",

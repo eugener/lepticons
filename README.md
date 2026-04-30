@@ -2,7 +2,7 @@
 
 Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons.
 
-Browse and search all icons at [lepticons.vercel.app](https://lepticons.vercel.app).
+Browse and search all icons at [lepticons.9bits.cc](https://lepticons.9bits.cc).
 
 ## Crates
 
@@ -11,7 +11,7 @@ Browse and search all icons at [lepticons.vercel.app](https://lepticons.vercel.a
 | [`lepticons`](lepticons/) | Core library -- Icon component, search, metadata, category features ([crates.io](https://crates.io/crates/lepticons), [docs.rs](https://docs.rs/lepticons)) |
 | [`lepticons-picker`](lepticons-picker/) | Embeddable icon picker -- search, grid, category filter, popover ([crates.io](https://crates.io/crates/lepticons-picker), [docs.rs](https://docs.rs/lepticons-picker)) |
 | [`lepticons-animate`](lepticons-animate/) | Icon animations -- stroke draw-in, spin, pulse, bounce, ping ([crates.io](https://crates.io/crates/lepticons-animate), [docs.rs](https://docs.rs/lepticons-animate)) |
-| [`demo`](demo/) | Demo app deployed to [lepticons.vercel.app](https://lepticons.vercel.app) |
+| [`demo`](demo/) | Demo app deployed to [lepticons.9bits.cc](https://lepticons.9bits.cc) |
 | [`codegen`](codegen/) | Code generator that reads Lucide SVGs and produces `lucide_icon_data.rs` |
 
 ## Quick start
