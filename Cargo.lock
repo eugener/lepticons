@@ -895,7 +895,7 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "lepticons"
-version = "0.10.0"
+version = "0.10.1"
 dependencies = [
  "convert_case 0.11.0",
  "leptos",
@@ -905,7 +905,7 @@ dependencies = [
 
 [[package]]
 name = "lepticons-animate"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "lepticons",
  "leptos",
@@ -929,7 +929,7 @@ dependencies = [
 
 [[package]]
 name = "lepticons-picker"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "convert_case 0.11.0",
  "lepticons",

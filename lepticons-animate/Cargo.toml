@@ -1,6 +1,6 @@
 [package]
 name = "lepticons-animate"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Icon animations for Leptos -- stroke draw-in, spin, pulse, bounce."
 license = "MIT"
