@@ -274,16 +274,21 @@ pub fn IconsView() -> impl IntoView {
                             }
                         />
                     </div>
-                    <div class=move || {
-                        let open = drawer_open();
-                        if open {
-                            "flex-none w-[26rem] overflow-y-auto bg-secondary \
-                             border-l border-primary/15 transition-[width] duration-200"
-                        } else {
-                            "flex-none w-0 overflow-hidden \
-                             border-l border-transparent transition-[width] duration-200"
-                        }
-                    }>
+                    <div
+                        // scrollbar-gutter: auto so we don't reserve a
+                        // 6px sliver on the right when the drawer's
+                        // content already fits.
+                        style="scrollbar-gutter:auto"
+                        class=move || {
+                            let open = drawer_open();
+                            if open {
+                                "flex-none w-[26rem] overflow-y-auto bg-secondary \
+                                 border-l border-primary/15 transition-[width] duration-200"
+                            } else {
+                                "flex-none w-0 overflow-hidden \
+                                 border-l border-transparent transition-[width] duration-200"
+                            }
+                        }>
                         <IconDetailDrawer
                             selected_icon=selected_icon
                             set_selected_icon=set_selected_icon
@@ -592,7 +597,7 @@ fn IconDetailDrawer(
             );
 
             view! {
-                <div class="flex flex-col gap-4 p-5 min-h-screen"
+                <div class="flex flex-col gap-4 p-5"
                      on:click=move |_| { set_svg_menu_open.set(false); set_jsx_menu_open.set(false); }>
 
                     // header: kicker + name + close
