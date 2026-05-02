@@ -131,16 +131,19 @@ fn DemoCard(
 #[component]
 fn PopoverTrigger(selected: Signal<Option<LucideGlyph>>) -> impl IntoView {
     view! {
-        <button class="flex items-center gap-3 px-4 py-2.5
+        <button class="flex items-center justify-between gap-3 px-4 py-2.5
+                       w-80 min-w-[20rem]
                        bg-secondary border border-border rounded-md
                        text-primary hover:border-highlight/60 transition-colors">
-            <div class="w-6 h-6 flex items-center justify-center text-highlight">
-                {move || selected.get().map(|g| view! { <Icon glyph=g size="20" /> })}
+            <div class="flex items-center gap-3 min-w-0">
+                <div class="w-6 h-6 flex items-center justify-center text-highlight flex-none">
+                    {move || selected.get().map(|g| view! { <Icon glyph=g size="20" /> })}
+                </div>
+                <span class="text-sm font-medium truncate">
+                    {move || selected.get().map(|g| g.kebab_name()).unwrap_or_else(|| "Choose icon".into())}
+                </span>
             </div>
-            <span class="text-sm font-medium">
-                {move || selected.get().map(|g| g.kebab_name()).unwrap_or_else(|| "Choose icon".into())}
-            </span>
-            <Icon glyph=LucideGlyph::ChevronDown size="16" class="text-primary/50" />
+            <Icon glyph=LucideGlyph::ChevronDown size="16" class="text-primary/50 flex-none" />
         </button>
     }
 }
