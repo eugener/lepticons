@@ -5,17 +5,17 @@ use leptos_meta::*;
 use leptos_router::components::*;
 use leptos_router::path;
 
+use components_view::*;
 use icons_view::*;
-use picker_view::*;
 
 use crate::components::DarkMode;
 use crate::menu::*;
 
 mod components;
+mod components_view;
 mod icons_view;
 mod local_storage;
 mod menu;
-mod picker_view;
 
 fn main() {
     provide_meta_context();
@@ -31,7 +31,7 @@ fn App() -> impl IntoView {
             <Routes fallback=|| view! { <NotFoundView/> }>
                 <Route path=path!("/") view=IconsView/>
                 <Route path=path!("/icons/:name") view=IconPermalinkView/>
-                <Route path=path!("/picker") view=PickerView/>
+                <Route path=path!("/components") view=ComponentsView/>
                 <Route path=path!("/license") view=LicenseView/>
             </Routes>
         </Router>

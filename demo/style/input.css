@@ -4,9 +4,7 @@
 
 @layer base {
     :root {
-        /* Slightly off-white page background -- pure white reads harsh
-           next to the warm highlight accents. */
-        --background: 0 0% 98.5%;
+        --background: 0 0% 100%;
         --foreground: 222.2 84% 4.9%;
 
         --card: 0 0% 100%;

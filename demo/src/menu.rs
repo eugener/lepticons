@@ -42,7 +42,7 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
     view! {
         <div class={format!("flex flex-row gap-4 items-center {}", class)}>
             <a href="/">"Icons"</a>
-            <a href="/picker">"Picker"</a>
+            <a href="/components">"Components"</a>
             <a href="/license">"License"</a>
             <ThemeToggle/>
             <a href="https://github.com/eugener/lepticons"

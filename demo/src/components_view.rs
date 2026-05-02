@@ -9,7 +9,7 @@ use crate::CommonHeader;
 // dark variants are toggled via the `.dark` class on `<html>`.
 
 #[component]
-pub fn PickerView() -> impl IntoView {
+pub fn ComponentsView() -> impl IntoView {
     let (inline_selected, set_inline_selected) = signal(Some(LucideGlyph::Sparkles));
     let (popover_selected, set_popover_selected) = signal(Some(LucideGlyph::Rocket));
 
@@ -58,7 +58,7 @@ fn DemoRow(
     set_popover_selected: WriteSignal<Option<LucideGlyph>>,
 ) -> impl IntoView {
     view! {
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl w-full mx-auto px-4 mb-16">
+        <div class="flex flex-col gap-8 max-w-5xl w-full mx-auto px-4 mb-16">
             <DemoCard
                 kicker="Inline"
                 title="Embed it anywhere"
@@ -69,7 +69,7 @@ fn DemoRow(
                     <IconPicker
                         selected=inline_selected
                         on_select=Callback::new(move |g| set_inline_selected.set(Some(g)))
-                        max_height="360px"
+                        max_height="480px"
                     />
                 </div>
                 <SelectionReadout selected=inline_selected.into() />
@@ -81,17 +81,19 @@ fn DemoRow(
                 description="Wrap any element. The picker pops with role=dialog,
                              closes on Escape or outside-click, and snaps back
                              into the page flow.">
-                <div class="lp-themed flex flex-col items-start gap-3">
+                <div class="lp-themed flex flex-row flex-wrap items-center gap-6">
                     <IconPickerPopover
                         selected=popover_selected
                         on_select=Callback::new(move |g| set_popover_selected.set(Some(g)))
-                        width="440px"
-                        height="380px"
+                        width="540px"
+                        height="440px"
                     >
                         <PopoverTrigger selected=popover_selected.into()/>
                     </IconPickerPopover>
-                    <p class="text-xs text-primary/50">
-                        "Click the button to open the picker."
+                    <p class="text-sm text-primary/55 max-w-md">
+                        "Click the button to open the picker. It mounts in place,
+                         supports the full keyboard nav, and dismisses on Escape
+                         or click-outside."
                     </p>
                 </div>
                 <SelectionReadout selected=popover_selected.into() />
@@ -197,7 +199,7 @@ fn FeatureGrid() -> impl IntoView {
     ];
 
     view! {
-        <div class="max-w-6xl w-full mx-auto px-4 mb-16">
+        <div class="max-w-5xl w-full mx-auto px-4 mb-16">
             <h2 class="text-2xl font-semibold text-primary mb-1">
                 "Built in"
             </h2>
