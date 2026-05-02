@@ -42,9 +42,9 @@ See individual phase documents:
 
 | Crate | Version |
 |-------|---------|
-| `lepticons` | 0.11.0 |
+| `lepticons` | 0.12.0 |
 | `lepticons-picker` | 0.3.0 |
-| `lepticons-animate` | 0.1.3 |
+| `lepticons-animate` | 0.1.4 |
 
 ## Discoverability
 

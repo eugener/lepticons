@@ -14,7 +14,7 @@ The default Trunk-based setup. The browser receives an empty HTML shell, downloa
 # Cargo.toml
 [dependencies]
 leptos = "0.8"
-lepticons = "0.10"
+lepticons = "0.12"
 ```
 
 ```rust
@@ -48,7 +48,7 @@ Lepticons icons render identically in both phases because `inner_html` round-tri
 ```toml
 [dependencies]
 leptos = { version = "0.8", features = ["ssr", "hydrate"] }
-lepticons = "0.10"
+lepticons = "0.12"
 axum = "0.7"
 tokio = { version = "1", features = ["full"] }
 leptos_axum = "0.8"

@@ -895,7 +895,7 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "lepticons"
-version = "0.11.0"
+version = "0.12.0"
 dependencies = [
  "convert_case 0.11.0",
  "leptos",
@@ -905,7 +905,7 @@ dependencies = [
 
 [[package]]
 name = "lepticons-animate"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "lepticons",
  "leptos",
@@ -1147,7 +1147,7 @@ checksum = "5e5032e24019045c762d3c0f28f5b6b8bbf38563a65908389bf7978758920897"
 
 [[package]]
 name = "lucide-icons-demo"
-version = "0.6.0"
+version = "0.7.0"
 dependencies = [
  "chrono",
  "convert_case 0.11.0",

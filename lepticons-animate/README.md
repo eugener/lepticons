@@ -52,7 +52,7 @@ view! {
 ## Requirements
 
 - Leptos 0.8.x
-- lepticons 0.11.x
+- lepticons 0.12.x
 
 ## Demo
 

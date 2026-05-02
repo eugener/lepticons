@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 # When copying this example into your own project, replace the path dep
-# with the published version: `lepticons = "0.11"`.
+# with the published version: `lepticons = "0.12"`.
 lepticons = { path = "../../lepticons" }
 leptos = { version = "0.8", features = ["ssr"] }
 axum = "0.7"

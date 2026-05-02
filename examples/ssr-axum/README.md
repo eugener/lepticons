@@ -32,5 +32,5 @@ If you need interactivity, add `leptos = { version = "0.8", features = ["ssr", "
 When copying this example into your own project, replace the path dep with the published crate:
 
 ```toml
-lepticons = "0.11"
+lepticons = "0.12"
 ```

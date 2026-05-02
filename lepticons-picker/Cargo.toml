@@ -13,7 +13,7 @@ readme = "README.md"
 
 [dependencies]
 leptos = "0.8"
-lepticons = { version = "0.11", path = "../lepticons" }
+lepticons = { version = "0.12", path = "../lepticons" }
 convert_case = { workspace = true }
 web-sys = { version = "0.3", features = [
     "ScrollIntoViewOptions", "ScrollBehavior", "ScrollLogicalPosition",

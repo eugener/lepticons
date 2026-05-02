@@ -1,6 +1,6 @@
-# Phase 5: Launch Foundation -- PLANNED
+# Phase 5: Launch Foundation -- COMPLETE
 
-Target: `lepticons 0.11.0`. Pre-launch hardening so the upcoming r/rust post has a credible story. ~1-2 evenings of work.
+Shipped as `lepticons 0.11.0`. Pre-launch hardening so the upcoming r/rust post has a credible story.
 
 ## Goals
 

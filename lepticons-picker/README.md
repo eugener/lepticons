@@ -208,7 +208,7 @@ Tailwind users: pass classes via `class`, `cell_class`, `kbd_class`, etc. Inline
 ## Requirements
 
 - Leptos 0.8.x
-- lepticons 0.11.x
+- lepticons 0.12.x
 
 ## Demo
 

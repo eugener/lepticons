@@ -17,6 +17,17 @@ use crate::menu::*;
 const DEFAULT_STROKE_WIDTH: f64 = 2.0;
 const DEFAULT_SIZE: f64 = 24.0;
 
+/// Returns the `major.minor` segment of `lepticons::VERSION` for use in
+/// rendered Cargo snippets (e.g. `"0.12"` from `"0.12.0"`).
+fn lepticons_semver_short() -> String {
+    let v = lepticons::VERSION;
+    let mut parts = v.splitn(3, '.');
+    match (parts.next(), parts.next()) {
+        (Some(major), Some(minor)) => format!("{}.{}", major, minor),
+        _ => v.to_string(),
+    }
+}
+
 /// localStorage key for the icons-page MRU strip. Distinct from the picker's
 /// default key so the two MRU lists evolve independently.
 const ICONS_MRU_KEY: &str = "lepticons-icons-mru";
@@ -358,7 +369,7 @@ pub fn IconPermalinkView() -> impl IntoView {
                         <div class="mt-4 bg-secondary rounded-lg p-4 text-sm font-mono text-primary/80 max-w-lg w-full">
                             {first_cat.map(|cat| view! {
                                 <p class="text-primary/50 text-xs mb-2">
-                                    {format!("// lepticons = {{ version = \"0.10\", default-features = false, features = [\"{}\"] }}", cat)}
+                                    {format!("// lepticons = {{ version = \"{}\", default-features = false, features = [\"{}\"] }}", lepticons_semver_short(), cat)}
                                 </p>
                             })}
                             <p>{format!("<Icon glyph=LucideGlyph::{} />", component_name)}</p>
@@ -760,10 +771,10 @@ fn IconDetailDrawer(
                                                 on:click=move |_| {
                                                     let snippet = if let Some(ref feat) = first_feature.get_value() {
                                                         format!(
-                                                            "// lepticons = {{ version = \"0.10\", default-features = false, features = [\"{}\"] }}\n\
+                                                            "// lepticons = {{ version = \"{}\", default-features = false, features = [\"{}\"] }}\n\
                                                              use lepticons::{{Icon, LucideGlyph}};\n\n\
                                                              view! {{ <Icon glyph=LucideGlyph::{} /> }}",
-                                                            feat, comp
+                                                            lepticons_semver_short(), feat, comp
                                                         )
                                                     } else {
                                                         format!("<Icon glyph=LucideGlyph::{} />", comp)
