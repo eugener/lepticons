@@ -146,15 +146,7 @@ fn Hero(hero_idx: ReadSignal<usize>) -> impl IntoView {
             </p>
             <div class="flex flex-row flex-wrap items-center justify-center gap-2 mt-6">
                 <CtaPrimary href="#try" label="Try it live" glyph=LucideGlyph::Sparkles/>
-                <CtaSecondary href="https://crates.io/crates/lepticons-picker"
-                              label="crates.io"
-                              glyph=LucideGlyph::Package/>
-                <CtaSecondary href="https://github.com/eugener/lepticons"
-                              label="GitHub"
-                              glyph=LucideGlyph::GitBranch/>
-                <CtaSecondary href="https://docs.rs/lepticons-picker"
-                              label="API docs"
-                              glyph=LucideGlyph::BookOpen/>
+                <CtaSecondary href="#snippet" label="Quick start" glyph=LucideGlyph::Code/>
             </div>
         </div>
     }
@@ -706,29 +698,9 @@ fn CodeSnippet() -> impl IntoView {
 fn CrossLinks() -> impl IntoView {
     let count = LucideGlyph::count();
     view! {
-        <div class="max-w-4xl w-full mx-auto px-4 pb-16
-                    flex flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2
-                    text-sm">
-            <a href="/" class="text-highlight hover:underline">
+        <div class="max-w-4xl w-full mx-auto px-4 pb-16 text-center">
+            <a href="/" class="text-sm text-highlight hover:underline">
                 {format!("← Browse all {} icons", count)}
-            </a>
-            <span class="text-primary/20">"·"</span>
-            <a href="https://crates.io/crates/lepticons-picker"
-               target="_blank" rel="noreferrer"
-               class="text-primary/65 hover:text-highlight hover:underline">
-                "crates.io"
-            </a>
-            <span class="text-primary/20">"·"</span>
-            <a href="https://docs.rs/lepticons-picker"
-               target="_blank" rel="noreferrer"
-               class="text-primary/65 hover:text-highlight hover:underline">
-                "docs.rs"
-            </a>
-            <span class="text-primary/20">"·"</span>
-            <a href="https://github.com/eugener/lepticons"
-               target="_blank" rel="noreferrer"
-               class="text-primary/65 hover:text-highlight hover:underline">
-                "GitHub"
             </a>
         </div>
     }

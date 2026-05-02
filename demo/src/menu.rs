@@ -1,5 +1,5 @@
 use leptos::prelude::*;
-use lepticons::CustomIcon;
+use lepticons::{CustomIcon, Icon, LucideGlyph};
 
 use crate::components::*;
 
@@ -45,9 +45,25 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <a href="/components">"Components"</a>
             <a href="/license">"License"</a>
             <ThemeToggle/>
+            <a href="https://docs.rs/lepticons"
+               target={"_blank".to_string()}
+               class="flex-none w-6 h-6 cursor-pointer text-primary opacity-80 hover:opacity-100"
+               title="API docs on docs.rs"
+               aria-label="API docs on docs.rs">
+                <Icon glyph=LucideGlyph::BookOpen size="22" />
+            </a>
+            <a href="https://crates.io/crates/lepticons"
+               target={"_blank".to_string()}
+               class="flex-none w-6 h-6 cursor-pointer text-primary opacity-80 hover:opacity-100"
+               title="lepticons on crates.io"
+               aria-label="lepticons on crates.io">
+                <Icon glyph=LucideGlyph::Package size="22" />
+            </a>
             <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}
-               class="flex-none w-6 h-6 cursor-pointer">
+               class="flex-none w-6 h-6 cursor-pointer"
+               title="GitHub"
+               aria-label="GitHub">
                 <CustomIcon
                     svg=GITHUB_SVG
                     class="w-6 h-6 fill-primary"
