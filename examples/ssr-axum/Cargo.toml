@@ -1,0 +1,13 @@
+[package]
+name = "lepticons-ssr-axum-example"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+# When copying this example into your own project, replace the path dep
+# with the published version: `lepticons = "0.11"`.
+lepticons = { path = "../../lepticons" }
+leptos = { version = "0.8", features = ["ssr"] }
+axum = "0.7"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }

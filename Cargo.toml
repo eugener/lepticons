@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = ["lepticons", "lepticons-picker", "lepticons-animate", "codegen", "demo"]
-exclude = ["lucide"]
+exclude = ["lucide", "examples"]
 
 [workspace.dependencies]
 strum = "0.28"

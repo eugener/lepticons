@@ -79,6 +79,8 @@ async fn main() {
 
 The icon SVG is emitted as part of the server-rendered HTML. The client hydration pass attaches reactive handlers without re-rendering the SVG markup.
 
+A minimal working SSR-only Axum example lives at [`examples/ssr-axum`](../examples/ssr-axum). Copy that directory into your own project as a starting point.
+
 ---
 
 ## Static Site Generation
