@@ -242,7 +242,7 @@ pub fn IconsView() -> impl IntoView {
                     <MruStrip
                         mru=mru_signal
                         on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
-                        class="flex flex-row items-center gap-3 mb-4"
+                        class="flex flex-row items-center gap-3 pb-4 mb-4 border-b border-primary/10"
                         header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
                         item_class=ICON_STYLE
                         icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
