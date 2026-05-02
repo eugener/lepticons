@@ -4,21 +4,9 @@ use lepticons_picker::{IconPicker, IconPickerPopover};
 
 use crate::CommonHeader;
 
-/// Maps lepticons-picker's `--lp-*` CSS variables to the demo's
-/// theme tokens so the picker adopts light/dark mode automatically.
-const PICKER_THEME_VARS: &str = "\
-    --lp-bg:hsl(var(--card));\
-    --lp-text:hsl(var(--foreground));\
-    --lp-text-muted:hsl(var(--muted-foreground));\
-    --lp-border:hsl(var(--border));\
-    --lp-radius:var(--radius);\
-    --lp-bg-selected:hsl(var(--highlight) / 0.12);\
-    --lp-border-selected:hsl(var(--highlight));\
-    --lp-tooltip-bg:hsl(var(--highlight));\
-    --lp-tooltip-text:hsl(var(--primary-foreground));\
-    --lp-link:hsl(var(--highlight));\
-    --lp-kbd-bg:hsl(var(--muted));\
-    --lp-copy-bg:hsl(var(--card))";
+// Picker theme variables and the off-white `bg-soft` accent are defined in
+// `demo/style/input.css` under `.lp-themed` and `.bg-soft`, where light and
+// dark variants are toggled via the `.dark` class on `<html>`.
 
 #[component]
 pub fn PickerView() -> impl IntoView {
@@ -47,7 +35,7 @@ fn Hero() -> impl IntoView {
     view! {
         <div class="flex flex-col items-center text-center mt-16 mb-12 px-4">
             <span class="px-3 py-1 mb-5 text-xs uppercase tracking-wider rounded-full
-                         border border-highlight/30 text-highlight bg-highlight/10">
+                         border border-border text-highlight bg-soft">
                 "lepticons-picker"
             </span>
             <h1 class="text-4xl md:text-5xl font-semibold text-primary leading-tight max-w-3xl">
@@ -77,7 +65,7 @@ fn DemoRow(
                 description="Drop directly into a settings panel or editor surface.
                              Categories, search, recent-used strip, and copy-as-code
                              come bundled.">
-                <div style=PICKER_THEME_VARS class="w-full">
+                <div class="lp-themed w-full">
                     <IconPicker
                         selected=inline_selected
                         on_select=Callback::new(move |g| set_inline_selected.set(Some(g)))
@@ -93,7 +81,7 @@ fn DemoRow(
                 description="Wrap any element. The picker pops with role=dialog,
                              closes on Escape or outside-click, and snaps back
                              into the page flow.">
-                <div style=PICKER_THEME_VARS class="flex flex-col items-start gap-3">
+                <div class="lp-themed flex flex-col items-start gap-3">
                     <IconPickerPopover
                         selected=popover_selected
                         on_select=Callback::new(move |g| set_popover_selected.set(Some(g)))
@@ -223,7 +211,7 @@ fn FeatureGrid() -> impl IntoView {
                         <div class="flex flex-col gap-2 p-5 rounded-lg border border-border
                                     bg-card hover:border-highlight/40 transition-colors">
                             <div class="flex items-center justify-center w-10 h-10
-                                        rounded-md bg-highlight/10 text-highlight mb-1">
+                                        rounded-md bg-soft border border-border text-highlight mb-1">
                                 <Icon glyph=g size="20" />
                             </div>
                             <h3 class="text-base font-semibold text-primary">{*title}</h3>

@@ -4,7 +4,9 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
+        /* Slightly off-white page background -- pure white reads harsh
+           next to the warm highlight accents. */
+        --background: 0 0% 98.5%;
         --foreground: 222.2 84% 4.9%;
 
         --card: 0 0% 100%;
@@ -35,6 +37,10 @@
         --radius: 0.5rem;
 
         --highlight: 14 75% 43%;
+
+        /* Off-white surface used for picker chrome and accent fills. */
+        --soft: 0 0% 98%;
+        --soft-2: 0 0% 95%;
     }
 
     .dark {
@@ -67,6 +73,11 @@
         --ring: 212.7 26.8% 83.9%;
 
         --highlight: 14 75% 43%;
+
+        /* Off-white -> off-black for dark mode. Slightly lighter than the
+           page background so the picker reads as a distinct surface. */
+        --soft: 0 0% 11%;
+        --soft-2: 0 0% 14%;
     }
 }
 
@@ -148,5 +159,32 @@
         border-radius: 50%;
         border: none;
         background: hsl(var(--highlight));
+    }
+}
+
+@layer components {
+    /* Off-white accent surface (badges, icon chips). */
+    .bg-soft { background-color: hsl(var(--soft)); }
+
+    /* Maps lepticons-picker's --lp-* variables to the demo theme so the
+       picker adopts light/dark mode and uses an off-white chrome rather
+       than pure white-on-white. */
+    .lp-themed {
+        --lp-bg: hsl(var(--soft));
+        --lp-text: hsl(var(--foreground));
+        --lp-text-muted: hsl(var(--muted-foreground));
+        --lp-border: hsl(var(--border));
+        --lp-radius: var(--radius);
+        --lp-bg-selected: hsl(var(--highlight) / 0.12);
+        --lp-border-selected: hsl(var(--highlight));
+        --lp-tooltip-bg: hsl(var(--highlight));
+        --lp-tooltip-text: hsl(var(--primary-foreground));
+        --lp-link: hsl(var(--highlight));
+        --lp-kbd-bg: hsl(var(--soft-2));
+        --lp-copy-bg: hsl(var(--background));
+    }
+
+    .dark .lp-themed {
+        --lp-bg-selected: hsl(var(--highlight) / 0.18);
     }
 }
