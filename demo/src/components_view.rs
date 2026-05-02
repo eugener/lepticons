@@ -3,6 +3,7 @@ use lepticons::{Icon, LucideGlyph};
 use lepticons_animate::DrawIcon;
 use lepticons_picker::{IconPicker, IconPickerPopover};
 
+use crate::components::StickyTop;
 use crate::CommonHeader;
 
 // Picker theme variables for `lepticons-picker` are defined in
@@ -87,8 +88,13 @@ pub fn ComponentsView() -> impl IntoView {
     };
 
     view! {
-        <div class="flex flex-col h-screen w-screen py-5 px-10 overflow-y-auto">
-            <CommonHeader/>
+        <div class="flex flex-col h-screen w-screen overflow-y-auto">
+            <StickyTop>
+                <div class="bg-background pt-5 px-10 pb-3">
+                    <CommonHeader/>
+                </div>
+            </StickyTop>
+            <div class="px-10">
             <Hero hero_idx=hero_idx/>
             <DemoSection
                 inline_selected=inline_selected
@@ -105,6 +111,7 @@ pub fn ComponentsView() -> impl IntoView {
             <PerformanceLine us=search_us/>
             <CodeSnippet/>
             <CrossLinks/>
+            </div>
         </div>
     }
 }

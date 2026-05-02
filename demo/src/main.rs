@@ -8,7 +8,7 @@ use leptos_router::path;
 use components_view::*;
 use icons_view::*;
 
-use crate::components::DarkMode;
+use crate::components::{DarkMode, StickyTop};
 use crate::menu::*;
 
 mod components;
@@ -98,20 +98,25 @@ fn LicenseView() -> impl IntoView {
     let copyright = format!("Copyright (c) 2022-{} Eugene Ryzhikov", year);
 
     view! {
-            <div class="flex flex-col h-screen w-screen py-5 px-10 overflow-y-auto">
-                <CommonHeader/>
+        <div class="flex flex-col h-screen w-screen overflow-y-auto">
+            <StickyTop>
+                <div class="bg-background pt-5 px-10 pb-3">
+                    <CommonHeader/>
+                </div>
+            </StickyTop>
+            <div class="px-10 pb-10">
                 <div class="mx-40">
-
-                <p class="my-10  p-25 text-2xl text-primary">MIT License</p>
-                <p class="text-primary py-5">
-                    {copyright}
-                </p>
-         {
-             COPYRIGHT.iter().map(|c| view! {
-                <p class="text-primary py-1">{c.to_string()}</p>
-            }).collect::<Vec<_>>()
-         }
+                    <p class="my-10  p-25 text-2xl text-primary">MIT License</p>
+                    <p class="text-primary py-5">
+                        {copyright}
+                    </p>
+                    {
+                        COPYRIGHT.iter().map(|c| view! {
+                            <p class="text-primary py-1">{c.to_string()}</p>
+                        }).collect::<Vec<_>>()
+                    }
+                </div>
+            </div>
         </div>
-    </div>
     }
 }
