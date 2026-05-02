@@ -1,6 +1,30 @@
-# Phase 6: Picker Polish -- PLANNED
+# Phase 6: Picker Polish -- COMPLETE
 
-Target: `lepticons-picker 0.3.0`. Driven by post-launch feedback. ~1 weekend of work.
+Shipped as `lepticons-picker 0.3.0`. Driven by post-launch feedback.
+
+## What landed
+
+- **6a Keyboard nav** -- arrow / Home / End / PageUp / PageDown / Enter / Space / Esc / `/`. Roving `tabindex`, focus tracked by glyph (not index) so cells survive filter changes via the keyed `<For>` reconciliation.
+- **6b MRU** -- `pub mod mru` with `load` / `save` / `push_into`. Default `localStorage` key `"lepticons-picker-mru"`, capped at 8, JSON of glyph variant names so the list survives icon additions/removals across Lucide releases. Unknown names are pruned silently. Surfaced via the new public `MruStrip` component, which `IconPicker` also consumes internally.
+- **6c Copy as code** -- new public `IconCopyFormat` enum (`Variant` / `Component` / `Svg`) with `render(icon) -> String` and stable `id` round-trip. `IconGrid` accepts an optional `copy_format: Signal<IconCopyFormat>` that turns on a hover/focus copy button per cell. `IconPicker` wires an internal format signal to a `<select>` next to the search bar.
+- **6d Empty state** -- `IconGrid` renders a `role=status` block with a link to the upstream Lucide issue tracker when the filter has zero hits.
+- **6e A11y** -- `role=grid` + `role=gridcell` + `aria-label` (kebab name) + `aria-selected` on cells; popover panel `role=dialog` + `aria-modal=true` + configurable `aria_label` (default "Choose an icon"); search input `role=searchbox` + `aria-label`.
+
+## What also got rebuilt
+
+- **CSS-grid layout** by default (`grid-template-columns: repeat(auto-fill, minmax(2.5rem, 1fr))`); demo overrides via class still work because inline grid style is suppressed when `class` is set.
+- **Themable `IconSearch`** -- `class` / `input_class` / `kbd_class` / `clear_class` / `icon_size` / `icon_stroke` / `shortcut_hint` / `input_ref` props. Hides the native `::-webkit-search-cancel-button` so it doesn't double up with the X clear button.
+- **`IconPickerPopover`** -- outside-close switched from `click` to `mousedown` with a target test against panel/trigger refs, so a CSS resize drag whose mouseup lands outside the panel no longer closes the popover. Panel size is captured on every close (offset_width/offset_height) and reused as the initial size on next open.
+- **`<For>` keyed reconciliation** in `IconGrid` so cells aren't remounted across filter changes.
+
+## Not in scope (deferred)
+
+- Virtualization of `IconGrid` for the empty-filter case.
+- Mobile drawer for the demo's icons-page sidebar.
+
+---
+
+Original plan below for reference.
 
 ## Goals
 

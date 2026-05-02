@@ -1,6 +1,6 @@
 [package]
 name = "lepticons-animate"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 description = "Icon animations for Leptos -- stroke draw-in, spin, pulse, bounce."
 license = "MIT"
@@ -13,7 +13,7 @@ readme = "README.md"
 
 [dependencies]
 leptos = "0.8"
-lepticons = { version = "0.11", path = "../lepticons" }
+lepticons = { version = "0.12", path = "../lepticons" }
 web-sys = { version = "0.3", features = [
     "SvgElement", "SvgPathElement", "SvgGeometryElement",
     "SvgCircleElement", "SvgLineElement", "SvgPolylineElement",

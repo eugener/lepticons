@@ -33,7 +33,7 @@ See individual phase documents:
 - [Phase 3: Demo App Refactor](phase-3-demo.md) -- COMPLETE
 - [Phase 4: Animations](phase-4-animations.md) -- COMPLETE
 - [Phase 5: Launch Foundation](phase-5-foundation.md) -- PLANNED (target `lepticons 0.11.0`)
-- [Phase 6: Picker Polish](phase-6-picker-polish.md) -- PLANNED (target `lepticons-picker 0.3.0`)
+- [Phase 6: Picker Polish](phase-6-picker-polish.md) -- COMPLETE (`lepticons-picker 0.3.0`)
 - [Phase 7: Animations v2](phase-7-animations-v2.md) -- PLANNED (target `lepticons-animate 0.2.0`)
 - [Phase 8: Data Extraction](phase-8-data-extraction.md) -- PLANNED (architectural prep for multi-framework)
 - [Phase 9: Framework Adapters](phase-9-framework-adapters.md) -- SPECULATIVE (gated on user signal)
@@ -42,9 +42,9 @@ See individual phase documents:
 
 | Crate | Version |
 |-------|---------|
-| `lepticons` | 0.11.0 |
-| `lepticons-picker` | 0.2.2 |
-| `lepticons-animate` | 0.1.3 |
+| `lepticons` | 0.12.0 |
+| `lepticons-picker` | 0.3.0 |
+| `lepticons-animate` | 0.1.4 |
 
 ## Discoverability
 

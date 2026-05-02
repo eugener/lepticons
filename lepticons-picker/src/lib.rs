@@ -26,12 +26,17 @@ mod icon_grid;
 mod category_filter;
 mod icon_picker;
 mod icon_picker_popover;
+pub mod mru;
+mod mru_strip;
+mod copy;
 
 pub use icon_search::IconSearch;
 pub use icon_grid::IconGrid;
 pub use category_filter::CategoryFilter;
 pub use icon_picker::IconPicker;
 pub use icon_picker_popover::IconPickerPopover;
+pub use mru_strip::MruStrip;
+pub use copy::IconCopyFormat;
 
 /// Version of the `lepticons-picker` crate, taken from `Cargo.toml` at build time.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");

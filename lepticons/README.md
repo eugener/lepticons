@@ -26,10 +26,10 @@ use lepticons::{Icon, LucideGlyph};
 
 ```toml
 # All icons (default)
-lepticons = "0.11"
+lepticons = "0.12"
 
 # Only specific categories
-lepticons = { version = "0.11", default-features = false, features = ["arrows", "navigation", "design"] }
+lepticons = { version = "0.12", default-features = false, features = ["arrows", "navigation", "design"] }
 ```
 
 Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
@@ -120,7 +120,7 @@ See [docs/rendering-modes.md](https://github.com/eugener/lepticons/blob/develop/
 
 | Leptos | Lepticons |
 |--------|-----------|
-| 0.8.x  | 0.8.x -- 0.10.x |
+| 0.8.x  | 0.8.x -- 0.12.x |
 | 0.6.x  | 0.5.x     |
 | 0.5.x  | 0.4.x     |
 

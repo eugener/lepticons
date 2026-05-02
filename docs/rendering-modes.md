@@ -14,7 +14,7 @@ The default Trunk-based setup. The browser receives an empty HTML shell, downloa
 # Cargo.toml
 [dependencies]
 leptos = "0.8"
-lepticons = "0.10"
+lepticons = "0.12"
 ```
 
 ```rust
@@ -48,7 +48,7 @@ Lepticons icons render identically in both phases because `inner_html` round-tri
 ```toml
 [dependencies]
 leptos = { version = "0.8", features = ["ssr", "hydrate"] }
-lepticons = "0.10"
+lepticons = "0.12"
 axum = "0.7"
 tokio = { version = "1", features = ["full"] }
 leptos_axum = "0.8"
@@ -78,6 +78,8 @@ async fn main() {
 ```
 
 The icon SVG is emitted as part of the server-rendered HTML. The client hydration pass attaches reactive handlers without re-rendering the SVG markup.
+
+A minimal working SSR-only Axum example lives at [`examples/ssr-axum`](../examples/ssr-axum). Copy that directory into your own project as a starting point.
 
 ---
 

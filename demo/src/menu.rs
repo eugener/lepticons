@@ -1,5 +1,5 @@
 use leptos::prelude::*;
-use lepticons::CustomIcon;
+use lepticons::{CustomIcon, Icon, LucideGlyph};
 
 use crate::components::*;
 
@@ -39,21 +39,52 @@ const GITHUB_SVG: &str = r#"<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.4
 
 #[component]
 pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
+    let help = use_context::<HelpOpen>();
     view! {
         <div class={format!("flex flex-row gap-4 items-center {}", class)}>
-            <a href="/">"Icons"</a>
-            <a href="/license">"License"</a>
+            <a href="/" class="leading-none">"Icons"</a>
+            <a href="/components" class="leading-none">"Components"</a>
+            <a href="/license" class="leading-none">"License"</a>
             <ThemeToggle/>
-            <a href="https://github.com/eugener/lepticons"
-               target={"_blank".to_string()}
-               class="flex-none w-6 h-6 cursor-pointer">
-                <CustomIcon
-                    svg=GITHUB_SVG
-                    class="w-6 h-6 fill-primary"
-                    fill="currentColor"
-                    stroke="none"
-                />
-            </a>
+            {help.map(|h| view! {
+                <button
+                    class="flex flex-none items-center justify-center w-6 h-6 cursor-pointer
+                           text-primary opacity-80 hover:opacity-100"
+                    title="Keyboard shortcuts (?)"
+                    aria-label="Open keyboard shortcuts"
+                    on:click=move |_| h.write.update(|b| *b = !*b)
+                >
+                    <Icon glyph=LucideGlyph::CircleQuestionMark size="24" stroke_width="2" class="block" />
+                </button>
+            })}
+            <div class="flex flex-row gap-1.5 items-center">
+                <a href="https://github.com/eugener/lepticons"
+                   target={"_blank".to_string()}
+                   class="flex flex-none items-center justify-center w-6 h-6 cursor-pointer"
+                   title="GitHub"
+                   aria-label="GitHub">
+                    <CustomIcon
+                        svg=GITHUB_SVG
+                        class="w-6 h-6 fill-primary block"
+                        fill="currentColor"
+                        stroke="none"
+                    />
+                </a>
+                <a href="https://crates.io/crates/lepticons"
+                   target={"_blank".to_string()}
+                   class="flex flex-none items-center justify-center w-6 h-6 cursor-pointer text-primary opacity-80 hover:opacity-100"
+                   title="lepticons on crates.io"
+                   aria-label="lepticons on crates.io">
+                    <Icon glyph=LucideGlyph::Package size="24" stroke_width="2" class="block" />
+                </a>
+                <a href="https://docs.rs/lepticons"
+                   target={"_blank".to_string()}
+                   class="flex flex-none items-center justify-center w-6 h-6 cursor-pointer text-primary opacity-80 hover:opacity-100"
+                   title="API docs on docs.rs"
+                   aria-label="API docs on docs.rs">
+                    <Icon glyph=LucideGlyph::BookOpen size="24" stroke_width="2" class="block" />
+                </a>
+            </div>
         </div>
     }
 }

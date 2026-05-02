@@ -35,6 +35,10 @@
         --radius: 0.5rem;
 
         --highlight: 14 75% 43%;
+
+        /* Off-white surface used for picker chrome and accent fills. */
+        --soft: 0 0% 98%;
+        --soft-2: 0 0% 95%;
     }
 
     .dark {
@@ -67,12 +71,21 @@
         --ring: 212.7 26.8% 83.9%;
 
         --highlight: 14 75% 43%;
+
+        /* Off-white -> off-black for dark mode. Slightly lighter than the
+           page background so the picker reads as a distinct surface. */
+        --soft: 0 0% 11%;
+        --soft-2: 0 0% 14%;
     }
 }
 
 @layer base {
     * {
         @apply border-border;
+    }
+    html, body {
+        height: 100%;
+        overflow: hidden;
     }
     body {
         @apply bg-background text-foreground;
@@ -82,6 +95,35 @@
     }
     html.dark {
         color-scheme: dark;
+    }
+
+    /* Thin, minimal scrollbars for inner scroll containers */
+    *::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    *::-webkit-scrollbar-thumb {
+        background-color: hsl(var(--primary) / 0.18);
+        border-radius: 3px;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: hsl(var(--primary) / 0.35);
+    }
+    /* Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: hsl(var(--primary) / 0.18) transparent;
+    }
+
+    /* Reserve scrollbar gutter on every scroll container so that pages with
+       no overflow share the same right-edge as pages with overflow. Without
+       this, the menu's right edge jumps by ~6px between home and license. */
+    [class*="overflow-y-auto"],
+    [class*="overflow-auto"] {
+        scrollbar-gutter: stable;
     }
 
     input[type="range"] {
@@ -115,5 +157,46 @@
         border-radius: 50%;
         border: none;
         background: hsl(var(--highlight));
+    }
+}
+
+@layer components {
+    /* Off-white accent surface (badges, icon chips). */
+    .bg-soft { background-color: hsl(var(--soft)); }
+
+    /* Maps lepticons-picker's --lp-* variables to the demo theme so the
+       picker adopts light/dark mode and uses an off-white chrome rather
+       than pure white-on-white. */
+    .lp-themed {
+        --lp-bg: hsl(var(--soft));
+        --lp-text: hsl(var(--foreground));
+        --lp-text-muted: hsl(var(--muted-foreground));
+        --lp-border: hsl(var(--border));
+        --lp-radius: var(--radius);
+        --lp-bg-selected: hsl(var(--highlight) / 0.12);
+        --lp-border-selected: hsl(var(--highlight));
+        --lp-tooltip-bg: hsl(var(--highlight));
+        --lp-tooltip-text: hsl(var(--primary-foreground));
+        --lp-link: hsl(var(--highlight));
+        --lp-kbd-bg: hsl(var(--soft-2));
+        --lp-copy-bg: hsl(var(--background));
+    }
+
+    .dark .lp-themed {
+        --lp-bg-selected: hsl(var(--highlight) / 0.18);
+    }
+
+    /* Roomier "Copy as" dropdown for the showcase. The library defaults are
+       sized for compact embedded usage; on a marketing page the wider
+       proportions read better. !important is required to win against the
+       inline style attribute the picker writes onto the element. */
+    .lp-themed .lp-copy-format {
+        font-size: 0.8125rem !important;
+        gap: 0.5rem !important;
+    }
+    .lp-themed .lp-copy-format-select {
+        min-width: 9rem !important;
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.8125rem !important;
     }
 }
