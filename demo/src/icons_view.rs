@@ -146,19 +146,6 @@ pub fn IconsView() -> impl IntoView {
         }
     });
 
-    // Live performance: time one search after the index has warmed up so the
-    // page can quote a real number on the perf pulse.
-    let search_us = RwSignal::new(0u32);
-    Effect::new(move |_| {
-        let Some(window) = web_sys::window() else { return; };
-        let Some(perf) = window.performance() else { return; };
-        let _ = LucideGlyph::find("");
-        let start = perf.now();
-        let _ = LucideGlyph::find("arrow up");
-        let elapsed = perf.now() - start;
-        search_us.set((elapsed * 1000.0).max(1.0) as u32);
-    });
-
     let icon_count = LucideGlyph::count();
     let drawer_open = move || selected_icon.get().is_some();
     let mru_visible =
@@ -236,7 +223,6 @@ pub fn IconsView() -> impl IntoView {
                             "?"
                         </button>
                     </div>
-                    <PerfPulse us=search_us count=icon_count/>
                 </StickyTop>
 
                 // aria-live announcer for screen readers when the filter changes
@@ -536,19 +522,6 @@ fn Hero() -> impl IntoView {
             <h1 class="text-2xl font-semibold text-primary leading-tight mt-1">
                 "Search, customize, copy."
             </h1>
-        </div>
-    }
-}
-
-#[component]
-fn PerfPulse(us: RwSignal<u32>, count: usize) -> impl IntoView {
-    view! {
-        <div class="text-[0.6875rem] text-primary/45 mb-3 -mt-3">
-            {move || format!(
-                "Indexed in OnceLock - searches all {} icons in ~{}\u{00B5}s on this device.",
-                count,
-                us.get().max(1)
-            )}
         </div>
     }
 }
