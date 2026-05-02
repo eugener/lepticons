@@ -195,34 +195,58 @@ pub fn IconsView() -> impl IntoView {
 
             // ----- main column (search + grid) -----
             <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden transition-all duration-200">
-                <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
-                    <MainMenu class="justify-end text-primary"/>
-                    <Hero/>
-                    <div class="flex flex-row items-center gap-3 my-6">
-                        <IconSearch
-                            value=icon_filter
-                            on_change=Callback::new(move |v| set_icon_filter.set(v))
-                            input_ref=search_input_ref
-                            class="flex flex-row items-center gap-2 w-full p-2 px-4 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
-                            input_class="flex-auto p-2 bg-transparent focus:outline-none text-primary"
-                            kbd_class="inline-flex items-center justify-center min-w-5 h-5 px-1.5 text-[0.6875rem] leading-none font-mono text-primary/60 bg-primary/10 border border-primary/15 rounded select-none"
-                            clear_class="cursor-pointer flex"
-                            icon_size="24"
-                            icon_stroke="currentColor"
-                        />
-                        <button
-                            class="flex-none w-9 h-9 rounded-lg
-                                   border border-primary/15 bg-secondary text-primary/65
-                                   hover:border-highlight/60 hover:text-primary
-                                   flex items-center justify-center
-                                   text-sm font-semibold transition-colors"
-                            title="Keyboard shortcuts (?)"
-                            aria-label="Open keyboard shortcuts"
-                            on:click=move |_| set_help_open.update(|b| *b = !*b)
-                        >
-                            "?"
-                        </button>
+                <StickyTop class="bg-background">
+                    <div class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
+                        <MainMenu class="justify-end text-primary"/>
+                        <Hero/>
+                        <div class="flex flex-row items-stretch gap-2 my-6">
+                            <IconSearch
+                                value=icon_filter
+                                on_change=Callback::new(move |v| set_icon_filter.set(v))
+                                input_ref=search_input_ref
+                                class="flex flex-row items-center gap-2 w-full p-2 px-4 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
+                                input_class="flex-auto p-2 bg-transparent focus:outline-none text-primary"
+                                kbd_class="inline-flex items-center justify-center min-w-5 h-5 px-1.5 text-[0.6875rem] leading-none font-mono text-primary/60 bg-primary/10 border border-primary/15 rounded select-none"
+                                clear_class="cursor-pointer flex"
+                                icon_size="24"
+                                icon_stroke="currentColor"
+                            />
+                            <button
+                                class="flex-none px-4 rounded-lg
+                                       bg-secondary border border-transparent
+                                       text-primary/65
+                                       hover:border-highlight/80 hover:text-primary
+                                       flex items-center justify-center
+                                       transition-colors"
+                                title="Keyboard shortcuts (?)"
+                                aria-label="Open keyboard shortcuts"
+                                on:click=move |_| set_help_open.update(|b| *b = !*b)
+                            >
+                                <Icon glyph=LucideGlyph::CircleQuestionMark size="22" />
+                            </button>
+                        </div>
                     </div>
+                    {move || mru_visible().then(|| view! {
+                        <div class="bg-background pb-3">
+                            <MruStrip
+                                mru=mru_signal
+                                on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
+                                class="flex flex-row items-center gap-3 pb-3 border-b border-primary/10"
+                                header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
+                                item_class=ICON_STYLE
+                                icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
+                                icon_stroke=Signal::derive(move || icon_color.get().unwrap_or_else(|| "currentColor".to_string()))
+                                icon_stroke_width=Signal::derive(move || {
+                                    let sw = icon_stroke_width.get();
+                                    if absolute_stroke.get() {
+                                        format!("{:.2}", sw * 24.0 / icon_size.get())
+                                    } else {
+                                        format!("{:.2}", sw)
+                                    }
+                                })
+                            />
+                        </div>
+                    })}
                 </StickyTop>
 
                 // aria-live announcer for screen readers when the filter changes
@@ -237,26 +261,6 @@ pub fn IconsView() -> impl IntoView {
                         }
                     }}
                 </div>
-
-                {move || mru_visible().then(|| view! {
-                    <MruStrip
-                        mru=mru_signal
-                        on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
-                        class="flex flex-row items-center gap-3 pb-4 mb-4 border-b border-primary/10"
-                        header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
-                        item_class=ICON_STYLE
-                        icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
-                        icon_stroke=Signal::derive(move || icon_color.get().unwrap_or_else(|| "currentColor".to_string()))
-                        icon_stroke_width=Signal::derive(move || {
-                            let sw = icon_stroke_width.get();
-                            if absolute_stroke.get() {
-                                format!("{:.2}", sw * 24.0 / icon_size.get())
-                            } else {
-                                format!("{:.2}", sw)
-                            }
-                        })
-                    />
-                })}
 
                 <IconGrid
                     filter=icon_filter
