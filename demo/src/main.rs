@@ -10,7 +10,7 @@ use leptos_router::path;
 use components_view::*;
 use icons_view::*;
 
-use crate::components::{DarkMode, HelpOpen, KeyboardHelp, StickyTop};
+use crate::components::{DarkMode, HelpOpen, KeyboardHelp};
 use crate::menu::*;
 
 mod components;
@@ -127,13 +127,11 @@ fn LicenseView() -> impl IntoView {
     let copyright = format!("Copyright (c) 2022-{} Eugene Ryzhikov", year);
 
     view! {
-        <div class="flex flex-col h-screen w-screen overflow-y-auto">
-            <StickyTop>
-                <div class="bg-background pt-5 px-10 pb-3">
-                    <CommonHeader/>
-                </div>
-            </StickyTop>
-            <div class="px-10 pb-10">
+        <div class="flex flex-col h-screen w-screen overflow-hidden">
+            <div class="px-10 mt-5 flex-none">
+                <MainMenu class="justify-end text-primary"/>
+            </div>
+            <div class="flex-1 min-h-0 overflow-y-auto px-10 pb-10">
                 <div class="mx-40">
                     <p class="my-10  p-25 text-2xl text-primary">MIT License</p>
                     <p class="text-primary py-5">

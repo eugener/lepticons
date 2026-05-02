@@ -3,8 +3,7 @@ use lepticons::{Icon, LucideGlyph};
 use lepticons_animate::DrawIcon;
 use lepticons_picker::{IconPicker, IconPickerPopover};
 
-use crate::components::StickyTop;
-use crate::CommonHeader;
+use crate::menu::MainMenu;
 
 // Picker theme variables for `lepticons-picker` are defined in
 // `demo/style/input.css` under `.lp-themed`, where light and dark variants
@@ -88,29 +87,27 @@ pub fn ComponentsView() -> impl IntoView {
     };
 
     view! {
-        <div class="flex flex-col h-screen w-screen overflow-y-auto">
-            <StickyTop>
-                <div class="bg-background pt-5 px-10 pb-3">
-                    <CommonHeader/>
-                </div>
-            </StickyTop>
-            <div class="px-10">
-            <Hero hero_idx=hero_idx/>
-            <DemoSection
-                inline_selected=inline_selected
-                set_inline_selected=set_inline_selected
-                popover_selected=popover_selected
-                set_popover_selected=set_popover_selected
-                accent_idx=accent_idx
-                set_accent_idx=set_accent_idx
-                accent_style=Signal::derive(accent_style)
-                last_key=last_key
-                on_picker_keydown=Callback::new(on_picker_keydown)
-            />
-            <FeatureGrid/>
-            <PerformanceLine us=search_us/>
-            <CodeSnippet/>
-            <CrossLinks/>
+        <div class="flex flex-col h-screen w-screen overflow-hidden">
+            <div class="px-10 mt-5 flex-none">
+                <MainMenu class="justify-end text-primary"/>
+            </div>
+            <div class="flex-1 min-h-0 overflow-y-auto px-10">
+                <Hero hero_idx=hero_idx/>
+                <DemoSection
+                    inline_selected=inline_selected
+                    set_inline_selected=set_inline_selected
+                    popover_selected=popover_selected
+                    set_popover_selected=set_popover_selected
+                    accent_idx=accent_idx
+                    set_accent_idx=set_accent_idx
+                    accent_style=Signal::derive(accent_style)
+                    last_key=last_key
+                    on_picker_keydown=Callback::new(on_picker_keydown)
+                />
+                <FeatureGrid/>
+                <PerformanceLine us=search_us/>
+                <CodeSnippet/>
+                <CrossLinks/>
             </div>
         </div>
     }
