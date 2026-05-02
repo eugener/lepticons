@@ -1,11 +1,11 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 use leptos::wasm_bindgen::JsCast;
-use lepticons::{Icon, LucideGlyph};
+use lepticons::LucideGlyph;
 
 use crate::copy::IconCopyFormat;
 use crate::mru;
-use crate::{CategoryFilter, IconGrid, IconSearch};
+use crate::{CategoryFilter, IconGrid, IconSearch, MruStrip};
 
 const DEFAULT_MRU_STORAGE_KEY: &str = "lepticons-picker-mru";
 
@@ -168,47 +168,6 @@ pub fn IconPicker(
                         }.into_any()
                     }}
                 </div>
-            </div>
-        </div>
-    }
-}
-
-#[component]
-fn MruStrip(
-    mru: RwSignal<Vec<LucideGlyph>>,
-    on_select: Callback<LucideGlyph>,
-) -> impl IntoView {
-    view! {
-        <div style="padding:0.25rem 0.75rem 0.5rem;\
-                    border-bottom:1px solid var(--lp-border,#e5e5e5)">
-            <div style="font-size:0.6875rem;font-weight:500;letter-spacing:0.04em;\
-                        text-transform:uppercase;\
-                        color:var(--lp-text-muted,#999);\
-                        margin-bottom:0.25rem">
-                "Recently used"
-            </div>
-            <div role="list" style="display:flex;flex-wrap:wrap;gap:0.25rem">
-                {move || mru.get().into_iter().map(|icon| {
-                    let label = icon.kebab_name();
-                    view! {
-                        <div role="listitem"
-                             aria-label=label.clone()
-                             title=label
-                             style="padding:0.375rem;border-radius:var(--lp-radius,0.5rem);\
-                                    background:var(--lp-bg,#f5f5f5);\
-                                    cursor:pointer;display:flex"
-                             tabindex="0"
-                             on:click=move |_| on_select.run(icon)
-                             on:keydown=move |ev: web_sys::KeyboardEvent| {
-                                 if ev.key() == "Enter" || ev.key() == " " {
-                                     ev.prevent_default();
-                                     on_select.run(icon);
-                                 }
-                             }>
-                            <Icon glyph=icon size="20" />
-                        </div>
-                    }
-                }).collect::<Vec<_>>()}
             </div>
         </div>
     }
