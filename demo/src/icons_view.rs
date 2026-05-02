@@ -194,7 +194,15 @@ pub fn IconsView() -> impl IntoView {
             </div>
 
             // ----- main column (search + grid) -----
-            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden transition-all duration-200">
+            <div class=move || {
+                let open = drawer_open();
+                let base = "px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden transition-[padding] duration-200";
+                if open {
+                    format!("{} pr-[26rem]", base)
+                } else {
+                    base.to_string()
+                }
+            }>
                 <StickyTop>
                     <div class="bg-background">
                         <MainMenu
@@ -274,21 +282,30 @@ pub fn IconsView() -> impl IntoView {
                 />
             </div>
 
-            // ----- right detail drawer (slides in when an icon is selected) -----
-            <div class=move || {
-                let open = drawer_open();
-                if open {
-                    "flex-none w-[26rem] h-screen overflow-y-auto bg-secondary border-l border-primary/15 transition-all duration-200"
-                } else {
-                    "flex-none w-0 h-screen overflow-hidden border-l border-primary/15 transition-all duration-200"
-                }
-            }>
-                <IconDetailDrawer
-                    selected_icon=selected_icon
-                    set_selected_icon=set_selected_icon
-                />
-            </div>
         </div>
+
+        // ----- right detail drawer (overlays the main column instead of
+        // squeezing it; rendering as fixed avoids forcing MainMenu / Hero
+        // to reflow when the drawer opens) -----
+        <div class=move || {
+            let open = drawer_open();
+            if open {
+                "fixed top-0 right-0 bottom-0 w-[26rem] overflow-y-auto \
+                 bg-secondary border-l border-primary/15 z-40 \
+                 translate-x-0 transition-transform duration-200 ease-out"
+            } else {
+                "fixed top-0 right-0 bottom-0 w-[26rem] overflow-y-auto \
+                 bg-secondary border-l border-primary/15 z-40 \
+                 translate-x-full transition-transform duration-200 ease-out \
+                 pointer-events-none"
+            }
+        }>
+            <IconDetailDrawer
+                selected_icon=selected_icon
+                set_selected_icon=set_selected_icon
+            />
+        </div>
+
         <AnimationStyles/>
         {move || help_open.get().then(|| view! {
             <KeyboardHelp on_close=Callback::new(move |_| set_help_open.set(false)) />
