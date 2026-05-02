@@ -81,7 +81,7 @@ fn NotFoundView() -> impl IntoView {
 pub fn CommonHeader() -> impl IntoView {
     view! {
         <div class="flex flex-col">
-            <div class="flex flex-row items-center gap-4 pb-4 border-b border-primary/10">
+            <div class="flex flex-row items-start gap-4 pb-4 border-b border-primary/10">
                 <a href="/" class="flex-none">
                     <img src="lepticons.png" class="h-9 w-auto" alt="Lepticons"/>
                 </a>
