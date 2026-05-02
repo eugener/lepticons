@@ -205,6 +205,30 @@ pub fn IconGrid(
                 }
             </For>
         </div>
+        {move || {
+            let f = filter.get();
+            let empty = filtered.with(|v| v.is_empty());
+            (empty && !f.is_empty()).then(|| view! {
+                <div role="status"
+                     aria-live="polite"
+                     style="padding:1.5rem 1rem;text-align:center;\
+                            color:var(--lp-text-muted,#999);\
+                            font-size:0.875rem;line-height:1.6">
+                    "No icons match \""
+                    <span style="color:var(--lp-text,inherit);font-weight:500">{f}</span>
+                    "\". Search uses name, tags, and category."
+                    <br/>
+                    "Missing an icon? "
+                    <a href="https://github.com/lucide-icons/lucide/issues/new?template=icon_request.yml"
+                       target="_blank"
+                       rel="noreferrer"
+                       style="color:var(--lp-link,inherit);text-decoration:underline">
+                        "Request it on lucide-icons/lucide"
+                    </a>
+                    "."
+                </div>
+            })
+        }}
     }
 }
 
