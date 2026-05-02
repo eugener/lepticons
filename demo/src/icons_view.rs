@@ -39,7 +39,6 @@ pub fn IconsView() -> impl IntoView {
     let (absolute_stroke, set_absolute_stroke) = signal(false);
 
     let mru_signal: RwSignal<Vec<LucideGlyph>> = RwSignal::new(mru::load(ICONS_MRU_KEY));
-    let (help_open, set_help_open) = signal(false);
 
     // Hydrate state from URL on mount.
     let query = use_query_map();
@@ -125,22 +124,12 @@ pub fn IconsView() -> impl IntoView {
             .unwrap_or(false);
 
         match ev.key().as_str() {
-            "Escape" => {
-                if help_open.get_untracked() {
-                    set_help_open.set(false);
-                } else {
-                    set_selected_icon.set(None);
-                }
-            }
+            "Escape" => set_selected_icon.set(None),
             "/" if !in_input && !ev.ctrl_key() && !ev.meta_key() && !ev.alt_key() => {
                 if let Some(input_el) = search_input_ref.get() {
                     ev.prevent_default();
                     let _ = input_el.focus();
                 }
-            }
-            "?" if !in_input => {
-                ev.prevent_default();
-                set_help_open.update(|b| *b = !*b);
             }
             _ => {}
         }
@@ -201,51 +190,51 @@ pub fn IconsView() -> impl IntoView {
             // overlay, so the main column's StickyTop content (MainMenu,
             // Hero, Search, MRU) keeps the same width regardless of
             // whether an icon is selected.
-            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden">
-                <StickyTop>
-                    <div class="bg-background">
-                        <MainMenu
-                            class="justify-end text-primary"
-                            on_help=Callback::new(move |_| set_help_open.update(|b| *b = !*b))
+            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-hidden">
+                // Header section: stays at the top of the main column. The
+                // outer column has overflow-hidden, so this block is
+                // effectively pinned by the flex layout (no need for
+                // `position: sticky`).
+                <div class="flex-none bg-background">
+                    <MainMenu class="justify-end text-primary"/>
+                    <Hero/>
+                    <div class="my-6">
+                        <IconSearch
+                            value=icon_filter
+                            on_change=Callback::new(move |v| set_icon_filter.set(v))
+                            input_ref=search_input_ref
+                            class="flex flex-row items-center gap-2 w-full p-2 px-4 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
+                            input_class="flex-auto p-2 bg-transparent focus:outline-none text-primary"
+                            kbd_class="inline-flex items-center justify-center min-w-5 h-5 px-1.5 text-[0.6875rem] leading-none font-mono text-primary/60 bg-primary/10 border border-primary/15 rounded select-none"
+                            clear_class="cursor-pointer flex"
+                            icon_size="24"
+                            icon_stroke="currentColor"
                         />
-                        <Hero/>
-                        <div class="my-6">
-                            <IconSearch
-                                value=icon_filter
-                                on_change=Callback::new(move |v| set_icon_filter.set(v))
-                                input_ref=search_input_ref
-                                class="flex flex-row items-center gap-2 w-full p-2 px-4 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
-                                input_class="flex-auto p-2 bg-transparent focus:outline-none text-primary"
-                                kbd_class="inline-flex items-center justify-center min-w-5 h-5 px-1.5 text-[0.6875rem] leading-none font-mono text-primary/60 bg-primary/10 border border-primary/15 rounded select-none"
-                                clear_class="cursor-pointer flex"
-                                icon_size="24"
-                                icon_stroke="currentColor"
-                            />
-                        </div>
-                        {move || mru_visible().then(|| view! {
-                            <MruStrip
-                                mru=mru_signal
-                                on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
-                                class="flex flex-row items-center gap-3 pb-3 min-h-[3.5rem] border-b border-primary/10"
-                                header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
-                                item_class=ICON_STYLE
-                                icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
-                                icon_stroke=Signal::derive(move || icon_color.get().unwrap_or_else(|| "currentColor".to_string()))
-                                icon_stroke_width=Signal::derive(move || {
-                                    let sw = icon_stroke_width.get();
-                                    if absolute_stroke.get() {
-                                        format!("{:.2}", sw * 24.0 / icon_size.get())
-                                    } else {
-                                        format!("{:.2}", sw)
-                                    }
-                                })
-                            />
-                        })}
                     </div>
-                    // Fade tail: below the divider line, icons scrolling up
-                    // fade out as they approach the sticky block.
-                    <div class="h-6 bg-gradient-to-b from-background to-transparent"></div>
-                </StickyTop>
+                    {move || mru_visible().then(|| view! {
+                        <MruStrip
+                            mru=mru_signal
+                            on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
+                            class="flex flex-row items-center gap-3 pb-3 min-h-[3.5rem] border-b border-primary/10"
+                            header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
+                            items_class="flex flex-row flex-nowrap gap-2 overflow-x-auto"
+                            item_class=ICON_STYLE
+                            icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
+                            icon_stroke=Signal::derive(move || icon_color.get().unwrap_or_else(|| "currentColor".to_string()))
+                            icon_stroke_width=Signal::derive(move || {
+                                let sw = icon_stroke_width.get();
+                                if absolute_stroke.get() {
+                                    format!("{:.2}", sw * 24.0 / icon_size.get())
+                                } else {
+                                    format!("{:.2}", sw)
+                                }
+                            })
+                        />
+                    })}
+                    // Fade tail: where icons would emerge from beneath the
+                    // sticky header. Inert visual cue.
+                    <div class="h-6 bg-gradient-to-b from-background to-transparent pointer-events-none"></div>
+                </div>
 
                 // aria-live announcer for screen readers when the filter changes
                 <div class="sr-only" aria-live="polite" aria-atomic="true">
@@ -260,55 +249,52 @@ pub fn IconsView() -> impl IntoView {
                     }}
                 </div>
 
-                <IconGrid
-                    filter=icon_filter
-                    selected=selected_icon
-                    on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
-                    class="flex flex-row flex-wrap gap-2 pb-12"
-                    cell_class=ICON_STYLE
-                    cell_selected_class=ICON_STYLE_SELECTED
-                    tooltip_class=TOOLTIP_STYLE
-                    icon_size=move || format!("{}", icon_size.get() as u32)
-                    icon_stroke=move || icon_color.get().unwrap_or_else(|| "currentColor".to_string())
-                    icon_stroke_width=move || {
-                        let sw = icon_stroke_width.get();
-                        if absolute_stroke.get() {
-                            format!("{:.2}", sw * 24.0 / icon_size.get())
+                // Body row: icon grid (scrolls) + detail drawer (squeezes
+                // the grid horizontally when open; sits below the sticky
+                // header rather than overlaying it).
+                <div class="flex flex-row flex-1 min-h-0 -mt-6">
+                    <div class="flex-1 min-w-0 overflow-y-auto overflow-x-hidden pt-6">
+                        <IconGrid
+                            filter=icon_filter
+                            selected=selected_icon
+                            on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
+                            class="flex flex-row flex-wrap gap-2 pb-12"
+                            cell_class=ICON_STYLE
+                            cell_selected_class=ICON_STYLE_SELECTED
+                            tooltip_class=TOOLTIP_STYLE
+                            icon_size=move || format!("{}", icon_size.get() as u32)
+                            icon_stroke=move || icon_color.get().unwrap_or_else(|| "currentColor".to_string())
+                            icon_stroke_width=move || {
+                                let sw = icon_stroke_width.get();
+                                if absolute_stroke.get() {
+                                    format!("{:.2}", sw * 24.0 / icon_size.get())
+                                } else {
+                                    format!("{:.2}", sw)
+                                }
+                            }
+                        />
+                    </div>
+                    <div class=move || {
+                        let open = drawer_open();
+                        if open {
+                            "flex-none w-[26rem] overflow-y-auto bg-secondary \
+                             border-l border-primary/15 transition-[width] duration-200"
                         } else {
-                            format!("{:.2}", sw)
+                            "flex-none w-0 overflow-hidden \
+                             border-l border-transparent transition-[width] duration-200"
                         }
-                    }
-                />
+                    }>
+                        <IconDetailDrawer
+                            selected_icon=selected_icon
+                            set_selected_icon=set_selected_icon
+                        />
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        // ----- right detail drawer (overlays the main column instead of
-        // squeezing it; rendering as fixed avoids forcing MainMenu / Hero
-        // to reflow when the drawer opens) -----
-        <div class=move || {
-            let open = drawer_open();
-            if open {
-                "fixed top-0 right-0 bottom-0 w-[26rem] overflow-y-auto \
-                 bg-secondary border-l border-primary/15 z-40 \
-                 translate-x-0 transition-transform duration-200 ease-out"
-            } else {
-                "fixed top-0 right-0 bottom-0 w-[26rem] overflow-y-auto \
-                 bg-secondary border-l border-primary/15 z-40 \
-                 translate-x-full transition-transform duration-200 ease-out \
-                 pointer-events-none"
-            }
-        }>
-            <IconDetailDrawer
-                selected_icon=selected_icon
-                set_selected_icon=set_selected_icon
-            />
-        </div>
-
         <AnimationStyles/>
-        {move || help_open.get().then(|| view! {
-            <KeyboardHelp on_close=Callback::new(move |_| set_help_open.set(false)) />
-        })}
     }
 }
 
@@ -537,68 +523,6 @@ fn Hero() -> impl IntoView {
     }
 }
 
-#[component]
-fn KeyboardHelp(on_close: Callback<()>) -> impl IntoView {
-    let rows: [(&str, &str); 8] = [
-        ("/", "Focus search"),
-        ("?", "Toggle this help"),
-        ("Arrow keys", "Move focus across the grid"),
-        ("Home / End", "Jump to first / last icon"),
-        ("Page Up / Down", "Move five rows at a time"),
-        ("Enter", "Open the focused icon's detail"),
-        ("Esc", "Close the detail drawer or this help"),
-        ("Click", "Select an icon (or open it from Recent)"),
-    ];
-    view! {
-        <div
-            class="fixed inset-0 z-[60] bg-primary/40 flex items-center justify-center p-6"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Keyboard shortcuts"
-            on:click=move |_| on_close.run(())
-        >
-            <div
-                class="bg-background border border-primary/15 rounded-lg shadow-xl
-                       w-full max-w-md p-6"
-                on:click=move |ev: web_sys::MouseEvent| ev.stop_propagation()
-            >
-                <div class="flex flex-row items-start justify-between mb-4">
-                    <div>
-                        <div class="text-[0.6875rem] uppercase tracking-wider text-highlight font-medium">
-                            "Keyboard"
-                        </div>
-                        <h2 class="text-lg font-semibold text-primary mt-0.5">
-                            "Shortcuts"
-                        </h2>
-                    </div>
-                    <button
-                        class="flex-none p-1 text-primary/50 hover:text-primary"
-                        aria-label="Close shortcuts"
-                        on:click=move |_| on_close.run(())
-                    >
-                        <Icon glyph=LucideGlyph::X size="18"/>
-                    </button>
-                </div>
-                <div class="flex flex-col gap-2">
-                    {rows.iter().map(|(keys, label)| view! {
-                        <div class="flex flex-row items-center justify-between gap-3 py-1
-                                    border-b border-primary/5 last:border-0">
-                            <span class="text-sm text-primary/70">{*label}</span>
-                            <kbd class="px-2 py-1 text-[0.6875rem] font-mono text-primary/70
-                                        bg-primary/5 border border-primary/15 rounded">
-                                {*keys}
-                            </kbd>
-                        </div>
-                    }).collect::<Vec<_>>()}
-                </div>
-                <p class="mt-4 text-xs text-primary/45">
-                    "Tip: shortcuts are inactive while you're typing in an input."
-                </p>
-            </div>
-        </div>
-    }
-}
-
 /// Returns up to `RELATED_LIMIT` icons that share at least one tag with `icon`.
 fn related_icons(icon: LucideGlyph) -> Vec<LucideGlyph> {
     let tags: Vec<&str> = icon.tags().collect();
@@ -691,9 +615,9 @@ fn IconDetailDrawer(
                     </div>
 
                     // preview
-                    <div class="w-full aspect-square flex items-center justify-center
+                    <div class="w-full h-56 flex items-center justify-center
                                 rounded-xl bg-background border border-primary/10"
-                         style="background-image: linear-gradient(to right, rgba(128,128,128,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.12) 1px, transparent 1px); background-size: calc(100% / 24) calc(100% / 24); background-position: 0 0;">
+                         style="background-image: linear-gradient(to right, rgba(128,128,128,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.12) 1px, transparent 1px); background-size: calc(14rem / 24) calc(14rem / 24); background-position: center;">
                         <div class=move || {
                             let idx = anim_type.get();
                             if idx >= 2 { format!("text-primary {}", ANIM_TYPES[idx].1) } else { "text-primary".to_string() }
@@ -703,9 +627,9 @@ fn IconDetailDrawer(
                                 if anim_type.get() == 1 {
                                     let d = draw_duration.get();
                                     let dl = draw_delay.get();
-                                    view! { <DrawIcon glyph=icon size="180" stroke_width="2" duration_ms=d delay_ms=dl /> }.into_any()
+                                    view! { <DrawIcon glyph=icon size="140" stroke_width="2" duration_ms=d delay_ms=dl /> }.into_any()
                                 } else {
-                                    view! { <Icon glyph=icon size="180" stroke_width="2" /> }.into_any()
+                                    view! { <Icon glyph=icon size="140" stroke_width="2" /> }.into_any()
                                 }
                             }}
                         </div>

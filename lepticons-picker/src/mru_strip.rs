@@ -46,6 +46,12 @@ pub fn MruStrip(
     /// styles.
     #[prop(into, optional)]
     item_class: Option<TextProp>,
+    /// CSS class for the inner `role="list"` container that holds the
+    /// cells. When set, suppresses the default `flex flex-wrap` styling so
+    /// the caller can opt for `flex-nowrap overflow-x-auto`, a CSS grid,
+    /// etc.
+    #[prop(into, optional)]
+    items_class: Option<TextProp>,
     /// Header text (default: "Recently used"). Use `show_header=false` to hide.
     #[prop(into, optional)]
     header_text: Option<TextProp>,
@@ -74,6 +80,7 @@ pub fn MruStrip(
     let has_class = class.is_some();
     let has_header_class = header_class.is_some();
     let has_item_class = item_class.is_some();
+    let has_items_class = items_class.is_some();
 
     view! {
         <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
@@ -99,7 +106,13 @@ pub fn MruStrip(
                     </div>
                 }
             })}
-            <div role="list" style="display:flex;flex-wrap:wrap;gap:0.25rem">
+            <div role="list"
+                 class=move || items_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+                 style=move || if has_items_class {
+                     ""
+                 } else {
+                     "display:flex;flex-wrap:wrap;gap:0.25rem"
+                 }>
                 {move || mru.get().into_iter().map(|icon| {
                     let label = icon.kebab_name();
                     let item_class_inner = item_class.clone();

@@ -336,17 +336,13 @@ fn IconCell(
     has_tooltip_class: bool,
     tooltip_class: Option<TextProp>,
 ) -> impl IntoView {
-    let on_click = move |ev: web_sys::MouseEvent| {
+    let on_click = move |_: web_sys::MouseEvent| {
         focused.set(Some(icon));
         on_select.run(icon);
-        if let Some(target) = ev.current_target() {
-            if let Ok(el) = target.dyn_into::<web_sys::Element>() {
-                let opts = web_sys::ScrollIntoViewOptions::new();
-                opts.set_behavior(web_sys::ScrollBehavior::Smooth);
-                opts.set_block(web_sys::ScrollLogicalPosition::Center);
-                el.scroll_into_view_with_scroll_into_view_options(&opts);
-            }
-        }
+        // No scrollIntoView on click: the user just clicked the cell, so
+        // it's already in view by definition. Auto-scrolling here would
+        // jump the grid (e.g. centering the cell) and feel like the page
+        // lost its top portion.
     };
 
     let on_focus = move |_: web_sys::FocusEvent| {

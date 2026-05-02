@@ -1,6 +1,8 @@
 use chrono::Datelike;
 use chrono::Utc;
+use leptos::ev::keydown;
 use leptos::prelude::*;
+use leptos::wasm_bindgen::JsCast;
 use leptos_meta::*;
 use leptos_router::components::*;
 use leptos_router::path;
@@ -8,7 +10,7 @@ use leptos_router::path;
 use components_view::*;
 use icons_view::*;
 
-use crate::components::{DarkMode, StickyTop};
+use crate::components::{DarkMode, HelpOpen, KeyboardHelp, StickyTop};
 use crate::menu::*;
 
 mod components;
@@ -25,6 +27,30 @@ fn main() {
 #[component]
 fn App() -> impl IntoView {
     DarkMode::provide();
+    let help = HelpOpen::provide();
+
+    // Global window keydown for `?` (toggle the shortcut overlay) and Esc
+    // (close it when open). Skipped while the user is typing in an input.
+    window_event_listener(keydown, move |ev: web_sys::KeyboardEvent| {
+        let in_input = ev
+            .target()
+            .and_then(|t| t.dyn_into::<web_sys::HtmlElement>().ok())
+            .map(|el| {
+                let tag = el.tag_name();
+                tag.eq_ignore_ascii_case("input") || tag.eq_ignore_ascii_case("textarea")
+            })
+            .unwrap_or(false);
+        match ev.key().as_str() {
+            "?" if !in_input => {
+                ev.prevent_default();
+                help.write.update(|b| *b = !*b);
+            }
+            "Escape" if help.read.get_untracked() => {
+                help.write.set(false);
+            }
+            _ => {}
+        }
+    });
 
     view! {
         <Router>
@@ -35,6 +61,9 @@ fn App() -> impl IntoView {
                 <Route path=path!("/license") view=LicenseView/>
             </Routes>
         </Router>
+        {move || help.read.get().then(|| view! {
+            <KeyboardHelp on_close=Callback::new(move |_| help.write.set(false))/>
+        })}
     }
 }
 
