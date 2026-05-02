@@ -47,9 +47,12 @@ fn NotFoundView() -> impl IntoView {
 
 #[component]
 fn CommonHeader() -> impl IntoView {
+    // items-start keeps MainMenu top-aligned to match the home page (where the
+    // menu sits at `mt-5` of the right pane). Bottom-aligning the menu against
+    // the taller logo+version block makes navigation visually jump between pages.
     view! {
-        <div class="flex flex-row items-end">
-            <div class="flex flex-col pr-4 py-(-5)">
+        <div class="flex flex-row items-start">
+            <div class="flex flex-col pr-4">
                 <img src="lepticons.png" class="w-48"/>
                 <div class="self-end pr-2 -mt-1">
                     <VersionLink/>
