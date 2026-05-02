@@ -32,24 +32,38 @@ See individual phase documents:
 - [Phase 2: IconPicker Crate](phase-2-picker.md) -- COMPLETE
 - [Phase 3: Demo App Refactor](phase-3-demo.md) -- COMPLETE
 - [Phase 4: Animations](phase-4-animations.md) -- COMPLETE
+- [Phase 5: Launch Foundation](phase-5-foundation.md) -- PLANNED (target `lepticons 0.11.0`)
+- [Phase 6: Picker Polish](phase-6-picker-polish.md) -- PLANNED (target `lepticons-picker 0.3.0`)
+- [Phase 7: Animations v2](phase-7-animations-v2.md) -- PLANNED (target `lepticons-animate 0.2.0`)
+- [Phase 8: Data Extraction](phase-8-data-extraction.md) -- PLANNED (architectural prep for multi-framework)
+- [Phase 9: Framework Adapters](phase-9-framework-adapters.md) -- SPECULATIVE (gated on user signal)
 
 ## Current Versions
 
 | Crate | Version |
 |-------|---------|
-| `lepticons` | 0.10.0 |
-| `lepticons-picker` | 0.2.0 |
-| `lepticons-animate` | 0.1.1 |
+| `lepticons` | 0.10.1 |
+| `lepticons-picker` | 0.2.1 |
+| `lepticons-animate` | 0.1.2 |
 
 ## Discoverability
 
-Ship quality, then promote:
+Ship quality, then promote. See `phase-5-foundation.md` for the launch plan.
 
-1. PR to awesome-leptos (component libraries section)
-2. Announce in Leptos Discord #showcase when picker ships
-3. Blog post: "Building an Icon Picker in Leptos"
-4. crates.io keywords: `icon-picker`, `lucide` on picker crate
-5. README badges: crates.io version, docs.rs, demo link
+Done:
+1. PR to awesome-leptos (component libraries section) -- listed
+2. crates.io keywords: `icon-picker`, `lucide` on picker crate
+3. README badges: crates.io version, docs.rs, demo link
+4. Custom canonical domain: `lepticons.9bits.cc` (vercel.app 308s to it)
+
+Pending (Phase 5 launch):
+1. Leptos Discord `#showcase` post (day 0)
+2. r/rust showcase post (day 0, Tue/Wed ~10am ET, lead with DrawIcon gif)
+3. dev.to follow-up technique post (week 2-3, evergreen SEO)
+
+Skip:
+- Hacker News -- too unforgiving for library showcase posts
+- dev.to as primary launch venue -- audience misalignment (mostly JS/TS devs)
 
 ## Risk Assessment
 
