@@ -48,8 +48,13 @@ fn NotFoundView() -> impl IntoView {
 #[component]
 fn CommonHeader() -> impl IntoView {
     view! {
-        <div class="flex flex-row">
-            <img src="lepticons.png" class="w-48 pr-4 py-(-5)"/>
+        <div class="flex flex-row items-end">
+            <div class="flex flex-col pr-4 py-(-5)">
+                <img src="lepticons.png" class="w-48"/>
+                <div class="self-end pr-2 -mt-1">
+                    <VersionLink/>
+                </div>
+            </div>
             <MainMenu class="flex-auto justify-end text-primary"/>
         </div>
         <hr/>

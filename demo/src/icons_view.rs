@@ -76,9 +76,12 @@ pub fn IconsView() -> impl IntoView {
                 <StickyTop class="px-10 bg-gradient-to-b from-95% from-secondary to-100% to-transparent">
                     <div class="flex flex-col items-center gap-0 cursor-pointer">
                         <img src="lepticons.png" class="pt-5 w-48"/>
-                        <p class="text-primary text-xs pb-2 self-end" on:click=clear_filter >
-                           {format!("{} icons", icon_count)}
-                        </p>
+                        <div class="flex flex-row w-full justify-between pb-2 text-primary text-xs items-center">
+                            <span on:click=clear_filter>
+                                {format!("{} icons", icon_count)}
+                            </span>
+                            <VersionLink/>
+                        </div>
                    </div>
                    <hr/>
                 </StickyTop>

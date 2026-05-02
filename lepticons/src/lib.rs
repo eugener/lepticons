@@ -24,6 +24,9 @@ pub use lucide_icon_impl::Glyph;
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 
+/// Version of the `lepticons` crate, taken from `Cargo.toml` at build time.
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+
 /// Default icon size in pixels.
 pub const DEFAULT_SIZE: &str = "24";
 /// Default SVG fill color.
