@@ -6,6 +6,7 @@ use leptos_router::components::*;
 use leptos_router::path;
 
 use icons_view::*;
+use picker_view::*;
 
 use crate::components::DarkMode;
 use crate::menu::*;
@@ -14,6 +15,7 @@ mod components;
 mod icons_view;
 mod local_storage;
 mod menu;
+mod picker_view;
 
 fn main() {
     provide_meta_context();
@@ -29,7 +31,8 @@ fn App() -> impl IntoView {
             <Routes fallback=|| view! { <NotFoundView/> }>
                 <Route path=path!("/") view=IconsView/>
                 <Route path=path!("/icons/:name") view=IconPermalinkView/>
-<Route path=path!("/license") view=LicenseView/>
+                <Route path=path!("/picker") view=PickerView/>
+                <Route path=path!("/license") view=LicenseView/>
             </Routes>
         </Router>
     }
@@ -46,7 +49,7 @@ fn NotFoundView() -> impl IntoView {
 }
 
 #[component]
-fn CommonHeader() -> impl IntoView {
+pub fn CommonHeader() -> impl IntoView {
     // items-start keeps MainMenu top-aligned to match the home page (where the
     // menu sits at `mt-5` of the right pane). Bottom-aligning the menu against
     // the taller logo+version block makes navigation visually jump between pages.
