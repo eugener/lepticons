@@ -10,11 +10,25 @@ const GITHUB_SVG: &str = r#"<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.4
 
 #[component]
 pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
+    let versions_title = format!(
+        "lepticons {} · lepticons-picker {} · lepticons-animate {}",
+        lepticons::VERSION,
+        lepticons_picker::VERSION,
+        lepticons_animate::VERSION,
+    );
+    let lepticons_label = format!("v{}", lepticons::VERSION);
+
     view! {
         <div class={format!("flex flex-row gap-4 items-center {}", class)}>
             <a href="/">"Icons"</a>
             <a href="/license">"License"</a>
             <ThemeToggle/>
+            <a href="https://crates.io/crates/lepticons"
+               target={"_blank".to_string()}
+               title=versions_title
+               class="text-sm opacity-60 hover:opacity-100">
+                {lepticons_label}
+            </a>
             <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}
                class="flex-none w-6 h-6 cursor-pointer">

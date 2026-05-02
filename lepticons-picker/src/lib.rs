@@ -32,3 +32,6 @@ pub use icon_grid::IconGrid;
 pub use category_filter::CategoryFilter;
 pub use icon_picker::IconPicker;
 pub use icon_picker_popover::IconPickerPopover;
+
+/// Version of the `lepticons-picker` crate, taken from `Cargo.toml` at build time.
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");

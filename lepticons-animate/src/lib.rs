@@ -22,3 +22,6 @@ mod easing;
 pub use draw_icon::DrawIcon;
 pub use css_animations::AnimationStyles;
 pub use easing::Easing;
+
+/// Version of the `lepticons-animate` crate, taken from `Cargo.toml` at build time.
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");
