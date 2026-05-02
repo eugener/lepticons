@@ -89,9 +89,9 @@ fn DemoRow(
                     <IconPickerPopover
                         selected=popover_selected
                         on_select=Callback::new(move |g| set_popover_selected.set(Some(g)))
-                        width="540px"
-                        height="440px"
-                        class="resize-x overflow-hidden min-w-[400px] max-w-[900px]
+                        width="780px"
+                        height="480px"
+                        class="resize-x overflow-hidden min-w-[480px] max-w-[1100px]
                                border border-border bg-card rounded-lg"
                     >
                         <PopoverTrigger selected=popover_selected.into()/>
@@ -135,7 +135,7 @@ fn DemoCard(
 fn PopoverTrigger(selected: Signal<Option<LucideGlyph>>) -> impl IntoView {
     view! {
         <button class="flex items-center justify-between gap-3 px-4 py-2.5
-                       w-[540px] max-w-full
+                       w-[780px] max-w-full
                        bg-secondary border border-border rounded-md
                        text-primary hover:border-highlight/60 transition-colors">
             <div class="flex items-center gap-3 min-w-0">
