@@ -9,7 +9,7 @@ use leptos_router::hooks::use_params_map;
 use lepticons::LucideGlyph;
 use lepticons::*;
 use lepticons_animate::{AnimationStyles, DrawIcon};
-use lepticons_picker::CategoryFilter;
+use lepticons_picker::{CategoryFilter, IconGrid};
 use crate::components::*;
 use crate::menu::*;
 
@@ -123,14 +123,24 @@ pub fn IconsView() -> impl IntoView {
                         <Icon glyph=LucideGlyph::X class="cursor-pointer" on:click=clear_filter />
                     </div>
                 </StickyTop>
-                <IconTable
-                    icon_filter=debounced_filter
-                    selected_icon=selected_icon
-                    set_selected_icon=set_selected_icon
-                    icon_color=icon_color
-                    icon_stroke_width=icon_stroke_width
-                    icon_size=icon_size
-                    absolute_stroke=absolute_stroke
+                <IconGrid
+                    filter=debounced_filter
+                    selected=selected_icon
+                    on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
+                    class="flex flex-row flex-wrap gap-2"
+                    cell_class=ICON_STYLE
+                    cell_selected_class=ICON_STYLE_SELECTED
+                    tooltip_class=TOOLTIP_STYLE
+                    icon_size=move || format!("{}", icon_size.get() as u32)
+                    icon_stroke=move || icon_color.get().unwrap_or_else(|| "currentColor".to_string())
+                    icon_stroke_width=move || {
+                        let sw = icon_stroke_width.get();
+                        if absolute_stroke.get() {
+                            format!("{:.2}", sw * 24.0 / icon_size.get())
+                        } else {
+                            format!("{:.2}", sw)
+                        }
+                    }
                 />
             </div>
         </div>
@@ -334,84 +344,12 @@ fn Customizer(
     }
 }
 
-#[component]
-fn IconTable(
-    icon_filter: ReadSignal<String>,
-    selected_icon: ReadSignal<Option<LucideGlyph>>,
-    set_selected_icon: WriteSignal<Option<LucideGlyph>>,
-    icon_color: ReadSignal<Option<String>>,
-    icon_stroke_width: ReadSignal<f64>,
-    icon_size: ReadSignal<f64>,
-    absolute_stroke: ReadSignal<bool>,
-) -> impl IntoView {
-    let filtered_icons = move || LucideGlyph::find(&icon_filter.get());
-
-    view! {
-        <div class="flex flex-row flex-wrap gap-2">
-        {
-            move || filtered_icons().iter().map( |icon| {
-                let ic = *icon;
-                let is_selected = Signal::derive(move || selected_icon.get() == Some(ic));
-                view!{ <IconCell icon=ic selected=is_selected
-                    icon_color=icon_color
-                    icon_stroke_width=icon_stroke_width
-                    icon_size=icon_size
-                    absolute_stroke=absolute_stroke
-                    on:click=move |ev: web_sys::MouseEvent| {
-                    set_selected_icon.set(Some(ic));
-                    if let Some(target) = ev.current_target() {
-                        if let Ok(el) = target.dyn_into::<web_sys::Element>() {
-                            let opts = web_sys::ScrollIntoViewOptions::new();
-                            opts.set_behavior(web_sys::ScrollBehavior::Smooth);
-                            opts.set_block(web_sys::ScrollLogicalPosition::Center);
-                            el.scroll_into_view_with_scroll_into_view_options(&opts);
-                        }
-                    }
-                } /> }
-            }).collect::<Vec<_>>()
-        }
-        </div>
-    }
-}
-
+// Style strings forwarded to <IconGrid> via cell_class / cell_selected_class /
+// tooltip_class. Kept as `pub(crate)`-style constants so the picker conversion
+// preserves byte-identical Tailwind output for cells and tooltips.
 const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-primary/20 border border-transparent cursor-pointer";
 const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-highlight/80 cursor-pointer";
 const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-highlight/90 border border-highlight/90 rounded whitespace-nowrap";
-
-#[component]
-fn IconCell(
-    icon: LucideGlyph,
-    selected: Signal<bool>,
-    icon_color: ReadSignal<Option<String>>,
-    icon_stroke_width: ReadSignal<f64>,
-    icon_size: ReadSignal<f64>,
-    absolute_stroke: ReadSignal<bool>,
-) -> impl IntoView {
-    let style = move || if selected.get() { ICON_STYLE_SELECTED } else { ICON_STYLE };
-    let stroke_w = move || {
-        let sw = icon_stroke_width.get();
-        if absolute_stroke.get() {
-            let size = icon_size.get();
-            format!("{:.2}", sw * 24.0 / size)
-        } else {
-            format!("{:.2}", sw)
-        }
-    };
-    let size_str = move || format!("{}", icon_size.get() as u32);
-    let color = move || icon_color.get().unwrap_or_else(|| "currentColor".to_string());
-    view! {
-        <div class=style>
-            <Icon glyph=icon
-                size=size_str
-                stroke=color
-                stroke_width=stroke_w
-            />
-            <div class=TOOLTIP_STYLE >
-               {icon.name()}
-            </div>
-        </div>
-    }
-}
 
 /// Formats an enum name like "BatteryCharging" to kebab-case "battery-charging".
 fn display_name(icon: &LucideGlyph) -> String {

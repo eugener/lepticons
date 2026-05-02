@@ -40,20 +40,44 @@ pub fn IconGrid(
     /// Icon size in the grid cells (default: "24").
     #[prop(into, optional)]
     icon_size: Option<TextProp>,
+    /// Stroke color for icons in the grid (default: "currentColor").
+    #[prop(into, optional)]
+    icon_stroke: Option<TextProp>,
+    /// Stroke width for icons in the grid (default: "1.5").
+    #[prop(into, optional)]
+    icon_stroke_width: Option<TextProp>,
+    /// Fill color for icons in the grid (default: "none").
+    #[prop(into, optional)]
+    icon_fill: Option<TextProp>,
+    /// CSS class for the per-cell tooltip. When provided, replaces the default
+    /// inline tooltip style.
+    #[prop(into, optional)]
+    tooltip_class: Option<TextProp>,
     /// Whether to show icon name tooltips on hover.
     #[prop(default = true)]
     tooltips: bool,
 ) -> impl IntoView {
     let icon_size = icon_size.unwrap_or_else(|| "24".into());
+    let icon_stroke = icon_stroke.unwrap_or_else(|| "currentColor".into());
+    let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| "1.5".into());
+    let icon_fill = icon_fill.unwrap_or_else(|| "none".into());
 
     let grid_style = "display:flex;flex-wrap:wrap;gap:0.5rem";
 
     let has_class = class.is_some();
     let has_cell_class = cell_class.is_some();
     let has_cell_selected_class = cell_selected_class.is_some();
+    let has_tooltip_class = tooltip_class.is_some();
+
+    // Default tooltip style relies on a hover rule. Only inject when the caller
+    // is using the default tooltip; when a custom tooltip_class is provided the
+    // caller controls hover behavior themselves.
+    let inject_default_tooltip_style = !has_tooltip_class && tooltips;
 
     view! {
-        <style>".lp-cell:hover .lp-tooltip{opacity:1!important}"</style>
+        {inject_default_tooltip_style.then(|| view! {
+            <style>".lp-cell:hover .lp-tooltip{opacity:1!important}"</style>
+        })}
         <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
              style=move || if has_class { "" } else { grid_style }>
         {
@@ -62,17 +86,25 @@ pub fn IconGrid(
                 filtered.into_iter().map(|icon| {
                     let is_selected = Signal::derive(move || selected.get() == Some(icon));
                     let size = icon_size.clone();
+                    let stroke = icon_stroke.clone();
+                    let stroke_width = icon_stroke_width.clone();
+                    let fill = icon_fill.clone();
                     view! {
                         <IconCell
                             icon=icon
                             selected=is_selected
                             on_select=on_select
                             size=size
+                            stroke=stroke
+                            stroke_width=stroke_width
+                            fill=fill
                             tooltips=tooltips
                             has_cell_class=has_cell_class
                             has_cell_selected_class=has_cell_selected_class
                             cell_class=cell_class.clone()
                             cell_selected_class=cell_selected_class.clone()
+                            has_tooltip_class=has_tooltip_class
+                            tooltip_class=tooltip_class.clone()
                         />
                     }
                 }).collect::<Vec<_>>()
@@ -111,16 +143,22 @@ const DEFAULT_TOOLTIP_STYLE: &str = "\
     pointer-events:none";
 
 #[component]
+#[allow(clippy::too_many_arguments)]
 fn IconCell(
     icon: LucideGlyph,
     selected: Signal<bool>,
     on_select: Callback<LucideGlyph>,
     size: TextProp,
+    stroke: TextProp,
+    stroke_width: TextProp,
+    fill: TextProp,
     tooltips: bool,
     has_cell_class: bool,
     has_cell_selected_class: bool,
     cell_class: Option<TextProp>,
     cell_selected_class: Option<TextProp>,
+    has_tooltip_class: bool,
+    tooltip_class: Option<TextProp>,
 ) -> impl IntoView {
     let on_click = move |ev: web_sys::MouseEvent| {
         on_select.run(icon);
@@ -160,11 +198,27 @@ fn IconCell(
 
     view! {
         <div class=class_fn style=style_fn on:click=on_click>
-            <Icon glyph=icon size=move || size.get() />
+            <Icon glyph=icon
+                  size=move || size.get()
+                  stroke=move || stroke.get()
+                  stroke_width=move || stroke_width.get()
+                  fill=move || fill.get()
+            />
             {tooltips.then(|| {
                 let name = icon.name();
+                let tooltip_class = tooltip_class.clone();
+                let class_fn = move || {
+                    if has_tooltip_class {
+                        tooltip_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+                    } else {
+                        "lp-tooltip".to_string()
+                    }
+                };
+                let style_fn = move || {
+                    if has_tooltip_class { "" } else { DEFAULT_TOOLTIP_STYLE }
+                };
                 view! {
-                    <div style=DEFAULT_TOOLTIP_STYLE class="lp-tooltip">{name}</div>
+                    <div class=class_fn style=style_fn>{name}</div>
                 }
             })}
         </div>
