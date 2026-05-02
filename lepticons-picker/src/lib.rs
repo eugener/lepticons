@@ -26,6 +26,7 @@ mod icon_grid;
 mod category_filter;
 mod icon_picker;
 mod icon_picker_popover;
+mod mru;
 
 pub use icon_search::IconSearch;
 pub use icon_grid::IconGrid;

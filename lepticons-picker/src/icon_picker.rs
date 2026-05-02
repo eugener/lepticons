@@ -1,16 +1,21 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 use leptos::wasm_bindgen::JsCast;
-use lepticons::LucideGlyph;
+use lepticons::{Icon, LucideGlyph};
 
+use crate::mru;
 use crate::{CategoryFilter, IconGrid, IconSearch};
+
+const DEFAULT_MRU_STORAGE_KEY: &str = "lepticons-picker-mru";
 
 /// Inline icon picker with search, category filter, and selectable grid.
 ///
 /// Drop this into a form, settings panel, or editor to let users pick an icon.
 ///
 /// Pressing `/` while focus is anywhere inside the picker (other than the
-/// search input itself) jumps focus to the search field.
+/// search input itself) jumps focus to the search field. Recently selected
+/// icons are persisted to `localStorage` and surfaced as a "Recently used"
+/// strip above the grid (opt out via `mru_enabled=false`).
 ///
 /// # Example
 ///
@@ -34,6 +39,14 @@ pub fn IconPicker(
     /// Whether to show the search bar.
     #[prop(default = true)]
     show_search: bool,
+    /// Whether to show the "Recently used" strip and persist selections to
+    /// `localStorage`.
+    #[prop(default = true)]
+    mru_enabled: bool,
+    /// `localStorage` key used to persist the MRU list. Override to isolate
+    /// the MRU state between multiple picker instances.
+    #[prop(default = DEFAULT_MRU_STORAGE_KEY)]
+    mru_storage_key: &'static str,
     /// CSS class for the outer container.
     #[prop(into, optional)]
     class: Option<TextProp>,
@@ -44,6 +57,20 @@ pub fn IconPicker(
     let max_height = max_height.unwrap_or_else(|| "400px".into());
     let (filter, set_filter) = signal(String::new());
     let search_input_ref: NodeRef<leptos::html::Input> = NodeRef::new();
+
+    let mru_signal: RwSignal<Vec<LucideGlyph>> = RwSignal::new(if mru_enabled {
+        mru::load(mru_storage_key)
+    } else {
+        Vec::new()
+    });
+
+    let wrapped_on_select = Callback::new(move |icon: LucideGlyph| {
+        if mru_enabled {
+            mru_signal.update(|v| mru::push_into(v, icon));
+            mru::save(mru_storage_key, &mru_signal.get_untracked());
+        }
+        on_select.run(icon);
+    });
 
     let on_category = Callback::new(move |cat: String| {
         set_filter.set(cat);
@@ -94,6 +121,9 @@ pub fn IconPicker(
                     />
                 </div>
             })}
+            {move || (mru_enabled && !mru_signal.with(Vec::is_empty)).then(|| view! {
+                <MruStrip mru=mru_signal on_select=wrapped_on_select />
+            })}
             <div style="display:flex;flex:1;overflow:hidden">
                 {show_categories.then(|| view! {
                     <div style="width:10rem;flex-shrink:0;overflow-y:auto;\
@@ -109,9 +139,50 @@ pub fn IconPicker(
                     <IconGrid
                         filter=filter
                         selected=selected
-                        on_select=on_select
+                        on_select=wrapped_on_select
                     />
                 </div>
+            </div>
+        </div>
+    }
+}
+
+#[component]
+fn MruStrip(
+    mru: RwSignal<Vec<LucideGlyph>>,
+    on_select: Callback<LucideGlyph>,
+) -> impl IntoView {
+    view! {
+        <div style="padding:0.25rem 0.75rem 0.5rem;\
+                    border-bottom:1px solid var(--lp-border,#e5e5e5)">
+            <div style="font-size:0.6875rem;font-weight:500;letter-spacing:0.04em;\
+                        text-transform:uppercase;\
+                        color:var(--lp-text-muted,#999);\
+                        margin-bottom:0.25rem">
+                "Recently used"
+            </div>
+            <div role="list" style="display:flex;flex-wrap:wrap;gap:0.25rem">
+                {move || mru.get().into_iter().map(|icon| {
+                    let label = icon.kebab_name();
+                    view! {
+                        <div role="listitem"
+                             aria-label=label.clone()
+                             title=label
+                             style="padding:0.375rem;border-radius:var(--lp-radius,0.5rem);\
+                                    background:var(--lp-bg,#f5f5f5);\
+                                    cursor:pointer;display:flex"
+                             tabindex="0"
+                             on:click=move |_| on_select.run(icon)
+                             on:keydown=move |ev: web_sys::KeyboardEvent| {
+                                 if ev.key() == "Enter" || ev.key() == " " {
+                                     ev.prevent_default();
+                                     on_select.run(icon);
+                                 }
+                             }>
+                            <Icon glyph=icon size="20" />
+                        </div>
+                    }
+                }).collect::<Vec<_>>()}
             </div>
         </div>
     }
