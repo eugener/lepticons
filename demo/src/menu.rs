@@ -51,14 +51,14 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
                    class="flex-none w-6 h-6 cursor-pointer text-primary opacity-80 hover:opacity-100"
                    title="API docs on docs.rs"
                    aria-label="API docs on docs.rs">
-                    <Icon glyph=LucideGlyph::BookOpen size="24" stroke_width="2.25" />
+                    <Icon glyph=LucideGlyph::BookOpen size="24" stroke_width="2" />
                 </a>
                 <a href="https://crates.io/crates/lepticons"
                    target={"_blank".to_string()}
                    class="flex-none w-6 h-6 cursor-pointer text-primary opacity-80 hover:opacity-100"
                    title="lepticons on crates.io"
                    aria-label="lepticons on crates.io">
-                    <Icon glyph=LucideGlyph::Package size="24" stroke_width="2.25" />
+                    <Icon glyph=LucideGlyph::Package size="24" stroke_width="2" />
                 </a>
                 <a href="https://github.com/eugener/lepticons"
                    target={"_blank".to_string()}
