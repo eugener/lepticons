@@ -3,6 +3,35 @@ use lepticons::CustomIcon;
 
 use crate::components::*;
 
+/// Small "vX.Y.Z" link to crates.io with a styled hover tooltip listing
+/// all three crate versions on separate lines.
+#[component]
+pub fn VersionLink() -> impl IntoView {
+    view! {
+        <div class="relative group">
+            <a href="https://crates.io/crates/lepticons"
+               target={"_blank".to_string()}
+               class="text-primary text-xs opacity-60 hover:opacity-100">
+                {format!("v{}", lepticons::VERSION)}
+            </a>
+            <div class="hidden group-hover:flex absolute right-0 top-full mt-2 z-50 flex-col gap-0.5 bg-secondary border border-primary/20 rounded-md px-3 py-2 text-xs text-primary whitespace-nowrap shadow-lg">
+                <div class="flex flex-row justify-between gap-6">
+                    <span class="opacity-60">"lepticons"</span>
+                    <span>{lepticons::VERSION}</span>
+                </div>
+                <div class="flex flex-row justify-between gap-6">
+                    <span class="opacity-60">"lepticons-picker"</span>
+                    <span>{lepticons_picker::VERSION}</span>
+                </div>
+                <div class="flex flex-row justify-between gap-6">
+                    <span class="opacity-60">"lepticons-animate"</span>
+                    <span>{lepticons_animate::VERSION}</span>
+                </div>
+            </div>
+        </div>
+    }
+}
+
 // Lucide dropped brand logos in v1 (trademark constraints, design-consistency rules);
 // see https://github.com/lucide-icons/lucide/blob/main/BRAND_LOGOS_STATEMENT.md.
 // Inline SVG sourced from Simple Icons, Lucide's recommended brand-logo alternative.
@@ -10,25 +39,11 @@ const GITHUB_SVG: &str = r#"<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.4
 
 #[component]
 pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
-    let versions_title = format!(
-        "lepticons {} · lepticons-picker {} · lepticons-animate {}",
-        lepticons::VERSION,
-        lepticons_picker::VERSION,
-        lepticons_animate::VERSION,
-    );
-    let lepticons_label = format!("v{}", lepticons::VERSION);
-
     view! {
         <div class={format!("flex flex-row gap-4 items-center {}", class)}>
             <a href="/">"Icons"</a>
             <a href="/license">"License"</a>
             <ThemeToggle/>
-            <a href="https://crates.io/crates/lepticons"
-               target={"_blank".to_string()}
-               title=versions_title
-               class="text-sm opacity-60 hover:opacity-100">
-                {lepticons_label}
-            </a>
             <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}
                class="flex-none w-6 h-6 cursor-pointer">
