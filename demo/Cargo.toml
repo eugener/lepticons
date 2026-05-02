@@ -18,6 +18,7 @@ web-sys = { version = "0.3", features = [
     "Document", "HtmlElement", "HtmlAnchorElement", "HtmlCanvasElement",
     "HtmlImageElement", "CanvasRenderingContext2d", "Blob", "BlobPropertyBag",
     "Url", "ScrollIntoViewOptions", "ScrollBehavior", "ScrollLogicalPosition",
+    "Performance",
 ] }
 chrono = { version = "0.4", default-features = false, features = ["wasmbind", "clock"] }
 
