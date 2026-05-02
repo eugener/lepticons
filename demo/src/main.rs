@@ -95,7 +95,7 @@ fn LicenseView() -> impl IntoView {
     let copyright = format!("Copyright (c) 2022-{} Eugene Ryzhikov", year);
 
     view! {
-            <div class="flex flex-col h-screen w-screen py-5 px-10">
+            <div class="flex flex-col h-screen w-screen py-5 px-10 overflow-y-auto">
                 <CommonHeader/>
                 <div class="mx-40">
 

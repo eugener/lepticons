@@ -109,6 +109,14 @@
         scrollbar-color: hsl(var(--primary) / 0.18) transparent;
     }
 
+    /* Reserve scrollbar gutter on every scroll container so that pages with
+       no overflow share the same right-edge as pages with overflow. Without
+       this, the menu's right edge jumps by ~6px between home and license. */
+    [class*="overflow-y-auto"],
+    [class*="overflow-auto"] {
+        scrollbar-gutter: stable;
+    }
+
     input[type="range"] {
         -webkit-appearance: none;
         appearance: none;
