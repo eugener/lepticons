@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use lepticons::CustomIcon;
 
 use crate::components::*;
 
@@ -17,9 +18,12 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <a href="https://github.com/eugener/lepticons"
                target={"_blank".to_string()}
                class="flex-none w-6 h-6 cursor-pointer">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                     class="w-6 h-6 fill-primary"
-                     inner_html=GITHUB_SVG />
+                <CustomIcon
+                    svg=GITHUB_SVG
+                    class="w-6 h-6 fill-primary"
+                    fill="currentColor"
+                    stroke="none"
+                />
             </a>
         </div>
     }

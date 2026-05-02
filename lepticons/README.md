@@ -106,8 +106,10 @@ so it can be used as a HashMap key, in BTreeSets, and passed around without clon
 
 ## Rendering Modes
 
-Lepticons works with all Leptos rendering modes (CSR, SSR, hydration).
-No additional feature flags needed -- the library is rendering-mode agnostic.
+Lepticons works with every Leptos rendering mode (CSR, SSR + hydration, static SSG, islands).
+No feature flags, no DOM dependencies in the core `Icon` and `CustomIcon` components.
+
+See [docs/rendering-modes.md](https://github.com/eugener/lepticons/blob/develop/docs/rendering-modes.md) for setup recipes per mode and caveats for `DrawIcon` / `IconPicker` under SSR.
 
 ## Related Crates
 
