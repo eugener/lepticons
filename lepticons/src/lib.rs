@@ -65,6 +65,63 @@ pub fn Icon(
     /// SVG stroke width (default: `"1.5"`).
     #[prop(into, optional)] stroke_width: Option<TextProp>,
 ) -> impl IntoView {
+    let svg = TextProp::from(move || glyph.get().svg());
+    render_svg(svg, class, size, fill, stroke, stroke_width)
+}
+
+/// Renders an arbitrary inline SVG using the same prop API as [`Icon`].
+///
+/// Use for in-house icons, brand logos, or icons missing from Lucide.
+/// The `svg` prop is the inner SVG markup (paths, circles, etc.) without
+/// the wrapping `<svg>` element. Content is expected to be authored against
+/// a `0 0 24 24` viewBox to match Lucide's defaults.
+///
+/// # Props
+/// - `svg` - Inner SVG markup (required, accepts static strings, `String`, signals, or closures)
+/// - `class` - CSS class (default: `""`)
+/// - `size` - Width and height in pixels (default: `"24"`)
+/// - `fill` - SVG fill color (default: `"none"`)
+/// - `stroke` - SVG stroke color (default: `"currentColor"`)
+/// - `stroke_width` - SVG stroke width (default: `"1.5"`)
+///
+/// # Example
+///
+/// ```rust,ignore
+/// use lepticons::CustomIcon;
+/// use leptos::prelude::*;
+///
+/// const COMPANY_LOGO: &str = r#"<path d="M12 2L2 7l10 5 10-5-10-5z" />"#;
+///
+/// view! {
+///     <CustomIcon svg=COMPANY_LOGO class="text-primary" size="32" />
+/// }
+/// ```
+#[component]
+pub fn CustomIcon(
+    /// Inner SVG markup (paths, circles, etc.) authored against a `0 0 24 24` viewBox.
+    #[prop(into)] svg: TextProp,
+    /// CSS class for the SVG element.
+    #[prop(into, optional)] class: Option<TextProp>,
+    /// Width and height in pixels (default: `"24"`).
+    #[prop(into, optional)] size: Option<TextProp>,
+    /// SVG fill color (default: `"none"`).
+    #[prop(into, optional)] fill: Option<TextProp>,
+    /// SVG stroke color (default: `"currentColor"`).
+    #[prop(into, optional)] stroke: Option<TextProp>,
+    /// SVG stroke width (default: `"1.5"`).
+    #[prop(into, optional)] stroke_width: Option<TextProp>,
+) -> impl IntoView {
+    render_svg(svg, class, size, fill, stroke, stroke_width)
+}
+
+fn render_svg(
+    svg: TextProp,
+    class: Option<TextProp>,
+    size: Option<TextProp>,
+    fill: Option<TextProp>,
+    stroke: Option<TextProp>,
+    stroke_width: Option<TextProp>,
+) -> impl IntoView {
     let class = class.unwrap_or_else(|| "".into());
     let size = size.unwrap_or_else(|| DEFAULT_SIZE.into());
     let size2 = size.clone();
@@ -84,7 +141,7 @@ pub fn Icon(
           stroke-width=move || stroke_width.get()
           stroke-linecap="round"
           stroke-linejoin="round"
-          inner_html=move || glyph.get().svg()
+          inner_html=move || svg.get()
         />
     }
 }

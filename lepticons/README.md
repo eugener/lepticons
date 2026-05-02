@@ -53,6 +53,31 @@ Available categories: `accessibility`, `account`, `animals`, `arrows`, `building
 All string props accept `&str`, `String`, signals, or closures (`Fn() -> String`).
 The `glyph` prop accepts a `LucideGlyph` value directly or a `Signal<LucideGlyph>`.
 
+## CustomIcon Component
+
+For brand logos, in-house icons, or anything missing from Lucide. Same prop API as `Icon`,
+but takes inline SVG markup via the `svg` prop. Markup must be authored against a `0 0 24 24`
+viewBox to match Lucide's defaults.
+
+```rust
+use lepticons::CustomIcon;
+
+const COMPANY_LOGO: &str = r#"<path d="M12 2L2 7l10 5 10-5-10-5z" />"#;
+
+view! {
+    <CustomIcon svg=COMPANY_LOGO class="text-primary" size="32" />
+}
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `svg` | `impl Into<TextProp>` | required | Inner SVG markup (paths, circles, etc.) |
+| `class` | `impl Into<TextProp>` | `""` | CSS class |
+| `size` | `impl Into<TextProp>` | `"24"` | Width and height in pixels |
+| `fill` | `impl Into<TextProp>` | `"none"` | SVG fill color |
+| `stroke` | `impl Into<TextProp>` | `"currentColor"` | SVG stroke color |
+| `stroke_width` | `impl Into<TextProp>` | `"1.5"` | SVG stroke width |
+
 ## Search and Categories
 
 ```rust
