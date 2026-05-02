@@ -148,8 +148,11 @@ pub fn IconsView() -> impl IntoView {
 
     let icon_count = LucideGlyph::count();
     let drawer_open = move || selected_icon.get().is_some();
-    let mru_visible =
-        move || icon_filter.get().is_empty() && !mru_signal.with(Vec::is_empty);
+    // Always reserve the MRU strip's row when the filter is empty, even
+    // before any selection. Otherwise the strip toggles in on the first
+    // pick and the StickyTop block grows taller, which reads as the page
+    // "losing space on top" the moment the user clicks an icon.
+    let mru_visible = move || icon_filter.get().is_empty();
 
     let result_count = Memo::new(move |_| LucideGlyph::find(&icon_filter.get()).len());
 
@@ -194,15 +197,11 @@ pub fn IconsView() -> impl IntoView {
             </div>
 
             // ----- main column (search + grid) -----
-            <div class=move || {
-                let open = drawer_open();
-                let base = "px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden transition-[padding] duration-200";
-                if open {
-                    format!("{} pr-[26rem]", base)
-                } else {
-                    base.to_string()
-                }
-            }>
+            // No drawer-aware padding -- the drawer slides in as a fixed
+            // overlay, so the main column's StickyTop content (MainMenu,
+            // Hero, Search, MRU) keeps the same width regardless of
+            // whether an icon is selected.
+            <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden">
                 <StickyTop>
                     <div class="bg-background">
                         <MainMenu
@@ -227,7 +226,7 @@ pub fn IconsView() -> impl IntoView {
                             <MruStrip
                                 mru=mru_signal
                                 on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
-                                class="flex flex-row items-center gap-3 pb-3 border-b border-primary/10"
+                                class="flex flex-row items-center gap-3 pb-3 min-h-[3.5rem] border-b border-primary/10"
                                 header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
                                 item_class=ICON_STYLE
                                 icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
