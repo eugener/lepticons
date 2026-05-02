@@ -132,7 +132,7 @@ fn DemoCard(
 fn PopoverTrigger(selected: Signal<Option<LucideGlyph>>) -> impl IntoView {
     view! {
         <button class="flex items-center justify-between gap-3 px-4 py-2.5
-                       w-80 min-w-[20rem]
+                       w-[540px] max-w-full
                        bg-secondary border border-border rounded-md
                        text-primary hover:border-highlight/60 transition-colors">
             <div class="flex items-center gap-3 min-w-0">
