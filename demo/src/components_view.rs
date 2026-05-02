@@ -91,7 +91,7 @@ pub fn ComponentsView() -> impl IntoView {
             <div class="px-10 mt-5 flex-none">
                 <CommonHeader/>
             </div>
-            <div class="flex-1 min-h-0 overflow-y-auto px-10">
+            <div class="flex-1 min-h-0 overflow-y-auto px-10 -mt-6 pt-6">
                 <Hero hero_idx=hero_idx/>
                 <DemoSection
                     inline_selected=inline_selected

@@ -79,16 +79,15 @@ fn NotFoundView() -> impl IntoView {
 
 #[component]
 pub fn CommonHeader() -> impl IntoView {
-    // Logo + menu in a single row, items-center so they share the same
-    // vertical baseline. h-6 keeps the logo the same height as the menu
-    // icons, which keeps MainMenu's y-position identical to the icons
-    // page (whose main column has no logo above the menu).
     view! {
-        <div class="flex flex-row items-center gap-4">
-            <a href="/" class="flex-none">
-                <img src="lepticons.png" class="h-6 w-auto" alt="Lepticons"/>
-            </a>
-            <MainMenu class="flex-auto justify-end text-primary"/>
+        <div class="flex flex-col">
+            <div class="flex flex-row items-center gap-4 pb-4 border-b border-primary/10">
+                <a href="/" class="flex-none">
+                    <img src="lepticons.png" class="h-9 w-auto" alt="Lepticons"/>
+                </a>
+                <MainMenu class="flex-auto justify-end text-primary"/>
+            </div>
+            <div class="h-6 bg-gradient-to-b from-background to-transparent pointer-events-none"></div>
         </div>
     }
 }
@@ -128,7 +127,7 @@ fn LicenseView() -> impl IntoView {
             <div class="px-10 mt-5 flex-none">
                 <CommonHeader/>
             </div>
-            <div class="flex-1 min-h-0 overflow-y-auto px-10 pb-10">
+            <div class="flex-1 min-h-0 overflow-y-auto px-10 pb-10 -mt-6 pt-6">
                 <div class="mx-40">
                     <p class="my-10  p-25 text-2xl text-primary">MIT License</p>
                     <p class="text-primary py-5">
