@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
+use leptos::wasm_bindgen::JsCast;
 use lepticons::LucideGlyph;
 
 use crate::{CategoryFilter, IconGrid, IconSearch};
@@ -7,6 +8,9 @@ use crate::{CategoryFilter, IconGrid, IconSearch};
 /// Inline icon picker with search, category filter, and selectable grid.
 ///
 /// Drop this into a form, settings panel, or editor to let users pick an icon.
+///
+/// Pressing `/` while focus is anywhere inside the picker (other than the
+/// search input itself) jumps focus to the search field.
 ///
 /// # Example
 ///
@@ -39,6 +43,7 @@ pub fn IconPicker(
 ) -> impl IntoView {
     let max_height = max_height.unwrap_or_else(|| "400px".into());
     let (filter, set_filter) = signal(String::new());
+    let search_input_ref: NodeRef<leptos::html::Input> = NodeRef::new();
 
     let on_category = Callback::new(move |cat: String| {
         set_filter.set(cat);
@@ -56,12 +61,37 @@ pub fn IconPicker(
         )
     };
 
+    // `/` focuses the search input when focus is anywhere in the picker
+    // (except already inside an input/textarea).
+    let on_keydown = move |ev: web_sys::KeyboardEvent| {
+        if ev.key() != "/" || ev.ctrl_key() || ev.meta_key() || ev.alt_key() {
+            return;
+        }
+        if let Some(target) = ev.target() {
+            if let Ok(el) = target.dyn_into::<web_sys::HtmlElement>() {
+                let tag = el.tag_name();
+                if tag.eq_ignore_ascii_case("input") || tag.eq_ignore_ascii_case("textarea") {
+                    return;
+                }
+            }
+        }
+        if let Some(input) = search_input_ref.get() {
+            ev.prevent_default();
+            let _ = input.focus();
+        }
+    };
+
     view! {
         <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-             style=container_style>
+             style=container_style
+             on:keydown=on_keydown>
             {show_search.then(|| view! {
                 <div style="padding:0.5rem">
-                    <IconSearch value=filter on_change=Callback::new(move |v| set_filter.set(v)) />
+                    <IconSearch
+                        value=filter
+                        on_change=Callback::new(move |v| set_filter.set(v))
+                        input_ref=search_input_ref
+                    />
                 </div>
             })}
             <div style="display:flex;flex:1;overflow:hidden">

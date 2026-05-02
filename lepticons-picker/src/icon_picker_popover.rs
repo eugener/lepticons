@@ -38,9 +38,13 @@ pub fn IconPickerPopover(
     /// Popover height. Default: "400px".
     #[prop(into, optional)]
     height: Option<TextProp>,
+    /// Accessible label for the popover dialog (default: "Choose an icon").
+    #[prop(into, optional)]
+    aria_label: Option<TextProp>,
 ) -> impl IntoView {
     let width = width.unwrap_or_else(|| "480px".into());
     let height = height.unwrap_or_else(|| "400px".into());
+    let aria_label = aria_label.unwrap_or_else(|| "Choose an icon".into());
     let (open, set_open) = signal(false);
 
     let toggle_open = move |ev: web_sys::MouseEvent| {
@@ -79,6 +83,7 @@ pub fn IconPickerPopover(
 
     let class_stored = StoredValue::new(class);
     let height_stored = StoredValue::new(height.clone());
+    let aria_label_stored = StoredValue::new(aria_label);
 
     let width_stored = StoredValue::new(width);
     let panel_style = move || {
@@ -100,6 +105,9 @@ pub fn IconPickerPopover(
             {move || open.get().then(|| view! {
                 <div style=panel_style
                      class=move || class_stored.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
+                     role="dialog"
+                     aria-modal="true"
+                     aria-label=move || aria_label_stored.with_value(|a| a.get().to_string())
                      on:click=move |ev: web_sys::MouseEvent| ev.stop_propagation()>
                     <IconPicker
                         selected=selected

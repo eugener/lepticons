@@ -3,10 +3,25 @@ use leptos::text_prop::TextProp;
 use leptos::wasm_bindgen::JsCast;
 use lepticons::{Icon, LucideGlyph};
 
-/// Grid of icon cells with selection and tooltip support.
+/// Grid of icon cells with selection, keyboard navigation, and tooltip support.
 ///
-/// Filters icons using [`LucideGlyph::find()`] and displays them in a flex-wrap grid.
-/// Clicking an icon invokes `on_select`.
+/// Filters icons using [`LucideGlyph::find()`] and lays them out in a CSS grid
+/// (`grid-template-columns: repeat(auto-fill, minmax(2.5rem, 1fr))`).
+/// When a `class` is supplied the inline grid style is suppressed so callers
+/// can fully own the layout.
+///
+/// Internally uses a keyed `<For>` so cells that survive a filter change are
+/// reused rather than remounted.
+///
+/// # Keyboard
+///
+/// - Arrow keys move focus within the visible grid
+/// - Home / End jump to the first / last visible cell
+/// - PageUp / PageDown move by ~5 rows
+/// - Enter (or Space) selects the focused cell
+///
+/// Cells use a roving `tabindex` so the grid takes a single tab stop. Focus
+/// changes triggered by keyboard nav scroll the focused cell into view.
 ///
 /// # Example
 ///
@@ -26,7 +41,7 @@ pub fn IconGrid(
     /// Currently selected icon (used for highlight).
     #[prop(into)]
     selected: Signal<Option<LucideGlyph>>,
-    /// Called when an icon cell is clicked.
+    /// Called when an icon cell is clicked or activated via Enter/Space.
     on_select: Callback<LucideGlyph>,
     /// CSS class for the grid container div.
     #[prop(into, optional)]
@@ -53,7 +68,7 @@ pub fn IconGrid(
     /// inline tooltip style.
     #[prop(into, optional)]
     tooltip_class: Option<TextProp>,
-    /// Whether to show icon name tooltips on hover.
+    /// Whether to show icon name tooltips on hover/focus.
     #[prop(default = true)]
     tooltips: bool,
 ) -> impl IntoView {
@@ -62,37 +77,117 @@ pub fn IconGrid(
     let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| "1.5".into());
     let icon_fill = icon_fill.unwrap_or_else(|| "none".into());
 
-    let grid_style = "display:flex;flex-wrap:wrap;gap:0.5rem";
+    let grid_style = "display:grid;\
+        grid-template-columns:repeat(auto-fill,minmax(2.5rem,1fr));\
+        gap:0.5rem";
 
     let has_class = class.is_some();
     let has_cell_class = cell_class.is_some();
     let has_cell_selected_class = cell_selected_class.is_some();
     let has_tooltip_class = tooltip_class.is_some();
 
-    // Default tooltip style relies on a hover rule. Only inject when the caller
-    // is using the default tooltip; when a custom tooltip_class is provided the
-    // caller controls hover behavior themselves.
     let inject_default_tooltip_style = !has_tooltip_class && tooltips;
+
+    // Roving focus tracked by glyph (not index) so a keyed `<For>` can reuse
+    // cells across filter changes without losing focus state.
+    let focused: RwSignal<Option<LucideGlyph>> = RwSignal::new(None);
+    let grid_ref: NodeRef<leptos::html::Div> = NodeRef::new();
+
+    // Cached filter result. Memo's PartialEq comparison short-circuits
+    // dependents when the result is unchanged.
+    let filtered = Memo::new(move |_| LucideGlyph::find(&filter.get()));
+
+    // Reset focus to the first visible icon when the filter result changes.
+    Effect::new(move |_| {
+        let first = filtered.with(|v| v.first().copied());
+        focused.set(first);
+    });
+
+    let on_keydown = move |ev: web_sys::KeyboardEvent| {
+        let n = filtered.with(|v| v.len());
+        if n == 0 {
+            return;
+        }
+        let cur = filtered.with(|v| {
+            focused
+                .get_untracked()
+                .and_then(|g| v.iter().position(|x| *x == g))
+                .unwrap_or(0)
+        });
+        let cols = grid_ref
+            .get()
+            .map(|el| columns_count(&el))
+            .unwrap_or(1)
+            .max(1);
+        let new_idx = match ev.key().as_str() {
+            "ArrowLeft" => cur.saturating_sub(1),
+            "ArrowRight" => (cur + 1).min(n - 1),
+            "ArrowUp" => cur.saturating_sub(cols),
+            "ArrowDown" => (cur + cols).min(n - 1),
+            "Home" => 0,
+            "End" => n - 1,
+            "PageUp" => cur.saturating_sub(cols * 5),
+            "PageDown" => (cur + cols * 5).min(n - 1),
+            "Enter" | " " => {
+                if let Some(icon) = filtered.with(|v| v.get(cur).copied()) {
+                    on_select.run(icon);
+                }
+                ev.prevent_default();
+                return;
+            }
+            _ => return,
+        };
+        ev.prevent_default();
+        if let Some(glyph) = filtered.with(|v| v.get(new_idx).copied()) {
+            focused.set(Some(glyph));
+        }
+        if let Some(grid_el) = grid_ref.get() {
+            if let Some(child) = grid_el.children().item(new_idx as u32) {
+                if let Some(html) = child.dyn_ref::<web_sys::HtmlElement>() {
+                    let _ = html.focus();
+                    let opts = web_sys::ScrollIntoViewOptions::new();
+                    opts.set_block(web_sys::ScrollLogicalPosition::Nearest);
+                    html.scroll_into_view_with_scroll_into_view_options(&opts);
+                }
+            }
+        }
+    };
 
     view! {
         {inject_default_tooltip_style.then(|| view! {
-            <style>".lp-cell:hover .lp-tooltip{opacity:1!important}"</style>
+            <style>
+                ".lp-cell:hover .lp-tooltip,\
+                 .lp-cell:focus-visible .lp-tooltip,\
+                 .lp-cell:focus .lp-tooltip{opacity:1!important}"
+            </style>
         })}
-        <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-             style=move || if has_class { "" } else { grid_style }>
-        {
-            move || {
-                let filtered = LucideGlyph::find(&filter.get());
-                filtered.into_iter().map(|icon| {
-                    let is_selected = Signal::derive(move || selected.get() == Some(icon));
+        <div node_ref=grid_ref
+             class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+             style=move || if has_class { "" } else { grid_style }
+             role="grid"
+             aria-label="Icons"
+             on:keydown=on_keydown>
+            <For
+                each=move || filtered.get()
+                key=|icon| *icon
+                let:icon
+            >
+                {
                     let size = icon_size.clone();
                     let stroke = icon_stroke.clone();
                     let stroke_width = icon_stroke_width.clone();
                     let fill = icon_fill.clone();
+                    let cell_class = cell_class.clone();
+                    let cell_selected_class = cell_selected_class.clone();
+                    let tooltip_class = tooltip_class.clone();
+                    let is_selected = Signal::derive(move || selected.get() == Some(icon));
+                    let is_focused = Signal::derive(move || focused.get() == Some(icon));
                     view! {
                         <IconCell
                             icon=icon
                             selected=is_selected
+                            is_focused=is_focused
+                            focused=focused
                             on_select=on_select
                             size=size
                             stroke=stroke
@@ -101,17 +196,42 @@ pub fn IconGrid(
                             tooltips=tooltips
                             has_cell_class=has_cell_class
                             has_cell_selected_class=has_cell_selected_class
-                            cell_class=cell_class.clone()
-                            cell_selected_class=cell_selected_class.clone()
+                            cell_class=cell_class
+                            cell_selected_class=cell_selected_class
                             has_tooltip_class=has_tooltip_class
-                            tooltip_class=tooltip_class.clone()
+                            tooltip_class=tooltip_class
                         />
                     }
-                }).collect::<Vec<_>>()
-            }
-        }
+                }
+            </For>
         </div>
     }
+}
+
+/// Counts visible columns by walking children until the row offsetTop changes.
+fn columns_count(el: &web_sys::HtmlDivElement) -> usize {
+    let children = el.children();
+    let len = children.length();
+    if len == 0 {
+        return 1;
+    }
+    let Some(first) = children.item(0) else {
+        return 1;
+    };
+    let Some(first_html) = first.dyn_ref::<web_sys::HtmlElement>() else {
+        return 1;
+    };
+    let first_top = first_html.offset_top();
+    for i in 1..len {
+        if let Some(child) = children.item(i) {
+            if let Some(html) = child.dyn_ref::<web_sys::HtmlElement>() {
+                if html.offset_top() != first_top {
+                    return i as usize;
+                }
+            }
+        }
+    }
+    len as usize
 }
 
 const DEFAULT_CELL_STYLE: &str = "\
@@ -147,6 +267,8 @@ const DEFAULT_TOOLTIP_STYLE: &str = "\
 fn IconCell(
     icon: LucideGlyph,
     selected: Signal<bool>,
+    is_focused: Signal<bool>,
+    focused: RwSignal<Option<LucideGlyph>>,
     on_select: Callback<LucideGlyph>,
     size: TextProp,
     stroke: TextProp,
@@ -161,6 +283,7 @@ fn IconCell(
     tooltip_class: Option<TextProp>,
 ) -> impl IntoView {
     let on_click = move |ev: web_sys::MouseEvent| {
+        focused.set(Some(icon));
         on_select.run(icon);
         if let Some(target) = ev.current_target() {
             if let Ok(el) = target.dyn_into::<web_sys::Element>() {
@@ -172,12 +295,24 @@ fn IconCell(
         }
     };
 
+    let on_focus = move |_: web_sys::FocusEvent| {
+        if focused.get_untracked() != Some(icon) {
+            focused.set(Some(icon));
+        }
+    };
+
     let class_fn = move || {
         let custom = if has_cell_class || has_cell_selected_class {
             if selected.get() {
-                cell_selected_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+                cell_selected_class
+                    .as_ref()
+                    .map(|c| c.get().to_string())
+                    .unwrap_or_default()
             } else {
-                cell_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+                cell_class
+                    .as_ref()
+                    .map(|c| c.get().to_string())
+                    .unwrap_or_default()
             }
         } else {
             String::new()
@@ -185,7 +320,6 @@ fn IconCell(
         format!("lp-cell {custom}")
     };
 
-    // Inline style mode (default theming)
     let style_fn = move || {
         if has_cell_class || has_cell_selected_class {
             ""
@@ -196,8 +330,18 @@ fn IconCell(
         }
     };
 
+    let aria_label = icon.kebab_name();
+    let tabindex_fn = move || if is_focused.get() { "0" } else { "-1" };
+
     view! {
-        <div class=class_fn style=style_fn on:click=on_click>
+        <div class=class_fn
+             style=style_fn
+             role="gridcell"
+             tabindex=tabindex_fn
+             aria-label=aria_label
+             aria-selected=move || selected.get().to_string()
+             on:click=on_click
+             on:focus=on_focus>
             <Icon glyph=icon
                   size=move || size.get()
                   stroke=move || stroke.get()

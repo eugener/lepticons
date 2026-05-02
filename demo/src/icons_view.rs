@@ -9,7 +9,7 @@ use leptos_router::hooks::use_params_map;
 use lepticons::LucideGlyph;
 use lepticons::*;
 use lepticons_animate::{AnimationStyles, DrawIcon};
-use lepticons_picker::{CategoryFilter, IconGrid};
+use lepticons_picker::{CategoryFilter, IconGrid, IconSearch};
 use crate::components::*;
 use crate::menu::*;
 
@@ -20,6 +20,8 @@ const DEFAULT_SIZE: f64 = 24.0;
 pub fn IconsView() -> impl IntoView {
     let (icon_filter, set_icon_filter) = signal("".to_string());
     let (selected_icon, set_selected_icon) = signal(None::<LucideGlyph>);
+    let search_input_ref: NodeRef<leptos::html::Input> = NodeRef::new();
+    let clear_filter = move |_| set_icon_filter.set("".to_string());
 
     // Customizer state (None = use currentColor, adapts to theme)
     let (icon_color, set_icon_color) = signal(None::<String>);
@@ -27,43 +29,35 @@ pub fn IconsView() -> impl IntoView {
     let (icon_size, set_icon_size) = signal(DEFAULT_SIZE);
     let (absolute_stroke, set_absolute_stroke) = signal(false);
 
-    let clear_filter = move |_| set_icon_filter.set("".to_string());
-
-    // close detail panel when filter changes
+    // close detail panel when filter changes (IconSearch already debounces)
     Effect::new(move |_| {
-        icon_filter.get();
+        icon_filter.track();
         set_selected_icon.set(None);
     });
 
-    // close detail panel on Escape key
+    // Escape closes the detail panel; `/` focuses the search input
+    // (skipping when the user is already inside an input/textarea).
     window_event_listener(keydown, move |ev: KeyboardEvent| {
-        if ev.key() == "Escape" {
-            set_selected_icon.set(None);
-        }
-    });
-
-    // Debounced filter: updates 150ms after last keystroke
-    let (debounced_filter, set_debounced_filter) = signal("".to_string());
-    let on_input = move |ev: Event| {
-        let value = event_target_value(&ev);
-        set_icon_filter.set(value.clone());
-        set_timeout(
-            move || {
-                if icon_filter.get_untracked() == value {
-                    set_debounced_filter.set(icon_filter.get_untracked());
+        match ev.key().as_str() {
+            "Escape" => set_selected_icon.set(None),
+            "/" if !ev.ctrl_key() && !ev.meta_key() && !ev.alt_key() => {
+                if let Some(target) = ev.target() {
+                    if let Ok(html) = target.dyn_into::<web_sys::HtmlElement>() {
+                        let tag = html.tag_name();
+                        if tag.eq_ignore_ascii_case("input")
+                            || tag.eq_ignore_ascii_case("textarea")
+                        {
+                            return;
+                        }
+                    }
                 }
-            },
-            std::time::Duration::from_millis(150),
-        );
-    };
-
-    // Sync debounced filter on programmatic changes (category click, clear)
-    Effect::new(move |prev: Option<String>| {
-        let current = icon_filter.get();
-        if prev.as_ref() != Some(&current) {
-            set_debounced_filter.set(current.clone());
+                if let Some(input_el) = search_input_ref.get() {
+                    ev.prevent_default();
+                    let _ = input_el.focus();
+                }
+            }
+            _ => {}
         }
-        current
     });
 
     let icon_count = LucideGlyph::count();
@@ -112,19 +106,20 @@ pub fn IconsView() -> impl IntoView {
             <div class="px-10 mt-5 flex flex-col flex-auto h-screen overflow-y-auto overflow-x-hidden scroll-pb-72">
                 <StickyTop class="bg-gradient-to-b from-85% from-background to-100% to-transparent">
                     <MainMenu class="justify-end text-primary"/>
-                    <div class = "flex flex-row overflow-y-auto items-center w-full p-2 px-4 my-6 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors">
-                        <Icon glyph=LucideGlyph::Search />
-                        <input type="text"
-                               class="flex-auto p-2 bg-transparent focus:outline-none  focus:border-1"
-                               prop:placeholder="Search icons..."
-                               prop:value={move || icon_filter.get()}
-                               on:input=on_input
-                        />
-                        <Icon glyph=LucideGlyph::X class="cursor-pointer" on:click=clear_filter />
-                    </div>
+                    <IconSearch
+                        value=icon_filter
+                        on_change=Callback::new(move |v| set_icon_filter.set(v))
+                        input_ref=search_input_ref
+                        class="flex flex-row items-center gap-2 w-full p-2 px-4 my-6 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
+                        input_class="flex-auto p-2 bg-transparent focus:outline-none text-primary"
+                        kbd_class="inline-flex items-center justify-center min-w-5 h-5 px-1.5 text-[0.6875rem] leading-none font-mono text-primary/60 bg-primary/10 border border-primary/15 rounded select-none"
+                        clear_class="cursor-pointer flex"
+                        icon_size="24"
+                        icon_stroke="currentColor"
+                    />
                 </StickyTop>
                 <IconGrid
-                    filter=debounced_filter
+                    filter=icon_filter
                     selected=selected_icon
                     on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
                     class="flex flex-row flex-wrap gap-2"
