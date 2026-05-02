@@ -3,6 +3,16 @@ use leptos::text_prop::TextProp;
 use leptos::wasm_bindgen::JsCast;
 use lepticons::{Icon, LucideGlyph};
 
+use crate::copy::{copy_to_clipboard, IconCopyFormat};
+
+/// Internal context provided by [`IconGrid`] when a `copy_format` signal is
+/// supplied. Cells use it to render the per-cell hover copy button.
+#[derive(Copy, Clone)]
+struct CopyContext {
+    format: Signal<IconCopyFormat>,
+    last_copied: RwSignal<Option<LucideGlyph>>,
+}
+
 /// Grid of icon cells with selection, keyboard navigation, and tooltip support.
 ///
 /// Filters icons using [`LucideGlyph::find()`] and lays them out in a CSS grid
@@ -71,6 +81,11 @@ pub fn IconGrid(
     /// Whether to show icon name tooltips on hover/focus.
     #[prop(default = true)]
     tooltips: bool,
+    /// When supplied, each cell renders a small hover/focus copy button that
+    /// writes the icon code (in this format) to the clipboard. Leave `None`
+    /// to disable the copy affordance entirely.
+    #[prop(into, optional)]
+    copy_format: Option<Signal<IconCopyFormat>>,
 ) -> impl IntoView {
     let icon_size = icon_size.unwrap_or_else(|| "24".into());
     let icon_stroke = icon_stroke.unwrap_or_else(|| "currentColor".into());
@@ -87,6 +102,13 @@ pub fn IconGrid(
     let has_tooltip_class = tooltip_class.is_some();
 
     let inject_default_tooltip_style = !has_tooltip_class && tooltips;
+    let copy_enabled = copy_format.is_some();
+    if let Some(format) = copy_format {
+        provide_context(CopyContext {
+            format,
+            last_copied: RwSignal::new(None),
+        });
+    }
 
     // Roving focus tracked by glyph (not index) so a keyed `<For>` can reuse
     // cells across filter changes without losing focus state.
@@ -159,6 +181,14 @@ pub fn IconGrid(
                 ".lp-cell:hover .lp-tooltip,\
                  .lp-cell:focus-visible .lp-tooltip,\
                  .lp-cell:focus .lp-tooltip{opacity:1!important}"
+            </style>
+        })}
+        {copy_enabled.then(|| view! {
+            <style>
+                ".lp-cell .lp-copy{opacity:0;transition:opacity 0.12s}\
+                 .lp-cell:hover .lp-copy,\
+                 .lp-cell:focus-within .lp-copy,\
+                 .lp-cell:focus-visible .lp-copy{opacity:1}"
             </style>
         })}
         <div node_ref=grid_ref
@@ -357,6 +387,8 @@ fn IconCell(
     let aria_label = icon.kebab_name();
     let tabindex_fn = move || if is_focused.get() { "0" } else { "-1" };
 
+    let copy_ctx = use_context::<CopyContext>();
+
     view! {
         <div class=class_fn
              style=style_fn
@@ -389,6 +421,50 @@ fn IconCell(
                     <div class=class_fn style=style_fn>{name}</div>
                 }
             })}
+            {copy_ctx.map(|ctx| {
+                let on_copy = move |ev: web_sys::MouseEvent| {
+                    ev.stop_propagation();
+                    let format = ctx.format.get();
+                    copy_to_clipboard(&format.render(icon));
+                    ctx.last_copied.set(Some(icon));
+                    set_timeout(
+                        move || {
+                            if ctx.last_copied.get_untracked() == Some(icon) {
+                                ctx.last_copied.set(None);
+                            }
+                        },
+                        std::time::Duration::from_millis(1500),
+                    );
+                };
+                let copied = ctx.last_copied;
+                let glyph_signal = Signal::derive(move || {
+                    if copied.get() == Some(icon) {
+                        LucideGlyph::Check
+                    } else {
+                        LucideGlyph::Copy
+                    }
+                });
+                view! {
+                    <button class="lp-copy"
+                            type="button"
+                            aria-label="Copy icon code"
+                            title="Copy"
+                            style=DEFAULT_COPY_BUTTON_STYLE
+                            on:click=on_copy>
+                        <Icon glyph=glyph_signal size="12" stroke="currentColor" stroke_width="2" />
+                    </button>
+                }
+            })}
         </div>
     }
 }
+
+const DEFAULT_COPY_BUTTON_STYLE: &str = "\
+    position:absolute;top:2px;right:2px;\
+    display:flex;align-items:center;justify-content:center;\
+    width:1.125rem;height:1.125rem;padding:0;\
+    color:var(--lp-text-muted,#999);\
+    background:var(--lp-copy-bg,rgba(255,255,255,0.85));\
+    border:1px solid var(--lp-border,rgba(0,0,0,0.08));\
+    border-radius:0.25rem;cursor:pointer;\
+    line-height:1";
