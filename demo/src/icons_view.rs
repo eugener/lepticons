@@ -204,7 +204,7 @@ pub fn IconsView() -> impl IntoView {
                                 value=icon_filter
                                 on_change=Callback::new(move |v| set_icon_filter.set(v))
                                 input_ref=search_input_ref
-                                class="flex flex-row items-center gap-2 w-full p-2 px-4 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
+                                class="flex flex-row items-center gap-2 flex-1 min-w-0 p-2 px-4 bg-secondary rounded-lg border border-transparent focus-within:border-highlight/80 transition-colors"
                                 input_class="flex-auto p-2 bg-transparent focus:outline-none text-primary"
                                 kbd_class="inline-flex items-center justify-center min-w-5 h-5 px-1.5 text-[0.6875rem] leading-none font-mono text-primary/60 bg-primary/10 border border-primary/15 rounded select-none"
                                 clear_class="cursor-pointer flex"
