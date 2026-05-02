@@ -1,6 +1,6 @@
 [package]
 name = "lepticons-picker"
-version = "0.2.2"
+version = "0.3.0"
 edition = "2021"
 description = "Embeddable icon picker component for Leptos, powered by Lucide icons."
 license = "MIT"
