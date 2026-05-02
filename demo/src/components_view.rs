@@ -32,6 +32,7 @@ pub fn ComponentsView() -> impl IntoView {
 
 #[component]
 fn Hero() -> impl IntoView {
+    let count = LucideGlyph::count();
     view! {
         <div class="flex flex-col items-center text-center mt-16 mb-12 px-4">
             <span class="px-3 py-1 mb-5 text-xs uppercase tracking-wider rounded-full
@@ -42,9 +43,12 @@ fn Hero() -> impl IntoView {
                 "The icon picker, fully assembled."
             </h1>
             <p class="mt-5 text-lg text-primary/70 max-w-2xl leading-relaxed">
-                "Search, browse, and copy 1,694 Lucide icons with a drop-in Leptos
-                 component. Themable through CSS variables, fully keyboard-driven,
-                 persists recent picks to localStorage."
+                {format!(
+                    "Search, browse, and copy {} Lucide icons with a drop-in Leptos \
+                     component. Themable through CSS variables, fully keyboard-driven, \
+                     persists recent picks to localStorage.",
+                    count
+                )}
             </p>
         </div>
     }
@@ -267,10 +271,11 @@ fn CodeSnippet() -> impl IntoView {
 
 #[component]
 fn Footer() -> impl IntoView {
+    let count = LucideGlyph::count();
     view! {
         <div class="max-w-4xl w-full mx-auto px-4 pb-16 text-center">
             <a href="/" class="text-sm text-highlight hover:underline">
-                "← Browse all 1,694 icons"
+                {format!("← Browse all {} icons", count)}
             </a>
         </div>
     }

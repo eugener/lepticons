@@ -185,4 +185,18 @@
     .dark .lp-themed {
         --lp-bg-selected: hsl(var(--highlight) / 0.18);
     }
+
+    /* Roomier "Copy as" dropdown for the showcase. The library defaults are
+       sized for compact embedded usage; on a marketing page the wider
+       proportions read better. !important is required to win against the
+       inline style attribute the picker writes onto the element. */
+    .lp-themed .lp-copy-format {
+        font-size: 0.8125rem !important;
+        gap: 0.5rem !important;
+    }
+    .lp-themed .lp-copy-format-select {
+        min-width: 9rem !important;
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.8125rem !important;
+    }
 }

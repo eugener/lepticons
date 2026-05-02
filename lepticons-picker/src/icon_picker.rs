@@ -232,10 +232,12 @@ fn CopyFormatSelect(format: RwSignal<IconCopyFormat>) -> impl IntoView {
         cursor:pointer";
 
     view! {
-        <label style="display:flex;align-items:center;gap:0.375rem;\
+        <label class="lp-copy-format"
+               style="display:flex;align-items:center;gap:0.375rem;\
                       font-size:0.6875rem;color:var(--lp-text-muted,#999)">
             "Copy as"
             <select
+                class="lp-copy-format-select"
                 aria-label="Copy code format"
                 style=select_style
                 prop:value=move || format.get().id()
