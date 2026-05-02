@@ -26,10 +26,10 @@ use lepticons::{Icon, LucideGlyph};
 
 ```toml
 # All icons (default)
-lepticons = "0.10"
+lepticons = "0.11"
 
 # Only specific categories
-lepticons = { version = "0.10", default-features = false, features = ["arrows", "navigation", "design"] }
+lepticons = { version = "0.11", default-features = false, features = ["arrows", "navigation", "design"] }
 ```
 
 Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
