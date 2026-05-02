@@ -91,13 +91,16 @@ fn DemoRow(
                         on_select=Callback::new(move |g| set_popover_selected.set(Some(g)))
                         width="540px"
                         height="440px"
+                        class="resize-x overflow-hidden min-w-[400px] max-w-[900px]
+                               border border-border bg-card rounded-lg"
                     >
                         <PopoverTrigger selected=popover_selected.into()/>
                     </IconPickerPopover>
                     <p class="text-sm text-primary/55 max-w-md">
                         "Click the button to open the picker. It mounts in place,
                          supports the full keyboard nav, and dismisses on Escape
-                         or click-outside."
+                         or click-outside. Drag the right edge of the popover to
+                         resize."
                     </p>
                 </div>
                 <SelectionReadout selected=popover_selected.into() />
