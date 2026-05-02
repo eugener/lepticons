@@ -79,20 +79,17 @@ fn NotFoundView() -> impl IntoView {
 
 #[component]
 pub fn CommonHeader() -> impl IntoView {
-    // items-start keeps MainMenu top-aligned to match the home page (where the
-    // menu sits at `mt-5` of the right pane). Bottom-aligning the menu against
-    // the taller logo+version block makes navigation visually jump between pages.
+    // Logo + menu in a single row, items-center so they share the same
+    // vertical baseline. h-6 keeps the logo the same height as the menu
+    // icons, which keeps MainMenu's y-position identical to the icons
+    // page (whose main column has no logo above the menu).
     view! {
-        <div class="flex flex-row items-start">
-            <div class="flex flex-col pr-4">
-                <img src="lepticons.png" class="w-48"/>
-                <div class="self-end pr-2 -mt-1">
-                    <VersionLink/>
-                </div>
-            </div>
+        <div class="flex flex-row items-center gap-4">
+            <a href="/" class="flex-none">
+                <img src="lepticons.png" class="h-6 w-auto" alt="Lepticons"/>
+            </a>
             <MainMenu class="flex-auto justify-end text-primary"/>
         </div>
-        <hr/>
     }
 }
 
@@ -129,7 +126,7 @@ fn LicenseView() -> impl IntoView {
     view! {
         <div class="flex flex-col h-screen w-screen overflow-hidden">
             <div class="px-10 mt-5 flex-none">
-                <MainMenu class="justify-end text-primary"/>
+                <CommonHeader/>
             </div>
             <div class="flex-1 min-h-0 overflow-y-auto px-10 pb-10">
                 <div class="mx-40">

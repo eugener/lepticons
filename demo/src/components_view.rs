@@ -3,7 +3,7 @@ use lepticons::{Icon, LucideGlyph};
 use lepticons_animate::DrawIcon;
 use lepticons_picker::{IconPicker, IconPickerPopover};
 
-use crate::menu::MainMenu;
+use crate::CommonHeader;
 
 // Picker theme variables for `lepticons-picker` are defined in
 // `demo/style/input.css` under `.lp-themed`, where light and dark variants
@@ -89,7 +89,7 @@ pub fn ComponentsView() -> impl IntoView {
     view! {
         <div class="flex flex-col h-screen w-screen overflow-hidden">
             <div class="px-10 mt-5 flex-none">
-                <MainMenu class="justify-end text-primary"/>
+                <CommonHeader/>
             </div>
             <div class="flex-1 min-h-0 overflow-y-auto px-10">
                 <Hero hero_idx=hero_idx/>
