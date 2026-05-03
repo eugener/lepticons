@@ -4,12 +4,12 @@ use lepticons::{CustomIcon, Icon, LucideGlyph};
 
 use crate::components::*;
 
-/// Tailwind class for an inactive nav link (muted, brand-highlight on hover).
-const NAV_LINK_BASE: &str = "leading-none text-primary hover:text-highlight transition-colors";
-/// Tailwind class added to the currently-active nav link.
-const NAV_LINK_ACTIVE: &str = "leading-none text-highlight transition-colors";
-
 /// Anchor that styles itself as the active nav item when `is_active(path)` is true.
+///
+/// Uses Leptos's per-class reactive `class:` syntax so the `text-highlight`
+/// class is added/removed in place when the route changes. Tailwind's
+/// `hover:text-highlight` is omitted from the active branch -- the base
+/// `text-highlight` already wins.
 #[component]
 fn NavLink(
     href: &'static str,
@@ -18,14 +18,17 @@ fn NavLink(
     is_active: fn(&str) -> bool,
 ) -> impl IntoView {
     let location = use_location();
-    let class = move || {
-        if is_active(&location.pathname.get()) {
-            NAV_LINK_ACTIVE
-        } else {
-            NAV_LINK_BASE
-        }
-    };
-    view! { <a href=href class=class>{label}</a> }
+    let active = Memo::new(move |_| is_active(&location.pathname.get()));
+    view! {
+        <a
+            href=href
+            class="leading-none transition-colors hover:text-highlight"
+            class:text-highlight=active
+            class:text-primary=move || !active.get()
+        >
+            {label}
+        </a>
+    }
 }
 
 /// Small "vX.Y.Z" link to crates.io with a styled hover tooltip listing
