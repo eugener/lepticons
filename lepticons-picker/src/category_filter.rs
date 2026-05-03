@@ -59,11 +59,16 @@ pub fn CategoryFilter(
 
                     let row_class = move || {
                         if has_item_class {
-                            if is_active() {
-                                item_active_class.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
+                            // Fall back to item_class when active row has no
+                            // dedicated class so it doesn't render unstyled.
+                            let active_cls = if is_active() {
+                                item_active_class.with_value(|c| c.as_ref().map(|c| c.get().to_string()))
                             } else {
+                                None
+                            };
+                            active_cls.unwrap_or_else(|| {
                                 item_class.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
-                            }
+                            })
                         } else {
                             String::new()
                         }

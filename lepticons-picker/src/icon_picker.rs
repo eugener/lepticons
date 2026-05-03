@@ -1,6 +1,5 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
-use leptos::wasm_bindgen::JsCast;
 use lepticons::LucideGlyph;
 
 use crate::copy::IconCopyFormat;
@@ -102,13 +101,8 @@ pub fn IconPicker(
         if ev.key() != "/" || ev.ctrl_key() || ev.meta_key() || ev.alt_key() {
             return;
         }
-        if let Some(target) = ev.target() {
-            if let Ok(el) = target.dyn_into::<web_sys::HtmlElement>() {
-                let tag = el.tag_name();
-                if tag.eq_ignore_ascii_case("input") || tag.eq_ignore_ascii_case("textarea") {
-                    return;
-                }
-            }
+        if crate::is_typing_target(&ev) {
+            return;
         }
         if let Some(input) = search_input_ref.get() {
             ev.prevent_default();

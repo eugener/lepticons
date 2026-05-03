@@ -11,6 +11,7 @@ pub fn VersionLink() -> impl IntoView {
         <div class="relative group">
             <a href="https://crates.io/crates/lepticons"
                target={"_blank".to_string()}
+               rel={"noopener noreferrer".to_string()}
                class="text-primary text-xs opacity-60 hover:opacity-100">
                 {format!("v{}", lepticons::VERSION)}
             </a>
@@ -56,6 +57,7 @@ fn MenuIconLink(
     view! {
         <a href=href
            target={"_blank".to_string()}
+           rel={"noopener noreferrer".to_string()}
            class=MENU_ICON_LINK
            title=title
            aria-label=title>
@@ -86,6 +88,7 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
             <div class="flex flex-row gap-1.5 items-center">
                 <a href="https://github.com/eugener/lepticons"
                    target={"_blank".to_string()}
+                   rel={"noopener noreferrer".to_string()}
                    class=MENU_ICON_BASE
                    title="GitHub"
                    aria-label="GitHub">

@@ -1,6 +1,7 @@
 use convert_case::{Case, Casing};
-use leptos::ev::*;
+use leptos::ev::keydown;
 use leptos::prelude::*;
+use web_sys::KeyboardEvent;
 use leptos::wasm_bindgen::{JsCast, JsValue};
 use strum::IntoEnumIterator;
 use web_sys::js_sys;
@@ -16,6 +17,34 @@ use crate::menu::*;
 
 const DEFAULT_STROKE_WIDTH: f64 = 2.0;
 const DEFAULT_SIZE: f64 = 24.0;
+
+/// Maximum length we accept for a `?q=` filter from the URL. Capped to
+/// keep crafted query strings from feeding huge strings into the search
+/// signal and the reactive URL-replace effect.
+const MAX_FILTER_LEN: usize = 200;
+
+/// Conservative color allowlist for `?color=` URL hydration. Accepts the
+/// CSS forms we'd ever round-trip through history.replaceState (`#hex`,
+/// `rgb(...)` / `rgba(...)`, simple keywords). Keeps anything with `;`,
+/// `<`, `(` outside `rgb`, etc. from reaching `style="color:..."`.
+fn is_safe_color(s: &str) -> bool {
+    let s = s.trim();
+    if s.is_empty() || s.len() > 32 {
+        return false;
+    }
+    if let Some(hex) = s.strip_prefix('#') {
+        return matches!(hex.len(), 3 | 4 | 6 | 8) && hex.chars().all(|c| c.is_ascii_hexdigit());
+    }
+    if let Some(rest) = s.strip_prefix("rgb(").or_else(|| s.strip_prefix("rgba(")) {
+        if let Some(inner) = rest.strip_suffix(')') {
+            return inner
+                .chars()
+                .all(|c| c.is_ascii_digit() || matches!(c, ',' | '.' | ' ' | '%'));
+        }
+        return false;
+    }
+    s.chars().all(|c| c.is_ascii_alphabetic())
+}
 
 /// Returns the `major.minor` segment of `lepticons::VERSION` for use in
 /// rendered Cargo snippets (e.g. `"0.12"` from `"0.12.0"`).
@@ -51,14 +80,16 @@ pub fn IconsView() -> impl IntoView {
 
     let mru_signal: RwSignal<Vec<LucideGlyph>> = RwSignal::new(mru::load(ICONS_MRU_KEY));
 
-    // Hydrate state from URL on mount.
+    // Hydrate state from URL on mount. Inputs are bounded so crafted query
+    // strings can't pump arbitrary content into reactive sinks.
     let query = use_query_map();
     {
         let q = query.get_untracked();
-        if let Some(v) = q.get("q") {
+        if let Some(mut v) = q.get("q") {
+            v.truncate(MAX_FILTER_LEN);
             set_icon_filter.set(v);
         }
-        if let Some(v) = q.get("color") {
+        if let Some(v) = q.get("color").filter(|v| is_safe_color(v)) {
             set_icon_color.set(Some(v));
         }
         if let Some(v) = q.get("sw").and_then(|s| s.parse::<f64>().ok()) {
@@ -125,14 +156,7 @@ pub fn IconsView() -> impl IntoView {
     // Window-level shortcuts: Escape closes drawer/help; `/` focuses search;
     // `?` (Shift+/) toggles the keyboard help overlay.
     window_event_listener(keydown, move |ev: KeyboardEvent| {
-        let in_input = ev
-            .target()
-            .and_then(|t| t.dyn_into::<web_sys::HtmlElement>().ok())
-            .map(|el| {
-                let tag = el.tag_name();
-                tag.eq_ignore_ascii_case("input") || tag.eq_ignore_ascii_case("textarea")
-            })
-            .unwrap_or(false);
+        let in_input = lepticons_picker::is_typing_target(&ev);
 
         match ev.key().as_str() {
             "Escape" => set_selected_icon.set(None),
@@ -916,20 +940,13 @@ fn rgb_to_hex(rgb: &str) -> Option<String> {
     Some(format!("#{:02x}{:02x}{:02x}", r, g, b))
 }
 
-fn copy_to_clipboard(text: &str) {
-    if let Some(w) = web_sys::window() {
-        let clipboard = w.navigator().clipboard();
-        let _ = clipboard.write_text(text);
-    }
-}
-
 /// Copies text to clipboard, flashes a "copied" signal for 2 seconds, and closes a menu.
 fn copy_and_flash(
     text: &str,
     set_copied: WriteSignal<bool>,
     set_menu_open: WriteSignal<bool>,
 ) {
-    copy_to_clipboard(text);
+    lepticons_picker::copy_to_clipboard(text);
     set_copied.set(true);
     set_menu_open.set(false);
     set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));

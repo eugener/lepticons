@@ -175,7 +175,7 @@ fn CtaSecondary(href: &'static str, label: &'static str, glyph: LucideGlyph) -> 
     view! {
         <a href=href
            target=move || if external { "_blank" } else { "" }
-           rel=move || if external { "noreferrer" } else { "" }
+           rel=move || if external { "noopener noreferrer" } else { "" }
            class="flex flex-row items-center gap-2 px-4 py-2 rounded-md
                   bg-primary/5 border border-primary/10 text-primary/80 text-sm
                   hover:border-highlight/50 hover:text-primary transition-colors">

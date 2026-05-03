@@ -2,7 +2,6 @@ use chrono::Datelike;
 use chrono::Utc;
 use leptos::ev::keydown;
 use leptos::prelude::*;
-use leptos::wasm_bindgen::JsCast;
 use leptos_meta::*;
 use leptos_router::components::*;
 use leptos_router::path;
@@ -32,14 +31,7 @@ fn App() -> impl IntoView {
     // Global window keydown for `?` (toggle the shortcut overlay) and Esc
     // (close it when open). Skipped while the user is typing in an input.
     window_event_listener(keydown, move |ev: web_sys::KeyboardEvent| {
-        let in_input = ev
-            .target()
-            .and_then(|t| t.dyn_into::<web_sys::HtmlElement>().ok())
-            .map(|el| {
-                let tag = el.tag_name();
-                tag.eq_ignore_ascii_case("input") || tag.eq_ignore_ascii_case("textarea")
-            })
-            .unwrap_or(false);
+        let in_input = lepticons_picker::is_typing_target(&ev);
         match ev.key().as_str() {
             "?" if !in_input => {
                 ev.prevent_default();

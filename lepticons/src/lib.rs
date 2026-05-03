@@ -99,6 +99,17 @@ pub fn Icon(
 ///     <CustomIcon svg=COMPANY_LOGO class="text-primary" size="32" />
 /// }
 /// ```
+///
+/// # Security
+///
+/// The `svg` prop is rendered as raw HTML via `inner_html`. SVG can carry
+/// executable content -- `<script>`, `<foreignObject>`/`<iframe>`, and
+/// element event handlers (`onload="..."`) all run inside the host page's
+/// origin. Pass only trusted, author-controlled markup (build-time
+/// constants, vendored assets, or strings you fully sanitize). Never feed
+/// `CustomIcon` strings sourced from end users, the network, or any
+/// upload/CMS pipeline without first running them through an SVG-aware
+/// sanitizer.
 #[component]
 pub fn CustomIcon(
     /// Inner SVG markup (paths, circles, etc.) authored against a `0 0 24 24` viewBox.

@@ -251,7 +251,7 @@ pub fn IconGrid(
                     "Missing an icon? "
                     <a href="https://github.com/lucide-icons/lucide/issues/new?template=icon_request.yml"
                        target="_blank"
-                       rel="noreferrer"
+                       rel="noopener noreferrer"
                        style="color:var(--lp-link,inherit);text-decoration:underline">
                         "Request it on lucide-icons/lucide"
                     </a>
