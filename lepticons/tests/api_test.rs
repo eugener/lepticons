@@ -1,5 +1,5 @@
+use lepticons::strum::IntoEnumIterator;
 use lepticons::{Glyph, LucideGlyph};
-use strum::IntoEnumIterator;
 
 // --- find() ---
 

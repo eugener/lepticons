@@ -3,6 +3,9 @@ resolver = "2"
 members = ["lepticons-data", "lepticons", "lepticons-picker", "lepticons-animate", "codegen", "demo"]
 exclude = ["lucide", "examples"]
 
+[workspace.package]
+rust-version = "1.81"
+
 [workspace.dependencies]
 strum = "0.28"
 strum_macros = "0.28"

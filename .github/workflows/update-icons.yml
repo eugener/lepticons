@@ -61,7 +61,7 @@ jobs:
 
       - name: Verify generated code
         if: steps.check.outputs.changed == 'true'
-        run: cargo clippy -p lepticons --all-targets -- -D warnings
+        run: cargo clippy -p lepticons-data -p lepticons --all-targets -- -D warnings
 
       - name: Compute icon diff
         if: steps.check.outputs.changed == 'true'

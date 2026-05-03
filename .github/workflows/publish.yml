@@ -39,6 +39,14 @@ jobs:
           fi
           echo "Publishing lepticons v$CARGO_VERSION"
 
+      - name: Publish lepticons-data
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish -p lepticons-data || echo "lepticons-data already published or skipped"
+
+      - name: Wait for crates.io index (data)
+        run: sleep 30
+
       - name: Publish lepticons
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}

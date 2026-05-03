@@ -2,6 +2,7 @@
 name = "lepticons-animate"
 version = "0.1.4"
 edition = "2021"
+rust-version.workspace = true
 description = "Icon animations for Leptos -- stroke draw-in, spin, pulse, bounce."
 license = "MIT"
 repository = "https://github.com/eugener/lepticons"

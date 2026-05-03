@@ -2,7 +2,7 @@ use convert_case::{Case, Casing};
 use leptos::ev::keydown;
 use leptos::prelude::*;
 use leptos::wasm_bindgen::JsValue;
-use strum::IntoEnumIterator;
+use lepticons::strum::IntoEnumIterator;
 use web_sys::js_sys;
 use web_sys::KeyboardEvent;
 

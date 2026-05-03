@@ -20,6 +20,11 @@ impl Glyph for LucideGlyph {
     }
 }
 
+/// Splits a comma-separated `&'static str` into trimmed, non-empty fragments.
+fn split_csv(raw: &'static str) -> impl Iterator<Item = &'static str> {
+    raw.split(',').map(str::trim).filter(|s| !s.is_empty())
+}
+
 /// Pre-built search entry: (icon variant, concatenated searchable text).
 struct SearchEntry {
     glyph: LucideGlyph,
@@ -100,27 +105,17 @@ impl LucideGlyph {
 
     /// Returns categories as an iterator of string slices.
     pub fn categories(&self) -> impl Iterator<Item = &'static str> {
-        self.categories_str()
-            .split(',')
-            .map(|s| s.trim())
-            .filter(|s| !s.is_empty())
+        split_csv(self.categories_str())
     }
 
     /// Returns tags as an iterator of string slices.
     pub fn tags(&self) -> impl Iterator<Item = &'static str> {
-        self.tags_str()
-            .split(',')
-            .map(|s| s.trim())
-            .filter(|s| !s.is_empty())
+        split_csv(self.tags_str())
     }
 
     /// Returns contributors as an iterator of string slices.
     pub fn contributors(&self) -> impl Iterator<Item = &'static str> {
-        self.get_str("contributors")
-            .unwrap_or("")
-            .split(',')
-            .map(|s| s.trim())
-            .filter(|s| !s.is_empty())
+        split_csv(self.get_str("contributors").unwrap_or(""))
     }
 
     /// Returns a sorted map of all categories and their icon count.

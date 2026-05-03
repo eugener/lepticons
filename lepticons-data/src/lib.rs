@@ -12,3 +12,10 @@ mod lucide_icon_impl;
 
 pub use lucide_icon_data::LucideGlyph;
 pub use lucide_icon_impl::Glyph;
+
+/// Re-exports of the [`strum`](https://docs.rs/strum) traits implemented
+/// by [`LucideGlyph`]. Importing from here lets downstream callers iterate
+/// or look up icons without taking a direct `strum` dependency.
+pub mod strum {
+    pub use ::strum::{EnumProperty, IntoEnumIterator};
+}

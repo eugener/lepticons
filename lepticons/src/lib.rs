@@ -15,7 +15,7 @@
 //! }
 //! ```
 
-pub use lepticons_data::{Glyph, LucideGlyph};
+pub use lepticons_data::{strum, Glyph, LucideGlyph};
 
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;

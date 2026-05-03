@@ -899,7 +899,6 @@ version = "0.12.0"
 dependencies = [
  "lepticons-data",
  "leptos",
- "strum",
 ]
 
 [[package]]
@@ -1165,8 +1164,6 @@ dependencies = [
  "leptos",
  "leptos_meta",
  "leptos_router",
- "strum",
- "strum_macros",
  "web-sys",
 ]
 
