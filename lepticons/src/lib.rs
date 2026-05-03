@@ -15,11 +15,7 @@
 //! }
 //! ```
 
-mod lucide_icon_data;
-mod lucide_icon_impl;
-
-pub use lucide_icon_data::LucideGlyph;
-pub use lucide_icon_impl::Glyph;
+pub use lepticons_data::{Glyph, LucideGlyph};
 
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;

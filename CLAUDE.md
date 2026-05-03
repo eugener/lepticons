@@ -1,12 +1,15 @@
 # Lepticons
 
-Icon toolkit for Leptos. 5 crates: `lepticons/`, `lepticons-picker/`, `lepticons-animate/`, `demo/`, `codegen/`.
+Icon toolkit for Leptos. 6 crates: `lepticons-data/` (framework-agnostic data + search + categories), `lepticons/` (Leptos renderer + re-exports), `lepticons-picker/`, `lepticons-animate/`, `demo/`, `codegen/`.
 
 ## Feedback Loop
 
 After ANY code change, run before considering done:
 
 ```sh
+# Data layer (no Leptos)
+cargo clippy -p lepticons-data --all-targets -- -D warnings && cargo test -p lepticons-data
+
 # Library
 cargo clippy -p lepticons --all-targets -- -D warnings && cargo test -p lepticons
 
@@ -26,10 +29,10 @@ cargo clippy --all-targets -- -D warnings && cargo test --workspace
 cargo build --target wasm32-unknown-unknown -p lucide-icons-demo
 
 # Codegen (after modifying generator)
-cd codegen && cargo run --bin lepticons-codegen && cd .. && cargo clippy -p lepticons --all-targets -- -D warnings && cargo test -p lepticons
+cd codegen && cargo run --bin lepticons-codegen && cd .. && cargo clippy -p lepticons-data -p lepticons --all-targets -- -D warnings && cargo test -p lepticons-data -p lepticons
 
 # Update Lucide icons (manual)
-cd lucide && git fetch origin && git checkout origin/main && cd .. && cd codegen && cargo run --bin lepticons-codegen && cd .. && cargo clippy -p lepticons --all-targets -- -D warnings && cargo test -p lepticons
+cd lucide && git fetch origin && git checkout origin/main && cd .. && cd codegen && cargo run --bin lepticons-codegen && cd .. && cargo clippy -p lepticons-data -p lepticons --all-targets -- -D warnings && cargo test -p lepticons-data -p lepticons
 
 # Demo dev server
 cd demo && trunk serve
@@ -37,11 +40,12 @@ cd demo && trunk serve
 
 ## Dependency Chains
 
-- `codegen/` changed -> re-run generator -> verify lepticons compiles
-- `lucide/` submodule updated -> re-run generator -> verify lepticons compiles
+- `codegen/` changed -> re-run generator -> verify lepticons-data and lepticons compile
+- `lucide/` submodule updated -> re-run generator (rewrites both `lepticons-data/Cargo.toml` and `lepticons/Cargo.toml` feature tables)
+- `lepticons-data/` API changed -> re-export through `lepticons/src/lib.rs` and verify picker/animate compile
 - `lepticons/` API changed -> verify picker and animate still compile
 - `lepticons/src/lib.rs` props changed -> update `lepticons/README.md` props table
-- `lepticons/Cargo.toml` features changed -> update `lepticons/README.md` categories list
+- `lepticons-data/Cargo.toml` features changed -> codegen also rewrites the matching forwarders in `lepticons/Cargo.toml`; update `lepticons/README.md` categories list
 
 ## Design Decisions (do not regress)
 
@@ -69,7 +73,8 @@ cd demo && trunk serve
 
 ## Pitfalls
 
-- `lucide_icon_data.rs` is generated -- never edit, run `codegen` to regenerate
+- `lepticons-data/src/lucide_icon_data.rs` is generated -- never edit, run `codegen` to regenerate
+- `lepticons-data` is `publish = false`; the public surface ships through `lepticons` re-exports
 - `lucide/` is a git submodule -- `git clone --recurse-submodules`
 - `use leptos::ev::*` causes name conflicts (`input`, `reset`, `toggle`) -- use selective imports
 - `TextProp` is Clone not Copy -- clone for dual use, `StoredValue` in reactive closures

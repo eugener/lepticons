@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["lepticons", "lepticons-picker", "lepticons-animate", "codegen", "demo"]
+members = ["lepticons-data", "lepticons", "lepticons-picker", "lepticons-animate", "codegen", "demo"]
 exclude = ["lucide", "examples"]
 
 [workspace.dependencies]

@@ -85,7 +85,7 @@ jobs:
           REMOVED_COUNT=$(echo "$REMOVED_LIST" | grep -c . || true)
           # Count every variant's cfg line. Earlier pattern `#\[cfg(feature` missed
           # multi-category icons emitted as `#[cfg(any(feature = ..., feature = ...))]`.
-          TOTAL=$(grep -c '#\[cfg(' ../lepticons/src/lucide_icon_data.rs)
+          TOTAL=$(grep -c '#\[cfg(' ../lepticons-data/src/lucide_icon_data.rs)
 
           # Validate counts are numeric
           for name in ADDED_COUNT MODIFIED_COUNT REMOVED_COUNT TOTAL; do
