@@ -32,3 +32,15 @@ jobs:
 
       - name: WASM Build
         run: cargo build --target wasm32-unknown-unknown -p lucide-icons-demo
+
+  # Surfaces RustSec advisories on each PR. Failures don't block the
+  # main build (the audit job runs independently); they just notify.
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+      - uses: rustsec/audit-check@v2.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -14,6 +14,7 @@ use crate::menu::*;
 
 mod components;
 mod components_view;
+mod dom_utils;
 mod icons_view;
 mod local_storage;
 mod menu;

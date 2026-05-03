@@ -1,11 +1,10 @@
 use convert_case::{Case, Casing};
 use leptos::ev::keydown;
 use leptos::prelude::*;
-use web_sys::KeyboardEvent;
-use leptos::wasm_bindgen::{JsCast, JsValue};
+use leptos::wasm_bindgen::JsValue;
 use strum::IntoEnumIterator;
 use web_sys::js_sys;
-use web_sys::wasm_bindgen;
+use web_sys::KeyboardEvent;
 
 use leptos_router::hooks::{use_params_map, use_query_map};
 use lepticons::LucideGlyph;
@@ -13,6 +12,7 @@ use lepticons::*;
 use lepticons_animate::{AnimationStyles, DrawIcon};
 use lepticons_picker::{mru, CategoryFilter, IconGrid, IconSearch, MruStrip};
 use crate::components::*;
+use crate::dom_utils::{copy_and_flash, current_text_color_hex, download_blob, download_png};
 use crate::menu::*;
 
 const DEFAULT_STROKE_WIDTH: f64 = 2.0;
@@ -64,6 +64,18 @@ const ICONS_MRU_KEY: &str = "lepticons-icons-mru";
 /// Number of related icons to surface in the detail drawer. Matched by tag
 /// overlap with the active glyph.
 const RELATED_LIMIT: usize = 8;
+
+/// `(label, css_class)` for the animation picker. Index 0 = no animation,
+/// index 1 = the special `DrawIcon` mode (no class -- it's a different
+/// component), indices 2.. apply the named CSS animation class.
+const ANIM_TYPES: [(&str, &str); 6] = [
+    ("None", ""),
+    ("Draw-In", ""),
+    ("Spin", "lepticons-spin"),
+    ("Pulse", "lepticons-pulse"),
+    ("Bounce", "lepticons-bounce"),
+    ("Ping", "lepticons-ping"),
+];
 
 #[component]
 pub fn IconsView() -> impl IntoView {
@@ -200,13 +212,13 @@ pub fn IconsView() -> impl IntoView {
 
                 <Customizer
                     color=icon_color
-                    set_color=set_icon_color
+                    on_color=Callback::new(move |v| set_icon_color.set(v))
                     stroke_width=icon_stroke_width
-                    set_stroke_width=set_icon_stroke_width
+                    on_stroke_width=Callback::new(move |v| set_icon_stroke_width.set(v))
                     size=icon_size
-                    set_size=set_icon_size
+                    on_size=Callback::new(move |v| set_icon_size.set(v))
                     absolute_stroke=absolute_stroke
-                    set_absolute_stroke=set_absolute_stroke
+                    on_absolute_stroke=Callback::new(move |v| set_absolute_stroke.set(v))
                 />
 
                 <hr class="mx-10"/>
@@ -417,19 +429,19 @@ pub fn IconPermalinkView() -> impl IntoView {
 #[component]
 fn Customizer(
     color: ReadSignal<Option<String>>,
-    set_color: WriteSignal<Option<String>>,
+    on_color: Callback<Option<String>>,
     stroke_width: ReadSignal<f64>,
-    set_stroke_width: WriteSignal<f64>,
+    on_stroke_width: Callback<f64>,
     size: ReadSignal<f64>,
-    set_size: WriteSignal<f64>,
+    on_size: Callback<f64>,
     absolute_stroke: ReadSignal<bool>,
-    set_absolute_stroke: WriteSignal<bool>,
+    on_absolute_stroke: Callback<bool>,
 ) -> impl IntoView {
     let reset_defaults = move |_| {
-        set_color.set(None);
-        set_stroke_width.set(DEFAULT_STROKE_WIDTH);
-        set_size.set(DEFAULT_SIZE);
-        set_absolute_stroke.set(false);
+        on_color.run(None);
+        on_stroke_width.run(DEFAULT_STROKE_WIDTH);
+        on_size.run(DEFAULT_SIZE);
+        on_absolute_stroke.run(false);
     };
 
     view! {
@@ -461,7 +473,7 @@ fn Customizer(
                             <input type="color"
                                 class="w-8 h-8 rounded cursor-pointer border-none bg-transparent p-0"
                                 prop:value=resolved_color
-                                on:input=move |ev| set_color.set(Some(event_target_value(&ev)))
+                                on:input=move |ev| on_color.run(Some(event_target_value(&ev)))
                             />
                             <span class="text-xs text-primary/70 font-mono">
                                 {resolved_color2}
@@ -483,7 +495,7 @@ fn Customizer(
                     prop:value=move || stroke_width.get().to_string()
                     on:input=move |ev| {
                         if let Ok(v) = event_target_value(&ev).parse::<f64>() {
-                            set_stroke_width.set(v);
+                            on_stroke_width.run(v);
                         }
                     }
                 />
@@ -501,7 +513,7 @@ fn Customizer(
                     prop:value=move || (size.get() as u32).to_string()
                     on:input=move |ev| {
                         if let Ok(v) = event_target_value(&ev).parse::<f64>() {
-                            set_size.set(v);
+                            on_size.run(v);
                         }
                     }
                 />
@@ -518,7 +530,7 @@ fn Customizer(
                             "w-10 h-5 rounded-full bg-primary/20 relative transition-colors"
                         }
                     }
-                    on:click=move |_| set_absolute_stroke.set(!absolute_stroke.get())
+                    on:click=move |_| on_absolute_stroke.run(!absolute_stroke.get())
                 >
                     <span class=move || {
                         if absolute_stroke.get() {
@@ -592,15 +604,6 @@ fn IconDetailDrawer(
     let (draw_duration, set_draw_duration) = signal(600u32);
     let (draw_delay, set_draw_delay) = signal(0u32);
 
-    const ANIM_TYPES: [(&str, &str); 6] = [
-        ("None", ""),
-        ("Draw-In", ""),
-        ("Spin", "lepticons-spin"),
-        ("Pulse", "lepticons-pulse"),
-        ("Bounce", "lepticons-bounce"),
-        ("Ping", "lepticons-ping"),
-    ];
-
     // Reset menus and animation when the selected icon changes.
     Effect::new(move |_| {
         selected_icon.get();
@@ -654,26 +657,13 @@ fn IconDetailDrawer(
                         </button>
                     </div>
 
-                    // preview
-                    <div class="w-full h-56 flex items-center justify-center
-                                rounded-xl bg-background border border-primary/10"
-                         style="background-image: linear-gradient(to right, rgba(128,128,128,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.12) 1px, transparent 1px); background-size: calc(14rem / 24) calc(14rem / 24); background-position: center;">
-                        <div class=move || {
-                            let idx = anim_type.get();
-                            if idx >= 2 { format!("text-primary {}", ANIM_TYPES[idx].1) } else { "text-primary".to_string() }
-                        }>
-                            {move || {
-                                replay_key.get();
-                                if anim_type.get() == 1 {
-                                    let d = draw_duration.get();
-                                    let dl = draw_delay.get();
-                                    view! { <DrawIcon glyph=icon size="140" stroke_width="2" duration_ms=d delay_ms=dl /> }.into_any()
-                                } else {
-                                    view! { <Icon glyph=icon size="140" stroke_width="2" /> }.into_any()
-                                }
-                            }}
-                        </div>
-                    </div>
+                    <IconPreview
+                        icon=icon
+                        anim_type=anim_type
+                        replay_key=replay_key
+                        draw_duration=draw_duration
+                        draw_delay=draw_delay
+                    />
 
                     {(!tags.is_empty()).then(|| {
                         let tag_str = tags.join(" \u{2022} ");
@@ -696,320 +686,414 @@ fn IconDetailDrawer(
 
                     // copy actions
                     <div class="flex flex-row gap-2">
-                        <div class="relative flex-1">
-                            <button
-                                class="w-full px-3 py-2 text-sm rounded-lg
-                                       border border-primary/15 text-primary/75
-                                       hover:bg-primary/10 flex items-center justify-center gap-1.5"
-                                aria-haspopup="menu"
-                                aria-expanded=move || svg_menu_open.get().to_string()
-                                on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_svg_menu_open.set(!svg_menu_open.get()); set_jsx_menu_open.set(false); }
-                            >
-                                <Icon glyph=Signal::derive(move || {
-                                    if svg_copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
-                                }) size="14"/>
-                                {move || if svg_copied.get() { "Copied!" } else { "Copy SVG" }}
-                                <Icon glyph=LucideGlyph::ChevronDown size="12"/>
-                            </button>
-                            {move || svg_menu_open.get().then(|| {
-                                let svg_for_copy = full_svg.clone();
-                                let svg_for_data_url = full_svg.clone();
-                                let svg_for_download = full_svg.clone();
-                                let svg_for_png = full_svg.clone();
-                                let name_for_svg = icon_name.clone();
-                                let name_for_png = icon_name.clone();
-                                view! {
-                                    <div class="absolute top-full left-0 right-0 mt-1
-                                                bg-background border border-primary/20 rounded-lg shadow-lg
-                                                py-1 z-50" role="menu">
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| copy_and_flash(&svg_for_copy, set_svg_copied, set_svg_menu_open)>
-                                            "Copy SVG"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| {
-                                                    let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(&svg_for_data_url));
-                                                    copy_and_flash(&data_url, set_svg_copied, set_svg_menu_open);
-                                                }>
-                                            "Copy Data URL"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| {
-                                                    download_blob(&svg_for_download, &format!("{}.svg", name_for_svg), "image/svg+xml");
-                                                    set_svg_menu_open.set(false);
-                                                }>
-                                            "Download SVG"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| {
-                                                    download_png(&svg_for_png, &name_for_png);
-                                                    set_svg_menu_open.set(false);
-                                                }>
-                                            "Download PNG"
-                                        </button>
-                                    </div>
-                                }
-                            })}
-                        </div>
-                        <div class="relative flex-1">
-                            <button
-                                class="w-full px-3 py-2 text-sm rounded-lg
-                                       border border-primary/15 text-primary/75
-                                       hover:bg-primary/10 flex items-center justify-center gap-1.5"
-                                aria-haspopup="menu"
-                                aria-expanded=move || jsx_menu_open.get().to_string()
-                                on:click=move |ev: web_sys::MouseEvent| { ev.stop_propagation(); set_jsx_menu_open.set(!jsx_menu_open.get()); set_svg_menu_open.set(false); }
-                            >
-                                {move || if jsx_copied.get() { "Copied!" } else { "Copy JSX" }}
-                                <Icon glyph=LucideGlyph::ChevronDown size="12"/>
-                            </button>
-                            {move || jsx_menu_open.get().then(|| {
-                                let comp = component_name;
-                                let kebab = kebab_name.clone();
-                                let kebab2 = kebab_name.clone();
-                                view! {
-                                    <div class="absolute top-full right-0 mt-1
-                                                bg-background border border-primary/20 rounded-lg shadow-lg
-                                                py-1 min-w-[180px] z-50" role="menu">
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| copy_and_flash(&format!("<{} />", comp), set_jsx_copied, set_jsx_menu_open)>
-                                            "Copy JSX"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| copy_and_flash(comp, set_jsx_copied, set_jsx_menu_open)>
-                                            "Copy Component Name"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| copy_and_flash(&format!("<{} />", kebab), set_jsx_copied, set_jsx_menu_open)>
-                                            "Copy Vue"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| copy_and_flash(&format!("<{} />", comp), set_jsx_copied, set_jsx_menu_open)>
-                                            "Copy Svelte"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| copy_and_flash(&format!("<lucide-angular name=\"{}\" />", kebab2), set_jsx_copied, set_jsx_menu_open)>
-                                            "Copy Angular"
-                                        </button>
-                                        <button role="menuitem" class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
-                                                on:click=move |_| {
-                                                    let snippet = if let Some(ref feat) = first_feature.get_value() {
-                                                        format!(
-                                                            "// lepticons = {{ version = \"{}\", default-features = false, features = [\"{}\"] }}\n\
-                                                             use lepticons::{{Icon, LucideGlyph}};\n\n\
-                                                             view! {{ <Icon glyph=LucideGlyph::{} /> }}",
-                                                            lepticons_semver_short(), feat, comp
-                                                        )
-                                                    } else {
-                                                        format!("<Icon glyph=LucideGlyph::{} />", comp)
-                                                    };
-                                                    copy_and_flash(&snippet, set_jsx_copied, set_jsx_menu_open);
-                                                }>
-                                            "Copy Leptos"
-                                        </button>
-                                    </div>
-                                }
-                            })}
-                        </div>
+                        <CopyDropdown
+                            label="Copy SVG"
+                            copied=svg_copied
+                            open=svg_menu_open
+                            on_toggle=Callback::new(move |_| {
+                                set_svg_menu_open.set(!svg_menu_open.get());
+                                set_jsx_menu_open.set(false);
+                            })
+                            show_leading_icon=true
+                            align_right=false
+                            min_width=""
+                            items=svg_items(full_svg.clone(), icon_name.clone(), set_svg_copied, set_svg_menu_open)
+                        />
+                        <CopyDropdown
+                            label="Copy JSX"
+                            copied=jsx_copied
+                            open=jsx_menu_open
+                            on_toggle=Callback::new(move |_| {
+                                set_jsx_menu_open.set(!jsx_menu_open.get());
+                                set_svg_menu_open.set(false);
+                            })
+                            show_leading_icon=false
+                            align_right=true
+                            min_width="min-w-[180px]"
+                            items=jsx_items(component_name, kebab_name.clone(), first_feature, set_jsx_copied, set_jsx_menu_open)
+                        />
                     </div>
 
-                    // animation pills
-                    <hr class="border-primary/10"/>
-                    <div class="flex flex-row flex-wrap gap-1 items-center">
-                        <span class="text-[0.6875rem] uppercase tracking-wider text-primary/45 mr-1">
-                            "Animate"
-                        </span>
-                        {ANIM_TYPES.iter().enumerate().map(|(i, (label, _))| {
-                            let is_sel = move || anim_type.get() == i;
-                            view! {
-                                <button
-                                    class=move || if is_sel() {
-                                        "px-2 py-0.5 text-xs rounded-full border border-highlight/80 bg-highlight/10 text-highlight font-medium cursor-pointer"
-                                    } else {
-                                        "px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/55 hover:bg-primary/10 cursor-pointer"
-                                    }
-                                    on:click=move |ev: web_sys::MouseEvent| {
-                                        ev.stop_propagation();
-                                        set_anim_type.set(i);
-                                        if i == 1 { set_replay_key.update(|k| *k += 1); }
-                                    }
-                                >
-                                    {*label}
-                                </button>
-                            }
-                        }).collect::<Vec<_>>()}
-                        {move || (anim_type.get() == 1).then(|| view! {
-                            <button
-                                class="px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/55 hover:bg-primary/10 flex items-center gap-1 cursor-pointer"
-                                on:click=move |ev: web_sys::MouseEvent| {
-                                    ev.stop_propagation();
-                                    set_replay_key.update(|k| *k += 1);
-                                }
-                            >
-                                <Icon glyph=LucideGlyph::RotateCcw size="10"/>
-                                "Replay"
-                            </button>
-                        })}
-                    </div>
-
-                    // Draw-In controls
-                    {move || (anim_type.get() == 1).then(|| view! {
-                        <div class="flex flex-col gap-2">
-                            <div class="flex flex-row items-center gap-2">
-                                <label class="text-xs text-primary/45 w-16 flex-none">"Duration"</label>
-                                <input type="range" class="flex-auto" min="100" max="2000" step="100"
-                                    prop:value=move || draw_duration.get().to_string()
-                                    on:input=move |ev| {
-                                        if let Ok(v) = event_target_value(&ev).parse::<u32>() {
-                                            set_draw_duration.set(v);
-                                            set_replay_key.update(|k| *k += 1);
-                                        }
-                                    }
-                                />
-                                <span class="text-xs text-primary/55 w-12 text-right">{move || format!("{}ms", draw_duration.get())}</span>
-                            </div>
-                            <div class="flex flex-row items-center gap-2">
-                                <label class="text-xs text-primary/45 w-16 flex-none">"Delay"</label>
-                                <input type="range" class="flex-auto" min="0" max="1000" step="100"
-                                    prop:value=move || draw_delay.get().to_string()
-                                    on:input=move |ev| {
-                                        if let Ok(v) = event_target_value(&ev).parse::<u32>() {
-                                            set_draw_delay.set(v);
-                                            set_replay_key.update(|k| *k += 1);
-                                        }
-                                    }
-                                />
-                                <span class="text-xs text-primary/55 w-12 text-right">{move || format!("{}ms", draw_delay.get())}</span>
-                            </div>
-                        </div>
-                    })}
+                    <AnimationControls
+                        anim_type=anim_type
+                        on_anim_type=Callback::new(move |i| set_anim_type.set(i))
+                        replay_key=replay_key
+                        on_replay=Callback::new(move |_| set_replay_key.update(|k| *k += 1))
+                        draw_duration=draw_duration
+                        on_draw_duration=Callback::new(move |v| set_draw_duration.set(v))
+                        draw_delay=draw_delay
+                        on_draw_delay=Callback::new(move |v| set_draw_delay.set(v))
+                    />
 
                     // related icons
-                    {(!related.is_empty()).then(|| view! {
-                        <hr class="border-primary/10"/>
-                        <div class="flex flex-col gap-2">
-                            <div class="text-[0.6875rem] uppercase tracking-wider text-primary/45 font-medium">
-                                "Related"
-                            </div>
-                            <div class="flex flex-row flex-wrap gap-1.5">
-                                {related.into_iter().map(|g| {
-                                    let label = g.kebab_name();
-                                    view! {
-                                        <button
-                                            class="p-2 rounded-md bg-background border border-primary/10
-                                                   text-primary/75
-                                                   hover:border-highlight/60 hover:text-primary
-                                                   transition-colors"
-                                            aria-label=label.clone()
-                                            title=label
-                                            on:click=move |_| set_selected_icon.set(Some(g))
-                                        >
-                                            <Icon glyph=g size="20"/>
-                                        </button>
-                                    }
-                                }).collect::<Vec<_>>()}
-                            </div>
-                        </div>
-                    })}
+                    <RelatedIcons
+                        icons=related
+                        on_select=Callback::new(move |g| set_selected_icon.set(Some(g)))
+                    />
                 </div>
             }
         })}
     }
 }
 
-/// Returns the computed text color of <body> as a hex string (e.g. "#1a1a2e").
-fn current_text_color_hex() -> String {
-    let fallback = "#000000".to_string();
-    let Some(window) = web_sys::window() else { return fallback };
-    let Some(document) = window.document() else { return fallback };
-    let Some(body) = document.body() else { return fallback };
-    let Ok(computed) = window.get_computed_style(&body) else { return fallback };
-    let Some(style) = computed else { return fallback };
-    let Ok(rgb) = style.get_property_value("color") else { return fallback };
-    rgb_to_hex(&rgb).unwrap_or(fallback)
+/// One row in a [`CopyDropdown`] menu. Cloning is cheap -- the closure
+/// captures whatever data the row needs to perform its copy/download.
+#[derive(Clone)]
+struct CopyItem {
+    label: &'static str,
+    action: Callback<()>,
 }
 
-/// Converts "rgb(r, g, b)" or "rgba(r, g, b, a)" to "#rrggbb".
-fn rgb_to_hex(rgb: &str) -> Option<String> {
-    let inner = rgb.trim().strip_prefix("rgb")?.trim_start_matches('a').strip_prefix('(')?.strip_suffix(')')?;
-    let parts: Vec<&str> = inner.split(',').collect();
-    if parts.len() < 3 { return None; }
-    let r: u8 = parts[0].trim().parse().ok()?;
-    let g: u8 = parts[1].trim().parse().ok()?;
-    let b: u8 = parts[2].trim().parse().ok()?;
-    Some(format!("#{:02x}{:02x}{:02x}", r, g, b))
-}
-
-/// Copies text to clipboard, flashes a "copied" signal for 2 seconds, and closes a menu.
-fn copy_and_flash(
-    text: &str,
+/// Builds the menu rows for the SVG copy dropdown (Copy SVG / Copy Data
+/// URL / Download SVG / Download PNG). Each closure captures its own
+/// clone of `full_svg` / `icon_name` so the resulting `Callback`s are all
+/// independently invocable.
+fn svg_items(
+    full_svg: String,
+    icon_name: String,
     set_copied: WriteSignal<bool>,
     set_menu_open: WriteSignal<bool>,
-) {
-    lepticons_picker::copy_to_clipboard(text);
-    set_copied.set(true);
-    set_menu_open.set(false);
-    set_timeout(move || set_copied.set(false), std::time::Duration::from_secs(2));
+) -> Vec<CopyItem> {
+    let svg_for_copy = full_svg.clone();
+    let svg_for_data_url = full_svg.clone();
+    let svg_for_download = full_svg.clone();
+    let svg_for_png = full_svg;
+    let name_for_svg = icon_name.clone();
+    let name_for_png = icon_name;
+    vec![
+        CopyItem {
+            label: "Copy SVG",
+            action: Callback::new(move |_| {
+                copy_and_flash(&svg_for_copy, set_copied, set_menu_open);
+            }),
+        },
+        CopyItem {
+            label: "Copy Data URL",
+            action: Callback::new(move |_| {
+                let data_url = format!(
+                    "data:image/svg+xml,{}",
+                    js_sys::encode_uri_component(&svg_for_data_url)
+                );
+                copy_and_flash(&data_url, set_copied, set_menu_open);
+            }),
+        },
+        CopyItem {
+            label: "Download SVG",
+            action: Callback::new(move |_| {
+                download_blob(
+                    &svg_for_download,
+                    &format!("{}.svg", name_for_svg),
+                    "image/svg+xml",
+                );
+                set_menu_open.set(false);
+            }),
+        },
+        CopyItem {
+            label: "Download PNG",
+            action: Callback::new(move |_| {
+                download_png(&svg_for_png, &name_for_png);
+                set_menu_open.set(false);
+            }),
+        },
+    ]
 }
 
-fn download_blob(content: &str, filename: &str, mime: &str) {
-    let Some(window) = web_sys::window() else { return };
-    let Some(document) = window.document() else { return };
-    let Some(body) = document.body() else { return };
-    let parts = js_sys::Array::new();
-    parts.push(&wasm_bindgen::JsValue::from_str(content));
-    let opts = web_sys::BlobPropertyBag::new();
-    opts.set_type(mime);
-    let Ok(blob) = web_sys::Blob::new_with_str_sequence_and_options(&parts, &opts) else { return };
-    let Ok(url) = web_sys::Url::create_object_url_with_blob(&blob) else { return };
-    let Ok(el) = document.create_element("a") else { return };
-    let anchor: web_sys::HtmlAnchorElement = el.unchecked_into();
-    anchor.set_href(&url);
-    anchor.set_download(filename);
-    let _ = body.append_child(&anchor);
-    anchor.click();
-    let _ = body.remove_child(&anchor);
-    let _ = web_sys::Url::revoke_object_url(&url);
+/// Builds the menu rows for the JSX-style copy dropdown (Copy JSX, Vue,
+/// Svelte, Angular, Leptos, plain Component name).
+fn jsx_items(
+    component_name: &'static str,
+    kebab_name: String,
+    first_feature: StoredValue<Option<String>>,
+    set_copied: WriteSignal<bool>,
+    set_menu_open: WriteSignal<bool>,
+) -> Vec<CopyItem> {
+    let comp = component_name;
+    let kebab_vue = kebab_name.clone();
+    let kebab_angular = kebab_name;
+    vec![
+        CopyItem {
+            label: "Copy JSX",
+            action: Callback::new(move |_| {
+                copy_and_flash(&format!("<{} />", comp), set_copied, set_menu_open);
+            }),
+        },
+        CopyItem {
+            label: "Copy Component Name",
+            action: Callback::new(move |_| {
+                copy_and_flash(comp, set_copied, set_menu_open);
+            }),
+        },
+        CopyItem {
+            label: "Copy Vue",
+            action: Callback::new(move |_| {
+                copy_and_flash(&format!("<{} />", kebab_vue), set_copied, set_menu_open);
+            }),
+        },
+        CopyItem {
+            label: "Copy Svelte",
+            action: Callback::new(move |_| {
+                copy_and_flash(&format!("<{} />", comp), set_copied, set_menu_open);
+            }),
+        },
+        CopyItem {
+            label: "Copy Angular",
+            action: Callback::new(move |_| {
+                copy_and_flash(
+                    &format!("<lucide-angular name=\"{}\" />", kebab_angular),
+                    set_copied,
+                    set_menu_open,
+                );
+            }),
+        },
+        CopyItem {
+            label: "Copy Leptos",
+            action: Callback::new(move |_| {
+                let snippet = if let Some(ref feat) = first_feature.get_value() {
+                    format!(
+                        "// lepticons = {{ version = \"{}\", default-features = false, features = [\"{}\"] }}\n\
+                         use lepticons::{{Icon, LucideGlyph}};\n\n\
+                         view! {{ <Icon glyph=LucideGlyph::{} /> }}",
+                        lepticons_semver_short(), feat, comp
+                    )
+                } else {
+                    format!("<Icon glyph=LucideGlyph::{} />", comp)
+                };
+                copy_and_flash(&snippet, set_copied, set_menu_open);
+            }),
+        },
+    ]
 }
 
-fn download_png(svg_str: &str, name: &str) {
-    let Some(window) = web_sys::window() else { return };
-    let Some(document) = window.document() else { return };
-    let Some(body) = document.body() else { return };
+/// Generic copy/download dropdown: trigger button plus a menu rendered
+/// from a `Vec<CopyItem>`. Replaces the two near-identical inline blocks
+/// the icon-detail drawer used to carry for SVG and JSX styles.
+#[component]
+#[allow(clippy::too_many_arguments)]
+fn CopyDropdown(
+    /// Trigger label shown when not in the "just copied" state.
+    label: &'static str,
+    /// "Just copied" flash signal -- when true the button shows
+    /// `"Copied!"` and (if `show_leading_icon`) the leading icon flips
+    /// from Copy to Check.
+    copied: ReadSignal<bool>,
+    /// Whether the menu is currently open (controlled by the parent so
+    /// only one dropdown can be open at a time).
+    open: ReadSignal<bool>,
+    /// Toggle handler. Receives `()` -- the parent decides what
+    /// "toggle" means (typically: flip this dropdown's `open`, force the
+    /// other one closed).
+    on_toggle: Callback<()>,
+    /// Show the leading Copy/Check icon (used by the SVG dropdown). The
+    /// JSX dropdown sets this to false to keep the trigger compact.
+    show_leading_icon: bool,
+    /// Right-align the menu against the trigger (used by the JSX
+    /// dropdown so the menu's wider rows don't push past the panel).
+    align_right: bool,
+    /// Optional Tailwind min-width class for the menu (e.g.
+    /// `"min-w-[180px]"`). Empty string = no extra class.
+    min_width: &'static str,
+    /// Menu rows.
+    items: Vec<CopyItem>,
+) -> impl IntoView {
+    let menu_position = if align_right {
+        "absolute top-full right-0 mt-1"
+    } else {
+        "absolute top-full left-0 right-0 mt-1"
+    };
+    let menu_class = format!(
+        "{menu_position} bg-background border border-primary/20 rounded-lg shadow-lg \
+         py-1 z-50 {min_width}"
+    );
 
-    let Ok(canvas_el) = document.create_element("canvas") else { return };
-    let canvas: web_sys::HtmlCanvasElement = canvas_el.unchecked_into();
-    let png_size = 256;
-    canvas.set_width(png_size);
-    canvas.set_height(png_size);
-
-    let Ok(ctx_val) = canvas.get_context("2d") else { return };
-    let Some(ctx_obj) = ctx_val else { return };
-    let ctx: web_sys::CanvasRenderingContext2d = ctx_obj.unchecked_into::<web_sys::CanvasRenderingContext2d>();
-
-    let Ok(img) = web_sys::HtmlImageElement::new() else { return };
-    let data_url = format!("data:image/svg+xml,{}", js_sys::encode_uri_component(svg_str));
-
-    let filename = format!("{}.png", name);
-    let canvas_clone = canvas.clone();
-    let img_clone = img.clone();
-    let body_clone = body;
-
-    let cb = wasm_bindgen::closure::Closure::once_into_js(move || {
-        let Ok(()) = ctx.draw_image_with_html_image_element_and_dw_and_dh(
-            &img_clone, 0.0, 0.0, png_size as f64, png_size as f64,
-        ) else { return };
-        if let Ok(png_url) = canvas_clone.to_data_url_with_type("image/png") {
-            let Some(document) = web_sys::window().and_then(|w| w.document()) else { return };
-            let Ok(el) = document.create_element("a") else { return };
-            let anchor: web_sys::HtmlAnchorElement = el.unchecked_into();
-            anchor.set_href(&png_url);
-            anchor.set_download(&filename);
-            let _ = body_clone.append_child(&anchor);
-            anchor.click();
-            let _ = body_clone.remove_child(&anchor);
-        }
-    });
-    img.set_onload(Some(cb.as_ref().unchecked_ref()));
-    img.set_src(&data_url);
+    view! {
+        <div class="relative flex-1">
+            <button
+                class="w-full px-3 py-2 text-sm rounded-lg
+                       border border-primary/15 text-primary/75
+                       hover:bg-primary/10 flex items-center justify-center gap-1.5"
+                aria-haspopup="menu"
+                aria-expanded=move || open.get().to_string()
+                on:click=move |ev: web_sys::MouseEvent| {
+                    ev.stop_propagation();
+                    on_toggle.run(());
+                }
+            >
+                {show_leading_icon.then(|| view! {
+                    <Icon glyph=Signal::derive(move || {
+                        if copied.get() { LucideGlyph::Check } else { LucideGlyph::Copy }
+                    }) size="14"/>
+                })}
+                {move || if copied.get() { "Copied!" } else { label }}
+                <Icon glyph=LucideGlyph::ChevronDown size="12"/>
+            </button>
+            {move || open.get().then(|| {
+                let menu_class = menu_class.clone();
+                let items = items.clone();
+                view! {
+                    <div class=menu_class role="menu">
+                        {items.into_iter().map(|item| view! {
+                            <button role="menuitem"
+                                    class="w-full text-left px-3 py-1.5 text-xs text-primary hover:bg-primary/10"
+                                    on:click=move |_| item.action.run(())>
+                                {item.label}
+                            </button>
+                        }).collect::<Vec<_>>()}
+                    </div>
+                }
+            })}
+        </div>
+    }
 }
+
+#[component]
+fn IconPreview(
+    icon: LucideGlyph,
+    anim_type: ReadSignal<usize>,
+    replay_key: ReadSignal<u32>,
+    draw_duration: ReadSignal<u32>,
+    draw_delay: ReadSignal<u32>,
+) -> impl IntoView {
+    view! {
+        <div class="w-full h-56 flex items-center justify-center
+                    rounded-xl bg-background border border-primary/10"
+             style="background-image: linear-gradient(to right, rgba(128,128,128,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.12) 1px, transparent 1px); background-size: calc(14rem / 24) calc(14rem / 24); background-position: center;">
+            <div class=move || {
+                let idx = anim_type.get();
+                if idx >= 2 {
+                    format!("text-primary {}", ANIM_TYPES[idx].1)
+                } else {
+                    "text-primary".to_string()
+                }
+            }>
+                {move || {
+                    replay_key.get();
+                    if anim_type.get() == 1 {
+                        let d = draw_duration.get();
+                        let dl = draw_delay.get();
+                        view! { <DrawIcon glyph=icon size="140" stroke_width="2" duration_ms=d delay_ms=dl /> }.into_any()
+                    } else {
+                        view! { <Icon glyph=icon size="140" stroke_width="2" /> }.into_any()
+                    }
+                }}
+            </div>
+        </div>
+    }
+}
+
+#[component]
+fn AnimationControls(
+    anim_type: ReadSignal<usize>,
+    on_anim_type: Callback<usize>,
+    replay_key: ReadSignal<u32>,
+    on_replay: Callback<()>,
+    draw_duration: ReadSignal<u32>,
+    on_draw_duration: Callback<u32>,
+    draw_delay: ReadSignal<u32>,
+    on_draw_delay: Callback<u32>,
+) -> impl IntoView {
+    let _ = replay_key;
+    view! {
+        <hr class="border-primary/10"/>
+        <div class="flex flex-row flex-wrap gap-1 items-center">
+            <span class="text-[0.6875rem] uppercase tracking-wider text-primary/45 mr-1">
+                "Animate"
+            </span>
+            {ANIM_TYPES.iter().enumerate().map(|(i, (label, _))| {
+                let is_sel = move || anim_type.get() == i;
+                view! {
+                    <button
+                        class=move || if is_sel() {
+                            "px-2 py-0.5 text-xs rounded-full border border-highlight/80 bg-highlight/10 text-highlight font-medium cursor-pointer"
+                        } else {
+                            "px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/55 hover:bg-primary/10 cursor-pointer"
+                        }
+                        on:click=move |ev: web_sys::MouseEvent| {
+                            ev.stop_propagation();
+                            on_anim_type.run(i);
+                            if i == 1 { on_replay.run(()); }
+                        }
+                    >
+                        {*label}
+                    </button>
+                }
+            }).collect::<Vec<_>>()}
+            {move || (anim_type.get() == 1).then(|| view! {
+                <button
+                    class="px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/55 hover:bg-primary/10 flex items-center gap-1 cursor-pointer"
+                    on:click=move |ev: web_sys::MouseEvent| {
+                        ev.stop_propagation();
+                        on_replay.run(());
+                    }
+                >
+                    <Icon glyph=LucideGlyph::RotateCcw size="10"/>
+                    "Replay"
+                </button>
+            })}
+        </div>
+
+        {move || (anim_type.get() == 1).then(|| view! {
+            <div class="flex flex-col gap-2">
+                <div class="flex flex-row items-center gap-2">
+                    <label class="text-xs text-primary/45 w-16 flex-none">"Duration"</label>
+                    <input type="range" class="flex-auto" min="100" max="2000" step="100"
+                        prop:value=move || draw_duration.get().to_string()
+                        on:input=move |ev| {
+                            if let Ok(v) = event_target_value(&ev).parse::<u32>() {
+                                on_draw_duration.run(v);
+                                on_replay.run(());
+                            }
+                        }
+                    />
+                    <span class="text-xs text-primary/55 w-12 text-right">{move || format!("{}ms", draw_duration.get())}</span>
+                </div>
+                <div class="flex flex-row items-center gap-2">
+                    <label class="text-xs text-primary/45 w-16 flex-none">"Delay"</label>
+                    <input type="range" class="flex-auto" min="0" max="1000" step="100"
+                        prop:value=move || draw_delay.get().to_string()
+                        on:input=move |ev| {
+                            if let Ok(v) = event_target_value(&ev).parse::<u32>() {
+                                on_draw_delay.run(v);
+                                on_replay.run(());
+                            }
+                        }
+                    />
+                    <span class="text-xs text-primary/55 w-12 text-right">{move || format!("{}ms", draw_delay.get())}</span>
+                </div>
+            </div>
+        })}
+    }
+}
+
+#[component]
+fn RelatedIcons(icons: Vec<LucideGlyph>, on_select: Callback<LucideGlyph>) -> impl IntoView {
+    if icons.is_empty() {
+        return None;
+    }
+    Some(view! {
+        <hr class="border-primary/10"/>
+        <div class="flex flex-col gap-2">
+            <div class="text-[0.6875rem] uppercase tracking-wider text-primary/45 font-medium">
+                "Related"
+            </div>
+            <div class="flex flex-row flex-wrap gap-1.5">
+                {icons.into_iter().map(|g| {
+                    let label = g.kebab_name();
+                    view! {
+                        <button
+                            class="p-2 rounded-md bg-background border border-primary/10
+                                   text-primary/75
+                                   hover:border-highlight/60 hover:text-primary
+                                   transition-colors"
+                            aria-label=label.clone()
+                            title=label
+                            on:click=move |_| on_select.run(g)
+                        >
+                            <Icon glyph=g size="20"/>
+                        </button>
+                    }
+                }).collect::<Vec<_>>()}
+            </div>
+        </div>
+    })
+}
+

@@ -4,6 +4,7 @@ use leptos::wasm_bindgen::JsCast;
 use lepticons::{Icon, LucideGlyph};
 
 use crate::copy::{copy_to_clipboard, IconCopyFormat};
+use crate::theme;
 
 /// Internal context provided by [`IconGrid`] when a `copy_format` signal is
 /// supplied. Cells use it to render the per-cell hover copy button.
@@ -96,12 +97,7 @@ pub fn IconGrid(
         grid-template-columns:repeat(auto-fill,minmax(2.5rem,1fr));\
         gap:0.5rem";
 
-    let has_class = class.is_some();
-    let has_cell_class = cell_class.is_some();
-    let has_cell_selected_class = cell_selected_class.is_some();
-    let has_tooltip_class = tooltip_class.is_some();
-
-    let inject_default_tooltip_style = !has_tooltip_class && tooltips;
+    let inject_default_tooltip_style = tooltip_class.is_none() && tooltips;
     let copy_enabled = copy_format.is_some();
     if let Some(format) = copy_format {
         provide_context(CopyContext {
@@ -192,8 +188,14 @@ pub fn IconGrid(
             </style>
         })}
         <div node_ref=grid_ref
-             class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-             style=move || if has_class { "" } else { grid_style }
+             class={
+                 let class = class.clone();
+                 move || theme::class_str(&class)
+             }
+             style={
+                 let class = class.clone();
+                 move || theme::style_str(&class, grid_style)
+             }
              role="grid"
              aria-label="Icons"
              on:keydown=on_keydown>
@@ -224,11 +226,8 @@ pub fn IconGrid(
                             stroke_width=stroke_width
                             fill=fill
                             tooltips=tooltips
-                            has_cell_class=has_cell_class
-                            has_cell_selected_class=has_cell_selected_class
                             cell_class=cell_class
                             cell_selected_class=cell_selected_class
-                            has_tooltip_class=has_tooltip_class
                             tooltip_class=tooltip_class
                         />
                     }
@@ -329,13 +328,16 @@ fn IconCell(
     stroke_width: TextProp,
     fill: TextProp,
     tooltips: bool,
-    has_cell_class: bool,
-    has_cell_selected_class: bool,
     cell_class: Option<TextProp>,
     cell_selected_class: Option<TextProp>,
-    has_tooltip_class: bool,
     tooltip_class: Option<TextProp>,
 ) -> impl IntoView {
+    // `cell_class` / `cell_selected_class` are mutually opt-in: when *either*
+    // is supplied the caller is taking over per-cell styling, so the default
+    // inline styles must be suppressed even on the side without an override.
+    // Active row falls back to `cell_class` so it still renders styled.
+    let caller_cell_styled = cell_class.is_some() || cell_selected_class.is_some();
+
     let on_click = move |_: web_sys::MouseEvent| {
         focused.set(Some(icon));
         on_select.run(icon);
@@ -351,27 +353,29 @@ fn IconCell(
         }
     };
 
-    let class_fn = move || {
-        let custom = if has_cell_class || has_cell_selected_class {
-            if selected.get() {
-                cell_selected_class
-                    .as_ref()
-                    .map(|c| c.get().to_string())
-                    .unwrap_or_default()
+    let class_fn = {
+        let cell_class = cell_class.clone();
+        let cell_selected_class = cell_selected_class.clone();
+        move || {
+            let custom = if caller_cell_styled {
+                if selected.get() {
+                    cell_selected_class
+                        .as_ref()
+                        .or(cell_class.as_ref())
+                        .map(|c| c.get().to_string())
+                        .unwrap_or_default()
+                } else {
+                    theme::class_str(&cell_class)
+                }
             } else {
-                cell_class
-                    .as_ref()
-                    .map(|c| c.get().to_string())
-                    .unwrap_or_default()
-            }
-        } else {
-            String::new()
-        };
-        format!("lp-cell {custom}")
+                String::new()
+            };
+            format!("lp-cell {custom}")
+        }
     };
 
     let style_fn = move || {
-        if has_cell_class || has_cell_selected_class {
+        if caller_cell_styled {
             ""
         } else if selected.get() {
             DEFAULT_CELL_HOVER
@@ -402,17 +406,16 @@ fn IconCell(
             />
             {tooltips.then(|| {
                 let name = icon.name();
-                let tooltip_class = tooltip_class.clone();
+                let tooltip_class_for_class = tooltip_class.clone();
+                let tooltip_class_for_style = tooltip_class.clone();
                 let class_fn = move || {
-                    if has_tooltip_class {
-                        tooltip_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+                    if tooltip_class_for_class.is_some() {
+                        theme::class_str(&tooltip_class_for_class)
                     } else {
                         "lp-tooltip".to_string()
                     }
                 };
-                let style_fn = move || {
-                    if has_tooltip_class { "" } else { DEFAULT_TOOLTIP_STYLE }
-                };
+                let style_fn = move || theme::style_str(&tooltip_class_for_style, DEFAULT_TOOLTIP_STYLE);
                 view! {
                     <div class=class_fn style=style_fn>{name}</div>
                 }

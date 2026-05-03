@@ -2,6 +2,8 @@ use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 use lepticons::{Icon, LucideGlyph};
 
+use crate::theme;
+
 const DEFAULT_CONTAINER_STYLE: &str = "display:flex;align-items:center;gap:0.5rem;\
     padding:0.5rem 1rem;\
     background:var(--lp-bg,#f5f5f5);\
@@ -92,10 +94,6 @@ pub fn IconSearch(
     let pending_handle: StoredValue<Option<TimeoutHandle>> = StoredValue::new(None);
     let input_ref = input_ref.unwrap_or_default();
 
-    let has_class = class.is_some();
-    let has_input_class = input_class.is_some();
-    let has_kbd_class = kbd_class.is_some();
-
     let icon_size_l = icon_size.clone();
     let icon_stroke_l = icon_stroke.clone();
     let icon_size_r = icon_size;
@@ -127,19 +125,28 @@ pub fn IconSearch(
              input.lp-search::-webkit-search-decoration{\
              -webkit-appearance:none;appearance:none;display:none}"
         </style>
-        <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-             style=move || if has_class { "" } else { DEFAULT_CONTAINER_STYLE }>
+        <div class={
+                 let class = class.clone();
+                 move || theme::class_str(&class)
+             }
+             style={
+                 let class = class.clone();
+                 move || theme::style_str(&class, DEFAULT_CONTAINER_STYLE)
+             }>
             <Icon glyph=LucideGlyph::Search
                   size=move || icon_size_l.get()
                   stroke=move || icon_stroke_l.get() />
             <input type="search"
                    role="searchbox"
                    node_ref=input_ref
-                   class=move || {
-                       let extra = input_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default();
-                       format!("lp-search {extra}")
+                   class={
+                       let input_class = input_class.clone();
+                       move || format!("lp-search {}", theme::class_str(&input_class))
                    }
-                   style=move || if has_input_class { "" } else { DEFAULT_INPUT_STYLE }
+                   style={
+                       let input_class = input_class.clone();
+                       move || theme::style_str(&input_class, DEFAULT_INPUT_STYLE)
+                   }
                    prop:placeholder=move || placeholder.get()
                    prop:value=move || value.get()
                    aria-label=move || aria_label.get()
@@ -148,13 +155,13 @@ pub fn IconSearch(
             {move || {
                 let empty = value.get().is_empty();
                 if !empty && show_clear {
-                    let has_clear_class = clear_class.is_some();
-                    let clear_class = clear_class.clone();
+                    let clear_class_for_class = clear_class.clone();
+                    let clear_class_for_style = clear_class.clone();
                     let icon_size = icon_size_r.clone();
                     let icon_stroke = icon_stroke_r.clone();
                     Some(view! {
-                        <span class=move || clear_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-                              style=move || if has_clear_class { "" } else { "cursor:pointer;display:flex" }
+                        <span class=move || theme::class_str(&clear_class_for_class)
+                              style=move || theme::style_str(&clear_class_for_style, "cursor:pointer;display:flex")
                               role="button"
                               aria-label="Clear search"
                               on:click=clear>
@@ -164,10 +171,11 @@ pub fn IconSearch(
                         </span>
                     }.into_any())
                 } else if empty && shortcut_hint {
-                    let kbd_class = kbd_class.clone();
+                    let kbd_class_for_class = kbd_class.clone();
+                    let kbd_class_for_style = kbd_class.clone();
                     Some(view! {
-                        <kbd class=move || kbd_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-                             style=move || if has_kbd_class { "" } else { DEFAULT_KBD_STYLE }
+                        <kbd class=move || theme::class_str(&kbd_class_for_class)
+                             style=move || theme::style_str(&kbd_class_for_style, DEFAULT_KBD_STYLE)
                              aria-label="Press slash to focus search"
                              title="Press / to focus">
                             "/"

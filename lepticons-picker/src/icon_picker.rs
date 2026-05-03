@@ -4,6 +4,7 @@ use lepticons::LucideGlyph;
 
 use crate::copy::IconCopyFormat;
 use crate::mru;
+use crate::theme;
 use crate::{CategoryFilter, IconGrid, IconSearch, MruStrip};
 
 const DEFAULT_MRU_STORAGE_KEY: &str = "lepticons-picker-mru";
@@ -111,7 +112,7 @@ pub fn IconPicker(
     };
 
     view! {
-        <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+        <div class=move || theme::class_str(&class)
              style=container_style
              on:keydown=on_keydown>
             {show_search.then(|| view! {
