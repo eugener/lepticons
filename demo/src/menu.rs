@@ -1,7 +1,32 @@
 use leptos::prelude::*;
+use leptos_router::hooks::use_location;
 use lepticons::{CustomIcon, Icon, LucideGlyph};
 
 use crate::components::*;
+
+/// Tailwind class for an inactive nav link (muted, brand-highlight on hover).
+const NAV_LINK_BASE: &str = "leading-none text-primary hover:text-highlight transition-colors";
+/// Tailwind class added to the currently-active nav link.
+const NAV_LINK_ACTIVE: &str = "leading-none text-highlight transition-colors";
+
+/// Anchor that styles itself as the active nav item when `is_active(path)` is true.
+#[component]
+fn NavLink(
+    href: &'static str,
+    label: &'static str,
+    /// Receives the current pathname; returns true when this link should be highlighted.
+    is_active: fn(&str) -> bool,
+) -> impl IntoView {
+    let location = use_location();
+    let class = move || {
+        if is_active(&location.pathname.get()) {
+            NAV_LINK_ACTIVE
+        } else {
+            NAV_LINK_BASE
+        }
+    };
+    view! { <a href=href class=class>{label}</a> }
+}
 
 /// Small "vX.Y.Z" link to crates.io with a styled hover tooltip listing
 /// all three crate versions on separate lines.
@@ -68,9 +93,9 @@ pub fn MainMenu(#[prop(default = "")] class: &'static str) -> impl IntoView {
     let help = use_context::<HelpOpen>();
     view! {
         <div class={format!("flex flex-row gap-4 items-center {}", class)}>
-            <a href="/" class="leading-none text-primary hover:text-highlight transition-colors">"Icons"</a>
-            <a href="/components" class="leading-none text-primary hover:text-highlight transition-colors">"Components"</a>
-            <a href="/license" class="leading-none text-primary hover:text-highlight transition-colors">"License"</a>
+            <NavLink href="/" label="Icons" is_active=|p| p == "/" || p.starts_with("/icons") />
+            <NavLink href="/components" label="Components" is_active=|p| p.starts_with("/components") />
+            <NavLink href="/license" label="License" is_active=|p| p.starts_with("/license") />
             <ThemeToggle/>
             {help.map(|h| view! {
                 <button
