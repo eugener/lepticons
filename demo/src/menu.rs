@@ -32,9 +32,15 @@ fn NavLink(
 }
 
 /// Small "vX.Y.Z" link to crates.io with a styled hover tooltip listing
-/// all three crate versions on separate lines.
+/// every crate version on separate lines.
 #[component]
 pub fn VersionLink() -> impl IntoView {
+    let rows: [(&str, &str); 4] = [
+        ("lepticons", lepticons::VERSION),
+        ("lepticons-data", lepticons_data::VERSION),
+        ("lepticons-picker", lepticons_picker::VERSION),
+        ("lepticons-animate", lepticons_animate::VERSION),
+    ];
     view! {
         <div class="relative group">
             <a href="https://crates.io/crates/lepticons"
@@ -44,18 +50,12 @@ pub fn VersionLink() -> impl IntoView {
                 {format!("v{}", lepticons::VERSION)}
             </a>
             <div class="hidden group-hover:flex absolute right-0 top-full mt-2 z-50 flex-col gap-0.5 bg-secondary border border-primary/20 rounded-md px-3 py-2 text-xs text-primary whitespace-nowrap shadow-lg">
-                <div class="flex flex-row justify-between gap-6">
-                    <span class="opacity-60">"lepticons"</span>
-                    <span>{lepticons::VERSION}</span>
-                </div>
-                <div class="flex flex-row justify-between gap-6">
-                    <span class="opacity-60">"lepticons-picker"</span>
-                    <span>{lepticons_picker::VERSION}</span>
-                </div>
-                <div class="flex flex-row justify-between gap-6">
-                    <span class="opacity-60">"lepticons-animate"</span>
-                    <span>{lepticons_animate::VERSION}</span>
-                </div>
+                {rows.iter().map(|(name, version)| view! {
+                    <div class="flex flex-row justify-between gap-6">
+                        <span class="opacity-60">{*name}</span>
+                        <span>{*version}</span>
+                    </div>
+                }).collect::<Vec<_>>()}
             </div>
         </div>
     }

@@ -7,6 +7,9 @@
 //! Re-exported through the `lepticons` crate; depend on this crate
 //! directly only when you need the data layer without a renderer.
 
+/// Version of the `lepticons-data` crate, taken from `Cargo.toml` at build time.
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+
 mod lucide_icon_data;
 mod lucide_icon_impl;
 
