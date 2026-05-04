@@ -2,6 +2,8 @@ use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 use lepticons::LucideGlyph;
 
+use crate::theme;
+
 /// Displays all icon categories with their icon counts.
 ///
 /// Clicking a category invokes `on_select` with the category name (Title Case).
@@ -30,7 +32,6 @@ pub fn CategoryFilter(
     #[prop(into, optional)]
     item_active_class: Option<TextProp>,
 ) -> impl IntoView {
-    let has_class = class.is_some();
     let has_item_class = item_class.is_some();
     let class = StoredValue::new(class);
     let item_class = StoredValue::new(item_class);
@@ -44,8 +45,8 @@ pub fn CategoryFilter(
         color:var(--lp-text,inherit)";
 
     view! {
-        <div class=move || class.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
-             style=move || if has_class { "" } else { container_style }>
+        <div class=move || class.with_value(theme::class_str)
+             style=move || class.with_value(|c| theme::style_str(c, container_style))>
         {
             move || LucideGlyph::all_categories().iter()
                 .filter(|(k, _)| !k.is_empty())
@@ -58,15 +59,19 @@ pub fn CategoryFilter(
                     };
 
                     let row_class = move || {
-                        if has_item_class {
-                            if is_active() {
-                                item_active_class.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
-                            } else {
-                                item_class.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
-                            }
-                        } else {
-                            String::new()
+                        if !has_item_class {
+                            return String::new();
                         }
+                        // Active row uses item_active_class when supplied,
+                        // otherwise falls back to item_class so it never
+                        // renders unstyled.
+                        if is_active() {
+                            let active = item_active_class.with_value(theme::class_str);
+                            if !active.is_empty() {
+                                return active;
+                            }
+                        }
+                        item_class.with_value(theme::class_str)
                     };
 
                     let row_style = move || {

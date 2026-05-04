@@ -3,6 +3,7 @@ use leptos::text_prop::TextProp;
 use leptos::wasm_bindgen::JsCast;
 use lepticons::LucideGlyph;
 
+use crate::theme;
 use crate::IconPicker;
 
 /// Popover that shows an [`IconPicker`] when a trigger element is clicked.
@@ -44,9 +45,16 @@ pub fn IconPickerPopover(
     #[prop(default = true)]
     close_on_select: bool,
     /// Popover width. Default: "480px".
+    ///
+    /// Read once at component construction and used as the *initial* panel
+    /// size. After the user resizes (or the popover closes/reopens), the
+    /// captured pixel size takes over and subsequent reactive changes to
+    /// `width` are ignored. Pass a static value if you don't need the
+    /// resize-memory behavior.
     #[prop(into, optional)]
     width: Option<TextProp>,
-    /// Popover height. Default: "400px".
+    /// Popover height. Default: "400px". Same one-shot semantics as
+    /// [`width`].
     #[prop(into, optional)]
     height: Option<TextProp>,
     /// Accessible label for the popover dialog (default: "Choose an icon").
@@ -167,7 +175,7 @@ pub fn IconPickerPopover(
             {move || open.get().then(|| view! {
                 <div node_ref=panel_ref
                      style=panel_style
-                     class=move || class_stored.with_value(|c| c.as_ref().map(|c| c.get().to_string()).unwrap_or_default())
+                     class=move || class_stored.with_value(theme::class_str)
                      role="dialog"
                      aria-modal="true"
                      aria-label=move || aria_label_stored.with_value(|a| a.get().to_string())>

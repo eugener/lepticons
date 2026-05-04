@@ -14,9 +14,10 @@ use cargo::CargoToml;
 
 fn main() {
     let icon_path = Path::new("../lucide/icons");
-    let gen_path = Path::new("../lepticons");
+    let gen_path = Path::new("../lepticons-data");
     let dest_path = gen_path.join("src").join("lucide_icon_data.rs");
     let cargo_path = gen_path.join("Cargo.toml");
+    let facade_cargo_path = Path::new("../lepticons/Cargo.toml");
 
     // read all the svg files available in the icons folder and sort them by path
     let mut paths = fs::read_dir(icon_path)
@@ -127,8 +128,13 @@ fn main() {
 
     format_code(&dest_path);
 
-    // update Cargo.toml in lucid_icons
-    update_cargo_features(cargo_path.display().to_string(), &entries);
+    // Refresh feature tables in both crates so categories stay in sync.
+    update_cargo_features(cargo_path.display().to_string(), &entries, None);
+    update_cargo_features(
+        facade_cargo_path.display().to_string(),
+        &entries,
+        Some("lepticons-data"),
+    );
 }
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
@@ -209,8 +215,13 @@ fn format_code(file_path: &Path) {
     }
 }
 
-fn update_cargo_features(path: String, entries: &[SvgEntry]) {
-    // Collect all unique categories
+/// Rewrites the `[features]` table.
+///
+/// When `forward_to` is `None`, each category becomes an empty feature
+/// (`category = []`). When set to e.g. `Some("lepticons-data")`, the value
+/// becomes `["lepticons-data/<category>"]` so the facade crate forwards to
+/// the data crate. The `default` feature always lists every category.
+fn update_cargo_features(path: String, entries: &[SvgEntry], forward_to: Option<&str>) {
     let mut all_categories = BTreeSet::new();
     for entry in entries {
         for cat in &entry.meta.categories {
@@ -223,7 +234,8 @@ fn update_cargo_features(path: String, entries: &[SvgEntry]) {
     let prev_count = features.keys().filter(|k| *k != "default").count();
     features.clear();
 
-    // default enables all categories
+    // `default` always lists the local feature names; each local feature
+    // either is empty (data crate) or forwards (facade crate).
     features.insert(
         "default".to_string(),
         toml::Value::Array(
@@ -234,14 +246,18 @@ fn update_cargo_features(path: String, entries: &[SvgEntry]) {
         ),
     );
 
-    // each category is an empty feature
     for cat in &all_categories {
-        features.insert(cat.clone(), toml::Value::Array(vec![]));
+        let value = match forward_to {
+            Some(prefix) => toml::Value::Array(vec![toml::Value::String(format!("{prefix}/{cat}"))]),
+            None => toml::Value::Array(vec![]),
+        };
+        features.insert(cat.clone(), value);
     }
 
     let new_count = all_categories.len();
     println!(
-        ">>> Categories: {} (delta: {:+}), Icons: {}",
+        ">>> {}: Categories {} (delta: {:+}), Icons: {}",
+        path,
         new_count,
         new_count as isize - prev_count as isize,
         entries.len(),

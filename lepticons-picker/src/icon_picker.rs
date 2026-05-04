@@ -1,10 +1,10 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
-use leptos::wasm_bindgen::JsCast;
 use lepticons::LucideGlyph;
 
 use crate::copy::IconCopyFormat;
 use crate::mru;
+use crate::theme;
 use crate::{CategoryFilter, IconGrid, IconSearch, MruStrip};
 
 const DEFAULT_MRU_STORAGE_KEY: &str = "lepticons-picker-mru";
@@ -102,13 +102,8 @@ pub fn IconPicker(
         if ev.key() != "/" || ev.ctrl_key() || ev.meta_key() || ev.alt_key() {
             return;
         }
-        if let Some(target) = ev.target() {
-            if let Ok(el) = target.dyn_into::<web_sys::HtmlElement>() {
-                let tag = el.tag_name();
-                if tag.eq_ignore_ascii_case("input") || tag.eq_ignore_ascii_case("textarea") {
-                    return;
-                }
-            }
+        if crate::is_typing_target(&ev) {
+            return;
         }
         if let Some(input) = search_input_ref.get() {
             ev.prevent_default();
@@ -117,7 +112,7 @@ pub fn IconPicker(
     };
 
     view! {
-        <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
+        <div class=move || theme::class_str(&class)
              style=container_style
              on:keydown=on_keydown>
             {show_search.then(|| view! {

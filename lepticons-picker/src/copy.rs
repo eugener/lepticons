@@ -59,7 +59,7 @@ impl IconCopyFormat {
 /// Best-effort clipboard write. No-op when there is no browser, no
 /// clipboard API, or the browser denies permission. The browser's
 /// promise is fired and forgotten.
-pub(crate) fn copy_to_clipboard(text: &str) {
+pub fn copy_to_clipboard(text: &str) {
     if let Some(window) = web_sys::window() {
         let clipboard = window.navigator().clipboard();
         let _ = clipboard.write_text(text);

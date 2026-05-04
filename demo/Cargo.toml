@@ -7,8 +7,7 @@ edition = "2021"
 leptos = { version = "0.8", features = ["csr"] }
 leptos_meta = "0.8"
 leptos_router = "0.8"
-strum = { workspace = true }
-strum_macros = { workspace = true }
+lepticons-data = { path = "../lepticons-data" }
 lepticons = { path = "../lepticons", features = ["default"] }
 lepticons-picker = { path = "../lepticons-picker" }
 lepticons-animate = { path = "../lepticons-animate" }

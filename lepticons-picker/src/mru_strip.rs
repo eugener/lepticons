@@ -2,6 +2,23 @@ use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 use lepticons::{Icon, LucideGlyph};
 
+use crate::theme;
+
+const DEFAULT_STRIP_STYLE: &str = "padding:0.25rem 0.75rem 0.5rem;\
+    border-bottom:1px solid var(--lp-border,#e5e5e5)";
+
+const DEFAULT_HEADER_STYLE: &str = "font-size:0.6875rem;font-weight:500;letter-spacing:0.04em;\
+    text-transform:uppercase;\
+    color:var(--lp-text-muted,#999);\
+    margin-bottom:0.25rem";
+
+const DEFAULT_ITEMS_STYLE: &str = "display:flex;flex-wrap:wrap;gap:0.25rem";
+
+const DEFAULT_ITEM_STYLE: &str = "padding:0.375rem;\
+    border-radius:var(--lp-radius,0.5rem);\
+    background:var(--lp-bg,#f5f5f5);\
+    cursor:pointer;display:flex";
+
 /// Horizontal strip of recently-used icons.
 ///
 /// Reads from `mru` (an `RwSignal<Vec<LucideGlyph>>`) and emits `on_select`
@@ -77,45 +94,38 @@ pub fn MruStrip(
     let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| "1.5".into());
     let icon_fill = icon_fill.unwrap_or_else(|| "none".into());
 
-    let has_class = class.is_some();
-    let has_header_class = header_class.is_some();
-    let has_item_class = item_class.is_some();
-    let has_items_class = items_class.is_some();
-
     view! {
-        <div class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-             style=move || if has_class {
-                 ""
-             } else {
-                 "padding:0.25rem 0.75rem 0.5rem;\
-                  border-bottom:1px solid var(--lp-border,#e5e5e5)"
+        <div class={
+                 let class = class.clone();
+                 move || theme::class_str(&class)
+             }
+             style={
+                 let class = class.clone();
+                 move || theme::style_str(&class, DEFAULT_STRIP_STYLE)
              }>
             {show_header.then(|| {
-                let header_class = header_class.clone();
+                let header_class_for_class = header_class.clone();
+                let header_class_for_style = header_class;
                 view! {
-                    <div class=move || header_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-                         style=move || if has_header_class {
-                             ""
-                         } else {
-                             "font-size:0.6875rem;font-weight:500;letter-spacing:0.04em;\
-                              text-transform:uppercase;\
-                              color:var(--lp-text-muted,#999);\
-                              margin-bottom:0.25rem"
-                         }>
+                    <div class=move || theme::class_str(&header_class_for_class)
+                         style=move || theme::style_str(&header_class_for_style, DEFAULT_HEADER_STYLE)>
                         {move || header_text.get().to_string()}
                     </div>
                 }
             })}
             <div role="list"
-                 class=move || items_class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-                 style=move || if has_items_class {
-                     ""
-                 } else {
-                     "display:flex;flex-wrap:wrap;gap:0.25rem"
+                 class={
+                     let items_class = items_class.clone();
+                     move || theme::class_str(&items_class)
+                 }
+                 style={
+                     let items_class = items_class.clone();
+                     move || theme::style_str(&items_class, DEFAULT_ITEMS_STYLE)
                  }>
                 {move || mru.get().into_iter().map(|icon| {
                     let label = icon.kebab_name();
-                    let item_class_inner = item_class.clone();
+                    let item_class_for_class = item_class.clone();
+                    let item_class_for_style = item_class.clone();
                     let size = icon_size.clone();
                     let stroke = icon_stroke.clone();
                     let stroke_width = icon_stroke_width.clone();
@@ -124,15 +134,8 @@ pub fn MruStrip(
                         <div role="listitem"
                              aria-label=label.clone()
                              title=label
-                             class=move || item_class_inner.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
-                             style=move || if has_item_class {
-                                 ""
-                             } else {
-                                 "padding:0.375rem;\
-                                  border-radius:var(--lp-radius,0.5rem);\
-                                  background:var(--lp-bg,#f5f5f5);\
-                                  cursor:pointer;display:flex"
-                             }
+                             class=move || theme::class_str(&item_class_for_class)
+                             style=move || theme::style_str(&item_class_for_style, DEFAULT_ITEM_STYLE)
                              tabindex="0"
                              on:click=move |_| on_select.run(icon)
                              on:keydown=move |ev: web_sys::KeyboardEvent| {

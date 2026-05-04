@@ -95,11 +95,11 @@ pub fn ComponentsView() -> impl IntoView {
                 <Hero hero_idx=hero_idx/>
                 <DemoSection
                     inline_selected=inline_selected
-                    set_inline_selected=set_inline_selected
+                    on_inline_select=Callback::new(move |g| set_inline_selected.set(Some(g)))
                     popover_selected=popover_selected
-                    set_popover_selected=set_popover_selected
+                    on_popover_select=Callback::new(move |g| set_popover_selected.set(Some(g)))
                     accent_idx=accent_idx
-                    set_accent_idx=set_accent_idx
+                    on_accent=Callback::new(move |i| set_accent_idx.set(i))
                     accent_style=Signal::derive(accent_style)
                     last_key=last_key
                     on_picker_keydown=Callback::new(on_picker_keydown)
@@ -175,7 +175,7 @@ fn CtaSecondary(href: &'static str, label: &'static str, glyph: LucideGlyph) -> 
     view! {
         <a href=href
            target=move || if external { "_blank" } else { "" }
-           rel=move || if external { "noreferrer" } else { "" }
+           rel=move || if external { "noopener noreferrer" } else { "" }
            class="flex flex-row items-center gap-2 px-4 py-2 rounded-md
                   bg-primary/5 border border-primary/10 text-primary/80 text-sm
                   hover:border-highlight/50 hover:text-primary transition-colors">
@@ -193,11 +193,11 @@ fn CtaSecondary(href: &'static str, label: &'static str, glyph: LucideGlyph) -> 
 #[allow(clippy::too_many_arguments)]
 fn DemoSection(
     inline_selected: ReadSignal<Option<LucideGlyph>>,
-    set_inline_selected: WriteSignal<Option<LucideGlyph>>,
+    on_inline_select: Callback<LucideGlyph>,
     popover_selected: ReadSignal<Option<LucideGlyph>>,
-    set_popover_selected: WriteSignal<Option<LucideGlyph>>,
+    on_popover_select: Callback<LucideGlyph>,
     accent_idx: ReadSignal<usize>,
-    set_accent_idx: WriteSignal<usize>,
+    on_accent: Callback<usize>,
     accent_style: Signal<String>,
     last_key: RwSignal<Option<&'static str>>,
     on_picker_keydown: Callback<web_sys::KeyboardEvent>,
@@ -211,14 +211,14 @@ fn DemoSection(
                 description="Drop directly into a settings panel or editor surface.
                              Categories, search, recent-used strip, and copy-as-code
                              come bundled.">
-                <ThemeSwatches accent_idx=accent_idx set_accent_idx=set_accent_idx/>
+                <ThemeSwatches accent_idx=accent_idx on_accent=on_accent/>
                 <KeyboardIndicator last_key=last_key/>
                 <div class="lp-themed w-full"
                      style=move || accent_style.get()
                      on:keydown=move |ev| on_picker_keydown.run(ev)>
                     <IconPicker
                         selected=inline_selected
-                        on_select=Callback::new(move |g| set_inline_selected.set(Some(g)))
+                        on_select=on_inline_select
                         max_height="480px"
                     />
                 </div>
@@ -233,7 +233,7 @@ fn DemoSection(
                              its resized width across opens.">
                 <ProjectSettingsMockup
                     popover_selected=popover_selected
-                    set_popover_selected=set_popover_selected
+                    on_popover_select=on_popover_select
                 />
                 <SelectionReadout selected=popover_selected.into()/>
             </DemoCard>
@@ -266,7 +266,7 @@ fn DemoCard(
 #[component]
 fn ThemeSwatches(
     accent_idx: ReadSignal<usize>,
-    set_accent_idx: WriteSignal<usize>,
+    on_accent: Callback<usize>,
 ) -> impl IntoView {
     view! {
         <div class="flex flex-row items-center gap-3 text-xs">
@@ -281,7 +281,7 @@ fn ThemeSwatches(
                             type="button"
                             title=label
                             aria-label=label
-                            on:click=move |_| set_accent_idx.set(i)
+                            on:click=move |_| on_accent.run(i)
                             class=move || {
                                 let active = accent_idx.get() == i;
                                 if active {
@@ -341,7 +341,7 @@ fn KeyboardIndicator(last_key: RwSignal<Option<&'static str>>) -> impl IntoView 
 #[component]
 fn ProjectSettingsMockup(
     popover_selected: ReadSignal<Option<LucideGlyph>>,
-    set_popover_selected: WriteSignal<Option<LucideGlyph>>,
+    on_popover_select: Callback<LucideGlyph>,
 ) -> impl IntoView {
     view! {
         <div class="lp-themed flex flex-col gap-5 p-5 rounded-md
@@ -361,7 +361,7 @@ fn ProjectSettingsMockup(
                     <label class="text-sm font-medium text-primary">"Project icon"</label>
                     <IconPickerPopover
                         selected=popover_selected
-                        on_select=Callback::new(move |g| set_popover_selected.set(Some(g)))
+                        on_select=on_popover_select
                         width="780px"
                         height="480px"
                         class="resize-x overflow-hidden min-w-[480px] max-w-[1100px]
