@@ -2,7 +2,7 @@
 
 Embeddable icon picker for [Leptos](https://leptos.dev) applications, powered by [Lucide](https://lucide.dev) icons.
 
-Search, browse, and copy 1,694 icons with a drop-in component. Fully keyboard-driven, themable through CSS variables, and persists recent picks to `localStorage`.
+Search, browse, and copy 1,700 icons with a drop-in component. Fully keyboard-driven, themable through CSS variables, and persists recent picks to `localStorage`.
 
 Part of the [Lepticons](https://github.com/eugener/lepticons) toolkit.
 

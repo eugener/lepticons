@@ -83,7 +83,7 @@ cd demo && trunk serve
 
 - `develop`: working branch, PRs target here
 - `master`: production, push triggers Vercel deploy
-- Tags (`v*`): trigger crates.io publish for all three crates
+- Tags (`v*`): trigger crates.io publish in order -- `lepticons-data`, `lepticons`, `lepticons-picker`, `lepticons-animate`
 - Weekly automated PR updates `lucide/` submodule
 
 ## Publishing
