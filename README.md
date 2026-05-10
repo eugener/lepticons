@@ -1,8 +1,23 @@
 # Lepticons
 
-Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons.
+[![Crates.io](https://img.shields.io/crates/v/lepticons.svg)](https://crates.io/crates/lepticons)
+[![Downloads](https://img.shields.io/crates/d/lepticons.svg)](https://crates.io/crates/lepticons)
+[![Docs.rs](https://docs.rs/lepticons/badge.svg)](https://docs.rs/lepticons)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Rust Version](https://img.shields.io/badge/rustc-1.81+-blue.svg)](#)
+[![Leptos](https://img.shields.io/badge/leptos-0.8-blue.svg)](https://leptos.dev)
 
-Browse and search all icons at [lepticons.9bits.cc](https://lepticons.9bits.cc).
+Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons. 1,700 icons, an embeddable picker, and animations -- shipped as `<Icon glyph=LucideGlyph::Search />`.
+
+**[Live demo & icon browser at lepticons.9bits.cc](https://lepticons.9bits.cc)**
+
+## Why lepticons?
+
+- **Category features, not per-icon features.** 42 category flags cover ~1,700 icons. Pick `arrows + navigation + text` and the rest is dead code -- no `cargo build` time blowup from thousands of feature gates.
+- **Always-fresh Lucide.** Weekly automated PR pulls the upstream `lucide` submodule and regenerates the icon data. No stale forks.
+- **More than icons.** Drop-in `<IconPickerPopover>` for users who need to pick icons at runtime, plus stroke draw-in / spin / pulse animations.
+- **Type-safe enum, no string lookups.** `LucideGlyph::Heart` is a `&'static str` under the hood; misspelling fails at compile time.
+- **Framework-agnostic data layer.** Use `lepticons-data` standalone if you only need search + metadata without a Leptos rendering layer.
 
 ## Crates
 
@@ -19,17 +34,55 @@ Most users only need `lepticons`; it re-exports everything from `lepticons-data`
 
 ## Quick start
 
+```sh
+cargo add lepticons
+```
+
 ```rust
 use lepticons::{Icon, LucideGlyph};
 
 // Render an icon
-<Icon glyph=LucideGlyph::Search />
+view! { <Icon glyph=LucideGlyph::Search /> }
 
 // With props
-<Icon glyph=LucideGlyph::Heart class="text-red-500" size="32" />
+view! { <Icon glyph=LucideGlyph::Heart class="text-red-500" size="32" /> }
 ```
 
-See each crate's README for full API docs.
+### Trim binary size with category features
+
+The default feature set bundles all 42 categories. Opt out and pick only what you use:
+
+```toml
+[dependencies]
+lepticons = { version = "0.12", default-features = false, features = [
+    "arrows",
+    "navigation",
+    "text",
+] }
+```
+
+See [`lepticons/Cargo.toml`](lepticons/Cargo.toml) for the full category list.
+
+### Pick icons at runtime
+
+```rust
+use lepticons::LucideGlyph;
+use lepticons_picker::IconPickerPopover;
+use leptos::prelude::*;
+
+let (icon, set_icon) = signal(None::<LucideGlyph>);
+
+view! {
+    <IconPickerPopover
+        selected=icon
+        on_select=Callback::new(move |g| set_icon.set(Some(g)))
+    >
+        <button>"Choose icon"</button>
+    </IconPickerPopover>
+}
+```
+
+See each crate's README and [docs.rs/lepticons](https://docs.rs/lepticons) for the full API.
 
 ## Building
 
