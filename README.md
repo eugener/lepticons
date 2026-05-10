@@ -54,4 +54,6 @@ git submodule update --init
 
 ## License
 
-MIT
+MIT -- see [LICENSE](LICENSE).
+
+Bundled Lucide icon assets are MIT-licensed by the Lucide / Feather authors. See [NOTICE](NOTICE) for attribution.
