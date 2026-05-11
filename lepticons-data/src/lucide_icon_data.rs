@@ -818,6 +818,14 @@ pub enum LucideGlyph {
         contributors = "mittalyashu,ericfennis"
     ))]
     Asterisk,
+    #[cfg(any(feature = "shapes", feature = "math"))]
+    #[strum(props(
+        svg = "<path d=\"M12.98 21.18a1 1 0 0 1-1.96 0 10 10 0 0 0-8.20-8.20 1 1 0 0 1 0-1.96 10 10 0 0 0 8.20-8.20 1 1 0 0 1 1.96 0 10 10 0 0 0 8.20 8.20 1 1 0 0 1 0 1.96 10 10 0 0 0-8.20 8.20\"></path>",
+        categories = "shapes,math",
+        tags = "star,math,shape,curve,sharp,four-pointed,hypocycloid,ai,artificial intelligence",
+        contributors = "whoisBugsbunny"
+    ))]
+    Astroid,
     #[cfg(any(feature = "text", feature = "account"))]
     #[strum(props(
         svg = "<circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8\"></path>",
@@ -7209,10 +7217,10 @@ pub enum LucideGlyph {
     LandPlot,
     #[cfg(any(feature = "finance", feature = "navigation", feature = "buildings"))]
     #[strum(props(
-        svg = "<path d=\"M10 18v-7\"></path><path d=\"M11.12 2.19a2 2 0 0 1 1.76.00l7.86 3.84c.476.23.31.94-.22.94H3.47c-.53 0-.695-.716-.22-.949z\"></path><path d=\"M14 18v-7\"></path><path d=\"M18 18v-7\"></path><path d=\"M3 22h18\"></path><path d=\"M6 18v-7\"></path>",
+        svg = "<path d=\"M10 18v-7\"></path><path d=\"M11.11 2.20a2 2 0 0 1 1.76 0l7.84 3.84A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z\"></path><path d=\"M14 18v-7\"></path><path d=\"M18 18v-7\"></path><path d=\"M3 22h18\"></path><path d=\"M6 18v-7\"></path>",
         categories = "finance,navigation,buildings",
-        tags = "bank,building,capitol,finance,money,museum,art gallery,hall,institute,pediment,portico,columns,pillars,classical,architecture,government,institution",
-        contributors = "connium,ericfennis,karsa-mistmere"
+        tags = "bank,building,capitol,finance,money,museum,art gallery,hall,institute,pediment,portico,doric,columns,pillars,classical,architecture,government,institution,monument,site,history,historic,library,temple,ancient,structure",
+        contributors = "connium,ericfennis,karsa-mistmere,jamiemlaw"
     ))]
     Landmark,
     #[cfg(feature = "text")]
@@ -10349,6 +10357,14 @@ pub enum LucideGlyph {
     Repeat2,
     #[cfg(any(feature = "arrows", feature = "multimedia"))]
     #[strum(props(
+        svg = "<path d=\"M11.65 6H21l-4-4\"></path><path d=\"M17.89 17.89A4 4 0 0 1 17 18H3l4-4\"></path><path d=\"m2 2 20 20\"></path><path d=\"M21 13v1a4 4 0 0 1-.171 1.15\"></path><path d=\"m21 6-4 4\"></path><path d=\"M3 11v-1a4 4 0 0 1 3.10-3.89\"></path><path d=\"m7 22-4-4\"></path>",
+        categories = "arrows,multimedia",
+        tags = "loop,arrows,recurring,again",
+        contributors = "colebemis,csandman,ericfennis,jguddas"
+    ))]
+    RepeatOff,
+    #[cfg(any(feature = "arrows", feature = "multimedia"))]
+    #[strum(props(
         svg = "<path d=\"m17 2 4 4-4 4\"></path><path d=\"M3 11v-1a4 4 0 0 1 4-4h14\"></path><path d=\"m7 22-4-4 4-4\"></path><path d=\"M21 13v1a4 4 0 0 1-4 4H3\"></path>",
         categories = "arrows,multimedia",
         tags = "loop,arrows",
@@ -12932,9 +12948,9 @@ pub enum LucideGlyph {
     TextCursorInput,
     #[cfg(any(feature = "text", feature = "cursors"))]
     #[strum(props(
-        svg = "<path d=\"M17 22h-1a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4h1\"></path><path d=\"M7 22h1a4 4 0 0 0 4-4v-1\"></path><path d=\"M7 2h1a4 4 0 0 1 4 4v1\"></path>",
+        svg = "<path d=\"M17 22h-1a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4h1\"></path><path d=\"M7 22h1a4 4 0 0 0 4-4\"></path><path d=\"M7 2h1a4 4 0 0 1 4 4\"></path>",
         categories = "text,cursors",
-        tags = "select",
+        tags = "select,caret,type,typing,write,writing,edit,insert,input,textarea",
         contributors = "ericfennis"
     ))]
     TextCursor,
@@ -14115,6 +14131,19 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,ericfennis,danielbayley"
     ))]
     WavesArrowUp,
+    #[cfg(any(
+        feature = "weather",
+        feature = "navigation",
+        feature = "multimedia",
+        feature = "sustainability"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M2 12q2.5 2 5 0t5 0 5 0 5 0\"></path><path d=\"M2 19q2.5 2 5 0t5 0 5 0 5 0\"></path><path d=\"M2 5q2.5 2 5 0t5 0 5 0 5 0\"></path>",
+        categories = "weather,navigation,multimedia,sustainability",
+        tags = "water,sea,sound,hertz,wavelength,vibrate,ocean,swimming,frequency",
+        contributors = "karsa-mistmere,ericfennis,jamiemlaw"
+    ))]
+    WavesHorizontal,
     #[cfg(any(feature = "sports", feature = "home"))]
     #[strum(props(
         svg = "<path d=\"M19 5a2 2 0 0 0-2 2v11\"></path><path d=\"M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\"></path><path d=\"M7 13h10\"></path><path d=\"M7 9h10\"></path><path d=\"M9 5a2 2 0 0 0-2 2v11\"></path>",
@@ -14123,19 +14152,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere"
     ))]
     WavesLadder,
-    #[cfg(any(
-        feature = "weather",
-        feature = "navigation",
-        feature = "multimedia",
-        feature = "sustainability"
-    ))]
+    #[cfg(any(feature = "weather", feature = "sustainability"))]
     #[strum(props(
-        svg = "<path d=\"M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\"></path><path d=\"M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\"></path><path d=\"M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\"></path>",
-        categories = "weather,navigation,multimedia,sustainability",
-        tags = "water,sea,sound,hertz,wavelength,vibrate",
-        contributors = "karsa-mistmere,ericfennis"
+        svg = "<path d=\"M12 2q2 2.5 0 5t0 5 0 5 0 5\"></path><path d=\"M19 2q2 2.5 0 5t0 5 0 5 0 5\"></path><path d=\"M5 2q2 2.5 0 5t0 5 0 5 0 5\"></path>",
+        categories = "weather,sustainability",
+        tags = "steam,warmth,temperature,burn,hot,boiling,heat,smoke,vapor,smell,aroma,sauna",
+        contributors = "karsa-mistmere,ericfennis,jamiemlaw"
     ))]
-    Waves,
+    WavesVertical,
     #[cfg(any(
         feature = "security",
         feature = "account",
