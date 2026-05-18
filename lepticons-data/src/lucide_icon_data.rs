@@ -1472,6 +1472,14 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     Blend,
+    #[cfg(any(feature = "food_beverage", feature = "home"))]
+    #[strum(props(
+        svg = "<path d=\"M8 14a2 2 0 0 0-1.96 1.61l-1.01 5.19A1 1 0 0 0 6 22h12a1 1 0 0 0 .981-1.19l-1.01-5.19A2 2 0 0 0 16 14z\"></path><path d=\"m17 2-1 12\"></path><path d=\"M8.00 14 7 2\"></path><path d=\"M7.56 8.78A5 5 0 0 0 12 8a5 5 0 0 1 4.56-.75\"></path><path d=\"M19 2H5a2 2 0 0 0-2 2v5a2 2 0 0 0 .688 1.5\"></path><path d=\"M12 18h.01\"></path>",
+        categories = "food-beverage,home",
+        tags = "mixer,appliances,food,liquid,juicer,vitamizer,mix,emulsify,smoothie,drink,blade,container,kitchen,milkshake,cocktail,beverage,culinary,shredder,processor,cooking,recipe,chef,restaurant",
+        contributors = "rrod497"
+    ))]
+    Blender,
     #[cfg(feature = "home")]
     #[strum(props(
         svg = "<path d=\"M3 3h18\"></path><path d=\"M20 7H8\"></path><path d=\"M20 11H8\"></path><path d=\"M10 19h10\"></path><path d=\"M8 15h12\"></path><path d=\"M4 3v14\"></path><circle cx=\"4\" cy=\"19\" r=\"2\"></circle>",
@@ -1994,6 +2002,14 @@ pub enum LucideGlyph {
         contributors = "james-yeoman,jguddas"
     ))]
     BringToFront,
+    #[cfg(feature = "food_beverage")]
+    #[strum(props(
+        svg = "<path d=\"M10 13a3 3 0 0 1-2.12-5.12\"></path><path d=\"M15.60 14.20c-3.5 1.5-5.89 4.50-8.89 7.50A1 1 0 0 1 6 22c-2 0-4-2-4-4a1 1 0 0 1 .293-.707c1.91-1.91 3.82-3.57 5.34-5.44\"></path><path d=\"M16.57 14.73A4 4 0 0 1 14 11\"></path><path d=\"M7.14 10.90a4 4 0 1 1 2.75-7.43A4 4 0 0 1 16.7 4.48a2 2 0 0 1 2.82 2.82 4 4 0 0 1 1.00 6.80A4 4 0 1 1 13 16\"></path>",
+        categories = "food-beverage",
+        tags = "leafy,crisp,fresh,culinary,vegetation,vegetable,food,healthy,vegan,vegetarian,nutrition,diet,plant,green,produce",
+        contributors = "rrod497,jamiemlaw,karsa-mistmere"
+    ))]
+    Broccoli,
     #[cfg(any(feature = "home", feature = "tools", feature = "design"))]
     #[strum(props(
         svg = "<path d=\"m16 22-1-4\"></path><path d=\"M19 14a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2h-3a1 1 0 0 1-1-1V4a2 2 0 0 0-4 0v5a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2v1a1 1 0 0 0 1 1\"></path><path d=\"M19 14H5l-1.97 6.76A1 1 0 0 0 4 22h16a1 1 0 0 0 .973-1.23z\"></path><path d=\"m8 22 1-4\"></path>",
@@ -2316,10 +2332,10 @@ pub enum LucideGlyph {
     Camera,
     #[cfg(feature = "food_beverage")]
     #[strum(props(
-        svg = "<path d=\"M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.46-2 2 2 0 1 0-3.46-2Z\"></path><path d=\"M17.75 7 15 2.1\"></path><path d=\"M10.9 4.8 13 9\"></path><path d=\"m7.9 9.7 2 4.4\"></path><path d=\"M4.9 14.7 7 18.9\"></path>",
+        svg = "<path d=\"m10.8 5 2.11 4.22\"></path><path d=\"M17.75 7 15 2.1\"></path><path d=\"m4.87 14.64 2.12 4.24\"></path><path d=\"M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.46-2 2 2 0 1 0-3.46-2z\"></path><path d=\"m7.90 9.71 2.00 4.41\"></path>",
         categories = "food-beverage",
         tags = "sugar,food,sweet,christmas,xmas",
-        contributors = "danielbayley,karsa-mistmere"
+        contributors = "danielbayley,karsa-mistmere,jguddas"
     ))]
     CandyCane,
     #[cfg(feature = "food_beverage")]
@@ -2659,10 +2675,10 @@ pub enum LucideGlyph {
     ChartNoAxesColumn,
     #[cfg(feature = "charts")]
     #[strum(props(
-        svg = "<path d=\"M12 16v5\"></path><path d=\"M16 14v7\"></path><path d=\"M20 10v11\"></path><path d=\"m22 3-8.64 8.64a.5.5 0 0 1-.708 0L9.35 8.35a.5.5 0 0 0-.707 0L2 15\"></path><path d=\"M4 18v3\"></path><path d=\"M8 14v7\"></path>",
+        svg = "<path d=\"M12 16v5\"></path><path d=\"M16 14.63V21\"></path><path d=\"M20 10.65V21\"></path><path d=\"m22 3-8.64 8.64a.5.5 0 0 1-.708 0L9.35 8.35a.5.5 0 0 0-.707 0L2 15\"></path><path d=\"M4 18.46V21\"></path><path d=\"M8 14.65V21\"></path>",
         categories = "charts",
         tags = "statistics,analytics,diagram,graph,trending up",
-        contributors = "karsa-mistmere"
+        contributors = "karsa-mistmere,jguddas"
     ))]
     ChartNoAxesCombined,
     #[cfg(any(
@@ -12509,12 +12525,60 @@ pub enum LucideGlyph {
     Sticker,
     #[cfg(any(feature = "text", feature = "social"))]
     #[strum(props(
+        svg = "<path d=\"m15 19 2 2 4-4\"></path><path d=\"M15 3v5a1 1 0 0 0 1 1h5\"></path><path d=\"M21 13V9a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6.5\"></path>",
+        categories = "text,social",
+        tags = "post-it,comment,annotation,reaction,memo,reminder,todo,task,idea,brainstorm,document,page,paper,sheet,stationary,office,done,complete,success,check,verified",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,Barakudum"
+    ))]
+    StickyNoteCheck,
+    #[cfg(any(feature = "text", feature = "social"))]
+    #[strum(props(
+        svg = "<path d=\"M15 3v5a1 1 0 0 0 1 1h5\"></path><path d=\"M21 14V9a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.35\"></path><path d=\"M21 18h-6\"></path>",
+        categories = "text,social",
+        tags = "post-it,comment,annotation,reaction,memo,reminder,todo,task,idea,brainstorm,document,page,paper,sheet,stationary,office,remove,delete,minus",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,Barakudum"
+    ))]
+    StickyNoteMinus,
+    #[cfg(any(feature = "text", feature = "social"))]
+    #[strum(props(
+        svg = "<path d=\"M15 3v5a1 1 0 0 0 1 1h5\"></path><path d=\"m2 2 20 20\"></path><path d=\"M3.58 3.58A2 2 0 0 0 3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 1.41-.586\"></path><path d=\"M8.65 3H15a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 21 9v6.34\"></path>",
+        categories = "text,social",
+        tags = "post-it,comment,annotation,reaction,memo,reminder,todo,task,idea,brainstorm,document,page,paper,sheet,stationary,office,disabled,hidden,mute,inactive",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,Barakudum"
+    ))]
+    StickyNoteOff,
+    #[cfg(any(feature = "text", feature = "social"))]
+    #[strum(props(
+        svg = "<path d=\"M15 3v5a1 1 0 0 0 1 1h5\"></path><path d=\"M18 15v6\"></path><path d=\"M21 12.35V9a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.35\"></path><path d=\"M21 18h-6\"></path>",
+        categories = "text,social",
+        tags = "post-it,comment,annotation,reaction,memo,reminder,todo,task,idea,brainstorm,document,page,paper,sheet,stationary,office,add,create,new,plus",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,Barakudum"
+    ))]
+    StickyNotePlus,
+    #[cfg(any(feature = "text", feature = "social"))]
+    #[strum(props(
+        svg = "<path d=\"M15 3v5a1 1 0 0 0 1 1h5\"></path><path d=\"m16 16 5 5\"></path><path d=\"M21 12V9a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7\"></path><path d=\"m21 16-5 5\"></path>",
+        categories = "text,social",
+        tags = "post-it,comment,annotation,reaction,memo,reminder,todo,task,idea,brainstorm,document,page,paper,sheet,stationary,office,close,cancel,delete,remove",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,Barakudum"
+    ))]
+    StickyNoteX,
+    #[cfg(any(feature = "text", feature = "social"))]
+    #[strum(props(
         svg = "<path d=\"M21 9a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z\"></path><path d=\"M15 3v5a1 1 0 0 0 1 1h5\"></path>",
         categories = "text,social",
         tags = "post-it,comment,annotation,reaction,memo,reminder,todo,task,idea,brainstorm,document,page,paper,sheet,stationary,office",
         contributors = "karsa-mistmere,ericfennis,danielbayley"
     ))]
     StickyNote,
+    #[cfg(any(feature = "text", feature = "social"))]
+    #[strum(props(
+        svg = "<path d=\"M10 8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 16 14v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z\"></path><path d=\"M10 8v5a1 1 0 0 0 1 1h5\"></path><path d=\"M8 4a2 2 0 0 1 2-2h6a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 22 8v6a2 2 0 0 1-2 2\"></path><path d=\"M16 2v5a1 1 0 0 0 1 1h5\"></path>",
+        categories = "text,social",
+        tags = "post-it,annotation,memo,reminder,todo,tasks,ideas,brainstorm,documents,notes,multiple,collection,group,stack,clone,duplicate,copy",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,Barakudum"
+    ))]
+    StickyNotes,
     #[cfg(feature = "nature")]
     #[strum(props(
         svg = "<path d=\"M11.26 2.20A4 4 0 0 0 6.42 4.21l-4 8a4 4 0 0 0 1.35 5.11l6 4a4 4 0 0 0 4.43 0l6-4a4 4 0 0 0 1.57-4.59l-2-6a4 4 0 0 0-2.53-2.53z\"></path><path d=\"M11.99 22 14 12l7.82 3.18\"></path><path d=\"M14 12 8.47 2.30\"></path>",
@@ -13959,10 +14023,10 @@ pub enum LucideGlyph {
     Voicemail,
     #[cfg(any(feature = "sports", feature = "gaming", feature = "travel"))]
     #[strum(props(
-        svg = "<path d=\"M11.1 7.1a16.55 16.55 0 0 1 10.9 4\"></path><path d=\"M12 12a12.6 12.6 0 0 1-8.7 5\"></path><path d=\"M16.8 13.6a16.55 16.55 0 0 1-9 7.5\"></path><path d=\"M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10\"></path><path d=\"M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        svg = "<path d=\"M11 7a16 16 20 0 1 10.98 4.36\"></path><path d=\"M12 12a13 13 0 0 1-8.66 5\"></path><path d=\"M16.83 13.63a16 16 0 0 1-9.26 7.32\"></path><path d=\"M20.66 17A13 13 0 0 0 12 12a13 13 0 0 1 0-10\"></path><path d=\"M8.17 15.36a16 16 0 0 1-1.71-11.69\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
         categories = "sports,gaming,travel",
         tags = "beach,sand,net,holiday,vacation,summer,soccer,football,futbol,kick,pitch,goal,score,bounce,leather,wool,yarn,knitting,sewing,thread,embroidery,textile",
-        contributors = "danielbayley,jguddas"
+        contributors = "danielbayley,jguddas,jamiemlaw"
     ))]
     Volleyball,
     #[cfg(any(
