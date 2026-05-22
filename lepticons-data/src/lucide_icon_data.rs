@@ -8080,10 +8080,10 @@ pub enum LucideGlyph {
     Mars,
     #[cfg(feature = "food_beverage")]
     #[strum(props(
-        svg = "<path d=\"M8 22h8\"></path><path d=\"M12 11v11\"></path><path d=\"m19 3-7 8-7-8Z\"></path>",
+        svg = "<path d=\"M12 12 4.20 4.20A.707.70 0 0 1 4.70 3h14.58a.707.70 0 0 1 .5 1.20z\"></path><path d=\"M12 12v10\"></path><path d=\"M7 22h10\"></path>",
         categories = "food-beverage",
-        tags = "cocktail,alcohol,beverage,bar,drink,glass",
-        contributors = "karsa-mistmere,ericfennis,danielbayley"
+        tags = "cocktail,alcohol,beverage,bar,drink,glass,spirit,party,celebration,mixer",
+        contributors = "karsa-mistmere,ericfennis,danielbayley,jamiemlaw"
     ))]
     Martini,
     #[cfg(any(feature = "arrows", feature = "layout", feature = "design"))]
