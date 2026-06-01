@@ -6218,6 +6218,14 @@ pub enum LucideGlyph {
         contributors = "ahtohbi4,ericfennis"
     ))]
     Glasses,
+    #[cfg(feature = "navigation")]
+    #[strum(props(
+        svg = "<path d=\"m15 6 2 2 4-4\"></path><path d=\"M2 12h20A10 10 0 1 1 12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 4-10\"></path>",
+        categories = "navigation",
+        tags = "world,browser,language,translate,internet,web,check,verified,success,valid,available,online,status",
+        contributors = "colebemis,csandman,ericfennis,Barakudum"
+    ))]
+    GlobeCheck,
     #[cfg(any(feature = "security", feature = "development", feature = "devices"))]
     #[strum(props(
         svg = "<path d=\"M15.68 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.54 13\"></path><path d=\"M2 12h8.5\"></path><path d=\"M20 6V4a2 2 0 1 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"6\"></rect>",
@@ -9426,6 +9434,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,jguddas"
     ))]
     Paperclip,
+    #[cfg(any(feature = "travel", feature = "weather"))]
+    #[strum(props(
+        svg = "<path d=\"M12.5 11.13 18.19 21\"></path><path d=\"M20.42 5.29a10 10 0 0 0-16.94 9.78c.183.56.843.77 1.35.478L20.16 6.71c.512-.296.66-.973.26-1.41\"></path><path d=\"M21 21H3\"></path>",
+        categories = "travel,weather",
+        tags = "umbrella,sunshade,beach,shade,sun,protection,cover,canopy,garden,outdoors,resort,travel,vacation,holiday,summer,apparel,accessory,sunbathing,relax,tropical",
+        contributors = "karsa-mistmere"
+    ))]
+    Parasol,
     #[cfg(any(feature = "development", feature = "files", feature = "math"))]
     #[strum(props(
         svg = "<path d=\"M8 21s-4-3-4-9 4-9 4-9\"></path><path d=\"M16 3s4 3 4 9-4 9-4 9\"></path>",
@@ -9822,6 +9838,14 @@ pub enum LucideGlyph {
         contributors = "ahtohbi4,csandman,ericfennis"
     ))]
     Plane,
+    #[cfg(feature = "multimedia")]
+    #[strum(props(
+        svg = "<path d=\"m10.21 4.56 9.79 5.71a2 2 0 0 1 .003 3.45l-.393.23\"></path><path d=\"m16.04 16.04-8.03 4.68A2 2 0 0 1 5 19V5\"></path><path d=\"m2 2 20 20\"></path>",
+        categories = "multimedia",
+        tags = "audio,video,music,start,run,off,disabled,blocked,forbidden",
+        contributors = "colebemis,karsa-mistmere,Ahmed-Dghaies"
+    ))]
+    PlayOff,
     #[cfg(any(feature = "arrows", feature = "multimedia"))]
     #[strum(props(
         svg = "<path d=\"M5 5a2 2 0 0 1 3.00-1.72l11.99 6.99a2 2 0 0 1 .003 3.45l-12 7A2 2 0 0 1 5 19z\"></path>",
