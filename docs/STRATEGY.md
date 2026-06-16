@@ -35,7 +35,7 @@ See individual phase documents:
 - [Phase 5: Launch Foundation](phase-5-foundation.md) -- COMPLETE (`lepticons 0.11.0`)
 - [Phase 6: Picker Polish](phase-6-picker-polish.md) -- COMPLETE (`lepticons-picker 0.3.0`)
 - [Phase 7: Animations v2](phase-7-animations-v2.md) -- PLANNED (target `lepticons-animate 0.2.0`)
-- [Phase 8: Data Extraction](phase-8-data-extraction.md) -- PLANNED (architectural prep for multi-framework)
+- [Phase 8: Data Extraction](phase-8-data-extraction.md) -- COMPLETE (`lepticons-data 0.1.0`, lepticons re-exports preserved)
 - [Phase 9: Framework Adapters](phase-9-framework-adapters.md) -- SPECULATIVE (gated on user signal)
 
 ## Current Versions
@@ -43,6 +43,7 @@ See individual phase documents:
 | Crate | Version |
 |-------|---------|
 | `lepticons` | 0.12.0 |
+| `lepticons-data` | 0.1.0 |
 | `lepticons-picker` | 0.3.0 |
 | `lepticons-animate` | 0.1.4 |
 

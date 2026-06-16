@@ -1,0 +1,15 @@
+Lepticons
+Copyright (c) 2022-2026 Eugene Ryzhikov
+
+This product bundles icon assets from Lucide (https://lucide.dev),
+which is distributed under the MIT License.
+
+Lucide is a fork of Feather (https://feathericons.com).
+
+  Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022
+  as part of Feather (MIT).
+  All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+
+The full text of the Lucide / Feather MIT license is reproduced in
+`lucide/LICENSE` of the bundled Lucide submodule and applies to all
+SVG assets in this repository derived from upstream Lucide.

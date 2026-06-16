@@ -1,8 +1,8 @@
-# Phase 8: Data Extraction -- PLANNED
+# Phase 8: Data Extraction -- COMPLETE
 
-Target: new `lepticons-data` crate, no version bump for `lepticons` ABI but internal restructure.
-Healthy architecture move that makes any future framework adapter feasible. ~2 evenings.
-Independent of any decision to actually add a second framework.
+Shipped: new `lepticons-data 0.1.0` crate, `lepticons` 0.12.0 internals refactored to depend on it
+and re-export every public symbol so downstream code (picker, animate, demo) needs no changes.
+Healthy architecture move that makes any future framework adapter feasible.
 
 ## Goals
 

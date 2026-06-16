@@ -113,6 +113,7 @@ keywords = [
 ]
 license = "MIT"
 name = "lepticons-data"
+readme = "README.md"
 repository = "https://github.com/eugener/lepticons"
 version = "0.1.0"
 

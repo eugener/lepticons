@@ -111,8 +111,20 @@ No feature flags, no DOM dependencies in the core `Icon` and `CustomIcon` compon
 
 See [docs/rendering-modes.md](https://github.com/eugener/lepticons/blob/develop/docs/rendering-modes.md) for setup recipes per mode and caveats for `DrawIcon` / `IconPicker` under SSR.
 
+## Architecture
+
+`lepticons` is a thin Leptos rendering layer over [`lepticons-data`](https://crates.io/crates/lepticons-data), which holds the `LucideGlyph` enum, the 42 category features, the search index, and the categories cache. Everything from the data crate is re-exported here, so `use lepticons::LucideGlyph;` continues to work and most users never need a direct `lepticons-data` dependency. Reach for `lepticons-data` directly only if you want icon data without a Leptos renderer (CLI tools, build scripts, lints, an alternative framework adapter).
+
+The strum traits implemented by `LucideGlyph` are re-exported under `lepticons::strum`, so you can iterate icons without taking a direct `strum` dep:
+
+```rust
+use lepticons::strum::IntoEnumIterator;
+for glyph in lepticons::LucideGlyph::iter() { /* ... */ }
+```
+
 ## Related Crates
 
+- [lepticons-data](https://crates.io/crates/lepticons-data) -- framework-agnostic icon data + search (used internally; depend on it directly only if you don't want a renderer)
 - [lepticons-picker](https://crates.io/crates/lepticons-picker) -- embeddable icon picker with search, grid, and category filter
 - [lepticons-animate](https://crates.io/crates/lepticons-animate) -- stroke draw-in and CSS utility animations
 
