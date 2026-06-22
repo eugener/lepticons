@@ -1568,6 +1568,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,ericfennis"
     ))]
     Bomb,
+    #[cfg(any(feature = "medical", feature = "animals"))]
+    #[strum(props(
+        svg = "<path d=\"M14 4.5a1 1 0 0 1 5 0 .5.5 0 0 0 .5.5 1 1 0 0 1 0 5c-.81 0-1.8-.7-2.5 0l-1.95 1.95a.15.15 0 0 1-.252-.072l-.493-2.07a.15.15 0 0 0-.111-.112l-2.07-.494a.15.15 0 0 1-.072-.252L14 7c.7-.7 0-1.69 0-2.5\"></path><path d=\"m16 20-1-2\"></path><path d=\"m20 16-2-1\"></path><path d=\"m4 8 2 1\"></path><path d=\"m8 4 1 2\"></path><path d=\"M9.69 14.19a.15.15 0 0 0 .112.11l2.07.489a.15.15 0 0 1 .072.25L10 17c-.7.7 0 1.69 0 2.5a1 1 0 0 1-5 0 .495.49 0 0 0-.5-.5 1 1 0 0 1 0-5c.81 0 1.8.7 2.5 0l1.95-1.95a.15.15 0 0 1 .252.07z\"></path>",
+        categories = "medical,animals",
+        tags = "bone,fracture,injury,orthopedic,medical,anatomy,skeletal,broken,xray,trauma,health,vet,veterinary,crack,break,damage",
+        contributors = "Patolord"
+    ))]
+    BoneFracture,
     #[cfg(any(feature = "animals", feature = "medical", feature = "gaming"))]
     #[strum(props(
         svg = "<path d=\"M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z\"></path>",
@@ -4264,6 +4272,22 @@ pub enum LucideGlyph {
         contributors = "AnnaSasDev"
     ))]
     Dam,
+    #[cfg(any(feature = "devices", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"m16 19 3 3 3-3\"></path><path d=\"M19 16v6\"></path><path d=\"M21 12.53V5\"></path><path d=\"M3 12A9 3 0 0 0 15.18 14.80\"></path><path d=\"M3 5V19A9 3 0 0 0 13.31 21.96\"></path><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
+        categories = "devices,development",
+        tags = "storage,memory,bytes,server,export,download,backup,pull,downsize",
+        contributors = "colebemis,jguddas,Barakudum,rrod497"
+    ))]
+    DatabaseArrowDown,
+    #[cfg(any(feature = "devices", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"M19 22v-6\"></path><path d=\"M21 12.53V5\"></path><path d=\"m22 19-3-3-3 3\"></path><path d=\"M3 12A9 3 0 0 0 14.45 14.88\"></path><path d=\"M3 5V19A9 3 0 0 0 13.31 21.96\"></path><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
+        categories = "devices,development",
+        tags = "storage,memory,bytes,server,import,upload,backup,push,upscale",
+        contributors = "colebemis,jguddas,Barakudum,rrod497"
+    ))]
+    DatabaseArrowUp,
     #[cfg(any(
         feature = "devices",
         feature = "arrows",
@@ -4280,12 +4304,44 @@ pub enum LucideGlyph {
     DatabaseBackup,
     #[cfg(any(feature = "devices", feature = "development"))]
     #[strum(props(
+        svg = "<path d=\"m16 19 2 2 4-4\"></path><path d=\"M21 13.12V5\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path><path d=\"M3 5V19A9 3 0 0 0 13.31 21.96\"></path><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
+        categories = "devices,development",
+        tags = "storage,memory,bytes,server,check,success,valid,verified,confirmed,complete",
+        contributors = "colebemis,jguddas,Barakudum,rrod497"
+    ))]
+    DatabaseCheck,
+    #[cfg(any(feature = "devices", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"M21 15V5\"></path><path d=\"M22 19h-6\"></path><path d=\"M3 12A9 3 0 0 0 21 12\"></path><path d=\"M3 5V19A9 3 0 0 0 13.31 21.96\"></path><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
+        categories = "devices,development",
+        tags = "storage,memory,bytes,server,minus,remove,delete,reduce",
+        contributors = "colebemis,jguddas,Barakudum,rrod497"
+    ))]
+    DatabaseMinus,
+    #[cfg(any(feature = "devices", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"M19 16v6\"></path><path d=\"M21 12.53V5\"></path><path d=\"M22 19h-6\"></path><path d=\"M3 12A9 3 0 0 0 15.18 14.80\"></path><path d=\"M3 5V19A9 3 0 0 0 13.31 21.96\"></path><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
+        categories = "devices,development",
+        tags = "storage,memory,bytes,server,plus,add,create,insert,new,expand",
+        contributors = "colebemis,jguddas,Barakudum,rrod497"
+    ))]
+    DatabasePlus,
+    #[cfg(any(feature = "devices", feature = "development"))]
+    #[strum(props(
         svg = "<path d=\"M21 11.69V5\"></path><path d=\"m22 22-1.87-1.87\"></path><path d=\"M3 12a9 3 0 0 0 8.69 2.99\"></path><path d=\"M3 5v14a9 3 0 0 0 9.28 2.99\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
         categories = "devices,development",
         tags = "storage,memory,container,tin,pot,bytes,servers",
         contributors = "colebemis,jguddas,Spleefies"
     ))]
     DatabaseSearch,
+    #[cfg(any(feature = "devices", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"m17 17 5 5\"></path><path d=\"M19.32 13.74A9 3 0 0 0 21 12\"></path><path d=\"M21 13.12V5\"></path><path d=\"m22 17-5 5\"></path><path d=\"M3 12A9 3 0 0 0 13.56 14.95\"></path><path d=\"M3 5V19A9 3 0 0 0 13 21.98\"></path><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
+        categories = "devices,development",
+        tags = "storage,memory,bytes,server,x,error,failed,invalid,rejected,denied,clear,remove,disconnect",
+        contributors = "colebemis,jguddas,Barakudum,rrod497"
+    ))]
+    DatabaseX,
     #[cfg(any(feature = "devices", feature = "development"))]
     #[strum(props(
         svg = "<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse><path d=\"M3 5V19A9 3 0 0 0 15 21.84\"></path><path d=\"M21 5V8\"></path><path d=\"M21 12L18 17H22L19 22\"></path><path d=\"M3 12A9 3 0 0 0 14.59 14.87\"></path>",
@@ -9617,6 +9673,20 @@ pub enum LucideGlyph {
         contributors = "danielbayley,karsa-mistmere"
     ))]
     PencilRuler,
+    #[cfg(any(
+        feature = "design",
+        feature = "cursors",
+        feature = "tools",
+        feature = "text",
+        feature = "photography"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M10 3H8\"></path><path d=\"m15.00 5.00 3.98 3.98\"></path><path d=\"M20 15v4\"></path><path d=\"M21.17 6.81a2.82 2.82 0 0 0-3.98-3.98L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .623.62l4.35-1.32a2 2 0 0 0 .83-.497z\"></path><path d=\"M22 17h-4\"></path><path d=\"M4 5v4\"></path><path d=\"M6 7H2\"></path><path d=\"M9 2v2\"></path>",
+        categories = "design,cursors,tools,text,photography",
+        tags = "edit,ai,tools,smart,create,draw,sketch,draft,writer,writing,stationery,artist,magic,wizard,magician",
+        contributors = "ericfennis,wojtekmaj,mittalyashu,danielbayley,karsa-mistmere,jennieboops"
+    ))]
+    PencilSparkles,
     #[cfg(any(
         feature = "design",
         feature = "cursors",
