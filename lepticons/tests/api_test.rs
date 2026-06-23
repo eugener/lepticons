@@ -60,13 +60,21 @@ fn by_name_known_icon() {
 }
 
 #[test]
-fn by_name_case_sensitive() {
-    assert!(LucideGlyph::by_name("activity").is_none());
+fn by_name_accepts_kebab_case() {
+    assert_eq!(
+        LucideGlyph::by_name("arrow-right"),
+        LucideGlyph::by_name("ArrowRight")
+    );
+    assert_eq!(
+        LucideGlyph::by_name("a-arrow-down"),
+        LucideGlyph::by_name("AArrowDown")
+    );
 }
 
 #[test]
 fn by_name_unknown_returns_none() {
     assert!(LucideGlyph::by_name("NotAnIcon").is_none());
+    assert!(LucideGlyph::by_name("not-an-icon").is_none());
 }
 
 #[test]

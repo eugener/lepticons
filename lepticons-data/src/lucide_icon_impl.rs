@@ -82,10 +82,13 @@ impl LucideGlyph {
         self.name().to_case(Case::Kebab)
     }
 
-    /// Looks up an icon by its variant name (e.g. "Activity", "ArrowRight").
-    /// Returns `None` if the name doesn't match or the icon's category feature is disabled.
+    /// Looks up an icon by either its PascalCase variant name (e.g. "ArrowRight")
+    /// or kebab-case display name (e.g. "arrow-right"). Returns `None` if the
+    /// name doesn't match or the icon's category feature is disabled.
     pub fn by_name(name: &str) -> Option<LucideGlyph> {
-        LucideGlyph::from_str(name).ok()
+        LucideGlyph::from_str(name)
+            .ok()
+            .or_else(|| LucideGlyph::from_str(&name.to_case(Case::UpperCamel)).ok())
     }
 
     /// Returns the total number of available icon variants.

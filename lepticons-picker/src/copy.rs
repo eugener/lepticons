@@ -12,11 +12,28 @@ pub enum IconCopyFormat {
     Component,
     /// Raw SVG markup with the standard 24x24 viewport.
     Svg,
+    /// React / JSX / Svelte PascalCase tag: `<Heart />`.
+    Jsx,
+    /// Svelte PascalCase tag (byte-identical to [`Self::Jsx`]); exposed
+    /// separately so users searching by framework name find a match.
+    Svelte,
+    /// Vue kebab-case tag: `<heart />`.
+    Vue,
+    /// Angular component: `<lucide-angular name="heart" />`.
+    Angular,
 }
 
 impl IconCopyFormat {
     /// All known formats, in display order.
-    pub const ALL: &'static [Self] = &[Self::Variant, Self::Component, Self::Svg];
+    pub const ALL: &'static [Self] = &[
+        Self::Variant,
+        Self::Component,
+        Self::Svg,
+        Self::Jsx,
+        Self::Svelte,
+        Self::Vue,
+        Self::Angular,
+    ];
 
     /// Short user-facing label for menus and buttons.
     pub fn label(self) -> &'static str {
@@ -24,6 +41,10 @@ impl IconCopyFormat {
             Self::Variant => "Variant",
             Self::Component => "Component",
             Self::Svg => "SVG",
+            Self::Jsx => "JSX",
+            Self::Svelte => "Svelte",
+            Self::Vue => "Vue",
+            Self::Angular => "Angular",
         }
     }
 
@@ -33,6 +54,10 @@ impl IconCopyFormat {
             Self::Variant => "variant",
             Self::Component => "component",
             Self::Svg => "svg",
+            Self::Jsx => "jsx",
+            Self::Svelte => "svelte",
+            Self::Vue => "vue",
+            Self::Angular => "angular",
         }
     }
 
@@ -52,6 +77,9 @@ impl IconCopyFormat {
                  stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{}</svg>",
                 icon.svg()
             ),
+            Self::Jsx | Self::Svelte => format!("<{} />", icon.name()),
+            Self::Vue => format!("<{} />", icon.kebab_name()),
+            Self::Angular => format!("<lucide-angular name=\"{}\" />", icon.kebab_name()),
         }
     }
 }
@@ -92,5 +120,25 @@ mod tests {
             assert_eq!(IconCopyFormat::from_id(fmt.id()), Some(fmt));
         }
         assert_eq!(IconCopyFormat::from_id("nope"), None);
+    }
+
+    #[test]
+    fn renders_framework_formats() {
+        assert_eq!(
+            IconCopyFormat::Jsx.render(LucideGlyph::ArrowRight),
+            "<ArrowRight />"
+        );
+        assert_eq!(
+            IconCopyFormat::Svelte.render(LucideGlyph::ArrowRight),
+            "<ArrowRight />"
+        );
+        assert_eq!(
+            IconCopyFormat::Vue.render(LucideGlyph::ArrowRight),
+            "<arrow-right />"
+        );
+        assert_eq!(
+            IconCopyFormat::Angular.render(LucideGlyph::ArrowRight),
+            "<lucide-angular name=\"arrow-right\" />"
+        );
     }
 }

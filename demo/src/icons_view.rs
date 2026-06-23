@@ -90,7 +90,8 @@ pub fn IconsView() -> impl IntoView {
     let (icon_size, set_icon_size) = signal(DEFAULT_SIZE);
     let (absolute_stroke, set_absolute_stroke) = signal(false);
 
-    let mru_signal: RwSignal<Vec<LucideGlyph>> = RwSignal::new(mru::load(ICONS_MRU_KEY));
+    let mru_tracker = mru::use_mru(ICONS_MRU_KEY);
+    let mru_signal = mru_tracker.signal;
 
     // Hydrate state from URL on mount. Inputs are bounded so crafted query
     // strings can't pump arbitrary content into reactive sinks.
@@ -154,8 +155,7 @@ pub fn IconsView() -> impl IntoView {
     // Selecting an icon pushes it to the MRU list and persists to localStorage.
     Effect::new(move |_| {
         if let Some(icon) = selected_icon.get() {
-            mru_signal.update(|v| mru::push_into(v, icon));
-            mru::save(ICONS_MRU_KEY, &mru_signal.get_untracked());
+            mru_tracker.push.run(icon);
         }
     });
 
@@ -363,7 +363,6 @@ pub fn IconPermalinkView() -> impl IntoView {
         let p = params.get();
         let name = p.get("name")?;
         LucideGlyph::by_name(&name)
-            .or_else(|| LucideGlyph::by_name(&name.to_case(Case::UpperCamel)))
     };
 
     view! {
@@ -622,8 +621,6 @@ fn IconDetailDrawer(
             let full_svg = IconCopyFormat::Svg.render(icon);
 
             let icon_name = name.clone();
-            let component_name = icon.name();
-            let kebab_name = name.clone();
             let first_feature = StoredValue::new(
                 icon.categories().next().map(|c| c.to_case(Case::Snake))
             );
@@ -704,7 +701,7 @@ fn IconDetailDrawer(
                             show_leading_icon=false
                             align_right=true
                             min_width="min-w-[180px]"
-                            items=jsx_items(component_name, kebab_name.clone(), first_feature, set_jsx_copied, set_jsx_menu_open)
+                            items=jsx_items(icon, first_feature, set_jsx_copied, set_jsx_menu_open)
                         />
                     </div>
 
@@ -791,70 +788,61 @@ fn svg_items(
     ]
 }
 
-/// Builds the menu rows for the JSX-style copy dropdown (Copy JSX, Vue,
-/// Svelte, Angular, Leptos, plain Component name).
+/// Builds the menu rows for the JSX-style copy dropdown.
+///
+/// Most rows delegate to `IconCopyFormat` for the actual string render;
+/// the "Copy Leptos" row stays demo-specific because it emits a
+/// multi-line Cargo + use + view snippet, not a single tag.
 fn jsx_items(
-    component_name: &'static str,
-    kebab_name: String,
+    icon: LucideGlyph,
     first_feature: StoredValue<Option<String>>,
     set_copied: WriteSignal<bool>,
     set_menu_open: WriteSignal<bool>,
 ) -> Vec<CopyItem> {
-    let comp = component_name;
-    let kebab_vue = kebab_name.clone();
-    let kebab_angular = kebab_name;
-    vec![
-        CopyItem {
-            label: "Copy JSX",
-            action: Callback::new(move |_| {
-                copy_and_flash(&format!("<{} />", comp), set_copied, set_menu_open);
-            }),
-        },
+    let comp = icon.name();
+    let mut items: Vec<CopyItem> = [
+        ("Copy JSX", IconCopyFormat::Jsx),
+        ("Copy Vue", IconCopyFormat::Vue),
+        ("Copy Svelte", IconCopyFormat::Svelte),
+        ("Copy Angular", IconCopyFormat::Angular),
+    ]
+    .into_iter()
+    .map(|(label, fmt)| CopyItem {
+        label,
+        action: Callback::new(move |_| {
+            copy_and_flash(&fmt.render(icon), set_copied, set_menu_open);
+        }),
+    })
+    .collect();
+
+    items.insert(
+        1,
         CopyItem {
             label: "Copy Component Name",
             action: Callback::new(move |_| {
                 copy_and_flash(comp, set_copied, set_menu_open);
             }),
         },
-        CopyItem {
-            label: "Copy Vue",
-            action: Callback::new(move |_| {
-                copy_and_flash(&format!("<{} />", kebab_vue), set_copied, set_menu_open);
-            }),
-        },
-        CopyItem {
-            label: "Copy Svelte",
-            action: Callback::new(move |_| {
-                copy_and_flash(&format!("<{} />", comp), set_copied, set_menu_open);
-            }),
-        },
-        CopyItem {
-            label: "Copy Angular",
-            action: Callback::new(move |_| {
-                copy_and_flash(
-                    &format!("<lucide-angular name=\"{}\" />", kebab_angular),
-                    set_copied,
-                    set_menu_open,
-                );
-            }),
-        },
-        CopyItem {
-            label: "Copy Leptos",
-            action: Callback::new(move |_| {
-                let snippet = if let Some(ref feat) = first_feature.get_value() {
-                    format!(
-                        "// lepticons = {{ version = \"{}\", default-features = false, features = [\"{}\"] }}\n\
-                         use lepticons::{{Icon, LucideGlyph}};\n\n\
-                         view! {{ <Icon glyph=LucideGlyph::{} /> }}",
-                        lepticons_semver_short(), feat, comp
-                    )
-                } else {
-                    format!("<Icon glyph=LucideGlyph::{} />", comp)
-                };
-                copy_and_flash(&snippet, set_copied, set_menu_open);
-            }),
-        },
-    ]
+    );
+
+    items.push(CopyItem {
+        label: "Copy Leptos",
+        action: Callback::new(move |_| {
+            let snippet = if let Some(ref feat) = first_feature.get_value() {
+                format!(
+                    "// lepticons = {{ version = \"{}\", default-features = false, features = [\"{}\"] }}\n\
+                     use lepticons::{{Icon, LucideGlyph}};\n\n\
+                     view! {{ <Icon glyph=LucideGlyph::{} /> }}",
+                    lepticons_semver_short(), feat, comp
+                )
+            } else {
+                IconCopyFormat::Component.render(icon)
+            };
+            copy_and_flash(&snippet, set_copied, set_menu_open);
+        }),
+    });
+
+    items
 }
 
 /// Generic copy/download dropdown: trigger button plus a menu rendered
