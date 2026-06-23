@@ -24,22 +24,21 @@ impl HelpOpen {
     }
 }
 
-/// Keyboard-shortcut overlay. Lists the global shortcuts (`/` to focus
-/// search, `?` to toggle this dialog, arrow keys / Home / End / PageUp /
-/// PageDown / Enter / Esc inside the icon grid). Same content on every
-/// page so users get a consistent reference.
+/// Keyboard-shortcut overlay. Combines the picker's shipped shortcut list
+/// (`lepticons_picker::SHORTCUTS`) with demo-specific bindings so the
+/// overlay stays in sync with what the library actually handles.
 #[component]
 pub fn KeyboardHelp(on_close: Callback<()>) -> impl IntoView {
-    let rows: [(&str, &str); 8] = [
-        ("/", "Focus search"),
+    let demo_rows: &[(&str, &str)] = &[
         ("?", "Toggle this help"),
-        ("Arrow keys", "Move focus across the grid"),
-        ("Home / End", "Jump to first / last icon"),
-        ("Page Up / Down", "Move five rows at a time"),
-        ("Enter", "Open the focused icon's detail"),
         ("Esc", "Close the detail drawer or this help"),
         ("Click", "Select an icon (or open it from Recent)"),
     ];
+    let rows: Vec<(&str, &str)> = lepticons_picker::SHORTCUTS
+        .iter()
+        .copied()
+        .chain(demo_rows.iter().copied())
+        .collect();
     view! {
         <div
             class="fixed inset-0 z-[70] bg-primary/40 flex items-center justify-center p-6"

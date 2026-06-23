@@ -37,7 +37,7 @@ pub use icon_grid::IconGrid;
 pub use category_filter::CategoryFilter;
 pub use icon_picker::IconPicker;
 pub use icon_picker_popover::IconPickerPopover;
-pub use keyboard::is_typing_target;
+pub use keyboard::{is_typing_target, SHORTCUTS};
 pub use mru_strip::MruStrip;
 pub use copy::{copy_to_clipboard, IconCopyFormat};
 

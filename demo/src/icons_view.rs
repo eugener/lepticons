@@ -65,17 +65,56 @@ const ICONS_MRU_KEY: &str = "lepticons-icons-mru";
 /// overlap with the active glyph.
 const RELATED_LIMIT: usize = 8;
 
-/// `(label, css_class)` for the animation picker. Index 0 = no animation,
-/// index 1 = the special `DrawIcon` mode (no class -- it's a different
-/// component), indices 2.. apply the named CSS animation class.
-const ANIM_TYPES: [(&str, &str); 6] = [
-    ("None", ""),
-    ("Draw-In", ""),
-    ("Spin", "lepticons-spin"),
-    ("Pulse", "lepticons-pulse"),
-    ("Bounce", "lepticons-bounce"),
-    ("Ping", "lepticons-ping"),
-];
+/// Animation choice exposed by the icon-detail drawer. `Draw` renders the
+/// `DrawIcon` component; CSS variants render `Icon` with the named class.
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
+enum AnimChoice {
+    #[default]
+    None,
+    Draw,
+    Spin,
+    Pulse,
+    Bounce,
+    Ping,
+}
+
+impl AnimChoice {
+    const ALL: &'static [Self] = &[
+        Self::None,
+        Self::Draw,
+        Self::Spin,
+        Self::Pulse,
+        Self::Bounce,
+        Self::Ping,
+    ];
+
+    fn label(self) -> &'static str {
+        match self {
+            Self::None => "None",
+            Self::Draw => "Draw-In",
+            Self::Spin => "Spin",
+            Self::Pulse => "Pulse",
+            Self::Bounce => "Bounce",
+            Self::Ping => "Ping",
+        }
+    }
+
+    /// CSS class to apply to the icon container (empty for [`Self::None`]
+    /// and [`Self::Draw`]).
+    fn class(self) -> &'static str {
+        match self {
+            Self::Spin => "lepticons-spin",
+            Self::Pulse => "lepticons-pulse",
+            Self::Bounce => "lepticons-bounce",
+            Self::Ping => "lepticons-ping",
+            _ => "",
+        }
+    }
+
+    fn is_draw(self) -> bool {
+        matches!(self, Self::Draw)
+    }
+}
 
 #[component]
 pub fn IconsView() -> impl IntoView {
@@ -596,7 +635,7 @@ fn IconDetailDrawer(
     let (jsx_menu_open, set_jsx_menu_open) = signal(false);
     let (svg_copied, set_svg_copied) = signal(false);
     let (jsx_copied, set_jsx_copied) = signal(false);
-    let (anim_type, set_anim_type) = signal(0usize);
+    let (anim_type, set_anim_type) = signal(AnimChoice::default());
     let (replay_key, set_replay_key) = signal(0u32);
     let (draw_duration, set_draw_duration) = signal(600u32);
     let (draw_delay, set_draw_delay) = signal(0u32);
@@ -608,7 +647,7 @@ fn IconDetailDrawer(
         set_jsx_menu_open.set(false);
         set_svg_copied.set(false);
         set_jsx_copied.set(false);
-        set_anim_type.set(0);
+        set_anim_type.set(AnimChoice::default());
         set_replay_key.update(|k| *k += 1);
     });
 
@@ -929,7 +968,7 @@ fn CopyDropdown(
 #[component]
 fn IconPreview(
     icon: LucideGlyph,
-    anim_type: ReadSignal<usize>,
+    anim_type: ReadSignal<AnimChoice>,
     replay_key: ReadSignal<u32>,
     draw_duration: ReadSignal<u32>,
     draw_delay: ReadSignal<u32>,
@@ -939,16 +978,16 @@ fn IconPreview(
                     rounded-xl bg-background border border-primary/10"
              style="background-image: linear-gradient(to right, rgba(128,128,128,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.12) 1px, transparent 1px); background-size: calc(14rem / 24) calc(14rem / 24); background-position: center;">
             <div class=move || {
-                let idx = anim_type.get();
-                if idx >= 2 {
-                    format!("text-primary {}", ANIM_TYPES[idx].1)
-                } else {
+                let cls = anim_type.get().class();
+                if cls.is_empty() {
                     "text-primary".to_string()
+                } else {
+                    format!("text-primary {cls}")
                 }
             }>
                 {move || {
                     replay_key.get();
-                    if anim_type.get() == 1 {
+                    if anim_type.get().is_draw() {
                         let d = draw_duration.get();
                         let dl = draw_delay.get();
                         view! { <DrawIcon glyph=icon size="140" stroke_width="2" duration_ms=d delay_ms=dl /> }.into_any()
@@ -963,8 +1002,8 @@ fn IconPreview(
 
 #[component]
 fn AnimationControls(
-    anim_type: ReadSignal<usize>,
-    on_anim_type: Callback<usize>,
+    anim_type: ReadSignal<AnimChoice>,
+    on_anim_type: Callback<AnimChoice>,
     on_replay: Callback<()>,
     draw_duration: ReadSignal<u32>,
     on_draw_duration: Callback<u32>,
@@ -977,8 +1016,8 @@ fn AnimationControls(
             <span class="text-[0.6875rem] uppercase tracking-wider text-primary/45 mr-1">
                 "Animate"
             </span>
-            {ANIM_TYPES.iter().enumerate().map(|(i, (label, _))| {
-                let is_sel = move || anim_type.get() == i;
+            {AnimChoice::ALL.iter().copied().map(|choice| {
+                let is_sel = move || anim_type.get() == choice;
                 view! {
                     <button
                         class=move || if is_sel() {
@@ -988,15 +1027,15 @@ fn AnimationControls(
                         }
                         on:click=move |ev: web_sys::MouseEvent| {
                             ev.stop_propagation();
-                            on_anim_type.run(i);
-                            if i == 1 { on_replay.run(()); }
+                            on_anim_type.run(choice);
+                            if choice.is_draw() { on_replay.run(()); }
                         }
                     >
-                        {*label}
+                        {choice.label()}
                     </button>
                 }
             }).collect::<Vec<_>>()}
-            {move || (anim_type.get() == 1).then(|| view! {
+            {move || anim_type.get().is_draw().then(|| view! {
                 <button
                     class="px-2 py-0.5 text-xs rounded-full border border-primary/20 text-primary/55 hover:bg-primary/10 flex items-center gap-1 cursor-pointer"
                     on:click=move |ev: web_sys::MouseEvent| {
@@ -1010,7 +1049,7 @@ fn AnimationControls(
             })}
         </div>
 
-        {move || (anim_type.get() == 1).then(|| view! {
+        {move || anim_type.get().is_draw().then(|| view! {
             <div class="flex flex-col gap-2">
                 <div class="flex flex-row items-center gap-2">
                     <label class="text-xs text-primary/45 w-16 flex-none">"Duration"</label>
