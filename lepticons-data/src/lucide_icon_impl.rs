@@ -96,6 +96,22 @@ impl LucideGlyph {
         *COUNT.get_or_init(|| LucideGlyph::iter().count())
     }
 
+    /// Returns up to `limit` icons that share at least one tag with `self`,
+    /// excluding `self`. Useful for "related icons" / "see also" panels.
+    /// Returns an empty `Vec` when `self` has no tags.
+    pub fn related(&self, limit: usize) -> Vec<LucideGlyph> {
+        let own_tags: std::collections::HashSet<&'static str> = self.tags().collect();
+        if own_tags.is_empty() {
+            return Vec::new();
+        }
+        let me = *self;
+        LucideGlyph::iter()
+            .filter(|g| *g != me)
+            .filter(|g| g.tags().any(|t| own_tags.contains(t)))
+            .take(limit)
+            .collect()
+    }
+
     /// Returns the raw categories string from the icon metadata.
     pub fn categories_str(&self) -> &'static str {
         self.get_str("categories").unwrap_or("")

@@ -123,6 +123,38 @@ fn kebab_name_single_word() {
     assert!(!icon.kebab_name().contains('-'));
 }
 
+// --- related() ---
+
+#[test]
+fn related_excludes_self() {
+    let icon = LucideGlyph::ArrowRight;
+    let related = icon.related(20);
+    assert!(!related.contains(&icon));
+}
+
+#[test]
+fn related_respects_limit() {
+    let icon = LucideGlyph::ArrowRight;
+    assert!(icon.related(3).len() <= 3);
+}
+
+#[test]
+fn related_returns_tag_overlap() {
+    let icon = LucideGlyph::ArrowRight;
+    let own_tags: std::collections::HashSet<&str> = icon.tags().collect();
+    if own_tags.is_empty() {
+        return;
+    }
+    for g in icon.related(10) {
+        assert!(
+            g.tags().any(|t| own_tags.contains(t)),
+            "{} has no tag overlap with {}",
+            g.name(),
+            icon.name()
+        );
+    }
+}
+
 // --- count() ---
 
 #[test]

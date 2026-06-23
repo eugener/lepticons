@@ -22,6 +22,8 @@ pub struct Mru {
     pub signal: RwSignal<Vec<LucideGlyph>>,
     /// Adds an icon to the front of the list and saves to storage.
     pub push: Callback<LucideGlyph>,
+    /// Empties the list and removes the entry from storage.
+    pub clear: Callback<()>,
 }
 
 /// Creates a reactive MRU tracker bound to `storage_key`. Hydrates the
@@ -45,7 +47,15 @@ pub fn use_mru(storage_key: &'static str) -> Mru {
         signal.update(|v| push_into(v, icon));
         save(storage_key, &signal.get_untracked());
     });
-    Mru { signal, push }
+    let clear = Callback::new(move |_| {
+        signal.set(Vec::new());
+        remove(storage_key);
+    });
+    Mru {
+        signal,
+        push,
+        clear,
+    }
 }
 
 fn storage() -> Option<Storage> {
@@ -71,6 +81,13 @@ pub fn load(storage_key: &str) -> Vec<LucideGlyph> {
 pub fn save(storage_key: &str, list: &[LucideGlyph]) {
     if let Some(s) = storage() {
         let _ = s.set_item(storage_key, &serialize_names(list));
+    }
+}
+
+/// Removes the stored MRU entry from `localStorage`. Best-effort.
+pub fn remove(storage_key: &str) {
+    if let Some(s) = storage() {
+        let _ = s.remove_item(storage_key);
     }
 }
 

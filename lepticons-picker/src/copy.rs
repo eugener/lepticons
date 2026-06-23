@@ -21,6 +21,9 @@ pub enum IconCopyFormat {
     Vue,
     /// Angular component: `<lucide-angular name="heart" />`.
     Angular,
+    /// `data:image/svg+xml,...` URL ready for `src=` / `background-image:`.
+    /// The inner SVG is percent-encoded per RFC 3986.
+    DataUrl,
 }
 
 impl IconCopyFormat {
@@ -33,6 +36,7 @@ impl IconCopyFormat {
         Self::Svelte,
         Self::Vue,
         Self::Angular,
+        Self::DataUrl,
     ];
 
     /// Short user-facing label for menus and buttons.
@@ -45,6 +49,7 @@ impl IconCopyFormat {
             Self::Svelte => "Svelte",
             Self::Vue => "Vue",
             Self::Angular => "Angular",
+            Self::DataUrl => "Data URL",
         }
     }
 
@@ -58,6 +63,7 @@ impl IconCopyFormat {
             Self::Svelte => "svelte",
             Self::Vue => "vue",
             Self::Angular => "angular",
+            Self::DataUrl => "data-url",
         }
     }
 
@@ -80,7 +86,38 @@ impl IconCopyFormat {
             Self::Jsx | Self::Svelte => format!("<{} />", icon.name()),
             Self::Vue => format!("<{} />", icon.kebab_name()),
             Self::Angular => format!("<lucide-angular name=\"{}\" />", icon.kebab_name()),
+            Self::DataUrl => format!(
+                "data:image/svg+xml,{}",
+                percent_encode(&Self::Svg.render(icon))
+            ),
         }
+    }
+}
+
+/// Percent-encodes `s` per RFC 3986, escaping everything outside the
+/// unreserved set (`A-Z a-z 0-9 - _ . ~`). Suitable for embedding SVG
+/// markup in a `data:image/svg+xml,...` URL.
+fn percent_encode(s: &str) -> String {
+    let mut out = String::with_capacity(s.len() * 3);
+    for b in s.bytes() {
+        match b {
+            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'~' => {
+                out.push(b as char);
+            }
+            _ => {
+                out.push('%');
+                out.push(hex_nibble(b >> 4));
+                out.push(hex_nibble(b & 0x0F));
+            }
+        }
+    }
+    out
+}
+
+fn hex_nibble(n: u8) -> char {
+    match n {
+        0..=9 => (b'0' + n) as char,
+        _ => (b'A' + n - 10) as char,
     }
 }
 
@@ -140,5 +177,27 @@ mod tests {
             IconCopyFormat::Angular.render(LucideGlyph::ArrowRight),
             "<lucide-angular name=\"arrow-right\" />"
         );
+    }
+
+    #[test]
+    fn renders_data_url() {
+        let url = IconCopyFormat::DataUrl.render(LucideGlyph::Heart);
+        assert!(url.starts_with("data:image/svg+xml,"));
+        // Encoded SVG must contain percent-escapes for `<` and `"`.
+        assert!(url.contains("%3C"), "url missing percent-encoded '<': {url}");
+        assert!(url.contains("%22"), "url missing percent-encoded '\"': {url}");
+        // Unreserved chars (letters, digits, ~ . _ -) pass through verbatim.
+        assert!(url.contains("svg"));
+    }
+
+    #[test]
+    fn percent_encode_unreserved_passthrough() {
+        assert_eq!(percent_encode("abcXYZ012-_.~"), "abcXYZ012-_.~");
+    }
+
+    #[test]
+    fn percent_encode_escapes_reserved() {
+        assert_eq!(percent_encode("<>\""), "%3C%3E%22");
+        assert_eq!(percent_encode(" "), "%20");
     }
 }

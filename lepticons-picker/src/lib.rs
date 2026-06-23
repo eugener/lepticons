@@ -30,6 +30,7 @@ mod keyboard;
 pub mod mru;
 mod mru_strip;
 mod copy;
+pub mod download;
 mod theme;
 
 pub use icon_search::IconSearch;

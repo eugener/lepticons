@@ -2,7 +2,6 @@ use convert_case::{Case, Casing};
 use leptos::ev::keydown;
 use leptos::prelude::*;
 use leptos::wasm_bindgen::JsValue;
-use lepticons::strum::IntoEnumIterator;
 use web_sys::js_sys;
 use web_sys::KeyboardEvent;
 
@@ -12,7 +11,8 @@ use lepticons::*;
 use lepticons_animate::{AnimationStyles, DrawIcon};
 use lepticons_picker::{mru, CategoryFilter, IconCopyFormat, IconGrid, IconSearch, MruStrip};
 use crate::components::*;
-use crate::dom_utils::{copy_and_flash, current_text_color_hex, download_blob, download_png};
+use crate::dom_utils::{copy_and_flash, current_text_color_hex};
+use lepticons_picker::download;
 use crate::menu::*;
 
 const DEFAULT_STROKE_WIDTH: f64 = 2.0;
@@ -611,19 +611,6 @@ fn Hero() -> impl IntoView {
     }
 }
 
-/// Returns up to `RELATED_LIMIT` icons that share at least one tag with `icon`.
-fn related_icons(icon: LucideGlyph) -> Vec<LucideGlyph> {
-    let tags: std::collections::HashSet<&str> = icon.tags().collect();
-    if tags.is_empty() {
-        return Vec::new();
-    }
-    LucideGlyph::iter()
-        .filter(|g| *g != icon)
-        .filter(|g| g.tags().any(|t| tags.contains(t)))
-        .take(RELATED_LIMIT)
-        .collect()
-}
-
 #[component]
 fn IconDetailDrawer(
     selected_icon: ReadSignal<Option<LucideGlyph>>,
@@ -656,10 +643,8 @@ fn IconDetailDrawer(
             let name = icon.kebab_name();
             let tags: Vec<&str> = icon.tags().collect();
             let categories: Vec<&str> = icon.categories().collect();
-            let related = related_icons(icon);
-            let full_svg = IconCopyFormat::Svg.render(icon);
+            let related = icon.related(RELATED_LIMIT);
 
-            let icon_name = name.clone();
             let first_feature = StoredValue::new(
                 icon.categories().next().map(|c| c.to_case(Case::Snake))
             );
@@ -727,7 +712,7 @@ fn IconDetailDrawer(
                             show_leading_icon=true
                             align_right=false
                             min_width=""
-                            items=svg_items(full_svg.clone(), icon_name.clone(), set_svg_copied, set_svg_menu_open)
+                            items=svg_items(icon, set_svg_copied, set_svg_menu_open)
                         />
                         <CopyDropdown
                             label="Copy JSX"
@@ -774,53 +759,41 @@ struct CopyItem {
 }
 
 /// Builds the menu rows for the SVG copy dropdown (Copy SVG / Copy Data
-/// URL / Download SVG / Download PNG). Each closure captures its own
-/// clone of `full_svg` / `icon_name` so the resulting `Callback`s are all
-/// independently invocable.
+/// URL / Download SVG / Download PNG). Copy actions go through
+/// `IconCopyFormat`; download actions go through `lepticons_picker::download`.
 fn svg_items(
-    full_svg: String,
-    icon_name: String,
+    icon: LucideGlyph,
     set_copied: WriteSignal<bool>,
     set_menu_open: WriteSignal<bool>,
 ) -> Vec<CopyItem> {
-    let svg_for_copy = full_svg.clone();
-    let svg_for_data_url = full_svg.clone();
-    let svg_for_download = full_svg.clone();
-    let svg_for_png = full_svg;
-    let name_for_svg = icon_name.clone();
-    let name_for_png = icon_name;
     vec![
         CopyItem {
             label: "Copy SVG",
             action: Callback::new(move |_| {
-                copy_and_flash(&svg_for_copy, set_copied, set_menu_open);
+                copy_and_flash(&IconCopyFormat::Svg.render(icon), set_copied, set_menu_open);
             }),
         },
         CopyItem {
             label: "Copy Data URL",
             action: Callback::new(move |_| {
-                let data_url = format!(
-                    "data:image/svg+xml,{}",
-                    js_sys::encode_uri_component(&svg_for_data_url)
+                copy_and_flash(
+                    &IconCopyFormat::DataUrl.render(icon),
+                    set_copied,
+                    set_menu_open,
                 );
-                copy_and_flash(&data_url, set_copied, set_menu_open);
             }),
         },
         CopyItem {
             label: "Download SVG",
             action: Callback::new(move |_| {
-                download_blob(
-                    &svg_for_download,
-                    &format!("{}.svg", name_for_svg),
-                    "image/svg+xml",
-                );
+                download::download_svg(icon, None);
                 set_menu_open.set(false);
             }),
         },
         CopyItem {
             label: "Download PNG",
             action: Callback::new(move |_| {
-                download_png(&svg_for_png, &name_for_png);
+                download::download_png(icon, None, 256);
                 set_menu_open.set(false);
             }),
         },
