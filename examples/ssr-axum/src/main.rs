@@ -207,26 +207,12 @@ fn Page() -> impl IntoView {
                         <h2>"Sizes"</h2>
                         <div class="card">
                             <div class="sizes">
-                                <div class="size-item">
-                                    <Icon glyph=LucideGlyph::Compass size="16" />
-                                    <span class="label">"16"</span>
-                                </div>
-                                <div class="size-item">
-                                    <Icon glyph=LucideGlyph::Compass size="24" />
-                                    <span class="label">"24"</span>
-                                </div>
-                                <div class="size-item">
-                                    <Icon glyph=LucideGlyph::Compass size="32" />
-                                    <span class="label">"32"</span>
-                                </div>
-                                <div class="size-item">
-                                    <Icon glyph=LucideGlyph::Compass size="48" />
-                                    <span class="label">"48"</span>
-                                </div>
-                                <div class="size-item">
-                                    <Icon glyph=LucideGlyph::Compass size="72" />
-                                    <span class="label">"72"</span>
-                                </div>
+                                {["16", "24", "32", "48", "72"].iter().map(|s| view! {
+                                    <div class="size-item">
+                                        <Icon glyph=LucideGlyph::Compass size=*s />
+                                        <span class="label">{*s}</span>
+                                    </div>
+                                }).collect_view()}
                             </div>
                             <pre>{"<Icon glyph=LucideGlyph::Compass size=\"48\" />"}</pre>
                         </div>
@@ -236,11 +222,9 @@ fn Page() -> impl IntoView {
                         <h2>"Colors"</h2>
                         <div class="card">
                             <div class="colors">
-                                <Icon glyph=LucideGlyph::Heart stroke="#c03a17" size="32" />
-                                <Icon glyph=LucideGlyph::Heart stroke="#2563eb" size="32" />
-                                <Icon glyph=LucideGlyph::Heart stroke="#16a34a" size="32" />
-                                <Icon glyph=LucideGlyph::Heart stroke="#a855f7" size="32" />
-                                <Icon glyph=LucideGlyph::Heart stroke="#f59e0b" size="32" />
+                                {["#c03a17", "#2563eb", "#16a34a", "#a855f7", "#f59e0b"].iter().map(|c| view! {
+                                    <Icon glyph=LucideGlyph::Heart stroke=*c size="32" />
+                                }).collect_view()}
                             </div>
                             <pre>{"<Icon glyph=LucideGlyph::Heart stroke=\"#c03a17\" size=\"32\" />"}</pre>
                         </div>

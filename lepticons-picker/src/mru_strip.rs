@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
-use lepticons::{Icon, LucideGlyph};
+use lepticons::{Icon, LucideGlyph, DEFAULT_FILL, DEFAULT_STROKE, DEFAULT_STROKE_WIDTH};
 
 use crate::theme;
 
@@ -90,9 +90,9 @@ pub fn MruStrip(
 ) -> impl IntoView {
     let header_text = header_text.unwrap_or_else(|| "Recently used".into());
     let icon_size = icon_size.unwrap_or_else(|| "20".into());
-    let icon_stroke = icon_stroke.unwrap_or_else(|| "currentColor".into());
-    let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| "1.5".into());
-    let icon_fill = icon_fill.unwrap_or_else(|| "none".into());
+    let icon_stroke = icon_stroke.unwrap_or_else(|| DEFAULT_STROKE.into());
+    let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| DEFAULT_STROKE_WIDTH.into());
+    let icon_fill = icon_fill.unwrap_or_else(|| DEFAULT_FILL.into());
 
     view! {
         <div class={

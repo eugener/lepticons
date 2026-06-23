@@ -10,7 +10,7 @@ use leptos_router::hooks::{use_params_map, use_query_map};
 use lepticons::LucideGlyph;
 use lepticons::*;
 use lepticons_animate::{AnimationStyles, DrawIcon};
-use lepticons_picker::{mru, CategoryFilter, IconGrid, IconSearch, MruStrip};
+use lepticons_picker::{mru, CategoryFilter, IconCopyFormat, IconGrid, IconSearch, MruStrip};
 use crate::components::*;
 use crate::dom_utils::{copy_and_flash, current_text_color_hex, download_blob, download_png};
 use crate::menu::*;
@@ -192,6 +192,23 @@ pub fn IconsView() -> impl IntoView {
 
     let result_count = Memo::new(move |_| LucideGlyph::find(&icon_filter.get()).len());
 
+    // Shared icon styling signals: derived once so MruStrip and IconGrid
+    // get the same string instances on each slider tick.
+    let icon_size_str = Signal::derive(move || format!("{}", icon_size.get() as u32));
+    let icon_stroke_str = Signal::derive(move || {
+        icon_color
+            .get()
+            .unwrap_or_else(|| "currentColor".to_string())
+    });
+    let icon_stroke_width_str = Signal::derive(move || {
+        let sw = icon_stroke_width.get();
+        if absolute_stroke.get() {
+            format!("{:.2}", sw * 24.0 / icon_size.get())
+        } else {
+            format!("{:.2}", sw)
+        }
+    });
+
     view! {
         <div class="flex flex-row">
             // ----- left sidebar -----
@@ -266,16 +283,9 @@ pub fn IconsView() -> impl IntoView {
                             header_class="text-[0.6875rem] uppercase tracking-wider text-primary/50 font-medium flex-none"
                             items_class="flex flex-row flex-nowrap gap-2 overflow-x-auto"
                             item_class=ICON_STYLE
-                            icon_size=Signal::derive(move || format!("{}", icon_size.get() as u32))
-                            icon_stroke=Signal::derive(move || icon_color.get().unwrap_or_else(|| "currentColor".to_string()))
-                            icon_stroke_width=Signal::derive(move || {
-                                let sw = icon_stroke_width.get();
-                                if absolute_stroke.get() {
-                                    format!("{:.2}", sw * 24.0 / icon_size.get())
-                                } else {
-                                    format!("{:.2}", sw)
-                                }
-                            })
+                            icon_size=icon_size_str
+                            icon_stroke=icon_stroke_str
+                            icon_stroke_width=icon_stroke_width_str
                         />
                     })}
                     // Fade tail: where icons would emerge from beneath the
@@ -309,16 +319,9 @@ pub fn IconsView() -> impl IntoView {
                             cell_class=ICON_STYLE
                             cell_selected_class=ICON_STYLE_SELECTED
                             tooltip_class=TOOLTIP_STYLE
-                            icon_size=move || format!("{}", icon_size.get() as u32)
-                            icon_stroke=move || icon_color.get().unwrap_or_else(|| "currentColor".to_string())
-                            icon_stroke_width=move || {
-                                let sw = icon_stroke_width.get();
-                                if absolute_stroke.get() {
-                                    format!("{:.2}", sw * 24.0 / icon_size.get())
-                                } else {
-                                    format!("{:.2}", sw)
-                                }
-                            }
+                            icon_size=icon_size_str
+                            icon_stroke=icon_stroke_str
+                            icon_stroke_width=icon_stroke_width_str
                         />
                     </div>
                     <div
@@ -366,7 +369,7 @@ pub fn IconPermalinkView() -> impl IntoView {
     view! {
         {move || match icon() {
             Some(glyph) => {
-                let name = display_name(&glyph);
+                let name = glyph.kebab_name();
                 let tags: Vec<&str> = glyph.tags().collect();
                 let categories: Vec<&str> = glyph.categories().collect();
                 let component_name = glyph.name();
@@ -552,11 +555,6 @@ const ICON_STYLE: &str = "relative group p-2 bg-secondary rounded-lg hover:bg-pr
 const ICON_STYLE_SELECTED: &str = "relative group p-2 bg-primary/10 rounded-lg border border-highlight/80 cursor-pointer";
 const TOOLTIP_STYLE: &str = "absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 opacity-0 transition-opacity group-hover:opacity-100 py-0.5 px-1 text-[0.5rem] font-light text-white bg-highlight/90 border border-highlight/90 rounded whitespace-nowrap";
 
-/// Formats an enum name like "BatteryCharging" to kebab-case "battery-charging".
-fn display_name(icon: &LucideGlyph) -> String {
-    icon.kebab_name()
-}
-
 // ----------------------------------------------------------------------------
 // Hero, PerfPulse, MruStrip, KeyboardHelp
 // ----------------------------------------------------------------------------
@@ -577,13 +575,13 @@ fn Hero() -> impl IntoView {
 
 /// Returns up to `RELATED_LIMIT` icons that share at least one tag with `icon`.
 fn related_icons(icon: LucideGlyph) -> Vec<LucideGlyph> {
-    let tags: Vec<&str> = icon.tags().collect();
+    let tags: std::collections::HashSet<&str> = icon.tags().collect();
     if tags.is_empty() {
         return Vec::new();
     }
     LucideGlyph::iter()
         .filter(|g| *g != icon)
-        .filter(|g| g.tags().any(|t| tags.contains(&t)))
+        .filter(|g| g.tags().any(|t| tags.contains(t)))
         .take(RELATED_LIMIT)
         .collect()
 }
@@ -617,15 +615,11 @@ fn IconDetailDrawer(
 
     view! {
         {move || selected_icon.get().map(|icon| {
-            let name = display_name(&icon);
+            let name = icon.kebab_name();
             let tags: Vec<&str> = icon.tags().collect();
             let categories: Vec<&str> = icon.categories().collect();
             let related = related_icons(icon);
-            let svg_content = icon.svg();
-            let full_svg = format!(
-                "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{}</svg>",
-                svg_content
-            );
+            let full_svg = IconCopyFormat::Svg.render(icon);
 
             let icon_name = name.clone();
             let component_name = icon.name();
@@ -717,7 +711,6 @@ fn IconDetailDrawer(
                     <AnimationControls
                         anim_type=anim_type
                         on_anim_type=Callback::new(move |i| set_anim_type.set(i))
-                        replay_key=replay_key
                         on_replay=Callback::new(move |_| set_replay_key.update(|k| *k += 1))
                         draw_duration=draw_duration
                         on_draw_duration=Callback::new(move |v| set_draw_duration.set(v))
@@ -984,14 +977,12 @@ fn IconPreview(
 fn AnimationControls(
     anim_type: ReadSignal<usize>,
     on_anim_type: Callback<usize>,
-    replay_key: ReadSignal<u32>,
     on_replay: Callback<()>,
     draw_duration: ReadSignal<u32>,
     on_draw_duration: Callback<u32>,
     draw_delay: ReadSignal<u32>,
     on_draw_delay: Callback<u32>,
 ) -> impl IntoView {
-    let _ = replay_key;
     view! {
         <hr class="border-primary/10"/>
         <div class="flex flex-row flex-wrap gap-1 items-center">

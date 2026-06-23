@@ -7,24 +7,21 @@
 //! are pruned silently on load.
 
 use lepticons::LucideGlyph;
+use web_sys::Storage;
 
 /// Maximum number of icons retained in the MRU list.
 pub const MRU_LIMIT: usize = 8;
+
+fn storage() -> Option<Storage> {
+    web_sys::window()?.local_storage().ok()?
+}
 
 /// Loads the MRU list from `localStorage`. Returns an empty `Vec` when
 /// there is no browser, no storage permission, no stored value, or the
 /// stored value cannot be parsed. Invalid icon names are dropped.
 pub fn load(storage_key: &str) -> Vec<LucideGlyph> {
-    let Some(window) = web_sys::window() else {
+    let Some(raw) = storage().and_then(|s| s.get_item(storage_key).ok().flatten()) else {
         return Vec::new();
-    };
-    let storage = match window.local_storage() {
-        Ok(Some(s)) => s,
-        _ => return Vec::new(),
-    };
-    let raw = match storage.get_item(storage_key) {
-        Ok(Some(v)) => v,
-        _ => return Vec::new(),
     };
     parse_names(&raw)
         .into_iter()
@@ -36,14 +33,9 @@ pub fn load(storage_key: &str) -> Vec<LucideGlyph> {
 /// Persists the MRU list to `localStorage`. Best-effort: errors (private
 /// mode, quota, missing window) are swallowed silently.
 pub fn save(storage_key: &str, list: &[LucideGlyph]) {
-    let Some(window) = web_sys::window() else {
-        return;
-    };
-    let storage = match window.local_storage() {
-        Ok(Some(s)) => s,
-        _ => return,
-    };
-    let _ = storage.set_item(storage_key, &serialize_names(list));
+    if let Some(s) = storage() {
+        let _ = s.set_item(storage_key, &serialize_names(list));
+    }
 }
 
 /// Pushes `icon` to the front of `list`, deduplicating prior entries
