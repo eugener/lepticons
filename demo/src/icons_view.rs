@@ -381,6 +381,9 @@ pub fn IconsView() -> impl IntoView {
                         <IconDetailDrawer
                             selected_icon=selected_icon
                             set_selected_icon=set_selected_icon
+                            icon_size_str=icon_size_str
+                            icon_stroke_str=icon_stroke_str
+                            icon_stroke_width_str=icon_stroke_width_str
                         />
                     </div>
                 </div>
@@ -615,6 +618,12 @@ fn Hero() -> impl IntoView {
 fn IconDetailDrawer(
     selected_icon: ReadSignal<Option<LucideGlyph>>,
     set_selected_icon: WriteSignal<Option<LucideGlyph>>,
+    /// Current customizer size, formatted (e.g. "32").
+    icon_size_str: Signal<String>,
+    /// Current customizer stroke color (e.g. "#16a34a" or "currentColor").
+    icon_stroke_str: Signal<String>,
+    /// Current customizer stroke width, formatted (e.g. "1.50").
+    icon_stroke_width_str: Signal<String>,
 ) -> impl IntoView {
     let dismiss = move |_| set_selected_icon.set(None);
 
@@ -712,7 +721,14 @@ fn IconDetailDrawer(
                             show_leading_icon=true
                             align_right=false
                             min_width=""
-                            items=svg_items(icon, set_svg_copied, set_svg_menu_open)
+                            items=svg_items(
+                                icon,
+                                icon_size_str,
+                                icon_stroke_str,
+                                icon_stroke_width_str,
+                                set_svg_copied,
+                                set_svg_menu_open,
+                            )
                         />
                         <CopyDropdown
                             label="Copy JSX"
@@ -759,25 +775,44 @@ struct CopyItem {
 }
 
 /// Builds the menu rows for the SVG copy dropdown (Copy SVG / Copy Data
-/// URL / Download SVG / Download PNG). Copy actions go through
-/// `IconCopyFormat`; download actions go through `lepticons_picker::download`.
+/// URL / Download SVG / Download PNG). Each row reads the current
+/// customizer state from the size/stroke/stroke_width signals so the
+/// emitted SVG matches what the user sees in the preview.
 fn svg_items(
     icon: LucideGlyph,
+    size: Signal<String>,
+    stroke: Signal<String>,
+    stroke_width: Signal<String>,
     set_copied: WriteSignal<bool>,
     set_menu_open: WriteSignal<bool>,
 ) -> Vec<CopyItem> {
+    let svg_now = move || {
+        lepticons_picker::svg_markup(
+            icon,
+            &size.get(),
+            "none",
+            &stroke.get(),
+            &stroke_width.get(),
+        )
+    };
     vec![
         CopyItem {
             label: "Copy SVG",
             action: Callback::new(move |_| {
-                copy_and_flash(&IconCopyFormat::Svg.render(icon), set_copied, set_menu_open);
+                copy_and_flash(&svg_now(), set_copied, set_menu_open);
             }),
         },
         CopyItem {
             label: "Copy Data URL",
             action: Callback::new(move |_| {
                 copy_and_flash(
-                    &IconCopyFormat::DataUrl.render(icon),
+                    &lepticons_picker::svg_data_url(
+                        icon,
+                        &size.get(),
+                        "none",
+                        &stroke.get(),
+                        &stroke_width.get(),
+                    ),
                     set_copied,
                     set_menu_open,
                 );
@@ -786,14 +821,21 @@ fn svg_items(
         CopyItem {
             label: "Download SVG",
             action: Callback::new(move |_| {
-                download::download_svg(icon, None);
+                download::download_svg_markup(
+                    &svg_now(),
+                    &format!("{}.svg", icon.kebab_name()),
+                );
                 set_menu_open.set(false);
             }),
         },
         CopyItem {
             label: "Download PNG",
             action: Callback::new(move |_| {
-                download::download_png(icon, None, 256);
+                download::download_png_markup(
+                    &svg_now(),
+                    &format!("{}.png", icon.kebab_name()),
+                    256,
+                );
                 set_menu_open.set(false);
             }),
         },

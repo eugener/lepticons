@@ -939,8 +939,10 @@ name = "lepticons-picker"
 version = "0.3.0"
 dependencies = [
  "convert_case 0.11.0",
+ "js-sys",
  "lepticons",
  "leptos",
+ "wasm-bindgen",
  "web-sys",
 ]
 

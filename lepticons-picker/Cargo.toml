@@ -19,7 +19,12 @@ convert_case = { workspace = true }
 web-sys = { version = "0.3", features = [
     "ScrollIntoViewOptions", "ScrollBehavior", "ScrollLogicalPosition",
     "Storage", "Clipboard", "Navigator",
+    "Blob", "BlobPropertyBag", "Url",
+    "HtmlAnchorElement", "HtmlCanvasElement", "HtmlImageElement",
+    "CanvasRenderingContext2d",
 ] }
+wasm-bindgen = "0.2"
+js-sys = "0.3"
 
 [lib]
 bench = false

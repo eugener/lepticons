@@ -39,8 +39,9 @@ pub fn download_blob(content: &str, filename: &str, mime: &str) {
     let _ = web_sys::Url::revoke_object_url(&url);
 }
 
-/// Downloads `icon` as an SVG file. The filename defaults to
-/// `<kebab-name>.svg` (e.g. `arrow-right.svg`) when `filename` is `None`.
+/// Downloads `icon` as an SVG file using Lucide defaults
+/// (size=24, stroke-width=2). Filename defaults to `<kebab-name>.svg`
+/// when `filename` is `None`. For custom styling use [`download_svg_markup`].
 pub fn download_svg(icon: LucideGlyph, filename: Option<&str>) {
     let default;
     let name = match filename {
@@ -53,11 +54,34 @@ pub fn download_svg(icon: LucideGlyph, filename: Option<&str>) {
     download_blob(&IconCopyFormat::Svg.render(icon), name, "image/svg+xml");
 }
 
+/// Downloads a pre-built SVG markup string as a file. Use with
+/// [`crate::svg_markup`] when the SVG should reflect a user's styling
+/// rather than Lucide defaults.
+pub fn download_svg_markup(svg: &str, filename: &str) {
+    download_blob(svg, filename, "image/svg+xml");
+}
+
 /// Rasterizes `icon` to a `size`-pixel PNG via an off-DOM `<canvas>` and
-/// triggers a download. Filename defaults to `<kebab-name>.png` when
-/// `filename` is `None`. The render is asynchronous (waits for the
-/// `<img>` load event); this function returns immediately.
+/// triggers a download. Uses Lucide defaults for the source SVG. Filename
+/// defaults to `<kebab-name>.png` when `filename` is `None`. For custom
+/// styling use [`download_png_markup`].
 pub fn download_png(icon: LucideGlyph, filename: Option<&str>, size: u32) {
+    let data_url = IconCopyFormat::DataUrl.render(icon);
+    let name = filename
+        .map(str::to_string)
+        .unwrap_or_else(|| format!("{}.png", icon.kebab_name()));
+    rasterize_data_url(&data_url, &name, size);
+}
+
+/// Rasterizes a pre-built SVG markup string to a `size`-pixel PNG and
+/// triggers a download. Use with [`crate::svg_markup`] when the PNG
+/// should reflect a user's styling.
+pub fn download_png_markup(svg: &str, filename: &str, size: u32) {
+    let data_url = format!("data:image/svg+xml,{}", crate::copy::percent_encode(svg));
+    rasterize_data_url(&data_url, filename, size);
+}
+
+fn rasterize_data_url(data_url: &str, filename: &str, size: u32) {
     let Some(window) = web_sys::window() else { return };
     let Some(document) = window.document() else {
         return;
@@ -81,11 +105,8 @@ pub fn download_png(icon: LucideGlyph, filename: Option<&str>, size: u32) {
     let Ok(img) = web_sys::HtmlImageElement::new() else {
         return;
     };
-    let data_url = IconCopyFormat::DataUrl.render(icon);
 
-    let filename = filename
-        .map(str::to_string)
-        .unwrap_or_else(|| format!("{}.png", icon.kebab_name()));
+    let filename = filename.to_string();
     let canvas_clone = canvas.clone();
     let img_clone = img.clone();
     let body_clone = body;
@@ -116,5 +137,5 @@ pub fn download_png(icon: LucideGlyph, filename: Option<&str>, size: u32) {
         }
     });
     img.set_onload(Some(cb.as_ref().unchecked_ref()));
-    img.set_src(&data_url);
+    img.set_src(data_url);
 }
