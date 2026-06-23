@@ -60,13 +60,21 @@ fn by_name_known_icon() {
 }
 
 #[test]
-fn by_name_case_sensitive() {
-    assert!(LucideGlyph::by_name("activity").is_none());
+fn by_name_accepts_kebab_case() {
+    assert_eq!(
+        LucideGlyph::by_name("arrow-right"),
+        LucideGlyph::by_name("ArrowRight")
+    );
+    assert_eq!(
+        LucideGlyph::by_name("a-arrow-down"),
+        LucideGlyph::by_name("AArrowDown")
+    );
 }
 
 #[test]
 fn by_name_unknown_returns_none() {
     assert!(LucideGlyph::by_name("NotAnIcon").is_none());
+    assert!(LucideGlyph::by_name("not-an-icon").is_none());
 }
 
 #[test]
@@ -113,6 +121,38 @@ fn kebab_name_single_word() {
     let icon = LucideGlyph::by_name("Search").unwrap();
     assert_eq!(icon.kebab_name(), "search");
     assert!(!icon.kebab_name().contains('-'));
+}
+
+// --- related() ---
+
+#[test]
+fn related_excludes_self() {
+    let icon = LucideGlyph::ArrowRight;
+    let related = icon.related(20);
+    assert!(!related.contains(&icon));
+}
+
+#[test]
+fn related_respects_limit() {
+    let icon = LucideGlyph::ArrowRight;
+    assert!(icon.related(3).len() <= 3);
+}
+
+#[test]
+fn related_returns_tag_overlap() {
+    let icon = LucideGlyph::ArrowRight;
+    let own_tags: std::collections::HashSet<&str> = icon.tags().collect();
+    if own_tags.is_empty() {
+        return;
+    }
+    for g in icon.related(10) {
+        assert!(
+            g.tags().any(|t| own_tags.contains(t)),
+            "{} has no tag overlap with {}",
+            g.name(),
+            icon.name()
+        );
+    }
 }
 
 // --- count() ---

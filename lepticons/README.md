@@ -26,7 +26,7 @@ use lepticons::{Icon, LucideGlyph};
 
 ```toml
 # All icons (default)
-lepticons = "0.12"
+lepticons = "0.13"
 
 # Only specific categories
 lepticons = { version = "0.12", default-features = false, features = ["arrows", "navigation", "design"] }

@@ -63,19 +63,16 @@ pub fn IconPicker(
     let (filter, set_filter) = signal(String::new());
     let search_input_ref: NodeRef<leptos::html::Input> = NodeRef::new();
 
-    let mru_signal: RwSignal<Vec<LucideGlyph>> = RwSignal::new(if mru_enabled {
-        mru::load(mru_storage_key)
-    } else {
-        Vec::new()
-    });
+    let mru = mru_enabled.then(|| mru::use_mru(mru_storage_key));
+    let mru_signal: RwSignal<Vec<LucideGlyph>> =
+        mru.map(|m| m.signal).unwrap_or_else(|| RwSignal::new(Vec::new()));
 
     let copy_format = RwSignal::new(IconCopyFormat::default());
     let copy_format_signal: Signal<IconCopyFormat> = copy_format.into();
 
     let wrapped_on_select = Callback::new(move |icon: LucideGlyph| {
-        if mru_enabled {
-            mru_signal.update(|v| mru::push_into(v, icon));
-            mru::save(mru_storage_key, &mru_signal.get_untracked());
+        if let Some(m) = mru {
+            m.push.run(icon);
         }
         on_select.run(icon);
     });

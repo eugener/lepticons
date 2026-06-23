@@ -2,6 +2,21 @@
 
 use leptos::wasm_bindgen::JsCast;
 
+/// Keyboard shortcuts the picker handles natively, as `(keys, description)`
+/// pairs. Use this to render an in-app help dialog that stays in sync with
+/// the actual binding set (rather than hand-copying the list).
+///
+/// Does **not** include host-app concerns such as opening / closing a
+/// detail drawer or toggling a help dialog -- those are the caller's
+/// responsibility.
+pub const SHORTCUTS: &[(&str, &str)] = &[
+    ("/", "Focus search"),
+    ("Arrow keys", "Move focus across the grid"),
+    ("Home / End", "Jump to first / last icon"),
+    ("Page Up / Down", "Move five rows at a time"),
+    ("Enter / Space", "Select the focused icon"),
+];
+
 /// Returns `true` when the keyboard event originated inside a text-input
 /// element, i.e. the user is typing into an `<input>` or `<textarea>`.
 ///

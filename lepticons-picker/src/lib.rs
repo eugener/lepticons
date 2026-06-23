@@ -30,6 +30,7 @@ mod keyboard;
 pub mod mru;
 mod mru_strip;
 mod copy;
+pub mod download;
 mod theme;
 
 pub use icon_search::IconSearch;
@@ -37,9 +38,9 @@ pub use icon_grid::IconGrid;
 pub use category_filter::CategoryFilter;
 pub use icon_picker::IconPicker;
 pub use icon_picker_popover::IconPickerPopover;
-pub use keyboard::is_typing_target;
+pub use keyboard::{is_typing_target, SHORTCUTS};
 pub use mru_strip::MruStrip;
-pub use copy::{copy_to_clipboard, IconCopyFormat};
+pub use copy::{copy_to_clipboard, svg_data_url, svg_markup, IconCopyFormat};
 
 /// Version of the `lepticons-picker` crate, taken from `Cargo.toml` at build time.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");

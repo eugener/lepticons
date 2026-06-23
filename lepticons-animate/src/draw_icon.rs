@@ -1,6 +1,8 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
-use lepticons::{Glyph, LucideGlyph, DEFAULT_SIZE, DEFAULT_FILL, DEFAULT_STROKE, DEFAULT_STROKE_WIDTH};
+use lepticons::{
+    Icon, LucideGlyph, DEFAULT_FILL, DEFAULT_SIZE, DEFAULT_STROKE, DEFAULT_STROKE_WIDTH,
+};
 use wasm_bindgen::JsCast;
 
 use crate::Easing;
@@ -52,7 +54,6 @@ pub fn DrawIcon(
     stroke_width: Option<TextProp>,
 ) -> impl IntoView {
     let size = size.unwrap_or_else(|| DEFAULT_SIZE.into());
-    let size2 = size.clone();
     let fill = fill.unwrap_or_else(|| DEFAULT_FILL.into());
     let stroke = stroke.unwrap_or_else(|| DEFAULT_STROKE.into());
     let stroke_width = stroke_width.unwrap_or_else(|| DEFAULT_STROKE_WIDTH.into());
@@ -115,17 +116,12 @@ pub fn DrawIcon(
         <div node_ref=wrapper_ref
              class=move || class.as_ref().map(|c| c.get().to_string()).unwrap_or_default()
              style="display:inline-block;line-height:0">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width=move || size.get()
-                height=move || size2.get()
-                viewBox="0 0 24 24"
-                fill=move || fill.get()
-                stroke=move || stroke.get()
-                stroke-width=move || stroke_width.get()
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                inner_html=move || glyph.get().svg()
+            <Icon
+                glyph=glyph
+                size=size
+                fill=fill
+                stroke=stroke
+                stroke_width=stroke_width
             />
         </div>
     }

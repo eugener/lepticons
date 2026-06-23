@@ -1,6 +1,6 @@
 [package]
 name = "lepticons-animate"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 rust-version.workspace = true
 description = "Icon animations for Leptos -- stroke draw-in, spin, pulse, bounce."
@@ -14,7 +14,7 @@ readme = "README.md"
 
 [dependencies]
 leptos = "0.8"
-lepticons = { version = "0.12", path = "../lepticons" }
+lepticons = { version = "0.13", path = "../lepticons" }
 web-sys = { version = "0.3", features = [
     "SvgElement", "SvgPathElement", "SvgGeometryElement",
     "SvgCircleElement", "SvgLineElement", "SvgPolylineElement",

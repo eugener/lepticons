@@ -1,6 +1,6 @@
 //! Format definitions and clipboard helpers for copying icon code.
 
-use lepticons::{Glyph, LucideGlyph};
+use lepticons::{Glyph, LucideGlyph, DEFAULT_FILL, DEFAULT_SIZE, DEFAULT_STROKE};
 
 /// Code format used by the picker's "copy as" feature.
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
@@ -12,11 +12,32 @@ pub enum IconCopyFormat {
     Component,
     /// Raw SVG markup with the standard 24x24 viewport.
     Svg,
+    /// React / JSX / Svelte PascalCase tag: `<Heart />`.
+    Jsx,
+    /// Svelte PascalCase tag (byte-identical to [`Self::Jsx`]); exposed
+    /// separately so users searching by framework name find a match.
+    Svelte,
+    /// Vue kebab-case tag: `<heart />`.
+    Vue,
+    /// Angular component: `<lucide-angular name="heart" />`.
+    Angular,
+    /// `data:image/svg+xml,...` URL ready for `src=` / `background-image:`.
+    /// The inner SVG is percent-encoded per RFC 3986.
+    DataUrl,
 }
 
 impl IconCopyFormat {
     /// All known formats, in display order.
-    pub const ALL: &'static [Self] = &[Self::Variant, Self::Component, Self::Svg];
+    pub const ALL: &'static [Self] = &[
+        Self::Variant,
+        Self::Component,
+        Self::Svg,
+        Self::Jsx,
+        Self::Svelte,
+        Self::Vue,
+        Self::Angular,
+        Self::DataUrl,
+    ];
 
     /// Short user-facing label for menus and buttons.
     pub fn label(self) -> &'static str {
@@ -24,6 +45,11 @@ impl IconCopyFormat {
             Self::Variant => "Variant",
             Self::Component => "Component",
             Self::Svg => "SVG",
+            Self::Jsx => "JSX",
+            Self::Svelte => "Svelte",
+            Self::Vue => "Vue",
+            Self::Angular => "Angular",
+            Self::DataUrl => "Data URL",
         }
     }
 
@@ -33,6 +59,11 @@ impl IconCopyFormat {
             Self::Variant => "variant",
             Self::Component => "component",
             Self::Svg => "svg",
+            Self::Jsx => "jsx",
+            Self::Svelte => "svelte",
+            Self::Vue => "vue",
+            Self::Angular => "angular",
+            Self::DataUrl => "data-url",
         }
     }
 
@@ -41,18 +72,83 @@ impl IconCopyFormat {
         Self::ALL.iter().copied().find(|f| f.id() == s)
     }
 
-    /// Renders `icon` as code in this format.
+    /// Renders `icon` as code in this format using Lucide defaults
+    /// (size=24, stroke=currentColor, stroke-width=2, fill=none). For
+    /// SVG / DataUrl with custom styling, use [`svg_markup`] /
+    /// [`svg_data_url`] directly.
     pub fn render(self, icon: LucideGlyph) -> String {
         match self {
             Self::Variant => format!("LucideGlyph::{}", icon.name()),
             Self::Component => format!("<Icon glyph=LucideGlyph::{} />", icon.name()),
-            Self::Svg => format!(
-                "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" \
-                 viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" \
-                 stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{}</svg>",
-                icon.svg()
-            ),
+            Self::Svg => svg_markup(icon, DEFAULT_SIZE, DEFAULT_FILL, DEFAULT_STROKE, "2"),
+            Self::Jsx | Self::Svelte => format!("<{} />", icon.name()),
+            Self::Vue => format!("<{} />", icon.kebab_name()),
+            Self::Angular => format!("<lucide-angular name=\"{}\" />", icon.kebab_name()),
+            Self::DataUrl => svg_data_url(icon, DEFAULT_SIZE, DEFAULT_FILL, DEFAULT_STROKE, "2"),
         }
+    }
+}
+
+/// Renders the raw SVG markup for `icon` with explicit
+/// size / fill / stroke / stroke-width attributes. Use when the rendered
+/// code should match a user's customizer state rather than Lucide's
+/// defaults. Pass [`lepticons::DEFAULT_SIZE`] etc. to get the same
+/// output as [`IconCopyFormat::Svg`].
+pub fn svg_markup(
+    icon: LucideGlyph,
+    size: &str,
+    fill: &str,
+    stroke: &str,
+    stroke_width: &str,
+) -> String {
+    format!(
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{size}\" height=\"{size}\" \
+         viewBox=\"0 0 24 24\" fill=\"{fill}\" stroke=\"{stroke}\" \
+         stroke-width=\"{stroke_width}\" stroke-linecap=\"round\" stroke-linejoin=\"round\">{}</svg>",
+        icon.svg()
+    )
+}
+
+/// Renders a `data:image/svg+xml,...` URL with explicit styling overrides.
+/// Convenience over `format!("data:image/svg+xml,{}", percent_encode(&svg_markup(...)))`.
+pub fn svg_data_url(
+    icon: LucideGlyph,
+    size: &str,
+    fill: &str,
+    stroke: &str,
+    stroke_width: &str,
+) -> String {
+    format!(
+        "data:image/svg+xml,{}",
+        percent_encode(&svg_markup(icon, size, fill, stroke, stroke_width))
+    )
+}
+
+
+/// Percent-encodes `s` per RFC 3986, escaping everything outside the
+/// unreserved set (`A-Z a-z 0-9 - _ . ~`). Suitable for embedding SVG
+/// markup in a `data:image/svg+xml,...` URL.
+pub(crate) fn percent_encode(s: &str) -> String {
+    let mut out = String::with_capacity(s.len() * 3);
+    for b in s.bytes() {
+        match b {
+            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'~' => {
+                out.push(b as char);
+            }
+            _ => {
+                out.push('%');
+                out.push(hex_nibble(b >> 4));
+                out.push(hex_nibble(b & 0x0F));
+            }
+        }
+    }
+    out
+}
+
+fn hex_nibble(n: u8) -> char {
+    match n {
+        0..=9 => (b'0' + n) as char,
+        _ => (b'A' + n - 10) as char,
     }
 }
 
@@ -92,5 +188,47 @@ mod tests {
             assert_eq!(IconCopyFormat::from_id(fmt.id()), Some(fmt));
         }
         assert_eq!(IconCopyFormat::from_id("nope"), None);
+    }
+
+    #[test]
+    fn renders_framework_formats() {
+        assert_eq!(
+            IconCopyFormat::Jsx.render(LucideGlyph::ArrowRight),
+            "<ArrowRight />"
+        );
+        assert_eq!(
+            IconCopyFormat::Svelte.render(LucideGlyph::ArrowRight),
+            "<ArrowRight />"
+        );
+        assert_eq!(
+            IconCopyFormat::Vue.render(LucideGlyph::ArrowRight),
+            "<arrow-right />"
+        );
+        assert_eq!(
+            IconCopyFormat::Angular.render(LucideGlyph::ArrowRight),
+            "<lucide-angular name=\"arrow-right\" />"
+        );
+    }
+
+    #[test]
+    fn renders_data_url() {
+        let url = IconCopyFormat::DataUrl.render(LucideGlyph::Heart);
+        assert!(url.starts_with("data:image/svg+xml,"));
+        // Encoded SVG must contain percent-escapes for `<` and `"`.
+        assert!(url.contains("%3C"), "url missing percent-encoded '<': {url}");
+        assert!(url.contains("%22"), "url missing percent-encoded '\"': {url}");
+        // Unreserved chars (letters, digits, ~ . _ -) pass through verbatim.
+        assert!(url.contains("svg"));
+    }
+
+    #[test]
+    fn percent_encode_unreserved_passthrough() {
+        assert_eq!(percent_encode("abcXYZ012-_.~"), "abcXYZ012-_.~");
+    }
+
+    #[test]
+    fn percent_encode_escapes_reserved() {
+        assert_eq!(percent_encode("<>\""), "%3C%3E%22");
+        assert_eq!(percent_encode(" "), "%20");
     }
 }

@@ -1,7 +1,7 @@
 use leptos::prelude::*;
 use leptos::text_prop::TextProp;
 use leptos::wasm_bindgen::JsCast;
-use lepticons::{Icon, LucideGlyph};
+use lepticons::{Icon, LucideGlyph, DEFAULT_FILL, DEFAULT_SIZE, DEFAULT_STROKE, DEFAULT_STROKE_WIDTH};
 
 use crate::copy::{copy_to_clipboard, IconCopyFormat};
 use crate::theme;
@@ -88,10 +88,10 @@ pub fn IconGrid(
     #[prop(into, optional)]
     copy_format: Option<Signal<IconCopyFormat>>,
 ) -> impl IntoView {
-    let icon_size = icon_size.unwrap_or_else(|| "24".into());
-    let icon_stroke = icon_stroke.unwrap_or_else(|| "currentColor".into());
-    let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| "1.5".into());
-    let icon_fill = icon_fill.unwrap_or_else(|| "none".into());
+    let icon_size = icon_size.unwrap_or_else(|| DEFAULT_SIZE.into());
+    let icon_stroke = icon_stroke.unwrap_or_else(|| DEFAULT_STROKE.into());
+    let icon_stroke_width = icon_stroke_width.unwrap_or_else(|| DEFAULT_STROKE_WIDTH.into());
+    let icon_fill = icon_fill.unwrap_or_else(|| DEFAULT_FILL.into());
 
     let grid_style = "display:grid;\
         grid-template-columns:repeat(auto-fill,minmax(2.5rem,1fr));\
@@ -268,23 +268,19 @@ fn columns_count(el: &web_sys::HtmlDivElement) -> usize {
     if len == 0 {
         return 1;
     }
-    let Some(first) = children.item(0) else {
+    let Some(first_top) = children
+        .item(0)
+        .and_then(|c| c.dyn_into::<web_sys::HtmlElement>().ok())
+        .map(|h| h.offset_top())
+    else {
         return 1;
     };
-    let Some(first_html) = first.dyn_ref::<web_sys::HtmlElement>() else {
-        return 1;
-    };
-    let first_top = first_html.offset_top();
-    for i in 1..len {
-        if let Some(child) = children.item(i) {
-            if let Some(html) = child.dyn_ref::<web_sys::HtmlElement>() {
-                if html.offset_top() != first_top {
-                    return i as usize;
-                }
-            }
-        }
-    }
-    len as usize
+    (1..len)
+        .find_map(|i| {
+            let html = children.item(i)?.dyn_into::<web_sys::HtmlElement>().ok()?;
+            (html.offset_top() != first_top).then_some(i as usize)
+        })
+        .unwrap_or(len as usize)
 }
 
 const DEFAULT_CELL_STYLE: &str = "\
