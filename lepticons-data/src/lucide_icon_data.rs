@@ -2457,10 +2457,10 @@ pub enum LucideGlyph {
     CardSim,
     #[cfg(feature = "food_beverage")]
     #[strum(props(
-        svg = "<path d=\"M2.27 21.7s9.87-3.5 12.73-6.36a4.5 4.5 0 0 0-6.36-6.37C5.77 11.84 2.27 21.7 2.27 21.7zM8.64 14l-2.05-2.04M15.34 15l-2.46-2.46\"></path><path d=\"M22 9s-1.33-2-3.5-2C16.86 7 15 9 15 9s1.33 2 3.5 2S22 9 22 9z\"></path><path d=\"M15 2s-2 1.33-2 3.5S15 9 15 9s2-1.84 2-3.5C17 3.33 15 2 15 2z\"></path>",
+        svg = "<path d=\"M15 16a1 1 0 0 0-7-7q-4 4-5.98 12.38a.5.5 0 0 0 .602.60Q11 20 15 16l-3-3\"></path><path d=\"M15 9q4 4 7 0-3-4-7 0 4-4 0-7-4 3 0 7\"></path><path d=\"m8 15-2.58-2.58\"></path>",
         categories = "food-beverage",
-        tags = "vegetable,food,eat",
-        contributors = "Andreto,mittalyashu,ericfennis"
+        tags = "orange,healthy,nature,fresh,root,produce,organic,nutrition,vegetable,food,eat",
+        contributors = "Andreto,mittalyashu,ericfennis,jguddas,karsa-mistmere,jamiemlaw"
     ))]
     Carrot,
     #[cfg(any(feature = "text", feature = "development"))]
@@ -9729,6 +9729,14 @@ pub enum LucideGlyph {
         contributors = "mittalyashu,ericfennis"
     ))]
     PersonStanding,
+    #[cfg(any(feature = "math", feature = "science"))]
+    #[strum(props(
+        svg = "<path d=\"M12 2v20\"></path><circle cx=\"12\" cy=\"12\" r=\"7\"></circle>",
+        categories = "math,science",
+        tags = "math,golden-ratio,symbol,greek,letter,typography,constant,flux,magnetic-flux",
+        contributors = "whoisBugsbunny"
+    ))]
+    Phi,
     #[cfg(feature = "finance")]
     #[strum(props(
         svg = "<path d=\"M20 11H4\"></path><path d=\"M20 7H4\"></path><path d=\"M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7\"></path>",
@@ -13896,10 +13904,10 @@ pub enum LucideGlyph {
     UnfoldVertical,
     #[cfg(any(feature = "shapes", feature = "files"))]
     #[strum(props(
-        svg = "<rect height=\"6\" rx=\"1\" width=\"8\" x=\"5\" y=\"4\"></rect><rect height=\"6\" rx=\"1\" width=\"8\" x=\"11\" y=\"14\"></rect>",
+        svg = "<rect height=\"7\" rx=\"2\" width=\"10\" x=\"11\" y=\"14\"></rect><rect height=\"7\" rx=\"2\" width=\"10\" x=\"3\" y=\"3\"></rect>",
         categories = "shapes,files",
         tags = "cubes,packages,parts,units,collection,cluster,separate",
-        contributors = "danielbayley"
+        contributors = "danielbayley,jguddas"
     ))]
     Ungroup,
     #[cfg(any(feature = "buildings", feature = "navigation"))]
