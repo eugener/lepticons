@@ -9538,6 +9538,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,ericfennis"
     ))]
     PanelsTopLeft,
+    #[cfg(any(feature = "food_beverage", feature = "shopping"))]
+    #[strum(props(
+        svg = "<path d=\"M5.36 3.84C4 6 3 9.65 3 12.65V19a2 2 0 002 2h14a2 2 0 002-2v-5c0-2.33-1.81-4.66-2.62-7.00\"></path><path d=\"M7 3h11.37a2 2 0 011.78 1.10l.723 1.44A1 1 0 0119.99 7h-8.52a2 2 0 01-1.78-1.10L8.79 4.10a2 2 0 10-3.57 1.78l2.26 4.52A5 5 0 018 12.65V21\"></path>",
+        categories = "food-beverage,shopping",
+        tags = "storage,package,lunch,takeout,eco-friendly,kraft,retail,doggybag",
+        contributors = "jamiemlaw,karsa-mistmere,jguddas,EthanHazel,congemcd,dkast"
+    ))]
+    PaperBag,
     #[cfg(any(
         feature = "text",
         feature = "design",
