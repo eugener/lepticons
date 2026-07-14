@@ -3155,6 +3155,14 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     CircleEqual,
+    #[cfg(any(feature = "shopping", feature = "finance"))]
+    #[strum(props(
+        svg = "<path d=\"M15 9.4a4 4 0 1 0 0 5.2\"></path><path d=\"M7 12h5\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        categories = "shopping,finance",
+        tags = "symbol,economy,banking,europe,€,euro,currency,money,payment,coin,finance,financial,exchange",
+        contributors = "Guido3000"
+    ))]
+    CircleEuro,
     #[cfg(any(feature = "arrows", feature = "development"))]
     #[strum(props(
         svg = "<path d=\"M12 2a10 10 0 0 1 7.38 16.75\"></path><path d=\"m16 12-4-4-4 4\"></path><path d=\"M12 16V8\"></path><path d=\"M2.5 8.87a10 10 0 0 0-.5 3\"></path><path d=\"M2.83 16a10 10 0 0 0 2.43 3.4\"></path><path d=\"M4.63 5.23a10 10 0 0 1 .891-.857\"></path><path d=\"M8.64 21.42a10 10 0 0 0 7.63-.38\"></path>",
@@ -4643,7 +4651,7 @@ pub enum LucideGlyph {
     DoorOpen,
     #[cfg(any(feature = "shapes", feature = "text"))]
     #[strum(props(
-        svg = "<circle cx=\"12.1\" cy=\"12.1\" r=\"1\"></circle>",
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"1\"></circle>",
         categories = "shapes,text",
         tags = "interpunct,interpoint,middot,step,punctuation,period,full stop,end,finish,final,characters,font,typography,type,center,.",
         contributors = "danielbayley"
@@ -9219,7 +9227,7 @@ pub enum LucideGlyph {
     Omega,
     #[cfg(feature = "development")]
     #[strum(props(
-        svg = "<path d=\"M3 3h6l6 18h6\"></path><path d=\"M14 3h7\"></path>",
+        svg = "<path d=\"M14 3h7\"></path><path d=\"M3 3h5.28a1 1 0 0 1 .948.68l5.54 16.63a1 1 0 0 0 .949.68H21\"></path>",
         categories = "development",
         tags = "keyboard,key,mac,alt,button",
         contributors = "mittalyashu,danielbayley,karsa-mistmere"
@@ -11216,6 +11224,14 @@ pub enum LucideGlyph {
         contributors = "yukosgiti,ericfennis,csandman"
     ))]
     ServerOff,
+    #[cfg(any(feature = "development", feature = "devices"))]
+    #[strum(props(
+        svg = "<path d=\"M12.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2\"></path><path d=\"M16 12h6\"></path><path d=\"M19 9v6\"></path><path d=\"M22 18v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h8.5\"></path><path d=\"M6 18h.01\"></path><path d=\"M6 6h.01\"></path>",
+        categories = "development,devices",
+        tags = "add,create,new,cloud,storage,computing",
+        contributors = "Turboman3000"
+    ))]
+    ServerPlus,
     #[cfg(any(feature = "development", feature = "devices"))]
     #[strum(props(
         svg = "<rect height=\"8\" rx=\"2\" ry=\"2\" width=\"20\" x=\"2\" y=\"2\"></rect><rect height=\"8\" rx=\"2\" ry=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect><line x1=\"6\" x2=\"6.01\" y1=\"6\" y2=\"6\"></line><line x1=\"6\" x2=\"6.01\" y1=\"18\" y2=\"18\"></line>",
