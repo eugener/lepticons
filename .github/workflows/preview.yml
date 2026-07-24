@@ -33,6 +33,10 @@ jobs:
       pull-requests: write
       contents: read
       deployments: write
+    env:
+      # Dependabot and fork PRs run without access to repo secrets, so the
+      # deploy steps below are skipped there. The release build still runs.
+      HAS_VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN != '' }}
     steps:
       - name: git-checkout
         uses: actions/checkout@v7
@@ -51,12 +55,15 @@ jobs:
         run: trunk build --release
 
       - name: Install Vercel CLI
+        if: env.HAS_VERCEL_TOKEN == 'true'
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
+        if: env.HAS_VERCEL_TOKEN == 'true'
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: vercel pull --yes --environment=preview --token="$TOKEN"
       - name: Preview Deploy
+        if: env.HAS_VERCEL_TOKEN == 'true'
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
         working-directory: demo/dist
