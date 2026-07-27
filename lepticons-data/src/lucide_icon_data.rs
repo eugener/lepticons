@@ -62,11 +62,15 @@ pub enum LucideGlyph {
         contributors = "colebemis,jguddas"
     ))]
     Activity,
-    #[cfg(any(feature = "multimedia", feature = "notifications"))]
+    #[cfg(any(
+        feature = "multimedia",
+        feature = "accessibility",
+        feature = "notifications"
+    ))]
     #[strum(props(
         svg = "<path d=\"M10 13H6\"></path><path d=\"M10 15v-4a2 2 0 0 0-4 0v4\"></path><path d=\"M14 14.5a.5.5 0 0 0 .5.5h1a2.5 2.5 0 0 0 2.5-2.5v-1A2.5 2.5 0 0 0 15.5 9h-1a.5.5 0 0 0-.5.5z\"></path><rect height=\"14\" rx=\"2\" width=\"20\" x=\"2\" y=\"5\"></rect>",
-        categories = "multimedia,notifications",
-        tags = "advert,affiliate,brand,campaign,commercial,marketing,monetize,paid,partner,promo,sponsor",
+        categories = "multimedia,accessibility,notifications",
+        tags = "advert,affiliate,brand,campaign,commercial,marketing,monetize,paid,partner,promo,sponsor,audio description,video description,described video,visual description",
         contributors = "ahtohbi4,jamiemlaw,karsa-mistmere,jguddas"
     ))]
     Ad,
@@ -1145,7 +1149,7 @@ pub enum LucideGlyph {
     Barcode,
     #[cfg(any(feature = "food_beverage", feature = "navigation"))]
     #[strum(props(
-        svg = "<path d=\"M10 3a41 41 0 0 0 0 18\"></path><path d=\"M14 3a41 41 0 0 1 0 18\"></path><path d=\"M17 3a2 2 0 0 1 1.68.92 15.25 15.25 0 0 1 0 16.16A2 2 0 0 1 17 21H7a2 2 0 0 1-1.68-.92 15.25 15.25 0 0 1 0-16.16A2 2 0 0 1 7 3z\"></path><path d=\"M3.84 17h16.32\"></path><path d=\"M3.84 7h16.32\"></path>",
+        svg = "<path d=\"M10 3a41 41 0 000 18\"></path><path d=\"M14 3a41 41 0 010 18\"></path><path d=\"M16.99 21a2 2 0 001.68-.92 15.25 15.25 0 000-16.16 2 2 0 00-1.68-.92h-10a2 2 0 00-1.68.92 15.25 15.25 0 000 16.16 2 2 0 001.68.92z\"></path><path d=\"M3.54 16h16.91\"></path><path d=\"M3.54 8h16.91\"></path>",
         categories = "food-beverage,navigation",
         tags = "keg,drum,tank,wine,beer,oak,wood,firkin,hogshead,kilderkin,barrique,solera,aging,whiskey,brewery,distillery,winery,vineyard",
         contributors = "karsa-mistmere,jamiemlaw"
@@ -1706,7 +1710,7 @@ pub enum LucideGlyph {
     BookMinus,
     #[cfg(any(feature = "text", feature = "development", feature = "gaming"))]
     #[strum(props(
-        svg = "<path d=\"M12 21V7\"></path><path d=\"m16 12 2 2 4-4\"></path><path d=\"M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3\"></path>",
+        svg = "<path d=\"M12 5v16\"></path><path d=\"m16 12 2 2 4-4\"></path><path d=\"M22 6V5a2 2 0 00-1.99-2L16 3.00A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.99 2H8a5 5 0 014 2 5 5 0 014-2h4.00A2 2 0 0022 17v-1.34\"></path>",
         categories = "text,development,gaming",
         tags = "read,pages,booklet,magazine,leaflet,pamphlet,library,written,authored,published,informed,knowledgeable,educated,schooled,homework,examined,tested,marked,passed,graduated,studied,learned,lesson,researched,documented,revealed,blank,plain language,true,truth,verified,corrected,task,todo,done,completed,finished,ticked",
         contributors = "schmidt-oliver,karsa-mistmere,ericfennis"
@@ -1714,18 +1718,18 @@ pub enum LucideGlyph {
     BookOpenCheck,
     #[cfg(any(feature = "text", feature = "development"))]
     #[strum(props(
-        svg = "<path d=\"M12 7v14\"></path><path d=\"M16 12h2\"></path><path d=\"M16 8h2\"></path><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"></path><path d=\"M6 12h2\"></path><path d=\"M6 8h2\"></path>",
+        svg = "<path d=\"M12 5v16\"></path><path d=\"M16 13h2\"></path><path d=\"M16 9h2\"></path><path d=\"M20.00 19A2 2 0 0022 17V5a2 2 0 00-1.99-2L16 3.00A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.99 2H8a5 5 0 014 2 5 5 0 014-2z\"></path><path d=\"M6 13h2\"></path><path d=\"M6 9h2\"></path>",
         categories = "text,development",
         tags = "reading,pages,booklet,magazine,leaflet,pamphlet,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,revealed",
-        contributors = "danielbayley"
+        contributors = "danielbayley,karsa-mistmere"
     ))]
     BookOpenText,
     #[cfg(any(feature = "text", feature = "development", feature = "gaming"))]
     #[strum(props(
-        svg = "<path d=\"M12 7v14\"></path><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"></path>",
+        svg = "<path d=\"M12 5v16\"></path><path d=\"M20.00 19A2 2 0 0022 17V5a2 2 0 00-1.99-2L16 3.00A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.99 2H8a5 5 0 014 2 5 5 0 014-2z\"></path>",
         categories = "text,development,gaming",
         tags = "reading,pages,booklet,magazine,leaflet,pamphlet,library,writing,written,writer,author,story,script,screenplay,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,revealed,blank,plain",
-        contributors = "colebemis,csandman,ericfennis"
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     BookOpen,
     #[cfg(any(feature = "development", feature = "text", feature = "gaming"))]
@@ -2505,7 +2509,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"></path><path d=\"M2 12a9 9 0 0 1 8 8\"></path><path d=\"M2 16a5 5 0 0 1 4 4\"></path><line x1=\"2\" x2=\"2.01\" y1=\"20\" y2=\"20\"></line>",
         categories = "devices,connectivity",
-        tags = "chromecast,airplay,screen",
+        tags = "stream,streaming,screen,display,wireless,broadcast,transmit,media,receiver,remote display,screen sharing,media streaming",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     Cast,
@@ -3175,7 +3179,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M12 2a10 10 0 0 1 7.38 16.75\"></path><path d=\"M12 8v8\"></path><path d=\"M16 12H8\"></path><path d=\"M2.5 8.87a10 10 0 0 0-.5 3\"></path><path d=\"M2.83 16a10 10 0 0 0 2.43 3.4\"></path><path d=\"M4.63 5.23a10 10 0 0 1 .891-.857\"></path><path d=\"M8.64 21.42a10 10 0 0 0 7.63-.38\"></path>",
         categories = "communication,social",
-        tags = "stories,social media,instagram,facebook,meta,snapchat,sharing,content",
+        tags = "stories,social media,sharing,content",
         contributors = "jordan808,jguddas"
     ))]
     CircleFadingPlus,
@@ -3895,10 +3899,10 @@ pub enum LucideGlyph {
     Columns2,
     #[cfg(any(feature = "layout", feature = "design"))]
     #[strum(props(
-        svg = "<path d=\"M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5\"></path><path d=\"m14.3 19.6 1-.4\"></path><path d=\"M15 3v7.5\"></path><path d=\"m15.2 16.9-.9-.3\"></path><path d=\"m16.6 21.7.3-.9\"></path><path d=\"m16.8 15.3-.4-1\"></path><path d=\"m19.1 15.2.3-.9\"></path><path d=\"m19.6 21.7-.4-1\"></path><path d=\"m20.7 16.8 1-.4\"></path><path d=\"m21.7 19.4-.9-.3\"></path><path d=\"M9 3v18\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
+        svg = "<path d=\"M10.6 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.6\"></path><path d=\"m14.30 19.53.92-.382\"></path><path d=\"M15 3v7.6\"></path><path d=\"m15.22 16.85-.924-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.922-.383\"></path><path d=\"m20.77 19.14.922.38\"></path><path d=\"M9 3v18\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "layout,design",
         tags = "columns,settings,customize,table,grid,adjust,configuration,panel,layout",
-        contributors = "irvineacosta,danielbayley,karsa-mistmere"
+        contributors = "irvineacosta,danielbayley,karsa-mistmere,kamilasw"
     ))]
     Columns3Cog,
     #[cfg(any(feature = "layout", feature = "design", feature = "text"))]
@@ -3942,7 +3946,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m16.24 7.76-1.80 5.41a2 2 0 0 1-1.26 1.26L7.76 16.24l1.80-5.41a2 2 0 0 1 1.26-1.26z\"></path>",
         categories = "navigation,travel",
-        tags = "direction,north,east,south,west,safari,browser",
+        tags = "direction,north,east,south,west,browser",
         contributors = "colebemis,jguddas"
     ))]
     Compass,
@@ -3958,7 +3962,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<rect height=\"8\" rx=\"2\" width=\"14\" x=\"5\" y=\"2\"></rect><rect height=\"8\" rx=\"2\" width=\"20\" x=\"2\" y=\"14\"></rect><path d=\"M6 18h2\"></path><path d=\"M12 18h6\"></path>",
         categories = "devices,development,gaming",
-        tags = "pc,chassis,codespaces,github",
+        tags = "pc,chassis,codespaces",
         contributors = "danielbayley"
     ))]
     Computer,
@@ -4016,7 +4020,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z\"></path><path d=\"M10 21.9V14L2.1 9.1\"></path><path d=\"m10 14 11.9-6.9\"></path><path d=\"M14 19.8v-8.1\"></path><path d=\"M18 17.5V9.4\"></path>",
         categories = "development,transportation,mail",
-        tags = "storage,shipping,freight,supply chain,docker,environment,devops,code,coding",
+        tags = "storage,shipping,freight,supply chain,environment,devops,code,coding",
         contributors = "danielbayley"
     ))]
     Container,
@@ -4878,10 +4882,10 @@ pub enum LucideGlyph {
         feature = "gaming"
     ))]
     #[strum(props(
-        svg = "<path d=\"m15 20 3-3h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2l3 3z\"></path><path d=\"M6 8v1\"></path><path d=\"M10 8v1\"></path><path d=\"M14 8v1\"></path><path d=\"M18 8v1\"></path>",
+        svg = "<path d=\"M10 8v1\"></path><path d=\"M14 8v1\"></path><path d=\"M18 8v1\"></path><path d=\"M19 17a2 2 0 00-1.76 1.05l-.47.88A2 2 0 0115 20H9a2 2 0 01-1.76-1.05l-.47-.882A2 2 0 005 17H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v9a2 2 0 01-2 2z\"></path><path d=\"M6 8v1\"></path>",
         categories = "communication,devices,multimedia,gaming",
         tags = "internet,network,connection,cable,lan,port,router,switch,hub,modem,web,online,networking,communication,socket,plug,slot,controller,connector,interface,console,signal,data,input,output",
-        contributors = "ericfennis"
+        contributors = "ericfennis,karsa-mistmere"
     ))]
     EthernetPort,
     #[cfg(feature = "finance")]
@@ -4992,12 +4996,17 @@ pub enum LucideGlyph {
         contributors = "colebemis,karsa-mistmere"
     ))]
     FastForward,
-    #[cfg(feature = "gaming")]
+    #[cfg(any(
+        feature = "nature",
+        feature = "animals",
+        feature = "gaming",
+        feature = "text"
+    ))]
     #[strum(props(
-        svg = "<path d=\"M12.67 19a2 2 0 0 0 1.41-.588l6.15-6.17a6 6 0 0 0-8.49-8.49L5.58 9.91A2 2 0 0 0 5 11.32V18a1 1 0 0 0 1 1z\"></path><path d=\"M16 8 2 22\"></path><path d=\"M17.5 15H9\"></path>",
-        categories = "gaming",
-        tags = "logo",
-        contributors = "colebemis,csandman,ericfennis"
+        svg = "<path d=\"M14.08 18.41A2 2 0 0112.67 19H5v-7.67a2 2 0 01.58-1.41L11.75 3.75a6 6 0 118.49 8.49z\"></path><path d=\"M16 8 2 22\"></path><path d=\"M17.48 15H9\"></path>",
+        categories = "nature,animals,gaming,text",
+        tags = "quill,plume,writing,author,literature,poetry,manuscript,bird,plumage,lightweight,soft",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     Feather,
     #[cfg(any(feature = "home", feature = "buildings"))]
@@ -5040,11 +5049,11 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,danielbayley"
     ))]
     FileBadge,
-    #[cfg(feature = "files")]
+    #[cfg(any(feature = "files", feature = "design", feature = "development"))]
     #[strum(props(
-        svg = "<path d=\"M14.5 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.70l-3.58-3.58A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.8\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M11.7 14.2 7 17l-4.7-2.8\"></path><path d=\"M3 13.1a2 2 0 0 0-.999 1.76v3.24a2 2 0 0 0 .969 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01z\"></path><path d=\"M7 17v5\"></path>",
-        categories = "files",
-        tags = "box,package,model",
+        svg = "<path d=\"M14 2v5a1 1 0 001 1h5\"></path><path d=\"M14.69 22H18a2 2 0 002-2V8a2.4 2.4 0 00-.706-1.70l-3.58-3.58A2.4 2.4 0 0014 2H6a2 2 0 00-2 2v3.80\"></path><path d=\"M2.26 13.75 7 16.5l4.73-2.74\"></path><path d=\"M2.99 13.01A2 2 0 002 14.74v3.51a2 2 0 00.99 1.73l3 1.74a2 2 0 002.00 0l3-1.74A2 2 0 0012 18.26v-3.51a2 2 0 00-.995-1.73l-3-1.74a2 2 0 00-1.89-.064z\"></path><path d=\"M7 16.5V22\"></path>",
+        categories = "files,design,development",
+        tags = "document,page,sheet,cube,box,3d,model,asset,object,geometry,mesh,ar,augmented reality,cad,design,blueprint,draft,package,scene",
         contributors = "karsa-mistmere,danielbayley"
     ))]
     FileBox,
@@ -6688,10 +6697,10 @@ pub enum LucideGlyph {
     Hd,
     #[cfg(any(feature = "devices", feature = "multimedia", feature = "gaming"))]
     #[strum(props(
-        svg = "<path d=\"M22 9a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1l2 2h12l2-2h1a1 1 0 0 0 1-1Z\"></path><path d=\"M7.5 12h9\"></path>",
+        svg = "<path d=\"M22 9a1 1 0 00-1-1H3a1 1 0 00-1 1v4a1 1 0 001 1h.5a2 2 0 011.6.8l.3.4A2 2 0 007 16h10a2 2 0 001.6-.8l.3-.4a2 2 0 011.6-.8h.5a1 1 0 001-1z\"></path><path d=\"M8 12h8\"></path>",
         categories = "devices,multimedia,gaming",
         tags = "socket,plug,slot,controller,connector,interface,console,signal,audio,video,visual,av,data,input,output",
-        contributors = "danielbayley"
+        contributors = "danielbayley,karsa-mistmere"
     ))]
     HdmiPort,
     #[cfg(feature = "text")]
@@ -6912,14 +6921,6 @@ pub enum LucideGlyph {
         contributors = "lscheibel,Andreto,ericfennis"
     ))]
     Highlighter,
-    #[cfg(any(feature = "arrows", feature = "time"))]
-    #[strum(props(
-        svg = "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><path d=\"M12 7v5l4 2\"></path>",
-        categories = "arrows,time",
-        tags = "time,redo,undo,rewind,timeline,version,time machine,backup,rotate,ccw",
-        contributors = "ericfennis,danielbayley,jguddas,karsa-mistmere"
-    ))]
-    History,
     #[cfg(feature = "food_beverage")]
     #[strum(props(
         svg = "<path d=\"M10.82 16.12c1.69.6 3.91.79 5.18.85.28.01.53-.09.7-.27\"></path><path d=\"M11.14 20.57c.52.24 2.44 1.12 4.08 1.37.46.06.86-.25.9-.71.12-1.52-.3-3.43-.5-4.28\"></path><path d=\"M16.13 21.05c1.65.63 3.68.84 4.87.91a.9.9 0 0 0 .7-.26\"></path><path d=\"M17.99 5.52a20.83 20.83 0 0 1 3.15 4.5.8.8 0 0 1-.68 1.13c-1.17.1-2.5.02-3.9-.25\"></path><path d=\"M20.57 11.14c.24.52 1.12 2.44 1.37 4.08.04.3-.08.59-.31.75\"></path><path d=\"M4.93 4.93a10 10 0 0 0-.67 13.4c.35.43.96.4 1.17-.12.69-1.71 1.07-5.07 1.07-6.71 1.34.45 3.1.9 4.88.62a.85.85 0 0 0 .48-.24\"></path><path d=\"M5.52 17.99c1.05.95 2.91 2.42 4.5 3.15a.8.8 0 0 0 1.13-.68c.2-2.34-.33-5.3-1.57-8.28\"></path><path d=\"M8.35 2.68a10 10 0 0 1 9.98 1.58c.43.35.4.96-.12 1.17-1.5.6-4.3.98-6.07 1.05\"></path><path d=\"m2 2 20 20\"></path>",
@@ -7452,6 +7453,14 @@ pub enum LucideGlyph {
         contributors = "ericfennis,danielbayley"
     ))]
     LayoutDashboard,
+    #[cfg(any(feature = "design", feature = "layout"))]
+    #[strum(props(
+        svg = "<rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"4\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"4\" y=\"14\"></rect>",
+        categories = "design,layout",
+        tags = "layout,freeform,free,absolute,position,auto layout,unaligned,scattered,arrange,blocks,canvas,frame",
+        contributors = "samuelalake"
+    ))]
+    LayoutFreeform,
     #[cfg(any(feature = "design", feature = "layout"))]
     #[strum(props(
         svg = "<rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"3\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"14\" y=\"14\"></rect><rect height=\"7\" rx=\"1\" width=\"7\" x=\"3\" y=\"14\"></rect>",
@@ -8539,6 +8548,14 @@ pub enum LucideGlyph {
         contributors = "jguddas,edwloef"
     ))]
     Metronome,
+    #[cfg(any(feature = "devices", feature = "communication", feature = "multimedia"))]
+    #[strum(props(
+        svg = "<path d=\"M10 3v2.34\"></path><path d=\"M12 17v4\"></path><path d=\"M14 5v.341\"></path><path d=\"M18 5v13\"></path><path d=\"M2 10v3\"></path><path d=\"M22 10v3\"></path><path d=\"M6 6v11\"></path><path d=\"M9 21h6\"></path><rect height=\"8\" rx=\"2\" width=\"4\" x=\"10\" y=\"9\"></rect>",
+        categories = "devices,communication,multimedia",
+        tags = "podcast,audio,waveform,sound waves,microphone,talk,voice,speech,stream,recording,transcription,dictation,voice assistant,noise cancellation,sound processing",
+        contributors = "karsa-mistmere,jguddas"
+    ))]
+    MicAudioLines,
     #[cfg(any(
         feature = "devices",
         feature = "communication",
@@ -8552,6 +8569,19 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,LieOnLion"
     ))]
     MicOff,
+    #[cfg(any(
+        feature = "devices",
+        feature = "communication",
+        feature = "connectivity",
+        feature = "multimedia"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M12 17v4\"></path><path d=\"M18 11a6 6 0 00-3-5.19\"></path><path d=\"M2 11a10 10 0 015-8.66\"></path><path d=\"M22 11a10 10 0 00-5-8.66\"></path><path d=\"M6 11a6 6 0 013-5.19\"></path><path d=\"M9 21h6\"></path><rect height=\"8\" rx=\"2\" width=\"4\" x=\"10\" y=\"9\"></rect>",
+        categories = "devices,communication,connectivity,multimedia",
+        tags = "podcast,audio,broadcast,signal,wireless,radio,airwaves,microphone,talk,voice,speech,stream,live,voice chat,push to talk,transmission",
+        contributors = "karsa-mistmere,jguddas"
+    ))]
+    MicSignal,
     #[cfg(any(feature = "devices", feature = "multimedia"))]
     #[strum(props(
         svg = "<path d=\"m11 7.60-5.99 8.19a1 1 0 0 0 .1 1.29l.817.81a1 1 0 0 0 1.31.087L15.09 12\"></path><path d=\"M16.5 21.17C15.5 20.5 14.37 20 13 20c-2.05 0-3.92 2.35-6 2-2.07-.356-2.77-3.36-1.5-4.5\"></path><circle cx=\"16\" cy=\"7\" r=\"5\"></circle>",
@@ -8799,6 +8829,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     Moon,
+    #[cfg(any(feature = "buildings", feature = "navigation", feature = "travel"))]
+    #[strum(props(
+        svg = "<path d=\"M12.26 2a2 2 0 003.46 2\"></path><path d=\"M14 5 L14 8\"></path><path d=\"M16 22v-3a2 2 0 00-4 0v3\"></path><path d=\"M21 13c-.662-1.49-1.66-2.75-2.9-3.63C16.82 8.47 15.42 8 14 8s-2.82.47-4.1 1.37C8.66 10.24 7.66 11.50 7 13z\"></path><path d=\"M3 9h4\"></path><path d=\"M7 22V6a5 5 0 00-2-4 5 5 0 00-2 4v14a2 2 0 002 2h14a2 2 0 002-2v-7\"></path>",
+        categories = "buildings,navigation,travel",
+        tags = "mosque,masjid,islam,muslim,ramadan,eid,prayer,worship,building,minaret,dome,architecture,faith,religion,holy,sacred,landmark,community,spiritual,tourism,map,heritage",
+        contributors = "rrod497,iskepr"
+    ))]
+    Mosque,
     #[cfg(feature = "transportation")]
     #[strum(props(
         svg = "<path d=\"m18 14-1-3\"></path><path d=\"m3 9 6 2a2 2 0 0 1 2-2h2a2 2 0 0 1 1.99 1.81\"></path><path d=\"M8 17h3a1 1 0 0 0 1-1 6 6 0 0 1 6-6 1 1 0 0 0 1-1v-.75A5 5 0 0 0 17 5\"></path><circle cx=\"19\" cy=\"17\" r=\"3\"></circle><circle cx=\"5\" cy=\"17\" r=\"3\"></circle>",
@@ -10056,14 +10094,6 @@ pub enum LucideGlyph {
         contributors = "danielbayley,karsa-mistmere"
     ))]
     PocketKnife,
-    #[cfg(any(feature = "multimedia", feature = "social"))]
-    #[strum(props(
-        svg = "<path d=\"M13 17a1 1 0 1 0-2 0l.5 4.5a0.5 0.5 0 0 0 1 0z\" fill=\"currentColor\"></path><path d=\"M16.85 18.58a9 9 0 1 0-9.7 0\"></path><path d=\"M8 14a5 5 0 1 1 8 0\"></path><circle cx=\"12\" cy=\"11\" fill=\"currentColor\" r=\"1\"></circle>",
-        categories = "multimedia,social",
-        tags = "audio,music,mic,talk,voice,subscribe,subscription,stream",
-        contributors = "iiaishwarya,ericfennis,karsa-mistmere,jguddas"
-    ))]
-    Podcast,
     #[cfg(any(feature = "sports", feature = "gaming"))]
     #[strum(props(
         svg = "<path d=\"M12 6V2h-1\"></path><path d=\"M9 15a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1\"></path><path d=\"M9 21V11a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10\"></path>",
@@ -10676,6 +10706,14 @@ pub enum LucideGlyph {
         contributors = "lscheibel"
     ))]
     Rotate3D,
+    #[cfg(any(feature = "arrows", feature = "time"))]
+    #[strum(props(
+        svg = "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><path d=\"M12 7v5l4 2\"></path>",
+        categories = "arrows,time",
+        tags = "history,time,redo,undo,rewind,timeline,version,time machine,backup,ccw",
+        contributors = "ericfennis,danielbayley,jguddas,karsa-mistmere"
+    ))]
+    RotateCcwClock,
     #[cfg(any(feature = "security", feature = "account"))]
     #[strum(props(
         svg = "<path d=\"M12 7v6\"></path><path d=\"M12 9h2\"></path><path d=\"M3 12a9 9 0 1 0 9-9 9.74 9.74 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><circle cx=\"12\" cy=\"15\" r=\"2\"></circle>",
@@ -10706,6 +10744,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,danielbayley,jguddas,karsa-mistmere"
     ))]
     RotateCcw,
+    #[cfg(feature = "time")]
+    #[strum(props(
+        svg = "<path d=\"M12 3a9.75 9.75 0 0 1 6.74 2.74\"></path><path d=\"M18.74 5.74 21 8\"></path><path d=\"M21 8V3\"></path><path d=\"M7.5 19.79c-6-3.46-6-12.12 0-15.58\"></path><path d=\"M7.5 4.20A9 9 0 0 1 12 3\"></path><path d=\"M12 7v5l4 2\"></path><path d=\"M14 20.77A9 9 0 0 1 12 21\"></path><path d=\"M19 17.65a9 9 0 0 1-1.5 1.45\"></path><path d=\"M21 12a9 9 0 0 1-.228 2\"></path><path d=\"M21 8h-5\"></path>",
+        categories = "time",
+        tags = "clock,waiting,schedule,hourglass,loading,pause,pending,time,watch",
+        contributors = "NielsLazaroms"
+    ))]
+    RotateCwFadingClock,
     #[cfg(any(
         feature = "layout",
         feature = "design",
@@ -10942,6 +10988,19 @@ pub enum LucideGlyph {
     ))]
     ScanBarcode,
     #[cfg(any(
+        feature = "design",
+        feature = "devices",
+        feature = "shopping",
+        feature = "gaming"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M12 12v5.5\"></path><path d=\"M17 3h2a2 2 0 012 2v2\"></path><path d=\"M21 17v2a2 2 0 01-2 2h-2\"></path><path d=\"M3 7V5a2 2 0 012-2h2\"></path><path d=\"M7 21H5a2 2 0 01-2-2v-2\"></path><path d=\"M7.26 9.25 12 12l4.73-2.74\"></path><path d=\"M7.99 8.51A2 2 0 007 10.24v3.51a2 2 0 00.99 1.73l3 1.74a2 2 0 002.00 0l3-1.74A2 2 0 0017 13.76v-3.51a2 2 0 00-.995-1.73l-3-1.74a2 2 0 00-1.89-.064z\"></path>",
+        categories = "design,devices,shopping,gaming",
+        tags = "ar,augmented reality,3d,object detection,object recognition,tracking,spatial computing,capture,cube,bounding box,camera,frame,shape,boundary,lidar,depth,scanning,mapping,placement",
+        contributors = "wojtekmaj,ericfennis,karsa-mistmere"
+    ))]
+    ScanBox,
+    #[cfg(any(
         feature = "photography",
         feature = "multimedia",
         feature = "accessibility",
@@ -11010,6 +11069,14 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     ScanSearch,
+    #[cfg(any(feature = "photography", feature = "design", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><rect height=\"8\" rx=\"1\" width=\"8\" x=\"8\" y=\"8\"></rect>",
+        categories = "photography,design,development",
+        tags = "scan,square,detect,recognition,select,frame,object,viewfinder,capture,shape,boundary,camera,scanner,overlay,focus,crop,marker",
+        contributors = "samuelalake"
+    ))]
+    ScanSquare,
     #[cfg(any(feature = "text", feature = "devices"))]
     #[strum(props(
         svg = "<path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><path d=\"M7 8h8\"></path><path d=\"M7 12h10\"></path><path d=\"M7 16h6\"></path>",
@@ -11406,6 +11473,19 @@ pub enum LucideGlyph {
         contributors = "danielbayley,karsa-mistmere"
     ))]
     ShieldHalf,
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "development",
+        feature = "files"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M12 13v3\"></path><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 01-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 011-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 011.52 0C14.51 3.81 17 5 19 5a1 1 0 011 1z\"></path><circle cx=\"12\" cy=\"11\" r=\"2\"></circle>",
+        categories = "account,security,development,files",
+        tags = "cybersecurity,secure,safety,protection,defense,defence,defender,block,threat,prevention,antivirus,vigilance,vigilant,detection,scan,find,strength,strong,tough,invincible,invincibility,invulnerable,undamaged,audit,admin,verification,crest,bravery,trooper,pawn",
+        contributors = "karsa-mistmere"
+    ))]
+    ShieldKeyhole,
     #[cfg(any(
         feature = "account",
         feature = "security",
@@ -12141,7 +12221,7 @@ pub enum LucideGlyph {
         feature = "development"
     ))]
     #[strum(props(
-        svg = "<line x1=\"5\" x2=\"19\" y1=\"3\" y2=\"3\"></line><line x1=\"3\" x2=\"3\" y1=\"5\" y2=\"19\"></line><line x1=\"21\" x2=\"21\" y1=\"5\" y2=\"19\"></line><line x1=\"9\" x2=\"10\" y1=\"21\" y2=\"21\"></line><line x1=\"14\" x2=\"15\" y1=\"21\" y2=\"21\"></line><path d=\"M 3 5 A2 2 0 0 1 5 3\"></path><path d=\"M 19 3 A2 2 0 0 1 21 5\"></path><path d=\"M 5 21 A2 2 0 0 1 3 19\"></path><path d=\"M 21 19 A2 2 0 0 1 19 21\"></path><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"12\" y1=\"9.56\" y2=\"12\"></line><line x1=\"17\" x2=\"14.82\" y1=\"17\" y2=\"14.82\"></line><circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"17\" y1=\"14.43\" y2=\"7\"></line>",
+        svg = "<path d=\"M14 21h1\"></path><path d=\"m17 17-2.18-2.18\"></path><path d=\"M5 21a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2\"></path><path d=\"M9 21h1\"></path><path d=\"M9.56 14.44 17 7\"></path><path d=\"M9.56 9.56 12 12\"></path><circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\"></circle><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle>",
         categories = "text,design,tools,files,development",
         tags = "cut,snippet,chop,stationery,crafts",
         contributors = "danielbayley,eden881"
@@ -12390,6 +12470,14 @@ pub enum LucideGlyph {
         contributors = "mittalyashu,ericfennis,karsa-mistmere"
     ))]
     SquareMousePointer,
+    #[cfg(any(feature = "shapes", feature = "design"))]
+    #[strum(props(
+        svg = "<path d=\"M20.4 20.4a2 2 0 01-1.4.6H5a2 2 0 01-2-2V5a2 2 0 01.59-1.41\"></path><path d=\"M21 15.3V5a2 2 0 00-2-2H8.7\"></path><path d=\"M22 22 2 2\"></path>",
+        categories = "shapes,design",
+        tags = "/,not,slash,off,disabled,inactive,cancel,none,block,forbidden,unavailable,stopped,checkbox,unchecked,toggle,negation,form,ui",
+        contributors = "colebemis,ericfennis,october-learns"
+    ))]
+    SquareOff,
     #[cfg(any(feature = "transportation", feature = "navigation"))]
     #[strum(props(
         svg = "<path d=\"M3.6 3.6A2 2 0 0 1 5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-.59 1.41\"></path><path d=\"M3 8.7V19a2 2 0 0 0 2 2h10.3\"></path><path d=\"m2 2 20 20\"></path><path d=\"M13 13a3 3 0 1 0 0-6H9v2\"></path><path d=\"M9 17v-2.3\"></path>",
@@ -12504,7 +12592,7 @@ pub enum LucideGlyph {
         feature = "development"
     ))]
     #[strum(props(
-        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"12\" y1=\"9.56\" y2=\"12\"></line><line x1=\"17\" x2=\"14.82\" y1=\"17\" y2=\"14.82\"></line><circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\"></circle><line x1=\"9.56\" x2=\"17\" y1=\"14.43\" y2=\"7\"></line>",
+        svg = "<path d=\"m17 17-2.18-2.18\"></path><path d=\"M9.56 14.44 17 7\"></path><path d=\"M9.56 9.56 12 12\"></path><circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\"></circle><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "text,design,tools,files,development",
         tags = "cut,snippet,chop,stationery,crafts,toolbar,button",
         contributors = "danielbayley,eden881"
@@ -13543,7 +13631,7 @@ pub enum LucideGlyph {
     ToolCase,
     #[cfg(any(feature = "tools", feature = "home"))]
     #[strum(props(
-        svg = "<path d=\"M16 12v4\"></path><path d=\"M16 6a2 2 0 0 1 1.41.586l4 4A2 2 0 0 1 22 12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 .586-1.41l4-4A2 2 0 0 1 8 6z\"></path><path d=\"M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2\"></path><path d=\"M2 14h20\"></path><path d=\"M8 12v4\"></path>",
+        svg = "<path d=\"M16 12v4\"></path><path d=\"M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2\"></path><path d=\"M17 6a2 2 0 011.41.586l3 3A2 2 0 0122 11v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 01.58-1.41l3-3A2 2 0 017 6z\"></path><path d=\"M2 14h20\"></path><path d=\"M8 12v4\"></path>",
         categories = "tools,home",
         tags = "toolkit,tools,trunk,chest,box,storage,utility,utilities,container,kit,set,repair,fix,service,maintenance,mechanic,workshop,construction,hardware,equipment,gear,handyman,engineering,craft,diy",
         contributors = "karsa-mistmere"
@@ -13776,9 +13864,9 @@ pub enum LucideGlyph {
     Triangle,
     #[cfg(any(feature = "sports", feature = "gaming"))]
     #[strum(props(
-        svg = "<path d=\"M10 14.66v1.62a2 2 0 0 1-.976 1.69A5 5 0 0 0 7 21.97\"></path><path d=\"M14 14.66v1.62a2 2 0 0 0 .976 1.69A5 5 0 0 1 17 21.97\"></path><path d=\"M18 9h1.5a1 1 0 0 0 0-5H18\"></path><path d=\"M4 22h16\"></path><path d=\"M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z\"></path><path d=\"M6 9H4.5a1 1 0 0 1 0-5H6\"></path>",
+        svg = "<path d=\"M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2\"></path><path d=\"M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2\"></path><path d=\"M17.91 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3\"></path><path d=\"M4 22h16\"></path><path d=\"M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z\"></path><path d=\"M6.08 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3\"></path>",
         categories = "sports,gaming",
-        tags = "prize,sports,winner,achievement,award,champion,celebration,victory",
+        tags = "prize,sports,winner,achievement,award,champion,celebration,victory,competition,tournament,leaderboard,ranking,success,reward,cup,first,gold",
         contributors = "karsa-mistmere,jguddas"
     ))]
     Trophy,
@@ -14126,6 +14214,19 @@ pub enum LucideGlyph {
         contributors = "jmsv,jguddas,colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     UserSearch,
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "development",
+        feature = "people"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M10 15H6a4 4 0 0 0-4 4v2\"></path><path d=\"M22 17.5c0 2.49-1.75 3.74-3.83 4.47a.5.5 0 0 1-.335-.005c-2.08-.72-3.83-1.97-3.83-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.76 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle>",
+        categories = "account,security,development,people",
+        tags = "user,shield,admin,protected,guard,profile,security,privacy,permissions,role",
+        contributors = "MArtytraM99"
+    ))]
+    UserShield,
     #[cfg(feature = "account")]
     #[strum(props(
         svg = "<path d=\"M16.05 12.61a1 1 0 0 1 1.90.024l.737 1.45a1 1 0 0 0 .737.53l1.63.256a1 1 0 0 1 .588 1.80l-1.17 1.16a1 1 0 0 0-.282.86l.259 1.61a1 1 0 0 1-1.54 1.13l-1.46-.75a1 1 0 0 0-.912 0l-1.46.75a1 1 0 0 1-1.53-1.13l.258-1.61a1 1 0 0 0-.282-.866l-1.15-1.15a1 1 0 0 1 .572-1.82l1.63-.256a1 1 0 0 0 .737-.535z\"></path><path d=\"M8 15H7a4 4 0 0 0-4 4v2\"></path><circle cx=\"10\" cy=\"7\" r=\"4\"></circle>",
@@ -14784,10 +14885,10 @@ pub enum LucideGlyph {
         feature = "weather"
     ))]
     #[strum(props(
-        svg = "<path d=\"M10.51 4.85 13.12 2.17a.5.5 0 0 1 .86.46l-1.37 4.31\"></path><path d=\"M15.65 10H20a1 1 0 0 1 .78 1.63l-1.72 1.77\"></path><path d=\"M16.27 16.27 10.88 21.83a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14H4a1 1 0 0 1-.78-1.63l4.50-4.64\"></path><path d=\"m2 2 20 20\"></path>",
+        svg = "<path d=\"M10.76 5.11 13.44 2.44a1.5 1.5 0 012.47 1.56l-1.63 4.62\"></path><path d=\"m18.88 13.23.672-.672A1.5 1.5 0 0018.5 10h-2.84\"></path><path d=\"m2 2 20 20\"></path><path d=\"m7.94 7.94-3.5 3.49A1.5 1.5 0 005.5 14h4.00a.5.5 0 01.47.666L8.08 20a1.5 1.5 0 002.47 1.56l5.5-5.5\"></path>",
         categories = "connectivity,devices,photography,weather",
         tags = "flash,camera,lightning,electricity,energy,power",
-        contributors = "colebemis,karsa-mistmere,ericfennis"
+        contributors = "colebemis,karsa-mistmere,ericfennis,kapowaz"
     ))]
     ZapOff,
     #[cfg(any(
@@ -14797,10 +14898,10 @@ pub enum LucideGlyph {
         feature = "weather"
     ))]
     #[strum(props(
-        svg = "<path d=\"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z\"></path>",
+        svg = "<path d=\"M15.91 4a1.5 1.5 0 00-2.47-1.56l-9 9A1.5 1.5 0 005.5 14h4.00a.5.5 0 01.47.666L8.08 20a1.5 1.5 0 002.47 1.56l9-9A1.5 1.5 0 0018.5 10h-3.99a.5.5 0 01-.472-.667z\"></path>",
         categories = "connectivity,devices,photography,weather",
         tags = "flash,camera,lightning,electricity,energy,power,quick",
-        contributors = "colebemis,karsa-mistmere"
+        contributors = "colebemis,karsa-mistmere,kapowaz"
     ))]
     Zap,
     #[cfg(any(feature = "social", feature = "emoji"))]
