@@ -442,7 +442,7 @@ fn FeatureGrid() -> impl IntoView {
     ];
     let secondary: [(LucideGlyph, &'static str, &'static str); 3] = [
         (
-            LucideGlyph::History,
+            LucideGlyph::RotateCcwClock,
             "Recently used",
             "Last eight selections persist to localStorage; surfaced as a strip above the grid.",
         ),
