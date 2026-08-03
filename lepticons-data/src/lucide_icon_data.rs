@@ -2160,7 +2160,7 @@ pub enum LucideGlyph {
     Calculator,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M11 14h1v4\"></path><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
+        svg = "<path d=\"M11 13h1v4\"></path><path d=\"M16 2v3\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "time",
         tags = "date,month,year,event,single,singular,once,1,first",
         contributors = "colebemis,ericfennis,peteruithoven"
@@ -2168,7 +2168,7 @@ pub enum LucideGlyph {
     Calendar1,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"m14 18 4 4 4-4\"></path><path d=\"M16 2v4\"></path><path d=\"M18 14v8\"></path><path d=\"M21 11.35V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.34\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path>",
+        svg = "<path d=\"m14 17 4 4 4-4\"></path><path d=\"M16 2v3\"></path><path d=\"M18 13v8\"></path><path d=\"M21 10.35V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.34\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,month,year,event,sort,order,ascending,descending,increasing,decreasing,rising,falling",
         contributors = "karsa-mistmere,colebemis,ericfennis"
@@ -2176,7 +2176,7 @@ pub enum LucideGlyph {
     CalendarArrowDown,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"m14 18 4-4 4 4\"></path><path d=\"M16 2v4\"></path><path d=\"M18 22v-8\"></path><path d=\"M21 11.34V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path>",
+        svg = "<path d=\"m14 17 4-4 4 4\"></path><path d=\"M16 2v3\"></path><path d=\"M18 21v-8\"></path><path d=\"M21 10.34V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h9\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,month,year,event,sort,order,ascending,descending,increasing,decreasing,rising,falling",
         contributors = "karsa-mistmere,colebemis,ericfennis"
@@ -2184,7 +2184,7 @@ pub enum LucideGlyph {
     CalendarArrowUp,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><path d=\"M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8\"></path><path d=\"M3 10h18\"></path><path d=\"m16 20 2 2 4-4\"></path>",
+        svg = "<path d=\"M 19 3 L 5 3\"></path><path d=\"M 21 13 L 21 5\"></path><path d=\"M 21 5 A2 2 0 0 0 19 3\"></path><path d=\"M 3 19 A2 2 0 0 0 5 21\"></path><path d=\"M 3 5 L 3 19\"></path><path d=\"M 5 3 A2 2 0 0 0 3 5\"></path><path d=\"m16 19 2 2 4-4\"></path><path d=\"M16 2v3\"></path><path d=\"M3 9h18\"></path><path d=\"M5 21 L12.5 21\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,confirm,subscribe,schedule,done,todo,tick,complete,task",
         contributors = "karsa-mistmere,ericfennis"
@@ -2192,7 +2192,7 @@ pub enum LucideGlyph {
     CalendarCheck2,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"m9 16 2 2 4-4\"></path>",
+        svg = "<path d=\"M8 2v3\"></path><path d=\"M16 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"m9 15 2 2 4-4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,confirm,subscribe,schedule,done,todo,tick,complete,task",
         contributors = "karsa-mistmere,ericfennis"
@@ -2200,7 +2200,7 @@ pub enum LucideGlyph {
     CalendarCheck,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M16 2v4\"></path><path d=\"M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5\"></path><path d=\"M3 10h5\"></path><path d=\"M8 2v4\"></path><circle cx=\"16\" cy=\"16\" r=\"6\"></circle>",
+        svg = "<path d=\"M16 14v2.2l1.6 1\"></path><path d=\"M16 2v3\"></path><path d=\"M21 7.33V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.33\"></path><path d=\"M3 9h5.85\"></path><path d=\"M8 2v3\"></path><circle cx=\"16\" cy=\"16\" r=\"6\"></circle>",
         categories = "time",
         tags = "date,day,month,year,event,clock,hour",
         contributors = "karsa-mistmere,ericfennis,jamiemlaw"
@@ -2208,7 +2208,7 @@ pub enum LucideGlyph {
     CalendarClock,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m15.22 19.14-.923.38\"></path><path d=\"M16 2v4\"></path><path d=\"m16.47 14.30.382.92\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><path d=\"M21 10.59V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
+        svg = "<path d=\"m15.22 16.85-.923-.383\"></path><path d=\"m15.22 19.14-.923.38\"></path><path d=\"M16 2v3\"></path><path d=\"m16.47 14.30.382.92\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.924-.383\"></path><path d=\"m20.77 19.14.924.38\"></path><path d=\"M21 10.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h5.5\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "time",
         tags = "date,day,month,year,events,settings,gear,cog",
         contributors = "karsa-mistmere,ericfennis,AlexandrePhilibert,UsamaKhan,jguddas"
@@ -2216,7 +2216,7 @@ pub enum LucideGlyph {
     CalendarCog,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 14h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M16 14h.01\"></path><path d=\"M8 18h.01\"></path><path d=\"M12 18h.01\"></path><path d=\"M16 18h.01\"></path>",
+        svg = "<path d=\"M8 2v3\"></path><path d=\"M16 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M8 13h.01\"></path><path d=\"M12 13h.01\"></path><path d=\"M16 13h.01\"></path><path d=\"M8 17h.01\"></path><path d=\"M12 17h.01\"></path><path d=\"M16 17h.01\"></path>",
         categories = "time",
         tags = "date,month,year,event",
         contributors = "karsa-mistmere,ericfennis"
@@ -2224,7 +2224,7 @@ pub enum LucideGlyph {
     CalendarDays,
     #[cfg(any(feature = "time", feature = "files"))]
     #[strum(props(
-        svg = "<path d=\"M3 20a2 2 0 0 0 2 2h10a2.4 2.4 0 0 0 1.70-.706l3.58-3.58A2.4 2.4 0 0 0 21 16V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z\"></path><path d=\"M15 22v-5a1 1 0 0 1 1-1h5\"></path><path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path>",
+        svg = "<path d=\"M16 2v3\"></path><path d=\"M21 15V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h10v-5a1 1 0 011-1za2.4 2.4 0 01-.706 1.70l-3.58 3.58A2.4 2.4 0 0115 21\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time,files",
         tags = "date,month,year,event,birthday,birthdate,ics",
         contributors = "danielbayley"
@@ -2232,7 +2232,7 @@ pub enum LucideGlyph {
     CalendarFold,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M12.12 22H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.12\"></path><path d=\"M14.62 18.8A2.25 2.25 0 1 1 18 15.83a2.25 2.25 0 1 1 3.38 2.96l-2.62 2.85a.998.99 0 0 1-1.50 0z\"></path><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path>",
+        svg = "<path d=\"M12.12 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.12\"></path><path d=\"M14.62 17.8A2.25 2.25 0 1118 14.83a2.25 2.25 0 113.38 2.96l-2.62 2.85a.998.99 0 01-1.50 0z\"></path><path d=\"M16 2v3\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,month,year,event,heart,favourite,subscribe,valentines day",
         contributors = "karsa-mistmere"
@@ -2240,7 +2240,7 @@ pub enum LucideGlyph {
     CalendarHeart,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"M10 16h4\"></path>",
+        svg = "<path d=\"M8 2v3\"></path><path d=\"M16 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M10 15h4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,delete,remove",
         contributors = "danielbayley"
@@ -2248,7 +2248,7 @@ pub enum LucideGlyph {
     CalendarMinus2,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M16 19h6\"></path><path d=\"M16 2v4\"></path><path d=\"M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path>",
+        svg = "<path d=\"M16 18h6\"></path><path d=\"M16 2v3\"></path><path d=\"M21 14V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8.3\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,delete,remove",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -2256,7 +2256,7 @@ pub enum LucideGlyph {
     CalendarMinus,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M4.2 4.2A2 2 0 0 0 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 1.82-1.18\"></path><path d=\"M21 15.5V6a2 2 0 0 0-2-2H9.5\"></path><path d=\"M16 2v4\"></path><path d=\"M3 10h7\"></path><path d=\"M21 10h-5.5\"></path><path d=\"m2 2 20 20\"></path>",
+        svg = "<path d=\"M16 2v3\"></path><path d=\"m2 2 20 20\"></path><path d=\"M21 9h-5.5\"></path><path d=\"M3 9h6\"></path><path d=\"M3.58 3.58A2 2 0 003 5v14a2 2 0 002 2h14a2 2 0 001.41-.586\"></path><path d=\"M8.65 3H19a2 2 0 012 2v10.34\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,delete,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -2264,7 +2264,7 @@ pub enum LucideGlyph {
     CalendarOff,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"M10 16h4\"></path><path d=\"M12 14v4\"></path>",
+        svg = "<path d=\"M8 2v3\"></path><path d=\"M16 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M10 15h4\"></path><path d=\"M12 13v4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,add,subscribe,create,new",
         contributors = "danielbayley"
@@ -2272,7 +2272,7 @@ pub enum LucideGlyph {
     CalendarPlus2,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M16 19h6\"></path><path d=\"M16 2v4\"></path><path d=\"M19 16v6\"></path><path d=\"M21 12.59V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path>",
+        svg = "<path d=\"M16 18h6\"></path><path d=\"M16 2v3\"></path><path d=\"M19 15v6\"></path><path d=\"M21 11.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8.3\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,add,subscribe,create,new",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -2280,7 +2280,7 @@ pub enum LucideGlyph {
     CalendarPlus,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M16 2v4\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><path d=\"M17 14h-6\"></path><path d=\"M13 18H7\"></path><path d=\"M7 14h.01\"></path><path d=\"M17 18h.01\"></path>",
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M16 2v3\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path><path d=\"M17 13h-6\"></path><path d=\"M13 17H7\"></path><path d=\"M7 13h.01\"></path><path d=\"M17 17h.01\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,range,period",
         contributors = "karsa-mistmere,ericfennis"
@@ -2288,7 +2288,7 @@ pub enum LucideGlyph {
     CalendarRange,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M16 2v4\"></path><path d=\"M21 11.75V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.25\"></path><path d=\"m22 22-1.87-1.87\"></path><path d=\"M3 10h18\"></path><path d=\"M8 2v4\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
+        svg = "<path d=\"M16 2v3\"></path><path d=\"M21 10.69V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.25\"></path><path d=\"m22 21-1.87-1.87\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path><circle cx=\"18\" cy=\"17\" r=\"3\"></circle>",
         categories = "time",
         tags = "date,day,month,year,events,search,lens",
         contributors = "karsa-mistmere,ericfennis,jguddas"
@@ -2296,7 +2296,7 @@ pub enum LucideGlyph {
     CalendarSearch,
     #[cfg(any(feature = "arrows", feature = "time"))]
     #[strum(props(
-        svg = "<path d=\"M11 10v4h4\"></path><path d=\"m11 14 1.53-1.60a5 5 0 0 1 8 1.5\"></path><path d=\"M16 2v4\"></path><path d=\"m21 18-1.53 1.60a5 5 0 0 1-8-1.5\"></path><path d=\"M21 22v-4h-4\"></path><path d=\"M21 8.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4.3\"></path><path d=\"M3 10h4\"></path><path d=\"M8 2v4\"></path>",
+        svg = "<path d=\"M11 10v4h4\"></path><path d=\"m11 14 1.53-1.60a5 5 0 018 1.5\"></path><path d=\"M16 2v3\"></path><path d=\"m21 18-1.53 1.60a5 5 0 01-8-1.5\"></path><path d=\"M21 22v-4h-4\"></path><path d=\"M21 8.51V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h3.51\"></path><path d=\"M3 9h4\"></path><path d=\"M8 2v3\"></path>",
         categories = "arrows,time",
         tags = "repeat,refresh,reconnect,transfer,backup,date,month,year,event,subscribe,recurring,schedule,reminder,automatic,auto",
         contributors = "danielbayley,jguddas,karsa-mistmere,chessurisme"
@@ -2304,7 +2304,7 @@ pub enum LucideGlyph {
     CalendarSync,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><path d=\"M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8\"></path><path d=\"M3 10h18\"></path><path d=\"m17 22 5-5\"></path><path d=\"m17 17 5 5\"></path>",
+        svg = "<path d=\"M16 2v3\"></path><path d=\"m17 16 5 5\"></path><path d=\"m17 21 5-5\"></path><path d=\"M21 12V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,remove",
         contributors = "karsa-mistmere,ericfennis"
@@ -2312,7 +2312,7 @@ pub enum LucideGlyph {
     CalendarX2,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path><path d=\"m14 14-4 4\"></path><path d=\"m10 14 4 4\"></path>",
+        svg = "<path d=\"M8 2v3\"></path><path d=\"M16 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"m14 13-4 4\"></path><path d=\"m10 13 4 4\"></path>",
         categories = "time",
         tags = "date,day,month,year,event,remove,busy",
         contributors = "karsa-mistmere,ericfennis"
@@ -2320,7 +2320,7 @@ pub enum LucideGlyph {
     CalendarX,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M8 2v4\"></path><path d=\"M16 2v4\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect><path d=\"M3 10h18\"></path>",
+        svg = "<path d=\"M8 2v3\"></path><path d=\"M16 2v3\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path>",
         categories = "time",
         tags = "date,month,year,event,birthday,birthdate",
         contributors = "colebemis,ericfennis"
@@ -3997,7 +3997,7 @@ pub enum LucideGlyph {
         feature = "social"
     ))]
     #[strum(props(
-        svg = "<path d=\"M16 2v2\"></path><path d=\"M17.91 22a6 6 0 0 0-12 0\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
+        svg = "<path d=\"M16 2v2\"></path><path d=\"M17.91 21a6 6 0 10-12 0\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"11\" r=\"4\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "account,connectivity,communication,social",
         tags = "user,person,family,friend,acquaintance,listing,networking",
         contributors = "karsa-mistmere,jguddas"
@@ -4010,7 +4010,7 @@ pub enum LucideGlyph {
         feature = "social"
     ))]
     #[strum(props(
-        svg = "<path d=\"M16 2v2\"></path><path d=\"M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"11\" r=\"3\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\"></rect>",
+        svg = "<path d=\"M16 2v2\"></path><path d=\"M7 21v-2a2 2 0 012-2h6a2 2 0 012 2v2\"></path><path d=\"M8 2v2\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "account,connectivity,communication,social",
         tags = "user,person,family,friend,acquaintance,listing,networking",
         contributors = "lscheibel,karsa-mistmere,FPDK,ericfennis,jguddas"
