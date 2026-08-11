@@ -60,7 +60,7 @@ The default feature set bundles all 42 categories. Opt out and pick only what yo
 
 ```toml
 [dependencies]
-lepticons = { version = "0.12", default-features = false, features = [
+lepticons = { version = "0.13", default-features = false, features = [
     "arrows",
     "navigation",
     "text",
