@@ -29,7 +29,7 @@ use lepticons::{Icon, LucideGlyph};
 lepticons = "0.13"
 
 # Only specific categories
-lepticons = { version = "0.12", default-features = false, features = ["arrows", "navigation", "design"] }
+lepticons = { version = "0.13", default-features = false, features = ["arrows", "navigation", "design"] }
 ```
 
 Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
