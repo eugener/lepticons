@@ -11,6 +11,12 @@ Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucid
 
 **[Live demo & icon browser at lepticons.9bits.cc](https://lepticons.9bits.cc)**
 
+<p align="center">
+  <img src="docs/assets/drawicon.gif" alt="Stroke draw-in animation cycling through Lucide icons" width="320">
+  <br>
+  <em><code>&lt;DrawIcon /&gt;</code> -- stroke draw-in, no runtime, no JSON payload</em>
+</p>
+
 ## Why lepticons?
 
 - **Category features, not per-icon features.** 42 category flags cover ~1,700 icons. Pick `arrows + navigation + text` and the rest is dead code -- no `cargo build` time blowup from thousands of feature gates.

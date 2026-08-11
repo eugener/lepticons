@@ -2,7 +2,7 @@
 
 ## Position
 
-Lepticons is a Lucide icon library for Leptos with ~10 crates.io downloads. The dominant competitor is `leptos_icons` + `icondata` (222K+ downloads, 18+ icon sets). `lucide-leptos` (26K downloads) covers Lucide specifically for Leptos/Dioxus/Yew.
+Lepticons is a Lucide icon library for Leptos with ~1,900 crates.io downloads (as of 2026-08-11). The dominant competitor is `leptos_icons` + `icondata` (222K+ downloads, 18+ icon sets). `lucide-leptos` (26K downloads) covers Lucide specifically for Leptos/Dioxus/Yew.
 
 Raw icon rendering is commoditized -- all approaches produce the same SVG output.
 
@@ -42,10 +42,10 @@ See individual phase documents:
 
 | Crate | Version |
 |-------|---------|
-| `lepticons` | 0.12.0 |
+| `lepticons` | 0.13.0 |
 | `lepticons-data` | 0.1.0 |
-| `lepticons-picker` | 0.3.0 |
-| `lepticons-animate` | 0.1.4 |
+| `lepticons-picker` | 0.4.0 |
+| `lepticons-animate` | 0.1.5 |
 
 ## Discoverability
 
@@ -56,6 +56,7 @@ Done:
 2. crates.io keywords: `icon-picker`, `lucide` on picker crate
 3. README badges: crates.io version, docs.rs, demo link
 4. Custom canonical domain: `lepticons.9bits.cc` (vercel.app 308s to it)
+5. DrawIcon lead gif recorded: `docs/assets/drawicon.gif` (5s, 5 glyphs), embedded in the root README
 
 Pending (Phase 5 launch):
 1. Leptos Discord `#showcase` post (day 0)
