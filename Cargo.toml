@@ -11,8 +11,12 @@ strum = "0.28"
 strum_macros = "0.28"
 convert_case = "0.11"
 
-[profile.wasm-release]
-inherits = "release"
-opt-level = 'z'
-lto = true
-codegen-units = 1
+# Full debug info makes the dev wasm bundle ~6.7x larger (374 MB -> 56 MB),
+# which dominates `trunk serve` reload time. Line tables keep panic locations.
+[profile.dev]
+debug = "line-tables-only"
+
+# The generated icon table is static strings behind a trivial match, so
+# optimizing it costs ~11s per build and produces a slightly larger wasm.
+[profile.release.package.lepticons-data]
+opt-level = 0
