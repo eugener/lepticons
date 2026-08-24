@@ -848,6 +848,14 @@ pub enum LucideGlyph {
     Atom,
     #[cfg(any(feature = "multimedia", feature = "communication"))]
     #[strum(props(
+        svg = "<path d=\"M10 10v11\"></path><path d=\"M10 3v1.35\"></path><path d=\"M14 14v1\"></path><path d=\"M14 8v.35\"></path><path d=\"M18 5v7.35\"></path><path d=\"M2 10v3\"></path><path d=\"m2 2 20 20\"></path><path d=\"M22 10v3\"></path><path d=\"M6 6v11\"></path>",
+        categories = "multimedia,communication",
+        tags = "audio,sound,noise,mute,silence,off,disabled,inactive,listen,hearing,equalizer,equaliser,hertz,frequency,wavelength,vibrate,sine,waveform,synthesizer,synthesiser,levels,track,music,playback,radio,broadcast,airwaves,voice,vocals,singer,song",
+        contributors = "danielbayley,karsa-mistmere"
+    ))]
+    AudioLinesOff,
+    #[cfg(any(feature = "multimedia", feature = "communication"))]
+    #[strum(props(
         svg = "<path d=\"M10 3v18\"></path><path d=\"M14 8v6.35\"></path><path d=\"m17 17 5 5\"></path><path d=\"M18 5v8.1\"></path><path d=\"M2 10v3\"></path><path d=\"M22 10v3\"></path><path d=\"m22 17-5 5\"></path><path d=\"M6 6v11\"></path>",
         categories = "multimedia,communication",
         tags = "sound,noise,mute,silence,disabled,cancel,remove,unavailable,listen,hearing,equalizer,equaliser,hertz,frequency,wavelength,vibrate,sine,waveform,synthesizer,synthesiser,levels,track,music,playback,radio,broadcast,airwaves,voice,vocals,singer,song",
@@ -7799,6 +7807,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,ericfennis,ocavue,jguddas,PeterlitsZo,mittalyashu,juliankellydesign,karsa-mistmere"
     ))]
     ListChevronsUpDown,
+    #[cfg(any(feature = "text", feature = "time", feature = "notifications"))]
+    #[strum(props(
+        svg = "<path d=\"M16 13v2.2l1.6 1\"></path><path d=\"M3 12h3.45\"></path><path d=\"M3 19h3.83\"></path><path d=\"M3 5h18\"></path><circle cx=\"16\" cy=\"15\" r=\"6\"></circle>",
+        categories = "text,time,notifications",
+        tags = "history,log,clock,time,recent,updated,revision,activity,timestamp,audit,list",
+        contributors = "karsa-mistmere,jamiemlaw,kemie"
+    ))]
+    ListClock,
     #[cfg(feature = "text")]
     #[strum(props(
         svg = "<path d=\"M10 5h11\"></path><path d=\"M10 12h11\"></path><path d=\"M10 19h11\"></path><path d=\"m3 10 3-3-3-3\"></path><path d=\"m3 20 3-3-3-3\"></path>",
@@ -8736,6 +8752,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,ericfennis"
     ))]
     Microwave,
+    #[cfg(any(feature = "multimedia", feature = "connectivity", feature = "devices"))]
+    #[strum(props(
+        svg = "<path d=\"M12 18h.01\"></path><path d=\"M15 2.45V5a1 1 0 01-1 1h-4a1 1 0 01-1-1V2.45\"></path><path d=\"M16 16h.01\"></path><path d=\"M18 12h.01\"></path><path d=\"M6 12h.01\"></path><path d=\"M8 16h.01\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        categories = "multimedia,connectivity,devices",
+        tags = "musical instrument digital interface,port,connector,socket,jack,din,5-pin,audio,music,synthesizer,keyboard,controller,interface,input,output,io",
+        contributors = "simoncoudeville,karsa-mistmere"
+    ))]
+    MidiPort,
     #[cfg(any(
         feature = "arrows",
         feature = "navigation",
@@ -8938,6 +8962,22 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     Moon,
+    #[cfg(any(feature = "home", feature = "tools", feature = "design"))]
+    #[strum(props(
+        svg = "<path d=\"M10 22a3 3 0 01-3-3\"></path><path d=\"M10 22c2.76 0 5-1.79 5-4-4.42 0-4.08-5-8.5-5a4.50 4.50 0 000 9z\"></path><path d=\"M10 3H8\"></path><path d=\"M12.5 11.5 22 2\"></path><path d=\"M20 13v4\"></path><path d=\"M22 15h-4\"></path><path d=\"M4 5v4\"></path><path d=\"M6 7H2\"></path><path d=\"m6.98 13.02 2.66-2.66a1.21 1.21 0 011.71 0l2.29 2.28a1.21 1.21 0 010 1.71l-2.08 2.08\"></path><path d=\"M9 2v2\"></path>",
+        categories = "home,tools,design",
+        tags = "cleaning,scrubbing,sweeping,ai,magic,sparkle,smart,automation,housekeeping,hygiene,sanitation,chores,swab,tidy,floor,spotless,pristine,polish,sanitize,disinfect",
+        contributors = "karsa-mistmere"
+    ))]
+    MopSparkles,
+    #[cfg(any(feature = "home", feature = "tools"))]
+    #[strum(props(
+        svg = "<path d=\"M10 22c2.76 0 5-1.79 5-4-4.42 0-4.08-5-8.5-5a1 1 0 100 9za3 3 0 01-3-3\"></path><path d=\"M12.5 11.5 22 2\"></path><path d=\"m6.98 13.02 2.66-2.66a1.21 1.21 0 011.71 0l2.29 2.28a1.21 1.21 0 010 1.71l-2.08 2.08\"></path>",
+        categories = "home,tools",
+        tags = "cleaning,sweeping,scrubbing,housekeeping,hygiene,sanitation,chores,swab,tidy,floor,janitor,maintenance,wash,wipe,spotless,pristine,disinfect",
+        contributors = "karsa-mistmere"
+    ))]
+    Mop,
     #[cfg(any(feature = "buildings", feature = "navigation", feature = "travel"))]
     #[strum(props(
         svg = "<path d=\"M12.26 2a2 2 0 003.46 2\"></path><path d=\"M14 5 L14 8\"></path><path d=\"M16 22v-3a2 2 0 00-4 0v3\"></path><path d=\"M21 13c-.662-1.49-1.66-2.75-2.9-3.63C16.82 8.47 15.42 8 14 8s-2.82.47-4.1 1.37C8.66 10.24 7.66 11.50 7 13z\"></path><path d=\"M3 9h4\"></path><path d=\"M7 22V6a5 5 0 00-2-4 5 5 0 00-2 4v14a2 2 0 002 2h14a2 2 0 002-2v-7\"></path>",
@@ -12469,6 +12509,14 @@ pub enum LucideGlyph {
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,chessurisme"
     ))]
     SquareDashed,
+    #[cfg(any(feature = "design", feature = "layout"))]
+    #[strum(props(
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M12 7H7v5\"></path><path d=\"M12 17h5v-5\"></path>",
+        categories = "design,layout",
+        tags = "ratio,size,width,height,resize,scale,frame,proportions,aspect,bounds,measurements,canvas",
+        contributors = "samuelalake"
+    ))]
+    SquareDimensions,
     #[cfg(feature = "math")]
     #[strum(props(
         svg = "<rect height=\"18\" rx=\"2\" ry=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\"></line><line x1=\"12\" x2=\"12\" y1=\"16\" y2=\"16\"></line><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"8\"></line>",
@@ -12766,6 +12814,14 @@ pub enum LucideGlyph {
         contributors = "mittalyashu,ericfennis"
     ))]
     SquareTerminal,
+    #[cfg(any(feature = "text", feature = "shapes", feature = "development"))]
+    #[strum(props(
+        svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M7 8h8\"></path><path d=\"M7 12h10\"></path><path d=\"M7 16h6\"></path>",
+        categories = "text,shapes,development",
+        tags = "text,paragraph,content,note,document,body,copy,article,square,container,block,card,placeholder,log,page,paper,sheet,list,script,code,editor",
+        contributors = "danielbayley,samuelalake"
+    ))]
+    SquareText,
     #[cfg(feature = "account")]
     #[strum(props(
         svg = "<path d=\"M18 21a6 6 0 0 0-12 0\"></path><circle cx=\"12\" cy=\"11\" r=\"4\"></circle><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
@@ -14158,6 +14214,19 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis"
     ))]
     Upload,
+    #[cfg(any(
+        feature = "devices",
+        feature = "multimedia",
+        feature = "home",
+        feature = "gaming"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M6 12h12\"></path><rect height=\"8\" rx=\"4\" width=\"20\" x=\"2\" y=\"8\"></rect>",
+        categories = "devices,multimedia,home,gaming",
+        tags = "universal,serial,bus,controller,connector,interface,socket,plug,slot,data,input,output",
+        contributors = "karsa-mistmere"
+    ))]
+    UsbCPort,
     #[cfg(any(feature = "devices", feature = "multimedia", feature = "home"))]
     #[strum(props(
         svg = "<circle cx=\"10\" cy=\"7\" r=\"1\"></circle><circle cx=\"4\" cy=\"20\" r=\"1\"></circle><path d=\"M4.7 19.3 19 5\"></path><path d=\"m21 3-3 1 2 2Z\"></path><path d=\"M9.26 7.68 5 12l2 5\"></path><path d=\"m10 14 5 2 3.5-3.5\"></path><path d=\"m18 12 1-1 1 1-1 1Z\"></path>",
