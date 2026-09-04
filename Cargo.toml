@@ -9,7 +9,7 @@ rust-version = "1.81"
 [workspace.dependencies]
 strum = "0.28"
 strum_macros = "0.28"
-convert_case = "0.11"
+convert_case = "0.12"
 
 # Full debug info makes the dev wasm bundle ~6.7x larger (374 MB -> 56 MB),
 # which dominates `trunk serve` reload time. Line tables keep panic locations.
