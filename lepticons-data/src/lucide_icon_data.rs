@@ -1099,6 +1099,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,jamiemlaw,jguddas"
     ))]
     Bandage,
+    #[cfg(any(feature = "finance", feature = "shopping", feature = "travel"))]
+    #[strum(props(
+        svg = "<path d=\"M6 5a2 2 0 0 1 4 0v12a4 4 0 0 0 8 0 2 2 0 0 0-4 0\"></path><path d=\"M6 9h12\"></path>",
+        categories = "finance,shopping,travel",
+        tags = "currency,money,payment,bdt,৳,currencysymbol,cash,banknote,price,remittance,ecommerce",
+        contributors = "TanvirMahin24,karsa-mistmere"
+    ))]
+    BangladeshiTaka,
     #[cfg(feature = "finance")]
     #[strum(props(
         svg = "<path d=\"M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5\"></path><path d=\"m16 19 3 3 3-3\"></path><path d=\"M18 12h.01\"></path><path d=\"M19 16v6\"></path><path d=\"M6 12h.01\"></path><circle cx=\"12\" cy=\"12\" r=\"2\"></circle>",
@@ -7297,6 +7305,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere"
     ))]
     Hourglass,
+    #[cfg(any(feature = "buildings", feature = "home"))]
+    #[strum(props(
+        svg = "<path d=\"M10.58 21H5a2 2 0 01-2-2v-9a2 2 0 01.70-1.52l7-6a2 2 0 012.58 0l7 6A2 2 0 0121 10.00v.583\"></path><path d=\"M14 12H10a1 1 0 00-1 1v8\"></path><path d=\"m14.30 19.53.92-.382\"></path><path d=\"m15.22 16.85-.924-.383\"></path><path d=\"m16.85 15.22-.383-.923\"></path><path d=\"m16.85 20.77-.383.92\"></path><path d=\"m19.14 15.22.383-.923\"></path><path d=\"m19.53 21.69-.382-.924\"></path><path d=\"m20.77 16.85.922-.383\"></path><path d=\"m20.77 19.14.922.38\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
+        categories = "buildings,home",
+        tags = "home,building,residence,settings,gear,configuration,property,automation",
+        contributors = "jguddas,karsa-mistmere,danielbayley,UsamaKhan,ajaxjiang96"
+    ))]
+    HouseCog,
     #[cfg(any(feature = "home", feature = "buildings", feature = "medical"))]
     #[strum(props(
         svg = "<path d=\"M8.62 13.8A2.25 2.25 0 1 1 12 10.83a2.25 2.25 0 1 1 3.38 2.96l-2.62 2.85a.998.99 0 0 1-1.50 0z\"></path><path d=\"M3 10a2 2 0 0 1 .709-1.52l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path>",
@@ -7950,6 +7966,14 @@ pub enum LucideGlyph {
         contributors = "Muhammad-Aqib-Bashir,jamiemlaw,karsa-mistmere"
     ))]
     LensConvex,
+    #[cfg(feature = "text")]
+    #[strum(props(
+        svg = "<path d=\"M15 8H9\"></path><path d=\"M21 15.35a4 4 0 100 5.29\"></path><path d=\"M3 18h4a2 2 0 010 4H3.5a.5.5 0 01-.5-.5v-7a.5.5 0 01.5-.5H6a2 2 0 010 4\"></path><path d=\"m8 10 3.45-7.64a.6.6 0 011.09 0L16 10\"></path>",
+        categories = "text",
+        tags = "abc,alphabet,alphabetical,text,characters,language,typography,literacy,spelling",
+        contributors = "karsa-mistmere"
+    ))]
+    Letters,
     #[cfg(any(
         feature = "text",
         feature = "photography",
@@ -8464,7 +8488,7 @@ pub enum LucideGlyph {
     MailOpen,
     #[cfg(feature = "mail")]
     #[strum(props(
-        svg = "<path d=\"M15.50 17.64A2 2 0 0015 18.5l-.837 2.87a.5.5 0 00.62.62l2.87-.837a2 2 0 00.85-.506l3.01-3.00a1 1 0 00-3.00-3.00z\"></path><path d=\"M22 10.34V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2h6.39\"></path><path d=\"m22 7-8.99 5.72a2 2 0 01-2.00 0L2 7\"></path>",
+        svg = "<path d=\"M15.36 17.63a2 2 0 00-.506.85l-.837 2.87a.5.5 0 00.62.62l2.87-.837a2 2 0 00.85-.506l3.01-3.00a1 1 0 10-3.00-3.00z\"></path><path d=\"M22 10.38V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2h6.25\"></path><path d=\"m22 7-8.99 5.72a2 2 0 01-2.00 0L2 7\"></path>",
         categories = "mail",
         tags = "email,message,letter,pen,edit,compose,draft,write,writing,create,reply",
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas,jennieboops"
