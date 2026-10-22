@@ -146,6 +146,7 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           branch: update-lucide-icons
+          author: Eugene Ryzhikov <341840+eugener@users.noreply.github.com>
           commit-message: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
           title: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
           body: ${{ steps.diff.outputs.body }}
