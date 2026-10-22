@@ -143,6 +143,7 @@ jobs:
 
       - name: Create pull request
         if: steps.check.outputs.changed == 'true'
+        id: cpr
         uses: peter-evans/create-pull-request@v8
         with:
           branch: update-lucide-icons
@@ -151,7 +152,15 @@ jobs:
           title: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
           body: ${{ steps.diff.outputs.body }}
           base: develop
-          draft: true
           labels: automated
           reviewers: eugener
           delete-branch: true
+
+      # The develop ruleset requires the CI `check` job, so GitHub merges
+      # only after it passes.
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+        run: gh pr merge --auto --merge "$PR_URL"
