@@ -38,17 +38,20 @@ jobs:
       - name: WASM Build
         run: cargo build --target wasm32-unknown-unknown -p lucide-icons-demo
 
-  # Keep in sync with `rust-version` in the root Cargo.toml. Uses the
-  # committed Cargo.lock, so a dependency that raises its MSRV fails here.
+  # Checks `rust-version` from the root Cargo.toml. Uses the committed
+  # Cargo.lock, so a dependency that raises its MSRV fails here.
   msrv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Read rust-version
+        id: msrv
+        run: echo "version=$(sed -n 's/^rust-version = "\(.*\)"$/\1/p' Cargo.toml)" >> "$GITHUB_OUTPUT"
       # Pass the version as an input. Dependabot reads a tag such as @1.88
       # as an action version and bumps it.
       - uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: "1.88"
+          toolchain: ${{ steps.msrv.outputs.version }}
       - uses: Swatinem/rust-cache@v2
       - name: Check published crates
         run: cargo check -p lepticons -p lepticons-picker -p lepticons-animate
