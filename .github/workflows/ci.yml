@@ -44,7 +44,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: dtolnay/rust-toolchain@1.88
+      # Pass the version as an input. Dependabot reads a tag such as @1.88
+      # as an action version and bumps it.
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: "1.88"
       - uses: Swatinem/rust-cache@v2
       - name: Check published crates
         run: cargo check -p lepticons -p lepticons-picker -p lepticons-animate
