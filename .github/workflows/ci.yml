@@ -53,10 +53,15 @@ jobs:
       - name: Check published crates
         run: cargo check -p lepticons -p lepticons-picker -p lepticons-animate
 
-  # Surfaces RustSec advisories on each PR. Failures don't block the
-  # main build (the audit job runs independently); they just notify.
+  # Surfaces RustSec advisories on each PR and push. Failures don't block
+  # the main build (the audit job runs independently); they just notify.
   audit:
     runs-on: ubuntu-latest
+    # The action reports through a check run, which the default read-only
+    # token cannot create on push events.
+    permissions:
+      contents: read
+      checks: write
     steps:
       - uses: actions/checkout@v7
         with:
