@@ -38,21 +38,33 @@ jobs:
       - name: WASM Build
         run: cargo build --target wasm32-unknown-unknown -p lucide-icons-demo
 
-  # Keep in sync with `rust-version` in the root Cargo.toml. Uses the
-  # committed Cargo.lock, so a dependency that raises its MSRV fails here.
+  # Checks `rust-version` from the root Cargo.toml. Uses the committed
+  # Cargo.lock, so a dependency that raises its MSRV fails here.
   msrv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: dtolnay/rust-toolchain@1.88
+      - name: Read rust-version
+        id: msrv
+        run: echo "version=$(sed -n 's/^rust-version = "\(.*\)"$/\1/p' Cargo.toml)" >> "$GITHUB_OUTPUT"
+      # Pass the version as an input. Dependabot reads a tag such as @1.88
+      # as an action version and bumps it.
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.msrv.outputs.version }}
       - uses: Swatinem/rust-cache@v2
       - name: Check published crates
         run: cargo check -p lepticons -p lepticons-picker -p lepticons-animate
 
-  # Surfaces RustSec advisories on each PR. Failures don't block the
-  # main build (the audit job runs independently); they just notify.
+  # Surfaces RustSec advisories on each PR and push. Failures don't block
+  # the main build (the audit job runs independently); they just notify.
   audit:
     runs-on: ubuntu-latest
+    # The action reports through a check run, which the default read-only
+    # token cannot create on push events.
+    permissions:
+      contents: read
+      checks: write
     steps:
       - uses: actions/checkout@v7
         with:
