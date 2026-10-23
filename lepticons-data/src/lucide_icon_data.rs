@@ -1984,7 +1984,7 @@ pub enum LucideGlyph {
     Brackets,
     #[cfg(any(feature = "science", feature = "development"))]
     #[strum(props(
-        svg = "<path d=\"M12 5a3 3 0 1 0-5.99.125 4 4 0 0 0-2.52 5.77 4 4 0 0 0 .556 6.58A4 4 0 1 0 12 18Z\"></path><path d=\"M9 13a4.5 4.5 0 0 0 3-4\"></path><path d=\"M6.00 5.12A3 3 0 0 0 6.40 6.5\"></path><path d=\"M3.47 10.89a4 4 0 0 1 .585-.396\"></path><path d=\"M6 18a4 4 0 0 1-1.96-.516\"></path><path d=\"M12 13h4\"></path><path d=\"M12 18h6a2 2 0 0 1 2 2v1\"></path><path d=\"M12 8h8\"></path><path d=\"M16 8V5a2 2 0 0 1 2-2\"></path><circle cx=\"16\" cy=\"13\" r=\".5\"></circle><circle cx=\"18\" cy=\"3\" r=\".5\"></circle><circle cx=\"20\" cy=\"21\" r=\".5\"></circle><circle cx=\"20\" cy=\"8\" r=\".5\"></circle>",
+        svg = "<path d=\"M12 13h4\"></path><path d=\"M12 18h6a2 2 0 012 2v1\"></path><path d=\"M12 8h8\"></path><path d=\"M12 9a4.17 4.17 0 01-3 4\"></path><path d=\"M16 8V5a2 2 0 012-2\"></path><path d=\"M6 18a4 4 0 01-2-7.46\"></path><path d=\"M6.00 5.12a4 4 0 00-2.52 5.77\"></path><path d=\"M6.29 6.29A3 3 0 1112 5v13a4 4 0 11-7.96-.518\"></path><circle cx=\"16\" cy=\"13\" fill=\"currentColor\" r=\"0.5\"></circle><circle cx=\"18\" cy=\"3\" fill=\"currentColor\" r=\"0.5\"></circle><circle cx=\"20\" cy=\"21\" fill=\"currentColor\" r=\"0.5\"></circle><circle cx=\"20\" cy=\"8\" fill=\"currentColor\" r=\"0.5\"></circle>",
         categories = "science,development",
         tags = "mind,intellect,artificial intelligence,ai,deep learning,machine learning,computing",
         contributors = "karsa-mistmere,jguddas,it-is-not,ericfennis"
@@ -1992,15 +1992,23 @@ pub enum LucideGlyph {
     BrainCircuit,
     #[cfg(any(feature = "science", feature = "development"))]
     #[strum(props(
-        svg = "<path d=\"m10.85 14.77-.383.92\"></path><path d=\"m10.85 9.22-.383-.923\"></path><path d=\"m13.14 14.77.382.92\"></path><path d=\"m13.53 8.30-.383.92\"></path><path d=\"m14.77 10.85.923-.383\"></path><path d=\"m14.77 13.14.923.38\"></path><path d=\"M17.59 6.5A3 3 0 1 0 12 5a3 3 0 0 0-5.63-1.44 3 3 0 0 0-.368 1.57 4 4 0 0 0-2.52 5.77\"></path><path d=\"M17.99 5.12a4 4 0 0 1 2.52 5.77\"></path><path d=\"M19.50 10.29a4 4 0 0 1-1.5 7.70\"></path><path d=\"M4.03 17.48A4 4 0 0 0 11.46 20c.18-.311.89-.311 1.07 0a4 4 0 0 0 7.43-2.51\"></path><path d=\"M4.5 10.29A4 4 0 0 0 6 18\"></path><path d=\"M6.00 5.12a3 3 0 0 0 .4 1.37\"></path><path d=\"m9.22 10.85-.923-.383\"></path><path d=\"m9.22 13.14-.923.38\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
+        svg = "<path d=\"m10.85 14.77-.383.92\"></path><path d=\"m10.85 9.22-.383-.923\"></path><path d=\"m13.14 14.77.382.92\"></path><path d=\"m13.53 8.30-.382.92\"></path><path d=\"m14.77 10.85.923-.383\"></path><path d=\"m14.77 13.14.923.38\"></path><path d=\"M17.99 5.12a4 4 0 012.52 5.77\"></path><path d=\"M18 18a4 4 0 002-7.46\"></path><path d=\"M4.03 17.48A4 4 0 0011.46 20c.184-.31.89-.31 1.07 0a4 4 0 007.43-2.51\"></path><path d=\"M6 18a4 4 0 01-2-7.46\"></path><path d=\"M6.00 5.12a4 4 0 00-2.52 5.77\"></path><path d=\"M6.29 6.29a3 3 0 01-.287-1.09l-.004-.07a3 3 0 015.96-.543c.05.02.05.01.05 0a3 3 0 015.96.542l-.004.07a3 3 0 01-.287 1.09\"></path><path d=\"m9.22 10.85-.923-.383\"></path><path d=\"m9.22 13.14-.923.38\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle>",
         categories = "science,development",
         tags = "mind,intellect,artificial intelligence,ai,deep learning,machine learning,computing",
         contributors = "karsa-mistmere,jguddas,it-is-not,UsamaKhan"
     ))]
     BrainCog,
+    #[cfg(any(feature = "medical", feature = "science", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"M12 18v-6\"></path><path d=\"M12 5v1.34\"></path><path d=\"M17.70 6.29A3 3 0 1012 5a3 3 0 00-4.12-2.78\"></path><path d=\"M17.99 5.12a4 4 0 012.52 5.77\"></path><path d=\"M19.64 19.64A4 4 0 0112 18a4 4 0 11-7.96-.517\"></path><path d=\"m2 2 20 20\"></path><path d=\"M20 10.53a4 4 0 011.53 5.34\"></path><path d=\"M3.47 10.89a4 4 0 011.87-5.54\"></path><path d=\"M6 18a4 4 0 01-2-7.46\"></path><path d=\"M9 13a4.17 4.17 0 002.16-1.5 4 4 0 00.13-.196\"></path>",
+        categories = "medical,science,development",
+        tags = "medical,mind,mental,intellect,cerebral,consciousness,genius,artificial intelligence,ai,think,deep learning,machine learning,computing",
+        contributors = "karsa-mistmere,jguddas,it-is-not,jamiemlaw,ej52"
+    ))]
+    BrainOff,
     #[cfg(any(feature = "medical", feature = "science"))]
     #[strum(props(
-        svg = "<path d=\"M12 18V5\"></path><path d=\"M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4\"></path><path d=\"M17.59 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.59 1.5\"></path><path d=\"M17.99 5.12a4 4 0 0 1 2.52 5.77\"></path><path d=\"M18 18a4 4 0 0 0 2-7.46\"></path><path d=\"M19.96 17.48A4 4 0 1 1 12 18a4 4 0 1 1-7.96-.517\"></path><path d=\"M6 18a4 4 0 0 1-2-7.46\"></path><path d=\"M6.00 5.12a4 4 0 0 0-2.52 5.77\"></path>",
+        svg = "<path d=\"M12 18V5\"></path><path d=\"M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4\"></path><path d=\"M17.70 6.29A3 3 0 1012 5a3 3 0 10-5.70 1.29\"></path><path d=\"M17.99 5.12a4 4 0 012.52 5.77\"></path><path d=\"M18 18a4 4 0 002-7.46\"></path><path d=\"M19.96 17.48a4 4 0 11-7.96.517 4 4 0 11-7.96-.517\"></path><path d=\"M6 18a4 4 0 01-2-7.46\"></path><path d=\"M6.00 5.12a4 4 0 00-2.52 5.77\"></path>",
         categories = "medical,science",
         tags = "medical,mind,mental,intellect,cerebral,consciousness,genius,artificial intelligence,ai,think,thought,insight,intelligent,smart",
         contributors = "karsa-mistmere,jguddas,it-is-not,jamiemlaw"
@@ -3247,6 +3255,38 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     CircleChevronUp,
+    #[cfg(any(feature = "arrows", feature = "navigation"))]
+    #[strum(props(
+        svg = "<path d=\"M9 14L12 17L15 14\"></path><path d=\"M9 8L12 11L15 8\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        categories = "arrows,navigation",
+        tags = "bottom,descend,page,page down,scroll,jump,south,caret,button,skip,end,last page,latest,feed,chat,pagination,fast,media",
+        contributors = "ypotti,karsa-mistmere,ericfennis,jguddas,colebemis,AlexandrePhilibert"
+    ))]
+    CircleChevronsDown,
+    #[cfg(any(feature = "arrows", feature = "navigation", feature = "multimedia"))]
+    #[strum(props(
+        svg = "<path d=\"M10 9L7 12L10 15\"></path><path d=\"M16 9L13 12L16 15\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        categories = "arrows,navigation,multimedia",
+        tags = "previous,rewind,backward,first,beginning,start,west,music,caret,button,pagination,skip,skip-back,seek-back,media-controls,player,playlist,track,chapter,jump,timeline,controls",
+        contributors = "ypotti,karsa-mistmere,ericfennis,jguddas,colebemis,AlexandrePhilibert"
+    ))]
+    CircleChevronsLeft,
+    #[cfg(any(feature = "arrows", feature = "navigation", feature = "multimedia"))]
+    #[strum(props(
+        svg = "<path d=\"M14 15L17 12L14 9\"></path><path d=\"M8 15L11 12L8 9\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        categories = "arrows,navigation,multimedia",
+        tags = "next,forward,skip,fast forward,last,end,east,music,caret,button,pagination,jump,seek,seek forward,player control,chapter,track,timeline,navigation control",
+        contributors = "ypotti,karsa-mistmere,ericfennis,jguddas,colebemis,AlexandrePhilibert"
+    ))]
+    CircleChevronsRight,
+    #[cfg(any(feature = "arrows", feature = "navigation"))]
+    #[strum(props(
+        svg = "<path d=\"M15 10L12 7L9 10\"></path><path d=\"M15 16L12 13L9 16\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        categories = "arrows,navigation",
+        tags = "top,ascend,page,page up,back to top,scroll,jump,north,caret,button,skip,pagination,first page,fast,fast scroll,rewind,jump to start,floating action button,anchor,timeline",
+        contributors = "ypotti,karsa-mistmere,ericfennis,jguddas,colebemis,AlexandrePhilibert"
+    ))]
+    CircleChevronsUp,
     #[cfg(any(feature = "shapes", feature = "development", feature = "notifications"))]
     #[strum(props(
         svg = "<path d=\"M10.1 2.18a10 10 0 013.8 0\"></path><path d=\"M13.9 21.81a10 10 0 01-3.8 0\"></path><path d=\"m16 9-5.5 5.5L8 12\"></path><path d=\"M17.60 3.72a10 10 0 012.69 2.7\"></path><path d=\"M2.18 13.9a10 10 0 010-3.8\"></path><path d=\"M20.27 17.60a10 10 0 01-2.7 2.69\"></path><path d=\"M21.81 10.1a10 10 0 010 3.8\"></path><path d=\"M3.72 6.39a10 10 0 012.7-2.69\"></path><path d=\"M6.39 20.27a10 10 0 01-2.69-2.7\"></path>",
@@ -6855,6 +6895,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere"
     ))]
     Grape,
+    #[cfg(any(feature = "connectivity", feature = "development"))]
+    #[strum(props(
+        svg = "<circle cx=\"12\" cy=\"7\" r=\"4\"></circle><circle cx=\"4\" cy=\"19\" r=\"2\"></circle><circle cx=\"12\" cy=\"19\" r=\"2\"></circle><circle cx=\"20\" cy=\"19\" r=\"2\"></circle><path d=\"M8 7a4 4 0 0 0-4 4v6\"></path><path d=\"M12 11v6\"></path><path d=\"M16 7a4 4 0 0 1 4 4v6\"></path>",
+        categories = "connectivity,development",
+        tags = "load balancer,distribute,traffic,network,nodes,parallel,branch,hierarchy,routing,dispatcher,cluster,backend,fan-out,topology,orchestration",
+        contributors = "Carlito-la-banane"
+    ))]
+    GraphHub,
     #[cfg(any(feature = "development", feature = "charts"))]
     #[strum(props(
         svg = "<path d=\"m12.34 9.31 1.76-3.52\"></path><path d=\"m12.59 14.54 2.35 3.75\"></path><path d=\"m13.98 12.33 4.03.44\"></path><path d=\"M5.41 17.58 8.88 14.12\"></path><path d=\"M9.02 9.74 5.31 5.50\"></path><circle cx=\"11\" cy=\"12\" r=\"3\"></circle><circle cx=\"15\" cy=\"4\" r=\"2\"></circle><circle cx=\"16\" cy=\"20\" r=\"2\"></circle><circle cx=\"20\" cy=\"13\" r=\"2\"></circle><circle cx=\"4\" cy=\"19\" r=\"2\"></circle><circle cx=\"4\" cy=\"4\" r=\"2\"></circle>",
@@ -8161,6 +8209,14 @@ pub enum LucideGlyph {
     Lens,
     #[cfg(feature = "text")]
     #[strum(props(
+        svg = "<path d=\"M15 14H9\"></path><path d=\"M21 3v18\"></path><path d=\"M3 3v18\"></path><path d=\"m8 16 3.45-7.64a.6.6 0 011.09.001L16 16\"></path>",
+        categories = "text",
+        tags = "tracking,kerning,design,lettering,text,letters,characters,font,typography,formatting",
+        contributors = "madebyoz"
+    ))]
+    LetterSpacing,
+    #[cfg(feature = "text")]
+    #[strum(props(
         svg = "<path d=\"M15 8H9\"></path><path d=\"M21 15.35a4 4 0 100 5.29\"></path><path d=\"M3 18h4a2 2 0 010 4H3.5a.5.5 0 01-.5-.5v-7a.5.5 0 01.5-.5H6a2 2 0 010 4\"></path><path d=\"m8 10 3.45-7.64a.6.6 0 011.09 0L16 10\"></path>",
         categories = "text",
         tags = "abc,alphabet,alphabetical,text,characters,language,typography,literacy,spelling",
@@ -8267,6 +8323,14 @@ pub enum LucideGlyph {
         contributors = "nathan-de-pachtere"
     ))]
     LineDotTopVertical,
+    #[cfg(feature = "text")]
+    #[strum(props(
+        svg = "<path d=\"M15 14H9\"></path><path d=\"M21 21H3\"></path><path d=\"M21 3H3\"></path><path d=\"m8 16 3.45-7.64a.6.6 0 011.09.001L16 16\"></path>",
+        categories = "text",
+        tags = "leading,text,letters,characters,font,typography,spacing,paragraph,formatting,editor,readability,typesetting",
+        contributors = "madebyoz"
+    ))]
+    LineHeight,
     #[cfg(any(feature = "shapes", feature = "math", feature = "design"))]
     #[strum(props(
         svg = "<path d=\"M7 3.5c5-2 7 2.5 3 4C1.5 10 2 15 5 16c5 2 9-10 14-7s.5 13.5-4 12c-5-2.5.5-11 6-2\"></path>",
