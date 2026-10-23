@@ -5,6 +5,11 @@ on:
     branches:
       - develop
       - master
+  # Direct pushes to develop skip PR checks. Pushes to master already run
+  # clippy and tests in the Release workflow.
+  push:
+    branches:
+      - develop
 
 env:
   CARGO_TERM_COLOR: always
@@ -32,6 +37,17 @@ jobs:
 
       - name: WASM Build
         run: cargo build --target wasm32-unknown-unknown -p lucide-icons-demo
+
+  # Keep in sync with `rust-version` in the root Cargo.toml. Uses the
+  # committed Cargo.lock, so a dependency that raises its MSRV fails here.
+  msrv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@1.88
+      - uses: Swatinem/rust-cache@v2
+      - name: Check published crates
+        run: cargo check -p lepticons -p lepticons-picker -p lepticons-animate
 
   # Surfaces RustSec advisories on each PR. Failures don't block the
   # main build (the audit job runs independently); they just notify.

@@ -4,7 +4,7 @@ members = ["lepticons-data", "lepticons", "lepticons-picker", "lepticons-animate
 exclude = ["lucide", "examples"]
 
 [workspace.package]
-rust-version = "1.81"
+rust-version = "1.88"
 
 [workspace.dependencies]
 strum = "0.28"

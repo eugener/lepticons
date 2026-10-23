@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/crates/d/lepticons.svg)](https://crates.io/crates/lepticons)
 [![Docs.rs](https://docs.rs/lepticons/badge.svg)](https://docs.rs/lepticons)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Rust Version](https://img.shields.io/badge/rustc-1.81+-blue.svg)](#)
+[![Rust Version](https://img.shields.io/badge/rustc-1.88+-blue.svg)](#)
 [![Leptos](https://img.shields.io/badge/leptos-0.8-blue.svg)](https://leptos.dev)
 
 Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons. 1,700 icons, an embeddable picker, and animations -- shipped as `<Icon glyph=LucideGlyph::Search />`.
