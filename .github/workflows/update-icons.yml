@@ -71,7 +71,9 @@ jobs:
           NEW_SHA: ${{ steps.update.outputs.new_sha }}
         run: |
           cd lucide
-          DIFF=$(git diff --name-status "$OLD_SHA" "$NEW_SHA" -- 'icons/*.svg' || true)
+          # --no-renames: rename detection pairs unrelated icons with similar
+          # SVGs, which hides removals from the counts below
+          DIFF=$(git diff --name-status --no-renames "$OLD_SHA" "$NEW_SHA" -- 'icons/*.svg' || true)
 
           # Extract icon names (strip path and extension)
           icon_name() { basename "$1" .svg; }
