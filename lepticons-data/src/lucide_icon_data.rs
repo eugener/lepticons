@@ -16310,3 +16310,1157 @@ pub enum LucideGlyph {
     ))]
     ZoomOut,
 }
+#[allow(non_upper_case_globals)]
+impl LucideGlyph {
+    #[cfg(any(feature = "devices", feature = "notifications", feature = "time"))]
+    /// Lucide alias `alarm-check` of [`LucideGlyph::AlarmClockCheck`].
+    #[deprecated(note = "renamed to `LucideGlyph::AlarmClockCheck`")]
+    pub const AlarmCheck: Self = Self::AlarmClockCheck;
+    #[cfg(any(feature = "devices", feature = "notifications", feature = "time"))]
+    /// Lucide alias `alarm-minus` of [`LucideGlyph::AlarmClockMinus`].
+    #[deprecated(note = "renamed to `LucideGlyph::AlarmClockMinus`")]
+    pub const AlarmMinus: Self = Self::AlarmClockMinus;
+    #[cfg(any(feature = "devices", feature = "notifications", feature = "time"))]
+    /// Lucide alias `alarm-plus` of [`LucideGlyph::AlarmClockPlus`].
+    #[deprecated(note = "renamed to `LucideGlyph::AlarmClockPlus`")]
+    pub const AlarmPlus: Self = Self::AlarmClockPlus;
+    #[cfg(any(feature = "text", feature = "layout", feature = "arrows"))]
+    /// Lucide alias `arrow-down-az` of [`LucideGlyph::ArrowDownAZ`].
+    #[deprecated(note = "renamed to `LucideGlyph::ArrowDownAZ`")]
+    pub const ArrowDownAz: Self = Self::ArrowDownAZ;
+    #[cfg(any(feature = "text", feature = "layout", feature = "arrows"))]
+    /// Lucide alias `sort-desc` of [`LucideGlyph::ArrowDownWideNarrow`].
+    #[deprecated(note = "renamed to `LucideGlyph::ArrowDownWideNarrow`")]
+    pub const SortDesc: Self = Self::ArrowDownWideNarrow;
+    #[cfg(any(feature = "text", feature = "layout", feature = "arrows"))]
+    /// Lucide alias `arrow-down-za` of [`LucideGlyph::ArrowDownZA`].
+    #[deprecated(note = "renamed to `LucideGlyph::ArrowDownZA`")]
+    pub const ArrowDownZa: Self = Self::ArrowDownZA;
+    #[cfg(any(feature = "text", feature = "layout", feature = "arrows"))]
+    /// Lucide alias `arrow-up-az` of [`LucideGlyph::ArrowUpAZ`].
+    #[deprecated(note = "renamed to `LucideGlyph::ArrowUpAZ`")]
+    pub const ArrowUpAz: Self = Self::ArrowUpAZ;
+    #[cfg(any(feature = "text", feature = "layout", feature = "arrows"))]
+    /// Lucide alias `sort-asc` of [`LucideGlyph::ArrowUpNarrowWide`].
+    #[deprecated(note = "renamed to `LucideGlyph::ArrowUpNarrowWide`")]
+    pub const SortAsc: Self = Self::ArrowUpNarrowWide;
+    #[cfg(any(feature = "text", feature = "layout", feature = "arrows"))]
+    /// Lucide alias `arrow-up-za` of [`LucideGlyph::ArrowUpZA`].
+    #[deprecated(note = "renamed to `LucideGlyph::ArrowUpZA`")]
+    pub const ArrowUpZa: Self = Self::ArrowUpZA;
+    #[cfg(feature = "social")]
+    /// Lucide alias `verified` of [`LucideGlyph::BadgeCheck`].
+    #[deprecated(note = "renamed to `LucideGlyph::BadgeCheck`")]
+    pub const Verified: Self = Self::BadgeCheck;
+    #[cfg(any(feature = "accessibility", feature = "social", feature = "shapes"))]
+    /// Lucide alias `badge-help` of [`LucideGlyph::BadgeQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::BadgeQuestionMark`")]
+    pub const BadgeHelp: Self = Self::BadgeQuestionMark;
+    #[cfg(any(feature = "layout", feature = "design", feature = "tools"))]
+    /// Lucide alias `between-horizonal-end` of [`LucideGlyph::BetweenHorizontalEnd`].
+    #[deprecated(note = "renamed to `LucideGlyph::BetweenHorizontalEnd`")]
+    pub const BetweenHorizonalEnd: Self = Self::BetweenHorizontalEnd;
+    #[cfg(any(feature = "layout", feature = "design", feature = "tools"))]
+    /// Lucide alias `between-horizonal-start` of [`LucideGlyph::BetweenHorizontalStart`].
+    #[deprecated(note = "renamed to `LucideGlyph::BetweenHorizontalStart`")]
+    pub const BetweenHorizonalStart: Self = Self::BetweenHorizontalStart;
+    #[cfg(any(feature = "text", feature = "development", feature = "gaming"))]
+    /// Lucide alias `book-marked` of [`LucideGlyph::BookBookmark`].
+    #[deprecated(note = "renamed to `LucideGlyph::BookBookmark`")]
+    pub const BookMarked: Self = Self::BookBookmark;
+    #[cfg(feature = "development")]
+    /// Lucide alias `book-template` of [`LucideGlyph::BookDashed`].
+    #[deprecated(note = "renamed to `LucideGlyph::BookDashed`")]
+    pub const BookTemplate: Self = Self::BookDashed;
+    #[cfg(any(feature = "development", feature = "files"))]
+    /// Lucide alias `curly-braces` of [`LucideGlyph::Braces`].
+    #[deprecated(note = "renamed to `LucideGlyph::Braces`")]
+    pub const CurlyBraces: Self = Self::Braces;
+    #[cfg(any(feature = "account", feature = "buildings"))]
+    /// Lucide alias `building-2` of [`LucideGlyph::BuildingComplex`].
+    #[deprecated(note = "renamed to `LucideGlyph::BuildingComplex`")]
+    pub const Building2: Self = Self::BuildingComplex;
+    #[cfg(feature = "multimedia")]
+    /// Lucide alias `subtitles` of [`LucideGlyph::Captions`].
+    #[deprecated(note = "renamed to `LucideGlyph::Captions`")]
+    pub const Subtitles: Self = Self::Captions;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `area-chart` of [`LucideGlyph::ChartArea`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartArea`")]
+    pub const AreaChart: Self = Self::ChartArea;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart-horizontal-big` of [`LucideGlyph::ChartBarBig`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartBarBig`")]
+    pub const BarChartHorizontalBig: Self = Self::ChartBarBig;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart-horizontal` of [`LucideGlyph::ChartBar`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartBar`")]
+    pub const BarChartHorizontal: Self = Self::ChartBar;
+    #[cfg(any(feature = "charts", feature = "finance"))]
+    /// Lucide alias `candlestick-chart` of [`LucideGlyph::ChartCandlestick`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartCandlestick`")]
+    pub const CandlestickChart: Self = Self::ChartCandlestick;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart-big` of [`LucideGlyph::ChartColumnBig`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartColumnBig`")]
+    pub const BarChartBig: Self = Self::ChartColumnBig;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart-4` of [`LucideGlyph::ChartColumnIncreasing`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartColumnIncreasing`")]
+    pub const BarChart4: Self = Self::ChartColumnIncreasing;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart-3` of [`LucideGlyph::ChartColumn`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartColumn`")]
+    pub const BarChart3: Self = Self::ChartColumn;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `line-chart` of [`LucideGlyph::ChartLine`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartLine`")]
+    pub const LineChart: Self = Self::ChartLine;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart` of [`LucideGlyph::ChartNoAxesColumnIncreasing`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartNoAxesColumnIncreasing`")]
+    pub const BarChart: Self = Self::ChartNoAxesColumnIncreasing;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `bar-chart-2` of [`LucideGlyph::ChartNoAxesColumn`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartNoAxesColumn`")]
+    pub const BarChart2: Self = Self::ChartNoAxesColumn;
+    #[cfg(any(
+        feature = "charts",
+        feature = "time",
+        feature = "development",
+        feature = "design"
+    ))]
+    /// Lucide alias `gantt-chart` of [`LucideGlyph::ChartNoAxesGantt`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartNoAxesGantt`")]
+    pub const GanttChart: Self = Self::ChartNoAxesGantt;
+    #[cfg(any(feature = "charts", feature = "files"))]
+    /// Lucide alias `pie-chart` of [`LucideGlyph::ChartPie`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartPie`")]
+    pub const PieChart: Self = Self::ChartPie;
+    #[cfg(feature = "charts")]
+    /// Lucide alias `scatter-chart` of [`LucideGlyph::ChartScatter`].
+    #[deprecated(note = "renamed to `LucideGlyph::ChartScatter`")]
+    pub const ScatterChart: Self = Self::ChartScatter;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `alert-circle` of [`LucideGlyph::CircleAlert`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleAlert`")]
+    pub const AlertCircle: Self = Self::CircleAlert;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-down-circle` of [`LucideGlyph::CircleArrowDown`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowDown`")]
+    pub const ArrowDownCircle: Self = Self::CircleArrowDown;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-left-circle` of [`LucideGlyph::CircleArrowLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowLeft`")]
+    pub const ArrowLeftCircle: Self = Self::CircleArrowLeft;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-down-left-from-circle` of [`LucideGlyph::CircleArrowOutDownLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowOutDownLeft`")]
+    pub const ArrowDownLeftFromCircle: Self = Self::CircleArrowOutDownLeft;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-down-right-from-circle` of [`LucideGlyph::CircleArrowOutDownRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowOutDownRight`")]
+    pub const ArrowDownRightFromCircle: Self = Self::CircleArrowOutDownRight;
+    #[cfg(any(feature = "arrows", feature = "development"))]
+    /// Lucide alias `arrow-up-left-from-circle` of [`LucideGlyph::CircleArrowOutUpLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowOutUpLeft`")]
+    pub const ArrowUpLeftFromCircle: Self = Self::CircleArrowOutUpLeft;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-up-right-from-circle` of [`LucideGlyph::CircleArrowOutUpRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowOutUpRight`")]
+    pub const ArrowUpRightFromCircle: Self = Self::CircleArrowOutUpRight;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-right-circle` of [`LucideGlyph::CircleArrowRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowRight`")]
+    pub const ArrowRightCircle: Self = Self::CircleArrowRight;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-up-circle` of [`LucideGlyph::CircleArrowUp`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleArrowUp`")]
+    pub const ArrowUpCircle: Self = Self::CircleArrowUp;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `check-circle` of [`LucideGlyph::CircleCheckBig`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleCheckBig`")]
+    pub const CheckCircle: Self = Self::CircleCheckBig;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `check-circle-2` of [`LucideGlyph::CircleCheck`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleCheck`")]
+    pub const CheckCircle2: Self = Self::CircleCheck;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `chevron-down-circle` of [`LucideGlyph::CircleChevronDown`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleChevronDown`")]
+    pub const ChevronDownCircle: Self = Self::CircleChevronDown;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `chevron-left-circle` of [`LucideGlyph::CircleChevronLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleChevronLeft`")]
+    pub const ChevronLeftCircle: Self = Self::CircleChevronLeft;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `chevron-right-circle` of [`LucideGlyph::CircleChevronRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleChevronRight`")]
+    pub const ChevronRightCircle: Self = Self::CircleChevronRight;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `chevron-up-circle` of [`LucideGlyph::CircleChevronUp`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleChevronUp`")]
+    pub const ChevronUpCircle: Self = Self::CircleChevronUp;
+    #[cfg(feature = "math")]
+    /// Lucide alias `divide-circle` of [`LucideGlyph::CircleDivide`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleDivide`")]
+    pub const DivideCircle: Self = Self::CircleDivide;
+    #[cfg(any(feature = "transportation", feature = "sports", feature = "science"))]
+    /// Lucide alias `gauge-circle` of [`LucideGlyph::CircleGauge`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleGauge`")]
+    pub const GaugeCircle: Self = Self::CircleGauge;
+    #[cfg(feature = "math")]
+    /// Lucide alias `minus-circle` of [`LucideGlyph::CircleMinus`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleMinus`")]
+    pub const MinusCircle: Self = Self::CircleMinus;
+    #[cfg(any(feature = "transportation", feature = "navigation"))]
+    /// Lucide alias `parking-circle-off` of [`LucideGlyph::CircleParkingOff`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleParkingOff`")]
+    pub const ParkingCircleOff: Self = Self::CircleParkingOff;
+    #[cfg(any(feature = "transportation", feature = "navigation"))]
+    /// Lucide alias `parking-circle` of [`LucideGlyph::CircleParking`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleParking`")]
+    pub const ParkingCircle: Self = Self::CircleParking;
+    #[cfg(feature = "multimedia")]
+    /// Lucide alias `pause-circle` of [`LucideGlyph::CirclePause`].
+    #[deprecated(note = "renamed to `LucideGlyph::CirclePause`")]
+    pub const PauseCircle: Self = Self::CirclePause;
+    #[cfg(any(
+        feature = "social",
+        feature = "finance",
+        feature = "shopping",
+        feature = "math"
+    ))]
+    /// Lucide alias `percent-circle` of [`LucideGlyph::CirclePercent`].
+    #[deprecated(note = "renamed to `LucideGlyph::CirclePercent`")]
+    pub const PercentCircle: Self = Self::CirclePercent;
+    #[cfg(feature = "multimedia")]
+    /// Lucide alias `play-circle` of [`LucideGlyph::CirclePlay`].
+    #[deprecated(note = "renamed to `LucideGlyph::CirclePlay`")]
+    pub const PlayCircle: Self = Self::CirclePlay;
+    #[cfg(any(
+        feature = "math",
+        feature = "development",
+        feature = "cursors",
+        feature = "gaming"
+    ))]
+    /// Lucide alias `plus-circle` of [`LucideGlyph::CirclePlus`].
+    #[deprecated(note = "renamed to `LucideGlyph::CirclePlus`")]
+    pub const PlusCircle: Self = Self::CirclePlus;
+    #[cfg(feature = "connectivity")]
+    /// Lucide alias `power-circle` of [`LucideGlyph::CirclePower`].
+    #[deprecated(note = "renamed to `LucideGlyph::CirclePower`")]
+    pub const PowerCircle: Self = Self::CirclePower;
+    #[cfg(any(feature = "accessibility", feature = "text", feature = "notifications"))]
+    /// Lucide alias `help-circle` of [`LucideGlyph::CircleQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleQuestionMark`")]
+    pub const HelpCircle: Self = Self::CircleQuestionMark;
+    #[cfg(any(feature = "accessibility", feature = "text", feature = "notifications"))]
+    /// Lucide alias `circle-help` of [`LucideGlyph::CircleQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleQuestionMark`")]
+    pub const CircleHelp: Self = Self::CircleQuestionMark;
+    #[cfg(any(feature = "shapes", feature = "math", feature = "development"))]
+    /// Lucide alias `circle-slashed` of [`LucideGlyph::CircleSlash2`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleSlash2`")]
+    pub const CircleSlashed: Self = Self::CircleSlash2;
+    #[cfg(feature = "multimedia")]
+    /// Lucide alias `stop-circle` of [`LucideGlyph::CircleStop`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleStop`")]
+    pub const StopCircle: Self = Self::CircleStop;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-circle-2` of [`LucideGlyph::CircleUserRound`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleUserRound`")]
+    pub const UserCircle2: Self = Self::CircleUserRound;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-circle` of [`LucideGlyph::CircleUser`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleUser`")]
+    pub const UserCircle: Self = Self::CircleUser;
+    #[cfg(any(feature = "math", feature = "development"))]
+    /// Lucide alias `x-circle` of [`LucideGlyph::CircleX`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleX`")]
+    pub const XCircle: Self = Self::CircleX;
+    #[cfg(feature = "text")]
+    /// Lucide alias `clipboard-signature` of [`LucideGlyph::ClipboardPenLine`].
+    #[deprecated(note = "renamed to `LucideGlyph::ClipboardPenLine`")]
+    pub const ClipboardSignature: Self = Self::ClipboardPenLine;
+    #[cfg(feature = "text")]
+    /// Lucide alias `clipboard-edit` of [`LucideGlyph::ClipboardPen`].
+    #[deprecated(note = "renamed to `LucideGlyph::ClipboardPen`")]
+    pub const ClipboardEdit: Self = Self::ClipboardPen;
+    #[cfg(any(feature = "arrows", feature = "files"))]
+    /// Lucide alias `download-cloud` of [`LucideGlyph::CloudDownload`].
+    #[deprecated(note = "renamed to `LucideGlyph::CloudDownload`")]
+    pub const DownloadCloud: Self = Self::CloudDownload;
+    #[cfg(any(feature = "arrows", feature = "files"))]
+    /// Lucide alias `upload-cloud` of [`LucideGlyph::CloudUpload`].
+    #[deprecated(note = "renamed to `LucideGlyph::CloudUpload`")]
+    pub const UploadCloud: Self = Self::CloudUpload;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `code-2` of [`LucideGlyph::CodeXml`].
+    #[deprecated(note = "renamed to `LucideGlyph::CodeXml`")]
+    pub const Code2: Self = Self::CodeXml;
+    #[cfg(any(feature = "layout", feature = "design", feature = "text"))]
+    /// Lucide alias `columns` of [`LucideGlyph::Columns2`].
+    #[deprecated(note = "renamed to `LucideGlyph::Columns2`")]
+    pub const Columns: Self = Self::Columns2;
+    #[cfg(any(feature = "layout", feature = "design"))]
+    /// Lucide alias `columns-settings` of [`LucideGlyph::Columns3Cog`].
+    #[deprecated(note = "renamed to `LucideGlyph::Columns3Cog`")]
+    pub const ColumnsSettings: Self = Self::Columns3Cog;
+    #[cfg(any(feature = "layout", feature = "design"))]
+    /// Lucide alias `table-config` of [`LucideGlyph::Columns3Cog`].
+    #[deprecated(note = "renamed to `LucideGlyph::Columns3Cog`")]
+    pub const TableConfig: Self = Self::Columns3Cog;
+    #[cfg(any(feature = "layout", feature = "design", feature = "text"))]
+    /// Lucide alias `panels-left-right` of [`LucideGlyph::Columns3`].
+    #[deprecated(note = "renamed to `LucideGlyph::Columns3`")]
+    pub const PanelsLeftRight: Self = Self::Columns3;
+    #[cfg(any(
+        feature = "account",
+        feature = "connectivity",
+        feature = "communication",
+        feature = "social"
+    ))]
+    /// Lucide alias `contact-2` of [`LucideGlyph::ContactRound`].
+    #[deprecated(note = "renamed to `LucideGlyph::ContactRound`")]
+    pub const Contact2: Self = Self::ContactRound;
+    #[cfg(any(
+        feature = "social",
+        feature = "finance",
+        feature = "shopping",
+        feature = "math"
+    ))]
+    /// Lucide alias `percent-diamond` of [`LucideGlyph::DiamondPercent`].
+    #[deprecated(note = "renamed to `LucideGlyph::DiamondPercent`")]
+    pub const PercentDiamond: Self = Self::DiamondPercent;
+    #[cfg(feature = "navigation")]
+    /// Lucide alias `globe-2` of [`LucideGlyph::Earth`].
+    #[deprecated(note = "renamed to `LucideGlyph::Earth`")]
+    pub const Globe2: Self = Self::Earth;
+    #[cfg(any(feature = "multimedia", feature = "files"))]
+    /// Lucide alias `music-2` of [`LucideGlyph::EighthNote`].
+    #[deprecated(note = "renamed to `LucideGlyph::EighthNote`")]
+    pub const Music2: Self = Self::EighthNote;
+    #[cfg(any(feature = "multimedia", feature = "files"))]
+    /// Lucide alias `music` of [`LucideGlyph::EighthNotes`].
+    #[deprecated(note = "renamed to `LucideGlyph::EighthNotes`")]
+    pub const Music: Self = Self::EighthNotes;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `more-vertical` of [`LucideGlyph::EllipsisVertical`].
+    #[deprecated(note = "renamed to `LucideGlyph::EllipsisVertical`")]
+    pub const MoreVertical: Self = Self::EllipsisVertical;
+    #[cfg(any(feature = "layout", feature = "development"))]
+    /// Lucide alias `more-horizontal` of [`LucideGlyph::Ellipsis`].
+    #[deprecated(note = "renamed to `LucideGlyph::Ellipsis`")]
+    pub const MoreHorizontal: Self = Self::Ellipsis;
+    #[cfg(feature = "emoji")]
+    /// Lucide alias `angry` of [`LucideGlyph::FaceAngry`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceAngry`")]
+    pub const Angry: Self = Self::FaceAngry;
+    #[cfg(feature = "emoji")]
+    /// Lucide alias `annoyed` of [`LucideGlyph::FaceExpressionless`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceExpressionless`")]
+    pub const Annoyed: Self = Self::FaceExpressionless;
+    #[cfg(feature = "emoji")]
+    /// Lucide alias `laugh` of [`LucideGlyph::FaceGrinning`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceGrinning`")]
+    pub const Laugh: Self = Self::FaceGrinning;
+    #[cfg(feature = "emoji")]
+    /// Lucide alias `meh` of [`LucideGlyph::FaceNeutral`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceNeutral`")]
+    pub const Meh: Self = Self::FaceNeutral;
+    #[cfg(any(feature = "emoji", feature = "account"))]
+    /// Lucide alias `frown` of [`LucideGlyph::FaceSlightlyFrowning`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceSlightlyFrowning`")]
+    pub const Frown: Self = Self::FaceSlightlyFrowning;
+    #[cfg(any(
+        feature = "emoji",
+        feature = "social",
+        feature = "notifications",
+        feature = "communication"
+    ))]
+    /// Lucide alias `smile-plus` of [`LucideGlyph::FaceSlightlySmilingPlus`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceSlightlySmilingPlus`")]
+    pub const SmilePlus: Self = Self::FaceSlightlySmilingPlus;
+    #[cfg(any(feature = "emoji", feature = "account"))]
+    /// Lucide alias `smile` of [`LucideGlyph::FaceSlightlySmiling`].
+    #[deprecated(note = "renamed to `LucideGlyph::FaceSlightlySmiling`")]
+    pub const Smile: Self = Self::FaceSlightlySmiling;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-badge-2` of [`LucideGlyph::FileBadge`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileBadge`")]
+    pub const FileBadge2: Self = Self::FileBadge;
+    #[cfg(any(feature = "files", feature = "development"))]
+    /// Lucide alias `file-json-2` of [`LucideGlyph::FileBracesCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileBracesCorner`")]
+    pub const FileJson2: Self = Self::FileBracesCorner;
+    #[cfg(any(feature = "files", feature = "development"))]
+    /// Lucide alias `file-json` of [`LucideGlyph::FileBraces`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileBraces`")]
+    pub const FileJson: Self = Self::FileBraces;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-bar-chart` of [`LucideGlyph::FileChartColumnIncreasing`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileChartColumnIncreasing`")]
+    pub const FileBarChart: Self = Self::FileChartColumnIncreasing;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-bar-chart-2` of [`LucideGlyph::FileChartColumn`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileChartColumn`")]
+    pub const FileBarChart2: Self = Self::FileChartColumn;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-line-chart` of [`LucideGlyph::FileChartLine`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileChartLine`")]
+    pub const FileLineChart: Self = Self::FileChartLine;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-pie-chart` of [`LucideGlyph::FileChartPie`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileChartPie`")]
+    pub const FilePieChart: Self = Self::FileChartPie;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-check-2` of [`LucideGlyph::FileCheckCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileCheckCorner`")]
+    pub const FileCheck2: Self = Self::FileCheckCorner;
+    #[cfg(any(feature = "files", feature = "development"))]
+    /// Lucide alias `file-code-2` of [`LucideGlyph::FileCodeCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileCodeCorner`")]
+    pub const FileCode2: Self = Self::FileCodeCorner;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-cog-2` of [`LucideGlyph::FileCog`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileCog`")]
+    pub const FileCog2: Self = Self::FileCog;
+    #[cfg(any(feature = "files", feature = "notifications"))]
+    /// Lucide alias `file-warning` of [`LucideGlyph::FileExclamationPoint`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileExclamationPoint`")]
+    pub const FileWarning: Self = Self::FileExclamationPoint;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-audio` of [`LucideGlyph::FileHeadphone`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileHeadphone`")]
+    pub const FileAudio: Self = Self::FileHeadphone;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-audio-2` of [`LucideGlyph::FileHeadphone`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileHeadphone`")]
+    pub const FileAudio2: Self = Self::FileHeadphone;
+    #[cfg(any(feature = "files", feature = "security"))]
+    /// Lucide alias `file-key-2` of [`LucideGlyph::FileKey`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileKey`")]
+    pub const FileKey2: Self = Self::FileKey;
+    #[cfg(any(feature = "files", feature = "security"))]
+    /// Lucide alias `file-lock-2` of [`LucideGlyph::FileLock`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileLock`")]
+    pub const FileLock2: Self = Self::FileLock;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-minus-2` of [`LucideGlyph::FileMinusCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileMinusCorner`")]
+    pub const FileMinus2: Self = Self::FileMinusCorner;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-signature` of [`LucideGlyph::FilePenLine`].
+    #[deprecated(note = "renamed to `LucideGlyph::FilePenLine`")]
+    pub const FileSignature: Self = Self::FilePenLine;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-edit` of [`LucideGlyph::FilePen`].
+    #[deprecated(note = "renamed to `LucideGlyph::FilePen`")]
+    pub const FileEdit: Self = Self::FilePen;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-video` of [`LucideGlyph::FilePlay`].
+    #[deprecated(note = "renamed to `LucideGlyph::FilePlay`")]
+    pub const FileVideo: Self = Self::FilePlay;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-plus-2` of [`LucideGlyph::FilePlusCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FilePlusCorner`")]
+    pub const FilePlus2: Self = Self::FilePlusCorner;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-question` of [`LucideGlyph::FileQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileQuestionMark`")]
+    pub const FileQuestion: Self = Self::FileQuestionMark;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-search-2` of [`LucideGlyph::FileSearchCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileSearchCorner`")]
+    pub const FileSearch2: Self = Self::FileSearchCorner;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-volume-2` of [`LucideGlyph::FileSignal`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileSignal`")]
+    pub const FileVolume2: Self = Self::FileSignal;
+    #[cfg(any(feature = "files", feature = "text"))]
+    /// Lucide alias `file-type-2` of [`LucideGlyph::FileTypeCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileTypeCorner`")]
+    pub const FileType2: Self = Self::FileTypeCorner;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-video-2` of [`LucideGlyph::FileVideoCamera`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileVideoCamera`")]
+    pub const FileVideo2: Self = Self::FileVideoCamera;
+    #[cfg(feature = "files")]
+    /// Lucide alias `file-x-2` of [`LucideGlyph::FileXCorner`].
+    #[deprecated(note = "renamed to `LucideGlyph::FileXCorner`")]
+    pub const FileX2: Self = Self::FileXCorner;
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "medical",
+        feature = "devices"
+    ))]
+    /// Lucide alias `fingerprint` of [`LucideGlyph::FingerprintPattern`].
+    #[deprecated(note = "renamed to `LucideGlyph::FingerprintPattern`")]
+    pub const Fingerprint: Self = Self::FingerprintPattern;
+    #[cfg(feature = "files")]
+    /// Lucide alias `folder-cog-2` of [`LucideGlyph::FolderCog`].
+    #[deprecated(note = "renamed to `LucideGlyph::FolderCog`")]
+    pub const FolderCog2: Self = Self::FolderCog;
+    #[cfg(feature = "files")]
+    /// Lucide alias `folder-edit` of [`LucideGlyph::FolderPen`].
+    #[deprecated(note = "renamed to `LucideGlyph::FolderPen`")]
+    pub const FolderEdit: Self = Self::FolderPen;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `filter-x` of [`LucideGlyph::FunnelX`].
+    #[deprecated(note = "renamed to `LucideGlyph::FunnelX`")]
+    pub const FilterX: Self = Self::FunnelX;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `filter` of [`LucideGlyph::Funnel`].
+    #[deprecated(note = "renamed to `LucideGlyph::Funnel`")]
+    pub const Filter: Self = Self::Funnel;
+    #[cfg(any(feature = "development", feature = "navigation"))]
+    /// Lucide alias `git-commit` of [`LucideGlyph::GitCommitHorizontal`].
+    #[deprecated(note = "renamed to `LucideGlyph::GitCommitHorizontal`")]
+    pub const GitCommit: Self = Self::GitCommitHorizontal;
+    #[cfg(any(feature = "text", feature = "layout", feature = "design"))]
+    /// Lucide alias `grid` of [`LucideGlyph::Grid3X3`].
+    #[deprecated(note = "renamed to `LucideGlyph::Grid3X3`")]
+    pub const Grid: Self = Self::Grid3X3;
+    #[cfg(any(feature = "multimedia", feature = "files"))]
+    /// Lucide alias `music-3` of [`LucideGlyph::HalfNote`].
+    #[deprecated(note = "renamed to `LucideGlyph::HalfNote`")]
+    pub const Music3: Self = Self::HalfNote;
+    #[cfg(any(feature = "cursors", feature = "design", feature = "layout"))]
+    /// Lucide alias `grab` of [`LucideGlyph::HandGrab`].
+    #[deprecated(note = "renamed to `LucideGlyph::HandGrab`")]
+    pub const Grab: Self = Self::HandGrab;
+    #[cfg(feature = "emoji")]
+    /// Lucide alias `helping-hand` of [`LucideGlyph::HandHelping`].
+    #[deprecated(note = "renamed to `LucideGlyph::HandHelping`")]
+    pub const HelpingHand: Self = Self::HandHelping;
+    #[cfg(any(feature = "buildings", feature = "home", feature = "navigation"))]
+    /// Lucide alias `home` of [`LucideGlyph::House`].
+    #[deprecated(note = "renamed to `LucideGlyph::House`")]
+    pub const Home: Self = Self::House;
+    #[cfg(feature = "food_beverage")]
+    /// Lucide alias `ice-cream-2` of [`LucideGlyph::IceCreamBowl`].
+    #[deprecated(note = "renamed to `LucideGlyph::IceCreamBowl`")]
+    pub const IceCream2: Self = Self::IceCreamBowl;
+    #[cfg(feature = "food_beverage")]
+    /// Lucide alias `ice-cream` of [`LucideGlyph::IceCreamCone`].
+    #[deprecated(note = "renamed to `LucideGlyph::IceCreamCone`")]
+    pub const IceCream: Self = Self::IceCreamCone;
+    #[cfg(feature = "devices")]
+    /// Lucide alias `laptop-2` of [`LucideGlyph::LaptopMinimal`].
+    #[deprecated(note = "renamed to `LucideGlyph::LaptopMinimal`")]
+    pub const Laptop2: Self = Self::LaptopMinimal;
+    #[cfg(any(feature = "design", feature = "layout"))]
+    /// Lucide alias `layers-3` of [`LucideGlyph::Layers`].
+    #[deprecated(note = "renamed to `LucideGlyph::Layers`")]
+    pub const Layers3: Self = Self::Layers;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `outdent` of [`LucideGlyph::ListIndentDecrease`].
+    #[deprecated(note = "renamed to `LucideGlyph::ListIndentDecrease`")]
+    pub const Outdent: Self = Self::ListIndentDecrease;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `indent-decrease` of [`LucideGlyph::ListIndentDecrease`].
+    #[deprecated(note = "renamed to `LucideGlyph::ListIndentDecrease`")]
+    pub const IndentDecrease: Self = Self::ListIndentDecrease;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `indent` of [`LucideGlyph::ListIndentIncrease`].
+    #[deprecated(note = "renamed to `LucideGlyph::ListIndentIncrease`")]
+    pub const Indent: Self = Self::ListIndentIncrease;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `indent-increase` of [`LucideGlyph::ListIndentIncrease`].
+    #[deprecated(note = "renamed to `LucideGlyph::ListIndentIncrease`")]
+    pub const IndentIncrease: Self = Self::ListIndentIncrease;
+    #[cfg(any(feature = "cursors", feature = "multimedia", feature = "layout"))]
+    /// Lucide alias `loader-2` of [`LucideGlyph::LoaderCircle`].
+    #[deprecated(note = "renamed to `LucideGlyph::LoaderCircle`")]
+    pub const Loader2: Self = Self::LoaderCircle;
+    #[cfg(feature = "security")]
+    /// Lucide alias `unlock-keyhole` of [`LucideGlyph::LockKeyholeOpen`].
+    #[deprecated(note = "renamed to `LucideGlyph::LockKeyholeOpen`")]
+    pub const UnlockKeyhole: Self = Self::LockKeyholeOpen;
+    #[cfg(feature = "security")]
+    /// Lucide alias `unlock` of [`LucideGlyph::LockOpen`].
+    #[deprecated(note = "renamed to `LucideGlyph::LockOpen`")]
+    pub const Unlock: Self = Self::LockOpen;
+    #[cfg(feature = "mail")]
+    /// Lucide alias `mail-question` of [`LucideGlyph::MailQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::MailQuestionMark`")]
+    pub const MailQuestion: Self = Self::MailQuestionMark;
+    #[cfg(any(feature = "navigation", feature = "travel", feature = "account"))]
+    /// Lucide alias `location-edit` of [`LucideGlyph::MapPinPen`].
+    #[deprecated(note = "renamed to `LucideGlyph::MapPinPen`")]
+    pub const LocationEdit: Self = Self::MapPinPen;
+    #[cfg(feature = "social")]
+    /// Lucide alias `message-circle-question` of [`LucideGlyph::MessageCircleQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::MessageCircleQuestionMark`")]
+    pub const MessageCircleQuestion: Self = Self::MessageCircleQuestionMark;
+    #[cfg(any(
+        feature = "devices",
+        feature = "communication",
+        feature = "connectivity",
+        feature = "multimedia"
+    ))]
+    /// Lucide alias `podcast` of [`LucideGlyph::MicSignal`].
+    #[deprecated(note = "renamed to `LucideGlyph::MicSignal`")]
+    pub const Podcast: Self = Self::MicSignal;
+    #[cfg(any(feature = "devices", feature = "multimedia"))]
+    /// Lucide alias `mic-2` of [`LucideGlyph::MicVocal`].
+    #[deprecated(note = "renamed to `LucideGlyph::MicVocal`")]
+    pub const Mic2: Self = Self::MicVocal;
+    #[cfg(any(feature = "notifications", feature = "shapes"))]
+    /// Lucide alias `alert-octagon` of [`LucideGlyph::OctagonAlert`].
+    #[deprecated(note = "renamed to `LucideGlyph::OctagonAlert`")]
+    pub const AlertOctagon: Self = Self::OctagonAlert;
+    #[cfg(any(feature = "multimedia", feature = "shapes"))]
+    /// Lucide alias `pause-octagon` of [`LucideGlyph::OctagonPause`].
+    #[deprecated(note = "renamed to `LucideGlyph::OctagonPause`")]
+    pub const PauseOctagon: Self = Self::OctagonPause;
+    #[cfg(any(feature = "math", feature = "notifications"))]
+    /// Lucide alias `x-octagon` of [`LucideGlyph::OctagonX`].
+    #[deprecated(note = "renamed to `LucideGlyph::OctagonX`")]
+    pub const XOctagon: Self = Self::OctagonX;
+    #[cfg(any(
+        feature = "text",
+        feature = "design",
+        feature = "photography",
+        feature = "home",
+        feature = "tools"
+    ))]
+    /// Lucide alias `paintbrush-2` of [`LucideGlyph::PaintbrushVertical`].
+    #[deprecated(note = "renamed to `LucideGlyph::PaintbrushVertical`")]
+    pub const Paintbrush2: Self = Self::PaintbrushVertical;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `panel-bottom-inactive` of [`LucideGlyph::PanelBottomDashed`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelBottomDashed`")]
+    pub const PanelBottomInactive: Self = Self::PanelBottomDashed;
+    #[cfg(any(feature = "layout", feature = "arrows"))]
+    /// Lucide alias `sidebar-close` of [`LucideGlyph::PanelLeftClose`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelLeftClose`")]
+    pub const SidebarClose: Self = Self::PanelLeftClose;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `panel-left-inactive` of [`LucideGlyph::PanelLeftDashed`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelLeftDashed`")]
+    pub const PanelLeftInactive: Self = Self::PanelLeftDashed;
+    #[cfg(any(feature = "layout", feature = "arrows"))]
+    /// Lucide alias `sidebar-open` of [`LucideGlyph::PanelLeftOpen`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelLeftOpen`")]
+    pub const SidebarOpen: Self = Self::PanelLeftOpen;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `sidebar` of [`LucideGlyph::PanelLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelLeft`")]
+    pub const Sidebar: Self = Self::PanelLeft;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `panel-right-inactive` of [`LucideGlyph::PanelRightDashed`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelRightDashed`")]
+    pub const PanelRightInactive: Self = Self::PanelRightDashed;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `panel-top-inactive` of [`LucideGlyph::PanelTopDashed`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelTopDashed`")]
+    pub const PanelTopInactive: Self = Self::PanelTopDashed;
+    #[cfg(any(feature = "layout", feature = "design", feature = "development"))]
+    /// Lucide alias `layout` of [`LucideGlyph::PanelsTopLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::PanelsTopLeft`")]
+    pub const Layout: Self = Self::PanelsTopLeft;
+    #[cfg(any(feature = "text", feature = "design", feature = "tools"))]
+    /// Lucide alias `edit-3` of [`LucideGlyph::PenLine`].
+    #[deprecated(note = "renamed to `LucideGlyph::PenLine`")]
+    pub const Edit3: Self = Self::PenLine;
+    #[cfg(any(feature = "text", feature = "design", feature = "tools"))]
+    /// Lucide alias `edit-2` of [`LucideGlyph::Pen`].
+    #[deprecated(note = "renamed to `LucideGlyph::Pen`")]
+    pub const Edit2: Self = Self::Pen;
+    #[cfg(feature = "devices")]
+    /// Lucide alias `plug-zap-2` of [`LucideGlyph::PlugZap`].
+    #[deprecated(note = "renamed to `LucideGlyph::PlugZap`")]
+    pub const PlugZap2: Self = Self::PlugZap;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `form-input` of [`LucideGlyph::RectangleEllipsis`].
+    #[deprecated(note = "renamed to `LucideGlyph::RectangleEllipsis`")]
+    pub const FormInput: Self = Self::RectangleEllipsis;
+    #[cfg(any(feature = "arrows", feature = "time"))]
+    /// Lucide alias `history` of [`LucideGlyph::RotateCcwClock`].
+    #[deprecated(note = "renamed to `LucideGlyph::RotateCcwClock`")]
+    pub const History: Self = Self::RotateCcwClock;
+    #[cfg(any(feature = "layout", feature = "design", feature = "text"))]
+    /// Lucide alias `rows` of [`LucideGlyph::Rows2`].
+    #[deprecated(note = "renamed to `LucideGlyph::Rows2`")]
+    pub const Rows: Self = Self::Rows2;
+    #[cfg(any(feature = "layout", feature = "design", feature = "text"))]
+    /// Lucide alias `panels-top-bottom` of [`LucideGlyph::Rows3`].
+    #[deprecated(note = "renamed to `LucideGlyph::Rows3`")]
+    pub const PanelsTopBottom: Self = Self::Rows3;
+    #[cfg(any(feature = "mail", feature = "communication", feature = "connectivity"))]
+    /// Lucide alias `send-horizonal` of [`LucideGlyph::SendHorizontal`].
+    #[deprecated(note = "renamed to `LucideGlyph::SendHorizontal`")]
+    pub const SendHorizonal: Self = Self::SendHorizontal;
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "development",
+        feature = "gaming"
+    ))]
+    /// Lucide alias `shield-question` of [`LucideGlyph::ShieldQuestionMark`].
+    #[deprecated(note = "renamed to `LucideGlyph::ShieldQuestionMark`")]
+    pub const ShieldQuestion: Self = Self::ShieldQuestionMark;
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "development",
+        feature = "gaming"
+    ))]
+    /// Lucide alias `shield-close` of [`LucideGlyph::ShieldX`].
+    #[deprecated(note = "renamed to `LucideGlyph::ShieldX`")]
+    pub const ShieldClose: Self = Self::ShieldX;
+    #[cfg(any(feature = "multimedia", feature = "files"))]
+    /// Lucide alias `music-4` of [`LucideGlyph::SixteenthNotes`].
+    #[deprecated(note = "renamed to `LucideGlyph::SixteenthNotes`")]
+    pub const Music4: Self = Self::SixteenthNotes;
+    #[cfg(feature = "account")]
+    /// Lucide alias `sliders` of [`LucideGlyph::SlidersVertical`].
+    #[deprecated(note = "renamed to `LucideGlyph::SlidersVertical`")]
+    pub const Sliders: Self = Self::SlidersVertical;
+    #[cfg(any(
+        feature = "cursors",
+        feature = "multimedia",
+        feature = "gaming",
+        feature = "weather"
+    ))]
+    /// Lucide alias `stars` of [`LucideGlyph::Sparkles`].
+    #[deprecated(note = "renamed to `LucideGlyph::Sparkles`")]
+    pub const Stars: Self = Self::Sparkles;
+    #[cfg(any(
+        feature = "medical",
+        feature = "social",
+        feature = "science",
+        feature = "multimedia"
+    ))]
+    /// Lucide alias `activity-square` of [`LucideGlyph::SquareActivity`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareActivity`")]
+    pub const ActivitySquare: Self = Self::SquareActivity;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-down-left-square` of [`LucideGlyph::SquareArrowDownLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowDownLeft`")]
+    pub const ArrowDownLeftSquare: Self = Self::SquareArrowDownLeft;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-down-right-square` of [`LucideGlyph::SquareArrowDownRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowDownRight`")]
+    pub const ArrowDownRightSquare: Self = Self::SquareArrowDownRight;
+    #[cfg(any(feature = "arrows", feature = "gaming"))]
+    /// Lucide alias `arrow-down-square` of [`LucideGlyph::SquareArrowDown`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowDown`")]
+    pub const ArrowDownSquare: Self = Self::SquareArrowDown;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-left-square` of [`LucideGlyph::SquareArrowLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowLeft`")]
+    pub const ArrowLeftSquare: Self = Self::SquareArrowLeft;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-down-left-from-square` of [`LucideGlyph::SquareArrowOutDownLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowOutDownLeft`")]
+    pub const ArrowDownLeftFromSquare: Self = Self::SquareArrowOutDownLeft;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-down-right-from-square` of [`LucideGlyph::SquareArrowOutDownRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowOutDownRight`")]
+    pub const ArrowDownRightFromSquare: Self = Self::SquareArrowOutDownRight;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-up-left-from-square` of [`LucideGlyph::SquareArrowOutUpLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowOutUpLeft`")]
+    pub const ArrowUpLeftFromSquare: Self = Self::SquareArrowOutUpLeft;
+    #[cfg(any(feature = "arrows", feature = "social"))]
+    /// Lucide alias `arrow-up-right-from-square` of [`LucideGlyph::SquareArrowOutUpRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowOutUpRight`")]
+    pub const ArrowUpRightFromSquare: Self = Self::SquareArrowOutUpRight;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-right-square` of [`LucideGlyph::SquareArrowRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowRight`")]
+    pub const ArrowRightSquare: Self = Self::SquareArrowRight;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-up-left-square` of [`LucideGlyph::SquareArrowUpLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowUpLeft`")]
+    pub const ArrowUpLeftSquare: Self = Self::SquareArrowUpLeft;
+    #[cfg(any(feature = "arrows", feature = "social"))]
+    /// Lucide alias `arrow-up-right-square` of [`LucideGlyph::SquareArrowUpRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowUpRight`")]
+    pub const ArrowUpRightSquare: Self = Self::SquareArrowUpRight;
+    #[cfg(feature = "arrows")]
+    /// Lucide alias `arrow-up-square` of [`LucideGlyph::SquareArrowUp`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareArrowUp`")]
+    pub const ArrowUpSquare: Self = Self::SquareArrowUp;
+    #[cfg(any(
+        feature = "text",
+        feature = "security",
+        feature = "math",
+        feature = "development"
+    ))]
+    /// Lucide alias `asterisk-square` of [`LucideGlyph::SquareAsterisk`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareAsterisk`")]
+    pub const AsteriskSquare: Self = Self::SquareAsterisk;
+    #[cfg(any(feature = "photography", feature = "multimedia"))]
+    /// Lucide alias `album` of [`LucideGlyph::SquareBookmark`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareBookmark`")]
+    pub const Album: Self = Self::SquareBookmark;
+    #[cfg(any(
+        feature = "text",
+        feature = "design",
+        feature = "tools",
+        feature = "files",
+        feature = "development"
+    ))]
+    /// Lucide alias `scissors-square-dashed-bottom` of [`LucideGlyph::SquareBottomDashedScissors`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareBottomDashedScissors`")]
+    pub const ScissorsSquareDashedBottom: Self = Self::SquareBottomDashedScissors;
+    #[cfg(any(feature = "design", feature = "photography"))]
+    /// Lucide alias `flip-horizontal` of [`LucideGlyph::SquareCenterlineDashedHorizontal`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareCenterlineDashedHorizontal`")]
+    pub const FlipHorizontal: Self = Self::SquareCenterlineDashedHorizontal;
+    #[cfg(any(feature = "design", feature = "photography"))]
+    /// Lucide alias `flip-vertical` of [`LucideGlyph::SquareCenterlineDashedVertical`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareCenterlineDashedVertical`")]
+    pub const FlipVertical: Self = Self::SquareCenterlineDashedVertical;
+    #[cfg(any(
+        feature = "charts",
+        feature = "time",
+        feature = "development",
+        feature = "design"
+    ))]
+    /// Lucide alias `gantt-chart-square` of [`LucideGlyph::SquareChartGantt`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareChartGantt`")]
+    pub const GanttChartSquare: Self = Self::SquareChartGantt;
+    #[cfg(any(
+        feature = "charts",
+        feature = "time",
+        feature = "development",
+        feature = "design"
+    ))]
+    /// Lucide alias `square-gantt-chart` of [`LucideGlyph::SquareChartGantt`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareChartGantt`")]
+    pub const SquareGanttChart: Self = Self::SquareChartGantt;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `check-square` of [`LucideGlyph::SquareCheckBig`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareCheckBig`")]
+    pub const CheckSquare: Self = Self::SquareCheckBig;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `check-square-2` of [`LucideGlyph::SquareCheck`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareCheck`")]
+    pub const CheckSquare2: Self = Self::SquareCheck;
+    #[cfg(any(feature = "arrows", feature = "navigation"))]
+    /// Lucide alias `chevron-down-square` of [`LucideGlyph::SquareChevronDown`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareChevronDown`")]
+    pub const ChevronDownSquare: Self = Self::SquareChevronDown;
+    #[cfg(any(feature = "arrows", feature = "navigation"))]
+    /// Lucide alias `chevron-left-square` of [`LucideGlyph::SquareChevronLeft`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareChevronLeft`")]
+    pub const ChevronLeftSquare: Self = Self::SquareChevronLeft;
+    #[cfg(any(feature = "arrows", feature = "navigation", feature = "development"))]
+    /// Lucide alias `chevron-right-square` of [`LucideGlyph::SquareChevronRight`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareChevronRight`")]
+    pub const ChevronRightSquare: Self = Self::SquareChevronRight;
+    #[cfg(any(feature = "arrows", feature = "navigation", feature = "math"))]
+    /// Lucide alias `chevron-up-square` of [`LucideGlyph::SquareChevronUp`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareChevronUp`")]
+    pub const ChevronUpSquare: Self = Self::SquareChevronUp;
+    #[cfg(any(feature = "text", feature = "development"))]
+    /// Lucide alias `code-square` of [`LucideGlyph::SquareCode`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareCode`")]
+    pub const CodeSquare: Self = Self::SquareCode;
+    #[cfg(any(feature = "charts", feature = "development", feature = "design"))]
+    /// Lucide alias `kanban-square-dashed` of [`LucideGlyph::SquareDashedKanban`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDashedKanban`")]
+    pub const KanbanSquareDashed: Self = Self::SquareDashedKanban;
+    #[cfg(any(
+        feature = "arrows",
+        feature = "cursors",
+        feature = "development",
+        feature = "tools"
+    ))]
+    /// Lucide alias `mouse-pointer-square-dashed` of [`LucideGlyph::SquareDashedMousePointer`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDashedMousePointer`")]
+    pub const MousePointerSquareDashed: Self = Self::SquareDashedMousePointer;
+    #[cfg(any(feature = "text", feature = "cursors"))]
+    /// Lucide alias `text-selection` of [`LucideGlyph::SquareDashedText`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDashedText`")]
+    pub const TextSelection: Self = Self::SquareDashedText;
+    #[cfg(any(feature = "text", feature = "cursors"))]
+    /// Lucide alias `text-select` of [`LucideGlyph::SquareDashedText`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDashedText`")]
+    pub const TextSelect: Self = Self::SquareDashedText;
+    #[cfg(any(feature = "text", feature = "design"))]
+    /// Lucide alias `box-select` of [`LucideGlyph::SquareDashed`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDashed`")]
+    pub const BoxSelect: Self = Self::SquareDashed;
+    #[cfg(feature = "math")]
+    /// Lucide alias `divide-square` of [`LucideGlyph::SquareDivide`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDivide`")]
+    pub const DivideSquare: Self = Self::SquareDivide;
+    #[cfg(feature = "development")]
+    /// Lucide alias `dot-square` of [`LucideGlyph::SquareDot`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareDot`")]
+    pub const DotSquare: Self = Self::SquareDot;
+    #[cfg(feature = "math")]
+    /// Lucide alias `equal-square` of [`LucideGlyph::SquareEqual`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareEqual`")]
+    pub const EqualSquare: Self = Self::SquareEqual;
+    #[cfg(any(feature = "development", feature = "math"))]
+    /// Lucide alias `function-square` of [`LucideGlyph::SquareFunction`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareFunction`")]
+    pub const FunctionSquare: Self = Self::SquareFunction;
+    #[cfg(any(feature = "charts", feature = "development", feature = "design"))]
+    /// Lucide alias `kanban-square` of [`LucideGlyph::SquareKanban`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareKanban`")]
+    pub const KanbanSquare: Self = Self::SquareKanban;
+    #[cfg(any(
+        feature = "text",
+        feature = "photography",
+        feature = "multimedia",
+        feature = "navigation",
+        feature = "development"
+    ))]
+    /// Lucide alias `library-square` of [`LucideGlyph::SquareLibrary`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareLibrary`")]
+    pub const LibrarySquare: Self = Self::SquareLibrary;
+    #[cfg(any(feature = "transportation", feature = "navigation"))]
+    /// Lucide alias `m-square` of [`LucideGlyph::SquareM`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareM`")]
+    pub const MSquare: Self = Self::SquareM;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `menu-square` of [`LucideGlyph::SquareMenu`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareMenu`")]
+    pub const MenuSquare: Self = Self::SquareMenu;
+    #[cfg(any(
+        feature = "math",
+        feature = "development",
+        feature = "text",
+        feature = "tools",
+        feature = "devices"
+    ))]
+    /// Lucide alias `minus-square` of [`LucideGlyph::SquareMinus`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareMinus`")]
+    pub const MinusSquare: Self = Self::SquareMinus;
+    #[cfg(any(
+        feature = "arrows",
+        feature = "cursors",
+        feature = "development",
+        feature = "tools"
+    ))]
+    /// Lucide alias `inspect` of [`LucideGlyph::SquareMousePointer`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareMousePointer`")]
+    pub const Inspect: Self = Self::SquareMousePointer;
+    #[cfg(any(feature = "transportation", feature = "navigation"))]
+    /// Lucide alias `parking-square-off` of [`LucideGlyph::SquareParkingOff`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareParkingOff`")]
+    pub const ParkingSquareOff: Self = Self::SquareParkingOff;
+    #[cfg(any(feature = "transportation", feature = "navigation"))]
+    /// Lucide alias `parking-square` of [`LucideGlyph::SquareParking`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareParking`")]
+    pub const ParkingSquare: Self = Self::SquareParking;
+    #[cfg(feature = "text")]
+    /// Lucide alias `pen-box` of [`LucideGlyph::SquarePen`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePen`")]
+    pub const PenBox: Self = Self::SquarePen;
+    #[cfg(feature = "text")]
+    /// Lucide alias `edit` of [`LucideGlyph::SquarePen`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePen`")]
+    pub const Edit: Self = Self::SquarePen;
+    #[cfg(feature = "text")]
+    /// Lucide alias `pen-square` of [`LucideGlyph::SquarePen`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePen`")]
+    pub const PenSquare: Self = Self::SquarePen;
+    #[cfg(any(
+        feature = "social",
+        feature = "finance",
+        feature = "shopping",
+        feature = "math"
+    ))]
+    /// Lucide alias `percent-square` of [`LucideGlyph::SquarePercent`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePercent`")]
+    pub const PercentSquare: Self = Self::SquarePercent;
+    #[cfg(any(feature = "development", feature = "math"))]
+    /// Lucide alias `pi-square` of [`LucideGlyph::SquarePi`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePi`")]
+    pub const PiSquare: Self = Self::SquarePi;
+    #[cfg(feature = "text")]
+    /// Lucide alias `pilcrow-square` of [`LucideGlyph::SquarePilcrow`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePilcrow`")]
+    pub const PilcrowSquare: Self = Self::SquarePilcrow;
+    #[cfg(any(feature = "arrows", feature = "multimedia"))]
+    /// Lucide alias `play-square` of [`LucideGlyph::SquarePlay`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePlay`")]
+    pub const PlaySquare: Self = Self::SquarePlay;
+    #[cfg(any(
+        feature = "math",
+        feature = "tools",
+        feature = "development",
+        feature = "text"
+    ))]
+    /// Lucide alias `plus-square` of [`LucideGlyph::SquarePlus`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePlus`")]
+    pub const PlusSquare: Self = Self::SquarePlus;
+    #[cfg(feature = "connectivity")]
+    /// Lucide alias `power-square` of [`LucideGlyph::SquarePower`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquarePower`")]
+    pub const PowerSquare: Self = Self::SquarePower;
+    #[cfg(any(
+        feature = "text",
+        feature = "design",
+        feature = "tools",
+        feature = "files",
+        feature = "development"
+    ))]
+    /// Lucide alias `scissors-square` of [`LucideGlyph::SquareScissors`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareScissors`")]
+    pub const ScissorsSquare: Self = Self::SquareScissors;
+    #[cfg(any(feature = "text", feature = "math"))]
+    /// Lucide alias `sigma-square` of [`LucideGlyph::SquareSigma`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareSigma`")]
+    pub const SigmaSquare: Self = Self::SquareSigma;
+    #[cfg(any(feature = "development", feature = "math"))]
+    /// Lucide alias `slash-square` of [`LucideGlyph::SquareSlash`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareSlash`")]
+    pub const SlashSquare: Self = Self::SquareSlash;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `split-square-horizontal` of [`LucideGlyph::SquareSplitHorizontal`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareSplitHorizontal`")]
+    pub const SplitSquareHorizontal: Self = Self::SquareSplitHorizontal;
+    #[cfg(feature = "layout")]
+    /// Lucide alias `split-square-vertical` of [`LucideGlyph::SquareSplitVertical`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareSplitVertical`")]
+    pub const SplitSquareVertical: Self = Self::SquareSplitVertical;
+    #[cfg(feature = "development")]
+    /// Lucide alias `terminal-square` of [`LucideGlyph::SquareTerminal`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareTerminal`")]
+    pub const TerminalSquare: Self = Self::SquareTerminal;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-square-2` of [`LucideGlyph::SquareUserRound`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareUserRound`")]
+    pub const UserSquare2: Self = Self::SquareUserRound;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-square` of [`LucideGlyph::SquareUser`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareUser`")]
+    pub const UserSquare: Self = Self::SquareUser;
+    #[cfg(any(feature = "math", feature = "notifications"))]
+    /// Lucide alias `x-square` of [`LucideGlyph::SquareX`].
+    #[deprecated(note = "renamed to `LucideGlyph::SquareX`")]
+    pub const XSquare: Self = Self::SquareX;
+    #[cfg(feature = "science")]
+    /// Lucide alias `test-tube-2` of [`LucideGlyph::TestTubeDiagonal`].
+    #[deprecated(note = "renamed to `LucideGlyph::TestTubeDiagonal`")]
+    pub const TestTube2: Self = Self::TestTubeDiagonal;
+    #[cfg(feature = "text")]
+    /// Lucide alias `align-center` of [`LucideGlyph::TextAlignCenter`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextAlignCenter`")]
+    pub const AlignCenter: Self = Self::TextAlignCenter;
+    #[cfg(feature = "text")]
+    /// Lucide alias `align-right` of [`LucideGlyph::TextAlignEnd`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextAlignEnd`")]
+    pub const AlignRight: Self = Self::TextAlignEnd;
+    #[cfg(feature = "text")]
+    /// Lucide alias `align-justify` of [`LucideGlyph::TextAlignJustify`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextAlignJustify`")]
+    pub const AlignJustify: Self = Self::TextAlignJustify;
+    #[cfg(feature = "text")]
+    /// Lucide alias `text` of [`LucideGlyph::TextAlignStart`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextAlignStart`")]
+    pub const Text: Self = Self::TextAlignStart;
+    #[cfg(feature = "text")]
+    /// Lucide alias `align-left` of [`LucideGlyph::TextAlignStart`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextAlignStart`")]
+    pub const AlignLeft: Self = Self::TextAlignStart;
+    #[cfg(feature = "text")]
+    /// Lucide alias `letter-text` of [`LucideGlyph::TextInitial`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextInitial`")]
+    pub const LetterText: Self = Self::TextInitial;
+    #[cfg(any(feature = "text", feature = "arrows"))]
+    /// Lucide alias `wrap-text` of [`LucideGlyph::TextWrap`].
+    #[deprecated(note = "renamed to `LucideGlyph::TextWrap`")]
+    pub const WrapText: Self = Self::TextWrap;
+    #[cfg(feature = "transportation")]
+    /// Lucide alias `train` of [`LucideGlyph::TramFront`].
+    #[deprecated(note = "renamed to `LucideGlyph::TramFront`")]
+    pub const Train: Self = Self::TramFront;
+    #[cfg(any(feature = "files", feature = "mail"))]
+    /// Lucide alias `trash-2` of [`LucideGlyph::Trash`].
+    #[deprecated(note = "renamed to `LucideGlyph::Trash`")]
+    pub const Trash2: Self = Self::Trash;
+    #[cfg(any(feature = "nature", feature = "sustainability"))]
+    /// Lucide alias `palmtree` of [`LucideGlyph::TreePalm`].
+    #[deprecated(note = "renamed to `LucideGlyph::TreePalm`")]
+    pub const Palmtree: Self = Self::TreePalm;
+    #[cfg(any(feature = "notifications", feature = "shapes", feature = "development"))]
+    /// Lucide alias `alert-triangle` of [`LucideGlyph::TriangleAlert`].
+    #[deprecated(note = "renamed to `LucideGlyph::TriangleAlert`")]
+    pub const AlertTriangle: Self = Self::TriangleAlert;
+    #[cfg(any(feature = "design", feature = "photography"))]
+    /// Lucide alias `flip-horizontal-2` of [`LucideGlyph::TrianglesCenterlineDashedHorizontal`].
+    #[deprecated(note = "renamed to `LucideGlyph::TrianglesCenterlineDashedHorizontal`")]
+    pub const FlipHorizontal2: Self = Self::TrianglesCenterlineDashedHorizontal;
+    #[cfg(any(feature = "design", feature = "photography"))]
+    /// Lucide alias `flip-vertical-2` of [`LucideGlyph::TrianglesCenterlineDashedVertical`].
+    #[deprecated(note = "renamed to `LucideGlyph::TrianglesCenterlineDashedVertical`")]
+    pub const FlipVertical2: Self = Self::TrianglesCenterlineDashedVertical;
+    #[cfg(any(feature = "devices", feature = "multimedia"))]
+    /// Lucide alias `tv-2` of [`LucideGlyph::TvMinimal`].
+    #[deprecated(note = "renamed to `LucideGlyph::TvMinimal`")]
+    pub const Tv2: Self = Self::TvMinimal;
+    #[cfg(any(feature = "buildings", feature = "navigation"))]
+    /// Lucide alias `school-2` of [`LucideGlyph::University`].
+    #[deprecated(note = "renamed to `LucideGlyph::University`")]
+    pub const School2: Self = Self::University;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-check-2` of [`LucideGlyph::UserRoundCheck`].
+    #[deprecated(note = "renamed to `LucideGlyph::UserRoundCheck`")]
+    pub const UserCheck2: Self = Self::UserRoundCheck;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-cog-2` of [`LucideGlyph::UserRoundCog`].
+    #[deprecated(note = "renamed to `LucideGlyph::UserRoundCog`")]
+    pub const UserCog2: Self = Self::UserRoundCog;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-minus-2` of [`LucideGlyph::UserRoundMinus`].
+    #[deprecated(note = "renamed to `LucideGlyph::UserRoundMinus`")]
+    pub const UserMinus2: Self = Self::UserRoundMinus;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-plus-2` of [`LucideGlyph::UserRoundPlus`].
+    #[deprecated(note = "renamed to `LucideGlyph::UserRoundPlus`")]
+    pub const UserPlus2: Self = Self::UserRoundPlus;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-x-2` of [`LucideGlyph::UserRoundX`].
+    #[deprecated(note = "renamed to `LucideGlyph::UserRoundX`")]
+    pub const UserX2: Self = Self::UserRoundX;
+    #[cfg(feature = "account")]
+    /// Lucide alias `user-2` of [`LucideGlyph::UserRound`].
+    #[deprecated(note = "renamed to `LucideGlyph::UserRound`")]
+    pub const User2: Self = Self::UserRound;
+    #[cfg(feature = "account")]
+    /// Lucide alias `users-2` of [`LucideGlyph::UsersRound`].
+    #[deprecated(note = "renamed to `LucideGlyph::UsersRound`")]
+    pub const Users2: Self = Self::UsersRound;
+    #[cfg(any(feature = "food_beverage", feature = "travel", feature = "navigation"))]
+    /// Lucide alias `fork-knife-crossed` of [`LucideGlyph::UtensilsCrossed`].
+    #[deprecated(note = "renamed to `LucideGlyph::UtensilsCrossed`")]
+    pub const ForkKnifeCrossed: Self = Self::UtensilsCrossed;
+    #[cfg(any(feature = "food_beverage", feature = "travel", feature = "navigation"))]
+    /// Lucide alias `fork-knife` of [`LucideGlyph::Utensils`].
+    #[deprecated(note = "renamed to `LucideGlyph::Utensils`")]
+    pub const ForkKnife: Self = Self::Utensils;
+    #[cfg(any(feature = "account", feature = "finance"))]
+    /// Lucide alias `wallet-2` of [`LucideGlyph::WalletMinimal`].
+    #[deprecated(note = "renamed to `LucideGlyph::WalletMinimal`")]
+    pub const Wallet2: Self = Self::WalletMinimal;
+    #[cfg(any(
+        feature = "design",
+        feature = "gaming",
+        feature = "cursors",
+        feature = "photography"
+    ))]
+    /// Lucide alias `wand-2` of [`LucideGlyph::WandSparkles`].
+    #[deprecated(note = "renamed to `LucideGlyph::WandSparkles`")]
+    pub const Wand2: Self = Self::WandSparkles;
+    #[cfg(any(
+        feature = "weather",
+        feature = "navigation",
+        feature = "multimedia",
+        feature = "sustainability"
+    ))]
+    /// Lucide alias `waves` of [`LucideGlyph::WavesHorizontal`].
+    #[deprecated(note = "renamed to `LucideGlyph::WavesHorizontal`")]
+    pub const Waves: Self = Self::WavesHorizontal;
+}

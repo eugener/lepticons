@@ -197,6 +197,41 @@ fn all_categories_total_count_is_sane() {
     );
 }
 
+// --- aliases ---
+
+/// Icons that Lucide renamed after v0.13.1 must keep their old names.
+#[test]
+#[allow(deprecated)]
+fn renamed_icons_keep_old_names() {
+    let renamed = [
+        (LucideGlyph::Album, LucideGlyph::SquareBookmark),
+        (LucideGlyph::BookMarked, LucideGlyph::BookBookmark),
+        (LucideGlyph::Building2, LucideGlyph::BuildingComplex),
+        (
+            LucideGlyph::FlipHorizontal2,
+            LucideGlyph::TrianglesCenterlineDashedHorizontal,
+        ),
+        (
+            LucideGlyph::FlipVertical2,
+            LucideGlyph::TrianglesCenterlineDashedVertical,
+        ),
+        (LucideGlyph::Music, LucideGlyph::EighthNotes),
+        (LucideGlyph::Music2, LucideGlyph::EighthNote),
+        (LucideGlyph::Music3, LucideGlyph::HalfNote),
+        (LucideGlyph::Music4, LucideGlyph::SixteenthNotes),
+        (LucideGlyph::Trash2, LucideGlyph::Trash),
+    ];
+    for (old, new) in renamed {
+        assert_eq!(old, new);
+    }
+}
+
+#[test]
+#[allow(deprecated)]
+fn alias_works_in_match_pattern() {
+    assert!(matches!(LucideGlyph::Trash, LucideGlyph::Trash2));
+}
+
 // --- data integrity ---
 
 #[test]
