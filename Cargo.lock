@@ -886,7 +886,7 @@ checksum = "09edd9e8b54e49e587e4f6295a7d29c3ea94d469cb40ab8ca70b288248a81db2"
 
 [[package]]
 name = "lepticons"
-version = "0.13.1"
+version = "0.13.2"
 dependencies = [
  "lepticons-data",
  "leptos",
@@ -894,7 +894,7 @@ dependencies = [
 
 [[package]]
 name = "lepticons-animate"
-version = "0.1.5"
+version = "0.1.6"
 dependencies = [
  "lepticons",
  "leptos",
@@ -918,7 +918,7 @@ dependencies = [
 
 [[package]]
 name = "lepticons-data"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "convert_case 0.12.0",
  "strum",
@@ -927,7 +927,7 @@ dependencies = [
 
 [[package]]
 name = "lepticons-picker"
-version = "0.4.0"
+version = "0.4.1"
 dependencies = [
  "convert_case 0.12.0",
  "js-sys",

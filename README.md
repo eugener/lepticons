@@ -7,7 +7,7 @@
 [![Rust Version](https://img.shields.io/badge/rustc-1.88+-blue.svg)](#)
 [![Leptos](https://img.shields.io/badge/leptos-0.8-blue.svg)](https://leptos.dev)
 
-Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons. 1,700 icons, an embeddable picker, and animations -- shipped as `<Icon glyph=LucideGlyph::Search />`.
+Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons. 1,900 icons, an embeddable picker, and animations -- shipped as `<Icon glyph=LucideGlyph::Search />`.
 
 **[Live demo & icon browser at lepticons.9bits.cc](https://lepticons.9bits.cc)**
 
@@ -19,7 +19,7 @@ Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucid
 
 ## Why lepticons?
 
-- **Category features, not per-icon features.** 42 category flags cover ~1,700 icons. Pick `arrows + navigation + text` and the rest is dead code -- no `cargo build` time blowup from thousands of feature gates.
+- **Category features, not per-icon features.** 42 category flags cover ~1,900 icons. Pick `arrows + navigation + text` and the rest is dead code -- no `cargo build` time blowup from thousands of feature gates.
 - **Always-fresh Lucide.** Weekly automated PR pulls the upstream `lucide` submodule and regenerates the icon data. No stale forks.
 - **More than icons.** Drop-in `<IconPickerPopover>` for users who need to pick icons at runtime, plus stroke draw-in / spin / pulse animations.
 - **Type-safe enum, no string lookups.** `LucideGlyph::Heart` is a `&'static str` under the hood; misspelling fails at compile time.
