@@ -1,4 +1,4 @@
-use std::collections::{BTreeSet, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashSet};
 use std::fs;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
@@ -10,7 +10,9 @@ use regex::Regex;
 use scraper::{ElementRef, Html, Selector};
 
 mod cargo;
+mod metadata;
 use cargo::CargoToml;
+use metadata::EntryMeta;
 
 fn main() {
     let icon_path = Path::new("../lucide/icons");
@@ -33,6 +35,17 @@ fn main() {
         })
         .collect::<Vec<_>>();
     paths.sort();
+
+    // Lucide metadata can reuse values from other icons and tag groups;
+    // resolve those references before generating anything.
+    let mut metas: BTreeMap<String, EntryMeta> = paths
+        .iter()
+        .map(|p| (icon_stem(p).to_string(), metadata::read_icon(p)))
+        .collect();
+    metadata::resolve_all(
+        &mut metas,
+        &metadata::read_groups(&icon_path.with_file_name("groups")),
+    );
 
     // prepare the generated_icons.rs file
     let mut file = OpenOptions::new()
@@ -66,7 +79,8 @@ fn main() {
     let entries: Vec<SvgEntry> = paths
         .iter()
         .map(|path| {
-            let entry = SvgEntry::new(path);
+            let meta = metas.remove(icon_stem(path)).expect("metadata for icon");
+            let entry = SvgEntry::new(path, meta);
 
             println!("{:?}", path);
 
@@ -119,24 +133,11 @@ fn main() {
     );
 }
 
-#[derive(Debug, serde::Serialize, serde::Deserialize)]
-struct EntryMeta {
-    #[serde(default)]
-    categories: Vec<String>,
-    #[serde(default)]
-    tags: Vec<String>,
-    #[serde(default)]
-    contributors: Vec<String>,
-    #[serde(default)]
-    aliases: Vec<Alias>,
-}
-
-/// Another name for an icon, usually its name before a Lucide rename.
-#[derive(Debug, serde::Serialize, serde::Deserialize)]
-struct Alias {
-    name: String,
-    #[serde(default)]
-    deprecated: bool,
+/// Returns an icon's kebab-case name, e.g. `arrow-right` for `arrow-right.svg`.
+fn icon_stem(path: &Path) -> &str {
+    path.file_stem()
+        .and_then(|s| s.to_str())
+        .unwrap_or_else(|| panic!("icon file name {:?}", path))
 }
 
 struct SvgEntry {
@@ -146,19 +147,8 @@ struct SvgEntry {
 }
 
 impl SvgEntry {
-    fn new(path: &Path) -> Self {
-        let icon_name: String = path
-            .file_stem()
-            .iter()
-            .flat_map(|os_str| os_str.to_str())
-            .map(|s| s.to_case(Case::UpperCamel))
-            .collect();
-
-        let meta: EntryMeta = serde_json::from_reader(
-            fs::File::open(path.with_extension("json"))
-                .unwrap_or_else(|_| panic!("open json for {:?}", path)),
-        )
-        .unwrap_or_else(|_| panic!("parse json for {:?}", path));
+    fn new(path: &Path, meta: EntryMeta) -> Self {
+        let icon_name = icon_stem(path).to_case(Case::UpperCamel);
 
         // check for empty categories
         if meta.categories.is_empty() {
