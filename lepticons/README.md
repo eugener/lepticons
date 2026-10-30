@@ -1,7 +1,7 @@
 # lepticons
 
 [Lucide](https://lucide.dev) icons for [Leptos](https://leptos.dev) applications.
-Icons are grouped into 42 category features for selective compilation.
+Icons are grouped into 43 category features for selective compilation.
 
 Part of the [Lepticons](https://github.com/eugener/lepticons) toolkit.
 
@@ -34,7 +34,7 @@ lepticons = { version = "0.13", default-features = false, features = ["arrows", 
 
 Available categories: `accessibility`, `account`, `animals`, `arrows`, `buildings`, `charts`,
 `communication`, `connectivity`, `cursors`, `design`, `development`, `devices`, `emoji`, `files`,
-`finance`, `food_beverage`, `gaming`, `home`, `layout`, `mail`, `math`, `medical`, `multimedia`,
+`finance`, `food_beverage`, `gaming`, `home`, `layout`, `letters_digits`, `mail`, `math`, `medical`, `multimedia`,
 `nature`, `navigation`, `notifications`, `people`, `photography`, `science`, `seasons`, `security`,
 `shapes`, `shopping`, `social`, `sports`, `sustainability`, `text`, `time`, `tools`,
 `transportation`, `travel`, `weather`.
@@ -113,7 +113,7 @@ See [docs/rendering-modes.md](https://github.com/eugener/lepticons/blob/develop/
 
 ## Architecture
 
-`lepticons` is a thin Leptos rendering layer over [`lepticons-data`](https://crates.io/crates/lepticons-data), which holds the `LucideGlyph` enum, the 42 category features, the search index, and the categories cache. Everything from the data crate is re-exported here, so `use lepticons::LucideGlyph;` continues to work and most users never need a direct `lepticons-data` dependency. Reach for `lepticons-data` directly only if you want icon data without a Leptos renderer (CLI tools, build scripts, lints, an alternative framework adapter).
+`lepticons` is a thin Leptos rendering layer over [`lepticons-data`](https://crates.io/crates/lepticons-data), which holds the `LucideGlyph` enum, the 43 category features, the search index, and the categories cache. Everything from the data crate is re-exported here, so `use lepticons::LucideGlyph;` continues to work and most users never need a direct `lepticons-data` dependency. Reach for `lepticons-data` directly only if you want icon data without a Leptos renderer (CLI tools, build scripts, lints, an alternative framework adapter).
 
 The strum traits implemented by `LucideGlyph` are re-exported under `lepticons::strum`, so you can iterate icons without taking a direct `strum` dep:
 

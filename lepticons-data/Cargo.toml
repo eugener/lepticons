@@ -38,6 +38,7 @@ default = [
     "gaming",
     "home",
     "layout",
+    "letters_digits",
     "mail",
     "math",
     "medical",
@@ -72,6 +73,7 @@ food_beverage = []
 gaming = []
 home = []
 layout = []
+letters_digits = []
 mail = []
 math = []
 medical = []

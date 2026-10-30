@@ -7,7 +7,7 @@
 [![Rust Version](https://img.shields.io/badge/rustc-1.88+-blue.svg)](#)
 [![Leptos](https://img.shields.io/badge/leptos-0.8-blue.svg)](https://leptos.dev)
 
-Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons. 1,900 icons, an embeddable picker, and animations -- shipped as `<Icon glyph=LucideGlyph::Search />`.
+Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucide.dev) icons. 2,000 icons, an embeddable picker, and animations -- shipped as `<Icon glyph=LucideGlyph::Search />`.
 
 **[Live demo & icon browser at lepticons.9bits.cc](https://lepticons.9bits.cc)**
 
@@ -19,7 +19,7 @@ Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucid
 
 ## Why lepticons?
 
-- **Category features, not per-icon features.** 42 category flags cover ~1,900 icons. Pick `arrows + navigation + text` and the rest is dead code -- no `cargo build` time blowup from thousands of feature gates.
+- **Category features, not per-icon features.** 43 category flags cover ~2,000 icons. Pick `arrows + navigation + text` and the rest is dead code -- no `cargo build` time blowup from thousands of feature gates.
 - **Always-fresh Lucide.** Weekly automated PR pulls the upstream `lucide` submodule and regenerates the icon data. No stale forks.
 - **More than icons.** Drop-in `<IconPickerPopover>` for users who need to pick icons at runtime, plus stroke draw-in / spin / pulse animations.
 - **Type-safe enum, no string lookups.** `LucideGlyph::Heart` is a `&'static str` under the hood; misspelling fails at compile time.
@@ -30,7 +30,7 @@ Icon toolkit for [Leptos](https://leptos.dev), powered by [Lucide](https://lucid
 | Crate | Description |
 |-------|-------------|
 | [`lepticons`](lepticons/) | Leptos `Icon` and `CustomIcon` components; re-exports the `lepticons-data` surface ([crates.io](https://crates.io/crates/lepticons), [docs.rs](https://docs.rs/lepticons)) |
-| [`lepticons-data`](lepticons-data/) | Framework-agnostic data layer -- `LucideGlyph` enum, search, categories, 42 category features ([crates.io](https://crates.io/crates/lepticons-data), [docs.rs](https://docs.rs/lepticons-data)) |
+| [`lepticons-data`](lepticons-data/) | Framework-agnostic data layer -- `LucideGlyph` enum, search, categories, 43 category features ([crates.io](https://crates.io/crates/lepticons-data), [docs.rs](https://docs.rs/lepticons-data)) |
 | [`lepticons-picker`](lepticons-picker/) | Embeddable icon picker -- search, grid, category filter, popover ([crates.io](https://crates.io/crates/lepticons-picker), [docs.rs](https://docs.rs/lepticons-picker)) |
 | [`lepticons-animate`](lepticons-animate/) | Icon animations -- stroke draw-in, spin, pulse, bounce, ping ([crates.io](https://crates.io/crates/lepticons-animate), [docs.rs](https://docs.rs/lepticons-animate)) |
 | [`demo`](demo/) | Demo app deployed to [lepticons.9bits.cc](https://lepticons.9bits.cc) |
@@ -56,7 +56,7 @@ view! { <Icon glyph=LucideGlyph::Heart class="text-red-500" size="32" /> }
 
 ### Trim binary size with category features
 
-The default feature set bundles all 42 categories. Opt out and pick only what you use:
+The default feature set bundles all 43 categories. Opt out and pick only what you use:
 
 ```toml
 [dependencies]
