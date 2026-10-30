@@ -85,9 +85,8 @@ jobs:
           ADDED_COUNT=$(echo "$ADDED_LIST" | grep -c . || true)
           MODIFIED_COUNT=$(echo "$MODIFIED_LIST" | grep -c . || true)
           REMOVED_COUNT=$(echo "$REMOVED_LIST" | grep -c . || true)
-          # Count every variant's cfg line. Earlier pattern `#\[cfg(feature` missed
-          # multi-category icons emitted as `#[cfg(any(feature = ..., feature = ...))]`.
-          TOTAL=$(grep -c '#\[cfg(' ../lepticons-data/src/lucide_icon_data.rs)
+          # Count enum variants only; alias constants carry cfg lines too.
+          TOTAL=$(bash ../.github/scripts/glyph-names.sh ../lepticons-data/src/lucide_icon_data.rs | grep -c '^variant ')
 
           # Validate counts are numeric
           for name in ADDED_COUNT MODIFIED_COUNT REMOVED_COUNT TOTAL; do
