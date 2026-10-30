@@ -2,7 +2,7 @@
 
 Framework-agnostic Lucide icon data, search, and categories for the [Lepticons](https://github.com/eugener/lepticons) toolkit.
 
-This crate holds the `LucideGlyph` enum (one variant per Lucide icon, ~1,900 icons), the 42 category features for selective compilation, a cached substring search index, and a category aggregation cache. It has no Leptos or `web-sys` dependency.
+This crate holds the `LucideGlyph` enum (one variant per Lucide icon, ~2,000 icons), the 43 category features for selective compilation, a cached substring search index, and a category aggregation cache. It has no Leptos or `web-sys` dependency.
 
 Most users should depend on [`lepticons`](https://crates.io/crates/lepticons) instead, which re-exports everything here and adds the Leptos `Icon` and `CustomIcon` components. Reach for `lepticons-data` directly only if you want icon data without a rendering layer -- CLI tools, build scripts, custom lints, or an alternative framework adapter.
 

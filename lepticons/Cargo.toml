@@ -37,6 +37,7 @@ default = [
     "gaming",
     "home",
     "layout",
+    "letters_digits",
     "mail",
     "math",
     "medical",
@@ -71,6 +72,7 @@ food_beverage = ["lepticons-data/food_beverage"]
 gaming = ["lepticons-data/gaming"]
 home = ["lepticons-data/home"]
 layout = ["lepticons-data/layout"]
+letters_digits = ["lepticons-data/letters_digits"]
 mail = ["lepticons-data/mail"]
 math = ["lepticons-data/math"]
 medical = ["lepticons-data/medical"]
