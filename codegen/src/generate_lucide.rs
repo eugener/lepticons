@@ -1,4 +1,4 @@
-use std::collections::BTreeSet;
+use std::collections::{BTreeSet, HashSet};
 use std::fs;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
@@ -76,28 +76,8 @@ fn main() {
             // Escape backslashes and double quotes for Rust string literal
             let svg_escaped = escape(&svg_content);
 
-            // write feature annotation based on categories
-            let feature_cats: Vec<String> = entry
-                .meta
-                .categories
-                .iter()
-                .map(|c| c.to_case(Case::Snake))
-                .collect();
-
-            if feature_cats.is_empty() {
-                // Icons with no category are always included
-                writeln!(file, "// no category").expect("write comment");
-            } else if feature_cats.len() == 1 {
-                writeln!(file, r#"#[cfg(feature = "{}")]"#, feature_cats[0])
-                    .expect("write feature annotation");
-            } else {
-                let conditions: Vec<String> = feature_cats
-                    .iter()
-                    .map(|c| format!(r#"feature = "{}""#, c))
-                    .collect();
-                writeln!(file, "#[cfg(any({}))]", conditions.join(", "))
-                    .expect("write feature annotation");
-            }
+            writeln!(file, "{}", feature_cfg(&entry.meta.categories))
+                .expect("write feature annotation");
 
             //write enum props
             writeln!(
@@ -126,6 +106,8 @@ fn main() {
     // close enum
     writeln!(file, "}}").expect("write enum footer");
 
+    write_alias_consts(&mut file, &entries);
+
     format_code(&dest_path);
 
     // Refresh feature tables in both crates so categories stay in sync.
@@ -145,6 +127,16 @@ struct EntryMeta {
     tags: Vec<String>,
     #[serde(default)]
     contributors: Vec<String>,
+    #[serde(default)]
+    aliases: Vec<Alias>,
+}
+
+/// Another name for an icon, usually its name before a Lucide rename.
+#[derive(Debug, serde::Serialize, serde::Deserialize)]
+struct Alias {
+    name: String,
+    #[serde(default)]
+    deprecated: bool,
 }
 
 struct SvgEntry {
@@ -185,6 +177,70 @@ impl SvgEntry {
             .unwrap_or_else(|_| panic!("read svg file {:?}", self.path));
         html_children_only(raw, &self.path).replace('\n', "")
     }
+}
+
+/// Returns the `cfg` attribute that gates an icon on its category features.
+/// Icons with no category are always included.
+fn feature_cfg(categories: &[String]) -> String {
+    let features: Vec<String> = categories
+        .iter()
+        .map(|c| format!(r#"feature = "{}""#, c.to_case(Case::Snake)))
+        .collect();
+    match features.as_slice() {
+        [] => "// no category".to_string(),
+        [one] => format!("#[cfg({one})]"),
+        many => format!("#[cfg(any({}))]", many.join(", ")),
+    }
+}
+
+/// Writes one associated constant per Lucide alias, so code that uses an
+/// icon's old name still compiles after Lucide renames the icon.
+fn write_alias_consts(file: &mut fs::File, entries: &[SvgEntry]) {
+    let mut names: HashSet<String> = entries.iter().map(|e| e.icon_name.clone()).collect();
+
+    writeln!(
+        file,
+        "#[allow(non_upper_case_globals)]\nimpl LucideGlyph {{"
+    )
+    .expect("write impl header");
+    for entry in entries {
+        for alias in &entry.meta.aliases {
+            let const_name = alias.name.to_case(Case::UpperCamel);
+            // e.g. alias `arrow-down-01` of `arrow-down-0-1`: same Rust name
+            if const_name == entry.icon_name {
+                continue;
+            }
+            assert!(
+                names.insert(const_name.clone()),
+                "alias `{}` of `{}` clashes with another icon or alias",
+                alias.name,
+                entry.icon_name
+            );
+            writeln!(file, "{}", feature_cfg(&entry.meta.categories))
+                .expect("write feature annotation");
+            writeln!(
+                file,
+                "/// Lucide alias `{}` of [`LucideGlyph::{}`].",
+                alias.name, entry.icon_name
+            )
+            .expect("write alias doc");
+            if alias.deprecated {
+                writeln!(
+                    file,
+                    r#"#[deprecated(note = "renamed to `LucideGlyph::{}`")]"#,
+                    entry.icon_name
+                )
+                .expect("write deprecation");
+            }
+            writeln!(
+                file,
+                "pub const {}: Self = Self::{};",
+                const_name, entry.icon_name
+            )
+            .expect("write alias const");
+        }
+    }
+    writeln!(file, "}}").expect("write impl footer");
 }
 
 /// Extracts the children of an svg element as a string.
