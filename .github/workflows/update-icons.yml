@@ -63,12 +63,27 @@ jobs:
         if: steps.check.outputs.changed == 'true'
         run: cargo clippy -p lepticons-data -p lepticons --all-targets -- -D warnings
 
+      # Lucide can delete an icon or an alias. That removes a public name and
+      # breaks user code, so such updates are flagged and left for review.
+      - name: Check for removed icon names
+        if: steps.check.outputs.changed == 'true'
+        id: removed
+        run: |
+          F=lepticons-data/src/lucide_icon_data.rs
+          names() { bash .github/scripts/glyph-names.sh "$1" | awk '{print $2}' | sort -u; }
+          NAMES=$(comm -23 <(names <(git show "HEAD:$F")) <(names "$F") | paste -sd ' ' -)
+          echo "names=$NAMES" >> "$GITHUB_OUTPUT"
+          if [ -n "$NAMES" ]; then
+            echo "::warning::Removed public icon names: $NAMES"
+          fi
+
       - name: Compute icon diff
         if: steps.check.outputs.changed == 'true'
         id: diff
         env:
           OLD_SHA: ${{ steps.update.outputs.old_sha }}
           NEW_SHA: ${{ steps.update.outputs.new_sha }}
+          REMOVED_NAMES: ${{ steps.removed.outputs.names }}
         run: |
           cd lucide
           # --no-renames: rename detection pairs unrelated icons with similar
@@ -85,9 +100,8 @@ jobs:
           ADDED_COUNT=$(echo "$ADDED_LIST" | grep -c . || true)
           MODIFIED_COUNT=$(echo "$MODIFIED_LIST" | grep -c . || true)
           REMOVED_COUNT=$(echo "$REMOVED_LIST" | grep -c . || true)
-          # Count every variant's cfg line. Earlier pattern `#\[cfg(feature` missed
-          # multi-category icons emitted as `#[cfg(any(feature = ..., feature = ...))]`.
-          TOTAL=$(grep -c '#\[cfg(' ../lepticons-data/src/lucide_icon_data.rs)
+          # Count enum variants only; alias constants carry cfg lines too.
+          TOTAL=$(bash ../.github/scripts/glyph-names.sh ../lepticons-data/src/lucide_icon_data.rs | grep -c '^variant ')
 
           # Validate counts are numeric
           for name in ADDED_COUNT MODIFIED_COUNT REMOVED_COUNT TOTAL; do
@@ -121,6 +135,12 @@ jobs:
             echo "body<<DIFF_EOF"
             echo "Automated update of the Lucide icon submodule and regenerated icon data."
             echo ""
+            if [ -n "$REMOVED_NAMES" ]; then
+              echo "**BREAKING: these public \`LucideGlyph\` names no longer exist. Auto-merge is off; review before merging.**"
+              echo ""
+              echo "$REMOVED_NAMES" | tr ' ' '\n' | tr -cd 'A-Za-z0-9\n' | sed 's/.*/  - `&`/'
+              echo ""
+            fi
             echo "**Total icons: $TOTAL**"
             echo ""
             if [ "$ADDED_COUNT" -gt 0 ]; then
@@ -151,7 +171,7 @@ jobs:
           branch: update-lucide-icons
           author: Eugene Ryzhikov <341840+eugener@users.noreply.github.com>
           commit-message: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
-          title: "Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
+          title: "${{ steps.removed.outputs.names != '' && 'BREAKING: ' || '' }}Update Lucide icons (+${{ steps.diff.outputs.added }}, ~${{ steps.diff.outputs.modified }}, -${{ steps.diff.outputs.removed }})"
           body: ${{ steps.diff.outputs.body }}
           base: develop
           labels: automated
@@ -161,8 +181,20 @@ jobs:
       # The develop ruleset requires the CI `check` job, so GitHub merges
       # only after it passes.
       - name: Enable auto-merge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
+        if: steps.cpr.outputs.pull-request-operation == 'created' && steps.removed.outputs.names == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
         run: gh pr merge --auto --merge "$PR_URL"
+
+      # An open PR keeps auto-merge from an earlier run; turn it off when this
+      # update removes a public name.
+      - name: Disable auto-merge for breaking updates
+        if: steps.cpr.outputs.pull-request-number != '' && steps.removed.outputs.names != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+        run: |
+          if [ "$(gh pr view "$PR_URL" --json autoMergeRequest --jq '.autoMergeRequest != null')" = true ]; then
+            gh pr merge --disable-auto "$PR_URL"
+          fi
