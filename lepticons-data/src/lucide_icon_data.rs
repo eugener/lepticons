@@ -925,14 +925,6 @@ pub enum LucideGlyph {
         contributors = "danielbayley,devkamani9313,karsa-mistmere"
     ))]
     Bacon,
-    #[cfg(any(feature = "account", feature = "social"))]
-    #[strum(props(
-        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line>",
-        categories = "account,social",
-        tags = "seal,emblem,rosette,insignia,sticker,stamp,label,award,achievement,certification,official,status,starburst,scalloped,shape,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,security,safety,issue",
-        contributors = "karsa-mistmere,jguddas"
-    ))]
-    BadgeAlert,
     #[cfg(any(feature = "shopping", feature = "finance"))]
     #[strum(props(
         svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><path d=\"M12 7v10\"></path><path d=\"M15.4 10a4 4 0 1 0 0 4\"></path>",
@@ -965,6 +957,14 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     BadgeEuro,
+    #[cfg(any(feature = "account", feature = "social"))]
+    #[strum(props(
+        svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line>",
+        categories = "account,social",
+        tags = "seal,emblem,rosette,insignia,sticker,stamp,label,award,achievement,certification,official,status,starburst,scalloped,shape,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,security,safety,issue",
+        contributors = "karsa-mistmere,jguddas"
+    ))]
+    BadgeExclamationPoint,
     #[cfg(any(feature = "shopping", feature = "finance"))]
     #[strum(props(
         svg = "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"></path><path d=\"M8 8h8\"></path><path d=\"M8 12h8\"></path><path d=\"m13 17-5-1h1a4 4 0 0 0 0-8\"></path>",
@@ -1212,6 +1212,14 @@ pub enum LucideGlyph {
     BatteryCharging,
     #[cfg(feature = "devices")]
     #[strum(props(
+        svg = "<path d=\"M10 17h.01\"></path><path d=\"M10 7v6\"></path><path d=\"M14 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2\"></path>",
+        categories = "devices",
+        tags = "power,electricity,energy,accumulator,charge,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
+        contributors = "Kaladii,ericfennis,jguddas"
+    ))]
+    BatteryExclamationPoint,
+    #[cfg(feature = "devices")]
+    #[strum(props(
         svg = "<path d=\"M10 10v4\"></path><path d=\"M14 10v4\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 10v4\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"2\" y=\"6\"></rect>",
         categories = "devices",
         tags = "power,electricity,energy,accumulator,charge",
@@ -1242,14 +1250,6 @@ pub enum LucideGlyph {
         contributors = "colebemis,ericfennis,jguddas,johnletey,Footagesus"
     ))]
     BatteryPlus,
-    #[cfg(feature = "devices")]
-    #[strum(props(
-        svg = "<path d=\"M10 17h.01\"></path><path d=\"M10 7v6\"></path><path d=\"M14 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2\"></path><path d=\"M22 14v-4\"></path><path d=\"M6 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2\"></path>",
-        categories = "devices",
-        tags = "power,electricity,energy,accumulator,charge,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
-        contributors = "Kaladii,ericfennis,jguddas"
-    ))]
-    BatteryWarning,
     #[cfg(feature = "devices")]
     #[strum(props(
         svg = "<path d=\"M 22 14 L 22 10\"></path><rect height=\"12\" rx=\"2\" width=\"16\" x=\"2\" y=\"6\"></rect>",
@@ -1610,14 +1610,6 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     BookA,
-    #[cfg(any(feature = "text", feature = "development", feature = "gaming"))]
-    #[strum(props(
-        svg = "<path d=\"M12 13h.01\"></path><path d=\"M12 6v3\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path>",
-        categories = "text,development,gaming",
-        tags = "reading,paperback,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
-        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,lscheibel,domasmark"
-    ))]
-    BookAlert,
     #[cfg(any(feature = "multimedia", feature = "text"))]
     #[strum(props(
         svg = "<path d=\"M12 6v7\"></path><path d=\"M16 8v3\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><path d=\"M8 8v3\"></path>",
@@ -1666,6 +1658,14 @@ pub enum LucideGlyph {
         contributors = "danielbayley"
     ))]
     BookDown,
+    #[cfg(any(feature = "text", feature = "development", feature = "gaming"))]
+    #[strum(props(
+        svg = "<path d=\"M12 13h.01\"></path><path d=\"M12 6v3\"></path><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path>",
+        categories = "text,development,gaming",
+        tags = "reading,paperback,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,lscheibel,domasmark"
+    ))]
+    BookExclamationPoint,
     #[cfg(any(feature = "multimedia", feature = "text"))]
     #[strum(props(
         svg = "<path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\"></path><path d=\"M8 12v-2a4 4 0 0 1 8 0v2\"></path><circle cx=\"15\" cy=\"12\" r=\"1\"></circle><circle cx=\"9\" cy=\"12\" r=\"1\"></circle>",
@@ -1750,7 +1750,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M11 22H5.5a1 1 0 0 1 0-5h4.50\"></path><path d=\"m21 22-1.87-1.87\"></path><path d=\"M3 19.5v-15A2.5 2.5 0 0 1 5.5 2H18a1 1 0 0 1 1 1v8\"></path><circle cx=\"17\" cy=\"18\" r=\"3\"></circle>",
         categories = "text,development,gaming",
-        tags = "reading,paperback,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom",
+        tags = "reading,paperback,booklet,magazine,leaflet,pamphlet,tome,library,writing,written,writer,author,story,script,fiction,novel,information,knowledge,education,high school,university,college,academy,student,study,learning,homework,research,documentation,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search",
         contributors = "karsa-mistmere,Muhammad-Aqib-Bashir"
     ))]
     BookSearch,
@@ -2379,7 +2379,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M16 2v3\"></path><path d=\"M21 10.69V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h7.25\"></path><path d=\"m22 21-1.87-1.87\"></path><path d=\"M3 9h18\"></path><path d=\"M8 2v3\"></path><circle cx=\"18\" cy=\"17\" r=\"3\"></circle>",
         categories = "time",
-        tags = "day,date,month,year,timestamp,event,birthday,birthdate,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,events",
+        tags = "day,date,month,year,timestamp,event,birthday,birthdate,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,events",
         contributors = "karsa-mistmere,ericfennis,jguddas"
     ))]
     CalendarSearch,
@@ -2909,9 +2909,9 @@ pub enum LucideGlyph {
     Check,
     #[cfg(feature = "food_beverage")]
     #[strum(props(
-        svg = "<path d=\"M17 21a1 1 0 0 0 1-1v-5.35c0-.457.31-.844.72-1.04a4 4 0 0 0-2.13-7.58 5 5 0 0 0-9.18 0 4 4 0 0 0-2.13 7.58c.411.19.727.58.727 1.04V20a1 1 0 0 0 1 1Z\"></path><path d=\"M6 17h12\"></path>",
+        svg = "<path d=\"M10 11v5\"></path><path d=\"M14 11v5\"></path><path d=\"M6 12.65c0-.457-.316-.844-.727-1.04A4 4 0 017.52 4.03a1.53 1.53 0 001.36-.547 4 4 0 016.22 0 1.53 1.53 0 001.36.547 4 4 0 012.24 7.57c-.411.19-.727.58-.727 1.04V19a2 2 0 01-2 2H8a2 2 0 01-2-2z\"></path><path d=\"M6 16h12\"></path>",
         categories = "food-beverage",
-        tags = "cooking,food,kitchen,restaurant",
+        tags = "toque blanche,culinary cap,cooking,baking,culinary,gastronomy,food,kitchen,restaurant,cuisine,catering,meal,dining,gourmet,apron,uniform,menu,toque,cook,baker,cookery,headwear,headgear,cap,kitchen staff,culinary professional,food service,hospitality",
         contributors = "karsa-mistmere,ericfennis,jguddas"
     ))]
     ChefHat,
@@ -3115,14 +3115,6 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,ericfennis,jguddas"
     ))]
     Cigarette,
-    #[cfg(feature = "notifications")]
-    #[strum(props(
-        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line>",
-        categories = "notifications",
-        tags = "alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
-        contributors = "colebemis,ericfennis"
-    ))]
-    CircleAlert,
     #[cfg(feature = "arrows")]
     #[strum(props(
         svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 8v8\"></path><path d=\"m8 12 4 4 4-4\"></path>",
@@ -3339,6 +3331,14 @@ pub enum LucideGlyph {
         contributors = "Guido3000"
     ))]
     CircleEuro,
+    #[cfg(feature = "notifications")]
+    #[strum(props(
+        svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line>",
+        categories = "notifications",
+        tags = "alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
+        contributors = "colebemis,ericfennis"
+    ))]
+    CircleExclamationPoint,
     #[cfg(any(feature = "arrows", feature = "development"))]
     #[strum(props(
         svg = "<path d=\"M12 2a10 10 0 0 1 7.38 16.75\"></path><path d=\"m16 12-4-4-4 4\"></path><path d=\"M12 16V8\"></path><path d=\"M2.5 8.87a10 10 0 0 0-.5 3\"></path><path d=\"M2.83 16a10 10 0 0 0 2.43 3.4\"></path><path d=\"M4.63 5.23a10 10 0 0 1 .891-.857\"></path><path d=\"M8.64 21.42a10 10 0 0 0 7.63-.38\"></path>",
@@ -3347,6 +3347,14 @@ pub enum LucideGlyph {
         contributors = "jordan808,jguddas,colebemis,ericfennis,mosch"
     ))]
     CircleFadingArrowUp,
+    #[cfg(feature = "notifications")]
+    #[strum(props(
+        svg = "<path d=\"M12 2a10 10 0 017.38 16.75\"></path><path d=\"m16 9-5.5 5.5L8 12\"></path><path d=\"M2.5 8.87a10 10 0 00-.5 3\"></path><path d=\"M2.83 16a10 10 0 002.43 3.4\"></path><path d=\"M4.63 5.23a10 10 0 01.89-.857\"></path><path d=\"M8.64 21.42a10 10 0 007.63-.38\"></path>",
+        categories = "notifications",
+        tags = "checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,pending,progress,processing,verifying,loading",
+        contributors = "n2duc"
+    ))]
+    CircleFadingCheck,
     #[cfg(any(feature = "multimedia", feature = "social"))]
     #[strum(props(
         svg = "<path d=\"M12 2a10 10 0 0 1 7.38 16.75\"></path><path d=\"M9 9.00a1 1 0 0 1 1.51-.859l4.99 2.99a1 1 0 0 1 0 1.71l-4.99 2.99A1 1 0 0 1 9 14.99z\"></path><path d=\"M2.5 8.87a10 10 0 0 0-.5 3\"></path><path d=\"M2.83 16a10 10 0 0 0 2.43 3.4\"></path><path d=\"M4.63 5.23a10 10 0 0 1 .891-.857\"></path><path d=\"M8.64 21.42a10 10 0 0 0 7.63-.38\"></path>",
@@ -3445,7 +3453,7 @@ pub enum LucideGlyph {
     CircleLetterI,
     #[cfg(feature = "letters_digits")]
     #[strum(props(
-        svg = "<path d=\"M15 8v5a3 3 0 1 1-6 0\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
+        svg = "<path d=\"M14 8v5.5a1 1 0 01-5 0V13\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle>",
         categories = "letters-digits",
         tags = "alphabet,character,text,font,typography,uppercase,joule,energy,java,javascript,code",
         contributors = "karsa-mistmere"
@@ -3994,14 +4002,6 @@ pub enum LucideGlyph {
     Clock9,
     #[cfg(feature = "time")]
     #[strum(props(
-        svg = "<path d=\"M12 6v6l4 2\"></path><path d=\"M20 12v5\"></path><path d=\"M20 21h.01\"></path><path d=\"M21.25 8.2A10 10 0 1 0 16 21.16\"></path>",
-        categories = "time",
-        tags = "clock,time,hour,minute,second,timestamp,timer,duration,interval,frequency,schedule,deadline,pending,delayed,watch,history,alarm,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,wrong",
-        contributors = "colebemis,jguddas,jamiemlaw"
-    ))]
-    ClockAlert,
-    #[cfg(feature = "time")]
-    #[strum(props(
         svg = "<path d=\"M12 6v6l2 1\"></path><path d=\"M12.33 21.99a10 10 0 1 1 9.58-8.76\"></path><path d=\"m14 18 4 4 4-4\"></path><path d=\"M18 14v8\"></path>",
         categories = "time",
         tags = "clock,time,hour,minute,second,timestamp,timer,duration,interval,frequency,schedule,deadline,pending,delayed,watch,history,alarm,direction,movement,vertical,downward,downwards,south,descend,page down,sort,order,arrange,reorder,ascending,descending,increasing,decreasing,rising,falling,ordering,arrangement,sequence,ranking,filter",
@@ -4042,6 +4042,14 @@ pub enum LucideGlyph {
     ClockCheck,
     #[cfg(feature = "time")]
     #[strum(props(
+        svg = "<path d=\"M12 6v6l4 2\"></path><path d=\"M20 12v5\"></path><path d=\"M20 21h.01\"></path><path d=\"M21.25 8.2A10 10 0 1 0 16 21.16\"></path>",
+        categories = "time",
+        tags = "clock,time,hour,minute,second,timestamp,timer,duration,interval,frequency,schedule,deadline,pending,delayed,watch,history,alarm,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,wrong",
+        contributors = "colebemis,jguddas,jamiemlaw"
+    ))]
+    ClockExclamationPoint,
+    #[cfg(feature = "time")]
+    #[strum(props(
         svg = "<path d=\"M12 2a10 10 0 0 1 7.38 16.75\"></path><path d=\"M12 6v6l4 2\"></path><path d=\"M2.5 8.87a10 10 0 0 0-.5 3\"></path><path d=\"M2.83 16a10 10 0 0 0 2.43 3.4\"></path><path d=\"M4.63 5.23a10 10 0 0 1 .891-.857\"></path><path d=\"M8.64 21.42a10 10 0 0 0 7.63-.38\"></path>",
         categories = "time",
         tags = "clock,time,hour,minute,second,timestamp,timer,duration,interval,frequency,schedule,deadline,pending,delayed,watch,history,alarm",
@@ -4072,18 +4080,6 @@ pub enum LucideGlyph {
         contributors = "ericfennis,UsamaKhan"
     ))]
     ClosedCaption,
-    #[cfg(any(
-        feature = "development",
-        feature = "notifications",
-        feature = "weather"
-    ))]
-    #[strum(props(
-        svg = "<path d=\"M12 12v4\"></path><path d=\"M12 20h.01\"></path><path d=\"M8.12 16.94A7 7 0 1 1 15.71 8h1.79a1 1 0 0 1 0 9h-1.64\"></path>",
-        categories = "development,notifications,weather",
-        tags = "weather,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,sync,network",
-        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,lscheibel,jguddas"
-    ))]
-    CloudAlert,
     #[cfg(any(feature = "arrows", feature = "files"))]
     #[strum(props(
         svg = "<path d=\"M21 15.25A4.5 4.5 0 0 0 17.5 8h-1.79A7 7 0 1 0 3 13.60\"></path><path d=\"M7 11v4h4\"></path><path d=\"M8 19a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5 4.82 4.82 0 0 0-3.41 1.41L7 15\"></path>",
@@ -4124,6 +4120,18 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     CloudDrizzle,
+    #[cfg(any(
+        feature = "development",
+        feature = "notifications",
+        feature = "weather"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M12 12v4\"></path><path d=\"M12 20h.01\"></path><path d=\"M8.12 16.94A7 7 0 1 1 15.71 8h1.79a1 1 0 0 1 0 9h-1.64\"></path>",
+        categories = "development,notifications,weather",
+        tags = "weather,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,sync,network",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,lscheibel,jguddas"
+    ))]
+    CloudExclamationPoint,
     #[cfg(feature = "weather")]
     #[strum(props(
         svg = "<path d=\"M4 14.89A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24\"></path><path d=\"M16 17H7\"></path><path d=\"M17 21H9\"></path>",
@@ -4788,7 +4796,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M21 11.69V5\"></path><path d=\"m22 22-1.87-1.87\"></path><path d=\"M3 12a9 3 0 0 0 8.69 2.99\"></path><path d=\"M3 5v14a9 3 0 0 0 9.28 2.99\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"></ellipse>",
         categories = "devices,development",
-        tags = "storage,memory,container,tin,pot,bytes,servers,sql,db,query,sqlite,mysql,backup,export,import,dump,restore,migration,schema,records,tables,snapshot,archive,server,attachment,artifact,log,relational,dataset,dbms,structured data,data source,data,search,magnifier,scan,scanning,browsing,finding,find,lookup,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom",
+        tags = "storage,memory,container,tin,pot,bytes,servers,sql,db,query,sqlite,mysql,backup,export,import,dump,restore,migration,schema,records,tables,snapshot,archive,server,attachment,artifact,log,relational,dataset,dbms,structured data,data source,data,search,magnifier,scan,scanning,browsing,finding,find,lookup,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search",
         contributors = "colebemis,jguddas,Spleefies"
     ))]
     DatabaseSearch,
@@ -4858,6 +4866,22 @@ pub enum LucideGlyph {
         contributors = "danielbayley,jguddas"
     ))]
     Dessert,
+    #[cfg(any(feature = "design", feature = "charts"))]
+    #[strum(props(
+        svg = "<path d=\"M8 12h.5a3.5 3.5 0 013.5 3.5 3.5 3.5 0 003.5 3.5h.5\"></path><path d=\"M8.5 12A3.5 3.5 0 0012 8.5 3.5 3.5 0 0115.5 5h.5\"></path><rect height=\"6\" rx=\"1\" width=\"6\" x=\"16\" y=\"16\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"16\" y=\"2\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"2\" y=\"9\"></rect>",
+        categories = "design,charts",
+        tags = "network,nodes,edges,links,connections,relationships,structure,topology,mind map,visualization,brainstorm,brainstorming,ideas,concepts,planning,hierarchy,branches,organization,tree,workflow,flowchart,process,process mapping,sequence",
+        contributors = "linus-sch,karsa-mistmerea"
+    ))]
+    DiagramFlowHorizontal,
+    #[cfg(any(feature = "design", feature = "charts", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"M12 8.5a3.5 3.5 0 003.5 3.5 3.5 3.5 0 013.5 3.5v.5\"></path><path d=\"M12 8v.5A3.5 3.5 0 018.5 12 3.5 3.5 0 005 15.5v.5\"></path><rect height=\"6\" rx=\"1\" width=\"6\" x=\"16\" y=\"16\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"2\" y=\"16\"></rect><rect height=\"6\" rx=\"1\" width=\"6\" x=\"9\" y=\"2\"></rect>",
+        categories = "design,charts,development",
+        tags = "network,nodes,edges,links,connections,relationships,structure,topology,flowchart,workflow,hierarchy,branches,tree,parent,child,process,sequence,decision tree",
+        contributors = "linus-sch,karsa-mistmerea"
+    ))]
+    DiagramFlowVertical,
     #[cfg(any(
         feature = "shapes",
         feature = "math",
@@ -5913,7 +5937,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v3.25\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"m21 22-2.88-2.88\"></path><circle cx=\"16\" cy=\"17\" r=\"3\"></circle>",
         categories = "files",
-        tags = "document,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,lost,browser",
+        tags = "document,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,lost,browser",
         contributors = "karsa-mistmere,danielbayley"
     ))]
     FileSearchCorner,
@@ -5921,7 +5945,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.70.706l3.58 3.58A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><circle cx=\"11.5\" cy=\"14.5\" r=\"2.5\"></circle><path d=\"M13.3 16.3 15 18\"></path>",
         categories = "files",
-        tags = "document,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,lost,browser",
+        tags = "document,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,lost,browser",
         contributors = "ericfennis,karsa-mistmere,danielbayley,jguddas"
     ))]
     FileSearch,
@@ -6441,7 +6465,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<circle cx=\"11.5\" cy=\"12.5\" r=\"2.5\"></circle><path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\"></path><path d=\"M13.3 14.3 15 16\"></path>",
         categories = "files",
-        tags = "directory,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,lost,browser",
+        tags = "directory,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,lost,browser",
         contributors = "karsa-mistmere"
     ))]
     FolderSearch2,
@@ -6449,7 +6473,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1\"></path><path d=\"m21 21-1.9-1.9\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle>",
         categories = "files",
-        tags = "directory,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,lost,browser",
+        tags = "directory,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,lost,browser",
         contributors = "karsa-mistmere,jguddas"
     ))]
     FolderSearch,
@@ -6919,11 +6943,19 @@ pub enum LucideGlyph {
         contributors = "ahtohbi4,ericfennis"
     ))]
     Glasses,
+    #[cfg(any(feature = "navigation", feature = "connectivity", feature = "security"))]
+    #[strum(props(
+        svg = "<path d=\"M12 22a14.48 14.48 0 01-4.00-10C7.99 9.13 9 5.25 11 2.05A10 10 0 0012 22\"></path><path d=\"m15.17 3.17 5.65 5.65\"></path><path d=\"M15.86 14a14.5 14.5 0 01-3.85 8 10 10 0 009.94-9\"></path><path d=\"M2 12h10.5\"></path><circle cx=\"18\" cy=\"6\" r=\"4\"></circle>",
+        categories = "navigation,connectivity,security",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,off,disable,hide,restricted,turn off,block,/,cancel,cancelled,disabled,inactive,unavailable,deactivated,slash,blocked,ban,prohibited,forbidden,disallowed,hidden,invisible,strikethrough,crossed out,diagonal line,web,website,banned,geo blocking,offline,parental controls,content filter,region lock,public access,access control,domain blocking,region restriction",
+        contributors = "colebemis,csandman,ericfennis,PrimeTestLab"
+    ))]
+    GlobeBan,
     #[cfg(any(feature = "navigation", feature = "connectivity"))]
     #[strum(props(
         svg = "<path d=\"m15 6 2 2 4-4\"></path><path d=\"M2 12h20A10 10 0 1 1 12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 4-10\"></path>",
         categories = "navigation,connectivity",
-        tags = "world,browser,language,translate,checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,internet,web,available,online,status",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,web,available,online,status",
         contributors = "colebemis,csandman,ericfennis,Barakudum"
     ))]
     GlobeCheck,
@@ -6935,7 +6967,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M15.5 10 13 7.5 15.5 5\"></path><path d=\"M15.86 14A14.5 14.5 0 0112 22a14.48 14.48 0 010-20 10 10 0 109.88 11.5\"></path><path d=\"M19.5 5 22 7.5 19.5 10\"></path><path d=\"M2 12h8.5\"></path>",
         categories = "navigation,connectivity,development",
-        tags = "world,browser,language,translate,coding,programming,development,website,internet,globe,connection,network,digital,access,global,link",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,coding,programming,development,website,digital,access,link",
         contributors = "colebemis,csandman,ericfennis,AleksejDix"
     ))]
     GlobeCode,
@@ -6943,7 +6975,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M15.68 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.54 13\"></path><path d=\"M2 12h8.5\"></path><path d=\"M20 6V4a2 2 0 1 0-4 0v2\"></path><rect height=\"5\" rx=\"1\" width=\"8\" x=\"14\" y=\"6\"></rect>",
         categories = "security,connectivity",
-        tags = "world,browser,language,translate,lock,padlock,private,privacy,protection,password,secure,security,safety,protected,restricted,encrypted,authorization,read-only,blocked,locked,vpn,network,encryption,connection",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,lock,padlock,private,privacy,protection,password,secure,security,safety,protected,restricted,encrypted,authorization,read-only,blocked,locked,vpn,encryption",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     GlobeLock,
@@ -6951,15 +6983,23 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M10.11 4.46A14.5 14.5 0 0 1 12 2a10 10 0 0 1 9.31 13.64\"></path><path d=\"M15.55 15.55A14.5 14.5 0 0 1 12 22 10 10 0 0 1 4.92 4.92\"></path><path d=\"M15.89 10.23A14.5 14.5 0 0 0 12 2a10 10 0 0 0-3.64.687\"></path><path d=\"M17.65 12H22\"></path><path d=\"M19.07 19.07A10 10 0 0 1 12 22 14.5 14.5 0 0 1 8.44 8.45\"></path><path d=\"M2 12h10\"></path><path d=\"m2 2 20 20\"></path>",
         categories = "navigation,connectivity",
-        tags = "world,browser,language,translate,off,disable,hide,restricted,turn off,block,/,cancel,cancelled,disabled,inactive,unavailable,deactivated,slash,blocked,ban,prohibited,forbidden,disallowed,hidden,invisible,strikethrough,crossed out,diagonal line,globe,earth,planet,mute,avoid,internet,offline,disconnected,network,connection,no connection,network failure,signal off",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,off,disable,hide,restricted,turn off,block,/,cancel,cancelled,disabled,inactive,unavailable,deactivated,slash,blocked,ban,prohibited,forbidden,disallowed,hidden,invisible,strikethrough,crossed out,diagonal line,mute,avoid,offline,disconnected,no connection,network failure,signal off",
         contributors = "TimNekk,karsa-mistmere,colebemis,csandman,ericfennis"
     ))]
     GlobeOff,
     #[cfg(any(feature = "navigation", feature = "connectivity"))]
     #[strum(props(
+        svg = "<path d=\"M15.92 10.56A14.5 14.5 0 0112 22a1 1 0 010-20 15 15 0 01.68.76\"></path><path d=\"M19 2v6\"></path><path d=\"M21.92 10.73A10 10 0 0112 22a14.5 14.5 0 010-20 10 10 0 011.26.08\"></path><path d=\"M22 12H2\"></path><path d=\"M22 5h-6\"></path>",
+        categories = "navigation,connectivity",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,plus,add,new,create,+,increase,increment,extra,insert,addition,added",
+        contributors = "colebemis,csandman,ericfennis,Turboman3000"
+    ))]
+    GlobePlus,
+    #[cfg(any(feature = "navigation", feature = "connectivity"))]
+    #[strum(props(
         svg = "<path d=\"m16 3 5 5\"></path><path d=\"M2 12h20A10 10 0 1 1 12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 4-10\"></path><path d=\"m21 3-5 5\"></path>",
         categories = "navigation,connectivity",
-        tags = "world,browser,language,translate,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,globe,internet,offline,disconnected,network,connection,no connection,network failure,signal off",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,offline,disconnected,no connection,network failure,signal off",
         contributors = "karsa-mistmere,Muhammad-Aqib-Bashir"
     ))]
     GlobeX,
@@ -6967,7 +7007,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"></path><path d=\"M2 12h20\"></path>",
         categories = "navigation,connectivity",
-        tags = "world,browser,language,translate",
+        tags = "world,browser,language,translate,location,country,coverage,publish,connection,global,earth,globe,internet,planet,network",
         contributors = "colebemis,csandman,ericfennis"
     ))]
     Globe,
@@ -7059,6 +7099,14 @@ pub enum LucideGlyph {
         contributors = "qubrat"
     ))]
     Grid3X2,
+    #[cfg(any(feature = "text", feature = "layout", feature = "design"))]
+    #[strum(props(
+        svg = "<path d=\"M15 9.34V3\"></path><path d=\"m2 2 20 20\"></path><path d=\"M20.41 20.41A2 2 0 0119 21H5a2 2 0 01-2-2V5a2 2 0 01.58-1.41\"></path><path d=\"M20.65 15H21\"></path><path d=\"M21 9h-6.34\"></path><path d=\"M3 15h12v6\"></path><path d=\"M3 9h6v12\"></path><path d=\"M8.65 3H19a2 2 0 012 2v10.34\"></path><path d=\"M9 3v.344\"></path>",
+        categories = "text,layout,design",
+        tags = "table,rows,columns,off,disable,hide,restricted,turn off,block,/,cancel,cancelled,disabled,inactive,unavailable,deactivated,slash,blocked,ban,prohibited,forbidden,disallowed,hidden,invisible,strikethrough,crossed out,diagonal line,guides,snap,canvas,spreadsheet,cells,data table,diagram,overlay",
+        contributors = "colebemis,zenoamaro,ericfennis,csandman,mittalyashu,gridalchemy"
+    ))]
+    Grid3X3Off,
     #[cfg(any(feature = "text", feature = "layout", feature = "design"))]
     #[strum(props(
         svg = "<rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path>",
@@ -8967,6 +9015,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,karsa-mistmere,ericfennis,jguddas,elenakovelskikh"
     ))]
     MailDot,
+    #[cfg(any(feature = "mail", feature = "notifications"))]
+    #[strum(props(
+        svg = "<path d=\"M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5\"></path><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path><path d=\"M20 14v4\"></path><path d=\"M20 22v.01\"></path>",
+        categories = "mail,notifications",
+        tags = "email,message,letter,unread,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,delivery error",
+        contributors = "karsa-mistmere,jguddas"
+    ))]
+    MailExclamationPoint,
     #[cfg(feature = "mail")]
     #[strum(props(
         svg = "<path d=\"M22 15V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8\"></path><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path><path d=\"M16 19h6\"></path>",
@@ -9011,18 +9067,10 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5\"></path><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path><path d=\"M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><path d=\"m22 22-1.5-1.5\"></path>",
         categories = "mail",
-        tags = "email,message,letter,unread,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom",
+        tags = "email,message,letter,unread,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search",
         contributors = "karsa-mistmere"
     ))]
     MailSearch,
-    #[cfg(any(feature = "mail", feature = "notifications"))]
-    #[strum(props(
-        svg = "<path d=\"M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5\"></path><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path><path d=\"M20 14v4\"></path><path d=\"M20 22v.01\"></path>",
-        categories = "mail,notifications",
-        tags = "email,message,letter,unread,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,delivery error",
-        contributors = "karsa-mistmere,jguddas"
-    ))]
-    MailWarning,
     #[cfg(feature = "mail")]
     #[strum(props(
         svg = "<path d=\"M22 12.53V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8.79\"></path><path d=\"m22 7-8.99 5.72a2 2 0 0 1-2.00 0L2 7\"></path><path d=\"m16.5 16.5 5 5\"></path><path d=\"m21.5 16.5-5 5\"></path>",
@@ -9055,6 +9103,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,ericfennis,jguddas"
     ))]
     Mails,
+    #[cfg(feature = "food_beverage")]
+    #[strum(props(
+        svg = "<path d=\"m17 6 3-3\"></path><path d=\"M7 22a4 4 0 01-2.62-7.02A2 2 0 005 13.38V10a8 8 0 1116 0A12 12 0 019 22z\"></path>",
+        categories = "food-beverage",
+        tags = "fruit,food,tropical,summer,exotic,healthy,ripe,yellow,juice,smoothie,snack,produce",
+        contributors = "Prsenapati09,rrod497"
+    ))]
+    Mango,
     #[cfg(any(feature = "navigation", feature = "travel"))]
     #[strum(props(
         svg = "<path d=\"m11 19-1.10-.552a2 2 0 0 0-1.78 0l-3.65 1.83A1 1 0 0 1 3 19.38V6.61a1 1 0 0 1 .553-.894l4.55-2.27a2 2 0 0 1 1.78 0l4.21 2.10a2 2 0 0 0 1.78 0l3.65-1.83A1 1 0 0 1 21 4.61V14\"></path><path d=\"M15 5.76V14\"></path><path d=\"M21 18h-6\"></path><path d=\"M9 3.23v15\"></path>",
@@ -9139,7 +9195,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M 12.24 21.96 a 1 1 0 0 1 -0.84 -0.17 C 9.53 20.19 4 14.99 4 10 a 8 8 0 0 1 16 0 C 20 10.42 19.96 10.84 19.88 11.26\"></path><path d=\"m22 22-1.88-1.88\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><circle cx=\"18\" cy=\"18\" r=\"3\"></circle>",
         categories = "navigation,travel",
-        tags = "location,waypoint,marker,drop,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,navigation,travel",
+        tags = "location,waypoint,marker,drop,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,navigation,travel",
         contributors = "colebemis,karsa-mistmere,ericfennis,csandman,TonySullivan"
     ))]
     MapPinSearch,
@@ -9375,6 +9431,18 @@ pub enum LucideGlyph {
         contributors = "danielbayley,jguddas,karsa-mistmere"
     ))]
     MessageCircleDashed,
+    #[cfg(any(
+        feature = "social",
+        feature = "communication",
+        feature = "notifications"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M2.99 16.34a2 2 0 0 1 .094 1.16l-1.06 3.29a1 1 0 0 0 1.23 1.16l3.41-.998a2 2 0 0 1 1.09.092 10 10 0 1 0-4.77-4.71\"></path><path d=\"M12 8v4\"></path><path d=\"M12 16h.01\"></path>",
+        categories = "social,communication,notifications",
+        tags = "comment,chat,conversation,dialog,feedback,speech bubble,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,report,abuse,offense,protected",
+        contributors = "danielbayley,jguddas,karsa-mistmere"
+    ))]
+    MessageCircleExclamationPoint,
     #[cfg(any(feature = "social", feature = "communication"))]
     #[strum(props(
         svg = "<path d=\"M2.99 16.34a2 2 0 0 1 .094 1.16l-1.06 3.29a1 1 0 0 0 1.23 1.16l3.41-.998a2 2 0 0 1 1.09.092 10 10 0 1 0-4.77-4.71\"></path><path d=\"M7.82 13.07A3 3 0 0 1 12 8.76a3 3 0 0 1 5.00 2.22 3 3 0 0 1-.832 2.08l-3.44 3.62a1 1 0 0 1-1.45-.001z\"></path>",
@@ -9431,18 +9499,6 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,jguddas,karsa-mistmere"
     ))]
     MessageCircleText,
-    #[cfg(any(
-        feature = "social",
-        feature = "communication",
-        feature = "notifications"
-    ))]
-    #[strum(props(
-        svg = "<path d=\"M2.99 16.34a2 2 0 0 1 .094 1.16l-1.06 3.29a1 1 0 0 0 1.23 1.16l3.41-.998a2 2 0 0 1 1.09.092 10 10 0 1 0-4.77-4.71\"></path><path d=\"M12 8v4\"></path><path d=\"M12 16h.01\"></path>",
-        categories = "social,communication,notifications",
-        tags = "comment,chat,conversation,dialog,feedback,speech bubble,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,report,abuse,offense,protected",
-        contributors = "danielbayley,jguddas,karsa-mistmere"
-    ))]
-    MessageCircleWarning,
     #[cfg(any(feature = "social", feature = "communication"))]
     #[strum(props(
         svg = "<path d=\"M2.99 16.34a2 2 0 0 1 .094 1.16l-1.06 3.29a1 1 0 0 0 1.23 1.16l3.41-.998a2 2 0 0 1 1.09.092 10 10 0 1 0-4.77-4.71\"></path><path d=\"m15 9-6 6\"></path><path d=\"m9 9 6 6\"></path>",
@@ -9508,6 +9564,18 @@ pub enum LucideGlyph {
         contributors = "danielbayley,karsa-mistmere"
     ))]
     MessageSquareDot,
+    #[cfg(any(
+        feature = "social",
+        feature = "communication",
+        feature = "notifications"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M22 17a2 2 0 0 1-2 2H6.82a2 2 0 0 0-1.41.586l-2.20 2.20A.71.71 0 0 1 2 21.28V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"></path><path d=\"M12 15h.01\"></path><path d=\"M12 7v4\"></path>",
+        categories = "social,communication,notifications",
+        tags = "comment,chat,conversation,dialog,feedback,speech bubble,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,report,abuse,offense,protected",
+        contributors = "danielbayley,karsa-mistmere"
+    ))]
+    MessageSquareExclamationPoint,
     #[cfg(any(feature = "social", feature = "communication"))]
     #[strum(props(
         svg = "<path d=\"M22 17a2 2 0 0 1-2 2H6.82a2 2 0 0 0-1.41.586l-2.20 2.20A.71.71 0 0 1 2 21.28V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"></path><path d=\"M7.5 9.5c0 .687.26 1.38.697 1.84l3.00 3.26a1.14 1.14 0 0 0 .407.31 1 1 0 0 0 .783-.004 1.14 1.14 0 0 0 .398-.31l3.00-3.26A2.77 2.77 0 0 0 16.5 9.5 2.5 2.5 0 0 0 12 8a2.5 2.5 0 0 0-4.5 1.5\"></path>",
@@ -9580,18 +9648,6 @@ pub enum LucideGlyph {
         contributors = "danielbayley,karsa-mistmere"
     ))]
     MessageSquareText,
-    #[cfg(any(
-        feature = "social",
-        feature = "communication",
-        feature = "notifications"
-    ))]
-    #[strum(props(
-        svg = "<path d=\"M22 17a2 2 0 0 1-2 2H6.82a2 2 0 0 0-1.41.586l-2.20 2.20A.71.71 0 0 1 2 21.28V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"></path><path d=\"M12 15h.01\"></path><path d=\"M12 7v4\"></path>",
-        categories = "social,communication,notifications",
-        tags = "comment,chat,conversation,dialog,feedback,speech bubble,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,report,abuse,offense,protected",
-        contributors = "danielbayley,karsa-mistmere"
-    ))]
-    MessageSquareWarning,
     #[cfg(any(feature = "social", feature = "communication"))]
     #[strum(props(
         svg = "<path d=\"M22 17a2 2 0 0 1-2 2H6.82a2 2 0 0 0-1.41.586l-2.20 2.20A.71.71 0 0 1 2 21.28V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"></path><path d=\"m14.5 8.5-5 5\"></path><path d=\"m9.5 8.5 5 5\"></path>",
@@ -9933,6 +9989,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere"
     ))]
     Mop,
+    #[cfg(feature = "transportation")]
+    #[strum(props(
+        svg = "<path d=\"m18.16 14.12-2.92-8.44A1 1 0 0 0 14.28 5H13\"></path><path d=\"M19 10a7 7 0 0 0-6.92 6\"></path><path d=\"M2 10h5.5a3 3 0 0 1 2.74 1.79l1.66 3.80A1 1 0 0 1 11.01 17H8\"></path><circle cx=\"19\" cy=\"17\" r=\"3\"></circle><circle cx=\"5\" cy=\"17\" r=\"3\"></circle>",
+        categories = "transportation",
+        tags = "scooter,two-wheeler,commute,urban,city,courier,motorbike,moto,motorcycle,transport,vehicle,drive,ride,race,racing,trip,journey,delivery,off-road,dirt bike,trail,enduro",
+        contributors = "jamiemlaw,jguddas"
+    ))]
+    Moped,
     #[cfg(any(feature = "buildings", feature = "navigation", feature = "travel"))]
     #[strum(props(
         svg = "<path d=\"M12.26 2a2 2 0 003.46 2\"></path><path d=\"M14 5 L14 8\"></path><path d=\"M16 22v-3a2 2 0 00-4 0v3\"></path><path d=\"M21 13c-.662-1.49-1.66-2.75-2.9-3.63C16.82 8.47 15.42 8 14 8s-2.82.47-4.1 1.37C8.66 10.24 7.66 11.50 7 13z\"></path><path d=\"M3 9h4\"></path><path d=\"M7 22V6a5 5 0 00-2-4 5 5 0 00-2 4v14a2 2 0 002 2h14a2 2 0 002-2v-7\"></path>",
@@ -10332,7 +10396,7 @@ pub enum LucideGlyph {
         tags = "alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!",
         contributors = "colebemis,ericfennis,jguddas"
     ))]
-    OctagonAlert,
+    OctagonExclamationPoint,
     #[cfg(feature = "transportation")]
     #[strum(props(
         svg = "<path d=\"M2.58 16.72A2 2 0 0 1 2 15.31V8.68a2 2 0 0 1 .586-1.41l4.68-4.68A2 2 0 0 1 8.68 2h6.62a2 2 0 0 1 1.41.586l4.68 4.68A2 2 0 0 1 22 8.68v6.62a2 2 0 0 1-.586 1.41l-4.68 4.68a2 2 0 0 1-1.41.586H8.68a2 2 0 0 1-1.41-.586z\"></path><path d=\"M8 12h8\"></path>",
@@ -10378,6 +10442,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere"
     ))]
     Omega,
+    #[cfg(any(feature = "design", feature = "photography"))]
+    #[strum(props(
+        svg = "<path d=\"M12 3h.01\"></path><path d=\"M12 9h.01\"></path><path d=\"M15 6h.01\"></path><path d=\"M18 3h.01\"></path><path d=\"M21 6v13a2 2 0 0 1-2 2H6\"></path><path d=\"M3 12h.01\"></path><path d=\"M3 18h.01\"></path><path d=\"M3 6h.01\"></path><path d=\"M6 15h.01\"></path><path d=\"M6 3h.01\"></path><path d=\"M6 9h.01\"></path><path d=\"M9 12h.01\"></path><path d=\"M9 6h.01\"></path>",
+        categories = "design,photography",
+        tags = "opacity,opaque,transparency,visibility,fade,lens,glass,blur,filter,clear,mask,cover,gradient",
+        contributors = "ilyavred,jamiemlaw"
+    ))]
+    Opacity,
     #[cfg(feature = "development")]
     #[strum(props(
         svg = "<path d=\"M14 3h7\"></path><path d=\"M3 3h5.28a1 1 0 0 1 .948.68l5.54 16.63a1 1 0 0 0 .949.68H21\"></path>",
@@ -10406,7 +10478,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M12 3v6\"></path><path d=\"M16.76 3a2 2 0 0 1 1.8 1.1l2.23 4.47a2 2 0 0 1 .21.89V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.47a2 2 0 0 1 .211-.894L5.45 4.1A2 2 0 0 1 7.24 3z\"></path><path d=\"M3.05 9.01h17.89\"></path>",
         categories = "files,development",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product",
         contributors = "karsa-mistmere,ericfennis,jguddas"
     ))]
     Package2,
@@ -10414,7 +10486,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M12 22V12\"></path><path d=\"m16 17 2 2 4-4\"></path><path d=\"M21 11.12V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.72l7 4a2 2 0 0 0 2 .001l1.32-.753\"></path><path d=\"M3.29 7 12 12l8.71-5\"></path><path d=\"m7.5 4.27 8.99 5.14\"></path>",
         categories = "files,development",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,delivered",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,delivered",
         contributors = "Reund0,ericfennis,karsa-mistmere"
     ))]
     PackageCheck,
@@ -10422,7 +10494,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M12 22V12\"></path><path d=\"M16 17h6\"></path><path d=\"M21 13V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.72l7 4a2 2 0 0 0 2 .001l1.67-.955\"></path><path d=\"M3.29 7 12 12l8.71-5\"></path><path d=\"m7.5 4.27 8.99 5.14\"></path>",
         categories = "files,development",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,minus,remove,delete,cancel,erase,subtract,reduce,clear,exclude,-",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,minus,remove,delete,cancel,erase,subtract,reduce,clear,exclude,-",
         contributors = "Reund0,ericfennis,karsa-mistmere"
     ))]
     PackageMinus,
@@ -10436,17 +10508,33 @@ pub enum LucideGlyph {
     PackageOpen,
     #[cfg(any(feature = "files", feature = "development"))]
     #[strum(props(
+        svg = "<path d=\"M12 14.34V12l8.71-5\"></path><path d=\"M16.51 21.14a2 2 0 0 0 .854-.506l4.01-4.00a1 1 0 1 0-3.00-3.00l-4.01 4.01a2 2 0 0 0-.506.85l-.837 2.87a.5.5 0 0 0 .599.62z\"></path><path d=\"M21 9.11V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l5.08 2.90\"></path><path d=\"M3.29 7 12 12\"></path><path d=\"m7.5 4.27 9 5.15\"></path>",
+        categories = "files,development",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,edit,modify,update,revise,amend,create,change,write,writer,writing,pencil,compose,draft,author,annotate,comment,note,draw,sketch,doodle,rename,customize",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,danielbayley,jguddas,sezze"
+    ))]
+    PackagePen,
+    #[cfg(any(feature = "files", feature = "development"))]
+    #[strum(props(
         svg = "<path d=\"M12 22V12\"></path><path d=\"M16 17h6\"></path><path d=\"M19 14v6\"></path><path d=\"M21 10.53V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.72l7 4a2 2 0 0 0 2 .001l1.67-.955\"></path><path d=\"M3.29 7 12 12l8.71-5\"></path><path d=\"m7.5 4.27 8.99 5.14\"></path>",
         categories = "files,development",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,plus,add,new,create,+,increase,increment,extra,insert,addition,added",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,plus,add,new,create,+,increase,increment,extra,insert,addition,added",
         contributors = "Reund0,ericfennis,karsa-mistmere"
     ))]
     PackagePlus,
     #[cfg(any(feature = "files", feature = "development"))]
     #[strum(props(
+        svg = "<path d=\"M12 22V12l8.71-5\"></path><path d=\"M17 15.27c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3 0 1.3-2 2-2 2\"></path><path d=\"M19 21.99h.01\"></path><path d=\"M21 10.34V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2.33-1.33\"></path><path d=\"M3.29 7 12 12\"></path><path d=\"m7.5 4.27 9 5.15\"></path>",
+        categories = "files,development",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,help,guide,tutorial,manual,unknown,unidentified,unspecified,uncertain,undetermined,missing,to be determined,mystery,question,question mark,?,unresolved,placeholder,pending,lost,dependency",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere,danielbayley,jguddas,sezze"
+    ))]
+    PackageQuestionMark,
+    #[cfg(any(feature = "files", feature = "development"))]
+    #[strum(props(
         svg = "<path d=\"M12 22V12\"></path><path d=\"M20.27 18.27 22 20\"></path><path d=\"M21 10.49V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.72l7 4a2 2 0 0 0 2 .001l.98-.559\"></path><path d=\"M3.29 7 12 12l8.71-5\"></path><path d=\"m7.5 4.27 8.99 5.14\"></path><circle cx=\"18.5\" cy=\"16.5\" r=\"2.5\"></circle>",
         categories = "files,development",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,product process",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,product process",
         contributors = "Reund0,ericfennis,karsa-mistmere"
     ))]
     PackageSearch,
@@ -10454,7 +10542,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M12 22V12\"></path><path d=\"m16.5 14.5 5 5\"></path><path d=\"m16.5 19.5 5-5\"></path><path d=\"M21 10.5V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.72l7 4a2 2 0 0 0 2 .001l.13-.074\"></path><path d=\"M3.29 7 12 12l8.71-5\"></path><path d=\"m7.5 4.27 8.99 5.14\"></path>",
         categories = "development,files",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×",
         contributors = "Reund0,ericfennis,karsa-mistmere"
     ))]
     PackageX,
@@ -10462,7 +10550,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z\"></path><path d=\"M12 22V12\"></path><polyline points=\"3.29 7 12 12 20.71 7\"></polyline><path d=\"m7.5 4.27 9 5.15\"></path>",
         categories = "files,development",
-        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module",
+        tags = "box,container,storage,sealed,delivery,undelivered,unopened,packed,archive,zip,module,shipping,recipient,inventory,logistics,tracking,order,product",
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,danielbayley,jguddas,sezze"
     ))]
     Package,
@@ -12207,7 +12295,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"m16 16-1.9-1.9\"></path>",
         categories = "photography,multimedia,accessibility",
-        tags = "qr-code,barcode,checkout,augmented reality,ar,target,surveillance,camera,lens,focus,frame,select,box,boundary,bounds,area,square,dashed,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,zoom,preview,expand,fullscreen,gallery,image",
+        tags = "qr-code,barcode,checkout,augmented reality,ar,target,surveillance,camera,lens,focus,frame,select,box,boundary,bounds,area,square,dashed,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,zoom,inspection,visual search,preview,expand,fullscreen,gallery,image",
         contributors = "danielbayley"
     ))]
     ScanSearch,
@@ -12330,17 +12418,9 @@ pub enum LucideGlyph {
     Scroll,
     #[cfg(feature = "text")]
     #[strum(props(
-        svg = "<circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path><path d=\"M11 7v4\"></path><path d=\"M11 15h.01\"></path>",
-        categories = "text",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,enlarge,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,stop,anomaly",
-        contributors = "colebemis,ericfennis,jguddas,Veatec22"
-    ))]
-    SearchAlert,
-    #[cfg(feature = "text")]
-    #[strum(props(
         svg = "<path d=\"m8 11 2 2 4-4\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
         categories = "text",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,enlarge,checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,found",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,enlarge,checkmark,done,completed,finished,successful,confirmed,verified,validated,approved,accepted,correct,valid,ticked,task,todo,found",
         contributors = "danielbayley"
     ))]
     SearchCheck,
@@ -12348,15 +12428,23 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"m13 13.5 2-2.5-2-2.5\"></path><path d=\"m21 21-4.3-4.3\"></path><path d=\"M9 8.5 7 11l2 2.5\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle>",
         categories = "text,development",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,enlarge,coding,programming,development,grep,chevrons,<>",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,enlarge,coding,programming,development,grep,chevrons,<>",
         contributors = "danielbayley,jguddas"
     ))]
     SearchCode,
     #[cfg(feature = "text")]
     #[strum(props(
+        svg = "<circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path><path d=\"M11 7v4\"></path><path d=\"M11 15h.01\"></path>",
+        categories = "text",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,enlarge,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,stop,anomaly",
+        contributors = "colebemis,ericfennis,jguddas,Veatec22"
+    ))]
+    SearchExclamationPoint,
+    #[cfg(feature = "text")]
+    #[strum(props(
         svg = "<path d=\"m13.5 8.5-5 5\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
         categories = "text",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,enlarge,stop,clear,cancel,abort,/",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,enlarge,stop,clear,cancel,abort,/",
         contributors = "danielbayley"
     ))]
     SearchSlash,
@@ -12364,7 +12452,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"m13.5 8.5-5 5\"></path><path d=\"m8.5 8.5 5 5\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path>",
         categories = "text",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,enlarge,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,stop",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,enlarge,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,stop",
         contributors = "danielbayley"
     ))]
     SearchX,
@@ -12372,7 +12460,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"m21 21-4.34-4.34\"></path><circle cx=\"11\" cy=\"11\" r=\"8\"></circle>",
         categories = "text",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,enlarge",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,enlarge",
         contributors = "colebemis,ericfennis,jguddas"
     ))]
     Search,
@@ -12545,20 +12633,6 @@ pub enum LucideGlyph {
         feature = "account",
         feature = "security",
         feature = "development",
-        feature = "notifications",
-        feature = "gaming"
-    ))]
-    #[strum(props(
-        svg = "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"></path><path d=\"M12 8v4\"></path><path d=\"M12 16h.01\"></path>",
-        categories = "account,security,development,notifications,gaming",
-        tags = "shield,privacy,safeguard,security,cybersecurity,secure,safety,protection,protected,guard,guardian,defense,defence,defender,prevention,armored,armoured,block,threat,antivirus,vigilance,vigilant,detection,scan,find,strength,strong,tough,invincible,invincibility,invulnerable,undamaged,audit,admin,verification,crest,bravery,knight,foot soldier,infantry,trooper,pawn,battle,war,military,army,cadet,scout,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,unshielded,insecure,unsecured,unsafe,unprotected,unguarded,unarmored,unarmoured,defenseless,defenceless,undefended,blocked,stopped,intercepted,interception,saved,thwarted,unprevented,detected,scanned,found,exploit,vulnerability,vulnerable,weakness,infection,infected,compromised,data leak,audited,unverified,uncertified,emergency,attention,urgent,alarm,attacked,damaged,injured,hit,expired,disabled,inactive",
-        contributors = "mittalyashu,ericfennis,karsa-mistmere"
-    ))]
-    ShieldAlert,
-    #[cfg(any(
-        feature = "account",
-        feature = "security",
-        feature = "development",
         feature = "gaming"
     ))]
     #[strum(props(
@@ -12620,6 +12694,20 @@ pub enum LucideGlyph {
         contributors = "danielbayley,karsa-mistmere"
     ))]
     ShieldEllipsis,
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "development",
+        feature = "notifications",
+        feature = "gaming"
+    ))]
+    #[strum(props(
+        svg = "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"></path><path d=\"M12 8v4\"></path><path d=\"M12 16h.01\"></path>",
+        categories = "account,security,development,notifications,gaming",
+        tags = "shield,privacy,safeguard,security,cybersecurity,secure,safety,protection,protected,guard,guardian,defense,defence,defender,prevention,armored,armoured,block,threat,antivirus,vigilance,vigilant,detection,scan,find,strength,strong,tough,invincible,invincibility,invulnerable,undamaged,audit,admin,verification,crest,bravery,knight,foot soldier,infantry,trooper,pawn,battle,war,military,army,cadet,scout,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,unshielded,insecure,unsecured,unsafe,unprotected,unguarded,unarmored,unarmoured,defenseless,defenceless,undefended,blocked,stopped,intercepted,interception,saved,thwarted,unprevented,detected,scanned,found,exploit,vulnerability,vulnerable,weakness,infection,infected,compromised,data leak,audited,unverified,uncertified,emergency,attention,urgent,alarm,attacked,damaged,injured,hit,expired,disabled,inactive",
+        contributors = "mittalyashu,ericfennis,karsa-mistmere"
+    ))]
+    ShieldExclamationPoint,
     #[cfg(any(
         feature = "account",
         feature = "security",
@@ -13563,10 +13651,18 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M5 3a2 2 0 0 0-2 2\"></path><path d=\"M19 3a2 2 0 0 1 2 2\"></path><path d=\"M21 19a2 2 0 0 1-2 2\"></path><path d=\"M5 21a2 2 0 0 1-2-2\"></path><path d=\"M9 3h1\"></path><path d=\"M9 21h1\"></path><path d=\"M14 3h1\"></path><path d=\"M14 21h1\"></path><path d=\"M3 9v1\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M21 14v1\"></path><path d=\"M8 12h8\"></path><path d=\"M12 8v8\"></path>",
         categories = "design,layout",
-        tags = "selection,square,rectangular,marquee,tool,dashed,box,plus,add,new,create,+,increase,increment,extra,insert,addition,added,select,placeholder,frame,empty",
+        tags = "selection,square,rectangular,marquee,tool,dashed,box,region,area,region of interest,plus,add,new,create,+,increase,increment,extra,insert,addition,added,select,placeholder,frame,empty",
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,chessurisme,colebemis,psjdev"
     ))]
     SquareDashedPlus,
+    #[cfg(any(feature = "design", feature = "cursors"))]
+    #[strum(props(
+        svg = "<path d=\"M14 3h1\"></path><path d=\"M19 3a2 2 0 012 2\"></path><path d=\"m21 21-1.87-1.87\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M3 9v1\"></path><path d=\"M5 21a2 2 0 01-2-2\"></path><path d=\"M5 3a2 2 0 00-2 2\"></path><path d=\"M9 21h1\"></path><path d=\"M9 3h1\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle>",
+        categories = "design,cursors",
+        tags = "selection,square,rectangular,marquee,tool,dashed,box,region,area,region of interest,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search",
+        contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,chessurisme,domarku"
+    ))]
+    SquareDashedSearch,
     #[cfg(any(feature = "text", feature = "cursors"))]
     #[strum(props(
         svg = "<path d=\"M14 21h1\"></path><path d=\"M14 3h1\"></path><path d=\"M19 3a2 2 0 0 1 2 2\"></path><path d=\"M21 14v1\"></path><path d=\"M21 19a2 2 0 0 1-2 2\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M3 9v1\"></path><path d=\"M5 21a2 2 0 0 1-2-2\"></path><path d=\"M5 3a2 2 0 0 0-2 2\"></path><path d=\"M7 12h10\"></path><path d=\"M7 16h6\"></path><path d=\"M7 8h8\"></path><path d=\"M9 21h1\"></path><path d=\"M9 3h1\"></path>",
@@ -13579,7 +13675,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M14 21h1\"></path><path d=\"M21 14v1\"></path><path d=\"M21 19a2 2 0 0 1-2 2\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2\"></path><path d=\"M3 9v1\"></path><path d=\"M5 21a2 2 0 0 1-2-2\"></path><path d=\"M9 21h1\"></path>",
         categories = "design,development,layout",
-        tags = "selection,square,rectangular,marquee,tool,dashed,box,border,width,layout,style,design,rectangle,aspect ratio,1:1",
+        tags = "selection,square,rectangular,marquee,tool,dashed,box,region,area,region of interest,border,width,layout,style,design,rectangle,aspect ratio,1:1",
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,chessurisme,danielbayley,colebemis,juanpablofernandez"
     ))]
     SquareDashedTopSolid,
@@ -13587,7 +13683,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M14 3h1\"></path><path d=\"m16 16 5 5\"></path><path d=\"M19 3a2 2 0 012 2\"></path><path d=\"m21 16-5 5\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M3 9v1\"></path><path d=\"M5 21a2 2 0 01-2-2\"></path><path d=\"M5 3a2 2 0 00-2 2\"></path><path d=\"M9 21h1\"></path><path d=\"M9 3h1\"></path>",
         categories = "design,development,layout",
-        tags = "selection,square,rectangular,marquee,tool,dashed,box,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,deselect,unselect,select,border,width,layout,style,design,rectangle,aspect ratio,1:1",
+        tags = "selection,square,rectangular,marquee,tool,dashed,box,region,area,region of interest,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,deselect,unselect,select,border,width,layout,style,design,rectangle,aspect ratio,1:1",
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,jguddas,chessurisme,ethanhazel"
     ))]
     SquareDashedXCorner,
@@ -13595,7 +13691,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M14 21h1\"></path><path d=\"M14 3h1\"></path><path d=\"M19 3a2 2 0 012 2\"></path><path d=\"M21 14v1\"></path><path d=\"M21 19a2 2 0 01-2 2\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M3 9v1\"></path><path d=\"M5 21a2 2 0 01-2-2\"></path><path d=\"M5 3a2 2 0 00-2 2\"></path><path d=\"m9 15 6-6\"></path><path d=\"M9 21h1\"></path><path d=\"M9 3h1\"></path><path d=\"m9 9 6 6\"></path>",
         categories = "design,development,layout",
-        tags = "selection,square,rectangular,marquee,tool,dashed,box,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,deselect,unselect,select,border,width,layout,style,design,rectangle,aspect ratio,1:1",
+        tags = "selection,square,rectangular,marquee,tool,dashed,box,region,area,region of interest,x,remove,delete,cancel,clear,close,discard,dismiss,erase,abort,reject,canceled,cancelled,cancellation,cross,times,ex,×,deselect,unselect,select,border,width,layout,style,design,rectangle,aspect ratio,1:1",
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,jguddas,chessurisme,ethanhazel"
     ))]
     SquareDashedX,
@@ -13603,7 +13699,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M5 3a2 2 0 0 0-2 2\"></path><path d=\"M19 3a2 2 0 0 1 2 2\"></path><path d=\"M21 19a2 2 0 0 1-2 2\"></path><path d=\"M5 21a2 2 0 0 1-2-2\"></path><path d=\"M9 3h1\"></path><path d=\"M9 21h1\"></path><path d=\"M14 3h1\"></path><path d=\"M14 21h1\"></path><path d=\"M3 9v1\"></path><path d=\"M21 9v1\"></path><path d=\"M3 14v1\"></path><path d=\"M21 14v1\"></path>",
         categories = "design,cursors",
-        tags = "selection,square,rectangular,marquee,tool,dashed,box",
+        tags = "selection,square,rectangular,marquee,tool,dashed,box,region,area,region of interest",
         contributors = "llaenowyd,mishkaio,ericfennis,karsa-mistmere,chessurisme"
     ))]
     SquareDashed,
@@ -13750,7 +13846,7 @@ pub enum LucideGlyph {
     SquareLetterI,
     #[cfg(feature = "letters_digits")]
     #[strum(props(
-        svg = "<path d=\"M15 8v5a3 3 0 1 1-6 0\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
+        svg = "<path d=\"M14 8v5.5a1 1 0 01-5 0V13\"></path><rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"3\"></rect>",
         categories = "letters-digits",
         tags = "alphabet,character,text,font,typography,uppercase,joule,energy,java,javascript,code",
         contributors = "karsa-mistmere"
@@ -14953,7 +15049,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<path d=\"M21 5H3\"></path><path d=\"M10 12H3\"></path><path d=\"M10 19H3\"></path><circle cx=\"17\" cy=\"15\" r=\"3\"></circle><path d=\"m21 19-1.9-1.9\"></path>",
         categories = "text",
-        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,data,copy,txt,pdf,document",
+        tags = "search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search,data,copy,txt,pdf,document",
         contributors = "danielbayley,karsa-mistmere"
     ))]
     TextSearch,
@@ -15390,14 +15486,6 @@ pub enum LucideGlyph {
         contributors = "colebemis,karsa-mistmere"
     ))]
     TrendingUp,
-    #[cfg(any(feature = "shapes", feature = "notifications", feature = "development"))]
-    #[strum(props(
-        svg = "<path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\"></path><path d=\"M12 9v4\"></path><path d=\"M12 17h.01\"></path>",
-        categories = "shapes,notifications,development",
-        tags = "alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,linter",
-        contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
-    ))]
-    TriangleAlert,
     #[cfg(feature = "shapes")]
     #[strum(props(
         svg = "<path d=\"M10.17 4.19a2 2 0 0 1 3.66.013\"></path><path d=\"M14 21h2\"></path><path d=\"m15.87 7.74 1 1.73\"></path><path d=\"m18.84 12.95 1 1.73\"></path><path d=\"M21.82 18.18a2 2 0 0 1-1.83 2.82\"></path><path d=\"M4.02 21a2 2 0 0 1-1.83-2.83\"></path><path d=\"m5.13 12.95-1 1.73\"></path><path d=\"M8 21h2\"></path><path d=\"m8.10 7.74-1 1.73\"></path>",
@@ -15406,6 +15494,14 @@ pub enum LucideGlyph {
         contributors = "colebemis,csandman,ericfennis,karsa-mistmere,Yohh"
     ))]
     TriangleDashed,
+    #[cfg(any(feature = "shapes", feature = "notifications", feature = "development"))]
+    #[strum(props(
+        svg = "<path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\"></path><path d=\"M12 9v4\"></path><path d=\"M12 17h.01\"></path>",
+        categories = "shapes,notifications,development",
+        tags = "alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,linter",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
+    ))]
+    TriangleExclamationPoint,
     #[cfg(any(feature = "shapes", feature = "math"))]
     #[strum(props(
         svg = "<path d=\"M22 18a2 2 0 0 1-2 2H3c-1.1 0-1.3-.6-.4-1.3L20.4 4.3c.9-.7 1.6-.4 1.6.7Z\"></path>",
@@ -15683,6 +15779,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,ericfennis,UsamaKhan"
     ))]
     UserCog,
+    #[cfg(feature = "account")]
+    #[strum(props(
+        svg = "<path d=\"M15 15H9a4 4 0 00-4 4v2\"></path><path d=\"M18.98 13v4\"></path><path d=\"M18.98 21h.01\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle>",
+        categories = "account",
+        tags = "user,people,identity,individual,personal,person,account,contact,profile,member,client,participant,guest,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,flagged,suspicious,reported,violation,moderation,account issue,review",
+        contributors = "colebemis,csandman,ericfennis,karsa-mistmere"
+    ))]
+    UserExclamationPoint,
     #[cfg(any(feature = "account", feature = "people", feature = "social"))]
     #[strum(props(
         svg = "<path d=\"M17 21v-1a2 2 0 00-2-2H9a2 2 0 00-2 2v1\"></path><path d=\"M19 10h1a2 2 0 012 2v1\"></path><path d=\"M5 10H4a2 2 0 00-2 2v1\"></path><circle cx=\"12\" cy=\"11\" r=\"3\"></circle><circle cx=\"18\" cy=\"4\" r=\"2\"></circle><circle cx=\"6\" cy=\"4\" r=\"2\"></circle>",
@@ -15755,6 +15859,14 @@ pub enum LucideGlyph {
         contributors = "karsa-mistmere,UsamaKhan"
     ))]
     UserRoundCog,
+    #[cfg(feature = "account")]
+    #[strum(props(
+        svg = "<path d=\"M19.99 13v4\"></path><path d=\"M19.99 21H20\"></path><path d=\"M4 21a8 8 0 0111.99-6.93\"></path><circle cx=\"12\" cy=\"8\" r=\"5\"></circle>",
+        categories = "account",
+        tags = "user,people,identity,individual,personal,person,account,contact,profile,member,client,participant,guest,alert,warning,danger,caution,notice,error,risk,concern,hazard,exclamation mark,exclamation point,!,flagged,suspicious,reported,violation,moderation,account issue,review",
+        contributors = "karsa-mistmere"
+    ))]
+    UserRoundExclamationPoint,
     #[cfg(any(feature = "account", feature = "people", feature = "social"))]
     #[strum(props(
         svg = "<path d=\"M17 21a5 5 0 00-10 0\"></path><path d=\"M22 10.5a3.5 3.5 0 00-5.50-2.86\"></path><path d=\"M7.50 7.63A3.5 3.5 0 002 10.5\"></path><circle cx=\"12\" cy=\"13\" r=\"3\"></circle><circle cx=\"18.5\" cy=\"4.5\" r=\"2.5\"></circle><circle cx=\"5.5\" cy=\"4.5\" r=\"2.5\"></circle>",
@@ -15799,7 +15911,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<circle cx=\"10\" cy=\"8\" r=\"5\"></circle><path d=\"M2 21a8 8 0 0 1 10.43-7.62\"></path><circle cx=\"18\" cy=\"18\" r=\"3\"></circle><path d=\"m22 22-1.9-1.9\"></path>",
         categories = "account,social",
-        tags = "user,people,identity,individual,personal,person,account,contact,profile,member,client,participant,guest,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom",
+        tags = "user,people,identity,individual,personal,person,account,contact,profile,member,client,participant,guest,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search",
         contributors = "jmsv,karsa-mistmere"
     ))]
     UserRoundSearch,
@@ -15839,7 +15951,7 @@ pub enum LucideGlyph {
     #[strum(props(
         svg = "<circle cx=\"10\" cy=\"7\" r=\"4\"></circle><path d=\"M10.3 15H7a4 4 0 0 0-4 4v2\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle><path d=\"m21 21-1.9-1.9\"></path>",
         categories = "account,social",
-        tags = "user,people,identity,individual,personal,person,account,contact,profile,member,client,participant,guest,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom",
+        tags = "user,people,identity,individual,personal,person,account,contact,profile,member,client,participant,guest,search,magnifier,scan,scanning,browsing,finding,find,lookup,query,locate,explore,discover,browse,inspect,examine,investigate,magnifying glass,lens,zoom,inspection,visual search",
         contributors = "jmsv,jguddas,colebemis,csandman,ericfennis,karsa-mistmere"
     ))]
     UserSearch,
@@ -16722,10 +16834,16 @@ impl LucideGlyph {
     /// Lucide alias `verified` of [`LucideGlyph::BadgeCheck`].
     #[deprecated(note = "renamed to `LucideGlyph::BadgeCheck`")]
     pub const Verified: Self = Self::BadgeCheck;
+    #[cfg(any(feature = "account", feature = "social"))]
+    /// Lucide alias `badge-alert` of [`LucideGlyph::BadgeExclamationPoint`].
+    pub const BadgeAlert: Self = Self::BadgeExclamationPoint;
     #[cfg(any(feature = "accessibility", feature = "social"))]
     /// Lucide alias `badge-help` of [`LucideGlyph::BadgeQuestionMark`].
     #[deprecated(note = "renamed to `LucideGlyph::BadgeQuestionMark`")]
     pub const BadgeHelp: Self = Self::BadgeQuestionMark;
+    #[cfg(feature = "devices")]
+    /// Lucide alias `battery-warning` of [`LucideGlyph::BatteryExclamationPoint`].
+    pub const BatteryWarning: Self = Self::BatteryExclamationPoint;
     #[cfg(any(feature = "layout", feature = "design"))]
     /// Lucide alias `between-horizonal-end` of [`LucideGlyph::BetweenHorizontalEnd`].
     #[deprecated(note = "renamed to `LucideGlyph::BetweenHorizontalEnd`")]
@@ -16742,6 +16860,9 @@ impl LucideGlyph {
     /// Lucide alias `book-template` of [`LucideGlyph::BookDashed`].
     #[deprecated(note = "renamed to `LucideGlyph::BookDashed`")]
     pub const BookTemplate: Self = Self::BookDashed;
+    #[cfg(any(feature = "text", feature = "development", feature = "gaming"))]
+    /// Lucide alias `book-alert` of [`LucideGlyph::BookExclamationPoint`].
+    pub const BookAlert: Self = Self::BookExclamationPoint;
     #[cfg(any(feature = "development", feature = "files"))]
     /// Lucide alias `curly-braces` of [`LucideGlyph::Braces`].
     #[deprecated(note = "renamed to `LucideGlyph::Braces`")]
@@ -16806,10 +16927,6 @@ impl LucideGlyph {
     /// Lucide alias `scatter-chart` of [`LucideGlyph::ChartScatter`].
     #[deprecated(note = "renamed to `LucideGlyph::ChartScatter`")]
     pub const ScatterChart: Self = Self::ChartScatter;
-    #[cfg(feature = "notifications")]
-    /// Lucide alias `alert-circle` of [`LucideGlyph::CircleAlert`].
-    #[deprecated(note = "renamed to `LucideGlyph::CircleAlert`")]
-    pub const AlertCircle: Self = Self::CircleAlert;
     #[cfg(feature = "arrows")]
     /// Lucide alias `arrow-down-circle` of [`LucideGlyph::CircleArrowDown`].
     #[deprecated(note = "renamed to `LucideGlyph::CircleArrowDown`")]
@@ -16870,6 +16987,13 @@ impl LucideGlyph {
     /// Lucide alias `divide-circle` of [`LucideGlyph::CircleDivide`].
     #[deprecated(note = "renamed to `LucideGlyph::CircleDivide`")]
     pub const DivideCircle: Self = Self::CircleDivide;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `alert-circle` of [`LucideGlyph::CircleExclamationPoint`].
+    #[deprecated(note = "renamed to `LucideGlyph::CircleExclamationPoint`")]
+    pub const AlertCircle: Self = Self::CircleExclamationPoint;
+    #[cfg(feature = "notifications")]
+    /// Lucide alias `circle-alert` of [`LucideGlyph::CircleExclamationPoint`].
+    pub const CircleAlert: Self = Self::CircleExclamationPoint;
     #[cfg(any(feature = "transportation", feature = "sports", feature = "science"))]
     /// Lucide alias `gauge-circle` of [`LucideGlyph::CircleGauge`].
     #[deprecated(note = "renamed to `LucideGlyph::CircleGauge`")]
@@ -16974,10 +17098,20 @@ impl LucideGlyph {
     /// Lucide alias `clipboard-edit` of [`LucideGlyph::ClipboardPen`].
     #[deprecated(note = "renamed to `LucideGlyph::ClipboardPen`")]
     pub const ClipboardEdit: Self = Self::ClipboardPen;
+    #[cfg(feature = "time")]
+    /// Lucide alias `clock-alert` of [`LucideGlyph::ClockExclamationPoint`].
+    pub const ClockAlert: Self = Self::ClockExclamationPoint;
     #[cfg(any(feature = "arrows", feature = "files"))]
     /// Lucide alias `download-cloud` of [`LucideGlyph::CloudDownload`].
     #[deprecated(note = "renamed to `LucideGlyph::CloudDownload`")]
     pub const DownloadCloud: Self = Self::CloudDownload;
+    #[cfg(any(
+        feature = "development",
+        feature = "notifications",
+        feature = "weather"
+    ))]
+    /// Lucide alias `cloud-alert` of [`LucideGlyph::CloudExclamationPoint`].
+    pub const CloudAlert: Self = Self::CloudExclamationPoint;
     #[cfg(any(feature = "arrows", feature = "files"))]
     /// Lucide alias `upload-cloud` of [`LucideGlyph::CloudUpload`].
     #[deprecated(note = "renamed to `LucideGlyph::CloudUpload`")]
@@ -17261,6 +17395,12 @@ impl LucideGlyph {
     /// Lucide alias `unlock` of [`LucideGlyph::LockOpen`].
     #[deprecated(note = "renamed to `LucideGlyph::LockOpen`")]
     pub const Unlock: Self = Self::LockOpen;
+    #[cfg(any(feature = "mail", feature = "notifications"))]
+    /// Lucide alias `mail-warning` of [`LucideGlyph::MailExclamationPoint`].
+    pub const MailWarning: Self = Self::MailExclamationPoint;
+    #[cfg(any(feature = "mail", feature = "notifications"))]
+    /// Lucide alias `mail-alert` of [`LucideGlyph::MailExclamationPoint`].
+    pub const MailAlert: Self = Self::MailExclamationPoint;
     #[cfg(feature = "mail")]
     /// Lucide alias `mail-question` of [`LucideGlyph::MailQuestionMark`].
     #[deprecated(note = "renamed to `LucideGlyph::MailQuestionMark`")]
@@ -17269,10 +17409,38 @@ impl LucideGlyph {
     /// Lucide alias `location-edit` of [`LucideGlyph::MapPinPen`].
     #[deprecated(note = "renamed to `LucideGlyph::MapPinPen`")]
     pub const LocationEdit: Self = Self::MapPinPen;
+    #[cfg(any(
+        feature = "social",
+        feature = "communication",
+        feature = "notifications"
+    ))]
+    /// Lucide alias `message-circle-warning` of [`LucideGlyph::MessageCircleExclamationPoint`].
+    pub const MessageCircleWarning: Self = Self::MessageCircleExclamationPoint;
+    #[cfg(any(
+        feature = "social",
+        feature = "communication",
+        feature = "notifications"
+    ))]
+    /// Lucide alias `message-circle-alert` of [`LucideGlyph::MessageCircleExclamationPoint`].
+    pub const MessageCircleAlert: Self = Self::MessageCircleExclamationPoint;
     #[cfg(any(feature = "social", feature = "communication"))]
     /// Lucide alias `message-circle-question` of [`LucideGlyph::MessageCircleQuestionMark`].
     #[deprecated(note = "renamed to `LucideGlyph::MessageCircleQuestionMark`")]
     pub const MessageCircleQuestion: Self = Self::MessageCircleQuestionMark;
+    #[cfg(any(
+        feature = "social",
+        feature = "communication",
+        feature = "notifications"
+    ))]
+    /// Lucide alias `message-square-warning` of [`LucideGlyph::MessageSquareExclamationPoint`].
+    pub const MessageSquareWarning: Self = Self::MessageSquareExclamationPoint;
+    #[cfg(any(
+        feature = "social",
+        feature = "communication",
+        feature = "notifications"
+    ))]
+    /// Lucide alias `message-square-alert` of [`LucideGlyph::MessageSquareExclamationPoint`].
+    pub const MessageSquareAlert: Self = Self::MessageSquareExclamationPoint;
     #[cfg(any(
         feature = "devices",
         feature = "communication",
@@ -17287,9 +17455,12 @@ impl LucideGlyph {
     #[deprecated(note = "renamed to `LucideGlyph::MicVocal`")]
     pub const Mic2: Self = Self::MicVocal;
     #[cfg(any(feature = "shapes", feature = "notifications"))]
-    /// Lucide alias `alert-octagon` of [`LucideGlyph::OctagonAlert`].
-    #[deprecated(note = "renamed to `LucideGlyph::OctagonAlert`")]
-    pub const AlertOctagon: Self = Self::OctagonAlert;
+    /// Lucide alias `alert-octagon` of [`LucideGlyph::OctagonExclamationPoint`].
+    #[deprecated(note = "renamed to `LucideGlyph::OctagonExclamationPoint`")]
+    pub const AlertOctagon: Self = Self::OctagonExclamationPoint;
+    #[cfg(any(feature = "shapes", feature = "notifications"))]
+    /// Lucide alias `octagon-alert` of [`LucideGlyph::OctagonExclamationPoint`].
+    pub const OctagonAlert: Self = Self::OctagonExclamationPoint;
     #[cfg(any(feature = "shapes", feature = "multimedia"))]
     /// Lucide alias `pause-octagon` of [`LucideGlyph::OctagonPause`].
     #[deprecated(note = "renamed to `LucideGlyph::OctagonPause`")]
@@ -17368,10 +17539,22 @@ impl LucideGlyph {
     /// Lucide alias `panels-top-bottom` of [`LucideGlyph::Rows3`].
     #[deprecated(note = "renamed to `LucideGlyph::Rows3`")]
     pub const PanelsTopBottom: Self = Self::Rows3;
+    #[cfg(feature = "text")]
+    /// Lucide alias `search-alert` of [`LucideGlyph::SearchExclamationPoint`].
+    pub const SearchAlert: Self = Self::SearchExclamationPoint;
     #[cfg(any(feature = "mail", feature = "communication"))]
     /// Lucide alias `send-horizonal` of [`LucideGlyph::SendHorizontal`].
     #[deprecated(note = "renamed to `LucideGlyph::SendHorizontal`")]
     pub const SendHorizonal: Self = Self::SendHorizontal;
+    #[cfg(any(
+        feature = "account",
+        feature = "security",
+        feature = "development",
+        feature = "notifications",
+        feature = "gaming"
+    ))]
+    /// Lucide alias `shield-alert` of [`LucideGlyph::ShieldExclamationPoint`].
+    pub const ShieldAlert: Self = Self::ShieldExclamationPoint;
     #[cfg(any(
         feature = "account",
         feature = "security",
@@ -17758,9 +17941,12 @@ impl LucideGlyph {
     #[deprecated(note = "renamed to `LucideGlyph::TreePalm`")]
     pub const Palmtree: Self = Self::TreePalm;
     #[cfg(any(feature = "shapes", feature = "notifications", feature = "development"))]
-    /// Lucide alias `alert-triangle` of [`LucideGlyph::TriangleAlert`].
-    #[deprecated(note = "renamed to `LucideGlyph::TriangleAlert`")]
-    pub const AlertTriangle: Self = Self::TriangleAlert;
+    /// Lucide alias `alert-triangle` of [`LucideGlyph::TriangleExclamationPoint`].
+    #[deprecated(note = "renamed to `LucideGlyph::TriangleExclamationPoint`")]
+    pub const AlertTriangle: Self = Self::TriangleExclamationPoint;
+    #[cfg(any(feature = "shapes", feature = "notifications", feature = "development"))]
+    /// Lucide alias `triangle-alert` of [`LucideGlyph::TriangleExclamationPoint`].
+    pub const TriangleAlert: Self = Self::TriangleExclamationPoint;
     #[cfg(any(feature = "design", feature = "photography"))]
     /// Lucide alias `flip-horizontal-2` of [`LucideGlyph::TrianglesCenterlineDashedHorizontal`].
     #[deprecated(note = "renamed to `LucideGlyph::TrianglesCenterlineDashedHorizontal`")]
