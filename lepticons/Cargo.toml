@@ -10,6 +10,7 @@ version = "0.8"
 [features]
 accessibility = ["lepticons-data/accessibility"]
 account = ["lepticons-data/account"]
+ai = ["lepticons-data/ai"]
 animals = ["lepticons-data/animals"]
 arrows = ["lepticons-data/arrows"]
 buildings = ["lepticons-data/buildings"]
@@ -20,6 +21,7 @@ cursors = ["lepticons-data/cursors"]
 default = [
     "accessibility",
     "account",
+    "ai",
     "animals",
     "arrows",
     "buildings",
@@ -30,6 +32,7 @@ default = [
     "design",
     "development",
     "devices",
+    "education",
     "emoji",
     "files",
     "finance",
@@ -38,6 +41,7 @@ default = [
     "home",
     "layout",
     "letters_digits",
+    "logistics",
     "mail",
     "math",
     "medical",
@@ -48,7 +52,6 @@ default = [
     "people",
     "photography",
     "science",
-    "seasons",
     "security",
     "shapes",
     "shopping",
@@ -65,6 +68,7 @@ default = [
 design = ["lepticons-data/design"]
 development = ["lepticons-data/development"]
 devices = ["lepticons-data/devices"]
+education = ["lepticons-data/education"]
 emoji = ["lepticons-data/emoji"]
 files = ["lepticons-data/files"]
 finance = ["lepticons-data/finance"]
@@ -73,6 +77,7 @@ gaming = ["lepticons-data/gaming"]
 home = ["lepticons-data/home"]
 layout = ["lepticons-data/layout"]
 letters_digits = ["lepticons-data/letters_digits"]
+logistics = ["lepticons-data/logistics"]
 mail = ["lepticons-data/mail"]
 math = ["lepticons-data/math"]
 medical = ["lepticons-data/medical"]
@@ -83,7 +88,6 @@ notifications = ["lepticons-data/notifications"]
 people = ["lepticons-data/people"]
 photography = ["lepticons-data/photography"]
 science = ["lepticons-data/science"]
-seasons = ["lepticons-data/seasons"]
 security = ["lepticons-data/security"]
 shapes = ["lepticons-data/shapes"]
 shopping = ["lepticons-data/shopping"]
